@@ -1,0 +1,10 @@
+1 Podłączenie sztucznej inteligencji (Claude)
+Co to znaczy: Przygotowujemy system tak żeby mógł rozmawiać z modelem AI. Na razie sprawdzamy to w trybie tekstowym (konsola), by upewnić się że Claude poprawnie analizuje dane o piłkarzach.
+
+2 Budowa szkieletu aplikacji (UI)
+Co to znaczy: Tworzymy ogólny wygląd strony gdzie będą przyciski gdzie menu a gdzie wykresy. To jeszcze nie działa pod spodem ale widać już, jak będziemy się poruszać po programie.
+
+3 Projektowanie mózgu danych (Baza danych)
+Co to znaczy: Rysujemy mapę tego jak system ma zapamiętywać informacje (np gdzie zapisać wzrost piłkarza, a gdzie jego cenę) żeby nic się nie pomieszało.
+
+Prościej: Planujemy cyfrowy segregator w którym będą trzymane wszystkie informacje o meczach i transferach.
