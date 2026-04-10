@@ -1,0 +1,4 @@
+Co dzis: 
+- sprawdziłem endpoint /teams/{id}/players w Statorium, aby zweryfikować, czy faktycznie dostajemy tam informacje o kontuzjach w czasie rzeczywistym,
+- przygotowałem plan awaryjny dla danych: Na wypadek, gdyby Statorium nie było dobrym wyborem lub byl jakis problem z nim, sprawdziłem alternatywne źródła danych, takie jak API-Football oraz Football-Data.org.
+- karmilem AI: dalem dane potrzebne AI do dobrego dzialania dla naszej aplikacji(informacje o pilkarzach ich klubach, transferach, xG)
