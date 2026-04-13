@@ -1,0 +1,7 @@
+Co dziś: 
+System logowania i rejestracji (email/hasło + Google OAuth)
+Baza danych z Prisma ORM (User + Profile)
+Middleware ochrony tras (routing)
+Formularze autentykacji z walidacją
+Server Actions dla obsługi logowania
+Podejscie do podpiecia API(narazie darmowe z API-Football)
