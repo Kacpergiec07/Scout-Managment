@@ -1,0 +1,5 @@
+13.04
+
+- Kontynuowałem prace nad integracją danych zewnętrznych. W tym celu wykorzystałem platformę RapidAPI, która służy jako hub do zarządzania i testowania różnych interfejsów API.
+- Sprawdzałem, jak filtry (np. data meczu, ID ligi) wpływają na wyniki zwracane przez endpointy.
+- Wykorzystałem wbudowane narzędzie testowe RapidAPI do ręcznego wywoływania żądań (np. pobieranie listy meczów z konkretnej ligi) i analizowania struktury odpowiedzi JSON.
