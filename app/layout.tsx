@@ -3,6 +3,15 @@ import { Geist, Geist_Mono, Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Scout Pro | AI-Driven Football Recruitment',
+  description: 'Professional scouting platform for player-club compatibility analysis using advanced metrics and AI.',
+  icons: {
+    icon: '/favicon.ico',
+  },
+}
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'})
 

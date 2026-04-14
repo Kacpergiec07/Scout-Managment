@@ -12,7 +12,8 @@ interface ClubCardProps {
 
 export function ClubCard({ clubName, leagueName, score, breakdown }: ClubCardProps) {
   return (
-    <Card className="bg-zinc-900 border-zinc-800 overflow-hidden hover:border-emerald-500/50 transition-colors">
+    <Card className="glass-panel overflow-hidden hover:border-emerald-500/50 transition-colors relative">
+      <div className="absolute inset-0 emerald-gradient opacity-10 pointer-events-none" />
       <CardContent className="p-0">
         <div className="flex items-center justify-between p-6">
           <div className="space-y-1">

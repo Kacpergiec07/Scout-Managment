@@ -131,3 +131,13 @@
     @apply font-sans;
     }
 }
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-zinc-900/40 backdrop-blur-md border border-zinc-800/50;
+  }
+  
+  .emerald-gradient {
+    @apply bg-linear-to-br from-emerald-500/20 via-transparent to-transparent;
+  }
+}
