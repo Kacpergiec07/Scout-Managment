@@ -17,8 +17,8 @@ export class StatoriumClient {
     });
 
     const response = await fetch(url.toString(), {
-      next: { revalidate: 3600 }, // Cache for 1 hour by default
-    });
+      next: { revalidate: 3600 }, 
+    } as any);
 
     if (!response.ok) {
       throw new Error(`Statorium API error: ${response.statusText}`);
