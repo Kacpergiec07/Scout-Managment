@@ -1,15 +1,16 @@
-import Link from 'next/link'
 import { Search, List, History, User, LogOut, Settings } from 'lucide-react'
 import { signOut } from '@/app/auth/actions'
+import { NotificationsBell } from './notifications-bell'
 
 export function Sidebar() {
   return (
     <aside className="hidden w-64 flex-col border-r border-zinc-800 bg-zinc-900 md:flex">
-      <div className="flex h-16 items-center px-6">
+      <div className="flex h-16 items-center justify-between px-6">
         <Link href="/dashboard" className="flex items-center gap-2 font-bold text-zinc-50">
           <div className="h-6 w-1 bg-emerald-500 rounded-full" />
           SCOUT PRO
         </Link>
+        <NotificationsBell />
       </div>
       <nav className="flex-1 space-y-1 px-4 py-4">
         <SidebarItem href="/dashboard" icon={Search} label="Search / Analysis" />
