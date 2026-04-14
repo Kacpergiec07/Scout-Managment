@@ -32,31 +32,21 @@ export class StatoriumClient {
   async searchPlayers(query: string): Promise<StatoriumPlayerBasic[]> {
     console.log(`[StatoriumClient] Mock searching for: ${query}`);
     // Fallback Mock Pool for demonstration
-    const mockPool: StatoriumPlayerBasic[] = [
-      { playerID: '1', firstName: 'Łukasz', lastName: 'Fabiański', fullName: 'Łukasz Fabiański', position: 'GK' },
-      { playerID: '10', firstName: 'Granit', lastName: 'Xhaka', fullName: 'Granit Xhaka', position: 'MF' },
-      { playerID: '25', firstName: 'Erling', lastName: 'Haaland', fullName: 'Erling Haaland', position: 'FW' },
-      { playerID: '30', firstName: 'Lionel', lastName: 'Messi', fullName: 'Lionel Messi', position: 'FW' },
-      { playerID: '40', firstName: 'Cristiano', lastName: 'Ronaldo', fullName: 'Cristiano Ronaldo', position: 'FW' },
-      { playerID: '50', firstName: 'Kylian', lastName: 'Mbappe', fullName: 'Kylian Mbappe', position: 'FW' },
-      { playerID: '60', firstName: 'Robert', lastName: 'Lewandowski', fullName: 'Robert Lewandowski', position: 'FW' },
-      { playerID: '70', firstName: 'Jude', lastName: 'Bellingham', fullName: 'Jude Bellingham', position: 'MF' }
+    const mockPool: (StatoriumPlayerBasic & { teamName?: string })[] = [
+      { playerID: '1', firstName: 'Łukasz', lastName: 'Fabiański', fullName: 'Łukasz Fabiański', position: 'GK', country: 'Poland', teamName: 'West Ham' },
+      { playerID: '10', firstName: 'Granit', lastName: 'Xhaka', fullName: 'Granit Xhaka', position: 'MF', country: 'Switzerland', teamName: 'Bayer Leverkusen' },
+      { playerID: '25', firstName: 'Erling', lastName: 'Haaland', fullName: 'Erling Haaland', position: 'FW', country: 'Norway', teamName: 'Man City' },
+      { playerID: '30', firstName: 'Lionel', lastName: 'Messi', fullName: 'Lionel Messi', position: 'FW', country: 'Argentina', teamName: 'Inter Miami' },
+      { playerID: '40', firstName: 'Cristiano', lastName: 'Ronaldo', fullName: 'Cristiano Ronaldo', position: 'FW', country: 'Portugal', teamName: 'Al-Nassr' },
+      { playerID: '50', firstName: 'Kylian', lastName: 'Mbappe', fullName: 'Kylian Mbappe', position: 'FW', country: 'France', teamName: 'Real Madrid' },
+      { playerID: '60', firstName: 'Robert', lastName: 'Lewandowski', fullName: 'Robert Lewandowski', position: 'FW', country: 'Poland', teamName: 'FC Barcelona' },
+      { playerID: '70', firstName: 'Jude', lastName: 'Bellingham', fullName: 'Jude Bellingham', position: 'MF', country: 'England', teamName: 'Real Madrid' },
+      { playerID: '80', firstName: 'Lamine', lastName: 'Yamal', fullName: 'Lamine Yamal', position: 'FW', country: 'Spain', teamName: 'FC Barcelona' }
     ];
     
     let matched = mockPool.filter(p => 
       p.fullName.toLowerCase().includes(query.toLowerCase())
     );
-
-    // If no exact match in mock, return a generic "Search result" for the query to show it's active
-    if (matched.length === 0 && query.length >= 3) {
-      matched = [{
-        playerID: 'mock-' + query,
-        firstName: query,
-        lastName: '(ScoutPro Match)',
-        fullName: `${query} (Search Result)`,
-        position: '?'
-      }]
-    }
 
     console.log(`[StatoriumClient] Found ${matched.length} matches`);
     return matched;
@@ -83,8 +73,8 @@ export class StatoriumClient {
   }
 }
 
-export const getStatoriumClient = () => {
+export function getStatoriumClient() {
   const key = process.env.STATORIUM_API_KEY;
   if (!key) throw new Error('STATORIUM_API_KEY not found in environment');
   return new StatoriumClient(key);
-};
+}

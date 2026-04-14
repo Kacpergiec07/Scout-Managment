@@ -4,7 +4,7 @@ import * as React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import ReactMarkdown from 'react-markdown'
 import { Sparkles } from 'lucide-react'
-import { readStreamableValue } from 'ai/rsc'
+import { readStreamableValue } from '@ai-sdk/rsc'
 
 interface AiNarrativeProps {
   stream?: any // fullStream from server action

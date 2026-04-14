@@ -16,6 +16,7 @@ export interface StatoriumPlayerBasic {
   fullName: string
   photo?: string
   country?: string
+  teamName?: string
   birthdate?: string
   position?: string
   weight?: string

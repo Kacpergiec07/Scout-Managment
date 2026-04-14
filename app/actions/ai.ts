@@ -1,7 +1,8 @@
 'use server'
 
-import { anthropic } from '@ai-sdk/anthropic'
-import { generateText, streamText } from 'ai'
+import { createOpenAI } from '@ai-sdk/openai'
+import { streamText } from 'ai'
+import { createStreamableValue } from '@ai-sdk/rsc'
 import { ScoutProPlayer } from '@/lib/types/player'
 import { ClubContext, CompatibilityResult } from '@/lib/engine/scoring'
 
@@ -10,6 +11,11 @@ export async function generateScoutNarrative(
   club: ClubContext,
   analysis: CompatibilityResult
 ) {
+  const zai = createOpenAI({
+    apiKey: process.env.ZAI_API_KEY,
+    baseURL: process.env.ZAI_BASE_URL || 'https://api.z.ai/api/coding/paas/v4/',
+  })
+
   const prompt = `
     You are a professional football scout. Analyze the compatibility of the following player with the target club.
     
@@ -27,10 +33,26 @@ export async function generateScoutNarrative(
     Focus on WHY the player fits or where the risks are.
   `
 
-  const result = await streamText({
-    model: anthropic('claude-3-5-sonnet-20240620'),
-    prompt: prompt,
-  })
+  const stream = createStreamableValue()
 
-  return result.fullStream
+  ;(async () => {
+    try {
+      const { textStream } = await streamText({
+        model: zai.chat(process.env.ZAI_MODEL || 'glm-4.7'),
+        prompt: prompt,
+      })
+
+      for await (const text of textStream) {
+        stream.update(text)
+      }
+
+      stream.done()
+    } catch (e) {
+      console.error(e)
+      stream.update("\n\nScoutPro AI Error: Could not generate narrative at this time.")
+      stream.done()
+    }
+  })()
+
+  return { output: stream.value }
 }

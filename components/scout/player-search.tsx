@@ -21,8 +21,14 @@ import { searchPlayersAction } from '@/app/actions/statorium'
 import { StatoriumPlayerBasic } from '@/lib/statorium/types'
 import { useDebounce } from 'use-debounce'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
-export function PlayerSearch() {
+export interface PlayerSearchProps {
+  onSelect?: (player: StatoriumPlayerBasic) => void
+  placeholder?: string
+}
+
+export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState('')
   const [query, setQuery] = React.useState('')
@@ -38,10 +44,8 @@ export function PlayerSearch() {
         return
       }
       setLoading(true)
-      console.log(`Searching for: ${debouncedQuery}`)
       try {
         const data = await searchPlayersAction(debouncedQuery)
-        console.log(`Results found:`, data)
         setResults(data)
       } catch (err) {
         console.error(`Search error:`, err)
@@ -59,43 +63,64 @@ export function PlayerSearch() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-full justify-between bg-zinc-900 border-zinc-800 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-50"
+          className="w-full justify-between bg-zinc-100 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-50 transition-all border-dashed"
         >
-          {value ? results.find((r) => r.playerID === value)?.fullName : 'Search players from Statorium...'}
+          <div className="flex items-center gap-2">
+            <SearchIcon className="h-4 w-4 opacity-50" />
+            {value ? results.find((r) => r.playerID === value)?.fullName : placeholder || 'Search players from Statorium...'}
+          </div>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0 bg-zinc-900 border-zinc-800">
+      <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0 bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 shadow-xl overflow-hidden rounded-xl">
         <Command shouldFilter={false} className="bg-transparent">
           <CommandInput 
             placeholder="Type player name (min 3 chars)..." 
             onValueChange={setQuery}
-            className="text-zinc-50"
+            className="text-zinc-900 dark:text-zinc-50 border-none focus:ring-0"
           />
-          <CommandList>
-            {loading && <div className="p-4 text-sm text-zinc-500 text-center">Searching...</div>}
+          <CommandList className="max-h-[300px] overflow-y-auto">
+            {loading && <div className="p-4 text-sm text-zinc-500 text-center animate-pulse">Searching global database...</div>}
             {!loading && debouncedQuery.length >= 3 && results.length === 0 && (
-              <CommandEmpty className="p-4 text-sm text-zinc-500">No players found.</CommandEmpty>
+              <CommandEmpty className="p-4 text-sm text-zinc-500 text-center">No players found matching "{debouncedQuery}"</CommandEmpty>
             )}
             <CommandGroup>
               {results.map((player) => (
                 <CommandItem
                   key={player.playerID}
-                  value={player.fullName} // Changed value to fullName to avoid cmdk internal filtering
+                  value={player.fullName}
                   onSelect={() => {
                     setValue(player.playerID)
                     setOpen(false)
-                    router.push(`/analysis?id=${player.playerID}&name=${encodeURIComponent(player.fullName)}`)
+                    if (onSelect) {
+                      onSelect(player)
+                    } else {
+                      router.push(`/analysis?id=${player.playerID}&name=${encodeURIComponent(player.fullName)}`)
+                    }
                   }}
-                  className="text-zinc-300 aria-selected:bg-zinc-800 aria-selected:text-zinc-50"
+                  className="p-2 gap-3 text-zinc-700 dark:text-zinc-300 aria-selected:bg-emerald-500/10 dark:aria-selected:bg-emerald-500/10 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 cursor-pointer"
                 >
+                  <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
+                    <Image 
+                      src={player.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(player.fullName)}&background=047857&color=fff&size=100`} 
+                      alt={player.fullName}
+                      fill
+                      unoptimized
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col flex-1 min-w-0">
+                    <span className="font-semibold text-sm truncate">{player.fullName}</span>
+                    <span className="text-[10px] opacity-70 uppercase tracking-widest truncate font-medium">
+                      {player.country || 'International'} • {player.teamName || 'Free Agent'}
+                    </span>
+                  </div>
                   <Check
                     className={cn(
-                      'mr-2 h-4 w-4',
+                      'h-4 w-4 text-emerald-500 transition-opacity',
                       value === player.playerID ? 'opacity-100' : 'opacity-0'
                     )}
                   />
-                  {player.fullName}
                 </CommandItem>
               ))}
             </CommandGroup>
