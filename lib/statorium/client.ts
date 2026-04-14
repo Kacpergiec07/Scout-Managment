@@ -1,4 +1,4 @@
-import { StatoriumPlayerBasic, StatoriumTeam, StatoriumTeamStats } from './types';
+import { StatoriumPlayerBasic, StatoriumTeam, StatoriumTeamStats, StatoriumStanding } from './types';
 
 const BASE_URL = 'https://api.statorium.com/api/v1';
 
@@ -42,6 +42,16 @@ export class StatoriumClient {
   async getTeamStats(teamId: string, seasonId?: string): Promise<StatoriumTeamStats> {
     const data = await this.fetch<any>(`/teams_stats/${teamId}/`, { season_id: seasonId || '' });
     return data.stats;
+  }
+
+  async getStandings(seasonId: string): Promise<StatoriumStanding[]> {
+    const data = await this.fetch<any>(`/standings/${seasonId}/`);
+    return data.standings || [];
+  }
+
+  async getPlayersByTeam(teamId: string, seasonId: string): Promise<StatoriumPlayerBasic[]> {
+    const data = await this.fetch<any>(`/teams/${teamId}/`, { season_id: seasonId });
+    return data.team.players || [];
   }
 }
 

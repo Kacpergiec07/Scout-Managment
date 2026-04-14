@@ -41,3 +41,14 @@ export interface StatoriumTeamStats {
   goalsFor: number
   goalsAgainst: number
 }
+export interface StatoriumStanding {
+  teamID: string
+  rank: number
+  played: number
+  won: number
+  drawn: number
+  lost: number
+  goalsFor: number
+  goalsAgainst: number
+  points: number
+}
