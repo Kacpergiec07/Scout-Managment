@@ -3,6 +3,7 @@
 import { getStatoriumClient } from '@/lib/statorium/client';
 import { calculateCompatibility, ClubContext } from '@/lib/engine/scoring';
 import { ScoutProPlayer } from '@/lib/types/player';
+import { createClient } from '@/lib/supabase/server';
 
 export async function getCompatibilityAnalysis(player: ScoutProPlayer) {
   try {
@@ -37,6 +38,18 @@ export async function getCompatibilityAnalysis(player: ScoutProPlayer) {
       club,
       analysis: calculateCompatibility(player, club)
     })).sort((a, b) => b.analysis.totalScore - a.analysis.totalScore);
+
+    // Persist to History
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      await supabase.from('analysis_history').insert({
+        user_id: user.id,
+        player_id: player.id,
+        player_name: player.name,
+        results: results
+      });
+    }
 
     return results;
   } catch (error) {
