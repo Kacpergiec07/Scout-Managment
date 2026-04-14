@@ -38,9 +38,16 @@ export function PlayerSearch() {
         return
       }
       setLoading(true)
-      const data = await searchPlayersAction(debouncedQuery)
-      setResults(data)
-      setLoading(false)
+      console.log(`Searching for: ${debouncedQuery}`)
+      try {
+        const data = await searchPlayersAction(debouncedQuery)
+        console.log(`Results found:`, data)
+        setResults(data)
+      } catch (err) {
+        console.error(`Search error:`, err)
+      } finally {
+        setLoading(false)
+      }
     }
     search()
   }, [debouncedQuery])
@@ -74,11 +81,11 @@ export function PlayerSearch() {
               {results.map((player) => (
                 <CommandItem
                   key={player.playerID}
-                  value={player.playerID}
-                  onSelect={(currentValue) => {
-                    setValue(currentValue === value ? '' : currentValue)
+                  value={player.fullName} // Changed value to fullName to avoid cmdk internal filtering
+                  onSelect={() => {
+                    setValue(player.playerID)
                     setOpen(false)
-                    router.push(`/dashboard/players/new?statoriumId=${player.playerID}`)
+                    router.push(`/analysis?id=${player.playerID}&name=${encodeURIComponent(player.fullName)}`)
                   }}
                   className="text-zinc-300 aria-selected:bg-zinc-800 aria-selected:text-zinc-50"
                 >

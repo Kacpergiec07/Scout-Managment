@@ -5,7 +5,7 @@ interface RankingListProps {
   results: {
     club: {
       name: string
-      teamID: string
+      id: string
     }
     analysis: CompatibilityResult
   }[]
@@ -22,7 +22,7 @@ export function RankingList({ results }: RankingListProps) {
       <div className="grid gap-4">
         {results.map((result) => (
           <ClubCard
-            key={result.club.teamID}
+            key={result.club.id}
             clubName={result.club.name}
             leagueName="Premier League" // Mock league for MVP
             score={result.analysis.totalScore}

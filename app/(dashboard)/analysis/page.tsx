@@ -7,12 +7,18 @@ import { RankingList } from '@/components/scout/ranking-list'
 import { ReportButton } from '@/components/scout/report-button'
 import { ScoutProPlayer } from '@/lib/types/player'
 
-export default function AnalysisPage() {
+import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
+
+function AnalysisContent() {
+  const searchParams = useSearchParams()
+  const playerName = searchParams.get('name') || 'Erling Haaland'
+  
   // In a real app, we'd fetch the player from the DB based on ID
   // For MVP demonstration, we mock the player object
   const mockPlayer: ScoutProPlayer = {
-    id: '1',
-    name: 'Erling Haaland',
+    id: searchParams.get('id') || '1',
+    name: playerName,
     age: 23,
     nationality: 'Norway',
     position: 'ST',
@@ -66,5 +72,13 @@ export default function AnalysisPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function AnalysisPage() {
+  return (
+    <Suspense fallback={<div className="text-zinc-500 p-8">Loading analysis...</div>}>
+      <AnalysisContent />
+    </Suspense>
   )
 }

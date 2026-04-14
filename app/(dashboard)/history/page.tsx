@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Search } from 'lucide-react'
@@ -28,26 +29,28 @@ export default function HistoryPage() {
 
       <div className="grid gap-4">
         {history.map((record) => (
-          <Card key={record.id} className="bg-zinc-900 border-zinc-800 hover:bg-zinc-800/50 transition-colors cursor-pointer">
-            <CardContent className="flex items-center justify-between p-6">
-              <div className="flex gap-6 items-center">
-                <div className="text-sm font-mono text-zinc-500">{record.date}</div>
-                <div>
-                  <h3 className="font-bold text-zinc-50">{record.player}</h3>
-                  <p className="text-xs text-zinc-400">{record.league}</p>
+          <Link key={record.id} href={`/analysis?id=${record.id}&name=${encodeURIComponent(record.player)}`}>
+            <Card className="bg-zinc-900 border-zinc-800 hover:bg-zinc-800/50 transition-colors cursor-pointer">
+              <CardContent className="flex items-center justify-between p-6">
+                <div className="flex gap-6 items-center">
+                  <div className="text-sm font-mono text-zinc-500">{record.date}</div>
+                  <div>
+                    <h3 className="font-bold text-zinc-50">{record.player}</h3>
+                    <p className="text-xs text-zinc-400">{record.league}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-6">
-                <div className="text-right">
-                  <div className="text-xl font-bold text-emerald-500">{record.highScore}</div>
-                  <div className="text-[10px] uppercase text-zinc-500 tracking-tighter">Peak Match</div>
+                <div className="flex items-center gap-6">
+                  <div className="text-right">
+                    <div className="text-xl font-bold text-emerald-500">{record.highScore}</div>
+                    <div className="text-[10px] uppercase text-zinc-500 tracking-tighter">Peak Match</div>
+                  </div>
+                  <Badge variant="outline" className="border-zinc-700 text-zinc-400">
+                    VIEW REPORT
+                  </Badge>
                 </div>
-                <Badge variant="outline" className="border-zinc-700 text-zinc-400">
-                  VIEW REPORT
-                </Badge>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
       </div>
     </div>
