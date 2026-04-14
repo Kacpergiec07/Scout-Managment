@@ -4,6 +4,7 @@ import * as React from 'react'
 import { getCompatibilityAnalysis } from '@/app/actions/analysis'
 import { PlayerRadarChart } from '@/components/scout/radar-chart'
 import { RankingList } from '@/components/scout/ranking-list'
+import { ReportButton } from '@/components/scout/report-button'
 import { ScoutProPlayer } from '@/lib/types/player'
 
 export default function AnalysisPage() {
@@ -41,23 +42,28 @@ export default function AnalysisPage() {
   if (loading) return <div className="text-zinc-500 p-8">Running compatibility engine...</div>
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[400px_1fr]">
-      <div className="space-y-6">
+    <div id="analysis-report-content" className="space-y-8">
+      <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-zinc-50">{mockPlayer.name}</h1>
           <p className="text-zinc-400">{mockPlayer.position} • {mockPlayer.club}</p>
         </div>
-        
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
-          <h3 className="mb-4 text-sm font-medium uppercase tracking-widest text-zinc-500 text-center">
-            Statistical DNA
-          </h3>
-          <PlayerRadarChart player={mockPlayer} />
-        </div>
+        <ReportButton elementId="analysis-report-content" playerName={mockPlayer.name} />
       </div>
       
-      <div className="space-y-8">
-        <RankingList results={results} />
+      <div className="grid gap-8 lg:grid-cols-[400px_1fr]">
+        <div className="space-y-6">
+          <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
+            <h3 className="mb-4 text-sm font-medium uppercase tracking-widest text-zinc-500 text-center">
+              Statistical DNA
+            </h3>
+            <PlayerRadarChart player={mockPlayer} />
+          </div>
+        </div>
+        
+        <div className="space-y-8">
+          <RankingList results={results} />
+        </div>
       </div>
     </div>
   )
