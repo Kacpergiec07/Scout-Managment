@@ -22,7 +22,7 @@
 - Build basic Dashboard shell
 
 ### Phase 2: Core Match Engine
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Implement the heavy-lifting logic for club-player matching and benchmarking.
 **Requirements**: REQ-02, REQ-03, REQ-05
 - Implement Score Dopasowania algorithm
