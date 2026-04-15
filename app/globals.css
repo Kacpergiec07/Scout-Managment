@@ -140,3 +140,37 @@
     @apply bg-linear-to-br from-emerald-500/20 via-transparent to-transparent;
   }
 }
+
+/* Map Animations & Styles */
+@layer base {
+  .transfer-flow-line {
+    stroke-dasharray: 10, 10;
+    animation: flow-dash 1.5s linear infinite;
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+
+  .marker-pulse {
+    animation: marker-pulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes marker-pulse {
+  0% {
+    stroke-width: 2;
+    stroke-opacity: 1;
+  }
+  50% {
+    stroke-width: 8;
+    stroke-opacity: 0.3;
+  }
+  100% {
+    stroke-width: 2;
+    stroke-opacity: 1;
+  }
+}

@@ -1,4 +1,4 @@
-import { StatoriumPlayerBasic, StatoriumTeam, StatoriumTeamStats, StatoriumStanding } from './types';
+import { StatoriumPlayerBasic, StatoriumTeam, StatoriumTeamStats, StatoriumStanding, StatoriumTransfer, StatoriumTeamDetail, StatoriumMatch, StatoriumLeague } from './types';
 
 const BASE_URL = 'https://api.statorium.com/api/v1';
 
@@ -10,8 +10,6 @@ export class StatoriumClient {
   }
 
   private async fetch<T>(endpoint: string, params: Record<string, string> = {}): Promise<T> {
-    // Statorium requires trailing slashes for resources but NOT for some lists? 
-    // Based on tests, /players/1/ works, /leagues/ works.
     const url = new URL(`${BASE_URL}${endpoint}`);
     url.searchParams.append('apikey', this.apiKey);
     Object.entries(params).forEach(([key, value]) => {
@@ -23,15 +21,18 @@ export class StatoriumClient {
     } as any);
 
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`[StatoriumClient] API Error ${response.status}:`, errorText);
       throw new Error(`Statorium API error: ${response.status} ${response.statusText} at ${endpoint}`);
     }
 
-    return response.json();
+    const data = await response.json();
+    console.log(`[StatoriumClient] Data from ${endpoint}:`, JSON.stringify(data).substring(0, 200) + '...');
+    return data;
   }
 
   async searchPlayers(query: string): Promise<StatoriumPlayerBasic[]> {
     console.log(`[StatoriumClient] Mock searching for: ${query}`);
-    // Fallback Mock Pool for demonstration
     const mockPool: (StatoriumPlayerBasic & { teamName?: string })[] = [
       { playerID: '1', firstName: 'Łukasz', lastName: 'Fabiański', fullName: 'Łukasz Fabiański', position: 'GK', country: 'Poland', teamName: 'West Ham' },
       { playerID: '10', firstName: 'Granit', lastName: 'Xhaka', fullName: 'Granit Xhaka', position: 'MF', country: 'Switzerland', teamName: 'Bayer Leverkusen' },
@@ -64,12 +65,49 @@ export class StatoriumClient {
 
   async getStandings(seasonId: string): Promise<StatoriumStanding[]> {
     const data = await this.fetch<any>(`/standings/${seasonId}/`);
-    return data.standings || [];
+    // Handle different nesting (data.standings, data.season.standings or data.league.standings)
+    let list = data.standings || data.season?.standings || [];
+    if (!list.length && data.league?.standings) {
+      list = data.league.standings;
+    }
+    return list;
   }
 
   async getPlayersByTeam(teamId: string, seasonId: string): Promise<StatoriumPlayerBasic[]> {
     const data = await this.fetch<any>(`/teams/${teamId}/`, { season_id: seasonId });
     return data.team.players || [];
+  }
+
+  async getTransfers(teamId?: string, seasonId?: string): Promise<StatoriumTransfer[]> {
+    const params: Record<string, string> = {};
+    if (teamId) params.team_id = teamId;
+    if (seasonId) params.season_id = seasonId;
+    
+    const data = await this.fetch<any>('/transfers/', params);
+    return data.transfers || [];
+  }
+
+  async getTeamDetails(teamId: string): Promise<StatoriumTeamDetail> {
+    const data = await this.fetch<any>(`/teams/${teamId}/`);
+    return data.team;
+  }
+
+  async getMatches(seasonId: string): Promise<StatoriumMatch[]> {
+    const data = await this.fetch<any>(`/matches/`, { season_id: seasonId });
+    if (data.calendar && data.calendar.matchdays) {
+      return data.calendar.matchdays.flatMap((md: any) => md.matches || []);
+    }
+    return data.matches || [];
+  }
+
+  async getMatchDetails(matchId: string): Promise<any> {
+    const data = await this.fetch<any>(`/matches/${matchId}/`);
+    return data.match;
+  }
+
+  async getLeagues(): Promise<StatoriumLeague[]> {
+    const data = await this.fetch<any>(`/leagues/`);
+    return data.leagues || [];
   }
 }
 
