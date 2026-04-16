@@ -183,7 +183,7 @@ export async function getTransfersAction(teamId?: string, seasonId?: string) {
 }
 
 export async function getAllTop5ClubsAction() {
-  const top5SeasonIds = ["343", "344", "385", "358", "387"];
+  const top5SeasonIds = ["515", "558", "511", "521", "519"]; // Updated to match LeagueCenter
   try {
     const client = getStatoriumClient();
     const allClubs: any[] = [];
@@ -204,6 +204,47 @@ export async function getAllTop5ClubsAction() {
     return allClubs;
   } catch (error) {
     console.error('Get All Top 5 Clubs Error:', error);
+    return [];
+  }
+}
+
+export async function getAllTop5PlayersAction() {
+  const top5SeasonIds = ["515", "558", "511", "521", "519"]; // Updated to match LeagueCenter
+  try {
+    const client = getStatoriumClient();
+    const allPlayers: any[] = [];
+
+    // Fetch players from Top 6 teams of each major league
+    for (const sid of top5SeasonIds) {
+      const standings = await client.getStandings(sid);
+      if (standings && standings.length > 0) {
+        const topTeams = standings.slice(0, 6);
+        for (const team of topTeams) {
+          const tid = team.teamID?.toString();
+          if (tid) {
+            try {
+              const players = await client.getPlayersByTeam(tid, sid);
+              if (players && players.length > 0) {
+                players.forEach((p: any) => {
+                  allPlayers.push({
+                    ...p,
+                    teamName: team.teamName || team.teamMiddleName || "Elite Club",
+                    playerPhoto: p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
+                  });
+                });
+              }
+            } catch (e) {
+              console.warn(`Could not fetch players for team ${tid} in season ${sid}`);
+            }
+          }
+        }
+      }
+    }
+
+    // Sort by name or some meaningful metric if available
+    return allPlayers.sort((a, b) => a.fullName.localeCompare(b.fullName));
+  } catch (error) {
+    console.error('Get All Top 5 Players Error:', error);
     return [];
   }
 }

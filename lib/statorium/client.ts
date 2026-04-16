@@ -120,7 +120,7 @@ export class StatoriumClient {
       p.fullName.toLowerCase().includes(query.toLowerCase())
     );
 
-    return players.map((p: any) => ({
+    return matched.map((p: any) => ({
       ...p,
       playerPhoto: p.playerPhoto || p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
     }));
