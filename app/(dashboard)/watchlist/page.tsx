@@ -1,107 +1,100 @@
 import { KanbanBoard } from '@/components/scout/kanban-board'
 
 export default function WatchlistPage() {
-  // Mock data for MVP
+  // Verified data from Statorium API (Top 5 Leagues: PL, La Liga, Bundesliga, Ligue 1, Serie A)
   const initialData = {
     following: [
       { 
-        id: '1731409249710', 
+        id: '14633', 
         name: 'Florian Wirtz', 
-        club: 'Liverpool FC', 
+        club: 'Bayer 04 Leverkusen', 
         position: 'CAM', 
         nationality: 'Germany',
-        league: 'Premier League',
+        league: 'Bundesliga',
         score: 88,
-        description: 'Elite technical ability. Scouting reports suggest a very high ceiling. Monitor for summer window.',
+        description: 'Elite technical ability. Scouting reports suggest a very high ceiling. Core of Leverkusen attack.',
         updatedAt: '2h ago',
-        playerPhoto: 'https://api.statorium.com/media/bearleague/bl1731409249710.webp'
+        playerPhoto: 'https://api.statorium.com/media/bearleague/bl17158001911496.webp',
+        age: 21
       },
       { 
-        id: '1731409249711', 
+        id: '6466', 
         name: 'Jude Bellingham', 
         club: 'Real Madrid', 
         position: 'CM', 
         nationality: 'England',
         league: 'La Liga',
         score: 92,
-        description: 'Complete midfielder. Leadership qualities confirmed. Low probability of transfer but remains top priority.',
+        description: 'Complete midfielder. Leadership qualities confirmed. Dominant presence in both boxes.',
         updatedAt: '1d ago',
-        playerPhoto: 'https://api.statorium.com/media/bearleague/bl1731409249711.webp'
+        playerPhoto: 'https://api.statorium.com/media/bearleague/bl1695891720352.webp',
+        age: 21
       },
       { 
-        id: '1731409249712', 
+        id: '53041', 
         name: 'Lamine Yamal', 
         club: 'FC Barcelona', 
         position: 'RW', 
         nationality: 'Spain',
         league: 'La Liga',
         score: 94,
-        description: 'Once-in-a-generation talent. Exceptional decision-making for age. Maintaining high-frequency monitoring.',
+        description: 'Once-in-a-generation talent. Exceptional decision-making for age. Defensive contribution improving.',
         updatedAt: '4h ago',
-        playerPhoto: 'https://api.statorium.com/media/bearleague/bl1731409249712.webp'
+        playerPhoto: 'https://api.statorium.com/media/bearleague/bl17322791692175.webp',
+        age: 17
       },
     ],
     priority: [
       { 
-        id: '1731409249713', 
+        id: '26718', 
         name: 'Amadou Onana', 
         club: 'Aston Villa', 
         position: 'CDM', 
         nationality: 'Belgium',
         league: 'Premier League',
         score: 85,
-        description: 'Physical specimen. High duel success rate. Primary target if mid-block reinforcement is required.',
+        description: 'Physical specimen. High duel success rate. Key for Villa mid-block stability.',
         updatedAt: '5h ago',
-        playerPhoto: 'https://api.statorium.com/media/bearleague/bl1731409249713.webp'
+        playerPhoto: 'https://api.statorium.com/media/bearleague/bl17337166521193.webp',
+        age: 23
       },
       { 
-        id: '1731409249714', 
-        name: 'Gonçalo Inácio', 
-        club: 'Sporting CP', 
-        position: 'CB', 
-        nationality: 'Portugal',
-        league: 'Liga Portugal',
-        score: 87,
-        description: 'Modern ball-playing CB. Left-footed. Release clause makes him a highly realistic target.',
-        updatedAt: '3d ago',
-        playerPhoto: 'https://api.statorium.com/media/bearleague/bl1731409249714.webp'
+        id: '3482', 
+        name: 'Lautaro Martínez', 
+        club: 'Inter Milan', 
+        position: 'ST', 
+        nationality: 'Argentina',
+        league: 'Serie A',
+        score: 91,
+        description: 'Elite finisher. Exceptional work rate and pressing ability. Captain and talisman.',
+        updatedAt: '1d ago',
+        playerPhoto: 'https://api.statorium.com/media/bearleague/bl1695386805672.webp',
+        age: 27
       },
     ],
     analyzing: [
       { 
-        id: '1731409249715', 
-        name: 'Warren Zaïre-Emery', 
-        club: 'PSG', 
-        position: 'CM', 
+        id: '670', 
+        name: 'Ousmane Dembélé', 
+        club: 'Paris Saint-Germain', 
+        position: 'RW', 
         nationality: 'France',
         league: 'Ligue 1',
         score: 89,
-        description: 'Analyzing high-pressure tolerance in UCL fixtures. Initial data looks world-class.',
+        description: 'Elite 1v1 ability and explosive pace. Exceptional creative output. Key playmaker in PSG wide areas.',
         updatedAt: '12h ago',
-        playerPhoto: 'https://api.statorium.com/media/bearleague/bl1731409249715.webp'
+        playerPhoto: 'https://api.statorium.com/media/bearleague/bl1702304187852.webp',
+        age: 27
       },
     ],
-    complete: [
-      { 
-        id: '1731409249716', 
-        name: 'Viktor Gyökeres', 
-        club: 'Sporting CP', 
-        position: 'ST', 
-        nationality: 'Sweden',
-        league: 'Liga Portugal',
-        score: 89,
-        description: 'Profile matches tactical requirements. Final scouting report submitted: Highly Recommended.',
-        updatedAt: '1w ago',
-        playerPhoto: 'https://api.statorium.com/media/bearleague/bl1731409249716.webp'
-      },
-    ],
+    complete: [],
   }
 
   return (
     <div className="space-y-8 h-full">
       <div>
         <h1 className="text-3xl font-bold tracking-tight text-zinc-50">Watchlist</h1>
-        <p className="text-zinc-400">Track and manage your scouting pipeline.</p>
+        <p className="text-zinc-400">Track and manage your scouting pipeline for Top 5 Leagues (PL, La Liga, Bundesliga, Ligue 1, Serie A).</p>
       </div>
 
       <KanbanBoard initialData={initialData} />

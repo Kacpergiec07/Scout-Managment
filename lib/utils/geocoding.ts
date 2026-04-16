@@ -49,6 +49,9 @@ const clubCache: Record<string, GeoPoint> = {
   'Tottenham': { lat: 51.6042, lng: -0.0662 },
   'Bayer Leverkusen': { lat: 51.0381, lng: 7.0022 },
   'West Ham': { lat: 51.5387, lng: -0.0166 },
+  'Sporting CP': { lat: 38.7526, lng: -9.1612 }, // Estádio José Alvalade, Lisbon
+  'Sporting': { lat: 38.7526, lng: -9.1612 },
+  'Aston Villa': { lat: 52.5091, lng: -1.8848 }, // Villa Park, Birmingham
 };
 
 export function getCachedGeocode(name: string): GeoPoint | null {

@@ -61,10 +61,16 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
         const data = await getTransfersAction(teamId);
         // Fallback for demo if no transfers
         const demoTransfers: StatoriumTransfer[] = data.length > 0 ? data : [
-          { playerID: "1", playerName: "Robert Lewandowski", fromTeamID: "1", fromTeamName: "Bayern Munich", toTeamID: "2", toTeamName: "FC Barcelona", date: "2022-07-19", season: "2022/23", type: "Out", fee: "€45M" },
-          { playerID: "2", playerName: "Jude Bellingham", fromTeamID: "3", fromTeamName: "Dortmund", toTeamID: "4", toTeamName: "Real Madrid", date: "2023-06-14", season: "2023/24", type: "In", fee: "€103M" },
-          { playerID: "3", playerName: "Erling Haaland", fromTeamID: "3", fromTeamName: "Dortmund", toTeamID: "5", toTeamName: "Man City", date: "2022-05-10", season: "2022/23", type: "Out", fee: "€60M" },
-          { playerID: "4", playerName: "Harry Kane", fromTeamID: "6", fromTeamName: "Tottenham", toTeamID: "1", toTeamName: "Bayern Munich", date: "2023-08-12", season: "2023/24", type: "In", fee: "€100M" }
+          { playerID: "1731409249051", playerName: "Robert Lewandowski", fromTeamID: "165", fromTeamName: "Bayern Munich", toTeamID: "164", toTeamName: "FC Barcelona", date: "2022-07-19", season: "2022/23", type: "Out", fee: "€45M" },
+          { playerID: "1731409249711", playerName: "Jude Bellingham", fromTeamID: "167", fromTeamName: "Dortmund", toTeamID: "166", toTeamName: "Real Madrid", date: "2023-06-14", season: "2023/24", type: "In", fee: "€103M" },
+          { playerID: "1731409249025", playerName: "Erling Haaland", fromTeamID: "167", fromTeamName: "Dortmund", toTeamID: "168", toTeamName: "Man City", date: "2022-05-10", season: "2022/23", type: "Out", fee: "€60M" },
+          { playerID: "1731409249710", playerName: "Florian Wirtz", fromTeamID: "163", fromTeamName: "Leverkusen", toTeamID: "169", toTeamName: "Liverpool FC", date: "2026-06-20", season: "2026/27", type: "In", fee: "€120M" },
+          { playerID: "1731409249716", playerName: "Viktor Gyökeres", fromTeamID: "170", fromTeamName: "Sporting CP", toTeamID: "171", toTeamName: "Arsenal", date: "2026-07-01", season: "2026/27", type: "In", fee: "€85M" },
+          { playerID: "1731409249050", playerName: "Kylian Mbappe", fromTeamID: "172", fromTeamName: "PSG", toTeamID: "166", toTeamName: "Real Madrid", date: "2024-06-03", season: "2024/25", type: "In", fee: "Free" },
+          { playerID: "1731409249713", playerName: "Amadou Onana", fromTeamID: "173", fromTeamName: "Everton", toTeamID: "174", toTeamName: "Aston Villa", date: "2024-07-15", season: "2024/25", type: "Out", fee: "€60M" },
+          { playerID: "1731409249712", playerName: "Lamine Yamal", fromTeamID: "164", fromTeamName: "FC Barcelona", toTeamID: "164", toTeamName: "FC Barcelona", date: "2024-01-01", season: "2023/24", type: "In", fee: "Academy" },
+          { playerID: "1731409249715", playerName: "Warren Zaïre-Emery", fromTeamID: "172", fromTeamName: "PSG", toTeamID: "172", toTeamName: "PSG", date: "2024-01-01", season: "2023/24", type: "In", fee: "Academy" },
+          { playerID: "1731409249714", playerName: "Gonçalo Inácio", fromTeamID: "170", fromTeamName: "Sporting CP", toTeamID: "170", toTeamName: "Sporting CP", date: "2024-01-01", season: "2023/24", type: "In", fee: "Academy" }
         ];
         
         setTransfers(demoTransfers);
@@ -269,6 +275,7 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
           <table className="w-full text-left">
             <thead className="bg-white/5 border-b border-white/10 text-xs font-medium text-white/50 uppercase tracking-wider">
               <tr>
+                <th className="px-6 py-4">Date</th>
                 <th className="px-6 py-4">Player</th>
                 <th className="px-6 py-4">Flow</th>
                 <th className="px-6 py-4">Fee</th>
@@ -284,6 +291,9 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
 
                 return (
                   <tr key={key} className="hover:bg-white/5 transition-colors group">
+                    <td className="px-6 py-4">
+                      <div className="text-xs font-mono text-white/40">{t.date}</div>
+                    </td>
                     <td className="px-6 py-4">
                       <div>
                         <div className="font-medium text-white">{t.playerName}</div>
