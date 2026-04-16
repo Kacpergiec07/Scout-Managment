@@ -32,6 +32,11 @@ const COLUMNS = [
 export function KanbanBoard({ initialData }: { initialData: any[] }) {
   const [items, setItems] = React.useState<any>(initialData)
   const [activeId, setActiveId] = React.useState<string | null>(null)
+  const [isMounted, setIsMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -121,8 +126,24 @@ export function KanbanBoard({ initialData }: { initialData: any[] }) {
     setActiveId(null)
   }
 
+  if (!isMounted) {
+    return (
+      <div className="flex gap-6 overflow-x-auto pb-4">
+        {COLUMNS.map((col) => (
+          <div key={col.id} className="flex w-80 shrink-0 flex-col gap-4 rounded-lg bg-zinc-900/50 p-4 border border-zinc-800 min-h-[500px]">
+            <div className="flex items-center justify-between">
+              <h3 className="font-bold text-zinc-50">{col.title}</h3>
+              <span className="rounded bg-zinc-800 px-2 py-0.5 text-xs text-zinc-400">0</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
+
   return (
     <DndContext
+      id="kanban-board"
       sensors={sensors}
       collisionDetection={closestCorners}
       onDragStart={onDragStart}

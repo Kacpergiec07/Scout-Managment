@@ -46,7 +46,7 @@ export class StatoriumClient {
       { playerID: '1731409249710', firstName: 'Florian', lastName: 'Wirtz', fullName: 'Florian Wirtz', position: 'MF', country: 'Germany', teamName: 'Liverpool FC' },
       { playerID: '1731409249713', firstName: 'Amadou', lastName: 'Onana', fullName: 'Amadou Onana', position: 'MF', country: 'Belgium', teamName: 'Aston Villa' },
       { playerID: '1731409249714', firstName: 'Gonçalo', lastName: 'Inácio', fullName: 'Gonçalo Inácio', position: 'DF', country: 'Portugal', teamName: 'Sporting CP' },
-      { playerID: '1731409249716', firstName: 'Viktor', lastName: 'Gyökeres', fullName: 'Viktor Gyökeres', position: 'FW', country: 'Sweden', teamName: 'Sporting CP' }
+      { playerID: '1731409249716', firstName: 'Viktor', lastName: 'Gyökeres', fullName: 'Viktor Gyökeres', position: 'FW', country: 'Sweden', teamName: 'Arsenal' }
     ];
     
     let matched = mockPool.filter(p => 
