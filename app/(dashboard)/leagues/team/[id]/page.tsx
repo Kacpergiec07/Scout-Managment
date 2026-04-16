@@ -216,16 +216,33 @@ function getShortPos(p: any) {
 }
 
 function SquadRow({ player, starting }: { player: any, starting?: boolean }) {
+  const photoUrl = player.photo || player.playerPhoto || `https://api.statorium.com/media/bearleague/bl${player.playerID}.webp`;
+  
   return (
     <Link 
       href={`/analysis?id=${player.playerID}&name=${encodeURIComponent(player.fullName)}`}
       className="flex items-center justify-between p-5 hover:bg-white/5 transition-all group relative border-l-2 border-transparent hover:border-primary/50"
     >
       <div className="flex items-center gap-4">
-        <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all ${
-          starting ? "bg-primary/20 border-primary/30" : "bg-white/5 border-white/10"
+        {/* Photo Avatar */}
+        <div className="relative w-10 h-10 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center overflow-hidden flex-shrink-0">
+          <img 
+            src={photoUrl} 
+            alt={player.fullName}
+            className="w-full h-full object-cover object-top"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = 'none';
+            }}
+          />
+          <span className="text-[10px] font-black text-white/20 uppercase tracking-tighter absolute inset-0 flex items-center justify-center -z-10 bg-zinc-900">
+            {player.fullName.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
+          </span>
+        </div>
+        
+        <div className={`w-8 h-8 rounded-lg flex items-center justify-center border transition-all ${
+          starting ? "bg-primary/10 border-primary/20" : "bg-white/5 border-white/10"
         }`}>
-          <span className={`text-[10px] font-black ${starting ? "text-primary" : "text-white/30"}`}>{getShortPos(player)}</span>
+          <span className={`text-[8px] font-black ${starting ? "text-primary" : "text-white/20"}`}>{getShortPos(player)}</span>
         </div>
         <div>
           <p className="font-bold text-white group-hover:text-primary transition-colors flex items-center gap-2">

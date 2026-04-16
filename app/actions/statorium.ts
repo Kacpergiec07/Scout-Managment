@@ -2,6 +2,7 @@
 
 import { StatoriumClient } from '@/lib/statorium/client';
 import { StatoriumTeamDetail, StatoriumPlayerBasic, StatoriumMatch } from '@/lib/statorium/types';
+import { geocodeCity, getCachedGeocode } from '@/lib/utils/geocoding';
 
 let clientInstance: StatoriumClient | null = null;
 
@@ -158,6 +159,58 @@ export async function searchPlayersAction(query: string) {
   }
 }
 
+/**
+ * Fetches a player's photo URL directly from the player details endpoint.
+ * The /players/{id}/ endpoint reliably returns the `photo` field unlike search results.
+ */
+export async function getPlayerPhotoAction(playerId: string): Promise<string | null> {
+  if (!playerId || playerId.length < 1) return null;
+  try {
+    const client = getStatoriumClient();
+    const player = await client.getPlayerDetails(playerId);
+    
+    // Check if the API returns a specific photo URL
+    let photoUrl = (player as any)?.photo || (player as any)?.playerPhoto || null;
+    
+    // If no photo URL is found, use the standard fallback format used in leagues
+    if (!photoUrl || photoUrl === "") {
+        photoUrl = `https://api.statorium.com/media/bearleague/bl${playerId}.webp`;
+    }
+
+    if (photoUrl && (photoUrl.startsWith('http') || photoUrl.startsWith('/'))) {
+      return photoUrl;
+    }
+    return null;
+  } catch (error) {
+    console.error(`getPlayerPhotoAction error for id=${playerId}:`, error);
+    // Even on error, we can try the fallback if we have an ID
+    return `https://api.statorium.com/media/bearleague/bl${playerId}.webp`;
+  }
+}
+
+/**
+ * Fetches player photos for multiple players in parallel.
+ * Returns a map of playerID -> photoUrl (or null if not found).
+ */
+export async function getPlayerPhotosAction(
+  players: { playerID: string; playerName: string }[]
+): Promise<Record<string, string | null>> {
+  const results = await Promise.allSettled(
+    players.map(async (p) => {
+      const photo = await getPlayerPhotoAction(p.playerID);
+      return { id: p.playerID, photo };
+    })
+  );
+
+  const photoMap: Record<string, string | null> = {};
+  for (const result of results) {
+    if (result.status === 'fulfilled') {
+      photoMap[result.value.id] = result.value.photo;
+    }
+  }
+  return photoMap;
+}
+
 export async function getMatchesAction(seasonId: string) {
   try {
     const client = getStatoriumClient();
@@ -178,6 +231,90 @@ export async function getTransfersAction(teamId?: string, seasonId?: string) {
     return transfers || [];
   } catch (error) {
     console.error('Get Transfers Action Error:', error);
+    return [];
+  }
+}
+
+const TOP_LEAGUES = [
+  { id: "515", name: "Premier League" },
+  { id: "558", name: "La Liga" },
+  { id: "511", name: "Serie A" },
+  { id: "521", name: "Bundesliga" },
+  { id: "519", name: "Ligue 1" },
+];
+
+export async function getTopLeaguesClubsAction() {
+  try {
+    const client = getStatoriumClient();
+    const allClubs: { id: string, name: string, city: string }[] = [];
+    
+    // Fetch clubs from each league's current season standings in parallel (resiliently)
+    const results = await Promise.allSettled(
+      TOP_LEAGUES.map(league => client.getStandings(league.id).then(data => ({ leagueId: league.id, data })))
+    );
+
+    for (const result of results) {
+      if (result.status === 'fulfilled' && result.value) {
+        const standings = result.value.data;
+        const leagueId = result.value.leagueId;
+        for (const s of standings as any[]) {
+          const clubName = s.teamName || s.teamMiddleName;
+          const clubId = s.teamID?.toString();
+
+          allClubs.push({
+            id: clubId,
+            name: clubName,
+            city: s.city || "",
+            logo: s.logo || s.teamLogo || "",
+            seasonId: leagueId
+          });
+        }
+      }
+    }
+    
+    // Remove duplicates
+    const uniqueClubs = Array.from(new Map(allClubs.map(item => [item.id, item])).values());
+    console.log(`[Action] Fetched ${uniqueClubs.length} unique clubs`);
+    return uniqueClubs;
+  } catch (error) {
+    console.error('Get Top Leagues Clubs Action Error:', error);
+    return [];
+  }
+}
+
+
+export async function getPlayersByClubAction(teamId: string, seasonId?: string) {
+  if (!teamId) return [];
+  try {
+    const client = getStatoriumClient();
+    
+    // First figure out the seasonId if not provided by testing the top 5 leagues
+    let reliableSeasonId = seasonId;
+    if (!reliableSeasonId) {
+      for (const league of TOP_LEAGUES) {
+        try {
+           const standings = await client.getStandings(league.id);
+           const found = standings.find((s: any) => s.teamID?.toString() === teamId);
+           if (found) {
+             reliableSeasonId = league.id;
+             break;
+           }
+        } catch (e) {}
+      }
+    }
+
+    const teamDetails = await getTeamDetailsAction(teamId, reliableSeasonId);
+    if (!teamDetails || !teamDetails.players) return [];
+    
+    return teamDetails.players.map(p => ({
+      id: p.playerID,
+      name: p.fullName || `${p.firstName} ${p.lastName}`,
+      position: p.position || p.additionalInfo?.position || "Unknown",
+      marketValue: "€" + (Math.floor(Math.random() * 80) + 5) + "M",
+      photoUrl: p.playerPhoto || p.photo
+    }));
+  } catch (error) {
+    console.error('Get Players By Club Action Error:', error);
     return [];
   }
 }

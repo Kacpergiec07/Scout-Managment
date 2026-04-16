@@ -32,29 +32,8 @@ export class StatoriumClient {
   }
 
   async searchPlayers(query: string): Promise<StatoriumPlayerBasic[]> {
-    console.log(`[StatoriumClient] Mock searching for: ${query}`);
-    const mockPool: (StatoriumPlayerBasic & { teamName?: string })[] = [
-      { playerID: '1', firstName: 'Łukasz', lastName: 'Fabiański', fullName: 'Łukasz Fabiański', position: 'GK', country: 'Poland', teamName: 'West Ham' },
-      { playerID: '10', firstName: 'Granit', lastName: 'Xhaka', fullName: 'Granit Xhaka', position: 'MF', country: 'Switzerland', teamName: 'Bayer Leverkusen' },
-      { playerID: '25', firstName: 'Erling', lastName: 'Haaland', fullName: 'Erling Haaland', position: 'FW', country: 'Norway', teamName: 'Man City' },
-      { playerID: '30', firstName: 'Lionel', lastName: 'Messi', fullName: 'Lionel Messi', position: 'FW', country: 'Argentina', teamName: 'Inter Miami' },
-      { playerID: '40', firstName: 'Cristiano', lastName: 'Ronaldo', fullName: 'Cristiano Ronaldo', position: 'FW', country: 'Portugal', teamName: 'Al-Nassr' },
-      { playerID: '50', firstName: 'Kylian', lastName: 'Mbappe', fullName: 'Kylian Mbappe', position: 'FW', country: 'France', teamName: 'Real Madrid' },
-      { playerID: '60', firstName: 'Warren', lastName: 'Zaïre-Emery', fullName: 'Warren Zaïre-Emery', position: 'MF', country: 'France', teamName: 'PSG' },
-      { playerID: '70', firstName: 'Jude', lastName: 'Bellingham', fullName: 'Jude Bellingham', position: 'MF', country: 'England', teamName: 'Real Madrid' },
-      { playerID: '1731409249712', firstName: 'Lamine', lastName: 'Yamal', fullName: 'Lamine Yamal', position: 'FW', country: 'Spain', teamName: 'FC Barcelona' },
-      { playerID: '1731409249710', firstName: 'Florian', lastName: 'Wirtz', fullName: 'Florian Wirtz', position: 'MF', country: 'Germany', teamName: 'Liverpool FC' },
-      { playerID: '1731409249713', firstName: 'Amadou', lastName: 'Onana', fullName: 'Amadou Onana', position: 'MF', country: 'Belgium', teamName: 'Aston Villa' },
-      { playerID: '1731409249714', firstName: 'Gonçalo', lastName: 'Inácio', fullName: 'Gonçalo Inácio', position: 'DF', country: 'Portugal', teamName: 'Sporting CP' },
-      { playerID: '1731409249716', firstName: 'Viktor', lastName: 'Gyökeres', fullName: 'Viktor Gyökeres', position: 'FW', country: 'Sweden', teamName: 'Arsenal' }
-    ];
-    
-    let matched = mockPool.filter(p => 
-      p.fullName.toLowerCase().includes(query.toLowerCase())
-    );
-
-    console.log(`[StatoriumClient] Found ${matched.length} matches`);
-    return matched;
+    const data = await this.fetch<any>('/players/', { q: query });
+    return data.players || [];
   }
 
   async getPlayerDetails(id: string): Promise<StatoriumPlayerBasic> {
