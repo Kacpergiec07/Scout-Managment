@@ -482,13 +482,19 @@ function PlayerSelector({ players, selectedPlayer, onSelect, placeholder }: {
   const [search, setSearch] = React.useState('')
   const [open, setOpen] = React.useState(false)
 
-  const filteredPlayers = players.filter(p => {
-    const isAlreadySelected = selectedPlayer?.playerID === p.playerID
-    const matchesSearch =
-      p.fullName.toLowerCase().includes(search.toLowerCase()) ||
-      p.teamName?.toLowerCase().includes(search.toLowerCase())
-    return matchesSearch && !isAlreadySelected
-  }).slice(0, 50)
+  const filteredPlayers = React.useMemo(() => {
+    const seenIds = new Set()
+    return players.filter(p => {
+      if (seenIds.has(p.playerID)) return false
+      seenIds.add(p.playerID)
+      
+      const isAlreadySelected = selectedPlayer?.playerID === p.playerID
+      const matchesSearch =
+        p.fullName.toLowerCase().includes(search.toLowerCase()) ||
+        p.teamName?.toLowerCase().includes(search.toLowerCase())
+      return matchesSearch && !isAlreadySelected
+    }).slice(0, 50)
+  }, [players, search, selectedPlayer])
 
   return (
     <div className="relative">

@@ -32,11 +32,20 @@ export class StatoriumClient {
   }
 
   async searchPlayers(query: string): Promise<StatoriumPlayerBasic[]> {
-<<<<<<< HEAD
-    const data = await this.fetch<any>('/players/', { q: query });
-    return data.players || [];
-=======
-    console.log(`[StatoriumClient] Mock searching for: ${query}`);
+    try {
+      // Try real API first
+      const data = await this.fetch<any>('/players/', { q: query });
+      if (data.players && data.players.length > 0) {
+        return data.players.map((p: any) => ({
+          ...p,
+          playerPhoto: p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
+        }));
+      }
+    } catch (error) {
+      console.warn('[StatoriumClient] Search API failed, using mock fallback:', error);
+    }
+
+    // Mock Fallback for premium demo feel
     const mockPool: (StatoriumPlayerBasic & { teamName?: string })[] = [
       {
         playerID: '14633',
@@ -120,7 +129,7 @@ export class StatoriumClient {
       }
     ];
 
-    let matched = mockPool.filter(p =>
+    const matched = mockPool.filter(p =>
       p.fullName.toLowerCase().includes(query.toLowerCase())
     );
 
@@ -128,7 +137,7 @@ export class StatoriumClient {
       ...p,
       playerPhoto: p.playerPhoto || p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
     }));
->>>>>>> 9e6b124f1a9ebfeb2ffca44051014946926190b3
+
   }
 
   async getPlayerDetails(id: string): Promise<StatoriumPlayerBasic> {
