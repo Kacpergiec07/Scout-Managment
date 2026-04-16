@@ -132,7 +132,10 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
       venueName: apiTeam?.venueName || apiTeam?.homeVenue?.name || "",
       coach: COACH_MAP[teamId] || apiTeam?.additionalInfo?.coach,
       formation: formation,
-      players: players
+      players: players.map((p: any) => ({
+        ...p,
+        playerPhoto: p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
+      }))
     } as StatoriumTeamDetail;
 
     return result;

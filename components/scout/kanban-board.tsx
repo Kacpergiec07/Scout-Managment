@@ -34,7 +34,11 @@ export function KanbanBoard({ initialData }: { initialData: any[] }) {
   const [activeId, setActiveId] = React.useState<string | null>(null)
 
   const sensors = useSensors(
-    useSensor(PointerSensor),
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 10,
+      },
+    }),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
     })

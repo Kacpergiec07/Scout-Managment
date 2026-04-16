@@ -1,5 +1,5 @@
 import { PlayerSearch } from '@/components/scout/player-search'
-import { PlusCircle, Search, TrendingUp, Users } from 'lucide-react'
+import { TrendingUp, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
@@ -10,7 +10,7 @@ export default function DashboardPage() {
         <h1 className="text-4xl font-extrabold tracking-tight">Scouting Dashboard</h1>
         <p className="text-muted-foreground text-lg italic">Welcome back, Chief Scout. 12 new matches analyzed today.</p>
       </div>
-      
+
       <div className="relative p-10 rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-600 to-teal-900 text-white shadow-2xl">
         <div className="absolute top-0 right-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] pointer-events-none" />
         <div className="relative z-10 max-w-2xl space-y-6">
@@ -25,8 +25,8 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
-      
-      <div className="grid gap-6 md:grid-cols-3">
+
+      <div className="grid gap-6 md:grid-cols-2">
         <DashboardCard 
           icon={TrendingUp} 
           title="Market Trends" 
@@ -38,12 +38,6 @@ export default function DashboardPage() {
           title="Compare Talent" 
           description="Side-by-side performance breakdown for final decision making." 
           href="/compare"
-        />
-        <DashboardCard 
-          icon={PlusCircle} 
-          title="New Analysis" 
-          description="Start a fresh scouting report using the search engine." 
-          href="/analysis"
         />
       </div>
     </div>

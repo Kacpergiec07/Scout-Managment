@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Search, List, History, User, LogOut, Settings, PlusCircle, LayoutDashboard, ArrowRightLeft, Globe, Trophy } from 'lucide-react'
+import { Search, List, History, User, LogOut, Settings, LayoutDashboard, ArrowRightLeft, Globe, Trophy } from 'lucide-react'
 import { signOut } from '@/app/auth/actions'
 import { NotificationsBell } from './notifications-bell'
 import { ThemeToggle } from './theme-toggle'
@@ -19,7 +19,6 @@ export function Sidebar() {
       </div>
       <nav className="flex-1 space-y-1 px-4 py-4">
         <SidebarItem href="/dashboard" icon={LayoutDashboard} label="Dashboard" />
-        <SidebarItem href="/analysis" icon={PlusCircle} label="New Analysis" />
         <SidebarItem href="/watchlist" icon={List} label="Watchlist" />
         <SidebarItem href="/history" icon={History} label="History" />
         <SidebarItem href="/compare" icon={Search} label="Compare Players" />

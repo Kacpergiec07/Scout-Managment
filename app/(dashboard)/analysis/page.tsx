@@ -17,17 +17,24 @@ function AnalysisContent() {
   const searchParams = useSearchParams()
   const playerName = searchParams.get('name') || 'Erling Haaland'
   const playerId = searchParams.get('id') || '1'
+  const description = searchParams.get('desc') || ''
+  const photo = searchParams.get('photo') || `https://api.statorium.com/media/bearleague/bl${playerId}.webp`
+  const club = searchParams.get('club') || 'Man City'
+  const position = searchParams.get('pos') || 'ST'
+  const nationality = searchParams.get('nation') || 'Norway'
+  const league = searchParams.get('league') || 'Premier League'
   
-  // Mock player with possible photo
-  const mockPlayer: ScoutProPlayer = {
+  // Create dynamic mock player
+  const mockPlayer: ScoutProPlayer & { description?: string } = {
     id: playerId,
     name: playerName,
     age: 23,
-    nationality: 'Norway',
-    position: 'ST',
-    club: 'Man City',
-    league: 'Premier League',
-    photo: `https://api.statorium.com/v1/players/${playerId}/photo.jpg`, // Theoretical path
+    nationality: nationality,
+    position: position,
+    club: club,
+    league: league,
+    photo: photo,
+    description: description,
     stats: {
       offensive: { goals: 95, assists: 40, xG: 98, xA: 45, keyPasses: 60 },
       defensive: { tackles: 20, interceptions: 15, aerialWins: 85, clearances: 30 },
@@ -84,6 +91,17 @@ function AnalysisContent() {
             </h3>
             <PlayerRadarChart player={mockPlayer} />
           </div>
+
+          {mockPlayer.description && (
+            <div className="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 p-8 shadow-xl">
+              <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
+                Scout's Professional Notes
+              </h3>
+              <p className="text-zinc-600 dark:text-zinc-300 italic leading-relaxed">
+                "{mockPlayer.description}"
+              </p>
+            </div>
+          )}
         </div>
         
         <div className="space-y-8">
