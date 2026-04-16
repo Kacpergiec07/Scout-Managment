@@ -34,19 +34,86 @@ export class StatoriumClient {
   async searchPlayers(query: string): Promise<StatoriumPlayerBasic[]> {
     console.log(`[StatoriumClient] Mock searching for: ${query}`);
     const mockPool: (StatoriumPlayerBasic & { teamName?: string })[] = [
-      { playerID: '1', firstName: 'Łukasz', lastName: 'Fabiański', fullName: 'Łukasz Fabiański', position: 'GK', country: 'Poland', teamName: 'West Ham' },
-      { playerID: '10', firstName: 'Granit', lastName: 'Xhaka', fullName: 'Granit Xhaka', position: 'MF', country: 'Switzerland', teamName: 'Bayer Leverkusen' },
-      { playerID: '25', firstName: 'Erling', lastName: 'Haaland', fullName: 'Erling Haaland', position: 'FW', country: 'Norway', teamName: 'Man City' },
-      { playerID: '30', firstName: 'Lionel', lastName: 'Messi', fullName: 'Lionel Messi', position: 'FW', country: 'Argentina', teamName: 'Inter Miami' },
-      { playerID: '40', firstName: 'Cristiano', lastName: 'Ronaldo', fullName: 'Cristiano Ronaldo', position: 'FW', country: 'Portugal', teamName: 'Al-Nassr' },
-      { playerID: '50', firstName: 'Kylian', lastName: 'Mbappe', fullName: 'Kylian Mbappe', position: 'FW', country: 'France', teamName: 'Real Madrid' },
-      { playerID: '60', firstName: 'Warren', lastName: 'Zaïre-Emery', fullName: 'Warren Zaïre-Emery', position: 'MF', country: 'France', teamName: 'PSG' },
-      { playerID: '70', firstName: 'Jude', lastName: 'Bellingham', fullName: 'Jude Bellingham', position: 'MF', country: 'England', teamName: 'Real Madrid' },
-      { playerID: '1731409249712', firstName: 'Lamine', lastName: 'Yamal', fullName: 'Lamine Yamal', position: 'FW', country: 'Spain', teamName: 'FC Barcelona' },
-      { playerID: '1731409249710', firstName: 'Florian', lastName: 'Wirtz', fullName: 'Florian Wirtz', position: 'MF', country: 'Germany', teamName: 'Liverpool FC' },
-      { playerID: '1731409249713', firstName: 'Amadou', lastName: 'Onana', fullName: 'Amadou Onana', position: 'MF', country: 'Belgium', teamName: 'Aston Villa' },
-      { playerID: '1731409249714', firstName: 'Gonçalo', lastName: 'Inácio', fullName: 'Gonçalo Inácio', position: 'DF', country: 'Portugal', teamName: 'Sporting CP' },
-      { playerID: '1731409249716', firstName: 'Viktor', lastName: 'Gyökeres', fullName: 'Viktor Gyökeres', position: 'FW', country: 'Sweden', teamName: 'Arsenal' }
+      { 
+        playerID: '14633', 
+        firstName: 'Florian', 
+        lastName: 'Wirtz', 
+        fullName: 'Florian Wirtz', 
+        position: 'CAM', 
+        country: 'Germany', 
+        teamName: 'Liverpool FC',
+        photo: 'https://api.statorium.com/media/bearleague/bl17158001911496.webp'
+      },
+      { 
+        playerID: '6466', 
+        firstName: 'Jude', 
+        lastName: 'Bellingham', 
+        fullName: 'Jude Bellingham', 
+        position: 'CM', 
+        country: 'England', 
+        teamName: 'Real Madrid',
+        photo: 'https://api.statorium.com/media/bearleague/bl1695891720352.webp'
+      },
+      { 
+        playerID: '53041', 
+        firstName: 'Lamine', 
+        lastName: 'Yamal', 
+        fullName: 'Lamine Yamal', 
+        position: 'RW', 
+        country: 'Spain', 
+        teamName: 'FC Barcelona',
+        photo: 'https://api.statorium.com/media/bearleague/bl17322791692175.webp'
+      },
+      { 
+        playerID: '26718', 
+        firstName: 'Amadou', 
+        lastName: 'Onana', 
+        fullName: 'Amadou Onana', 
+        position: 'CDM', 
+        country: 'Belgium', 
+        teamName: 'Aston Villa',
+        photo: 'https://api.statorium.com/media/bearleague/bl17337166521193.webp'
+      },
+      { 
+        playerID: '3482', 
+        firstName: 'Lautaro', 
+        lastName: 'Martínez', 
+        fullName: 'Lautaro Martínez', 
+        position: 'ST', 
+        country: 'Argentina', 
+        teamName: 'Inter Milan',
+        photo: 'https://api.statorium.com/media/bearleague/bl1695386805672.webp'
+      },
+      { 
+        playerID: '670', 
+        firstName: 'Ousmane', 
+        lastName: 'Dembélé', 
+        fullName: 'Ousmane Dembélé', 
+        position: 'RW', 
+        country: 'France', 
+        teamName: 'Paris Saint-Germain',
+        photo: 'https://api.statorium.com/media/bearleague/bl1702304187852.webp'
+      },
+      { 
+        playerID: '4812', 
+        firstName: 'Erling', 
+        lastName: 'Haaland', 
+        fullName: 'Erling Haaland', 
+        position: 'ST', 
+        country: 'Norway', 
+        teamName: 'Man City',
+        photo: 'https://api.statorium.com/media/bearleague/bl17313179872374.webp'
+      },
+      { 
+        playerID: '1994', 
+        firstName: 'Kylian', 
+        lastName: 'Mbappé', 
+        fullName: 'Kylian Mbappé', 
+        position: 'FW', 
+        country: 'France', 
+        teamName: 'Real Madrid',
+        photo: 'https://api.statorium.com/media/bearleague/bl17023015741660.webp'
+      }
     ];
     
     let matched = mockPool.filter(p => 

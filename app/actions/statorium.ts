@@ -181,3 +181,40 @@ export async function getTransfersAction(teamId?: string, seasonId?: string) {
     return [];
   }
 }
+
+export async function getAllTop5ClubsAction() {
+  const top5SeasonIds = ["343", "344", "385", "358", "387"];
+  try {
+    const client = getStatoriumClient();
+    const allClubs: any[] = [];
+    
+    for (const sid of top5SeasonIds) {
+      const standings = await client.getStandings(sid);
+      if (standings) {
+        standings.forEach((s: any) => {
+          allClubs.push({
+            id: s.teamID?.toString(),
+            name: s.teamName || s.teamMiddleName,
+            logo: s.logo || s.teamLogo,
+            seasonId: sid
+          });
+        });
+      }
+    }
+    return allClubs;
+  } catch (error) {
+    console.error('Get All Top 5 Clubs Error:', error);
+    return [];
+  }
+}
+
+export async function getPlayersAction(teamId: string, seasonId: string) {
+  try {
+    const client = getStatoriumClient();
+    const players = await client.getPlayersByTeam(teamId, seasonId);
+    return players || [];
+  } catch (error) {
+    console.error('Get Players Action Error:', error);
+    return [];
+  }
+}
