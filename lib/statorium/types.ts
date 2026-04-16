@@ -15,12 +15,25 @@ export interface StatoriumPlayerBasic {
   lastName: string
   fullName: string
   photo?: string
-  country?: string
+  playerPhoto?: string
+  country?: string | { name: string; id: string }
   teamName?: string
   birthdate?: string
   position?: string
   weight?: string
   height?: string
+  goals?: number
+  assists?: number
+  yellowCards?: number
+  redCards?: number
+  matchesPlayed?: number
+  minutesPlayed?: number
+  rating?: number
+  // Additional fields that might come from API
+  season_stats?: any
+  performance?: any
+  stats?: any
+  additionalInfo?: any
 }
 
 export interface StatoriumPlayerStats {

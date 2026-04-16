@@ -35,14 +35,14 @@ export async function getStandingsAction(seasonId: string) {
   try {
     const client = getStatoriumClient();
     const standings = await client.getStandings(seasonId);
-    
+
     if (standings && standings.length > 0) {
       return standings.slice(0, 10).map((s: any) => {
         let stats: any = {};
         try {
           stats = typeof s.options === 'string' ? JSON.parse(s.options) : (s.options || {});
-        } catch(e) {}
-        
+        } catch (e) { }
+
         return {
           teamID: s.teamID?.toString() || "",
           teamName: s.teamName || s.teamMiddleName || "Unknown Team",
@@ -67,19 +67,19 @@ export async function getStandingsAction(seasonId: string) {
 
 export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
   if (!teamId || teamId === 'undefined') return null;
-  
+
   try {
     const client = getStatoriumClient();
-    
+
     let apiTeam: any = null;
     try {
       apiTeam = await client.getTeamDetails(teamId);
-    } catch (e) {}
-    
+    } catch (e) { }
+
     let players: StatoriumPlayerBasic[] = [];
     if (seasonId) {
-      try { players = await client.getPlayersByTeam(teamId, seasonId); } catch (e) {}
-    } 
+      try { players = await client.getPlayersByTeam(teamId, seasonId); } catch (e) { }
+    }
     if (!players.length && apiTeam?.players?.length) {
       players = apiTeam.players;
     }
@@ -99,7 +99,7 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
     else if (mfs.length >= 5 && fws.length <= 1) { d = 4; m = 5; f = 1; }
     else if (dfs.length >= 3 && mfs.length >= 4 && fws.length >= 3) { d = 3; m = 4; f = 3; }
     else if (fws.length >= 2 && mfs.length >= 4) { d = 4; m = 4; f = 2; }
-    
+
     // Select the actual starting XI players
     const startingXI: StatoriumPlayerBasic[] = [];
     if (gks[0]) startingXI.push(gks[0]);
@@ -109,18 +109,18 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
 
     // Fill to 11 if still missing some positions
     if (startingXI.length < 11) {
-        const usedIds = new Set(startingXI.map(p => p.playerID));
-        const remaining = players.filter(p => !usedIds.has(p.playerID));
-        startingXI.push(...remaining.slice(0, 11 - startingXI.length));
+      const usedIds = new Set(startingXI.map(p => p.playerID));
+      const remaining = players.filter(p => !usedIds.has(p.playerID));
+      startingXI.push(...remaining.slice(0, 11 - startingXI.length));
     }
 
     const formation = d > 0 ? `${d}-${m}-${f}` : "4-3-3";
-    
+
     // Reorder players array to have starting XI first
     const startingIds = new Set(startingXI.map(p => p.playerID));
     const sortedPlayers = [
-        ...startingXI,
-        ...players.filter(p => !startingIds.has(p.playerID))
+      ...startingXI,
+      ...players.filter(p => !startingIds.has(p.playerID))
     ];
     players = sortedPlayers;
 
@@ -215,7 +215,7 @@ export async function getMatchesAction(seasonId: string) {
   try {
     const client = getStatoriumClient();
     const matches = await client.getMatches(seasonId);
-    
+
     if (matches && matches.length > 0) return matches;
     return [];
   } catch (error) {
@@ -235,6 +235,7 @@ export async function getTransfersAction(teamId?: string, seasonId?: string) {
   }
 }
 
+<<<<<<< HEAD
 const TOP_LEAGUES = [
   { id: "515", name: "Premier League" },
   { id: "558", name: "La Liga" },
@@ -278,10 +279,76 @@ export async function getTopLeaguesClubsAction() {
     return uniqueClubs;
   } catch (error) {
     console.error('Get Top Leagues Clubs Action Error:', error);
+=======
+export async function getAllTop5ClubsAction() {
+  const top5SeasonIds = ["515", "558", "511", "521", "519"]; // Updated to match LeagueCenter
+  try {
+    const client = getStatoriumClient();
+    const allClubs: any[] = [];
+
+    for (const sid of top5SeasonIds) {
+      const standings = await client.getStandings(sid);
+      if (standings) {
+        standings.forEach((s: any) => {
+          allClubs.push({
+            id: s.teamID?.toString(),
+            name: s.teamName || s.teamMiddleName,
+            logo: s.logo || s.teamLogo,
+            seasonId: sid
+          });
+        });
+      }
+    }
+    return allClubs;
+  } catch (error) {
+    console.error('Get All Top 5 Clubs Error:', error);
     return [];
   }
 }
 
+export async function getAllTop5PlayersAction() {
+  const top5SeasonIds = ["515", "558", "511", "521", "519"]; // Updated to match LeagueCenter
+  try {
+    const client = getStatoriumClient();
+    const allPlayers: any[] = [];
+
+    // Fetch players from Top 6 teams of each major league
+    for (const sid of top5SeasonIds) {
+      const standings = await client.getStandings(sid);
+      if (standings && standings.length > 0) {
+        const topTeams = standings.slice(0, 6);
+        for (const team of topTeams) {
+          const tid = team.teamID?.toString();
+          if (tid) {
+            try {
+              const players = await client.getPlayersByTeam(tid, sid);
+              if (players && players.length > 0) {
+                players.forEach((p: any) => {
+                  allPlayers.push({
+                    ...p,
+                    teamName: team.teamName || team.teamMiddleName || "Elite Club",
+                    playerPhoto: p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
+                  });
+                });
+              }
+            } catch (e) {
+              console.warn(`Could not fetch players for team ${tid} in season ${sid}`);
+            }
+          }
+        }
+      }
+    }
+
+    // Sort by name or some meaningful metric if available
+    return allPlayers.sort((a, b) => a.fullName.localeCompare(b.fullName));
+  } catch (error) {
+    console.error('Get All Top 5 Players Error:', error);
+>>>>>>> 9e6b124f1a9ebfeb2ffca44051014946926190b3
+    return [];
+  }
+}
+
+<<<<<<< HEAD
 
 export async function getPlayersByClubAction(teamId: string, seasonId?: string) {
   if (!teamId) return [];
@@ -315,6 +382,15 @@ export async function getPlayersByClubAction(teamId: string, seasonId?: string) 
     }));
   } catch (error) {
     console.error('Get Players By Club Action Error:', error);
+=======
+export async function getPlayersAction(teamId: string, seasonId: string) {
+  try {
+    const client = getStatoriumClient();
+    const players = await client.getPlayersByTeam(teamId, seasonId);
+    return players || [];
+  } catch (error) {
+    console.error('Get Players Action Error:', error);
+>>>>>>> 9e6b124f1a9ebfeb2ffca44051014946926190b3
     return [];
   }
 }

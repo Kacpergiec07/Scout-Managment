@@ -17,7 +17,7 @@ export class StatoriumClient {
     });
 
     const response = await fetch(url.toString(), {
-      next: { revalidate: 3600 }, 
+      next: { revalidate: 3600 },
     } as any);
 
     if (!response.ok) {
@@ -32,8 +32,103 @@ export class StatoriumClient {
   }
 
   async searchPlayers(query: string): Promise<StatoriumPlayerBasic[]> {
+<<<<<<< HEAD
     const data = await this.fetch<any>('/players/', { q: query });
     return data.players || [];
+=======
+    console.log(`[StatoriumClient] Mock searching for: ${query}`);
+    const mockPool: (StatoriumPlayerBasic & { teamName?: string })[] = [
+      {
+        playerID: '14633',
+        firstName: 'Florian',
+        lastName: 'Wirtz',
+        fullName: 'Florian Wirtz',
+        position: 'CAM',
+        country: 'Germany',
+        teamName: 'Liverpool FC',
+        photo: 'https://api.statorium.com/media/bearleague/bl17158001911496.webp'
+      },
+      {
+        playerID: '6466',
+        firstName: 'Jude',
+        lastName: 'Bellingham',
+        fullName: 'Jude Bellingham',
+        position: 'CM',
+        country: 'England',
+        teamName: 'Real Madrid',
+        photo: 'https://api.statorium.com/media/bearleague/bl1695891720352.webp'
+      },
+      {
+        playerID: '53041',
+        firstName: 'Lamine',
+        lastName: 'Yamal',
+        fullName: 'Lamine Yamal',
+        position: 'RW',
+        country: 'Spain',
+        teamName: 'FC Barcelona',
+        photo: 'https://api.statorium.com/media/bearleague/bl17322791692175.webp'
+      },
+      {
+        playerID: '26718',
+        firstName: 'Amadou',
+        lastName: 'Onana',
+        fullName: 'Amadou Onana',
+        position: 'CDM',
+        country: 'Belgium',
+        teamName: 'Aston Villa',
+        photo: 'https://api.statorium.com/media/bearleague/bl17337166521193.webp'
+      },
+      {
+        playerID: '3482',
+        firstName: 'Lautaro',
+        lastName: 'Martínez',
+        fullName: 'Lautaro Martínez',
+        position: 'ST',
+        country: 'Argentina',
+        teamName: 'Inter Milan',
+        photo: 'https://api.statorium.com/media/bearleague/bl1695386805672.webp'
+      },
+      {
+        playerID: '670',
+        firstName: 'Ousmane',
+        lastName: 'Dembélé',
+        fullName: 'Ousmane Dembélé',
+        position: 'RW',
+        country: 'France',
+        teamName: 'Paris Saint-Germain',
+        photo: 'https://api.statorium.com/media/bearleague/bl1702304187852.webp'
+      },
+      {
+        playerID: '4812',
+        firstName: 'Erling',
+        lastName: 'Haaland',
+        fullName: 'Erling Haaland',
+        position: 'ST',
+        country: 'Norway',
+        teamName: 'Man City',
+        photo: 'https://api.statorium.com/media/bearleague/bl17313179872374.webp'
+      },
+      {
+        playerID: '1994',
+        firstName: 'Kylian',
+        lastName: 'Mbappé',
+        fullName: 'Kylian Mbappé',
+        position: 'FW',
+        country: 'France',
+        teamName: 'Real Madrid',
+        photo: 'https://api.statorium.com/media/bearleague/bl17023015741660.webp'
+      }
+    ];
+
+    let matched = mockPool.filter(p =>
+      p.fullName.toLowerCase().includes(query.toLowerCase())
+    );
+
+    return matched.map((p: any) => ({
+      ...p,
+      playerPhoto: p.playerPhoto || p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
+    }));
+>>>>>>> 9e6b124f1a9ebfeb2ffca44051014946926190b3
   }
 
   async getPlayerDetails(id: string): Promise<StatoriumPlayerBasic> {
@@ -65,7 +160,7 @@ export class StatoriumClient {
     const params: Record<string, string> = {};
     if (teamId) params.team_id = teamId;
     if (seasonId) params.season_id = seasonId;
-    
+
     const data = await this.fetch<any>('/transfers/', params);
     return data.transfers || [];
   }

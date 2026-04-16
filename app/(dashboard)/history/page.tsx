@@ -24,8 +24,8 @@ export default function HistoryPage() {
       id: '14633', 
       date: '2026-04-15', 
       player: 'Florian Wirtz', 
-      club: 'Bayer 04 Leverkusen', 
-      league: 'Bundesliga', 
+      club: 'Liverpool FC', 
+      league: 'Premier League', 
       highScore: 95, 
       nation: 'Germany', 
       pos: 'CAM',
@@ -70,7 +70,7 @@ export default function HistoryPage() {
       player: 'Ousmane Dembélé', 
       club: 'PSG', 
       league: 'Ligue 1', 
-      highScore: 87, 
+      highScore: 89, 
       nation: 'France', 
       pos: 'RW',
       photo: 'https://api.statorium.com/media/bearleague/bl1702304187852.webp'
@@ -92,7 +92,7 @@ export default function HistoryPage() {
       player: 'Amadou Onana', 
       club: 'Aston Villa', 
       league: 'Premier League', 
-      highScore: 84, 
+      highScore: 85, 
       nation: 'Belgium', 
       pos: 'CDM',
       photo: 'https://api.statorium.com/media/bearleague/bl17337166521193.webp'

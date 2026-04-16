@@ -70,7 +70,7 @@ export function LeagueCenter() {
             <p className="text-white/50 text-sm">Real-time standings, fixtures, and squad analysis.</p>
           </div>
         </div>
-        
+
         <div className="flex flex-wrap p-1 bg-white/5 rounded-xl border border-white/10 gap-1">
           {TOP_LEAGUES.map((league) => (
             <button
