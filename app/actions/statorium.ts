@@ -34,14 +34,14 @@ export async function getStandingsAction(seasonId: string) {
   try {
     const client = getStatoriumClient();
     const standings = await client.getStandings(seasonId);
-    
+
     if (standings && standings.length > 0) {
       return standings.slice(0, 10).map((s: any) => {
         let stats: any = {};
         try {
           stats = typeof s.options === 'string' ? JSON.parse(s.options) : (s.options || {});
-        } catch(e) {}
-        
+        } catch (e) { }
+
         return {
           teamID: s.teamID?.toString() || "",
           teamName: s.teamName || s.teamMiddleName || "Unknown Team",
@@ -66,19 +66,19 @@ export async function getStandingsAction(seasonId: string) {
 
 export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
   if (!teamId || teamId === 'undefined') return null;
-  
+
   try {
     const client = getStatoriumClient();
-    
+
     let apiTeam: any = null;
     try {
       apiTeam = await client.getTeamDetails(teamId);
-    } catch (e) {}
-    
+    } catch (e) { }
+
     let players: StatoriumPlayerBasic[] = [];
     if (seasonId) {
-      try { players = await client.getPlayersByTeam(teamId, seasonId); } catch (e) {}
-    } 
+      try { players = await client.getPlayersByTeam(teamId, seasonId); } catch (e) { }
+    }
     if (!players.length && apiTeam?.players?.length) {
       players = apiTeam.players;
     }
@@ -98,7 +98,7 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
     else if (mfs.length >= 5 && fws.length <= 1) { d = 4; m = 5; f = 1; }
     else if (dfs.length >= 3 && mfs.length >= 4 && fws.length >= 3) { d = 3; m = 4; f = 3; }
     else if (fws.length >= 2 && mfs.length >= 4) { d = 4; m = 4; f = 2; }
-    
+
     // Select the actual starting XI players
     const startingXI: StatoriumPlayerBasic[] = [];
     if (gks[0]) startingXI.push(gks[0]);
@@ -108,18 +108,18 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
 
     // Fill to 11 if still missing some positions
     if (startingXI.length < 11) {
-        const usedIds = new Set(startingXI.map(p => p.playerID));
-        const remaining = players.filter(p => !usedIds.has(p.playerID));
-        startingXI.push(...remaining.slice(0, 11 - startingXI.length));
+      const usedIds = new Set(startingXI.map(p => p.playerID));
+      const remaining = players.filter(p => !usedIds.has(p.playerID));
+      startingXI.push(...remaining.slice(0, 11 - startingXI.length));
     }
 
     const formation = d > 0 ? `${d}-${m}-${f}` : "4-3-3";
-    
+
     // Reorder players array to have starting XI first
     const startingIds = new Set(startingXI.map(p => p.playerID));
     const sortedPlayers = [
-        ...startingXI,
-        ...players.filter(p => !startingIds.has(p.playerID))
+      ...startingXI,
+      ...players.filter(p => !startingIds.has(p.playerID))
     ];
     players = sortedPlayers;
 
@@ -162,7 +162,7 @@ export async function getMatchesAction(seasonId: string) {
   try {
     const client = getStatoriumClient();
     const matches = await client.getMatches(seasonId);
-    
+
     if (matches && matches.length > 0) return matches;
     return [];
   } catch (error) {
@@ -187,7 +187,7 @@ export async function getAllTop5ClubsAction() {
   try {
     const client = getStatoriumClient();
     const allClubs: any[] = [];
-    
+
     for (const sid of top5SeasonIds) {
       const standings = await client.getStandings(sid);
       if (standings) {

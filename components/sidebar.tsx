@@ -24,7 +24,6 @@ export function Sidebar() {
         <SidebarItem href="/compare" icon={Search} label="Compare Players" />
         <SidebarItem href="/transfers" icon={ArrowRightLeft} label="Transfers" />
         <SidebarItem href="/leagues" icon={Globe} label="Leagues" />
-        <SidebarItem href="/champions-league" icon={Trophy} label="Champions League" />
       </nav>
       <div className="border-t border-zinc-200 dark:border-zinc-800 p-4">
         <SidebarItem href="/profile" icon={User} label="My Profile" />
