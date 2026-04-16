@@ -1,0 +1,2 @@
+Strona pobiera prawdziwe dane o drużynach (składy zawodników) z zewnętrznego API i na ich podstawie automatycznie oblicza w jakiej formacji gra dana drużyna (np. 4-3-3).
+Dziś naprawiałem problem — system liczył wszystkich zawodników w kadrze włącznie z rezerwami i młodzieżą, przez co formacje wychodziły bez sensu. Teraz pracuję nad tym żeby brał pod uwagę tylko podstawowych graczy.
