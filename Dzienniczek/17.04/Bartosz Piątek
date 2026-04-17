@@ -1,0 +1,2 @@
+- Zrealizowałem poprawki w warstwie wizualnej oraz technicznej modułu porównywania zawodników poprzez odświeżenie stylów UI i eliminację błędów w wyświetlaniu elementów
+- Zaktualizowałem komponent tabeli poprzez rozszerzenie zakresu prezentowanych danych dzięki czemu obecnie system wyświetla szczegółowe statystyki z 10 ostatnich meczów zawodnika w oparciu o dane z API STATORIUM
