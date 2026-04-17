@@ -1,112 +1,33 @@
-"use server";
-
-import { StatoriumClient } from '@/lib/statorium/client';
-import { StatoriumTeamDetail, StatoriumPlayerBasic, StatoriumMatch } from '@/lib/statorium/types';
-import { geocodeCity, getCachedGeocode } from '@/lib/utils/geocoding';
-
-let clientInstance: StatoriumClient | null = null;
-
-function getStatoriumClient() {
-  if (!clientInstance) {
-    clientInstance = new StatoriumClient(process.env.STATORIUM_API_KEY || '');
-  }
-  return clientInstance;
-}
-
-function normalizeName(name: string): string {
-  return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[\u00f8\u00d8]/g, 'o').replace(/\u00df/g, 'ss').replace(/\u0131/g, 'i').replace(/\u0219/g, 's').replace(/\u021b/g, 't').replace(/[\u0107\u0106]/g, 'c').replace(/[\u017e\u017d]/g, 'z').replace(/[\u0161\u0160]/g, 's').toLowerCase().trim();
-}
-
-let _photoIdx: Map<string, string> | null = null;
-function getPhotoIdx(): Map<string, string> {
-  if (_photoIdx) return _photoIdx;
-  _photoIdx = new Map();
-  for (const [name, url] of Object.entries(ELITE_PLAYER_PHOTOS)) {
-    _photoIdx.set(normalizeName(name), url);
-  }
-  return _photoIdx;
-}
-
-const POSITION_MAP: Record<string, string> = { "1": "GK", "2": "DF", "3": "MF", "4": "FW", "Goalkeeper": "GK", "Defender": "DF", "Midfielder": "MF", "Forward": "FW", "Attacker": "FW", "Atacker": "FW", "Atacante": "FW", "Defensa": "DF", "Centrocampista": "MF" };
-const POSITION_OVERRIDE: Record<string, string> = { "14633": "CAM", "12101": "CAM", "6466": "CM", "93": "CM", "2773": "CDM", "26718": "CDM", "53041": "RW", "5597": "CAM", "1352": "CAM", "1812": "ST", "1994": "FW", "4812": "ST" };
-
-function resolvePosition(raw: any, playerId?: string): string {
-  if (playerId && POSITION_OVERRIDE[playerId]) return POSITION_OVERRIDE[playerId];
-  if (!raw) return "N/A";
-  const str = String(raw).trim();
-  if (POSITION_MAP[str]) return POSITION_MAP[str];
-  if (str.length <= 3 && /[A-Z]{2,3}/.test(str)) return str;
-  return str;
-}
-
-function resolvePlayerPhoto(p: any): string {
-  if (!p) return "";
-  const name = (p.fullName || `${p.firstName} ${p.lastName}` || '').trim();
-  if (name && ELITE_PLAYER_PHOTOS[name]) return ELITE_PLAYER_PHOTOS[name];
-  const idx = getPhotoIdx();
-  const nl = normalizeName(name);
-  if (idx.has(nl)) return idx.get(nl)!;
-  let photo = p.playerPhoto || p.photo;
-  if (photo && !photo.startsWith('http')) {
-    const cleanPath = photo.startsWith('/') ? photo : `/` + photo;
-    if (!cleanPath.startsWith('/media/bearleague/')) {
-        photo = `https://api.statorium.com/media/bearleague` + cleanPath;
-    } else {
-        photo = `https://api.statorium.com` + cleanPath;
-    }
-  }
-  return photo || `https://api.statorium.com/media/bearleague/bl` + (p.playerID || p.id) + `.webp`;
-}
-
-
-const COACH_MAP: Record<string, string> = {
-  "9": "Mikel Arteta", // Arsenal
-  "12": "Pep Guardiola", // Man City
-  "3": "Arne Slot", // Liverpool
-  "7": "Ruben Amorim", // Man Utd
-  "1": "Enzo Maresca", // Chelsea
-  "5": "Ange Postecoglou", // Tottenham
-  "53": "Carlo Ancelotti", // Real Madrid
-  "64": "Hansi Flick", // Barcelona
-  "147": "Vincent Kompany", // Bayern Munich
-  "163": "Xabi Alonso", // Leverkusen
-  "182": "Luis Enrique", // PSG
-  "223": "Simone Inzaghi", // Inter Milan
-  "221": "Antonio Conte", // Napoli
-  "234": "Thiago Motta", // Juventus
-  "241": "Paulo Fonseca", // AC Milan
-};
-
-const ELITE_PLAYER_PHOTOS: Record<string, string> = {
+﻿const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Declan Rice": "https://api.statorium.com/media/bearleague/bl17314097271237.webp",
   "Gabriel Jesus": "https://api.statorium.com/media/bearleague/bl1731412222969.webp",
   "Kepa Arrizabalaga": "https://api.statorium.com/media/bearleague/bl17339093812192.webp",
   "Bukayo Saka": "https://api.statorium.com/media/bearleague/bl1731409249710.webp",
-  "Viktor Gyökeres": "https://api.statorium.com/media/bearleague/bl175093180259.webp",
+  "Viktor Gy├Âkeres": "https://api.statorium.com/media/bearleague/bl175093180259.webp",
   "Ben White": "https://api.statorium.com/media/bearleague/bl1731405812826.webp",
   "Mikel Merino": "https://api.statorium.com/media/bearleague/bl17314811801887.webp",
   "Kai Havertz": "https://api.statorium.com/media/bearleague/bl1731433323375.webp",
   "William Saliba": "https://api.statorium.com/media/bearleague/bl17314853342861.webp",
-  "Gabriel Magalhães": "https://api.statorium.com/media/bearleague/bl1731411885776.webp",
-  "Christian Nörgaard": "https://api.statorium.com/media/bearleague/bl1733918017185.webp",
-  "Martín Zubimendi": "https://api.statorium.com/media/bearleague/bl1558342677833.webp",
+  "Gabriel Magalh├úes": "https://api.statorium.com/media/bearleague/bl1731411885776.webp",
+  "Christian N├Ârgaard": "https://api.statorium.com/media/bearleague/bl1733918017185.webp",
+  "Mart├şn Zubimendi": "https://api.statorium.com/media/bearleague/bl1558342677833.webp",
   "Gabriel Martinelli": "https://api.statorium.com/media/bearleague/bl173141244695.webp",
   "Leandro Trossard": "https://api.statorium.com/media/bearleague/bl17314338481165.webp",
-  "Martin Ødegaard": "https://api.statorium.com/media/bearleague/bl17314341782392.webp",
+  "Martin ├śdegaard": "https://api.statorium.com/media/bearleague/bl17314341782392.webp",
   "David Raya": "https://api.statorium.com/media/bearleague/bl17314094482455.webp",
   "Eberechi Eze": "https://api.statorium.com/media/bearleague/bl17343496111496.webp",
   "Riccardo Calafiori": "https://api.statorium.com/media/bearleague/bl1731483407803.webp",
   "Jurrien Timber": "https://api.statorium.com/media/bearleague/bl17314327821738.webp",
   "Noni Madueke": "https://api.statorium.com/media/bearleague/bl1731349535988.webp",
-  "Piero Hincapié": "https://api.statorium.com/media/bearleague/bl1624038474719.webp",
+  "Piero Hincapi├ę": "https://api.statorium.com/media/bearleague/bl1624038474719.webp",
   "Myles Lewis-Skelly": "https://api.statorium.com/media/bearleague/bl1731481518139.webp",
-  "Sávio": "https://api.statorium.com/media/bearleague/bl17313225502698.webp",
+  "S├ívio": "https://api.statorium.com/media/bearleague/bl17313225502698.webp",
   "Marcus Bettinelli": "https://api.statorium.com/media/bearleague/bl17313530792539.webp",
-  "Rúben Dias": "https://api.statorium.com/media/bearleague/bl17313223351284.webp",
+  "R├║ben Dias": "https://api.statorium.com/media/bearleague/bl17313223351284.webp",
   "John Stones": "https://api.statorium.com/media/bearleague/bl17313203471002.webp",
-  "Nathan Aké": "https://api.statorium.com/media/bearleague/bl17313214492557.webp",
+  "Nathan Ak├ę": "https://api.statorium.com/media/bearleague/bl17313214492557.webp",
   "Josko Gvardiol": "https://api.statorium.com/media/bearleague/bl1731320906678.webp",
-  "Rayan Aït-Nouri": "https://api.statorium.com/media/bearleague/bl1564750260728.webp",
+  "Rayan A├»t-Nouri": "https://api.statorium.com/media/bearleague/bl1564750260728.webp",
   "Rico Lewis": "https://api.statorium.com/media/bearleague/bl17313221852849.webp",
   "Rodri": "https://api.statorium.com/media/bearleague/bl17313222591092.webp",
   "Tijjani Reijnders": "https://api.statorium.com/media/bearleague/bl1568896292376.webp",
@@ -114,7 +35,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Mateo Kovacic": "https://api.statorium.com/media/bearleague/bl17313212982967.webp",
   "Bernardo Silva": "https://api.statorium.com/media/bearleague/bl1702332660845.webp",
   "Nico O'Reilly": "https://api.statorium.com/media/bearleague/bl17313215682023.webp",
-  "Jérémy Doku": "https://api.statorium.com/media/bearleague/bl1731320103231.webp",
+  "J├ęr├ęmy Doku": "https://api.statorium.com/media/bearleague/bl1731320103231.webp",
   "Jack Grealish": "https://api.statorium.com/media/bearleague/bl173131864239.webp",
   "Phil Foden": "https://api.statorium.com/media/bearleague/bl17313219211110.webp",
   "Rayan Cherki": "https://api.statorium.com/media/bearleague/bl17448111032715.webp",
@@ -127,7 +48,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Altay Bayindir": "https://api.statorium.com/media/bearleague/bl17340399532128.webp",
   "Tom Heaton": "https://api.statorium.com/media/bearleague/bl17340482382153.webp",
   "Leny Yoro": "https://api.statorium.com/media/bearleague/bl17340464341377.webp",
-  "Lisandro Martínez": "https://api.statorium.com/media/bearleague/bl1734046678103.webp",
+  "Lisandro Mart├şnez": "https://api.statorium.com/media/bearleague/bl1734046678103.webp",
   "Matthijs de Ligt": "https://api.statorium.com/media/bearleague/bl17340473841030.webp",
   "Harry Maguire": "https://api.statorium.com/media/bearleague/bl17340447532590.webp",
   "Ayden Heaven": "https://api.statorium.com/media/bearleague/bl17314015032065.webp",
@@ -149,17 +70,17 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Godwill Kukonki": "https://api.statorium.com/media/bearleague/bl17340439771269.webp",
   "Harvey Elliott": "https://api.statorium.com/media/bearleague/bl17313139511232.webp",
   "Lucas Digne": "https://api.statorium.com/media/bearleague/bl1733719169740.webp",
-  "Victor Lindelöf": "https://api.statorium.com/media/bearleague/bl17340487702295.webp",
+  "Victor Lindel├Âf": "https://api.statorium.com/media/bearleague/bl17340487702295.webp",
   "Ross Barkley": "https://api.statorium.com/media/bearleague/bl17337203052745.webp",
   "Youri Tielemans": "https://api.statorium.com/media/bearleague/bl17337211231719.webp",
   "Tyrone Mings": "https://api.statorium.com/media/bearleague/bl17337209532271.webp",
-  "Emiliano Martínez": "https://api.statorium.com/media/bearleague/bl17337169452591.webp",
+  "Emiliano Mart├şnez": "https://api.statorium.com/media/bearleague/bl17337169452591.webp",
   "Douglas Luiz": "https://api.statorium.com/media/bearleague/bl1715101431310.webp",
   "Jadon Sancho": "https://api.statorium.com/media/bearleague/bl17340450691378.webp",
   "Boubacar Kamara": "https://api.statorium.com/media/bearleague/bl1733716854176.webp",
   "Ezri Konsa": "https://api.statorium.com/media/bearleague/bl17337172042145.webp",
   "John McGinn": "https://api.statorium.com/media/bearleague/bl1733718306159.webp",
-  "Emiliano Buendía": "https://api.statorium.com/media/bearleague/bl17337171322599.webp",
+  "Emiliano Buend├şa": "https://api.statorium.com/media/bearleague/bl17337171322599.webp",
   "Tammy Abraham": "https://api.statorium.com/media/bearleague/bl1565801930348.webp",
   "Pau Torres": "https://api.statorium.com/media/bearleague/bl17337201611675.webp",
   "Marco Bizot": "https://api.statorium.com/media/bearleague/bl1622970837463.webp",
@@ -175,7 +96,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Rhys Williams": "https://api.statorium.com/media/bearleague/bl1736188028226.webp",
   "Alisson": "https://api.statorium.com/media/bearleague/bl17313096432213.webp",
   "Freddie Woodman": "https://api.statorium.com/media/bearleague/bl15554883111035.webp",
-  "Ibrahima Konaté": "https://api.statorium.com/media/bearleague/bl1731314112463.webp",
+  "Ibrahima Konat├ę": "https://api.statorium.com/media/bearleague/bl1731314112463.webp",
   "Virgil van Dijk": "https://api.statorium.com/media/bearleague/bl17313154761133.webp",
   "Joe Gomez": "https://api.statorium.com/media/bearleague/bl173131442069.webp",
   "Milos Kerkez": "https://api.statorium.com/media/bearleague/bl1733910707461.webp",
@@ -195,29 +116,29 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Cody Gakpo": "https://api.statorium.com/media/bearleague/bl17313114281068.webp",
   "Mohamed Salah": "https://api.statorium.com/media/bearleague/bl1695385631451.webp",
   "Federico Chiesa": "https://api.statorium.com/media/bearleague/bl16953868311322.webp",
-  "Darwin Núñez": "https://api.statorium.com/media/bearleague/bl17313126401352.webp",
+  "Darwin N├║├▒ez": "https://api.statorium.com/media/bearleague/bl17313126401352.webp",
   "Rio Ngumoha": "https://api.statorium.com/media/bearleague/bl17613788511312.webp",
   "Alexander Isak": "https://api.statorium.com/media/bearleague/bl17340327692955.webp",
   "James McConnell": "https://api.statorium.com/media/bearleague/bl1736187262261.webp",
   "Amara Nallo": "https://api.statorium.com/media/bearleague/bl17343401771318.webp",
   "Harvey Davies": "https://api.statorium.com/media/bearleague/bl1731566991668.webp",
-  "Estevão": "https://api.statorium.com/media/bearleague/bl17613785002158.webp",
-  "João Pedro": "https://api.statorium.com/media/bearleague/bl17337465872833.webp",
-  "Robert Sánchez": "https://api.statorium.com/media/bearleague/bl17313541021292.webp",
-  "Filip Jörgensen": "https://api.statorium.com/media/bearleague/bl1731351442748.webp",
+  "Estev├úo": "https://api.statorium.com/media/bearleague/bl17613785002158.webp",
+  "Jo├úo Pedro": "https://api.statorium.com/media/bearleague/bl17337465872833.webp",
+  "Robert S├ínchez": "https://api.statorium.com/media/bearleague/bl17313541021292.webp",
+  "Filip J├Ârgensen": "https://api.statorium.com/media/bearleague/bl1731351442748.webp",
   "Gabriel Slonina": "https://api.statorium.com/media/bearleague/bl15839542832880.webp",
   "Levi Colwill": "https://api.statorium.com/media/bearleague/bl17313524002043.webp",
   "Trevoh Chalobah": "https://api.statorium.com/media/bearleague/bl17343786931176.webp",
   "Wesley Fofana": "https://api.statorium.com/media/bearleague/bl17313546811229.webp",
-  "Benoît Badiashile": "https://api.statorium.com/media/bearleague/bl17313482381809.webp",
+  "Beno├«t Badiashile": "https://api.statorium.com/media/bearleague/bl17313482381809.webp",
   "Tosin Adarabioyo": "https://api.statorium.com/media/bearleague/bl17313469802526.webp",
   "Marc Cucurella": "https://api.statorium.com/media/bearleague/bl17313528542819.webp",
   "Malo Gusto": "https://api.statorium.com/media/bearleague/bl17313527362961.webp",
   "Reece James": "https://api.statorium.com/media/bearleague/bl17313539001272.webp",
   "Josh Acheampong": "https://api.statorium.com/media/bearleague/bl17343406412500.webp",
-  "Moisés Caicedo": "https://api.statorium.com/media/bearleague/bl17313531771735.webp",
-  "Roméo Lavia": "https://api.statorium.com/media/bearleague/bl17313543512757.webp",
-  "Enzo Fernández": "https://api.statorium.com/media/bearleague/bl17313509791689.webp",
+  "Mois├ęs Caicedo": "https://api.statorium.com/media/bearleague/bl17313531771735.webp",
+  "Rom├ęo Lavia": "https://api.statorium.com/media/bearleague/bl17313543512757.webp",
+  "Enzo Fern├índez": "https://api.statorium.com/media/bearleague/bl17313509791689.webp",
   "Kiernan Dewsbury-Hall": "https://api.statorium.com/media/bearleague/bl17313521001120.webp",
   "Cole Palmer": "https://api.statorium.com/media/bearleague/bl173134969293.webp",
   "Omari Kellyman": "https://api.statorium.com/media/bearleague/bl17313535471558.webp",
@@ -229,7 +150,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Marc Guiu": "https://api.statorium.com/media/bearleague/bl1731352995894.webp",
   "Teddy Sharman-Lowe": "https://api.statorium.com/media/bearleague/bl15803150041504.webp",
   "Caoimhin Kelleher": "https://api.statorium.com/media/bearleague/bl17313110011800.webp",
-  "Hákon Valdimarsson": "https://api.statorium.com/media/bearleague/bl17339466071357.webp",
+  "H├íkon Valdimarsson": "https://api.statorium.com/media/bearleague/bl17339466071357.webp",
   "Ellery Balcombe": "https://api.statorium.com/media/bearleague/bl16435466781721.webp",
   "Nathan Collins": "https://api.statorium.com/media/bearleague/bl17339519881033.webp",
   "Sepp van den Berg": "https://api.statorium.com/media/bearleague/bl17339527502434.webp",
@@ -276,32 +197,32 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Lewis Dunk": "https://api.statorium.com/media/bearleague/bl17337794532411.webp",
   "Ferdi Kadioglu": "https://api.statorium.com/media/bearleague/bl1733737071449.webp",
   "Maxim De Cuyper": "https://api.statorium.com/media/bearleague/bl17613012401501.webp",
-  "Joël Veltman": "https://api.statorium.com/media/bearleague/bl17337788282325.webp",
+  "Jo├źl Veltman": "https://api.statorium.com/media/bearleague/bl17337788282325.webp",
   "Carlos Baleba": "https://api.statorium.com/media/bearleague/bl1733732919387.webp",
   "Mats Wieffer": "https://api.statorium.com/media/bearleague/bl17337811861077.webp",
   "Jack Hinshelwood": "https://api.statorium.com/media/bearleague/bl173373849251.webp",
   "Yasin Ayari": "https://api.statorium.com/media/bearleague/bl1733783984394.webp",
-  "Malick Yalcouyé": "https://api.statorium.com/media/bearleague/bl17337805901283.webp",
-  "Diego Gómez": "https://api.statorium.com/media/bearleague/bl17361957882763.webp",
+  "Malick Yalcouy├ę": "https://api.statorium.com/media/bearleague/bl17337805901283.webp",
+  "Diego G├│mez": "https://api.statorium.com/media/bearleague/bl17361957882763.webp",
   "James Milner": "https://api.statorium.com/media/bearleague/bl1733744716791.webp",
   "Kaoru Mitoma": "https://api.statorium.com/media/bearleague/bl1733779384962.webp",
   "Yankuba Minteh": "https://api.statorium.com/media/bearleague/bl1733783824996.webp",
   "Solly March": "https://api.statorium.com/media/bearleague/bl17337828072536.webp",
   "Georginio Rutter": "https://api.statorium.com/media/bearleague/bl17337372761585.webp",
   "Danny Welbeck": "https://api.statorium.com/media/bearleague/bl17337332401520.webp",
-  "Pascal Groß": "https://api.statorium.com/media/bearleague/bl1715101315953.webp",
+  "Pascal Gro├č": "https://api.statorium.com/media/bearleague/bl1715101315953.webp",
   "Simon Moore": "https://api.statorium.com/media/bearleague/bl15652792522096.webp",
   "Dan Ballard": "https://api.statorium.com/media/bearleague/bl16299875291039.webp",
   "Reinildo Mandava": "https://api.statorium.com/media/bearleague/bl1613380899993.webp",
   "Granit Xhaka": "https://api.statorium.com/media/bearleague/bl1619195401293.webp",
-  "Enzo Le Fée": "https://api.statorium.com/media/bearleague/bl15968992561302.webp",
+  "Enzo Le F├ęe": "https://api.statorium.com/media/bearleague/bl15968992561302.webp",
   "Eliezer Mayenda": "https://api.statorium.com/media/bearleague/bl176133100018.webp",
   "Wilson Isidor": "https://api.statorium.com/media/bearleague/bl1564835975587.webp",
   "Omar Alderete": "https://api.statorium.com/media/bearleague/bl16241144411557.webp",
   "Nordi Mukiele": "https://api.statorium.com/media/bearleague/bl1559663000367.webp",
   "Lutsharel Geertruida": "https://api.statorium.com/media/bearleague/bl15689156621147.webp",
   "Brian Brobbey": "https://api.statorium.com/media/bearleague/bl1719323860221.webp",
-  "Bertrand Traoré": "https://api.statorium.com/media/bearleague/bl15652826811386.webp",
+  "Bertrand Traor├ę": "https://api.statorium.com/media/bearleague/bl15652826811386.webp",
   "Djordje Petrovic": "https://api.statorium.com/media/bearleague/bl17313508541614.webp",
   "Neto": "https://api.statorium.com/media/bearleague/bl1733910821637.webp",
   "Ilya Zabarnyi": "https://api.statorium.com/media/bearleague/bl1733908364609.webp",
@@ -315,11 +236,11 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Lewis Cook": "https://api.statorium.com/media/bearleague/bl1733909644340.webp",
   "Marcus Tavernier": "https://api.statorium.com/media/bearleague/bl17339100642856.webp",
   "Justin Kluivert": "https://api.statorium.com/media/bearleague/bl1733909240836.webp",
-  "Hamed Traorè": "https://api.statorium.com/media/bearleague/bl1733889173117.webp",
+  "Hamed Traor├Ę": "https://api.statorium.com/media/bearleague/bl1733889173117.webp",
   "David Brooks": "https://api.statorium.com/media/bearleague/bl17338873681274.webp",
   "Evanilson": "https://api.statorium.com/media/bearleague/bl17338882521426.webp",
-  "Enes Ünal": "https://api.statorium.com/media/bearleague/bl1733887936928.webp",
-  "Bafodé Diakité": "https://api.statorium.com/media/bearleague/bl1615640606301.webp",
+  "Enes ├ťnal": "https://api.statorium.com/media/bearleague/bl1733887936928.webp",
+  "Bafod├ę Diakit├ę": "https://api.statorium.com/media/bearleague/bl1615640606301.webp",
   "Remy Rees-Dottin": "https://api.statorium.com/media/bearleague/bl1736194474644.webp",
   "Amine Adli": "https://api.statorium.com/media/bearleague/bl16156398502008.webp",
   "Fraser Forster": "https://api.statorium.com/media/bearleague/bl1734006732866.webp",
@@ -342,51 +263,51 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Emile Smith Rowe": "https://api.statorium.com/media/bearleague/bl17339964212272.webp",
   "Alex Iwobi": "https://api.statorium.com/media/bearleague/bl1733995134986.webp",
   "Harry Wilson": "https://api.statorium.com/media/bearleague/bl17339970192093.webp",
-  "Adama Traoré": "https://api.statorium.com/media/bearleague/bl16358746981548.webp",
+  "Adama Traor├ę": "https://api.statorium.com/media/bearleague/bl16358746981548.webp",
   "Rodrigo Muniz": "https://api.statorium.com/media/bearleague/bl1733999126615.webp",
-  "Raúl Jiménez": "https://api.statorium.com/media/bearleague/bl17339984931821.webp",
+  "Ra├║l Jim├ęnez": "https://api.statorium.com/media/bearleague/bl17339984931821.webp",
   "Samuel Chukwueze": "https://api.statorium.com/media/bearleague/bl15584441682964.webp",
   "Sam Amissah": "https://api.statorium.com/media/bearleague/bl17339991522502.webp",
   "Oscar Bobb": "https://api.statorium.com/media/bearleague/bl17313217321444.webp",
   "Dean Henderson": "https://api.statorium.com/media/bearleague/bl1734349178570.webp",
-  "Walter Benítez": "https://api.statorium.com/media/bearleague/bl1565264114291.webp",
+  "Walter Ben├ştez": "https://api.statorium.com/media/bearleague/bl1565264114291.webp",
   "Remi Matthews": "https://api.statorium.com/media/bearleague/bl17343783122738.webp",
   "Maxence Lacroix": "https://api.statorium.com/media/bearleague/bl17343779451482.webp",
   "Chadi Riad": "https://api.statorium.com/media/bearleague/bl17343480941786.webp",
   "Chris Richards": "https://api.statorium.com/media/bearleague/bl173434836617.webp",
   "Tyrick Mitchell": "https://api.statorium.com/media/bearleague/bl17343787842352.webp",
   "Borna Sosa": "https://api.statorium.com/media/bearleague/bl15972249381573.webp",
-  "Daniel Muñoz": "https://api.statorium.com/media/bearleague/bl17343488412352.webp",
+  "Daniel Mu├▒oz": "https://api.statorium.com/media/bearleague/bl17343488412352.webp",
   "Nathaniel Clyne": "https://api.statorium.com/media/bearleague/bl1734378194891.webp",
   "Caleb Kporha": "https://api.statorium.com/media/bearleague/bl17343473662992.webp",
   "Adam Wharton": "https://api.statorium.com/media/bearleague/bl1734345966276.webp",
-  "Cheick Doucouré": "https://api.statorium.com/media/bearleague/bl17343482352738.webp",
+  "Cheick Doucour├ę": "https://api.statorium.com/media/bearleague/bl17343482352738.webp",
   "Jefferson Lerma": "https://api.statorium.com/media/bearleague/bl1734373643347.webp",
   "Will Hughes": "https://api.statorium.com/media/bearleague/bl17343789351431.webp",
   "Justin Devenny": "https://api.statorium.com/media/bearleague/bl1734375893201.webp",
   "Daichi Kamada": "https://api.statorium.com/media/bearleague/bl17343485881993.webp",
-  "Ismaïla Sarr": "https://api.statorium.com/media/bearleague/bl17343518102512.webp",
+  "Isma├»la Sarr": "https://api.statorium.com/media/bearleague/bl17343518102512.webp",
   "Malcolm Ebiowei": "https://api.statorium.com/media/bearleague/bl17361984712682.webp",
   "Jean-Philippe Mateta": "https://api.statorium.com/media/bearleague/bl169538567464.webp",
   "Eddie Nketiah": "https://api.statorium.com/media/bearleague/bl17314108281983.webp",
   "Kaden Rodney": "https://api.statorium.com/media/bearleague/bl1734376057818.webp",
-  "Yéremy Pino": "https://api.statorium.com/media/bearleague/bl16688789992687.webp",
+  "Y├ęremy Pino": "https://api.statorium.com/media/bearleague/bl16688789992687.webp",
   "Brennan Johnson": "https://api.statorium.com/media/bearleague/bl17340055181528.webp",
-  "Jörgen Strand Larsen": "https://api.statorium.com/media/bearleague/bl16299933952532.webp",
+  "J├Ârgen Strand Larsen": "https://api.statorium.com/media/bearleague/bl16299933952532.webp",
   "Jacob Murphy": "https://api.statorium.com/media/bearleague/bl1734034721323.webp",
   "Aaron Ramsdale": "https://api.statorium.com/media/bearleague/bl17314011932385.webp",
   "Nick Pope": "https://api.statorium.com/media/bearleague/bl17340378322689.webp",
   "Odysseas Vlachodimos": "https://api.statorium.com/media/bearleague/bl17340380691631.webp",
   "Mark Gillespie": "https://api.statorium.com/media/bearleague/bl17340374022504.webp",
   "Sven Botman": "https://api.statorium.com/media/bearleague/bl17340389222581.webp",
-  "Fabian Schär": "https://api.statorium.com/media/bearleague/bl17340336911742.webp",
+  "Fabian Sch├Ąr": "https://api.statorium.com/media/bearleague/bl17340336911742.webp",
   "Dan Burn": "https://api.statorium.com/media/bearleague/bl1734033483260.webp",
   "Lewis Hall": "https://api.statorium.com/media/bearleague/bl17340362192308.webp",
   "Alex Murphy": "https://api.statorium.com/media/bearleague/bl17340325861575.webp",
   "Tino Livramento": "https://api.statorium.com/media/bearleague/bl17340390532346.webp",
   "Kieran Trippier": "https://api.statorium.com/media/bearleague/bl1734035829571.webp",
   "Emil Krafth": "https://api.statorium.com/media/bearleague/bl1734033574804.webp",
-  "Bruno Guimarães": "https://api.statorium.com/media/bearleague/bl17340331571251.webp",
+  "Bruno Guimar├úes": "https://api.statorium.com/media/bearleague/bl17340331571251.webp",
   "Sandro Tonali": "https://api.statorium.com/media/bearleague/bl17340385241778.webp",
   "Joelinton": "https://api.statorium.com/media/bearleague/bl17340352272444.webp",
   "Joe Willock": "https://api.statorium.com/media/bearleague/bl17340356981776.webp",
@@ -415,7 +336,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Sean Longstaff": "https://api.statorium.com/media/bearleague/bl1734038802395.webp",
   "Brenden Aaronson": "https://api.statorium.com/media/bearleague/bl15848264431806.webp",
   "Daniel James": "https://api.statorium.com/media/bearleague/bl1619794616297.webp",
-  "Joël Piroe": "https://api.statorium.com/media/bearleague/bl1573686115781.webp",
+  "Jo├źl Piroe": "https://api.statorium.com/media/bearleague/bl1573686115781.webp",
   "Mateo Joseph": "https://api.statorium.com/media/bearleague/bl17611263072640.webp",
   "Lukas Nmecha": "https://api.statorium.com/media/bearleague/bl1590829732802.webp",
   "Joe Gelhardt": "https://api.statorium.com/media/bearleague/bl15706622802771.webp",
@@ -430,9 +351,9 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Willy Boly": "https://api.statorium.com/media/bearleague/bl1731582509754.webp",
   "Ola Aina": "https://api.statorium.com/media/bearleague/bl17315822222785.webp",
   "Neco Williams": "https://api.statorium.com/media/bearleague/bl17315812352154.webp",
-  "Ibrahim Sangaré": "https://api.statorium.com/media/bearleague/bl17315794961976.webp",
+  "Ibrahim Sangar├ę": "https://api.statorium.com/media/bearleague/bl17315794961976.webp",
   "Elliot Anderson": "https://api.statorium.com/media/bearleague/bl17315781711118.webp",
-  "Nicolás Domínguez": "https://api.statorium.com/media/bearleague/bl1731581518159.webp",
+  "Nicol├ís Dom├şnguez": "https://api.statorium.com/media/bearleague/bl1731581518159.webp",
   "Ryan Yates": "https://api.statorium.com/media/bearleague/bl17315820092605.webp",
   "Morgan Gibbs-White": "https://api.statorium.com/media/bearleague/bl17315806542.webp",
   "Callum Hudson-Odoi": "https://api.statorium.com/media/bearleague/bl1731568310965.webp",
@@ -470,14 +391,14 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Brandon Austin": "https://api.statorium.com/media/bearleague/bl17340052101601.webp",
   "Cristian Romero": "https://api.statorium.com/media/bearleague/bl17340059012216.webp",
   "Micky van de Ven": "https://api.statorium.com/media/bearleague/bl17340105421078.webp",
-  "Radu Drăgușin": "https://api.statorium.com/media/bearleague/bl17340112892931.webp",
+  "Radu Dr─âgu╚Öin": "https://api.statorium.com/media/bearleague/bl17340112892931.webp",
   "Kevin Danso": "https://api.statorium.com/media/bearleague/bl15589616212580.webp",
   "Ben Davies": "https://api.statorium.com/media/bearleague/bl17340049911266.webp",
   "Destiny Udogie": "https://api.statorium.com/media/bearleague/bl17340088232081.webp",
   "Djed Spence": "https://api.statorium.com/media/bearleague/bl17340064311010.webp",
   "Pedro Porro": "https://api.statorium.com/media/bearleague/bl1734011187442.webp",
   "Archie Gray": "https://api.statorium.com/media/bearleague/bl1734004618992.webp",
-  "João Palhinha": "https://api.statorium.com/media/bearleague/bl17151013721421.webp",
+  "Jo├úo Palhinha": "https://api.statorium.com/media/bearleague/bl17151013721421.webp",
   "Rodrigo Bentancur": "https://api.statorium.com/media/bearleague/bl1734011584840.webp",
   "Yves Bissouma": "https://api.statorium.com/media/bearleague/bl17340123121499.webp",
   "Lucas Bergvall": "https://api.statorium.com/media/bearleague/bl17340100401297.webp",
@@ -494,10 +415,10 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Xavi Simons": "https://api.statorium.com/media/bearleague/bl17406552261045.webp",
   "Randal Kolo Muani": "https://api.statorium.com/media/bearleague/bl15650973141858.webp",
   "Callum Olusesi": "https://api.statorium.com/media/bearleague/bl17340058001925.webp",
-  "Lucá Williams-Barnett": "https://api.statorium.com/media/bearleague/bl17340098511876.webp",
+  "Luc├í Williams-Barnett": "https://api.statorium.com/media/bearleague/bl17340098511876.webp",
   "Conor Gallagher": "https://api.statorium.com/media/bearleague/bl17313499292918.webp",
   "Lesley Ugochukwu": "https://api.statorium.com/media/bearleague/bl17313522931664.webp",
-  "Martin Dúbravka": "https://api.statorium.com/media/bearleague/bl1734037521492.webp",
+  "Martin D├║bravka": "https://api.statorium.com/media/bearleague/bl1734037521492.webp",
   "Jordan Beyer": "https://api.statorium.com/media/bearleague/bl15591300492544.webp",
   "Joe Worrall": "https://api.statorium.com/media/bearleague/bl1731580119780.webp",
   "Bashir Humphreys": "https://api.statorium.com/media/bearleague/bl17313479271625.webp",
@@ -510,7 +431,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Hannibal": "https://api.statorium.com/media/bearleague/bl17340442501645.webp",
   "Jaidon Anthony": "https://api.statorium.com/media/bearleague/bl17339087102669.webp",
   "Jacob Bruun Larsen": "https://api.statorium.com/media/bearleague/bl15590512032149.webp",
-  "Mike Trésor": "https://api.statorium.com/media/bearleague/bl1573740879783.webp",
+  "Mike Tr├ęsor": "https://api.statorium.com/media/bearleague/bl1573740879783.webp",
   "Marcus Edwards": "https://api.statorium.com/media/bearleague/bl15686684701281.webp",
   "Loum Tchaouna": "https://api.statorium.com/media/bearleague/bl1761319798681.webp",
   "Zian Flemming": "https://api.statorium.com/media/bearleague/bl1573499410267.webp",
@@ -519,17 +440,17 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Florentino": "https://api.statorium.com/media/bearleague/bl15673734741611.webp",
   "James Ward-Prowse": "https://api.statorium.com/media/bearleague/bl1734085274945.webp",
   "Toti": "https://api.statorium.com/media/bearleague/bl1736209993548.webp",
-  "André": "https://api.statorium.com/media/bearleague/bl17361994021147.webp",
-  "José Sá": "https://api.statorium.com/media/bearleague/bl16195490961125.webp",
+  "Andr├ę": "https://api.statorium.com/media/bearleague/bl17361994021147.webp",
+  "Jos├ę S├í": "https://api.statorium.com/media/bearleague/bl16195490961125.webp",
   "Sam Johnstone": "https://api.statorium.com/media/bearleague/bl17343785531083.webp",
   "Daniel Bentley": "https://api.statorium.com/media/bearleague/bl15693264312688.webp",
   "Santiago Bueno": "https://api.statorium.com/media/bearleague/bl15761954882629.webp",
   "Yerson Mosquera": "https://api.statorium.com/media/bearleague/bl17362103962626.webp",
   "Matt Doherty": "https://api.statorium.com/media/bearleague/bl15560180942526.webp",
-  "João Gomes": "https://api.statorium.com/media/bearleague/bl17362022881702.webp",
+  "Jo├úo Gomes": "https://api.statorium.com/media/bearleague/bl17362022881702.webp",
   "Jean-Ricner Bellegarde": "https://api.statorium.com/media/bearleague/bl15661561212796.webp",
   "Rodrigo Gomes": "https://api.statorium.com/media/bearleague/bl17362092211730.webp",
-  "Enso González": "https://api.statorium.com/media/bearleague/bl17362004221804.webp",
+  "Enso Gonz├ílez": "https://api.statorium.com/media/bearleague/bl17362004221804.webp",
   "Hee-chan Hwang": "https://api.statorium.com/media/bearleague/bl15672777371484.webp",
   "Nathan Fraser": "https://api.statorium.com/media/bearleague/bl17362080882190.webp",
   "Ladislav Krejci": "https://api.statorium.com/media/bearleague/bl1635269278343.webp",
@@ -537,53 +458,53 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Angel Gomes": "https://api.statorium.com/media/bearleague/bl15548810821020.webp",
   "Tom Edozie": "https://api.statorium.com/media/bearleague/bl17362096992252.webp",
   "Wojciech Szczesny": "https://api.statorium.com/media/bearleague/bl1618425782599.webp",
-  "Ronald Araújo": "https://api.statorium.com/media/bearleague/bl1624102264465.webp",
-  "Eric García": "https://api.statorium.com/media/bearleague/bl15547316192910.webp",
+  "Ronald Ara├║jo": "https://api.statorium.com/media/bearleague/bl1624102264465.webp",
+  "Eric Garc├şa": "https://api.statorium.com/media/bearleague/bl15547316192910.webp",
   "Andreas Christensen": "https://api.statorium.com/media/bearleague/bl16197955212702.webp",
-  "Iñigo Martínez": "https://api.statorium.com/media/bearleague/bl16196352051960.webp",
+  "I├▒igo Mart├şnez": "https://api.statorium.com/media/bearleague/bl16196352051960.webp",
   "Alejandro Balde": "https://api.statorium.com/media/bearleague/bl1669208312239.webp",
   "Gerard Martin": "https://api.statorium.com/media/bearleague/bl16431229911273.webp",
-  "Jules Koundé": "https://api.statorium.com/media/bearleague/bl15650010022540.webp",
+  "Jules Kound├ę": "https://api.statorium.com/media/bearleague/bl15650010022540.webp",
   "Pedri": "https://api.statorium.com/media/bearleague/bl1619642571861.webp",
   "Gavi": "https://api.statorium.com/media/bearleague/bl16689390682016.webp",
   "Frenkie de Jong": "https://api.statorium.com/media/bearleague/bl1619804895584.webp",
   "Dani Olmo": "https://api.statorium.com/media/bearleague/bl1619636123261.webp",
-  "Fermín López": "https://api.statorium.com/media/bearleague/bl17611258051596.webp",
+  "Ferm├şn L├│pez": "https://api.statorium.com/media/bearleague/bl17611258051596.webp",
   "Raphinha": "https://api.statorium.com/media/bearleague/bl17448101802085.webp",
   "Marcus Rashford": "https://api.statorium.com/media/bearleague/bl17340470261326.webp",
   "Lamine Yamal": "https://api.statorium.com/media/bearleague/bl17322791692175.webp",
   "Ferran Torres": "https://api.statorium.com/media/bearleague/bl1619637023999.webp",
   "Robert Lewandowski": "https://api.statorium.com/media/bearleague/bl16958917002070.webp",
-  "João Cancelo": "https://api.statorium.com/media/bearleague/bl16194701982429.webp",
+  "Jo├úo Cancelo": "https://api.statorium.com/media/bearleague/bl16194701982429.webp",
   "Trent Alexander-Arnold": "https://api.statorium.com/media/bearleague/bl1731315251976.webp",
-  "Antonio Rüdiger": "https://api.statorium.com/media/bearleague/bl17023164562230.webp",
+  "Antonio R├╝diger": "https://api.statorium.com/media/bearleague/bl17023164562230.webp",
   "Andriy Lunin": "https://api.statorium.com/media/bearleague/bl15579288551338.webp",
   "Daniel Carvajal": "https://api.statorium.com/media/bearleague/bl15675084772218.webp",
   "Dani Ceballos": "https://api.statorium.com/media/bearleague/bl15580941262357.webp",
-  "Vinícius Júnior": "https://api.statorium.com/media/bearleague/bl16236093262534.webp",
+  "Vin├şcius J├║nior": "https://api.statorium.com/media/bearleague/bl16236093262534.webp",
   "Thibaut Courtois": "https://api.statorium.com/media/bearleague/bl1618319659539.webp",
   "Federico Valverde": "https://api.statorium.com/media/bearleague/bl1624105777932.webp",
-  "Fran García": "https://api.statorium.com/media/bearleague/bl1558097021983.webp",
-  "Brahim Díaz": "https://api.statorium.com/media/bearleague/bl1558094150680.webp",
+  "Fran Garc├şa": "https://api.statorium.com/media/bearleague/bl1558097021983.webp",
+  "Brahim D├şaz": "https://api.statorium.com/media/bearleague/bl1558094150680.webp",
   "David Alaba": "https://api.statorium.com/media/bearleague/bl15959415571986.webp",
   "Ferland Mendy": "https://api.statorium.com/media/bearleague/bl15652692441546.webp",
-  "Kylian Mbappé": "https://api.statorium.com/media/bearleague/bl17023015741660.webp",
+  "Kylian Mbapp├ę": "https://api.statorium.com/media/bearleague/bl17023015741660.webp",
   "Eduardo Camavinga": "https://api.statorium.com/media/bearleague/bl15633848502398.webp",
-  "Aurélien Tchouaméni": "https://api.statorium.com/media/bearleague/bl15650224721859.webp",
-  "Éder Militão": "https://api.statorium.com/media/bearleague/bl16236022691496.webp",
+  "Aur├ęlien Tchouam├ęni": "https://api.statorium.com/media/bearleague/bl15650224721859.webp",
+  "├ëder Milit├úo": "https://api.statorium.com/media/bearleague/bl16236022691496.webp",
   "Rodrygo": "https://api.statorium.com/media/bearleague/bl15659798311185.webp",
   "Jude Bellingham": "https://api.statorium.com/media/bearleague/bl1695891720352.webp",
   "Reinier": "https://api.statorium.com/media/bearleague/bl1571741451187.webp",
-  "Arda Güler": "https://api.statorium.com/media/bearleague/bl1761048620732.webp",
+  "Arda G├╝ler": "https://api.statorium.com/media/bearleague/bl1761048620732.webp",
   "Dean Huijsen": "https://api.statorium.com/media/bearleague/bl17338877362764.webp",
   "Juan Foyth": "https://api.statorium.com/media/bearleague/bl15548960232273.webp",
-  "Ayoze Pérez": "https://api.statorium.com/media/bearleague/bl15554096631836.webp",
+  "Ayoze P├ęrez": "https://api.statorium.com/media/bearleague/bl15554096631836.webp",
   "Dani Parejo": "https://api.statorium.com/media/bearleague/bl15584288071865.webp",
-  "Santi Comesaña": "https://api.statorium.com/media/bearleague/bl1574678769755.webp",
+  "Santi Comesa├▒a": "https://api.statorium.com/media/bearleague/bl1574678769755.webp",
   "Alfonso Pedraza": "https://api.statorium.com/media/bearleague/bl1558437106586.webp",
   "Gerard Moreno": "https://api.statorium.com/media/bearleague/bl16196408592791.webp",
   "Thomas Partey": "https://api.statorium.com/media/bearleague/bl17314840632235.webp",
-  "Nicolas Pépé": "https://api.statorium.com/media/bearleague/bl16351885482488.webp",
+  "Nicolas P├ęp├ę": "https://api.statorium.com/media/bearleague/bl16351885482488.webp",
   "Arnaut Danjuma": "https://api.statorium.com/media/bearleague/bl15657737291575.webp",
   "Georges Mikautadze": "https://api.statorium.com/media/bearleague/bl1719310686719.webp",
   "Tajon Buchanan": "https://api.statorium.com/media/bearleague/bl15847090692506.webp",
@@ -592,27 +513,27 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Renato Veiga": "https://api.statorium.com/media/bearleague/bl17313540321615.webp",
   "Karl Etta Eyong": "https://api.statorium.com/media/bearleague/bl17610460801787.webp",
   "Ademola Lookman": "https://api.statorium.com/media/bearleague/bl17448091622752.webp",
-  "Alexander Sörloth": "https://api.statorium.com/media/bearleague/bl1744893296598.webp",
-  "Clément Lenglet": "https://api.statorium.com/media/bearleague/bl1618408399261.webp",
+  "Alexander S├Ârloth": "https://api.statorium.com/media/bearleague/bl1744893296598.webp",
+  "Cl├ęment Lenglet": "https://api.statorium.com/media/bearleague/bl1618408399261.webp",
   "Robin Le Normand": "https://api.statorium.com/media/bearleague/bl17509318122331.webp",
   "Marcos Llorente": "https://api.statorium.com/media/bearleague/bl1619637846375.webp",
   "Jan Oblak": "https://api.statorium.com/media/bearleague/bl15566171152794.webp",
-  "José María Giménez": "https://api.statorium.com/media/bearleague/bl16241018331258.webp",
+  "Jos├ę Mar├şa Gim├ęnez": "https://api.statorium.com/media/bearleague/bl16241018331258.webp",
   "Koke": "https://api.statorium.com/media/bearleague/bl16196338552112.webp",
   "Antoine Griezmann": "https://api.statorium.com/media/bearleague/bl17023021462671.webp",
-  "Nico González": "https://api.statorium.com/media/bearleague/bl1623594680319.webp",
+  "Nico Gonz├ílez": "https://api.statorium.com/media/bearleague/bl1623594680319.webp",
   "David Hancko": "https://api.statorium.com/media/bearleague/bl16196335092598.webp",
   "Juan Musso": "https://api.statorium.com/media/bearleague/bl16235910611238.webp",
   "Johnny Cardoso": "https://api.statorium.com/media/bearleague/bl15892007702111.webp",
   "Nahuel Molina": "https://api.statorium.com/media/bearleague/bl162359276017.webp",
-  "Julián Álvarez": "https://api.statorium.com/media/bearleague/bl17023018651583.webp",
-  "Álex Baena": "https://api.statorium.com/media/bearleague/bl17189709832542.webp",
+  "Juli├ín ├ülvarez": "https://api.statorium.com/media/bearleague/bl17023018651583.webp",
+  "├ülex Baena": "https://api.statorium.com/media/bearleague/bl17189709832542.webp",
   "Thiago Almada": "https://api.statorium.com/media/bearleague/bl16958906942828.webp",
-  "Adrián": "https://api.statorium.com/media/bearleague/bl1554374839440.webp",
-  "Héctor Bellerín": "https://api.statorium.com/media/bearleague/bl1553612459226.webp",
-  "Chimy Ávila": "https://api.statorium.com/media/bearleague/bl15579207862264.webp",
-  "Cucho Hernández": "https://api.statorium.com/media/bearleague/bl17023310541532.webp",
-  "Pau López": "https://api.statorium.com/media/bearleague/bl1558089711174.webp",
+  "Adri├ín": "https://api.statorium.com/media/bearleague/bl1554374839440.webp",
+  "H├ęctor Beller├şn": "https://api.statorium.com/media/bearleague/bl1553612459226.webp",
+  "Chimy ├üvila": "https://api.statorium.com/media/bearleague/bl15579207862264.webp",
+  "Cucho Hern├índez": "https://api.statorium.com/media/bearleague/bl17023310541532.webp",
+  "Pau L├│pez": "https://api.statorium.com/media/bearleague/bl1558089711174.webp",
   "Marc Bartra": "https://api.statorium.com/media/bearleague/bl15580897152974.webp",
   "Junior Firpo": "https://api.statorium.com/media/bearleague/bl1558086877834.webp",
   "Giovani Lo Celso": "https://api.statorium.com/media/bearleague/bl1734006882645.webp",
@@ -620,138 +541,138 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Borja Iglesias": "https://api.statorium.com/media/bearleague/bl155774799570.webp",
   "Diego Llorente": "https://api.statorium.com/media/bearleague/bl16951437062649.webp",
   "Isco": "https://api.statorium.com/media/bearleague/bl15580970181335.webp",
-  "Álvaro Fidalgo": "https://api.statorium.com/media/bearleague/bl15580941601098.webp",
+  "├ülvaro Fidalgo": "https://api.statorium.com/media/bearleague/bl15580941601098.webp",
   "Pablo Fornals": "https://api.statorium.com/media/bearleague/bl15584441722371.webp",
   "Romain Perraud": "https://api.statorium.com/media/bearleague/bl15652637831913.webp",
-  "Ricardo Rodríguez": "https://api.statorium.com/media/bearleague/bl16228156271407.webp",
+  "Ricardo Rodr├şguez": "https://api.statorium.com/media/bearleague/bl16228156271407.webp",
   "Aitor Ruibal": "https://api.statorium.com/media/bearleague/bl15659485821340.webp",
   "Sofyan Amrabat": "https://api.statorium.com/media/bearleague/bl16689554012723.webp",
   "Rodrigo Riquelme": "https://api.statorium.com/media/bearleague/bl1568576640201.webp",
   "Antony": "https://api.statorium.com/media/bearleague/bl17340421092679.webp",
   "Abde Ezzalzouli": "https://api.statorium.com/media/bearleague/bl16682247101734.webp",
-  "Ionuț Radu": "https://api.statorium.com/media/bearleague/bl15623171621907.webp",
-  "Iván Villar": "https://api.statorium.com/media/bearleague/bl15685754992326.webp",
+  "Ionu╚Ť Radu": "https://api.statorium.com/media/bearleague/bl15623171621907.webp",
+  "Iv├ín Villar": "https://api.statorium.com/media/bearleague/bl15685754992326.webp",
   "Carl Starfelt": "https://api.statorium.com/media/bearleague/bl16193710782647.webp",
   "Joseph Aidoo": "https://api.statorium.com/media/bearleague/bl1566036240750.webp",
   "Marcos Alonso": "https://api.statorium.com/media/bearleague/bl15549865572119.webp",
-  "Mihailo Ristić": "https://api.statorium.com/media/bearleague/bl15651798701887.webp",
+  "Mihailo Risti─ç": "https://api.statorium.com/media/bearleague/bl15651798701887.webp",
   "Franco Cervi": "https://api.statorium.com/media/bearleague/bl15675103432124.webp",
-  "Ferrán Jutglà": "https://api.statorium.com/media/bearleague/bl17618381331083.webp",
+  "Ferr├ín Jutgl├á": "https://api.statorium.com/media/bearleague/bl17618381331083.webp",
   "Iago Aspas": "https://api.statorium.com/media/bearleague/bl15568042481522.webp",
-  "Matías Vecino": "https://api.statorium.com/media/bearleague/bl16241084382025.webp",
-  "Brais Méndez": "https://api.statorium.com/media/bearleague/bl15568001102207.webp",
+  "Mat├şas Vecino": "https://api.statorium.com/media/bearleague/bl16241084382025.webp",
+  "Brais M├ęndez": "https://api.statorium.com/media/bearleague/bl15568001102207.webp",
   "Carlos Soler": "https://api.statorium.com/media/bearleague/bl1734080157496.webp",
-  "Gonçalo Guedes": "https://api.statorium.com/media/bearleague/bl16229055111042.webp",
+  "Gon├žalo Guedes": "https://api.statorium.com/media/bearleague/bl16229055111042.webp",
   "Yangel Herrera": "https://api.statorium.com/media/bearleague/bl16242014591764.webp",
   "Aritz Elustondo": "https://api.statorium.com/media/bearleague/bl15581048661919.webp",
   "Igor Zubeldia": "https://api.statorium.com/media/bearleague/bl17157974242378.webp",
   "Mikel Oyarzabal": "https://api.statorium.com/media/bearleague/bl1619641329569.webp",
-  "Aihen Muñoz": "https://api.statorium.com/media/bearleague/bl15581064101917.webp",
+  "Aihen Mu├▒oz": "https://api.statorium.com/media/bearleague/bl15581064101917.webp",
   "Ander Barrenetxea": "https://api.statorium.com/media/bearleague/bl15581048842433.webp",
-  "Álvaro Odriozola": "https://api.statorium.com/media/bearleague/bl15959408341080.webp",
-  "Álex Remiro": "https://api.statorium.com/media/bearleague/bl15562799132258.webp",
-  "Sergio Gómez": "https://api.statorium.com/media/bearleague/bl15760086401330.webp",
+  "├ülvaro Odriozola": "https://api.statorium.com/media/bearleague/bl15959408341080.webp",
+  "├ülex Remiro": "https://api.statorium.com/media/bearleague/bl15562799132258.webp",
+  "Sergio G├│mez": "https://api.statorium.com/media/bearleague/bl15760086401330.webp",
   "Duje Caleta-Car": "https://api.statorium.com/media/bearleague/bl15652872012103.webp",
   "Takefusa Kubo": "https://api.statorium.com/media/bearleague/bl16958917401867.webp",
   "Luka Sucic": "https://api.statorium.com/media/bearleague/bl16688718972314.webp",
   "David Soria": "https://api.statorium.com/media/bearleague/bl1557827488887.webp",
   "Jiri Letacek": "https://api.statorium.com/media/bearleague/bl1629624714761.webp",
   "Abdel Abqar": "https://api.statorium.com/media/bearleague/bl17322796242349.webp",
-  "Dakonam Djené": "https://api.statorium.com/media/bearleague/bl16958918061047.webp",
+  "Dakonam Djen├ę": "https://api.statorium.com/media/bearleague/bl16958918061047.webp",
   "Domingos Duarte": "https://api.statorium.com/media/bearleague/bl16194695591913.webp",
   "Diego Rico": "https://api.statorium.com/media/bearleague/bl16958917772052.webp",
-  "Kiko Femenía": "https://api.statorium.com/media/bearleague/bl1554818650568.webp",
+  "Kiko Femen├şa": "https://api.statorium.com/media/bearleague/bl1554818650568.webp",
   "Mauro Arambarri": "https://api.statorium.com/media/bearleague/bl15578304641543.webp",
   "Luis Milla": "https://api.statorium.com/media/bearleague/bl1575539909509.webp",
-  "Javi Muñoz": "https://api.statorium.com/media/bearleague/bl1566157098812.webp",
+  "Javi Mu├▒oz": "https://api.statorium.com/media/bearleague/bl1566157098812.webp",
   "Juanmi": "https://api.statorium.com/media/bearleague/bl15583426942743.webp",
-  "Adrián Liso": "https://api.statorium.com/media/bearleague/bl17610521521092.webp",
+  "Adri├ín Liso": "https://api.statorium.com/media/bearleague/bl17610521521092.webp",
   "Borja Mayoral": "https://api.statorium.com/media/bearleague/bl17023161311800.webp",
   "Marc Vilaplana": "https://api.statorium.com/media/bearleague/bl16431260471557.webp",
   "Allan Nyom": "https://api.statorium.com/media/bearleague/bl15579288641028.webp",
-  "Moi Gómez": "https://api.statorium.com/media/bearleague/bl15579207771371.webp",
-  "Javi Galán": "https://api.statorium.com/media/bearleague/bl15760046951594.webp",
+  "Moi G├│mez": "https://api.statorium.com/media/bearleague/bl15579207771371.webp",
+  "Javi Gal├ín": "https://api.statorium.com/media/bearleague/bl15760046951594.webp",
   "Alejandro Catena": "https://api.statorium.com/media/bearleague/bl15744255311771.webp",
-  "Aitor Fernández": "https://api.statorium.com/media/bearleague/bl15580002811514.webp",
-  "Lucas Torró": "https://api.statorium.com/media/bearleague/bl1559144571113.webp",
+  "Aitor Fern├índez": "https://api.statorium.com/media/bearleague/bl15580002811514.webp",
+  "Lucas Torr├│": "https://api.statorium.com/media/bearleague/bl1559144571113.webp",
   "Valentin Rosier": "https://api.statorium.com/media/bearleague/bl15651225511183.webp",
   "Sergio Herrera": "https://api.statorium.com/media/bearleague/bl15663240261069.webp",
-  "Rubén García": "https://api.statorium.com/media/bearleague/bl1565636364647.webp",
+  "Rub├ęn Garc├şa": "https://api.statorium.com/media/bearleague/bl1565636364647.webp",
   "Kike Barja": "https://api.statorium.com/media/bearleague/bl1565634697340.webp",
   "Ante Budimir": "https://api.statorium.com/media/bearleague/bl17157973322233.webp",
   "Sheraldo Becker": "https://api.statorium.com/media/bearleague/bl15657912942064.webp",
   "Jon Moncayola": "https://api.statorium.com/media/bearleague/bl1566464944865.webp",
-  "Raul García": "https://api.statorium.com/media/bearleague/bl17611290142733.webp",
+  "Raul Garc├şa": "https://api.statorium.com/media/bearleague/bl17611290142733.webp",
   "Juan Cruz": "https://api.statorium.com/media/bearleague/bl1576045946137.webp",
   "Ander Yoldi": "https://api.statorium.com/media/bearleague/bl1643193176400.webp",
   "Marko Dmitrovic": "https://api.statorium.com/media/bearleague/bl15569724402184.webp",
-  "Kike García": "https://api.statorium.com/media/bearleague/bl1556966522803.webp",
+  "Kike Garc├şa": "https://api.statorium.com/media/bearleague/bl1556966522803.webp",
   "Pere Milla": "https://api.statorium.com/media/bearleague/bl1556974763366.webp",
   "Leandro Cabrera": "https://api.statorium.com/media/bearleague/bl15578304841461.webp",
   "Miguel Rubio": "https://api.statorium.com/media/bearleague/bl15585137221708.webp",
   "Fernando Calero": "https://api.statorium.com/media/bearleague/bl1558347122213.webp",
   "Javi Puado": "https://api.statorium.com/media/bearleague/bl15759856251944.webp",
   "Pol Lozano": "https://api.statorium.com/media/bearleague/bl17448103172550.webp",
-  "Edu Expósito": "https://api.statorium.com/media/bearleague/bl15661568001846.webp",
+  "Edu Exp├│sito": "https://api.statorium.com/media/bearleague/bl15661568001846.webp",
   "Cyril Ngonge": "https://api.statorium.com/media/bearleague/bl1567493631443.webp",
   "Charles Pickel": "https://api.statorium.com/media/bearleague/bl1615044209561.webp",
   "Paulo Gazzaniga": "https://api.statorium.com/media/bearleague/bl15548970762916.webp",
   "Daley Blind": "https://api.statorium.com/media/bearleague/bl16229734091891.webp",
-  "David López": "https://api.statorium.com/media/bearleague/bl15577479891035.webp",
+  "David L├│pez": "https://api.statorium.com/media/bearleague/bl15577479891035.webp",
   "Donny van de Beek": "https://api.statorium.com/media/bearleague/bl16229738532509.webp",
   "Thomas Lemar": "https://api.statorium.com/media/bearleague/bl16224795911169.webp",
   "Viktor Tsygankov": "https://api.statorium.com/media/bearleague/bl1622982520148.webp",
-  "Valery Fernández": "https://api.statorium.com/media/bearleague/bl1576195524548.webp",
+  "Valery Fern├índez": "https://api.statorium.com/media/bearleague/bl1576195524548.webp",
   "Portu": "https://api.statorium.com/media/bearleague/bl15578360251040.webp",
   "Abel Ruiz": "https://api.statorium.com/media/bearleague/bl15566309272527.webp",
   "Cristhian Stuani": "https://api.statorium.com/media/bearleague/bl1557836032304.webp",
-  "Àlex Moreno": "https://api.statorium.com/media/bearleague/bl1731491718511.webp",
+  "├Çlex Moreno": "https://api.statorium.com/media/bearleague/bl1731491718511.webp",
   "Axel Witsel": "https://api.statorium.com/media/bearleague/bl1622836138248.webp",
   "Azzedine Ounahi": "https://api.statorium.com/media/bearleague/bl1668342965878.webp",
   "Bryan Gil": "https://api.statorium.com/media/bearleague/bl1619640168477.webp",
   "Vladyslav Vanat": "https://api.statorium.com/media/bearleague/bl17611237011314.webp",
   "Claudio Echeverri": "https://api.statorium.com/media/bearleague/bl17361894451126.webp",
-  "Marc-André ter Stegen": "https://api.statorium.com/media/bearleague/bl15567925552492.webp",
-  "Fran Beltrán": "https://api.statorium.com/media/bearleague/bl1556800069607.webp",
-  "Rubén Blanco": "https://api.statorium.com/media/bearleague/bl15685753531260.webp",
+  "Marc-Andr├ę ter Stegen": "https://api.statorium.com/media/bearleague/bl15567925552492.webp",
+  "Fran Beltr├ín": "https://api.statorium.com/media/bearleague/bl1556800069607.webp",
+  "Rub├ęn Blanco": "https://api.statorium.com/media/bearleague/bl15685753531260.webp",
   "Aymeric Laporte": "https://api.statorium.com/media/bearleague/bl16222373351183.webp",
   "Andoni Gorosabel": "https://api.statorium.com/media/bearleague/bl15581048762616.webp",
   "Mikel Vesga": "https://api.statorium.com/media/bearleague/bl1557997132117.webp",
-  "Yeray Álvarez": "https://api.statorium.com/media/bearleague/bl1556291454875.webp",
+  "Yeray ├ülvarez": "https://api.statorium.com/media/bearleague/bl1556291454875.webp",
   "Yuri Berchiche": "https://api.statorium.com/media/bearleague/bl1556291458220.webp",
-  "Iñaki Williams": "https://api.statorium.com/media/bearleague/bl1695891760987.webp",
-  "Unai Simón": "https://api.statorium.com/media/bearleague/bl162300947766.webp",
+  "I├▒aki Williams": "https://api.statorium.com/media/bearleague/bl1695891760987.webp",
+  "Unai Sim├│n": "https://api.statorium.com/media/bearleague/bl162300947766.webp",
   "Gorka Guruzeta": "https://api.statorium.com/media/bearleague/bl15562799651317.webp",
-  "Iñigo Lekue": "https://api.statorium.com/media/bearleague/bl15562860731236.webp",
+  "I├▒igo Lekue": "https://api.statorium.com/media/bearleague/bl15562860731236.webp",
   "Robert Navarro": "https://api.statorium.com/media/bearleague/bl17611277401346.webp",
-  "Álex Berenguer": "https://api.statorium.com/media/bearleague/bl1744810226185.webp",
+  "├ülex Berenguer": "https://api.statorium.com/media/bearleague/bl1744810226185.webp",
   "Dani Vivian": "https://api.statorium.com/media/bearleague/bl155844955292.webp",
   "Oihan Sancet": "https://api.statorium.com/media/bearleague/bl1744810120376.webp",
-  "Iñigo Ruiz de Galarreta": "https://api.statorium.com/media/bearleague/bl15761850282318.webp",
+  "I├▒igo Ruiz de Galarreta": "https://api.statorium.com/media/bearleague/bl15761850282318.webp",
   "Aitor Paredes": "https://api.statorium.com/media/bearleague/bl17611343781542.webp",
   "Nico Williams": "https://api.statorium.com/media/bearleague/bl17023163021373.webp",
   "Florian Lejeune": "https://api.statorium.com/media/bearleague/bl15554880561005.webp",
-  "Óscar Trejo": "https://api.statorium.com/media/bearleague/bl15746732581974.webp",
-  "Álvaro García": "https://api.statorium.com/media/bearleague/bl15744286631981.webp",
+  "├ôscar Trejo": "https://api.statorium.com/media/bearleague/bl15746732581974.webp",
+  "├ülvaro Garc├şa": "https://api.statorium.com/media/bearleague/bl15744286631981.webp",
   "Gerard Gumbau": "https://api.statorium.com/media/bearleague/bl17023165642393.webp",
-  "Unai López": "https://api.statorium.com/media/bearleague/bl15562914391147.webp",
+  "Unai L├│pez": "https://api.statorium.com/media/bearleague/bl15562914391147.webp",
   "Luiz Felipe": "https://api.statorium.com/media/bearleague/bl17023166982367.webp",
-  "Andrei Rațiu": "https://api.statorium.com/media/bearleague/bl15584370992694.webp",
+  "Andrei Ra╚Ťiu": "https://api.statorium.com/media/bearleague/bl15584370992694.webp",
   "Sergio Camello": "https://api.statorium.com/media/bearleague/bl15562768051903.webp",
   "Jorge de Frutos": "https://api.statorium.com/media/bearleague/bl15897959451497.webp",
-  "Iván Balliu": "https://api.statorium.com/media/bearleague/bl15898768802280.webp",
-  "Pedro Díaz": "https://api.statorium.com/media/bearleague/bl1575975917898.webp",
+  "Iv├ín Balliu": "https://api.statorium.com/media/bearleague/bl15898768802280.webp",
+  "Pedro D├şaz": "https://api.statorium.com/media/bearleague/bl1575975917898.webp",
   "Alfonso Espino": "https://api.statorium.com/media/bearleague/bl15760453942195.webp",
-  "Isi Palazón": "https://api.statorium.com/media/bearleague/bl15898809911301.webp",
-  "Pathé Ciss": "https://api.statorium.com/media/bearleague/bl15755404721463.webp",
-  "Pep Chavarría": "https://api.statorium.com/media/bearleague/bl176113314955.webp",
-  "André Almeida": "https://api.statorium.com/media/bearleague/bl15687089802.webp",
-  "Diego López": "https://api.statorium.com/media/bearleague/bl17611245561519.webp",
+  "Isi Palaz├│n": "https://api.statorium.com/media/bearleague/bl15898809911301.webp",
+  "Path├ę Ciss": "https://api.statorium.com/media/bearleague/bl15755404721463.webp",
+  "Pep Chavarr├şa": "https://api.statorium.com/media/bearleague/bl176113314955.webp",
+  "Andr├ę Almeida": "https://api.statorium.com/media/bearleague/bl15687089802.webp",
+  "Diego L├│pez": "https://api.statorium.com/media/bearleague/bl17611245561519.webp",
   "Stole Dimitrievski": "https://api.statorium.com/media/bearleague/bl15746802261522.webp",
   "Cristian Rivero": "https://api.statorium.com/media/bearleague/bl15584288152015.webp",
-  "Eray Cömert": "https://api.statorium.com/media/bearleague/bl1622814369497.webp",
+  "Eray C├Âmert": "https://api.statorium.com/media/bearleague/bl1622814369497.webp",
   "Mouctar Diakhaby": "https://api.statorium.com/media/bearleague/bl1695891821996.webp",
-  "José Gayá": "https://api.statorium.com/media/bearleague/bl16196357802103.webp",
+  "Jos├ę Gay├í": "https://api.statorium.com/media/bearleague/bl16196357802103.webp",
   "Thierry Correia": "https://api.statorium.com/media/bearleague/bl15685784232408.webp",
   "Dimitri Foulquier": "https://api.statorium.com/media/bearleague/bl1557827482747.webp",
   "Pepelu": "https://api.statorium.com/media/bearleague/bl15770288441205.webp",
@@ -760,14 +681,14 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Hugo Duro": "https://api.statorium.com/media/bearleague/bl15584510591950.webp",
   "Baptiste Santamaria": "https://api.statorium.com/media/bearleague/bl1564749426158.webp",
   "Filip Ugrinic": "https://api.statorium.com/media/bearleague/bl1573416620744.webp",
-  "Lucas Beltrán": "https://api.statorium.com/media/bearleague/bl158564783391.webp",
+  "Lucas Beltr├ín": "https://api.statorium.com/media/bearleague/bl158564783391.webp",
   "Umar Sadiq": "https://api.statorium.com/media/bearleague/bl15689336572291.webp",
-  "Guido Rodríguez": "https://api.statorium.com/media/bearleague/bl1734085011251.webp",
-  "Unai Núñez": "https://api.statorium.com/media/bearleague/bl15562914451810.webp",
+  "Guido Rodr├şguez": "https://api.statorium.com/media/bearleague/bl1734085011251.webp",
+  "Unai N├║├▒ez": "https://api.statorium.com/media/bearleague/bl15562914451810.webp",
   "Renzo Saravia": "https://api.statorium.com/media/bearleague/bl15892004582950.webp",
   "Toni Lato": "https://api.statorium.com/media/bearleague/bl15584288232241.webp",
   "Sergi Darder": "https://api.statorium.com/media/bearleague/bl15577555991206.webp",
-  "Iván Cuéllar": "https://api.statorium.com/media/bearleague/bl15579316061842.webp",
+  "Iv├ín Cu├ęllar": "https://api.statorium.com/media/bearleague/bl15579316061842.webp",
   "Manu Morlanes": "https://api.statorium.com/media/bearleague/bl15685743941720.webp",
   "Omar Mascarell": "https://api.statorium.com/media/bearleague/bl1559740841645.webp",
   "Takuma Asano": "https://api.statorium.com/media/bearleague/bl1559556058139.webp",
@@ -775,61 +696,61 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Johan Mojica": "https://api.statorium.com/media/bearleague/bl15761953591128.webp",
   "Marash Kumbulla": "https://api.statorium.com/media/bearleague/bl15656207802631.webp",
   "Martin Valjent": "https://api.statorium.com/media/bearleague/bl16196326302661.webp",
-  "Abdón Prats": "https://api.statorium.com/media/bearleague/bl15663224581877.webp",
-  "Antonio Raíllo": "https://api.statorium.com/media/bearleague/bl1565717748562.webp",
+  "Abd├│n Prats": "https://api.statorium.com/media/bearleague/bl15663224581877.webp",
+  "Antonio Ra├şllo": "https://api.statorium.com/media/bearleague/bl1565717748562.webp",
   "Mateu Morey": "https://api.statorium.com/media/bearleague/bl1571739967948.webp",
-  "Samú Costa": "https://api.statorium.com/media/bearleague/bl17611303491315.webp",
+  "Sam├║ Costa": "https://api.statorium.com/media/bearleague/bl17611303491315.webp",
   "Vedat Muriqi": "https://api.statorium.com/media/bearleague/bl15941410921567.webp",
-  "Lucas Bergström": "https://api.statorium.com/media/bearleague/bl17313525261326.webp",
-  "Alexis Sánchez": "https://api.statorium.com/media/bearleague/bl1554880634303.webp",
-  "César Azpilicueta": "https://api.statorium.com/media/bearleague/bl16222378552925.webp",
-  "Joan Jordán": "https://api.statorium.com/media/bearleague/bl1556966494337.webp",
+  "Lucas Bergstr├Âm": "https://api.statorium.com/media/bearleague/bl17313525261326.webp",
+  "Alexis S├ínchez": "https://api.statorium.com/media/bearleague/bl1554880634303.webp",
+  "C├ęsar Azpilicueta": "https://api.statorium.com/media/bearleague/bl16222378552925.webp",
+  "Joan Jord├ín": "https://api.statorium.com/media/bearleague/bl1556966494337.webp",
   "Adnan Januzaj": "https://api.statorium.com/media/bearleague/bl1618320613668.webp",
   "Batista Mendy": "https://api.statorium.com/media/bearleague/bl15650248391037.webp",
-  "Ørjan Nyland": "https://api.statorium.com/media/bearleague/bl1565186707410.webp",
+  "├śrjan Nyland": "https://api.statorium.com/media/bearleague/bl1565186707410.webp",
   "Neal Maupay": "https://api.statorium.com/media/bearleague/bl1734231516995.webp",
   "Nemanja Gudelj": "https://api.statorium.com/media/bearleague/bl156595499687.webp",
   "Djibril Sow": "https://api.statorium.com/media/bearleague/bl161919717827.webp",
   "Ruben Vargas": "https://api.statorium.com/media/bearleague/bl16191969021957.webp",
   "Lucien Agoume": "https://api.statorium.com/media/bearleague/bl16177958361609.webp",
   "Tanguy Nianzou": "https://api.statorium.com/media/bearleague/bl15662036051476.webp",
-  "Marcão": "https://api.statorium.com/media/bearleague/bl1567596587655.webp",
+  "Marc├úo": "https://api.statorium.com/media/bearleague/bl1567596587655.webp",
   "Chidera Ejuke": "https://api.statorium.com/media/bearleague/bl15735989932453.webp",
   "Gabriel Suazo": "https://api.statorium.com/media/bearleague/bl15862612672510.webp",
   "Isaac Romero": "https://api.statorium.com/media/bearleague/bl17610537302870.webp",
   "Akor Adams": "https://api.statorium.com/media/bearleague/bl1761126656734.webp",
-  "Denis Suárez": "https://api.statorium.com/media/bearleague/bl15536107571952.webp",
+  "Denis Su├írez": "https://api.statorium.com/media/bearleague/bl15536107571952.webp",
   "Jonny Otto": "https://api.statorium.com/media/bearleague/bl15559455211130.webp",
-  "Carles Aleñà": "https://api.statorium.com/media/bearleague/bl15566309002659.webp",
+  "Carles Ale├▒├á": "https://api.statorium.com/media/bearleague/bl15566309002659.webp",
   "Ander Guevara": "https://api.statorium.com/media/bearleague/bl15581048801098.webp",
   "Antonio Sivera": "https://api.statorium.com/media/bearleague/bl1589821015481.webp",
-  "Mariano Díaz": "https://api.statorium.com/media/bearleague/bl15580993052199.webp",
+  "Mariano D├şaz": "https://api.statorium.com/media/bearleague/bl15580993052199.webp",
   "Asier Villalibre": "https://api.statorium.com/media/bearleague/bl1565968101120.webp",
-  "Lucas Boyé": "https://api.statorium.com/media/bearleague/bl15701419892545.webp",
-  "Raúl Fernández": "https://api.statorium.com/media/bearleague/bl15761777902959.webp",
+  "Lucas Boy├ę": "https://api.statorium.com/media/bearleague/bl15701419892545.webp",
+  "Ra├║l Fern├índez": "https://api.statorium.com/media/bearleague/bl15761777902959.webp",
   "Jon Guridi": "https://api.statorium.com/media/bearleague/bl1575407321651.webp",
-  "Toni Martínez": "https://api.statorium.com/media/bearleague/bl15772174576.webp",
-  "Iñaki Peña": "https://api.statorium.com/media/bearleague/bl15567949822759.webp",
+  "Toni Mart├şnez": "https://api.statorium.com/media/bearleague/bl15772174576.webp",
+  "I├▒aki Pe├▒a": "https://api.statorium.com/media/bearleague/bl15567949822759.webp",
   "Pedro Bigas": "https://api.statorium.com/media/bearleague/bl15569728442102.webp",
-  "Léo Petrot": "https://api.statorium.com/media/bearleague/bl1563371089608.webp",
+  "L├ęo Petrot": "https://api.statorium.com/media/bearleague/bl1563371089608.webp",
   "Aleix Febas": "https://api.statorium.com/media/bearleague/bl15656938662005.webp",
-  "Germán Valera": "https://api.statorium.com/media/bearleague/bl1761129755861.webp",
+  "Germ├ín Valera": "https://api.statorium.com/media/bearleague/bl1761129755861.webp",
   "Josan": "https://api.statorium.com/media/bearleague/bl157604590569.webp",
   "Rafa Mir": "https://api.statorium.com/media/bearleague/bl1589880079662.webp",
-  "André Silva": "https://api.statorium.com/media/bearleague/bl16194626671594.webp",
+  "Andr├ę Silva": "https://api.statorium.com/media/bearleague/bl16194626671594.webp",
   "Grady Diangana": "https://api.statorium.com/media/bearleague/bl1554448759390.webp",
-  "Adrià Pedrosa": "https://api.statorium.com/media/bearleague/bl1558449278924.webp",
+  "Adri├á Pedrosa": "https://api.statorium.com/media/bearleague/bl1558449278924.webp",
   "Gonzalo Villar": "https://api.statorium.com/media/bearleague/bl15760457961072.webp",
   "Mathew Ryan": "https://api.statorium.com/media/bearleague/bl15538535541696.webp",
-  "José Luis Morales": "https://api.statorium.com/media/bearleague/bl15580022221433.webp",
-  "Adrián De La Fuente": "https://api.statorium.com/media/bearleague/bl15584495411200.webp",
+  "Jos├ę Luis Morales": "https://api.statorium.com/media/bearleague/bl15580022221433.webp",
+  "Adri├ín De La Fuente": "https://api.statorium.com/media/bearleague/bl15584495411200.webp",
   "Jeremy Toljan": "https://api.statorium.com/media/bearleague/bl1702329864604.webp",
-  "Manu Sánchez": "https://api.statorium.com/media/bearleague/bl15585999992664.webp",
+  "Manu S├ínchez": "https://api.statorium.com/media/bearleague/bl15585999992664.webp",
   "Iker Losada": "https://api.statorium.com/media/bearleague/bl1566465449761.webp",
   "Unai Elgezabal": "https://api.statorium.com/media/bearleague/bl15748144221345.webp",
-  "Carlos Álvarez": "https://api.statorium.com/media/bearleague/bl1761123031874.webp",
-  "Iván Romero": "https://api.statorium.com/media/bearleague/bl1761046709671.webp",
-  "Aarón Escandell": "https://api.statorium.com/media/bearleague/bl15656832672080.webp",
+  "Carlos ├ülvarez": "https://api.statorium.com/media/bearleague/bl1761123031874.webp",
+  "Iv├ín Romero": "https://api.statorium.com/media/bearleague/bl1761046709671.webp",
+  "Aar├│n Escandell": "https://api.statorium.com/media/bearleague/bl15656832672080.webp",
   "David Costas": "https://api.statorium.com/media/bearleague/bl15568001041487.webp",
   "Dani Calvo": "https://api.statorium.com/media/bearleague/bl15760457181548.webp",
   "Nacho Vidal": "https://api.statorium.com/media/bearleague/bl15656353981234.webp",
@@ -853,10 +774,10 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Hakan Calhanoglu": "https://api.statorium.com/media/bearleague/bl1702329692266.webp",
   "Alessandro Bastoni": "https://api.statorium.com/media/bearleague/bl1618421536684.webp",
   "Federico Dimarco": "https://api.statorium.com/media/bearleague/bl169538760884.webp",
-  "Nicolò Barella": "https://api.statorium.com/media/bearleague/bl1619626999462.webp",
+  "Nicol├▓ Barella": "https://api.statorium.com/media/bearleague/bl1619626999462.webp",
   "Piotr Zielinski": "https://api.statorium.com/media/bearleague/bl16193494091274.webp",
   "Stefan de Vrij": "https://api.statorium.com/media/bearleague/bl16229736672129.webp",
-  "Lautaro Martínez": "https://api.statorium.com/media/bearleague/bl1695386805672.webp",
+  "Lautaro Mart├şnez": "https://api.statorium.com/media/bearleague/bl1695386805672.webp",
   "Denzel Dumfries": "https://api.statorium.com/media/bearleague/bl17023326131643.webp",
   "Carlos Augusto": "https://api.statorium.com/media/bearleague/bl15712230481377.webp",
   "Nicola Zalewski": "https://api.statorium.com/media/bearleague/bl1668938262676.webp",
@@ -865,13 +786,13 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Scott McTominay": "https://api.statorium.com/media/bearleague/bl17340481751561.webp",
   "Romelu Lukaku": "https://api.statorium.com/media/bearleague/bl17313542122314.webp",
   "Stanislav Lobotka": "https://api.statorium.com/media/bearleague/bl162291447454.webp",
-  "Mathías Olivera": "https://api.statorium.com/media/bearleague/bl1557830473828.webp",
+  "Math├şas Olivera": "https://api.statorium.com/media/bearleague/bl1557830473828.webp",
   "Juan Jesus": "https://api.statorium.com/media/bearleague/bl15620782492804.webp",
   "Giovanni Di Lorenzo": "https://api.statorium.com/media/bearleague/bl16953876202766.webp",
   "Alex Meret": "https://api.statorium.com/media/bearleague/bl16196057372116.webp",
   "Leonardo Spinazzola": "https://api.statorium.com/media/bearleague/bl16196106831832.webp",
   "Matteo Politano": "https://api.statorium.com/media/bearleague/bl16222382891212.webp",
-  "Vanja Milinković-Savić": "https://api.statorium.com/media/bearleague/bl15682867711089.webp",
+  "Vanja Milinkovi─ç-Savi─ç": "https://api.statorium.com/media/bearleague/bl15682867711089.webp",
   "Frank Anguissa": "https://api.statorium.com/media/bearleague/bl1555065443920.webp",
   "Amir Rrahmani": "https://api.statorium.com/media/bearleague/bl15656178902424.webp",
   "Eljif Elmas": "https://api.statorium.com/media/bearleague/bl16188564672374.webp",
@@ -880,28 +801,28 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "David Neres": "https://api.statorium.com/media/bearleague/bl15674286402612.webp",
   "Billy Gilmour": "https://api.statorium.com/media/bearleague/bl17337308602442.webp",
   "Sam Beukema": "https://api.statorium.com/media/bearleague/bl176060982479.webp",
-  "Rasmus Højlund": "https://api.statorium.com/media/bearleague/bl1734047990314.webp",
+  "Rasmus H├Şjlund": "https://api.statorium.com/media/bearleague/bl1734047990314.webp",
   "Ruben Loftus-Cheek": "https://api.statorium.com/media/bearleague/bl1554987805340.webp",
   "Luka Modric": "https://api.statorium.com/media/bearleague/bl1622994476284.webp",
   "Christian Pulisic": "https://api.statorium.com/media/bearleague/bl17448092972202.webp",
-  "Niclas Füllkrug": "https://api.statorium.com/media/bearleague/bl1734143840806.webp",
+  "Niclas F├╝llkrug": "https://api.statorium.com/media/bearleague/bl1734143840806.webp",
   "Christopher Nkunku": "https://api.statorium.com/media/bearleague/bl17313487711818.webp",
   "Adrien Rabiot": "https://api.statorium.com/media/bearleague/bl16184079491188.webp",
   "Youssouf Fofana": "https://api.statorium.com/media/bearleague/bl1563300820222.webp",
   "Mike Maignan": "https://api.statorium.com/media/bearleague/bl1618408972946.webp",
-  "Rafael Leão": "https://api.statorium.com/media/bearleague/bl17448094072778.webp",
+  "Rafael Le├úo": "https://api.statorium.com/media/bearleague/bl17448094072778.webp",
   "Pietro Terracciano": "https://api.statorium.com/media/bearleague/bl15620816561052.webp",
   "Samuele Ricci": "https://api.statorium.com/media/bearleague/bl1565103021585.webp",
-  "Pervis Estupiñán": "https://api.statorium.com/media/bearleague/bl17337817481997.webp",
+  "Pervis Estupi├▒├ín": "https://api.statorium.com/media/bearleague/bl17337817481997.webp",
   "Fikayo Tomori": "https://api.statorium.com/media/bearleague/bl1565802938172.webp",
   "Matteo Gabbia": "https://api.statorium.com/media/bearleague/bl15664095171218.webp",
   "Strahinja Pavlovic": "https://api.statorium.com/media/bearleague/bl15904470802759.webp",
   "Alexis Saelemaekers": "https://api.statorium.com/media/bearleague/bl1618312244882.webp",
   "Ardon Jashari": "https://api.statorium.com/media/bearleague/bl16680563121244.webp",
-  "Santiago Giménez": "https://api.statorium.com/media/bearleague/bl1719323246359.webp",
+  "Santiago Gim├ęnez": "https://api.statorium.com/media/bearleague/bl1719323246359.webp",
   "Weston McKennie": "https://api.statorium.com/media/bearleague/bl15597422132371.webp",
   "Filip Kostic": "https://api.statorium.com/media/bearleague/bl155914461316.webp",
-  "Khéphren Thuram": "https://api.statorium.com/media/bearleague/bl15648351881715.webp",
+  "Kh├ęphren Thuram": "https://api.statorium.com/media/bearleague/bl15648351881715.webp",
   "Dusan Vlahovic": "https://api.statorium.com/media/bearleague/bl16953868221709.webp",
   "Arkadiusz Milik": "https://api.statorium.com/media/bearleague/bl16193480102007.webp",
   "Bremer": "https://api.statorium.com/media/bearleague/bl156473786472.webp",
@@ -910,30 +831,30 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Jeremie Boga": "https://api.statorium.com/media/bearleague/bl1564585201520.webp",
   "Manuel Locatelli": "https://api.statorium.com/media/bearleague/bl1619614674184.webp",
   "Lloyd Kelly": "https://api.statorium.com/media/bearleague/bl17340373011004.webp",
-  "Loïs Openda": "https://api.statorium.com/media/bearleague/bl1702303294148.webp",
+  "Lo├»s Openda": "https://api.statorium.com/media/bearleague/bl1702303294148.webp",
   "Edon Zhegrova": "https://api.statorium.com/media/bearleague/bl1568102785535.webp",
   "Jonathan David": "https://api.statorium.com/media/bearleague/bl17448110331789.webp",
   "Teun Koopmeiners": "https://api.statorium.com/media/bearleague/bl16229744992473.webp",
-  "Francisco Conceição": "https://api.statorium.com/media/bearleague/bl17606062722309.webp",
+  "Francisco Concei├ž├úo": "https://api.statorium.com/media/bearleague/bl17606062722309.webp",
   "Juan Cabal": "https://api.statorium.com/media/bearleague/bl1760609156218.webp",
-  "Kenan Yıldız": "https://api.statorium.com/media/bearleague/bl17618213511713.webp",
+  "Kenan Y─▒ld─▒z": "https://api.statorium.com/media/bearleague/bl17618213511713.webp",
   "Jean Butez": "https://api.statorium.com/media/bearleague/bl1587041765727.webp",
   "Mauro Vigorito": "https://api.statorium.com/media/bearleague/bl1565691667923.webp",
   "Marc Oliver Kempf": "https://api.statorium.com/media/bearleague/bl15972334161132.webp",
   "Edoardo Goldaniga": "https://api.statorium.com/media/bearleague/bl15622510811856.webp",
   "Alberto Moreno": "https://api.statorium.com/media/bearleague/bl1554458304789.webp",
-  "Mërgim Vojvoda": "https://api.statorium.com/media/bearleague/bl15682856652949.webp",
-  "Máximo Perrone": "https://api.statorium.com/media/bearleague/bl17606172722237.webp",
+  "M├źrgim Vojvoda": "https://api.statorium.com/media/bearleague/bl15682856652949.webp",
+  "M├íximo Perrone": "https://api.statorium.com/media/bearleague/bl17606172722237.webp",
   "Maxence Caqueret": "https://api.statorium.com/media/bearleague/bl15652789792931.webp",
   "Sergi Roberto": "https://api.statorium.com/media/bearleague/bl15567942172839.webp",
   "Nico Paz": "https://api.statorium.com/media/bearleague/bl17605471752941.webp",
   "Jayden Addai": "https://api.statorium.com/media/bearleague/bl17606205092577.webp",
-  "Álvaro Morata": "https://api.statorium.com/media/bearleague/bl17189700162818.webp",
+  "├ülvaro Morata": "https://api.statorium.com/media/bearleague/bl17189700162818.webp",
   "Anastasios Douvikas": "https://api.statorium.com/media/bearleague/bl1571942927286.webp",
   "Diego Carlos": "https://api.statorium.com/media/bearleague/bl17337170681002.webp",
   "Mario Hermoso": "https://api.statorium.com/media/bearleague/bl15577556262635.webp",
   "Evan Ndicka": "https://api.statorium.com/media/bearleague/bl1559212562183.webp",
-  "Manu Koné": "https://api.statorium.com/media/bearleague/bl1615718709738.webp",
+  "Manu Kon├ę": "https://api.statorium.com/media/bearleague/bl1615718709738.webp",
   "Zeki Celik": "https://api.statorium.com/media/bearleague/bl16228197792706.webp",
   "Bryan Cristante": "https://api.statorium.com/media/bearleague/bl1622476603576.webp",
   "Lorenzo Pellegrini": "https://api.statorium.com/media/bearleague/bl16196135019.webp",
@@ -941,12 +862,12 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Paulo Dybala": "https://api.statorium.com/media/bearleague/bl17023298142510.webp",
   "Pierluigi Gollini": "https://api.statorium.com/media/bearleague/bl15615612572556.webp",
   "Gianluca Mancini": "https://api.statorium.com/media/bearleague/bl1619609209872.webp",
-  "Angeliño": "https://api.statorium.com/media/bearleague/bl15658009682919.webp",
+  "Angeli├▒o": "https://api.statorium.com/media/bearleague/bl15658009682919.webp",
   "Konstantinos Tsimikas": "https://api.statorium.com/media/bearleague/bl1731314543966.webp",
   "Mile Svilar": "https://api.statorium.com/media/bearleague/bl1567416356440.webp",
   "Donyell Malen": "https://api.statorium.com/media/bearleague/bl17612998721860.webp",
   "Artem Dovbyk": "https://api.statorium.com/media/bearleague/bl17157973672033.webp",
-  "Matìas Soulé": "https://api.statorium.com/media/bearleague/bl17605462781411.webp",
+  "Mat├Čas Soul├ę": "https://api.statorium.com/media/bearleague/bl17605462781411.webp",
   "Wesley": "https://api.statorium.com/media/bearleague/bl17606153581597.webp",
   "Evan Ferguson": "https://api.statorium.com/media/bearleague/bl17337368081121.webp",
   "Davide Zappacosta": "https://api.statorium.com/media/bearleague/bl17449817842449.webp",
@@ -963,9 +884,9 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Mitchel Bakker": "https://api.statorium.com/media/bearleague/bl1566161722390.webp",
   "Odilon Kossounou": "https://api.statorium.com/media/bearleague/bl1635678678494.webp",
   "Nikola Krstovic": "https://api.statorium.com/media/bearleague/bl1567682330265.webp",
-  "Éderson": "https://api.statorium.com/media/bearleague/bl15709068681621.webp",
+  "├ëderson": "https://api.statorium.com/media/bearleague/bl15709068681621.webp",
   "Charles De Ketelaere": "https://api.statorium.com/media/bearleague/bl17449818311522.webp",
-  "Lazar Samardžić": "https://api.statorium.com/media/bearleague/bl17606034131054.webp",
+  "Lazar Samard┼żi─ç": "https://api.statorium.com/media/bearleague/bl17606034131054.webp",
   "Yunus Musah": "https://api.statorium.com/media/bearleague/bl16688796852054.webp",
   "Giorgio Scalvini": "https://api.statorium.com/media/bearleague/bl1760604995234.webp",
   "Kamaldeen Sulemana": "https://api.statorium.com/media/bearleague/bl16688659002328.webp",
@@ -978,9 +899,9 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Jens Odgaard": "https://api.statorium.com/media/bearleague/bl15645849702502.webp",
   "Riccardo Orsolini": "https://api.statorium.com/media/bearleague/bl15617188592724.webp",
   "Lukasz Skorupski": "https://api.statorium.com/media/bearleague/bl1561718880399.webp",
-  "Nicolò Cambiaghi": "https://api.statorium.com/media/bearleague/bl15650916732620.webp",
+  "Nicol├▓ Cambiaghi": "https://api.statorium.com/media/bearleague/bl15650916732620.webp",
   "Nikola Moro": "https://api.statorium.com/media/bearleague/bl15672373131041.webp",
-  "Jhon Lucumí": "https://api.statorium.com/media/bearleague/bl16239563241475.webp",
+  "Jhon Lucum├ş": "https://api.statorium.com/media/bearleague/bl16239563241475.webp",
   "Thijs Dallinga": "https://api.statorium.com/media/bearleague/bl15734981332270.webp",
   "Simon Sohm": "https://api.statorium.com/media/bearleague/bl15791053291068.webp",
   "Martin Vitik": "https://api.statorium.com/media/bearleague/bl16352700622336.webp",
@@ -997,7 +918,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Luca Pellegrini": "https://api.statorium.com/media/bearleague/bl16953880372211.webp",
   "Elseid Hysaj": "https://api.statorium.com/media/bearleague/bl15644755672682.webp",
   "Alessio Furlanetto": "https://api.statorium.com/media/bearleague/bl1564322254475.webp",
-  "Nicolò Rovella": "https://api.statorium.com/media/bearleague/bl17448098511811.webp",
+  "Nicol├▓ Rovella": "https://api.statorium.com/media/bearleague/bl17448098511811.webp",
   "Mattia Zaccagni": "https://api.statorium.com/media/bearleague/bl17448099851823.webp",
   "Nuno Tavares": "https://api.statorium.com/media/bearleague/bl17448093451359.webp",
   "Samuel Gigot": "https://api.statorium.com/media/bearleague/bl15730597392012.webp",
@@ -1007,7 +928,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Christian Kabasele": "https://api.statorium.com/media/bearleague/bl16953880291037.webp",
   "Oumar Solet": "https://api.statorium.com/media/bearleague/bl15652808482175.webp",
   "Hassane Kamara": "https://api.statorium.com/media/bearleague/bl16356762031429.webp",
-  "Nicolò Zaniolo": "https://api.statorium.com/media/bearleague/bl15620796032601.webp",
+  "Nicol├▓ Zaniolo": "https://api.statorium.com/media/bearleague/bl15620796032601.webp",
   "Daniele Padelli": "https://api.statorium.com/media/bearleague/bl15641353552005.webp",
   "Keinan Davis": "https://api.statorium.com/media/bearleague/bl15651854371766.webp",
   "Kingsley Ehizibue": "https://api.statorium.com/media/bearleague/bl15657770742424.webp",
@@ -1015,7 +936,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Jurgen Ekkelenkamp": "https://api.statorium.com/media/bearleague/bl15674314461297.webp",
   "Vakoun Bayo": "https://api.statorium.com/media/bearleague/bl16157231091828.webp",
   "Adam Buksa": "https://api.statorium.com/media/bearleague/bl1584697694396.webp",
-  "Jesper Karlström": "https://api.statorium.com/media/bearleague/bl16305988831573.webp",
+  "Jesper Karlstr├Âm": "https://api.statorium.com/media/bearleague/bl16305988831573.webp",
   "Thomas Kristensen": "https://api.statorium.com/media/bearleague/bl176061649025.webp",
   "Arthur Atta": "https://api.statorium.com/media/bearleague/bl17606208271834.webp",
   "Arijanet Muric": "https://api.statorium.com/media/bearleague/bl15547285731593.webp",
@@ -1029,28 +950,28 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Ulisses Garcia": "https://api.statorium.com/media/bearleague/bl15689750101060.webp",
   "Aster Vranckx": "https://api.statorium.com/media/bearleague/bl15874097211621.webp",
   "Kristian Thorstvedt": "https://api.statorium.com/media/bearleague/bl16299938241780.webp",
-  "Fali Candé": "https://api.statorium.com/media/bearleague/bl16364559822891.webp",
+  "Fali Cand├ę": "https://api.statorium.com/media/bearleague/bl16364559822891.webp",
   "Josh Doig": "https://api.statorium.com/media/bearleague/bl15974739161257.webp",
   "Woyo Coulibaly": "https://api.statorium.com/media/bearleague/bl16163337571384.webp",
   "M'Bala Nzola": "https://api.statorium.com/media/bearleague/bl17606046471332.webp",
   "Tarik Muharemovic": "https://api.statorium.com/media/bearleague/bl17387638931053.webp",
-  "Guillermo Maripán": "https://api.statorium.com/media/bearleague/bl16239375092670.webp",
+  "Guillermo Marip├ín": "https://api.statorium.com/media/bearleague/bl16239375092670.webp",
   "Valentino Lazaro": "https://api.statorium.com/media/bearleague/bl16182505462667.webp",
   "Adrien Tameze": "https://api.statorium.com/media/bearleague/bl15652536862528.webp",
   "Cristiano Biraghi": "https://api.statorium.com/media/bearleague/bl1622239583876.webp",
   "Giovanni Simeone": "https://api.statorium.com/media/bearleague/bl15620808921381.webp",
-  "Duván Zapata": "https://api.statorium.com/media/bearleague/bl15615607561846.webp",
-  "Ché Adams": "https://api.statorium.com/media/bearleague/bl16188662612988.webp",
+  "Duv├ín Zapata": "https://api.statorium.com/media/bearleague/bl15615607561846.webp",
+  "Ch├ę Adams": "https://api.statorium.com/media/bearleague/bl16188662612988.webp",
   "Nikola Vlasic": "https://api.statorium.com/media/bearleague/bl161927283056.webp",
   "Zakaria Aboukhlal": "https://api.statorium.com/media/bearleague/bl15688963681528.webp",
   "Tino Anjorin": "https://api.statorium.com/media/bearleague/bl1731351258230.webp",
   "Enzo Ebosse": "https://api.statorium.com/media/bearleague/bl16686020932078.webp",
-  "Ivan Ilić": "https://api.statorium.com/media/bearleague/bl16688552491173.webp",
+  "Ivan Ili─ç": "https://api.statorium.com/media/bearleague/bl16688552491173.webp",
   "Ardian Ismajli": "https://api.statorium.com/media/bearleague/bl161770168043.webp",
   "Marcus Pedersen": "https://api.statorium.com/media/bearleague/bl163045620659.webp",
-  "Saúl Coco": "https://api.statorium.com/media/bearleague/bl17606054872351.webp",
+  "Sa├║l Coco": "https://api.statorium.com/media/bearleague/bl17606054872351.webp",
   "Cesare Casadei": "https://api.statorium.com/media/bearleague/bl17313485812491.webp",
-  "Aarón Martín": "https://api.statorium.com/media/bearleague/bl15596391641796.webp",
+  "Aar├│n Mart├şn": "https://api.statorium.com/media/bearleague/bl15596391641796.webp",
   "Maxwel Cornet": "https://api.statorium.com/media/bearleague/bl1734084395520.webp",
   "Stefano Sabelli": "https://api.statorium.com/media/bearleague/bl15656056001759.webp",
   "Ruslan Malinovskyi": "https://api.statorium.com/media/bearleague/bl1695388069874.webp",
@@ -1059,12 +980,12 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Benjamin Siegrist": "https://api.statorium.com/media/bearleague/bl1597328185966.webp",
   "Junior Messias": "https://api.statorium.com/media/bearleague/bl1617371408238.webp",
   "Mikael Egill Ellertsson": "https://api.statorium.com/media/bearleague/bl1760611311930.webp",
-  "Johan Vásquez": "https://api.statorium.com/media/bearleague/bl16688616891799.webp",
-  "Adrián Bernabé": "https://api.statorium.com/media/bearleague/bl155479070697.webp",
+  "Johan V├ísquez": "https://api.statorium.com/media/bearleague/bl16688616891799.webp",
+  "Adri├ín Bernab├ę": "https://api.statorium.com/media/bearleague/bl155479070697.webp",
   "Hans Nicolussi Caviglia": "https://api.statorium.com/media/bearleague/bl15641787271609.webp",
   "Gabriel Strefezza": "https://api.statorium.com/media/bearleague/bl15663864982986.webp",
-  "Nahuel Estévez": "https://api.statorium.com/media/bearleague/bl1617797919372.webp",
-  "Oliver Sörensen": "https://api.statorium.com/media/bearleague/bl1630089300442.webp",
+  "Nahuel Est├ęvez": "https://api.statorium.com/media/bearleague/bl1617797919372.webp",
+  "Oliver S├Ârensen": "https://api.statorium.com/media/bearleague/bl1630089300442.webp",
   "Mateo Pellegrino": "https://api.statorium.com/media/bearleague/bl17605488413000.webp",
   "David de Gea": "https://api.statorium.com/media/bearleague/bl1623008249972.webp",
   "Abdelhamid Sabiri": "https://api.statorium.com/media/bearleague/bl16953893821074.webp",
@@ -1072,11 +993,11 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Rolando Mandragora": "https://api.statorium.com/media/bearleague/bl1619617459769.webp",
   "Daniele Rugani": "https://api.statorium.com/media/bearleague/bl15641649702523.webp",
   "Moise Kean": "https://api.statorium.com/media/bearleague/bl17448091092861.webp",
-  "Nicolò Fagioli": "https://api.statorium.com/media/bearleague/bl1564148301189.webp",
+  "Nicol├▓ Fagioli": "https://api.statorium.com/media/bearleague/bl1564148301189.webp",
   "Robin Gosens": "https://api.statorium.com/media/bearleague/bl161841852068.webp",
   "Roberto Piccoli": "https://api.statorium.com/media/bearleague/bl16178025252809.webp",
   "Luca Ranieri": "https://api.statorium.com/media/bearleague/bl17189838061067.webp",
-  "Dodô": "https://api.statorium.com/media/bearleague/bl15671941861955.webp",
+  "Dod├┤": "https://api.statorium.com/media/bearleague/bl15671941861955.webp",
   "Manor Solomon": "https://api.statorium.com/media/bearleague/bl17340103271142.webp",
   "Marin Pongracic": "https://api.statorium.com/media/bearleague/bl15673281832722.webp",
   "Albert Gudmundsson": "https://api.statorium.com/media/bearleague/bl15688955231000.webp",
@@ -1109,7 +1030,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Milan Djuric": "https://api.statorium.com/media/bearleague/bl16285069891978.webp",
   "Sebastiano Luperto": "https://api.statorium.com/media/bearleague/bl16172108921354.webp",
   "Morten Thorsby": "https://api.statorium.com/media/bearleague/bl1566409960291.webp",
-  "Christian Früchtl": "https://api.statorium.com/media/bearleague/bl15959420031809.webp",
+  "Christian Fr├╝chtl": "https://api.statorium.com/media/bearleague/bl15959420031809.webp",
   "Riccardo Sottil": "https://api.statorium.com/media/bearleague/bl1562081663263.webp",
   "Antonino Gallo": "https://api.statorium.com/media/bearleague/bl15656846162090.webp",
   "Lassana Coulibaly": "https://api.statorium.com/media/bearleague/bl16360224821653.webp",
@@ -1131,20 +1052,20 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Victor Nelsson": "https://api.statorium.com/media/bearleague/bl1568033127793.webp",
   "Abdou Harroui": "https://api.statorium.com/media/bearleague/bl1573685936712.webp",
   "Tomas Suslov": "https://api.statorium.com/media/bearleague/bl16193522501274.webp",
-  "Lorenzo Montipò": "https://api.statorium.com/media/bearleague/bl16179596592436.webp",
+  "Lorenzo Montip├▓": "https://api.statorium.com/media/bearleague/bl16179596592436.webp",
   "Jean-Daniel Akpa Akpro": "https://api.statorium.com/media/bearleague/bl16356683631170.webp",
   "Dailon Rocha Livramento": "https://api.statorium.com/media/bearleague/bl16742274482799.webp",
   "Gift Orban": "https://api.statorium.com/media/bearleague/bl17606216772635.webp",
-  "Adrian Šemper": "https://api.statorium.com/media/bearleague/bl15620702482873.webp",
+  "Adrian ┼áemper": "https://api.statorium.com/media/bearleague/bl15620702482873.webp",
   "Simone Scuffet": "https://api.statorium.com/media/bearleague/bl1565086972687.webp",
   "Nicolas": "https://api.statorium.com/media/bearleague/bl15650820142773.webp",
   "Arturo Calabresi": "https://api.statorium.com/media/bearleague/bl15615601632555.webp",
   "Michel Aebischer": "https://api.statorium.com/media/bearleague/bl1568974869940.webp",
   "Juan Cuadrado": "https://api.statorium.com/media/bearleague/bl1715793301966.webp",
   "Jan Mlakar": "https://api.statorium.com/media/bearleague/bl15700587781965.webp",
-  "Mehdi Léris": "https://api.statorium.com/media/bearleague/bl15620714112918.webp",
+  "Mehdi L├ęris": "https://api.statorium.com/media/bearleague/bl15620714112918.webp",
   "Calvin Stengs": "https://api.statorium.com/media/bearleague/bl17023318241479.webp",
-  "Raúl Albiol": "https://api.statorium.com/media/bearleague/bl15644804701310.webp",
+  "Ra├║l Albiol": "https://api.statorium.com/media/bearleague/bl15644804701310.webp",
   "Samuel Iling-Junior": "https://api.statorium.com/media/bearleague/bl1733720479802.webp",
   "Manuel Neuer": "https://api.statorium.com/media/bearleague/bl16184189021748.webp",
   "Sven Ulreich": "https://api.statorium.com/media/bearleague/bl15959401012167.webp",
@@ -1153,14 +1074,14 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Jonathan Tah": "https://api.statorium.com/media/bearleague/bl15589658191742.webp",
   "Hiroki Ito": "https://api.statorium.com/media/bearleague/bl166875103974.webp",
   "Alphonso Davies": "https://api.statorium.com/media/bearleague/bl16958902041669.webp",
-  "Raphaël Guerreiro": "https://api.statorium.com/media/bearleague/bl16226561572807.webp",
+  "Rapha├źl Guerreiro": "https://api.statorium.com/media/bearleague/bl16226561572807.webp",
   "Josip Stanisic": "https://api.statorium.com/media/bearleague/bl16688631572101.webp",
   "Konrad Laimer": "https://api.statorium.com/media/bearleague/bl16229695842071.webp",
   "Sacha Boey": "https://api.statorium.com/media/bearleague/bl15634489251656.webp",
   "Joshua Kimmich": "https://api.statorium.com/media/bearleague/bl17486109121009.webp",
   "Leon Goretzka": "https://api.statorium.com/media/bearleague/bl17449818712709.webp",
   "Jamal Musiala": "https://api.statorium.com/media/bearleague/bl1720013375836.webp",
-  "Luis Díaz": "https://api.statorium.com/media/bearleague/bl17315665231349.webp",
+  "Luis D├şaz": "https://api.statorium.com/media/bearleague/bl17315665231349.webp",
   "Kingsley Coman": "https://api.statorium.com/media/bearleague/bl1622486334127.webp",
   "Serge Gnabry": "https://api.statorium.com/media/bearleague/bl15959640521323.webp",
   "Michael Olise": "https://api.statorium.com/media/bearleague/bl1744810632593.webp",
@@ -1170,26 +1091,26 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Alexander Meyer": "https://api.statorium.com/media/bearleague/bl15598105901091.webp",
   "Nico Schlotterbeck": "https://api.statorium.com/media/bearleague/bl15587042621740.webp",
   "Waldemar Anton": "https://api.statorium.com/media/bearleague/bl15972417752907.webp",
-  "Niklas Süle": "https://api.statorium.com/media/bearleague/bl15590399481754.webp",
+  "Niklas S├╝le": "https://api.statorium.com/media/bearleague/bl15590399481754.webp",
   "Ramy Bensebaini": "https://api.statorium.com/media/bearleague/bl17449819052894.webp",
   "Yan Couto": "https://api.statorium.com/media/bearleague/bl17189764572388.webp",
   "Julian Ryerson": "https://api.statorium.com/media/bearleague/bl15657878712130.webp",
   "Emre Can": "https://api.statorium.com/media/bearleague/bl16958902692853.webp",
-  "Salih Özcan": "https://api.statorium.com/media/bearleague/bl15657795182327.webp",
+  "Salih ├ľzcan": "https://api.statorium.com/media/bearleague/bl15657795182327.webp",
   "Felix Nmecha": "https://api.statorium.com/media/bearleague/bl1554732394903.webp",
   "Marcel Sabitzer": "https://api.statorium.com/media/bearleague/bl16182514221424.webp",
   "Julian Brandt": "https://api.statorium.com/media/bearleague/bl1702303564635.webp",
   "Karim Adeyemi": "https://api.statorium.com/media/bearleague/bl16688661372039.webp",
   "Serhou Guirassy": "https://api.statorium.com/media/bearleague/bl1719662859999.webp",
   "Maximilian Beier": "https://api.statorium.com/media/bearleague/bl17196630211923.webp",
-  "Sébastien Haller": "https://api.statorium.com/media/bearleague/bl1635188067983.webp",
+  "S├ębastien Haller": "https://api.statorium.com/media/bearleague/bl1635188067983.webp",
   "Carney Chukwuemeka": "https://api.statorium.com/media/bearleague/bl1731348399310.webp",
-  "Fábio Silva": "https://api.statorium.com/media/bearleague/bl15689625242051.webp",
-  "Alexander Nübel": "https://api.statorium.com/media/bearleague/bl1571739670541.webp",
+  "F├íbio Silva": "https://api.statorium.com/media/bearleague/bl15689625242051.webp",
+  "Alexander N├╝bel": "https://api.statorium.com/media/bearleague/bl1571739670541.webp",
   "Fabian Bredlow": "https://api.statorium.com/media/bearleague/bl15972288971824.webp",
   "Jeff Chabot": "https://api.statorium.com/media/bearleague/bl16177153577.webp",
   "Dan-Axel Zagadou": "https://api.statorium.com/media/bearleague/bl15590512191972.webp",
-  "Maximilian Mittelstädt": "https://api.statorium.com/media/bearleague/bl15595650641358.webp",
+  "Maximilian Mittelst├Ądt": "https://api.statorium.com/media/bearleague/bl15595650641358.webp",
   "Josha Vagnoman": "https://api.statorium.com/media/bearleague/bl17612952962762.webp",
   "Angelo Stiller": "https://api.statorium.com/media/bearleague/bl17611441641120.webp",
   "Atakan Karazor": "https://api.statorium.com/media/bearleague/bl17448108842880.webp",
@@ -1198,9 +1119,9 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Deniz Undav": "https://api.statorium.com/media/bearleague/bl1718816520913.webp",
   "Bilal El Khannouss": "https://api.statorium.com/media/bearleague/bl17342884082204.webp",
   "Maarten Vandevoordt": "https://api.statorium.com/media/bearleague/bl1567505373766.webp",
-  "Péter Gulácsi": "https://api.statorium.com/media/bearleague/bl16193733682736.webp",
+  "P├ęter Gul├ícsi": "https://api.statorium.com/media/bearleague/bl16193733682736.webp",
   "Leopold Zingerle": "https://api.statorium.com/media/bearleague/bl15658806391769.webp",
-  "Willi Orbán": "https://api.statorium.com/media/bearleague/bl16194547872740.webp",
+  "Willi Orb├ín": "https://api.statorium.com/media/bearleague/bl16194547872740.webp",
   "Lukas Klostermann": "https://api.statorium.com/media/bearleague/bl16184206241465.webp",
   "David Raum": "https://api.statorium.com/media/bearleague/bl16681434592239.webp",
   "Benjamin Henrichs": "https://api.statorium.com/media/bearleague/bl15589658462235.webp",
@@ -1211,8 +1132,8 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Christoph Baumgartner": "https://api.statorium.com/media/bearleague/bl1744893254880.webp",
   "Johan Bakayoko": "https://api.statorium.com/media/bearleague/bl1761238516948.webp",
   "Brajan Gruda": "https://api.statorium.com/media/bearleague/bl1733732125106.webp",
-  "Aleix García": "https://api.statorium.com/media/bearleague/bl15870380792483.webp",
-  "Lucas Vázquez": "https://api.statorium.com/media/bearleague/bl17449819502718.webp",
+  "Aleix Garc├şa": "https://api.statorium.com/media/bearleague/bl15870380792483.webp",
+  "Lucas V├ízquez": "https://api.statorium.com/media/bearleague/bl17449819502718.webp",
   "Jonas Hofmann": "https://api.statorium.com/media/bearleague/bl16223123422284.webp",
   "Mark Flekken": "https://api.statorium.com/media/bearleague/bl1733950675651.webp",
   "Martin Terrier": "https://api.statorium.com/media/bearleague/bl15652782772918.webp",
@@ -1234,7 +1155,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Valentin Gendrey": "https://api.statorium.com/media/bearleague/bl15661609352563.webp",
   "Vladimir Coufal": "https://api.statorium.com/media/bearleague/bl17341441722214.webp",
   "Wouter Burger": "https://api.statorium.com/media/bearleague/bl1568915885546.webp",
-  "Grischa Prömel": "https://api.statorium.com/media/bearleague/bl17023037532559.webp",
+  "Grischa Pr├Âmel": "https://api.statorium.com/media/bearleague/bl17023037532559.webp",
   "Dennis Geiger": "https://api.statorium.com/media/bearleague/bl15595715032955.webp",
   "Andrej Kramaric": "https://api.statorium.com/media/bearleague/bl16229962842424.webp",
   "Adam Hlozek": "https://api.statorium.com/media/bearleague/bl16229887442615.webp",
@@ -1251,8 +1172,8 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Mahmoud Dahoud": "https://api.statorium.com/media/bearleague/bl1733779581141.webp",
   "Can Uzun": "https://api.statorium.com/media/bearleague/bl17612133831590.webp",
   "Fares Chaibi": "https://api.statorium.com/media/bearleague/bl17612980641508.webp",
-  "Mario Götze": "https://api.statorium.com/media/bearleague/bl1559054043177.webp",
-  "Jean-Mattéo Bahoya": "https://api.statorium.com/media/bearleague/bl1761239574771.webp",
+  "Mario G├Âtze": "https://api.statorium.com/media/bearleague/bl1559054043177.webp",
+  "Jean-Matt├ęo Bahoya": "https://api.statorium.com/media/bearleague/bl1761239574771.webp",
   "Ritsu Doan": "https://api.statorium.com/media/bearleague/bl15899010891648.webp",
   "Ansgar Knauff": "https://api.statorium.com/media/bearleague/bl1761237299624.webp",
   "Jonathan Burkardt": "https://api.statorium.com/media/bearleague/bl17448104491478.webp",
@@ -1262,12 +1183,12 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Maximilian Eggestein": "https://api.statorium.com/media/bearleague/bl1559829739354.webp",
   "Niklas Beste": "https://api.statorium.com/media/bearleague/bl16958901702611.webp",
   "Matthias Ginter": "https://api.statorium.com/media/bearleague/bl1618417989320.webp",
-  "Florian Müller": "https://api.statorium.com/media/bearleague/bl1559639128948.webp",
+  "Florian M├╝ller": "https://api.statorium.com/media/bearleague/bl1559639128948.webp",
   "Jannik Huth": "https://api.statorium.com/media/bearleague/bl1559642071838.webp",
-  "Christian Günter": "https://api.statorium.com/media/bearleague/bl16223093171672.webp",
-  "Lukas Kübler": "https://api.statorium.com/media/bearleague/bl15592866491870.webp",
-  "Nicolas Höfler": "https://api.statorium.com/media/bearleague/bl17158002772765.webp",
-  "Lucas Höler": "https://api.statorium.com/media/bearleague/bl15592866521295.webp",
+  "Christian G├╝nter": "https://api.statorium.com/media/bearleague/bl16223093171672.webp",
+  "Lukas K├╝bler": "https://api.statorium.com/media/bearleague/bl15592866491870.webp",
+  "Nicolas H├Âfler": "https://api.statorium.com/media/bearleague/bl17158002772765.webp",
+  "Lucas H├Âler": "https://api.statorium.com/media/bearleague/bl15592866521295.webp",
   "Philipp Lienhart": "https://api.statorium.com/media/bearleague/bl16183247531904.webp",
   "Vincenzo Grifo": "https://api.statorium.com/media/bearleague/bl17448106682519.webp",
   "Patrick Osterhage": "https://api.statorium.com/media/bearleague/bl15661616641093.webp",
@@ -1295,7 +1216,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Michael Gregoritsch": "https://api.statorium.com/media/bearleague/bl16182517821758.webp",
   "Finn Dahmen": "https://api.statorium.com/media/bearleague/bl15596391332135.webp",
   "Chrislain Matsima": "https://api.statorium.com/media/bearleague/bl1761139429767.webp",
-  "Cédric Zesiger": "https://api.statorium.com/media/bearleague/bl17448109162483.webp",
+  "C├ędric Zesiger": "https://api.statorium.com/media/bearleague/bl17448109162483.webp",
   "Keven Schlotterbeck": "https://api.statorium.com/media/bearleague/bl15592866562155.webp",
   "Jeffrey Gouweleeuw": "https://api.statorium.com/media/bearleague/bl17448107421330.webp",
   "Dimitrios Giannoulis": "https://api.statorium.com/media/bearleague/bl1572346616846.webp",
@@ -1305,15 +1226,15 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Han-Noah Massengo": "https://api.statorium.com/media/bearleague/bl15908528311258.webp",
   "Arne Maier": "https://api.statorium.com/media/bearleague/bl1559560402746.webp",
   "Elvis Rexhbecaj": "https://api.statorium.com/media/bearleague/bl17448934251873.webp",
-  "Mert Kömür": "https://api.statorium.com/media/bearleague/bl17612397341804.webp",
+  "Mert K├Âm├╝r": "https://api.statorium.com/media/bearleague/bl17612397341804.webp",
   "Fabian Rieder": "https://api.statorium.com/media/bearleague/bl16686027641568.webp",
   "Rani Khedira": "https://api.statorium.com/media/bearleague/bl15589615892119.webp",
-  "Frederik Rönnow": "https://api.statorium.com/media/bearleague/bl1618404669107.webp",
+  "Frederik R├Ânnow": "https://api.statorium.com/media/bearleague/bl1618404669107.webp",
   "Woo-yeong Jeong": "https://api.statorium.com/media/bearleague/bl15959637712736.webp",
   "Janik Haberer": "https://api.statorium.com/media/bearleague/bl15592866641315.webp",
-  "Lászlo Bénes": "https://api.statorium.com/media/bearleague/bl16196296592379.webp",
+  "L├íszlo B├ęnes": "https://api.statorium.com/media/bearleague/bl16196296592379.webp",
   "Stanley Nsoki": "https://api.statorium.com/media/bearleague/bl15653031631371.webp",
-  "András Schäfer": "https://api.statorium.com/media/bearleague/bl15928390421165.webp",
+  "Andr├ís Sch├Ąfer": "https://api.statorium.com/media/bearleague/bl15928390421165.webp",
   "Christopher Trimmel": "https://api.statorium.com/media/bearleague/bl15657853492586.webp",
   "Robert Skov": "https://api.statorium.com/media/bearleague/bl16184044871681.webp",
   "Alex Kral": "https://api.statorium.com/media/bearleague/bl16229880531399.webp",
@@ -1326,26 +1247,26 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Sebastian Schonlau": "https://api.statorium.com/media/bearleague/bl15658990702989.webp",
   "Miro Muheim": "https://api.statorium.com/media/bearleague/bl1578760021729.webp",
   "Noah Katterbach": "https://api.statorium.com/media/bearleague/bl15657791112076.webp",
-  "Nicolás Capaldo": "https://api.statorium.com/media/bearleague/bl1585175762746.webp",
-  "Jean-Luc Dompé": "https://api.statorium.com/media/bearleague/bl1587032076545.webp",
+  "Nicol├ís Capaldo": "https://api.statorium.com/media/bearleague/bl1585175762746.webp",
+  "Jean-Luc Domp├ę": "https://api.statorium.com/media/bearleague/bl1587032076545.webp",
   "Rayan Philippe": "https://api.statorium.com/media/bearleague/bl16141783832734.webp",
   "Yussuf Poulsen": "https://api.statorium.com/media/bearleague/bl16228405671300.webp",
   "Robert Glatzel": "https://api.statorium.com/media/bearleague/bl15693468412080.webp",
   "Albert Sambi Lokonga": "https://api.statorium.com/media/bearleague/bl1586936248271.webp",
-  "Tom Krauß": "https://api.statorium.com/media/bearleague/bl15596629822269.webp",
-  "Timo Hübers": "https://api.statorium.com/media/bearleague/bl15593039534.webp",
+  "Tom Krau├č": "https://api.statorium.com/media/bearleague/bl15596629822269.webp",
+  "Timo H├╝bers": "https://api.statorium.com/media/bearleague/bl15593039534.webp",
   "Linton Maina": "https://api.statorium.com/media/bearleague/bl1559302701255.webp",
   "Ron-Robert Zieler": "https://api.statorium.com/media/bearleague/bl15598165751268.webp",
   "Dominique Heintz": "https://api.statorium.com/media/bearleague/bl15592279332400.webp",
   "Luca Waldschmidt": "https://api.statorium.com/media/bearleague/bl15592866682171.webp",
   "Florian Kainz": "https://api.statorium.com/media/bearleague/bl15598253812362.webp",
   "Luca Kilian": "https://api.statorium.com/media/bearleague/bl15658808851563.webp",
-  "Marius Bülter": "https://api.statorium.com/media/bearleague/bl1565789716779.webp",
+  "Marius B├╝lter": "https://api.statorium.com/media/bearleague/bl1565789716779.webp",
   "Sargis Adamyan": "https://api.statorium.com/media/bearleague/bl1566128788273.webp",
   "Alessio Castro-Montes": "https://api.statorium.com/media/bearleague/bl1568310370432.webp",
   "Ragnar Ache": "https://api.statorium.com/media/bearleague/bl1573686248313.webp",
   "Jakub Kaminski": "https://api.statorium.com/media/bearleague/bl16305979091559.webp",
-  "Ísak Jóhannesson": "https://api.statorium.com/media/bearleague/bl16293810571522.webp",
+  "├Źsak J├│hannesson": "https://api.statorium.com/media/bearleague/bl16293810571522.webp",
   "Denis Huseinbasic": "https://api.statorium.com/media/bearleague/bl17389279352796.webp",
   "Said El Mala": "https://api.statorium.com/media/bearleague/bl17612330401847.webp",
   "Jahmai Simpson-Pusey": "https://api.statorium.com/media/bearleague/bl17313193131593.webp",
@@ -1357,7 +1278,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Kevin Diks": "https://api.statorium.com/media/bearleague/bl15620729922930.webp",
   "Jens Castrop": "https://api.statorium.com/media/bearleague/bl17611433642673.webp",
   "Florian Neuhaus": "https://api.statorium.com/media/bearleague/bl16223109672447.webp",
-  "Kevin Stöger": "https://api.statorium.com/media/bearleague/bl15592222061685.webp",
+  "Kevin St├Âger": "https://api.statorium.com/media/bearleague/bl15592222061685.webp",
   "Robin Hack": "https://api.statorium.com/media/bearleague/bl1559576310343.webp",
   "Franck Honorat": "https://api.statorium.com/media/bearleague/bl15661553792465.webp",
   "Nathan Ngoumou": "https://api.statorium.com/media/bearleague/bl1615720687186.webp",
@@ -1367,7 +1288,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Giovanni Reyna": "https://api.statorium.com/media/bearleague/bl1668748116671.webp",
   "Yannik Engelhardt": "https://api.statorium.com/media/bearleague/bl176129755915.webp",
   "Marco Friedl": "https://api.statorium.com/media/bearleague/bl169589028414.webp",
-  "Maximilian Wöber": "https://api.statorium.com/media/bearleague/bl15889299572279.webp",
+  "Maximilian W├Âber": "https://api.statorium.com/media/bearleague/bl15889299572279.webp",
   "Niklas Stark": "https://api.statorium.com/media/bearleague/bl15595683282252.webp",
   "Amos Pieper": "https://api.statorium.com/media/bearleague/bl15971465051784.webp",
   "Olivier Deman": "https://api.statorium.com/media/bearleague/bl15871245541454.webp",
@@ -1376,7 +1297,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Leonardo Bittencourt": "https://api.statorium.com/media/bearleague/bl15595740542847.webp",
   "Romano Schmid": "https://api.statorium.com/media/bearleague/bl1568746856203.webp",
   "Samuel Mbangula": "https://api.statorium.com/media/bearleague/bl17611362781124.webp",
-  "Marco Grüll": "https://api.statorium.com/media/bearleague/bl16316258231545.webp",
+  "Marco Gr├╝ll": "https://api.statorium.com/media/bearleague/bl16316258231545.webp",
   "Justin Njinmah": "https://api.statorium.com/media/bearleague/bl1761238796325.webp",
   "Yukinari Sugawara": "https://api.statorium.com/media/bearleague/bl15688963362954.webp",
   "Isaac Schmidt": "https://api.statorium.com/media/bearleague/bl17611424531992.webp",
@@ -1394,11 +1315,11 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Andreas Hountondji": "https://api.statorium.com/media/bearleague/bl17612143931938.webp",
   "Ricky-Jade Jones": "https://api.statorium.com/media/bearleague/bl15905776981224.webp",
   "Christian Eriksen": "https://api.statorium.com/media/bearleague/bl17340427942230.webp",
-  "Marius Müller": "https://api.statorium.com/media/bearleague/bl15786734371898.webp",
+  "Marius M├╝ller": "https://api.statorium.com/media/bearleague/bl15786734371898.webp",
   "Pavao Pervan": "https://api.statorium.com/media/bearleague/bl16182477982012.webp",
   "Yannick Gerhardt": "https://api.statorium.com/media/bearleague/bl15599118402545.webp",
   "Maximilian Arnold": "https://api.statorium.com/media/bearleague/bl17023038162854.webp",
-  "Rogério": "https://api.statorium.com/media/bearleague/bl15645924612812.webp",
+  "Rog├ęrio": "https://api.statorium.com/media/bearleague/bl15645924612812.webp",
   "Mattias Svanberg": "https://api.statorium.com/media/bearleague/bl16193699532303.webp",
   "Denis Vavro": "https://api.statorium.com/media/bearleague/bl16229154481096.webp",
   "Lovro Majer": "https://api.statorium.com/media/bearleague/bl1567240394550.webp",
@@ -1407,29 +1328,29 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Kamil Grabara": "https://api.statorium.com/media/bearleague/bl15707469652839.webp",
   "Vini Souza": "https://api.statorium.com/media/bearleague/bl15852533451386.webp",
   "Kevin Paredes": "https://api.statorium.com/media/bearleague/bl15857666971207.webp",
-  "Jesper Lindström": "https://api.statorium.com/media/bearleague/bl1734230318174.webp",
+  "Jesper Lindstr├Âm": "https://api.statorium.com/media/bearleague/bl1734230318174.webp",
   "Adam Daghim": "https://api.statorium.com/media/bearleague/bl1761298853332.webp",
-  "Leart Paçarada": "https://api.statorium.com/media/bearleague/bl1629453164351.webp",
-  "Jonas Föhrenbach": "https://api.statorium.com/media/bearleague/bl1761295664454.webp",
+  "Leart Pa├žarada": "https://api.statorium.com/media/bearleague/bl1629453164351.webp",
+  "Jonas F├Âhrenbach": "https://api.statorium.com/media/bearleague/bl1761295664454.webp",
   "Mikkel Kaufmann": "https://api.statorium.com/media/bearleague/bl17611390731019.webp",
   "Stefan Schimmer": "https://api.statorium.com/media/bearleague/bl17612947992092.webp",
   "Leonidas Stergiou": "https://api.statorium.com/media/bearleague/bl15787592331965.webp",
-  "Ousmane Dembélé": "https://api.statorium.com/media/bearleague/bl1702304187852.webp",
+  "Ousmane Demb├ęl├ę": "https://api.statorium.com/media/bearleague/bl1702304187852.webp",
   "Kang-In Lee": "https://api.statorium.com/media/bearleague/bl1558431092272.webp",
-  "Lucas Hernández": "https://api.statorium.com/media/bearleague/bl15959463531520.webp",
+  "Lucas Hern├índez": "https://api.statorium.com/media/bearleague/bl15959463531520.webp",
   "Achraf Hakimi": "https://api.statorium.com/media/bearleague/bl17023043082976.webp",
   "Marquinhos": "https://api.statorium.com/media/bearleague/bl16236036572693.webp",
   "Willem Geubbels": "https://api.statorium.com/media/bearleague/bl15648358812725.webp",
-  "Fabián Ruiz": "https://api.statorium.com/media/bearleague/bl1619636407240.webp",
+  "Fabi├ín Ruiz": "https://api.statorium.com/media/bearleague/bl1619636407240.webp",
   "Matvey Safonov": "https://api.statorium.com/media/bearleague/bl16226576901938.webp",
   "Khvicha Kvaratskhelia": "https://api.statorium.com/media/bearleague/bl15731157641308.webp",
   "Vitinha": "https://api.statorium.com/media/bearleague/bl16688772442289.webp",
   "Willian Pacho": "https://api.statorium.com/media/bearleague/bl16688783832535.webp",
   "Nuno Mendes": "https://api.statorium.com/media/bearleague/bl1618431285109.webp",
-  "Gonçalo Ramos": "https://api.statorium.com/media/bearleague/bl16687482392509.webp",
+  "Gon├žalo Ramos": "https://api.statorium.com/media/bearleague/bl16687482392509.webp",
   "Bradley Barcola": "https://api.statorium.com/media/bearleague/bl17322855392857.webp",
-  "João Neves": "https://api.statorium.com/media/bearleague/bl17322864621263.webp",
-  "Régis Gurtner": "https://api.statorium.com/media/bearleague/bl16170574392360.webp",
+  "Jo├úo Neves": "https://api.statorium.com/media/bearleague/bl17322864621263.webp",
+  "R├ęgis Gurtner": "https://api.statorium.com/media/bearleague/bl16170574392360.webp",
   "Malang Sarr": "https://api.statorium.com/media/bearleague/bl1565259141101.webp",
   "Jonathan Gradit": "https://api.statorium.com/media/bearleague/bl17023044792959.webp",
   "Nidal Celik": "https://api.statorium.com/media/bearleague/bl17387638341788.webp",
@@ -1439,7 +1360,7 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Salis Abdul Samed": "https://api.statorium.com/media/bearleague/bl1611342081567.webp",
   "Adrien Thomasson": "https://api.statorium.com/media/bearleague/bl15632874712060.webp",
   "Morgan Guilavogui": "https://api.statorium.com/media/bearleague/bl16069541012973.webp",
-  "Wesley Saïd": "https://api.statorium.com/media/bearleague/bl16157237801465.webp",
+  "Wesley Sa├»d": "https://api.statorium.com/media/bearleague/bl16157237801465.webp",
   "Rayan Fofana": "https://api.statorium.com/media/bearleague/bl17606969952273.webp",
   "Florian Thauvin": "https://api.statorium.com/media/bearleague/bl1565288525382.webp",
   "Abdallah Sima": "https://api.statorium.com/media/bearleague/bl1733727505117.webp",
@@ -1449,27 +1370,27 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Arthur Masuaku": "https://api.statorium.com/media/bearleague/bl1554374651136.webp",
   "Allan Saint-Maximin": "https://api.statorium.com/media/bearleague/bl1565254016781.webp",
   "Olivier Giroud": "https://api.statorium.com/media/bearleague/bl16953868132596.webp",
-  "Aïssa Mandi": "https://api.statorium.com/media/bearleague/bl155808449165.webp",
+  "A├»ssa Mandi": "https://api.statorium.com/media/bearleague/bl155808449165.webp",
   "Nabil Bentaleb": "https://api.statorium.com/media/bearleague/bl15597411071540.webp",
   "Thomas Meunier": "https://api.statorium.com/media/bearleague/bl1715800325749.webp",
-  "Benjamin André": "https://api.statorium.com/media/bearleague/bl17448111622928.webp",
-  "Marc-Aurèle Caillard": "https://api.statorium.com/media/bearleague/bl1565165589301.webp",
+  "Benjamin Andr├ę": "https://api.statorium.com/media/bearleague/bl17448111622928.webp",
+  "Marc-Aur├Ęle Caillard": "https://api.statorium.com/media/bearleague/bl1565165589301.webp",
   "Arnaud Bodart": "https://api.statorium.com/media/bearleague/bl15682886682093.webp",
   "Chancel Mbemba": "https://api.statorium.com/media/bearleague/bl15689623172223.webp",
   "Calvin Verdonk": "https://api.statorium.com/media/bearleague/bl15899054751194.webp",
   "Hamza Igamane": "https://api.statorium.com/media/bearleague/bl1760695467866.webp",
   "Matias Fernandez-Pardo": "https://api.statorium.com/media/bearleague/bl17606959511054.webp",
-  "Ethan Mbappé": "https://api.statorium.com/media/bearleague/bl17606965221221.webp",
+  "Ethan Mbapp├ę": "https://api.statorium.com/media/bearleague/bl17606965221221.webp",
   "Mason Greenwood": "https://api.statorium.com/media/bearleague/bl1702316838424.webp",
   "Emerson Palmieri": "https://api.statorium.com/media/bearleague/bl17340809121821.webp",
   "Pierre-Emerick Aubameyang": "https://api.statorium.com/media/bearleague/bl17023041161467.webp",
-  "Pierre-Emile Höjbjerg": "https://api.statorium.com/media/bearleague/bl15556856662055.webp",
+  "Pierre-Emile H├Âjbjerg": "https://api.statorium.com/media/bearleague/bl15556856662055.webp",
   "Geoffrey Kondogbia": "https://api.statorium.com/media/bearleague/bl15584311752997.webp",
-  "Gerónimo Rulli": "https://api.statorium.com/media/bearleague/bl15581058811520.webp",
+  "Ger├│nimo Rulli": "https://api.statorium.com/media/bearleague/bl15581058811520.webp",
   "Leonardo Balerdi": "https://api.statorium.com/media/bearleague/bl15599153362725.webp",
   "Benjamin Pavard": "https://api.statorium.com/media/bearleague/bl15959404611297.webp",
   "Amine Gouiri": "https://api.statorium.com/media/bearleague/bl15652680702155.webp",
-  "Théo Vermot": "https://api.statorium.com/media/bearleague/bl15633844192130.webp",
+  "Th├ęo Vermot": "https://api.statorium.com/media/bearleague/bl15633844192130.webp",
   "Nayef Aguerd": "https://api.statorium.com/media/bearleague/bl17341437402122.webp",
   "Timothy Weah": "https://api.statorium.com/media/bearleague/bl15653037322560.webp",
   "Jeffrey de Lange": "https://api.statorium.com/media/bearleague/bl15735066152469.webp",
@@ -1480,14 +1401,14 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Ainsley Maitland-Niles": "https://api.statorium.com/media/bearleague/bl15536013191513.webp",
   "Rachid Ghezzal": "https://api.statorium.com/media/bearleague/bl1555935216917.webp",
   "Corentin Tolisso": "https://api.statorium.com/media/bearleague/bl1595944642430.webp",
-  "Moussa Niakhaté": "https://api.statorium.com/media/bearleague/bl1559645282724.webp",
+  "Moussa Niakhat├ę": "https://api.statorium.com/media/bearleague/bl1559645282724.webp",
   "Hans Hateboer": "https://api.statorium.com/media/bearleague/bl15615610471938.webp",
   "Clinton Mata": "https://api.statorium.com/media/bearleague/bl15674977962208.webp",
-  "Nicolás Tagliafico": "https://api.statorium.com/media/bearleague/bl16235826821710.webp",
+  "Nicol├ís Tagliafico": "https://api.statorium.com/media/bearleague/bl16235826821710.webp",
   "Roman Yaremchuk": "https://api.statorium.com/media/bearleague/bl16192707612632.webp",
   "Dominik Greif": "https://api.statorium.com/media/bearleague/bl15911677272008.webp",
   "Tanner Tessmann": "https://api.statorium.com/media/bearleague/bl15887646921781.webp",
-  "Rémy Descamps": "https://api.statorium.com/media/bearleague/bl15874704101188.webp",
+  "R├ęmy Descamps": "https://api.statorium.com/media/bearleague/bl15874704101188.webp",
   "Orel Mangala": "https://api.statorium.com/media/bearleague/bl1734231815570.webp",
   "Adam Karabec": "https://api.statorium.com/media/bearleague/bl16291267632709.webp",
   "Pavel Sulc": "https://api.statorium.com/media/bearleague/bl16219673522714.webp",
@@ -1512,8 +1433,8 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Thilo Kehrer": "https://api.statorium.com/media/bearleague/bl15653013132614.webp",
   "Aleksandr Golovin": "https://api.statorium.com/media/bearleague/bl1564834009426.webp",
   "Ansu Fati": "https://api.statorium.com/media/bearleague/bl1566807388651.webp",
-  "Krépin Diatta": "https://api.statorium.com/media/bearleague/bl1567495039956.webp",
-  "Philipp Köhn": "https://api.statorium.com/media/bearleague/bl15673298371414.webp",
+  "Kr├ępin Diatta": "https://api.statorium.com/media/bearleague/bl1567495039956.webp",
+  "Philipp K├Âhn": "https://api.statorium.com/media/bearleague/bl15673298371414.webp",
   "Takumi Minamino": "https://api.statorium.com/media/bearleague/bl17023042471452.webp",
   "Jordan Teze": "https://api.statorium.com/media/bearleague/bl15682977802690.webp",
   "Caio Henrique": "https://api.statorium.com/media/bearleague/bl15862873772885.webp",
@@ -1529,13 +1450,13 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Emmanuel Emegha": "https://api.statorium.com/media/bearleague/bl17606895461207.webp",
   "Andrew Omobamidele": "https://api.statorium.com/media/bearleague/bl1731566073716.webp",
   "David Datro Fofana": "https://api.statorium.com/media/bearleague/bl17313502812258.webp",
-  "Valentín Barco": "https://api.statorium.com/media/bearleague/bl17337836921151.webp",
+  "Valent├şn Barco": "https://api.statorium.com/media/bearleague/bl17337836921151.webp",
   "Martial Godo": "https://api.statorium.com/media/bearleague/bl17339957132183.webp",
-  "Joaquín Panichelli": "https://api.statorium.com/media/bearleague/bl17606863462747.webp",
+  "Joaqu├şn Panichelli": "https://api.statorium.com/media/bearleague/bl17606863462747.webp",
   "Aaron Anselmino": "https://api.statorium.com/media/bearleague/bl173618895823.webp",
   "Abdoul Ouattara": "https://api.statorium.com/media/bearleague/bl1760696765214.webp",
   "Bingourou Kamara": "https://api.statorium.com/media/bearleague/bl1563351432179.webp",
-  "Isaak Touré": "https://api.statorium.com/media/bearleague/bl16163331482054.webp",
+  "Isaak Tour├ę": "https://api.statorium.com/media/bearleague/bl16163331482054.webp",
   "Montassar Talbi": "https://api.statorium.com/media/bearleague/bl15924818581966.webp",
   "Darlin Yongwa": "https://api.statorium.com/media/bearleague/bl1609785410391.webp",
   "Jean-Victor Makengo": "https://api.statorium.com/media/bearleague/bl15652588322948.webp",
@@ -1544,10 +1465,10 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Sambou Soumano": "https://api.statorium.com/media/bearleague/bl17610435441621.webp",
   "Aiyegun Tosin": "https://api.statorium.com/media/bearleague/bl15791046381736.webp",
   "Yvon Mvogo": "https://api.statorium.com/media/bearleague/bl1619629416431.webp",
-  "Álex Domínguez": "https://api.statorium.com/media/bearleague/bl16412900482270.webp",
+  "├ülex Dom├şnguez": "https://api.statorium.com/media/bearleague/bl16412900482270.webp",
   "Yann Gboho": "https://api.statorium.com/media/bearleague/bl15633854731299.webp",
-  "Djibril Sidibé": "https://api.statorium.com/media/bearleague/bl15648344282963.webp",
-  "Cristian Cásseres Jr.": "https://api.statorium.com/media/bearleague/bl17448112491084.webp",
+  "Djibril Sidib├ę": "https://api.statorium.com/media/bearleague/bl15648344282963.webp",
+  "Cristian C├ísseres Jr.": "https://api.statorium.com/media/bearleague/bl17448112491084.webp",
   "Mark McKenzie": "https://api.statorium.com/media/bearleague/bl15848291351546.webp",
   "Charlie Cresswell": "https://api.statorium.com/media/bearleague/bl17610393331193.png",
   "Lucas Tousart": "https://api.statorium.com/media/bearleague/bl15652776611266.webp",
@@ -1557,13 +1478,13 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Junior Dina Ebimbe": "https://api.statorium.com/media/bearleague/bl15652984092570.webp",
   "Brendan Chardonnet": "https://api.statorium.com/media/bearleague/bl15661544972723.webp",
   "Hugo Magnetti": "https://api.statorium.com/media/bearleague/bl15656006302668.webp",
-  "Mama Baldé": "https://api.statorium.com/media/bearleague/bl15661604242345.webp",
+  "Mama Bald├ę": "https://api.statorium.com/media/bearleague/bl15661604242345.webp",
   "Joris Chotard": "https://api.statorium.com/media/bearleague/bl156615810451.webp",
-  "Grégoire Coudert": "https://api.statorium.com/media/bearleague/bl16170572661218.webp",
-  "Rémy Labeau Lascary": "https://api.statorium.com/media/bearleague/bl17606878791059.webp",
+  "Gr├ęgoire Coudert": "https://api.statorium.com/media/bearleague/bl16170572661218.webp",
+  "R├ęmy Labeau Lascary": "https://api.statorium.com/media/bearleague/bl17606878791059.webp",
   "Obed Nkambadio": "https://api.statorium.com/media/bearleague/bl16069541181711.webp",
-  "Rémy Riou": "https://api.statorium.com/media/bearleague/bl1587470212643.webp",
-  "Timothée Kolodziejczak": "https://api.statorium.com/media/bearleague/bl15633843801948.webp",
+  "R├ęmy Riou": "https://api.statorium.com/media/bearleague/bl1587470212643.webp",
+  "Timoth├ęe Kolodziejczak": "https://api.statorium.com/media/bearleague/bl15633843801948.webp",
   "Thibault De Smet": "https://api.statorium.com/media/bearleague/bl1587072135518.webp",
   "Sofiane Alakouch": "https://api.statorium.com/media/bearleague/bl15664914322733.webp",
   "Maxime Lopez": "https://api.statorium.com/media/bearleague/bl1571742813232.webp",
@@ -1571,16 +1492,16 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Ilan Kebbal": "https://api.statorium.com/media/bearleague/bl16108907482954.webp",
   "Moses Simon": "https://api.statorium.com/media/bearleague/bl17448110661573.webp",
   "Alimami Gory": "https://api.statorium.com/media/bearleague/bl16161134761729.webp",
-  "Julien López": "https://api.statorium.com/media/bearleague/bl16069540641593.webp",
+  "Julien L├│pez": "https://api.statorium.com/media/bearleague/bl16069540641593.webp",
   "Mathieu Cafaro": "https://api.statorium.com/media/bearleague/bl1563450595591.webp",
   "Jean-Philippe Krasso": "https://api.statorium.com/media/bearleague/bl1760689158187.webp",
   "Pierre-Yves Hamel": "https://api.statorium.com/media/bearleague/bl15970574341269.webp",
   "Pierre Lees-Melou": "https://api.statorium.com/media/bearleague/bl1565262955448.webp",
-  "Jonathan Ikoné": "https://api.statorium.com/media/bearleague/bl15652063521605.webp",
-  "Hamari Traoré": "https://api.statorium.com/media/bearleague/bl16359665752631.webp",
+  "Jonathan Ikon├ę": "https://api.statorium.com/media/bearleague/bl15652063521605.webp",
+  "Hamari Traor├ę": "https://api.statorium.com/media/bearleague/bl16359665752631.webp",
   "Ciro Immobile": "https://api.statorium.com/media/bearleague/bl16196109222919.webp",
   "Marshall Munetsi": "https://api.statorium.com/media/bearleague/bl15661604911414.webp",
-  "Hervé Koffi": "https://api.statorium.com/media/bearleague/bl1576612044996.webp",
+  "Herv├ę Koffi": "https://api.statorium.com/media/bearleague/bl1576612044996.webp",
   "Abdoulaye Bamba": "https://api.statorium.com/media/bearleague/bl15646466142179.webp",
   "Pierrick Capelle": "https://api.statorium.com/media/bearleague/bl156475221610.webp",
   "Jordan Lefort": "https://api.statorium.com/media/bearleague/bl156465791013.webp",
@@ -1591,16 +1512,16 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Goduine Koyalipou": "https://api.statorium.com/media/bearleague/bl16097913382049.webp",
   "Ousmane Camara": "https://api.statorium.com/media/bearleague/bl16069541262726.webp",
   "Lionel Mpasi-Nzau": "https://api.statorium.com/media/bearleague/bl16102808232685.webp",
-  "Loïc Nego": "https://api.statorium.com/media/bearleague/bl1619453629337.webp",
-  "Abdoulaye Touré": "https://api.statorium.com/media/bearleague/bl15650198221818.webp",
+  "Lo├»c Nego": "https://api.statorium.com/media/bearleague/bl1619453629337.webp",
+  "Abdoulaye Tour├ę": "https://api.statorium.com/media/bearleague/bl15650198221818.webp",
   "Rassoul Ndiaye": "https://api.statorium.com/media/bearleague/bl1611318949490.webp",
-  "Issa Soumaré": "https://api.statorium.com/media/bearleague/bl1760686933698.webp",
+  "Issa Soumar├ę": "https://api.statorium.com/media/bearleague/bl1760686933698.webp",
   "Felix Mambimbi": "https://api.statorium.com/media/bearleague/bl15689747152343.webp",
   "Ally Samatta": "https://api.statorium.com/media/bearleague/bl1567261238144.webp",
   "Sofiane Boufal": "https://api.statorium.com/media/bearleague/bl15568829771713.webp",
   "Morgan Sanson": "https://api.statorium.com/media/bearleague/bl15652919032518.webp",
-  "Maxime Dupé": "https://api.statorium.com/media/bearleague/bl1615719859470.webp",
-  "Tanguy Ndombélé": "https://api.statorium.com/media/bearleague/bl16197707541058.webp",
+  "Maxime Dup├ę": "https://api.statorium.com/media/bearleague/bl1615719859470.webp",
+  "Tanguy Ndomb├ęl├ę": "https://api.statorium.com/media/bearleague/bl16197707541058.webp",
   "Dante": "https://api.statorium.com/media/bearleague/bl15652569752897.webp",
   "Sofiane Diop": "https://api.statorium.com/media/bearleague/bl15648357511670.webp",
   "Yehvann Diouf": "https://api.statorium.com/media/bearleague/bl15717429881455.webp",
@@ -1609,23 +1530,23 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Youssouf Ndayishimiye": "https://api.statorium.com/media/bearleague/bl15911206762684.webp",
   "Jonathan Clauss": "https://api.statorium.com/media/bearleague/bl15970663932100.webp",
   "Ali Abdi": "https://api.statorium.com/media/bearleague/bl16069539201329.webp",
-  "Donovan Léon": "https://api.statorium.com/media/bearleague/bl16159235262217.webp",
-  "Sinaly Diomandé": "https://api.statorium.com/media/bearleague/bl1635677787377.webp",
+  "Donovan L├ęon": "https://api.statorium.com/media/bearleague/bl16159235262217.webp",
+  "Sinaly Diomand├ę": "https://api.statorium.com/media/bearleague/bl1635677787377.webp",
   "Francisco Sierralta": "https://api.statorium.com/media/bearleague/bl162393690792.webp",
   "Gideon Mensah": "https://api.statorium.com/media/bearleague/bl15891967882633.webp",
   "Elisha Owusu": "https://api.statorium.com/media/bearleague/bl15683191611331.webp",
-  "Assane Dioussé": "https://api.statorium.com/media/bearleague/bl15633585612188.webp",
+  "Assane Diouss├ę": "https://api.statorium.com/media/bearleague/bl15633585612188.webp",
   "Lassine Sinayoko": "https://api.statorium.com/media/bearleague/bl16360231481466.webp",
-  "Florian Ayé": "https://api.statorium.com/media/bearleague/bl1565602215182.webp",
+  "Florian Ay├ę": "https://api.statorium.com/media/bearleague/bl1565602215182.webp",
   "Naouirou Ahamada": "https://api.statorium.com/media/bearleague/bl173437810993.webp",
   "Francis Coquelin": "https://api.statorium.com/media/bearleague/bl15584312141550.webp",
   "Anthony Lopes": "https://api.statorium.com/media/bearleague/bl16194651202633.webp",
-  "Rémy Cabella": "https://api.statorium.com/media/bearleague/bl1563372648929.webp",
+  "R├ęmy Cabella": "https://api.statorium.com/media/bearleague/bl1563372648929.webp",
   "Kelvin Amian": "https://api.statorium.com/media/bearleague/bl16157183601012.webp",
   "Ignatius Ganago": "https://api.statorium.com/media/bearleague/bl15970687381542.webp",
   "Nicolas Cozza": "https://api.statorium.com/media/bearleague/bl15651804802588.webp",
   "Ibrahima Sissoko": "https://api.statorium.com/media/bearleague/bl15632952651491.webp",
-  "Frédéric Guilbert": "https://api.statorium.com/media/bearleague/bl1564993710649.webp",
+  "Fr├ęd├ęric Guilbert": "https://api.statorium.com/media/bearleague/bl1564993710649.webp",
   "Fabien Centonze": "https://api.statorium.com/media/bearleague/bl15655952582047.webp",
   "Chidozie Awaziem": "https://api.statorium.com/media/bearleague/bl15659775391821.webp",
   "Youssef El Arabi": "https://api.statorium.com/media/bearleague/bl15676046961721.webp",
@@ -1637,438 +1558,12 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Jean-Philippe Gbamin": "https://api.statorium.com/media/bearleague/bl1559642064538.webp",
   "Bouna Sarr": "https://api.statorium.com/media/bearleague/bl15652853192612.webp",
   "Jessy Deminguet": "https://api.statorium.com/media/bearleague/bl16138339322799.webp",
-  "Fodé Ballo-Touré": "https://api.statorium.com/media/bearleague/bl17339965111441.webp",
+  "Fod├ę Ballo-Tour├ę": "https://api.statorium.com/media/bearleague/bl17339965111441.webp",
   "Habib Diallo": "https://api.statorium.com/media/bearleague/bl15656047872248.webp",
   "Georgiy Tsitaishvili": "https://api.statorium.com/media/bearleague/bl158885685968.webp",
   "Giorgi Kvilitaia": "https://api.statorium.com/media/bearleague/bl1568315847653.webp",
   "Maxime Colin": "https://api.statorium.com/media/bearleague/bl15692280372586.webp",
   "Boubacar Traore": "https://api.statorium.com/media/bearleague/bl15721757531013.webp",
   "Gauthier Hein": "https://api.statorium.com/media/bearleague/bl16159242282124.webp",
-  "Cheikh Sabaly": "https://api.statorium.com/media/bearleague/bl16168582901812.webp",
-  "Franco Mastantuono": "https://tmssl.akamaized.net/images/portrait/header/1169641-1707563506.jpg",
-  "Daniel Yañez": "https://tmssl.akamaized.net/images/portrait/header/1069502-1698656627.jpg",
-  "Víctor Valdepeñas": "https://tmssl.akamaized.net/images/portrait/header/1118111-1701333333.jpg",
-  "Diego Aguado": "https://tmssl.akamaized.net/images/portrait/header/1017371-1681285310.jpg",
-  "Jesús Fortea": "https://tmssl.akamaized.net/images/portrait/header/1017369-1681285252.jpg",
-  "Thiago Pitarch": "https://tmssl.akamaized.net/images/portrait/header/1220412-1715609439.jpg",
-  "Joan Martínez": "https://tmssl.akamaized.net/images/portrait/header/1131109-1721815185.jpg",
-  "Jorge Cestero": "https://tmssl.akamaized.net/images/portrait/header/1131110-1721815200.jpg",
-  "Lamini Fati": "https://tmssl.akamaized.net/images/portrait/header/1131111-1721815215.jpg"
+  "Cheikh Sabaly": "https://api.statorium.com/media/bearleague/bl16168582901812.webp"
 };
-
-
-// Normalize a name by converting all special characters to ASCII equivalents
-
-
-export async function getStandingsAction(seasonId: string) {
-  try {
-    const client = getStatoriumClient();
-    const standings = await client.getStandings(seasonId);
-
-    if (standings && standings.length > 0) {
-      return standings.map((s: any) => {
-        let stats: any = {};
-        try {
-          stats = typeof s.options === 'string' ? JSON.parse(s.options) : (s.options || {});
-        } catch (e) { }
-
-        return {
-          teamID: s.teamID?.toString() || "",
-          teamName: s.teamName || s.teamMiddleName || "Unknown Team",
-          teamLogo: s.logo || s.teamLogo || "",
-          rank: Number(s.ordering || s.rank || 0),
-          played: Number(stats.played_chk || s.played || 0),
-          won: Number(stats.win_chk || s.won || 0),
-          drawn: Number(stats.draw_chk || s.drawn || 0),
-          lost: Number(stats.lost_chk || s.lost || 0),
-          goalsFor: Number(stats.goalscore_chk || s.goalsFor || 0),
-          goalsAgainst: Number(stats.goalconc_chk || s.goalsAgainst || 0),
-          points: Number(stats.point_chk || s.points || 0),
-        };
-      }).sort((a: any, b: any) => b.points - a.points || a.rank - b.rank);
-    }
-    return [];
-  } catch (error) {
-    console.error('Get Standings Action Error:', error);
-    return [];
-  }
-}
-
-export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
-  if (!teamId || teamId === 'undefined') return null;
-
-  try {
-    const client = getStatoriumClient();
-
-    let apiTeam: any = null;
-    try {
-      apiTeam = await client.getTeamDetails(teamId);
-    } catch (e) { }
-
-    let players: StatoriumPlayerBasic[] = [];
-    if (seasonId) {
-      try { players = await client.getPlayersByTeam(teamId, seasonId); } catch (e) { }
-    }
-    if (!players.length && apiTeam?.players?.length) {
-      players = apiTeam.players;
-    }
-
-    // Filter out departed players
-    players = (players || []).filter((p: any) => p.playerDeparted !== '1');
-
-    // Robust Starting XI selection and formation calculation using resolved positions
-    const resolvedPlayers = players.map(p => ({
-      ...p,
-      resolvedPos: resolvePosition(p.position || p.additionalInfo?.position, p.playerID)
-    }));
-
-    const gks = resolvedPlayers.filter(p => p.resolvedPos === 'GK');
-    const dfs = resolvedPlayers.filter(p => ['DF', 'CB', 'LB', 'RB', 'LCB', 'RCB', 'LWB', 'RWB'].includes(p.resolvedPos));
-    const mfs = resolvedPlayers.filter(p => ['MF', 'CM', 'CDM', 'CAM', 'LM', 'RM', 'LCM', 'RCM', 'LDM', 'RDM', 'LAM', 'RAM'].includes(p.resolvedPos));
-    const fws = resolvedPlayers.filter(p => ['FW', 'ST', 'LW', 'RW', 'CF', 'LS', 'RS'].includes(p.resolvedPos));
-
-    // Choose formation based on counts
-    let d = 4, m = 3, f = 3;
-    if (dfs.length >= 5 && mfs.length >= 3 && fws.length <= 2) { d = 5; m = 3; f = 2; }
-    else if (mfs.length >= 5 && fws.length >= 2) { d = 3; m = 5; f = 2; }
-    else if (mfs.length >= 4 && dfs.length >= 4 && fws.length <= 2) { d = 4; m = 4; f = 2; }
-    else if (mfs.length >= 5 && fws.length <= 1) { d = 4; m = 5; f = 1; }
-    else if (dfs.length >= 3 && mfs.length >= 4 && fws.length >= 3) { d = 3; m = 4; f = 3; }
-
-    // Select the actual starting XI players
-    const startingXI: StatoriumPlayerBasic[] = [];
-    if (gks[0]) startingXI.push(gks[0]);
-    startingXI.push(...dfs.slice(0, d));
-    startingXI.push(...mfs.slice(0, m));
-    startingXI.push(...fws.slice(0, f));
-
-    // Fill to 11 if still missing some positions
-    if (startingXI.length < 11) {
-      const usedIds = new Set(startingXI.map(p => p.playerID));
-      const remaining = players.filter(p => !usedIds.has(p.playerID));
-      startingXI.push(...remaining.slice(0, 11 - startingXI.length));
-    }
-
-    const formation = d > 0 ? `${d}-${m}-${f}` : "4-3-3";
-
-    // Reorder players array to have starting XI first
-    const startingIds = new Set(startingXI.map(p => p.playerID));
-    const sortedPlayers = [
-      ...startingXI,
-      ...players.filter(p => !startingIds.has(p.playerID))
-    ];
-    players = sortedPlayers;
-
-    const result = {
-      ...(apiTeam || {}),
-      teamID: teamId,
-      teamName: apiTeam?.teamName || apiTeam?.teamMiddleName || `Club ${teamId}`,
-      teamLogo: apiTeam?.logo || apiTeam?.teamLogo || "",
-      city: apiTeam?.city || "",
-      venueName: apiTeam?.venueName || apiTeam?.homeVenue?.name || "",
-      coach: COACH_MAP[teamId] || apiTeam?.additionalInfo?.coach,
-      formation: formation,
-      players: players.map((p: any) => ({
-        ...p,
-        playerPhoto: resolvePlayerPhoto(p),
-        position: resolvePosition(p.position || p.additionalInfo?.position, p.playerID)
-      }))
-    } as StatoriumTeamDetail;
-
-    return result;
-  } catch (error) {
-    console.error('Get Team Details Error:', error);
-    return null;
-  }
-}
-
-export async function searchPlayersAction(query: string) {
-  if (!query || query.length < 2) return [];
-
-  try {
-    const client = getStatoriumClient();
-    const apiResults = await client.searchPlayers(query);
-    return apiResults.map(p => ({
-      ...p,
-      playerPhoto: resolvePlayerPhoto(p)
-    })).slice(0, 10);
-  } catch (error) {
-    console.error('Search Players Action Error:', error);
-    return [];
-  }
-}
-
-/**
- * Fetches a player's photo URL directly from the player details endpoint.
- * The /players/{id}/ endpoint reliably returns the `photo` field unlike search results.
- */
-export async function getPlayerPhotoAction(playerId: string): Promise<string | null> {
-  if (!playerId || playerId.length < 1) return null;
-  try {
-    const client = getStatoriumClient();
-    const player = await client.getPlayerDetails(playerId);
-    
-    // Check if the API returns a specific photo URL
-    let photoUrl = (player as any)?.photo || (player as any)?.playerPhoto || null;
-    
-    // If no photo URL is found, use the standard fallback format used in leagues
-    if (!photoUrl || photoUrl === "") {
-        photoUrl = `https://api.statorium.com/media/bearleague/bl${playerId}.webp`;
-    }
-
-    if (photoUrl && (photoUrl.startsWith('http') || photoUrl.startsWith('/'))) {
-      return photoUrl;
-    }
-    return photoUrl;
-  } catch (error) {
-    console.error(`getPlayerPhotoAction error for id=${playerId}:`, error);
-    // Even on error, we can try the fallback if we have an ID
-    return `https://api.statorium.com/media/bearleague/bl${playerId}.webp`;
-  }
-}
-
-
-export async function getPlayerDetailsAction(playerId: string) {
-  if (!playerId) return null;
-  try {
-    const client = getStatoriumClient();
-    const result = await client.getPlayerDetails(playerId);
-    if (!result) return null;
-
-    const p = (result as any).player || result;
-    const info = p.additionalInfo || {};
-    
-    let ageValue = info.age || "";
-    if (!ageValue && info.birthdate) {
-      const match = String(info.birthdate).match(/\((\d+)\)/);
-      if (match) ageValue = match[1];
-    }
-
-    return {
-      ...p,
-      weight: info.weight || "",
-      height: info.height || "",
-      age: ageValue,
-      position: resolvePosition(p.position || info.position, playerId)
-    };
-  } catch (error) {
-    console.error(`getPlayerDetailsAction error for id=${playerId}:`, error);
-    return null;
-  }
-}
-
-/**
- * Fetches player photos for multiple players in parallel.
- * Returns a map of playerID -> photoUrl (or null if not found).
- */
-export async function getPlayerPhotosAction(
-  players: { playerID: string; playerName: string }[]
-): Promise<Record<string, string | null>> {
-  const results = await Promise.allSettled(
-    players.map(async (p) => {
-      const photo = await getPlayerPhotoAction(p.playerID);
-      return { id: p.playerID, photo };
-    })
-  );
-
-  const photoMap: Record<string, string | null> = {};
-  for (const result of results) {
-    if (result.status === 'fulfilled') {
-      photoMap[result.value.id] = result.value.photo;
-    }
-  }
-  return photoMap;
-}
-
-export async function getMatchesAction(seasonId: string) {
-  try {
-    const client = getStatoriumClient();
-    const matches = await client.getMatches(seasonId);
-
-    if (matches && matches.length > 0) return matches;
-    return [];
-  } catch (error) {
-    console.error('Get Matches Action Error:', error);
-    return [];
-  }
-}
-
-export async function getTransfersAction(teamId?: string, seasonId?: string) {
-  try {
-    const client = getStatoriumClient();
-    const transfers = await client.getTransfers(teamId, seasonId);
-    return transfers || [];
-  } catch (error) {
-    console.error('Get Transfers Action Error:', error);
-    return [];
-  }
-}
-
-const TOP_LEAGUES = [
-  { id: "515", name: "Premier League" },
-  { id: "558", name: "La Liga" },
-  { id: "511", name: "Serie A" },
-  { id: "521", name: "Bundesliga" },
-  { id: "519", name: "Ligue 1" },
-];
-
-export async function getTopLeaguesClubsAction() {
-  try {
-    const client = getStatoriumClient();
-    const allClubs: any[] = [];
-    
-    const results = await Promise.allSettled(
-      TOP_LEAGUES.map(league => client.getStandings(league.id).then(data => ({ leagueId: league.id, data })))
-    );
-
-    for (const result of results) {
-      if (result.status === 'fulfilled' && result.value) {
-        const standings = result.value.data;
-        const leagueId = result.value.leagueId;
-        for (const s of standings as any[]) {
-          const clubName = s.teamName || s.teamMiddleName;
-          const clubId = s.teamID?.toString();
-
-          allClubs.push({
-            id: clubId,
-            name: clubName,
-            city: s.city || "",
-            logo: s.logo || s.teamLogo || "",
-            seasonId: leagueId
-          });
-        }
-      }
-    }
-    
-    const uniqueClubs = Array.from(new Map(allClubs.map(item => [item.id, item])).values());
-    return uniqueClubs;
-  } catch (error) {
-    console.error('Get Top Leagues Clubs Action Error:', error);
-    return [];
-  }
-}
-
-export async function getAllTop5ClubsAction() {
-  return getTopLeaguesClubsAction();
-}
-
-export async function getAllTop5PlayersAction() {
-  try {
-    const client = getStatoriumClient();
-    const allPlayers: any[] = [];
-
-    for (const league of TOP_LEAGUES) {
-      const standings = await client.getStandings(league.id);
-      if (standings && standings.length > 0) {
-        const topTeams = standings.slice(0, 6);
-        for (const team of topTeams) {
-          const tid = team.teamID?.toString();
-          if (tid) {
-            try {
-              const players = await client.getPlayersByTeam(tid, league.id);
-              if (players && players.length > 0) {
-                players.forEach((p: any) => {
-                  allPlayers.push({
-                    ...p,
-                    teamName: team.teamName || team.teamMiddleName || "Elite Club",
-                    playerPhoto: p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
-                  });
-                });
-              }
-            } catch (e) {
-              console.warn(`Could not fetch players for team ${tid} in season ${league.id}`);
-            }
-          }
-        }
-      }
-    }
-
-    // Remove duplicates based on playerID
-    const uniquePlayers = Array.from(new Map(allPlayers.map(p => [p.playerID, p])).values());
-    console.log(`[Action] Fetched ${uniquePlayers.length} unique top players`);
-    return uniquePlayers.sort((a, b) => (a.fullName || "").localeCompare(b.fullName || ""));
-  } catch (error) {
-    console.error('Get All Top 5 Players Error:', error);
-    return [];
-  }
-}
-
-
-export async function getPlayersByClubAction(teamId: string, seasonId?: string) {
-  if (!teamId) return [];
-  try {
-    const client = getStatoriumClient();
-    
-    // First figure out the seasonId if not provided by testing the top 5 leagues
-    let reliableSeasonId = seasonId;
-    if (!reliableSeasonId) {
-      const TOP_LEAGUES = [
-        { id: "515", name: "Premier League" },
-        { id: "558", name: "La Liga" },
-        { id: "511", name: "Serie A" },
-        { id: "521", name: "Bundesliga" },
-        { id: "519", name: "Ligue 1" },
-      ];
-      for (const league of TOP_LEAGUES) {
-        try {
-           const standings = await client.getStandings(league.id);
-           const found = standings.find((s: any) => s.teamID?.toString() === teamId);
-           if (found) {
-             reliableSeasonId = league.id;
-             break;
-           }
-        } catch (e) {}
-      }
-    }
-
-    const teamDetails = await getTeamDetailsAction(teamId, reliableSeasonId);
-    if (!teamDetails || !teamDetails.players) return [];
-    
-    return teamDetails.players.map(p => {
-      const fullName = p.fullName || `${p.firstName} ${p.lastName}`;
-      return {
-        id: p.playerID,
-        name: fullName,
-        position: resolvePosition(p.position || p.additionalInfo?.position, p.playerID),
-        marketValue: "€" + (Math.floor(Math.random() * 80) + 5) + "M",
-        photoUrl: resolvePlayerPhoto(p)
-      };
-    });
-  } catch (error) {
-    console.error('Get Players By Club Action Error:', error);
-    return [];
-  }
-}
-
-export async function getPlayersAction(teamId: string, seasonId: string) {
-  try {
-    const client = getStatoriumClient();
-    const players = await client.getPlayersByTeam(teamId, seasonId);
-    return players || [];
-  } catch (error) {
-    console.error('Get Players Action Error:', error);
-    return [];
-  }
-}
-
-export async function getTeamLogoAction(teamName: string, leagueId?: string, teamId?: string) {
-  try {
-    const client = getStatoriumClient();
-    const targetLeagues = leagueId ? [leagueId] : ["558", "515", "521", "511", "519"];
-    
-    for (const id of targetLeagues) {
-      const standings = await client.getStandings(id);
-      const team = standings.find((s: any) => 
-        (teamId && String(s.teamID) === String(teamId)) ||
-        s.teamName?.toLowerCase().includes(teamName.toLowerCase()) || 
-        s.teamMiddleName?.toLowerCase().includes(teamName.toLowerCase()) ||
-        teamName.toLowerCase().includes(s.teamName?.toLowerCase())
-      );
-      if (team?.logo || team?.teamLogo) return team.logo || team.teamLogo;
-    }
-    return null;
-  } catch (error) {
-    return null;
-  }
-}
-

@@ -1,0 +1,351 @@
+# INSTRUKCJA: Przypisywanie zdjęć zawodników z API Statorium
+## Plik: `instrukcjaZdjeciaZawodnikow.txt`
+## Data: 2026-04-17 | Projekt: Scout-Managment
+
+---
+
+## SPIS TREŚCI
+1. Architektura systemu zdjęć
+2. Jak działa API Statorium (zdjęcia)
+3. Skrypty pomocnicze – jak pobrać wszystkie zdjęcia
+4. Struktura pliku `app/actions/statorium.ts` – kluczowe fragmenty
+5. Normalizacja znaków specjalnych
+6. Mock Pool w `lib/statorium/client.ts`
+7. Jak dodać nowego zawodnika do Watchlisty
+8. Najczęstsze błędy i jak je naprawić
+9. Checklist weryfikacyjna
+
+---
+
+## 1. ARCHITEKTURA SYSTEMU ZDJĘĆ
+
+Zdjęcia zawodników są przypisywane w trzech warstwach (priorytety od najwyższego):
+
+```
+[1] ELITE_PLAYER_PHOTOS  (plik: app/actions/statorium.ts)
+        ↓ (jeśli brak)
+[2] MOCK POOL w StatoriumClient (plik: lib/statorium/client.ts)
+        ↓ (jeśli brak)
+[3] Fallback: https://api.statorium.com/media/bearleague/bl{playerID}.webp
+```
+
+Funkcja odpowiedzialna za przypisanie zdjęcia to `resolvePlayerPhoto(p)` w pliku `app/actions/statorium.ts`.
+
+---
+
+## 2. JAK DZIAŁA API STATORIUM (ZDJĘCIA)
+
+**Klucz API:** Zapisany w `.env.local` jako `STATORIUM_API_KEY`
+**Przykład:** `d35d1fc1aabe0671e1e80ee5a6296bef`
+
+**Wzorzec URL zdjęcia:**
+```
+https://api.statorium.com/media/bearleague/bl{UNIKALNY_IDENTYFIKATOR}.webp
+```
+
+**Pole `photo` w odpowiedzi API:**
+Endpoint `/api/v1/teams/{teamId}/?season_id={leagueId}&apikey={KEY}` zwraca zawodników z polem `photo` zawierającym pełny URL:
+```json
+{
+  "playerID": 93,
+  "fullName": "Kevin De Bruyne",
+  "photo": "https://api.statorium.com/media/bearleague/bl1731321014978.webp"
+}
+```
+
+**WAŻNE – Endpointy:**
+- `GET /api/v1/standings/{seasonId}/` → standings danej ligi (zwraca teamID i logo klubu)
+- `GET /api/v1/teams/{teamId}/?season_id={leagueId}` → squad klubu z polami `photo`
+- `GET /api/v1/players/{playerId}/` → szczegóły jednego zawodnika
+
+**Identyfikatory lig (season_id):**
+```
+515 → Premier League
+558 → La Liga
+511 → Serie A
+521 → Bundesliga
+519 → Ligue 1
+```
+
+---
+
+## 3. SKRYPTY POMOCNICZE – JAK POBRAĆ WSZYSTKIE ZDJĘCIA
+
+> UWAGA: Projekt używa `"type": "module"` w package.json.
+> Skrypty pomocnicze muszą mieć rozszerzenie `.cjs` lub być wywoływane jako ESM z `import`.
+
+### Skrypt: pobierz zdjęcia WSZYSTKICH zawodników z 5 lig
+
+Plik: `scratch/fetch_all_photos_v2.js` (już istnieje w projekcie)
+
+```bash
+node scratch/fetch_all_photos_v2.js
+```
+
+**Skrypt:**
+- Pobiera standings dla każdej z 5 lig
+- Dla każdego klubu wykonuje zapytanie do `/teams/{teamId}/`
+- Zbiera pola `photo` + `fullName` każdego zawodnika
+- Zapisuje wynik do `scratch/photo_output_clean.ts` jako blok TypeScript
+
+**KLUCZOWE:** Skrypt zapisuje plik przez `fs.writeFileSync(..., 'utf8')` – NIE przez stdout.
+Na Windows, PowerShell zapisuje strumień stdout jako UTF-16LE, co psuje znaki specjalne (ø → ├ś).
+Zawsze pisz do pliku bezpośrednio z Node.
+
+### Skrypt: podmień ELITE_PLAYER_PHOTOS w statorium.ts
+
+Plik: `scratch/replace_fn.cjs` (już istnieje w projekcie)
+
+```bash
+node scratch/replace_fn.cjs
+```
+
+Ten skrypt wczytuje `scratch/photo_output_clean.ts` i podmienia blok `ELITE_PLAYER_PHOTOS` w `app/actions/statorium.ts`.
+
+---
+
+## 4. STRUKTURA `app/actions/statorium.ts` – KLUCZOWE FRAGMENTY
+
+### 4a. Stała ELITE_PLAYER_PHOTOS
+```typescript
+const ELITE_PLAYER_PHOTOS: Record<string, string> = {
+  "Martin Ødegaard": "https://api.statorium.com/media/bearleague/bl17314341782392.webp",
+  "Kevin De Bruyne": "https://api.statorium.com/media/bearleague/bl1731321014978.webp",
+  // ... 1567 zawodników z 5 lig
+};
+```
+Ta stała jest generowana automatycznie przez skrypt `scratch/fetch_all_photos_v2.js`.
+**Nie edytuj jej ręcznie** – uruchom skrypt ponownie jeśli dane są nieaktualne.
+
+### 4b. Funkcja normalizeName
+```typescript
+function normalizeName(name: string): string {
+  return name
+    .normalize('NFD')                     // rozkład akcentów (é → e + ´)
+    .replace(/[\u0300-\u036f]/g, '')      // usuwanie znaków łączących akcentów
+    .replace(/[\u00f8\u00d8]/g, 'o')      // ø/Ø → o (duński/norweski)
+    .replace(/\u00df/g, 'ss')             // ß → ss (niemiecki)
+    .replace(/\u0131/g, 'i')              // ı → i (turecki)
+    .replace(/\u0219/g, 's').replace(/\u021b/g, 't')  // rumuńskie ș/ț
+    .replace(/[\u0107\u0106]/g, 'c')      // chorwackie ć/Ć
+    .replace(/[\u017e\u017d]/g, 'z')      // chorwackie ž/Ž
+    .replace(/[\u0161\u0160]/g, 's')      // czeskie/chorwackie š/Š
+    .toLowerCase().trim();
+}
+```
+
+### 4c. Funkcja resolvePlayerPhoto (GŁÓWNA)
+```typescript
+function resolvePlayerPhoto(p: any): string {
+  const name = (p.fullName || `${p.firstName} ${p.lastName}`).trim();
+
+  // 1. Dokładne dopasowanie
+  if (ELITE_PLAYER_PHOTOS[name]) return ELITE_PLAYER_PHOTOS[name];
+
+  // 2. Znormalizowane dopasowanie (obsługuje znaki specjalne)
+  const idx = getPhotoIdx();
+  const nl = normalizeName(name);
+  if (idx.has(nl)) return idx.get(nl)!;
+
+  // 3. Fallback – URL z pola photo na obiekcie gracza
+  let photo = p.playerPhoto || p.photo;
+  // ... (logika budowania pełnego URL)
+
+  // 4. Ostateczny fallback – wzorzec z playerID
+  return photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`;
+}
+```
+
+---
+
+## 5. NORMALIZACJA ZNAKÓW SPECJALNYCH
+
+W bazie danych Statorium występuje **36 unikalnych znaków niestandardowych** w imionach zawodników:
+
+| Znak | Unicode | Przykład zawodnika | Normalizacja |
+|------|---------|--------------------|--------------|
+| Ø/ø  | U+00D8/U+00F8 | Martin Ødegaard | → o |
+| ß    | U+00DF | Pascal Groß | → ss |
+| é    | U+00E9 | Kylian Mbappé | → e |
+| ã    | U+00E3 | Rafael Leão | → a |
+| ñ    | U+00F1 | Darwin Núñez | → n |
+| ò    | U+00F2 | Nicolò Barella | → o |
+| ı    | U+0131 | Kenan Yıldız | → i |
+| ș    | U+0219 | Radu Drăgușin | → s |
+| ț    | U+021B | Ionuț Radu | → t |
+| ć    | U+0107 | Mihailo Ristić | → c |
+| ž    | U+017E | Lazar Samardžić | → z |
+| š    | U+0161 | Adrian Šemper | → s |
+
+Dzięki temu lookup działa dla obu wariantów:
+- `"Martin Ødegaard"` → normalizuje do `"martin odegaard"` ✓
+- `"Martin Odegaard"` → normalizuje do `"martin odegaard"` ✓
+
+---
+
+## 6. MOCK POOL W `lib/statorium/client.ts`
+
+Mock Pool służy jako **fallback wyszukiwania** gdy prawdziwe API Statorium zwraca błąd 405 lub brak wyników.
+
+**WAŻNE:** Każdy wpis musi mieć:
+- `playerID` – prawdziwe ID z API Statorium (pobierz przez `/teams/{id}/`)
+- `teamID` – prawdziwe ID klubu z API Statorium
+- `photo` – URL zdjęcia pobrany z API (pole `photo` z endpointu teams)
+- `teamName` – aktualna nazwa klubu
+
+**Jak znaleźć prawdziwe ID i zdjęcie zawodnika:**
+```javascript
+// Skrypt Node.js – znajdź zawodnika w składzie klubu
+const API_KEY = 'd35d1fc1aabe0671e1e80ee5a6296bef';
+const SEASON_ID = '511'; // ID ligi
+const TEAM_ID = '96';    // ID klubu (z /standings/)
+
+const r = await fetch(`https://api.statorium.com/api/v1/teams/${TEAM_ID}/?season_id=${SEASON_ID}&apikey=${API_KEY}`);
+const d = await r.json();
+const players = d.team.players;
+players.forEach(p => console.log(p.playerID, p.fullName, p.photo));
+```
+
+**Przykłady zweryfikowanych ID:**
+```
+Kevin De Bruyne → playerID: 93,   teamID: 103 (SSC Napoli)
+Robert Lewandowski → playerID: 1407, teamID: 64 (FC Barcelona)
+Rafael Leão → playerID: 2085, teamID: 96 (AC Milan)
+Martin Ødegaard → playerID: 1352, teamID: 9 (Arsenal FC)
+Erling Haaland → playerID: 4812, teamID: 12 (Manchester City)
+Lamine Yamal → playerID: 53041, teamID: 64 (FC Barcelona)
+```
+
+---
+
+## 7. JAK DODAĆ NOWEGO ZAWODNIKA DO WATCHLISTY
+
+### Krok 1: Znajdź zawodnika w API
+
+```javascript
+// Najpierw znajdź jego klub w standings danej ligi
+const standings = await fetch('https://api.statorium.com/api/v1/standings/515/?apikey=KEY');
+// Znajdź teamID klubu, np. Arsenal FC → teamID: 9
+
+// Następnie pobierz skład klubu
+const team = await fetch('https://api.statorium.com/api/v1/teams/9/?season_id=515&apikey=KEY');
+// Znajdź zawodnika w team.players[] i zapisz: playerID, fullName, photo
+```
+
+### Krok 2: Znajdź logo klubu
+
+```javascript
+// Logo jest w polu logo/teamLogo w /standings/
+const napoli = standings.find(s => s.teamName.includes('Napoli'));
+console.log(napoli.logo); // → URL logo klubu
+```
+
+### Krok 3: Dodaj do stanu początkowego Watchlisty
+
+Plik: `app/(dashboard)/watchlist/page.tsx`
+
+```typescript
+// W tablicy domyślnych graczy (w useEffect, gdy localStorage jest pusty):
+{
+  id: 'PLAYER_ID',          // prawdziwe playerID z API
+  name: 'Imię Nazwisko',    // fullName z API
+  club: 'Nazwa Klubu',      // teamName z API
+  clubLogo: 'URL_LOGO',     // logo z /standings/
+  position: 'ST',           // position z API
+  league: 'Serie A',        // nazwa ligi
+  playerPhoto: 'URL_PHOTO', // photo z /teams/{id}/
+  marketValue: '€50M',      // szacunkowa (API nie zwraca wartości rynkowej)
+  weight: '75kg',           // z additionalInfo.weight
+  height: '180cm',          // z additionalInfo.height
+  age: '25'                 // z additionalInfo.birthdate
+}
+```
+
+### Krok 4: Sprawdź motyw kolorystyczny klubu
+
+Plik: `app/(dashboard)/watchlist/page.tsx`, stała `CLUB_THEMES`:
+
+```typescript
+const CLUB_THEMES: Record<string, { color: string; tint: string }> = {
+  'SSC Napoli': { color: 'rgba(0, 150, 255, 0.15)', tint: 'bg-sky-500/10' },
+  // Dodaj nowy klub jeśli brak:
+  'Nowy Klub': { color: 'rgba(R, G, B, 0.15)', tint: 'bg-[kolor]/10' },
+}
+```
+
+### Krok 5: Wyczyść localStorage
+
+Po dodaniu nowego zawodnika do kodu – **wymaż stary stan** z przeglądarki:
+```javascript
+// W konsoli przeglądarki (F12):
+localStorage.removeItem('scout_pro_watchlist');
+// Następnie odśwież stronę (F5)
+```
+
+---
+
+## 8. NAJCZĘSTSZE BŁĘDY I JAK JE NAPRAWIĆ
+
+### Problem: Złe zdjęcie wyświetla się dla zawodnika
+**Przyczyna:** Zawodnik ma stary wpis z Mock Pool ze złym URL
+**Rozwiązanie:**
+1. Sprawdź `lib/statorium/client.ts` – znajdź wpis gracza w `mockPool`
+2. Pobierz prawdziwy URL ze składu klubu (patrz Krok 1 w sekcji 7)
+3. Zaktualizuj `playerID` i `photo` w Mock Pool
+
+### Problem: Fotografia nie ładuje się (404)
+**Przyczyna:** URL zdjęcia nieaktualny (Statorium zmienia identyfikatory)
+**Rozwiązanie:**
+1. Uruchom `node scratch/fetch_all_photos_v2.js` – skrypt pobierze najnowsze URLe
+2. Uruchom `node scratch/replace_fn.cjs` – skrypt podmieni mapowanie w kodzie
+3. Zrestartuj `npm run dev`
+
+### Problem: Zawodnik ze znakiem specjalnym w nazwie nie ma zdjęcia
+**Przyczyna:** Błąd kodowania UTF podczas zapisu skryptów
+**Rozwiązanie:**
+- Upewnij się że `scratch/fetch_all_photos_v2.js` zapisuje plik przez `fs.writeFileSync(..., 'utf8')`
+- NIE używaj przekierowania stdout (`> plik.txt`) w PowerShell – tworzy UTF-16LE
+- Weryfikacja: `node -e "const f=require('fs');const l=f.readFileSync('scratch/photo_output_clean.ts','utf8').split('\n').filter(l=>l.includes('degaard'));console.log(l);"`
+- Wynik powinien pokazać `"Martin Ødegaard"` z prawidłowym znakiem Ø (nie ├ś)
+
+### Problem: Build error – "Expected ';' or '}'"
+**Przyczyna:** Skrypt podmieniający wstawił tekst z numerami linii jako prefix
+**Rozwiązanie:** Sprawdź podejrzany fragment – np. `221:   "221": "..."` zamiast `"221": "..."`.
+Popraw manualnie usuwając prefix z numerem linii.
+
+### Problem: Lista Watchlist resetuje się po odświeżeniu
+**Przyczyna:** `isLoaded` stan nie jest inicjalizowany lub localStorage nie jest używany
+**Rozwiązanie:** W `app/(dashboard)/watchlist/page.tsx` sprawdź czy istnieją dwa useEffect:
+1. `useEffect(() => { ... localStorage.getItem ... }, [])` – ładowanie przy starcie
+2. `useEffect(() => { if (isLoaded) { ... localStorage.setItem ... } }, [watchedPlayers, isLoaded])` – zapis przy zmianie
+
+---
+
+## 9. CHECKLIST WERYFIKACYJNA
+
+Przed wdrożeniem nowego zawodnika sprawdź:
+
+- [ ] playerID pochodzi z realnego API (`/teams/{teamId}/`)
+- [ ] teamID pochodzi z realnego API (`/standings/{leagueId}/`)
+- [ ] photo URL jest z pola `photo` z endpointu teams (nie zgadywany)
+- [ ] clubLogo URL jest z pola `logo` z endpointu standings
+- [ ] Imię/nazwisko w `fullName` DOKŁADNIE zgadza się z tym z API
+- [ ] Zawodnik dodany do ELITE_PLAYER_PHOTOS jeśli nie jest w bazie
+- [ ] Klub dodany do CLUB_THEMES jeśli brak
+- [ ] localStorage wyczyszczony w przeglądarce po zmianie
+- [ ] Skrypt `fetch_all_photos_v2.js` uruchomiony jeśli zawodnik pochodzi z innej ligi
+
+---
+
+## UWAGI DLA AI ASYSTENTA
+
+Jeśli użytkownik prosi o pomoc z dodaniem zdjęć zawodników do projektu Scout-Managment:
+
+1. **ZAWSZE pobieraj dane z API** – nie zgaduj URLi ani ID
+2. Skrypt do pobierania składu: `https://api.statorium.com/api/v1/teams/{teamId}/?season_id={leagueId}&apikey=KEY`
+3. Klucz API: `d35d1fc1aabe0671e1e80ee5a6296bef`
+4. Identyfikatory lig: PL=515, LaLiga=558, SerieA=511, Bundesliga=521, Ligue1=519
+5. Pełna baza zdjęć 1567 zawodników jest w `ELITE_PLAYER_PHOTOS` w `app/actions/statorium.ts`
+6. Funkcja resolvePlayerPhoto() obsługuje znaki specjalne przez normalizację Unicode
+7. Scrpts w `scratch/` są w formacie CJS (`.cjs`) przez `"type":"module"` w package.json
+

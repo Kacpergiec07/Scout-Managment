@@ -11,7 +11,7 @@ import { getStandingsAction, getMatchesAction, getTeamDetailsAction } from "@/ap
 import { StatoriumStanding, StatoriumMatch, StatoriumTeamDetail } from "@/lib/statorium/types";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface League {
   id: string;
@@ -36,6 +36,17 @@ export function LeagueCenter() {
   const [selectedTeam, setSelectedTeam] = useState<StatoriumTeamDetail | null>(null);
   const [loadingTeam, setLoadingTeam] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const sId = searchParams.get('sId');
+    if (sId) {
+      const found = TOP_LEAGUES.find(l => l.seasonId === sId);
+      if (found) {
+        setActiveLeague(found);
+      }
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     async function loadData() {
