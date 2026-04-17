@@ -112,7 +112,7 @@ export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
                   <div className="flex flex-col flex-1 min-w-0">
                     <span className="font-semibold text-sm truncate">{player.fullName}</span>
                     <span className="text-[10px] opacity-70 uppercase tracking-widest truncate font-medium">
-                      {player.country || 'International'} • {player.teamName || 'Free Agent'}
+                      {typeof player.country === 'object' ? (player.country as any).name : player.country || 'International'} • {player.teamName || 'Free Agent'}
                     </span>
                   </div>
                   <Check

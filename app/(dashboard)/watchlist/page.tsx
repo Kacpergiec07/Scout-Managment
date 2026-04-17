@@ -1,105 +1,3 @@
-<<<<<<< HEAD
-import { KanbanBoard } from '@/components/scout/kanban-board'
-
-export default function WatchlistPage() {
-  // Verified data from Statorium API (Top 5 Leagues: PL, La Liga, Bundesliga, Ligue 1, Serie A)
-  const initialData = {
-    following: [
-      { 
-        id: '14633', 
-        name: 'Florian Wirtz', 
-        club: 'Liverpool FC', 
-        position: 'CAM', 
-        nationality: 'Germany',
-        league: 'Premier League',
-        score: 95,
-        description: 'Elite technical ability. Scouting reports suggest a very high ceiling. Core of Leverkusen attack.',
-        updatedAt: '2h ago',
-        playerPhoto: 'https://api.statorium.com/media/bearleague/bl17158001911496.webp',
-        age: 21
-      },
-      { 
-        id: '6466', 
-        name: 'Jude Bellingham', 
-        club: 'Real Madrid', 
-        position: 'CM', 
-        nationality: 'England',
-        league: 'La Liga',
-        score: 92,
-        description: 'Complete midfielder. Leadership qualities confirmed. Dominant presence in both boxes.',
-        updatedAt: '1d ago',
-        playerPhoto: 'https://api.statorium.com/media/bearleague/bl1695891720352.webp',
-        age: 21
-      },
-      { 
-        id: '53041', 
-        name: 'Lamine Yamal', 
-        club: 'FC Barcelona', 
-        position: 'RW', 
-        nationality: 'Spain',
-        league: 'La Liga',
-        score: 96,
-        description: 'Once-in-a-generation talent. Exceptional decision-making for age. Defensive contribution improving.',
-        updatedAt: '4h ago',
-        playerPhoto: 'https://api.statorium.com/media/bearleague/bl17322791692175.webp',
-        age: 17
-      },
-    ],
-    priority: [
-      { 
-        id: '26718', 
-        name: 'Amadou Onana', 
-        club: 'Aston Villa', 
-        position: 'CDM', 
-        nationality: 'Belgium',
-        league: 'Premier League',
-        score: 85,
-        description: 'Physical specimen. High duel success rate. Key for Villa mid-block stability.',
-        updatedAt: '5h ago',
-        playerPhoto: 'https://api.statorium.com/media/bearleague/bl17337166521193.webp',
-        age: 23
-      },
-      { 
-        id: '3482', 
-        name: 'Lautaro Martínez', 
-        club: 'Inter Milan', 
-        position: 'ST', 
-        nationality: 'Argentina',
-        league: 'Serie A',
-        score: 91,
-        description: 'Elite finisher. Exceptional work rate and pressing ability. Captain and talisman.',
-        updatedAt: '1d ago',
-        playerPhoto: 'https://api.statorium.com/media/bearleague/bl1695386805672.webp',
-        age: 27
-      },
-    ],
-    analyzing: [
-      { 
-        id: '670', 
-        name: 'Ousmane Dembélé', 
-        club: 'Paris Saint-Germain', 
-        position: 'RW', 
-        nationality: 'France',
-        league: 'Ligue 1',
-        score: 89,
-        description: 'Elite 1v1 ability and explosive pace. Exceptional creative output. Key playmaker in PSG wide areas.',
-        updatedAt: '12h ago',
-        playerPhoto: 'https://api.statorium.com/media/bearleague/bl1702304187852.webp',
-        age: 27
-      },
-    ],
-    complete: [],
-  }
-
-  return (
-    <div className="space-y-8 h-full">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight text-zinc-50">Watchlist</h1>
-        <p className="text-zinc-400">Track and manage your scouting pipeline for Top 5 Leagues (PL, La Liga, Bundesliga, Ligue 1, Serie A).</p>
-      </div>
-
-      <KanbanBoard initialData={initialData} />
-=======
 'use client'
 
 import React, { useState, useEffect } from 'react'
@@ -384,7 +282,7 @@ export default function WatchlistPage() {
   }
 
   function removePlayer(id: string) {
-    const newList = watchedPlayers.filter(p => p.id !== id)
+    const newList = watchedPlayers.filter((p: any) => p.id !== id)
     setWatchedPlayers(newList)
     if (selectedPlayerId === id) {
       setSelectedPlayerId(newList[0]?.id || null)
@@ -409,7 +307,7 @@ export default function WatchlistPage() {
         </div>
 
         <div className="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
-          {watchedPlayers.map((player) => (
+          {watchedPlayers.map((player: any) => (
             <motion.div
               layout
               key={player.id}
@@ -431,7 +329,7 @@ export default function WatchlistPage() {
                     }}
                   />
                   <span className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-white/20 uppercase tracking-tighter -z-10 bg-zinc-900 uppercase">
-                    {player.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                    {player.name.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
                   </span>
                 </div>
                 <div className="flex-1 min-w-0">
@@ -510,7 +408,7 @@ export default function WatchlistPage() {
                         }}
                        />
                        <span className="absolute inset-0 flex items-center justify-center text-4xl md:text-5xl font-black text-white/10 uppercase tracking-tighter bg-zinc-900 font-mono">
-                         {activePlayer.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                         {activePlayer.name.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
                        </span>
                     </div>
                  </div>
@@ -649,12 +547,12 @@ export default function WatchlistPage() {
                     <div className="absolute inset-0 p-8 pt-12 pb-16">
                        {(() => {
                           const formation = selectedDetails?.formation || "4-3-3";
-                          const [d, m, a] = formation.split('-').map(n => parseInt(n) || 0);
+                          const [d, m, a] = formation.split('-').map((n: string) => parseInt(n) || 0);
                           return (
                              <>
                                 {/* Defensive line */}
                                 <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 flex justify-around w-full px-12">
-                                   {Array.from({ length: Math.min(d, 5) }).map((_, i) => (
+                                   {Array.from({ length: Math.min(d, 5) }).map((_, i: number) => (
                                       <div key={`d-${i}`} className="w-1.5 h-1.5 rounded-full bg-white/10 shadow-[0_0_5px_rgba(255,255,255,0.1)]" />
                                    ))}
                                 </div>
@@ -774,7 +672,7 @@ export default function WatchlistPage() {
                 ) : (
                   <div className="grid grid-cols-1 gap-3">
                     {/* STEP 1: LEAGUES */}
-                    {searchStep === 'league' && Object.entries(LEAGUE_ID_MAP).map(([name, id]) => (
+                    {searchStep === 'league' && Object.entries(LEAGUE_ID_MAP).map(([name, id]: [string, string]) => (
                       <motion.button
                         key={id}
                         whileHover={{ x: 10, backgroundColor: 'rgba(255,255,255,0.05)' }}
@@ -792,7 +690,7 @@ export default function WatchlistPage() {
                     ))}
 
                     {/* STEP 2: CLUBS */}
-                    {searchStep === 'club' && clubs.map((club) => (
+                    {searchStep === 'club' && clubs.map((club: any) => (
                       <motion.button
                         key={club.id}
                         whileHover={{ x: 10, borderLeftColor: '#22c55e' }}
@@ -813,7 +711,7 @@ export default function WatchlistPage() {
                     ))}
 
                     {/* STEP 3: PLAYERS */}
-                    {searchStep === 'player' && clubPlayers.map((player) => (
+                    {searchStep === 'player' && clubPlayers.map((player: any) => (
                       <motion.button
                         key={player.id}
                         whileHover={{ scale: 1.02, backgroundColor: 'rgba(34,197,94,0.05)' }}
@@ -863,7 +761,6 @@ export default function WatchlistPage() {
           background: rgba(255, 255, 255, 0.1);
         }
       `}</style>
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
     </div>
   )
 }

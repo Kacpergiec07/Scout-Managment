@@ -148,9 +148,9 @@ export async function getRealFormation(teamId: string, seasonId: string): Promis
 
     for (const match of matches) {
       // Only consider played matches
-      if (match.matchStatus?.statusID === "1") {
-        const isHomeTeam = match.homeParticipant?.participantID?.toString() === teamId;
-        const isAwayTeam = match.awayParticipant?.participantID?.toString() === teamId;
+      if ((match as any).matchStatus?.statusID === "1") {
+        const isHomeTeam = (match as any).homeParticipant?.participantID?.toString() === teamId;
+        const isAwayTeam = (match as any).awayParticipant?.participantID?.toString() === teamId;
 
         if (isHomeTeam || isAwayTeam) {
           const matchDate = new Date(match.matchDate);

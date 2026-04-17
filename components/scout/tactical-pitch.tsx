@@ -106,7 +106,6 @@ function PlayerDot({ player, pulse, pos, subs }: { player?: any, pulse?: boolean
           <ScrollArea className="h-[200px]">
             <div className="space-y-1 p-1">
               {depth.length > 0 ? depth.map((sub) => (
-<<<<<<< HEAD
                 <Link
                   href={`/compare?p1=${player.playerID}&p2=${sub.playerID}`}
                   key={sub.playerID}
@@ -115,14 +114,6 @@ function PlayerDot({ player, pulse, pos, subs }: { player?: any, pulse?: boolean
                 >
                   <div className="flex items-center gap-2">
                     <ArrowRightLeft className="w-3 h-3 text-white/20 group-hover:text-primary transition-colors" />
-=======
-                <Link 
-                  href={`/analysis?id=${sub.playerID}&name=${encodeURIComponent(sub.fullName)}`}
-                  key={sub.playerID}
-                  className="flex items-center justify-between p-2 rounded-lg hover:bg-white/5 group border border-transparent hover:border-white/5 transition-all"
-                >
-                  <div className="flex items-center gap-2">
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
                     <UserCircle className="w-4 h-4 text-white/20 group-hover:text-primary transition-colors" />
                     <span className="text-xs text-white/70 group-hover:text-white transition-colors">{sub.fullName}</span>
                   </div>

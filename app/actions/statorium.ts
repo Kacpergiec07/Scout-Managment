@@ -3,11 +3,8 @@
 import { StatoriumClient } from '@/lib/statorium/client';
 import { StatoriumTeamDetail, StatoriumPlayerBasic, StatoriumMatch } from '@/lib/statorium/types';
 import { geocodeCity, getCachedGeocode } from '@/lib/utils/geocoding';
-<<<<<<< HEAD
 import { COACH_MAP } from '@/lib/coaches-data';
 import { getRealFormation } from '@/lib/statorium/formation-service';
-=======
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
 
 let clientInstance: StatoriumClient | null = null;
 
@@ -17,8 +14,6 @@ function getStatoriumClient() {
   }
   return clientInstance;
 }
-<<<<<<< HEAD
-=======
 
 function normalizeName(name: string): string {
   return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[\u00f8\u00d8]/g, 'o').replace(/\u00df/g, 'ss').replace(/\u0131/g, 'i').replace(/\u0219/g, 's').replace(/\u021b/g, 't').replace(/[\u0107\u0106]/g, 'c').replace(/[\u017e\u017d]/g, 'z').replace(/[\u0161\u0160]/g, 's').toLowerCase().trim();
@@ -28,8 +23,10 @@ let _photoIdx: Map<string, string> | null = null;
 function getPhotoIdx(): Map<string, string> {
   if (_photoIdx) return _photoIdx;
   _photoIdx = new Map();
-  for (const [name, url] of Object.entries(ELITE_PLAYER_PHOTOS)) {
-    _photoIdx.set(normalizeName(name), url);
+  if (typeof ELITE_PLAYER_PHOTOS !== 'undefined') {
+    for (const [name, url] of Object.entries(ELITE_PLAYER_PHOTOS)) {
+      _photoIdx.set(normalizeName(name), url);
+    }
   }
   return _photoIdx;
 }
@@ -49,7 +46,7 @@ function resolvePosition(raw: any, playerId?: string): string {
 function resolvePlayerPhoto(p: any): string {
   if (!p) return "";
   const name = (p.fullName || `${p.firstName} ${p.lastName}` || '').trim();
-  if (name && ELITE_PLAYER_PHOTOS[name]) return ELITE_PLAYER_PHOTOS[name];
+  if (typeof ELITE_PLAYER_PHOTOS !== 'undefined' && name && ELITE_PLAYER_PHOTOS[name]) return ELITE_PLAYER_PHOTOS[name];
   const idx = getPhotoIdx();
   const nl = normalizeName(name);
   if (idx.has(nl)) return idx.get(nl)!;
@@ -64,25 +61,6 @@ function resolvePlayerPhoto(p: any): string {
   }
   return photo || `https://api.statorium.com/media/bearleague/bl` + (p.playerID || p.id) + `.webp`;
 }
-
-
-const COACH_MAP: Record<string, string> = {
-  "9": "Mikel Arteta", // Arsenal
-  "12": "Pep Guardiola", // Man City
-  "3": "Arne Slot", // Liverpool
-  "7": "Ruben Amorim", // Man Utd
-  "1": "Enzo Maresca", // Chelsea
-  "5": "Ange Postecoglou", // Tottenham
-  "53": "Carlo Ancelotti", // Real Madrid
-  "64": "Hansi Flick", // Barcelona
-  "147": "Vincent Kompany", // Bayern Munich
-  "163": "Xabi Alonso", // Leverkusen
-  "182": "Luis Enrique", // PSG
-  "223": "Simone Inzaghi", // Inter Milan
-  "221": "Antonio Conte", // Napoli
-  "234": "Thiago Motta", // Juventus
-  "241": "Paulo Fonseca", // AC Milan
-};
 
 const ELITE_PLAYER_PHOTOS: Record<string, string> = {
   "Declan Rice": "https://api.statorium.com/media/bearleague/bl17314097271237.webp",
@@ -1667,18 +1645,14 @@ const ELITE_PLAYER_PHOTOS: Record<string, string> = {
 // Normalize a name by converting all special characters to ASCII equivalents
 
 
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
+
 export async function getStandingsAction(seasonId: string) {
   try {
     const client = getStatoriumClient();
     const standings = await client.getStandings(seasonId);
 
     if (standings && standings.length > 0) {
-<<<<<<< HEAD
       return standings.slice(0, 10).map((s: any) => {
-=======
-      return standings.map((s: any) => {
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
         let stats: any = {};
         try {
           stats = typeof s.options === 'string' ? JSON.parse(s.options) : (s.options || {});
@@ -1712,7 +1686,6 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
   try {
     const client = getStatoriumClient();
 
-<<<<<<< HEAD
     // Auto-detect seasonId if not provided by checking top 5 leagues
     if (!seasonId) {
       for (const league of TOP_LEAGUES) {
@@ -1726,9 +1699,6 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
         } catch (e) {}
       }
     }
-
-=======
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
     let apiTeam: any = null;
     try {
       apiTeam = await client.getTeamDetails(teamId);
@@ -1742,7 +1712,6 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
       players = apiTeam.players;
     }
 
-<<<<<<< HEAD
     // Filter for first-team players using real API data
     // Criteria (ALL must pass):
     // 1. playerDeparted = "0" (active players only)
@@ -1772,14 +1741,7 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
       return true;
     });
 
-    // Log filtering results
-    console.log(`[Formation Filter] Team: ${teamId}`);
-    console.log(`[Formation Filter] Total players: ${players.length}`);
-    console.log(`[Formation Filter] First-team players (18-35, active): ${firstTeamPlayers.length}`);
-
     // Categorize first-team players by position
-    // Handle API typo: "Atacker" not "Attacker"
-    // Use exact position matching from API to avoid false positives
     const gks = firstTeamPlayers.filter((p: any) => {
       const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
       return pos === 'goalkeeper' || pos === 'gk' || pos.startsWith('goal');
@@ -1797,18 +1759,8 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
       return pos === 'atacker' || pos === 'attacker' || pos === 'forward' || pos === 'fw' || pos === 'striker' || pos === 'st' || pos.includes('ata');
     });
 
-    // Log filtered squad composition
-    console.log(`[Formation Filter] Team: ${teamId}`);
-    console.log(`[Formation Filter] Total players: ${players.length}`);
-    console.log(`[Formation Filter] First-team players (18-35, active): ${firstTeamPlayers.length}`);
-
-    // Log position distribution for information
-    console.log(`[Formation Filter] First-team squad composition: GK=${gks.length} DF=${dfs.length} MF=${mfs.length} FW=${fws.length} (Total: ${gks.length + dfs.length + mfs.length + fws.length})`);
-
     // Get real formation from most recent match with lineup data
-    console.log(`[Formation Filter] Fetching real formation from API...`);
-    const formation = await getRealFormation(teamId, seasonId);
-    console.log(`[Formation Filter] Real formation: ${formation}`);
+    const formation = await getRealFormation(teamId, seasonId || '');
 
     // Parse formation for player selection (default to 4-4-2 if N/A)
     let d = 4, m = 4, f = 2;
@@ -1821,75 +1773,13 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
       }
     }
 
-    console.log(`[Formation Filter] Using formation: ${formation} (D=${d}, M=${m}, F=${f})`);
-
     // Select the actual starting XI players based on real formation
     const startingXI: StatoriumPlayerBasic[] = [];
 
     // Always include a goalkeeper
-    if (gks.length > 0) {
-      startingXI.push(gks[0]);
-    }
+    if (gks.length > 0) startingXI.push(gks[0]);
 
-    // Add defenders
-    startingXI.push(...dfs.slice(0, d));
-
-    // Add midfielders
-    startingXI.push(...mfs.slice(0, m));
-
-    // Add forwards
-    startingXI.push(...fws.slice(0, f));
-
-    // Fill to 11 if still missing some positions - use remaining first-team players
-    if (startingXI.length < 11) {
-      const usedIds = new Set(startingXI.map(p => p.playerID));
-
-      // Get remaining players from filtered position groups
-      const remainingGks = gks.filter(p => !usedIds.has(p.playerID));
-      const remainingDfs = dfs.filter(p => !usedIds.has(p.playerID));
-      const remainingMfs = mfs.filter(p => !usedIds.has(p.playerID));
-      const remainingFws = fws.filter(p => !usedIds.has(p.playerID));
-
-      const remainingFirstTeam = [...remainingGks, ...remainingDfs, ...remainingMfs, ...remainingFws];
-      startingXI.push(...remainingFirstTeam.slice(0, 11 - startingXI.length));
-    }
-
-    // Reorder players array to have starting XI first, then remaining first-team players
-    const startingIds = new Set(startingXI.map(p => p.playerID));
-    const remainingFirstTeam = firstTeamPlayers.filter(p => !startingIds.has(p.playerID));
-
-    const sortedPlayers = [
-      ...startingXI,
-      ...remainingFirstTeam
-    ];
-
-    // Use sorted players for display
-=======
-    // Filter out departed players
-    players = (players || []).filter((p: any) => p.playerDeparted !== '1');
-
-    // Robust Starting XI selection and formation calculation using resolved positions
-    const resolvedPlayers = players.map(p => ({
-      ...p,
-      resolvedPos: resolvePosition(p.position || p.additionalInfo?.position, p.playerID)
-    }));
-
-    const gks = resolvedPlayers.filter(p => p.resolvedPos === 'GK');
-    const dfs = resolvedPlayers.filter(p => ['DF', 'CB', 'LB', 'RB', 'LCB', 'RCB', 'LWB', 'RWB'].includes(p.resolvedPos));
-    const mfs = resolvedPlayers.filter(p => ['MF', 'CM', 'CDM', 'CAM', 'LM', 'RM', 'LCM', 'RCM', 'LDM', 'RDM', 'LAM', 'RAM'].includes(p.resolvedPos));
-    const fws = resolvedPlayers.filter(p => ['FW', 'ST', 'LW', 'RW', 'CF', 'LS', 'RS'].includes(p.resolvedPos));
-
-    // Choose formation based on counts
-    let d = 4, m = 3, f = 3;
-    if (dfs.length >= 5 && mfs.length >= 3 && fws.length <= 2) { d = 5; m = 3; f = 2; }
-    else if (mfs.length >= 5 && fws.length >= 2) { d = 3; m = 5; f = 2; }
-    else if (mfs.length >= 4 && dfs.length >= 4 && fws.length <= 2) { d = 4; m = 4; f = 2; }
-    else if (mfs.length >= 5 && fws.length <= 1) { d = 4; m = 5; f = 1; }
-    else if (dfs.length >= 3 && mfs.length >= 4 && fws.length >= 3) { d = 3; m = 4; f = 3; }
-
-    // Select the actual starting XI players
-    const startingXI: StatoriumPlayerBasic[] = [];
-    if (gks[0]) startingXI.push(gks[0]);
+    // Add defenders, midfielders, forwards
     startingXI.push(...dfs.slice(0, d));
     startingXI.push(...mfs.slice(0, m));
     startingXI.push(...fws.slice(0, f));
@@ -1897,19 +1787,17 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
     // Fill to 11 if still missing some positions
     if (startingXI.length < 11) {
       const usedIds = new Set(startingXI.map(p => p.playerID));
-      const remaining = players.filter(p => !usedIds.has(p.playerID));
-      startingXI.push(...remaining.slice(0, 11 - startingXI.length));
+      const remainingFirstTeam = firstTeamPlayers.filter(p => !usedIds.has(p.playerID));
+      startingXI.push(...remainingFirstTeam.slice(0, 11 - startingXI.length));
     }
-
-    const formation = d > 0 ? `${d}-${m}-${f}` : "4-3-3";
 
     // Reorder players array to have starting XI first
     const startingIds = new Set(startingXI.map(p => p.playerID));
     const sortedPlayers = [
       ...startingXI,
-      ...players.filter(p => !startingIds.has(p.playerID))
+      ...firstTeamPlayers.filter(p => !startingIds.has(p.playerID))
     ];
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
+
     players = sortedPlayers;
 
     const result = {
@@ -1923,12 +1811,8 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
       formation: formation,
       players: players.map((p: any) => ({
         ...p,
-<<<<<<< HEAD
-        playerPhoto: p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
-=======
         playerPhoto: resolvePlayerPhoto(p),
         position: resolvePosition(p.position || p.additionalInfo?.position, p.playerID)
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
       }))
     } as StatoriumTeamDetail;
 
@@ -1945,14 +1829,10 @@ export async function searchPlayersAction(query: string) {
   try {
     const client = getStatoriumClient();
     const apiResults = await client.searchPlayers(query);
-<<<<<<< HEAD
-    return apiResults.slice(0, 10);
-=======
     return apiResults.map(p => ({
       ...p,
       playerPhoto: resolvePlayerPhoto(p)
     })).slice(0, 10);
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
   } catch (error) {
     console.error('Search Players Action Error:', error);
     return [];
@@ -1980,11 +1860,7 @@ export async function getPlayerPhotoAction(playerId: string): Promise<string | n
     if (photoUrl && (photoUrl.startsWith('http') || photoUrl.startsWith('/'))) {
       return photoUrl;
     }
-<<<<<<< HEAD
-    return null;
-=======
     return photoUrl;
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
   } catch (error) {
     console.error(`getPlayerPhotoAction error for id=${playerId}:`, error);
     // Even on error, we can try the fallback if we have an ID
@@ -1992,8 +1868,6 @@ export async function getPlayerPhotoAction(playerId: string): Promise<string | n
   }
 }
 
-<<<<<<< HEAD
-=======
 
 export async function getPlayerDetailsAction(playerId: string) {
   if (!playerId) return null;
@@ -2024,7 +1898,6 @@ export async function getPlayerDetailsAction(playerId: string) {
   }
 }
 
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
 /**
  * Fetches player photos for multiple players in parallel.
  * Returns a map of playerID -> photoUrl (or null if not found).
@@ -2129,7 +2002,7 @@ export async function getAllTop5PlayersAction() {
       const standings = await client.getStandings(league.id);
       if (standings && standings.length > 0) {
         const topTeams = standings.slice(0, 6);
-        for (const team of topTeams) {
+        for (const team of topTeams as any[]) {
           const tid = team.teamID?.toString();
           if (tid) {
             try {
@@ -2170,16 +2043,7 @@ export async function getPlayersByClubAction(teamId: string, seasonId?: string) 
     // First figure out the seasonId if not provided by testing the top 5 leagues
     let reliableSeasonId = seasonId;
     if (!reliableSeasonId) {
-<<<<<<< HEAD
-=======
-      const TOP_LEAGUES = [
-        { id: "515", name: "Premier League" },
-        { id: "558", name: "La Liga" },
-        { id: "511", name: "Serie A" },
-        { id: "521", name: "Bundesliga" },
-        { id: "519", name: "Ligue 1" },
-      ];
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
+
       for (const league of TOP_LEAGUES) {
         try {
            const standings = await client.getStandings(league.id);
@@ -2195,15 +2059,6 @@ export async function getPlayersByClubAction(teamId: string, seasonId?: string) 
     const teamDetails = await getTeamDetailsAction(teamId, reliableSeasonId);
     if (!teamDetails || !teamDetails.players) return [];
     
-<<<<<<< HEAD
-    return teamDetails.players.map(p => ({
-      id: p.playerID,
-      name: p.fullName || `${p.firstName} ${p.lastName}`,
-      position: p.position || p.additionalInfo?.position || "Unknown",
-      marketValue: "€" + (Math.floor(Math.random() * 80) + 5) + "M",
-      photoUrl: p.playerPhoto || p.photo
-    }));
-=======
     return teamDetails.players.map(p => {
       const fullName = p.fullName || `${p.firstName} ${p.lastName}`;
       return {
@@ -2214,7 +2069,6 @@ export async function getPlayersByClubAction(teamId: string, seasonId?: string) 
         photoUrl: resolvePlayerPhoto(p)
       };
     });
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
   } catch (error) {
     console.error('Get Players By Club Action Error:', error);
     return [];
@@ -2232,15 +2086,13 @@ export async function getPlayersAction(teamId: string, seasonId: string) {
   }
 }
 
-<<<<<<< HEAD
-=======
 export async function getTeamLogoAction(teamName: string, leagueId?: string, teamId?: string) {
   try {
     const client = getStatoriumClient();
     const targetLeagues = leagueId ? [leagueId] : ["558", "515", "521", "511", "519"];
     
     for (const id of targetLeagues) {
-      const standings = await client.getStandings(id);
+      const standings = await client.getStandings(id) as any[];
       const team = standings.find((s: any) => 
         (teamId && String(s.teamID) === String(teamId)) ||
         s.teamName?.toLowerCase().includes(teamName.toLowerCase()) || 
@@ -2254,5 +2106,3 @@ export async function getTeamLogoAction(teamName: string, leagueId?: string, tea
     return null;
   }
 }
-
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd

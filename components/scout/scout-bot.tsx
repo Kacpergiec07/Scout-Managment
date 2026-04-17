@@ -18,7 +18,7 @@ export function ScoutBot() {
     initialMessages: [
       { id: 'welcome', role: 'assistant', content: 'Hello! I am ScoutPro AI. How can I help you find the perfect talent for your squad today?' }
     ]
-  })
+  } as any) as any
   
   const scrollRef = React.useRef<HTMLDivElement>(null)
 
@@ -52,7 +52,7 @@ export function ScoutBot() {
               <CardContent className="flex-1 p-0 overflow-hidden bg-white dark:bg-zinc-950">
                 <ScrollArea className="h-full p-6">
                   <div className="space-y-6">
-                    {messages.map((m, i) => (
+                    {messages.map((m: any, i: number) => (
                       <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in slide-in-from-bottom-2 duration-300`}>
                         <div className={`max-w-[85%] rounded-2xl p-4 text-sm shadow-sm ${
                           m.role === 'user' 

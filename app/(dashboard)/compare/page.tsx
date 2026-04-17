@@ -1,10 +1,8 @@
 'use client'
 
 import * as React from 'react'
-<<<<<<< HEAD
+import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
-=======
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
 import { getAllTop5PlayersAction } from '@/app/actions/statorium'
 import { StatoriumPlayerBasic } from '@/lib/statorium/types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -13,11 +11,8 @@ import { Users, Trash2, ArrowRightLeft, Loader2, UserCircle, TrendingUp, Shield,
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 
-export default function ComparePage() {
-<<<<<<< HEAD
+function CompareContent() {
   const searchParams = useSearchParams()
-=======
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
   const [player1, setPlayer1] = React.useState<StatoriumPlayerBasic | null>(null)
   const [player2, setPlayer2] = React.useState<StatoriumPlayerBasic | null>(null)
   const [allPlayers, setAllPlayers] = React.useState<StatoriumPlayerBasic[]>([])
@@ -29,9 +24,6 @@ export default function ComparePage() {
       try {
         const players = await getAllTop5PlayersAction()
         setAllPlayers(players)
-<<<<<<< HEAD
-
-        // Check URL params for pre-selected players
         const p1Id = searchParams.get('p1')
         const p2Id = searchParams.get('p2')
 
@@ -44,8 +36,6 @@ export default function ComparePage() {
           const foundP2 = players.find(p => String(p.playerID) === p2Id)
           if (foundP2) setPlayer2(foundP2)
         }
-=======
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
       } catch (error) {
         console.error('Error loading players:', error)
       } finally {
@@ -53,12 +43,7 @@ export default function ComparePage() {
       }
     }
     loadPlayers()
-<<<<<<< HEAD
   }, [searchParams])
-=======
-  }, [])
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
-
   const handleSelectPlayer1 = (player: StatoriumPlayerBasic) => {
     setPlayer1(player)
     if (player2?.playerID === player.playerID) {
@@ -695,7 +680,7 @@ function AnimatedStatsCard({ player, color }: { player: StatoriumPlayerBasic; co
         assists: Math.round((player.assists || 0) * easeProgress),
         matches: Math.round((player.matchesPlayed || 0) * easeProgress),
         minutes: Math.round((player.minutesPlayed || 0) * easeProgress),
-        rating: player.rating || 'N/A',
+        rating: String(player.rating || 'N/A'),
         yellowCards: Math.round((player.yellowCards || 0) * easeProgress)
       })
 
@@ -707,7 +692,7 @@ function AnimatedStatsCard({ player, color }: { player: StatoriumPlayerBasic; co
           assists: player.assists || 0,
           matches: player.matchesPlayed || 0,
           minutes: player.minutesPlayed || 0,
-          rating: player.rating || 'N/A',
+          rating: String(player.rating || 'N/A'),
           yellowCards: player.yellowCards || 0
         })
       }
@@ -836,3 +821,17 @@ function AnimatedStat({ icon, label, value, color, delay, isVisible }: {
     </div>
   )
 }
+
+export default function ComparePage() {
+  return (
+    <Suspense fallback={
+      <div className="flex flex-col items-center justify-center py-20 gap-4">
+        <Loader2 className="h-8 w-8 animate-spin text-emerald-500" />
+        <p className="text-zinc-400 text-sm">Preparing Comparison Laboratory...</p>
+      </div>
+    }>
+      <CompareContent />
+    </Suspense>
+  )
+}
+

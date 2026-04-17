@@ -5,7 +5,7 @@ import { getCompatibilityAnalysis } from '@/app/actions/analysis'
 import { PlayerRadarChart } from '@/components/scout/radar-chart'
 import { RankingList } from '@/components/scout/ranking-list'
 import { ReportButton } from '@/components/scout/report-button'
-import { ScoutProPlayer } from '@/lib/types/player'
+import { ScoutProPlayer, Position } from '@/lib/types/player'
 
 import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
@@ -30,10 +30,10 @@ function AnalysisContent() {
     name: playerName,
     age: 23,
     nationality: nationality,
-    position: position,
+    position: position as Position,
     club: club,
     league: league,
-    photo: photo,
+    photoUrl: photo,
     description: description,
     stats: {
       offensive: { goals: 95, assists: 40, xG: 98, xA: 45, keyPasses: 60 },
@@ -65,7 +65,7 @@ function AnalysisContent() {
         <div className="flex items-center gap-6 relative z-10">
           <div className="relative h-24 w-24 rounded-2xl overflow-hidden border-2 border-emerald-500/50 shadow-2xl">
              <Image 
-               src={mockPlayer.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(mockPlayer.name)}&background=047857&color=fff&size=200`} 
+               src={mockPlayer.photoUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(mockPlayer.name)}&background=047857&color=fff&size=200`} 
                alt={mockPlayer.name}
                fill
                unoptimized

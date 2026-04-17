@@ -32,7 +32,7 @@ export default async function LoginPage({
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password" name="password" className="text-zinc-300">Password</Label>
+              <Label htmlFor="password" className="text-zinc-300">Password</Label>
               <Input
                 id="password"
                 name="password"

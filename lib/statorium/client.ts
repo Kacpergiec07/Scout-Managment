@@ -36,12 +36,6 @@ export class StatoriumClient {
       // Try real API first
       const data = await this.fetch<any>('/players/', { q: query });
       if (data.players && data.players.length > 0) {
-<<<<<<< HEAD
-        return data.players.map((p: any) => ({
-          ...p,
-          playerPhoto: p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
-        }));
-=======
         return data.players.map((p: any) => {
           let photo = p.photo || p.image || p.playerPhoto;
           if (photo && !photo.startsWith('http')) {
@@ -54,111 +48,16 @@ export class StatoriumClient {
           }
           return {
             ...p,
-            playerPhoto: photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
+            playerPhoto: photo || `https://api.statorium.com/media/bearleague/bl${p.playerID || p.id}.webp`
           };
         });
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
       }
     } catch (error) {
       console.warn('[StatoriumClient] Search API failed, using mock fallback:', error);
     }
 
-<<<<<<< HEAD
-    // Mock Fallback for premium demo feel
-    const mockPool: (StatoriumPlayerBasic & { teamName?: string })[] = [
-      {
-        playerID: '14633',
-        firstName: 'Florian',
-        lastName: 'Wirtz',
-        fullName: 'Florian Wirtz',
-        position: 'CAM',
-        country: 'Germany',
-        teamName: 'Liverpool FC',
-        photo: 'https://api.statorium.com/media/bearleague/bl17158001911496.webp'
-      },
-      {
-        playerID: '6466',
-        firstName: 'Jude',
-        lastName: 'Bellingham',
-        fullName: 'Jude Bellingham',
-        position: 'CM',
-        country: 'England',
-        teamName: 'Real Madrid',
-        photo: 'https://api.statorium.com/media/bearleague/bl1695891720352.webp'
-      },
-      {
-        playerID: '53041',
-        firstName: 'Lamine',
-        lastName: 'Yamal',
-        fullName: 'Lamine Yamal',
-        position: 'RW',
-        country: 'Spain',
-        teamName: 'FC Barcelona',
-        photo: 'https://api.statorium.com/media/bearleague/bl17322791692175.webp'
-      },
-      {
-        playerID: '26718',
-        firstName: 'Amadou',
-        lastName: 'Onana',
-        fullName: 'Amadou Onana',
-        position: 'CDM',
-        country: 'Belgium',
-        teamName: 'Aston Villa',
-        photo: 'https://api.statorium.com/media/bearleague/bl17337166521193.webp'
-      },
-      {
-        playerID: '3482',
-        firstName: 'Lautaro',
-        lastName: 'Martínez',
-        fullName: 'Lautaro Martínez',
-        position: 'ST',
-        country: 'Argentina',
-        teamName: 'Inter Milan',
-        photo: 'https://api.statorium.com/media/bearleague/bl1695386805672.webp'
-      },
-      {
-        playerID: '670',
-        firstName: 'Ousmane',
-        lastName: 'Dembélé',
-        fullName: 'Ousmane Dembélé',
-        position: 'RW',
-        country: 'France',
-        teamName: 'Paris Saint-Germain',
-        photo: 'https://api.statorium.com/media/bearleague/bl1702304187852.webp'
-      },
-      {
-        playerID: '4812',
-        firstName: 'Erling',
-        lastName: 'Haaland',
-        fullName: 'Erling Haaland',
-        position: 'ST',
-        country: 'Norway',
-        teamName: 'Man City',
-        photo: 'https://api.statorium.com/media/bearleague/bl17313179872374.webp'
-      },
-      {
-        playerID: '1994',
-        firstName: 'Kylian',
-        lastName: 'Mbappé',
-        fullName: 'Kylian Mbappé',
-        position: 'FW',
-        country: 'France',
-        teamName: 'Real Madrid',
-        photo: 'https://api.statorium.com/media/bearleague/bl17023015741660.webp'
-      }
-    ];
-
-    const matched = mockPool.filter(p =>
-      p.fullName.toLowerCase().includes(query.toLowerCase())
-    );
-
-    return matched.map((p: any) => ({
-      ...p,
-      playerPhoto: p.playerPhoto || p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
-    }));
-=======
     // Mock Pool with verified IDs and photos from Statorium API
-    const mockPool: (StatoriumPlayerBasic & { teamName?: string, league?: string })[] = [
+    const mockPool: (StatoriumPlayerBasic & { teamID?: string, league?: string, photo?: string })[] = [
       { playerID: '14633', firstName: 'Florian', lastName: 'Wirtz', fullName: 'Florian Wirtz', position: 'CAM', country: 'Germany', teamName: 'Bayer 04 Leverkusen', photo: 'https://api.statorium.com/media/bearleague/bl17158001911496.webp', teamID: '163', league: 'Bundesliga' },
       { playerID: '6466', firstName: 'Jude', lastName: 'Bellingham', fullName: 'Jude Bellingham', position: 'CM', country: 'England', teamName: 'Real Madrid', photo: 'https://api.statorium.com/media/bearleague/bl1695891720352.webp', teamID: '37', league: 'La Liga' },
       { playerID: '53041', firstName: 'Lamine', lastName: 'Yamal', fullName: 'Lamine Yamal', position: 'RW', country: 'Spain', teamName: 'FC Barcelona', photo: 'https://api.statorium.com/media/bearleague/bl17322791692175.webp', teamID: '23', league: 'La Liga' },
@@ -208,10 +107,9 @@ export class StatoriumClient {
       }
       return {
         ...p,
-        playerPhoto: photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
+        playerPhoto: photo || `https://api.statorium.com/media/bearleague/bl${p.playerID || p.id}.webp`
       };
     });
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
 
   }
 
@@ -236,14 +134,9 @@ export class StatoriumClient {
   }
 
   async getPlayersByTeam(teamId: string, seasonId: string): Promise<StatoriumPlayerBasic[]> {
-<<<<<<< HEAD
-    // Use the squad endpoint which returns player data
+    // Use the squad endpoint which returns more complete player data
     const data = await this.fetch<any>(`/teams/${teamId}/squad/${seasonId}/`, { season_id: seasonId });
-    return data.team?.players || data.players || [];
-=======
-    const data = await this.fetch<any>(`/teams/${teamId}/`, { season_id: seasonId });
-    return data.team.players || [];
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
+    return data.team?.players || data.players || data.team?.squad || [];
   }
 
   async getTransfers(teamId?: string, seasonId?: string): Promise<StatoriumTransfer[]> {

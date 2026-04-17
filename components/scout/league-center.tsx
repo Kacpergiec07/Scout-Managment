@@ -11,11 +11,7 @@ import { getStandingsAction, getMatchesAction, getTeamDetailsAction } from "@/ap
 import { StatoriumStanding, StatoriumMatch, StatoriumTeamDetail } from "@/lib/statorium/types";
 import Image from "next/image";
 import Link from "next/link";
-<<<<<<< HEAD
-import { useRouter } from "next/navigation";
-=======
 import { useRouter, useSearchParams } from "next/navigation";
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
 
 interface League {
   id: string;
@@ -40,8 +36,6 @@ export function LeagueCenter() {
   const [selectedTeam, setSelectedTeam] = useState<StatoriumTeamDetail | null>(null);
   const [loadingTeam, setLoadingTeam] = useState(false);
   const router = useRouter();
-<<<<<<< HEAD
-=======
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -53,7 +47,6 @@ export function LeagueCenter() {
       }
     }
   }, [searchParams]);
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
 
   useEffect(() => {
     async function loadData() {
@@ -323,22 +316,13 @@ export function LeagueCenter() {
               )}
             </CardContent>
             {selectedTeam && (
-<<<<<<< HEAD
-              <div className="p-4 bg-white/5 border-t border-white/10 space-y-3">
-                <Button
+              <div className="p-4 bg-white/5 border-t border-white/10">
+                <Button 
                   onClick={() => router.push(`/leagues/team/${selectedTeam.teamID}?seasonId=${activeLeague.seasonId}#squad`)}
                   className="w-full bg-primary hover:bg-primary/80 text-primary-foreground font-bold"
                 >
                   <Users className="w-4 h-4 mr-2" />
-                  View Full Squad
-=======
-              <div className="p-4 bg-white/5 border-t border-white/10">
-                <Button 
-                  onClick={() => router.push(`/leagues/team/${selectedTeam.teamID}?seasonId=${activeLeague.seasonId}`)}
-                  className="w-full bg-primary hover:bg-primary/80 text-primary-foreground font-bold"
-                >
                   View Full Squad & Tactics
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
                   <ChevronRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>

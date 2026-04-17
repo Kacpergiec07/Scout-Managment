@@ -63,10 +63,10 @@ export const COACH_MAP: Record<string, string> = {
   "109": "Marko Baroni", // Lecce
   "107": "Paolo Zanetti", // Udinese
   "111": "Roberto D'Aversa", // Empoli
-  "112": "Filippo Inzaghi", // Brescia
+  // "112": "Filippo Inzaghi", // Duplicate key with Aston Villa
   "113": "Vincenzo Italiano", // Monza
-  "114": "Claudio Ranieri", // Cagliari
-  "115": "Luigi De Canio", // Genoa
+  // "114": "Claudio Ranieri", // Duplicate key with Osasuna
+  // "115": "Luigi De Canio", // Duplicate key with Mallorca
   "116": "Massimiliano Allegri", // Verona
   "117": "Fabio Grosso", // Parma
   "118": "Eusebio Di Francesco", // Crotone

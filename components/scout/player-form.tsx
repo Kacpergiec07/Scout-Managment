@@ -41,7 +41,7 @@ const formSchema = z.object({
 
 export function PlayerForm({ initialData }: { initialData?: Partial<ScoutProPlayer> }) {
   const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema) as any,
     defaultValues: {
       name: initialData?.name || '',
       age: initialData?.age || 20,

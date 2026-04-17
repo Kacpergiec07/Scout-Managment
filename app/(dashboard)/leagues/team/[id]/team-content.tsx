@@ -30,7 +30,7 @@ export function TeamContent({ team }: TeamContentProps) {
 
   // Determine formation from squad positions
   const squad = team.players || [];
-  const countPosition = (prefix: string) => squad.filter(p => {
+  const countPosition = (prefix: string) => squad.filter((p: any) => {
     const pos = p.position || p.additionalInfo?.position || '';
     return pos.startsWith(prefix);
   }).length || 0;
@@ -80,19 +80,19 @@ export function TeamContent({ team }: TeamContentProps) {
   const startingXI = squad.slice(0, 11);
   const subs = squad.slice(11);
 
-  const pgks = startingXI.filter(p => {
+  const pgks = startingXI.filter((p: any) => {
     const pos = p.position || p.additionalInfo?.position || '';
     return pos.startsWith('GK') || pos.startsWith('Goal');
   });
-  const pdfs = startingXI.filter(p => {
+  const pdfs = startingXI.filter((p: any) => {
     const pos = p.position || p.additionalInfo?.position || '';
     return pos.startsWith('DF') || pos.startsWith('Def');
   });
-  const pmfs = startingXI.filter(p => {
+  const pmfs = startingXI.filter((p: any) => {
     const pos = p.position || p.additionalInfo?.position || '';
     return pos.startsWith('MF') || pos.startsWith('Mid');
   });
-  const pfws = startingXI.filter(p => {
+  const pfws = startingXI.filter((p: any) => {
     const pos = p.position || p.additionalInfo?.position || '';
     return pos.startsWith('FW') || pos.startsWith('Ata') || pos.startsWith('For');
   });
