@@ -9,6 +9,28 @@ export interface StatoriumTeam {
   teamLogo?: string
 }
 
+export interface StatoriumSeasonStats {
+  season_name: string;
+  season_id: string;
+  team_name: string;
+  played: string;
+  career_lineup: string;
+  career_minutes: string;
+  career_subsin: string;
+  career_subsout: string;
+  "Goals": string;
+  "Goal": string;
+  "Assist": string;
+  "Yellow card": string;
+  "Second yellow": string;
+  "Red card": string;
+  "Own goal": string;
+  "Penalty goal": string;
+  "Missed penalty": string;
+  "Penalty shootout scored": string;
+  "Penalty shootout missed": string;
+}
+
 export interface StatoriumPlayerBasic {
   playerID: string
   firstName: string
@@ -22,6 +44,7 @@ export interface StatoriumPlayerBasic {
   position?: string
   weight?: string
   height?: string
+  age?: number | string
   goals?: number
   assists?: number
   yellowCards?: number
@@ -34,6 +57,7 @@ export interface StatoriumPlayerBasic {
   performance?: any
   stats?: any
   additionalInfo?: any
+  stat?: StatoriumSeasonStats[]
 }
 
 export interface StatoriumPlayerStats {
@@ -97,6 +121,8 @@ export interface StatoriumMatch {
   matchID: string;
   homeTeam: StatoriumTeam;
   awayTeam: StatoriumTeam;
+  homeParticipant?: { participantName: string; logo: string };
+  awayParticipant?: { participantName: string; logo: string };
   homeScore?: number;
   awayScore?: number;
   matchDate: string;

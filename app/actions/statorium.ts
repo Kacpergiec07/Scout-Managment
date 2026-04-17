@@ -292,35 +292,6 @@ export async function getPlayerPhotoAction(playerId: string): Promise<string | n
 }
 
 
-export async function getPlayerDetailsAction(playerId: string) {
-  if (!playerId) return null;
-  try {
-    const client = getStatoriumClient();
-    const result = await client.getPlayerDetails(playerId);
-    if (!result) return null;
-
-    const p = (result as any).player || result;
-    const info = p.additionalInfo || {};
-    
-    let ageValue = info.age || "";
-    if (!ageValue && info.birthdate) {
-      const match = String(info.birthdate).match(/\((\d+)\)/);
-      if (match) ageValue = match[1];
-    }
-
-    return {
-      ...p,
-      weight: info.weight || "",
-      height: info.height || "",
-      age: ageValue,
-      position: resolvePosition(p.position || info.position, playerId)
-    };
-  } catch (error) {
-    console.error(`getPlayerDetailsAction error for id=${playerId}:`, error);
-    return null;
-  }
-}
-
 /**
  * Fetches player photos for multiple players in parallel.
  * Returns a map of playerID -> photoUrl (or null if not found).
@@ -353,6 +324,52 @@ export async function getMatchesAction(seasonId: string) {
     return [];
   } catch (error) {
     console.error('Get Matches Action Error:', error);
+    return [];
+  }
+}
+
+export async function getUpcomingMatchesAction(seasonId: string, limit: number = 10) {
+  try {
+    const client = getStatoriumClient();
+    const allMatches = await client.getMatches(seasonId);
+
+    if (!allMatches || allMatches.length === 0) return [];
+
+    // Get current date as reference point
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set to start of day for accurate comparison
+
+    // Filter only upcoming matches (matchDate >= today)
+    const upcomingMatches = allMatches.filter((match: any) => {
+      if (!match.matchDate) return false;
+
+      const matchDate = new Date(match.matchDate);
+      // Set match date to start of day for accurate comparison
+      matchDate.setHours(0, 0, 0, 0);
+
+      return matchDate >= today;
+    });
+
+    // Sort chronologically (from nearest to furthest)
+    upcomingMatches.sort((a: any, b: any) => {
+      const dateA = new Date(a.matchDate);
+      const dateB = new Date(b.matchDate);
+
+      // First compare by date
+      if (dateA.getTime() !== dateB.getTime()) {
+        return dateA.getTime() - dateB.getTime();
+      }
+
+      // If dates are equal, compare by time
+      const timeA = a.matchTime || '00:00';
+      const timeB = b.matchTime || '00:00';
+      return timeA.localeCompare(timeB);
+    });
+
+    // Limit to specified number of results (default 10)
+    return upcomingMatches.slice(0, limit);
+  } catch (error) {
+    console.error('Get Upcoming Matches Action Error:', error);
     return [];
   }
 }
@@ -432,6 +449,8 @@ export async function getAllTop5PlayersAction() {
               const players = await client.getPlayersByTeam(tid, league.id);
               if (players && players.length > 0) {
                 players.forEach((p: any) => {
+                  console.log(`[Action] Player data for ${p.fullName}:`, JSON.stringify(p));
+                  console.log(`[Action] Player stat array:`, p.stat);
                   allPlayers.push({
                     ...p,
                     teamName: team.teamName || team.teamMiddleName || "Elite Club",
@@ -454,6 +473,25 @@ export async function getAllTop5PlayersAction() {
   } catch (error) {
     console.error('Get All Top 5 Players Error:', error);
     return [];
+  }
+}
+
+
+export async function getPlayerDetailsAction(playerId: string) {
+  if (!playerId) return null;
+  try {
+    const client = getStatoriumClient();
+    console.log(`[Action] Fetching details for player ${playerId}`);
+
+    const playerDetails = await client.getPlayerDetails(playerId);
+
+    console.log(`[Action] Player details received:`, JSON.stringify(playerDetails, null, 2));
+    console.log(`[Action] Player stat array:`, playerDetails.stat);
+
+    return playerDetails;
+  } catch (error) {
+    console.error(`[Action] Get Player Details Error for player ${playerId}:`, error);
+    return null;
   }
 }
 
@@ -526,6 +564,151 @@ export async function getTeamLogoAction(teamName: string, leagueId?: string, tea
     }
     return null;
   } catch (error) {
+    return null;
+  }
+}
+
+
+export async function getPlayerFullDataAction(playerId: string) {
+  if (!playerId) return null;
+  try {
+    const apiKey = process.env.STATORIUM_API_KEY || 'd35d1fc1aabe0671e1e80ee5a6296bef';
+    const url = `https://api.statorium.com/v1/?a=player&playerID=${playerId}&apikey=${apiKey}`;
+
+    console.log(`[getPlayerFullDataAction] Fetching full data for player ${playerId}`);
+    console.log(`[getPlayerFullDataAction] URL: ${url}`);
+
+    const response = await fetch(url, {
+      next: { revalidate: 3600 },
+    } as any);
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`[getPlayerFullDataAction] API Error ${response.status}:`, errorText);
+      throw new Error(`Statorium API error: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    console.log(`[getPlayerFullDataAction] Full data received:`, JSON.stringify(data, null, 2));
+
+    // Extract player data from the response
+    const playerData = data.player || data;
+
+    if (!playerData) {
+      console.warn(`[getPlayerFullDataAction] No player data found in response`);
+      return null;
+    }
+
+    console.log(`[getPlayerDataAction] Player stat array:`, playerData.stat);
+    return playerData;
+  } catch (error) {
+    console.error(`[getPlayerDataAction] Error for player ${playerId}:`, error);
+    return null;
+  }
+}
+
+export async function getPlayerDataAction(playerId: string, timeoutMs: number = 10000) {
+  if (!playerId) return null;
+
+  const startTime = Date.now();
+  const timestamp = Date.now(); // Force cache busting
+
+  try {
+    const apiKey = process.env.STATORIUM_API_KEY || 'd35d1fc1aabe0671e1e80ee5a6296bef';
+    const url = `https://api.statorium.com/api/v1/players/${playerId}/?apikey=${apiKey}&showstat=true&_t=${timestamp}`;
+
+    console.log(`[getPlayerDataAction] Fetching detailed data for player ${playerId}`);
+    console.log(`[getPlayerDataAction] URL: ${url}`);
+    console.log(`[getPlayerDataAction] Timeout: ${timeoutMs}ms`);
+
+    // Create AbortController for timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => {
+      controller.abort();
+      const elapsed = Date.now() - startTime;
+      console.error(`[getPlayerDataAction] Timeout after ${elapsed}ms for player ${playerId}`);
+    }, timeoutMs);
+
+    try {
+      const response = await fetch(url, {
+        next: { revalidate: 3600 },
+        signal: controller.signal,
+      } as any);
+
+      // Clear timeout on successful response
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`[getPlayerDataAction] API Error ${response.status}:`, errorText);
+        throw new Error(`Statorium API error: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json();
+
+      const elapsed = Date.now() - startTime;
+      console.log(`[getPlayerDataAction] Request completed in ${elapsed}ms`);
+
+      console.log(`[getPlayerDataAction] Full data structure keys:`, Object.keys(data));
+      console.log(`[getPlayerDataAction] Has player property:`, !!data.player);
+      console.log(`[getPlayerDataAction] Has stat property on data:`, !!data.stat);
+
+      // Extract player data from the response
+      const playerData = data.player || data;
+
+      if (!playerData) {
+        console.warn(`[getPlayerDataAction] No player data found in response`);
+        return null;
+      }
+
+      console.log(`[getPlayerDataAction] Player data keys:`, Object.keys(playerData));
+      console.log(`[getPlayerDataAction] Has stat property on playerData:`, !!playerData.stat);
+      console.log(`[getPlayerDataAction] Player stat array:`, playerData.stat);
+      console.log(`[getPlayerDataAction] Stat array length:`, playerData.stat?.length || 0);
+      console.log(`[getPlayerDataAction] Stat array type:`, typeof playerData.stat);
+      console.log(`[getPlayerDataAction] Stat array is array:`, Array.isArray(playerData.stat));
+
+      // Log first season for debugging
+      if (playerData.stat && playerData.stat.length > 0) {
+        console.log(`[getPlayerDataAction] First season:`, JSON.stringify(playerData.stat[0], null, 2));
+        console.log(`[getPlayerDataAction] First season keys:`, Object.keys(playerData.stat[0]));
+      }
+
+      console.log(`[getPlayerDataAction] ✅ Returning playerData with stat array`);
+      console.log(`[getPlayerDataAction] ✅ Return value has stat:`, !!playerData.stat);
+
+      // Test serialization to ensure data can be transmitted
+      try {
+        const serialized = JSON.stringify(playerData);
+        console.log(`[getPlayerDataAction] ✅ Serialization test successful, length:`, serialized.length);
+        const deserialized = JSON.parse(serialized);
+        console.log(`[getPlayerDataAction] ✅ Deserialization test successful, has stat:`, !!deserialized.stat);
+      } catch (error) {
+        console.error(`[getPlayerDataAction] ❌ Serialization test failed:`, error);
+      }
+
+      return playerData;
+    } catch (error) {
+      // Clear timeout on error
+      clearTimeout(timeoutId);
+
+      const elapsed = Date.now() - startTime;
+
+      // Check if it's an abort (timeout)
+      if (error instanceof Error && error.name === 'AbortError') {
+        console.error(`[getPlayerDataAction] Request timeout for player ${playerId} after ${elapsed}ms`);
+        throw new Error(`Request timeout after ${timeoutMs}ms`);
+      }
+
+      throw error;
+    }
+  } catch (error) {
+    const elapsed = Date.now() - startTime;
+    console.error(`[getPlayerDataAction] Error for player ${playerId} after ${elapsed}ms:`, error);
+    if (error instanceof Error) {
+      console.error(`[getPlayerDataAction] Error type:`, error.constructor.name);
+      console.error(`[getPlayerDataAction] Error message:`, error.message);
+    }
     return null;
   }
 }

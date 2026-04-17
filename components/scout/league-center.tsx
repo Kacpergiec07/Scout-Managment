@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Loader2, Trophy, Calendar, Users, ChevronRight, MapPin } from "lucide-react";
-import { getStandingsAction, getMatchesAction, getTeamDetailsAction } from "@/app/actions/statorium";
+import { getStandingsAction, getMatchesAction, getUpcomingMatchesAction, getTeamDetailsAction } from "@/app/actions/statorium";
 import { StatoriumStanding, StatoriumMatch, StatoriumTeamDetail } from "@/lib/statorium/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,6 +27,39 @@ const TOP_LEAGUES: League[] = [
   { id: "bundesliga", name: "Bundesliga", seasonId: "521", flag: "🇩🇪" },
   { id: "ligue1", name: "Ligue 1", seasonId: "519", flag: "🇫🇷" },
 ];
+
+// Helper function to format dates in a user-friendly way
+function formatMatchDate(dateString: string): string {
+  if (!dateString) return 'Date TBD';
+
+  const date = new Date(dateString);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  const matchDate = new Date(date);
+  matchDate.setHours(0, 0, 0, 0);
+
+  // Check if match is today
+  if (matchDate.getTime() === today.getTime()) {
+    return 'Today';
+  }
+
+  // Check if match is tomorrow
+  if (matchDate.getTime() === tomorrow.getTime()) {
+    return 'Tomorrow';
+  }
+
+  // Otherwise format the date normally
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric'
+  };
+  return date.toLocaleDateString('en-US', options);
+}
 
 export function LeagueCenter() {
   const [activeLeague, setActiveLeague] = useState(TOP_LEAGUES[0]);
@@ -53,7 +86,7 @@ export function LeagueCenter() {
       setLoading(true);
       const [standingsData, matchesData] = await Promise.all([
         getStandingsAction(activeLeague.seasonId),
-        getMatchesAction(activeLeague.seasonId)
+        getUpcomingMatchesAction(activeLeague.seasonId, 10) // Get next 10 upcoming matches
       ]);
       setStandings(standingsData);
       setMatches(matchesData);
@@ -195,24 +228,31 @@ export function LeagueCenter() {
                 <Calendar className="w-4 h-4 text-primary" />
                 Next Fixtures
               </CardTitle>
+              <CardDescription className="text-xs text-white/30">
+                Next 10 upcoming matches for {activeLeague.name}
+              </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
               <ScrollArea className="h-[400px]">
                 {loading ? (
                    <div className="p-8 text-center"><Loader2 className="w-4 h-4 animate-spin inline mr-2 text-primary"/></div>
+                ) : matches.length === 0 ? (
+                  <div className="p-8 text-center text-white/30 text-sm">
+                    No upcoming fixtures available
+                  </div>
                 ) : (
                   <div className="divide-y divide-white/5">
-                    {(matches.length > 0 ? matches : Array(5).fill({})).map((match, idx) => (
+                    {matches.map((match, idx) => (
                       <div key={match.matchID || idx} className="p-4 hover:bg-white/5 transition-all">
                         <div className="text-[10px] text-white/30 uppercase tracking-widest mb-3 flex justify-between">
-                          <span>{match.matchDate || 'Upcoming Match'}</span>
+                          <span>{formatMatchDate(match.matchDate)}</span>
                           <span>{match.matchTime || 'TBC'}</span>
                         </div>
                         <div className="flex items-center justify-between gap-4">
                           <div className="flex-1 text-center space-y-2">
                             <div className="w-10 h-10 bg-white/5 rounded-xl mx-auto flex items-center justify-center p-1 border border-white/5">
-                              {(match.homeParticipant?.logo || match.homeTeam?.logo) ? (
-                                <img src={match.homeParticipant?.logo || match.homeTeam?.logo} className="w-full h-full object-contain" />
+                              {(match.homeParticipant?.logo || match.homeTeam?.teamLogo) ? (
+                                <img src={match.homeParticipant?.logo || match.homeTeam?.teamLogo} className="w-full h-full object-contain" />
                               ) : <span className="text-[10px] text-white/20">H</span>}
                             </div>
                             <div className="text-xs font-bold text-white truncate max-w-[100px] mx-auto">
@@ -222,8 +262,8 @@ export function LeagueCenter() {
                           <div className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-white/40">VS</div>
                           <div className="flex-1 text-center space-y-2">
                             <div className="w-10 h-10 bg-white/5 rounded-xl mx-auto flex items-center justify-center p-1 border border-white/5">
-                              {(match.awayParticipant?.logo || match.awayTeam?.logo) ? (
-                                <img src={match.awayParticipant?.logo || match.awayTeam?.logo} className="w-full h-full object-contain" />
+                              {(match.awayParticipant?.logo || match.awayTeam?.teamLogo) ? (
+                                <img src={match.awayParticipant?.logo || match.awayTeam?.teamLogo} className="w-full h-full object-contain" />
                               ) : <span className="text-[10px] text-white/20">A</span>}
                             </div>
                             <div className="text-xs font-bold text-white truncate max-w-[100px] mx-auto">

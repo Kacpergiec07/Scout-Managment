@@ -70,6 +70,7 @@ interface Player {
   weight: string
   height: string
   age: string
+  birthdate?: string
 }
 
 export default function WatchlistPage() {
@@ -204,16 +205,16 @@ export default function WatchlistPage() {
 
       const detailedPhoto = (details as any).photo || (details as any).playerPhoto;
 
-      setWatchedPlayers(prev => prev.map(p => 
-        p.id === id ? { 
-          ...p, 
+      setWatchedPlayers(prev => prev.map(p =>
+        p.id === id ? {
+          ...p,
           clubLogo: (details as any).teamLogo || p.clubLogo,
           playerPhoto: detailedPhoto || p.playerPhoto,
           weight: details.weight || p.weight,
           height: details.height || p.height,
-          age: details.age || p.age,
+          age: (details.age || (p.birthdate ? String(Math.floor((new Date().getTime() - new Date(p.birthdate).getTime()) / (365.25 * 24 * 60 * 60 * 1000))) : '---')) as string,
           position: details.position || p.position
-        } : p
+        } as Player : p
       ));
     }
     setSelectedDetails(details)
@@ -270,7 +271,7 @@ export default function WatchlistPage() {
       marketValue: p.marketValue || "€" + (Math.floor(Math.random() * 80) + 5) + "M",
       weight: p.additionalInfo?.weight || p.weight || '---',
       height: p.additionalInfo?.height || p.height || '---',
-      age: p.additionalInfo?.age || p.age || (p.additionalInfo?.birthdate ? p.additionalInfo.birthdate.split(' ').pop()?.replace('(', '').replace(')', '') : '---')
+      age: p.additionalInfo?.age || (p.birthdate ? String(Math.floor((new Date().getTime() - new Date(p.birthdate).getTime()) / (365.25 * 24 * 60 * 60 * 1000))) : (p.additionalInfo?.birthdate ? p.additionalInfo.birthdate.split(' ').pop()?.replace('(', '').replace(')', '') : '---'))
     }
 
     if (!watchedPlayers.find(wp => wp.id === newPlayer.id)) {
