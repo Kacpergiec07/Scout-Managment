@@ -1,6 +1,7 @@
 {
   "permissions": {
     "allow": [
+<<<<<<< HEAD
       "Bash(timeout 30 npm run dev)",
       "Bash(curl -s \"https://api.statorium.com/api/v1/teams/9/staff/?apikey=d35d1fc1aabe0671e1e80ee5a6296bef\")",
       "Bash(curl -s \"https://api.statorium.com/api/v1/seasons/515/teams/9/?apikey=d35d1fc1aabe0671e1e80ee5a6296bef\")",
@@ -36,6 +37,9 @@
       "Bash(curl -s \"http://localhost:3000/leagues/team/106\")",
       "Bash(curl -s \"http://localhost:3000/leagues/team/112\")",
       "Bash(npx tsc:*)"
+=======
+      "Bash(timeout 30 npm run dev)"
+>>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
     ]
   }
 }

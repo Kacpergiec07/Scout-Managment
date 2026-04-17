@@ -1,7 +1,10 @@
 'use client'
 
 import * as React from 'react'
+<<<<<<< HEAD
 import { useSearchParams } from 'next/navigation'
+=======
+>>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
 import { getAllTop5PlayersAction } from '@/app/actions/statorium'
 import { StatoriumPlayerBasic } from '@/lib/statorium/types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -11,7 +14,10 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 
 export default function ComparePage() {
+<<<<<<< HEAD
   const searchParams = useSearchParams()
+=======
+>>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
   const [player1, setPlayer1] = React.useState<StatoriumPlayerBasic | null>(null)
   const [player2, setPlayer2] = React.useState<StatoriumPlayerBasic | null>(null)
   const [allPlayers, setAllPlayers] = React.useState<StatoriumPlayerBasic[]>([])
@@ -23,6 +29,7 @@ export default function ComparePage() {
       try {
         const players = await getAllTop5PlayersAction()
         setAllPlayers(players)
+<<<<<<< HEAD
 
         // Check URL params for pre-selected players
         const p1Id = searchParams.get('p1')
@@ -37,6 +44,8 @@ export default function ComparePage() {
           const foundP2 = players.find(p => String(p.playerID) === p2Id)
           if (foundP2) setPlayer2(foundP2)
         }
+=======
+>>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
       } catch (error) {
         console.error('Error loading players:', error)
       } finally {
@@ -44,7 +53,11 @@ export default function ComparePage() {
       }
     }
     loadPlayers()
+<<<<<<< HEAD
   }, [searchParams])
+=======
+  }, [])
+>>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
 
   const handleSelectPlayer1 = (player: StatoriumPlayerBasic) => {
     setPlayer1(player)
