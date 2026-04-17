@@ -1,0 +1,4 @@
+naprawialiśmy błędy związane z pobieraniem danych z API,
+musieliśmy to rozwiązać poprzez zapisanie ich w pamięci podręcznej cache, więc dane 
+były zapisane i nie trzeba było się do nich dostawać przy każdym odpaleniu aplikacji
+doskonalenie wyglądu poprawa dashboardu
