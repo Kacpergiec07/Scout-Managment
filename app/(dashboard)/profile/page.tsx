@@ -1,35 +1,88 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { User, MapPin, Mail, Shield, Trophy, Target, Award, TrendingUp, Edit, Calendar } from 'lucide-react'
+import { User, MapPin, Mail, Shield, Trophy, Target, Award, TrendingUp, Edit, Calendar, Loader2 } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { getProfileData } from '@/app/actions/profile'
+
+interface UserProfile {
+  id: string
+  full_name: string | null
+  email: string
+  avatar_url: string | null
+  role: string | null
+  region: string | null
+  bio: string | null
+  join_date: string | null
+}
+
+interface WatchlistStats {
+  players_watched: number
+}
 
 export default function ProfilePage() {
-  // Mock user data
-  const user = {
-    name: 'Michał Nowak',
-    email: 'michal.nowak@scoutpro.com',
-    role: 'Senior Scout',
-    region: 'Central Europe',
-    avatar: 'https://ui-avatars.com/api/?name=Michał+Nowak&background=22c55e&color=fff',
-    joinDate: 'January 2024',
-  }
+  const [user, setUser] = useState<UserProfile | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [stats, setStats] = useState<WatchlistStats>({
+    players_watched: 0
+  })
 
-  const stats = [
-    { label: 'Reports Created', value: '147', icon: Trophy, color: 'text-green-500' },
-    { label: 'Players Watched', value: '89', icon: Target, color: 'text-blue-500' },
-    { label: 'Years Experience', value: '12', icon: Award, color: 'text-purple-500' },
-    { label: 'Top Scouts', value: '#3', icon: TrendingUp, color: 'text-orange-500' },
+  useEffect(() => {
+    async function loadProfileData() {
+      setLoading(true)
+      try {
+        const profileData = await getProfileData()
+        if (profileData) {
+          setUser(profileData as UserProfile)
+          // In a real app, you would fetch stats from watchlist table
+          setStats({
+            players_watched: Math.floor(Math.random() * 50) + 10
+          })
+        }
+      } catch (error) {
+        console.error('Failed to load profile:', error)
+      }
+      setLoading(false)
+    }
+
+    loadProfileData()
+  }, [])
+
+  // Calculate derived data
+  const userName = user?.full_name || user?.email?.split('@')[0] || 'Scout'
+  const userRole = user?.role || 'Scout'
+  const userRegion = user?.region || 'Global'
+  const userAvatar = user?.avatar_url || `https://ui-avatars.com/api/?name=${userName.replace(/\s+/g, '+')}&background=22c55e&color=fff`
+  const joinDate = user?.join_date || new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' })
+
+  const mockStats = [
+    { label: 'Players Watched', value: String(stats.players_watched), icon: Target, color: 'text-green-500' },
+    { label: 'Years Experience', value: '3', icon: Award, color: 'text-purple-500' },
+    { label: 'Reports Created', value: '47', icon: Trophy, color: 'text-blue-500' },
+    { label: 'Active Scouting', value: '12', icon: TrendingUp, color: 'text-orange-500' },
   ]
 
-  const recentActivity = [
+  const mockActivity = [
     { id: 1, player: 'Florian Wirtz', action: 'Added to watchlist', date: '2 hours ago' },
-    { id: 2, player: 'Jude Bellingham', action: 'Created scouting report', date: '1 day ago' },
-    { id: 3, player: 'Lamine Yamal', action: 'Compared with database', date: '3 days ago' },
+    { id: 2, player: 'Jude Bellingham', action: 'Updated scouting notes', date: '1 day ago' },
+    { id: 3, player: 'Lamine Yamal', action: 'Analysis completed', date: '3 days ago' },
   ]
+
+  if (loading) {
+    return (
+      <div className="relative w-full h-full bg-background text-foreground overflow-hidden flex transition-colors duration-300">
+        <div className="flex-1 w-full h-full flex items-center justify-center">
+          <div className="text-center space-y-4">
+            <Loader2 className="w-12 h-12 animate-spin text-green-500 mx-auto" />
+            <p className="text-muted-foreground text-lg">Loading profile...</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="relative w-full h-full bg-background text-foreground overflow-hidden flex transition-colors duration-300">
@@ -47,9 +100,11 @@ export default function ProfilePage() {
                 Scout Management Dashboard
               </p>
             </div>
-            <Button variant="outline" size="sm">
-              <Edit className="w-4 h-4 mr-2" />
-              Edit Profile
+            <Button variant="outline" size="sm" asChild>
+              <a href="/settings">
+                <Edit className="w-4 h-4 mr-2" />
+                Edit Profile
+              </a>
             </Button>
           </div>
 
@@ -66,8 +121,8 @@ export default function ProfilePage() {
                     className="w-32 h-32 rounded-full bg-gradient-to-tr from-green-500 to-emerald-300 p-1 relative z-10 flex items-center justify-center overflow-hidden"
                   >
                     <img
-                      src={user.avatar}
-                      alt={user.name}
+                      src={userAvatar}
+                      alt={userName}
                       className="w-full h-full rounded-full object-cover bg-background"
                     />
                   </motion.div>
@@ -80,11 +135,11 @@ export default function ProfilePage() {
                 <div className="flex-1 space-y-4">
                   <div>
                     <h2 className="text-3xl font-black italic tracking-tighter uppercase text-foreground mb-1">
-                      {user.name}
+                      {userName}
                     </h2>
                     <Badge variant="default" className="mb-3">
                       <Shield className="w-3 h-3 mr-1" />
-                      {user.role}
+                      {userRole}
                     </Badge>
                   </div>
 
@@ -95,7 +150,7 @@ export default function ProfilePage() {
                         <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">
                           Email
                         </p>
-                        <p className="text-sm font-semibold text-foreground">{user.email}</p>
+                        <p className="text-sm font-semibold text-foreground">{user?.email}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3 p-4 rounded-xl bg-accent/20 border border-border">
@@ -104,7 +159,7 @@ export default function ProfilePage() {
                         <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">
                           Assigned Region
                         </p>
-                        <p className="text-sm font-semibold text-foreground">{user.region}</p>
+                        <p className="text-sm font-semibold text-foreground">{userRegion}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3 p-4 rounded-xl bg-accent/20 border border-border">
@@ -113,7 +168,7 @@ export default function ProfilePage() {
                         <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">
                           Member Since
                         </p>
-                        <p className="text-sm font-semibold text-foreground">{user.joinDate}</p>
+                        <p className="text-sm font-semibold text-foreground">{joinDate}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3 p-4 rounded-xl bg-accent/20 border border-border">
@@ -128,6 +183,12 @@ export default function ProfilePage() {
                       </div>
                     </div>
                   </div>
+
+                  {user?.bio && (
+                    <div className="mt-4 p-4 rounded-xl bg-accent/10 border-border">
+                      <p className="text-sm text-muted-foreground leading-relaxed">{user.bio}</p>
+                    </div>
+                  )}
                 </div>
               </div>
             </CardContent>
@@ -142,7 +203,7 @@ export default function ProfilePage() {
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {stats.map((stat, index) => (
+              {mockStats.map((stat, index) => (
                 <Card key={stat.label}>
                   <CardContent className="p-6">
                     <motion.div
@@ -176,7 +237,7 @@ export default function ProfilePage() {
             <Card>
               <CardContent className="p-6">
                 <div className="space-y-4">
-                  {recentActivity.map((activity, index) => (
+                  {mockActivity.map((activity, index) => (
                     <motion.div
                       key={activity.id}
                       initial={{ opacity: 0, x: -20 }}
