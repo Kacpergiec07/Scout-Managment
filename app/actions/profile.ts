@@ -36,7 +36,7 @@ export async function updateProfile(formData: FormData) {
   const { error } = await supabase
     .from('profiles')
     .update(profileData)
-    .eq('user_id', user.id)
+    .eq('id', user.id)
     .select()
     .single()
 
@@ -76,7 +76,7 @@ export async function updateNotificationPreferences(formData: FormData) {
   const { error } = await supabase
     .from('profiles')
     .update({ notification_preferences: preferences as any })
-    .eq('user_id', user.id)
+    .eq('id', user.id)
     .select()
     .single()
 
@@ -115,7 +115,7 @@ export async function getProfileData() {
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
       .select('*')
-      .eq('user_id', user.id)
+      .eq('id', user.id)
       .single()
 
     if (profileError) {
@@ -127,7 +127,7 @@ export async function getProfileData() {
         const { data: newProfile, error: createError } = await supabase
           .from('profiles')
           .insert({
-            user_id: user.id,
+            id: user.id,
             full_name: user.email,
             notification_preferences: {
               email_alerts: true,
