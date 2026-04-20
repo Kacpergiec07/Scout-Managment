@@ -7,12 +7,11 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex h-svh w-screen bg-[#050505] text-white overflow-hidden font-sans">
+    <div className="flex h-svh w-screen bg-background text-foreground overflow-hidden font-sans transition-colors duration-300">
       <SidebarWrapper />
       <main className="flex-1 w-full h-full relative overflow-y-auto">
         {children}
       </main>
-      <ScoutBot />
     </div>
   )
 }

@@ -50,14 +50,14 @@ import {
   LEAGUES
 } from "@/lib/statorium-data";
 
-export default function TransfersPage() {
+export default function TransferIntelligencePage() {
   const [transfers, setTransfers] = useState<any[]>([]);
   const [focusedTransfer, setFocusedTransfer] = useState<any>(null);
   const [focusedStats, setFocusedStats] = useState<any>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [hoveredArc, setHoveredArc] = useState<any>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   // Discovery Hub State
   const [isDiscoveryOpen, setIsDiscoveryOpen] = useState(false);
@@ -243,7 +243,6 @@ export default function TransfersPage() {
     setFocusedTransfer(transfer);
     setIsAnalyzing(true);
     setFocusedStats(null);
-    setIsExpanded(false); // Minimize transfers panel for focused analysis
     try {
       const data = await getPlayerDataAction(transfer.playerID);
       setFocusedStats(data);
@@ -396,12 +395,7 @@ export default function TransfersPage() {
       <div 
         onClick={() => { if (focusedTransfer) { setFocusedTransfer(null); setFocusedStats(null); } }}
         className={cn(
-          "absolute top-0 bottom-0 w-[140%] z-0 overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]",
-          focusedTransfer 
-            ? "-left-[18%]" 
-            : isExpanded 
-              ? "-left-[40%]" 
-              : "-left-[20%]",
+          "absolute top-0 bottom-0 -left-[20%] w-[120%] z-0 overflow-hidden transition-all duration-1000",
           focusedTransfer ? "cursor-pointer pointer-events-auto" : ""
         )}
       >
@@ -412,7 +406,7 @@ export default function TransfersPage() {
           className="h-full w-full scale-105" 
           onArcHover={handleArcHover}
         />
-        {/* Cinematic Atmospheric Gradients */}
+        {/* Cinematic Atmospheric Gradients - Optimized for both themes */}
         <div className={cn(
           "absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/10 opacity-40 dark:opacity-70 pointer-events-none transition-all duration-1000",
           focusedTransfer ? "backdrop-blur-sm bg-background/60" : ""
@@ -651,12 +645,17 @@ export default function TransfersPage() {
       <div className="relative z-10 h-full flex flex-col p-8 pointer-events-none">
         <header className="flex items-center justify-between pointer-events-auto">
           <div className="flex items-center gap-6">
+            <Link href="/transfers">
+               <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground bg-accent backdrop-blur-md rounded-full w-12 h-12">
+                 <ArrowLeft className="w-6 h-6" />
+               </Button>
+            </Link>
             <div>
               <h1 className="text-4xl font-black text-foreground italic uppercase tracking-tighter flex items-center gap-3">
-                 <ArrowRightLeft className="w-10 h-10 text-primary animate-pulse" />
-                 Global Transfer Network
+                 <BrainCircuit className="w-10 h-10 text-primary animate-pulse" />
+                 Intelligence Hub
               </h1>
-              <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest mt-1">Real-time Global Market Vectors & Intelligence</p>
+              <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest mt-1">Deep Neural Analysis & Global Market Vectors</p>
             </div>
           </div>
           <div className="flex items-center gap-6">
@@ -794,12 +793,11 @@ export default function TransfersPage() {
             transform: 'translate(0, 0)'
           }}
         >
-          <div className="bg-black/90 backdrop-blur-2xl border border-white/20 rounded-2xl p-4 shadow-[0_0_40px_rgba(0,0,0,0.5)] flex items-center gap-4 min-w-[300px] animate-in fade-in zoom-in duration-300">
+          <div className="bg-black/80 backdrop-blur-2xl border border-white/20 rounded-2xl p-4 shadow-[0_0_40px_rgba(0,0,0,0.5)] flex items-center gap-4 min-w-[300px] animate-in fade-in zoom-in duration-300">
              <div className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 p-0.5 overflow-hidden">
                 <img 
                   src={hoveredArc.photoUrl || "/globe.svg"} 
                   className="w-full h-full object-cover rounded-lg"
-                  alt={hoveredArc.playerName}
                 />
              </div>
              <div className="flex-1">

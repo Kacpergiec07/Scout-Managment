@@ -74,7 +74,7 @@ function PlayerDot({ player, pulse, pos, subs }: { player?: any, pulse?: boolean
     <Popover>
       <PopoverTrigger asChild>
         <div className="relative group/node flex flex-col items-center cursor-pointer">
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-background border border-white/10 text-[8px] font-bold rounded opacity-0 group-hover/node:opacity-100 transition-opacity whitespace-nowrap z-10">
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-card border border-border text-[8px] font-black text-foreground rounded opacity-0 group-hover/node:opacity-100 transition-opacity whitespace-nowrap z-10 uppercase tracking-widest shadow-xl">
             {player.fullName}
           </div>
           <div className={`w-4 h-4 md:w-5 md:h-5 rounded-full bg-primary shadow-[0_0_15px_rgba(16,185,129,0.5)] transition-transform hover:scale-125 relative z-10 border-2 border-black`}>
@@ -82,8 +82,8 @@ function PlayerDot({ player, pulse, pos, subs }: { player?: any, pulse?: boolean
           </div>
         </div>
       </PopoverTrigger>
-      <PopoverContent className="w-64 bg-black/90 backdrop-blur-xl border-white/10 p-0 overflow-hidden shadow-2xl">
-        <div className="p-4 border-b border-white/10 bg-white/5">
+      <PopoverContent className="w-64 bg-card/95 backdrop-blur-xl border-border p-0 overflow-hidden shadow-2xl">
+        <div className="p-4 border-b border-border bg-accent/40">
           <div className="flex items-center gap-3 mb-2">
             <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
               {player.photo ? (
@@ -91,15 +91,15 @@ function PlayerDot({ player, pulse, pos, subs }: { player?: any, pulse?: boolean
               ) : <UserCircle className="w-6 h-6 text-primary" />}
             </div>
             <div>
-              <p className="text-sm font-bold text-white">{player.fullName}</p>
-              <Badge variant="outline" className="text-[10px] h-4 bg-primary/20 border-primary/50 text-primary uppercase">{pos}</Badge>
+              <p className="text-sm font-black text-foreground uppercase tracking-tight italic">{player.fullName}</p>
+              <Badge variant="outline" className="text-[10px] h-4 bg-primary/10 border-primary/50 text-primary uppercase font-black">{pos}</Badge>
             </div>
           </div>
-          <p className="text-[10px] text-white/40 uppercase font-black tracking-widest mt-2 px-1">Main Choice • Starting XI</p>
+          <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mt-2 px-1">Main Choice • Starting XI</p>
         </div>
         
         <div className="p-2">
-          <p className="text-[10px] text-white/30 uppercase font-black tracking-widest mb-2 px-2 flex items-center gap-2">
+          <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mb-2 px-2 flex items-center gap-2">
             <ArrowRightLeft className="w-3 h-3 text-primary" />
             Squad Depth / Replacements
           </p>
@@ -109,15 +109,15 @@ function PlayerDot({ player, pulse, pos, subs }: { player?: any, pulse?: boolean
                 <Link
                   href={`/compare?p1=${player.playerID}&p2=${sub.playerID}`}
                   key={sub.playerID}
-                  className="flex items-center justify-between p-2 rounded-lg hover:bg-white/5 group border border-transparent hover:border-primary/30 transition-all cursor-pointer"
+                  className="flex items-center justify-between p-2 rounded-lg hover:bg-accent group border border-transparent hover:border-primary/30 transition-all cursor-pointer"
                   title={`Compare ${player.fullName} vs ${sub.fullName}`}
                 >
                   <div className="flex items-center gap-2">
-                    <ArrowRightLeft className="w-3 h-3 text-white/20 group-hover:text-primary transition-colors" />
-                    <UserCircle className="w-4 h-4 text-white/20 group-hover:text-primary transition-colors" />
-                    <span className="text-xs text-white/70 group-hover:text-white transition-colors">{sub.fullName}</span>
+                    <ArrowRightLeft className="w-3 h-3 text-muted-foreground/30 group-hover:text-primary transition-colors" />
+                    <UserCircle className="w-4 h-4 text-muted-foreground/30 group-hover:text-primary transition-colors" />
+                    <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors font-bold">{sub.fullName}</span>
                   </div>
-                  <ChevronRight className="w-3 h-3 text-white/20 group-hover:text-primary transition-all opacity-0 group-hover:opacity-100" />
+                  <ChevronRight className="w-3 h-3 text-muted-foreground/30 group-hover:text-primary transition-all opacity-0 group-hover:opacity-100" />
                 </Link>
               )) : (
                 <div className="p-4 text-center text-[10px] text-white/20 italic">No alternative {pos} found in bench.</div>

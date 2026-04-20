@@ -278,20 +278,20 @@ function CompareContent() {
   return (
     <div className="space-y-8 animate-in fade-in duration-500 min-h-screen">
       <div className="flex flex-col gap-3">
-        <h1 className="text-4xl font-bold tracking-tight text-white">Player Comparison</h1>
-        <p className="text-zinc-500 text-lg font-medium">Compare performance metrics between two top-tier athletes from Europe's TOP 5 leagues.</p>
+        <h1 className="text-4xl font-black tracking-tight text-foreground italic uppercase">Player Comparison <span className="text-primary font-mono ml-2">v4</span></h1>
+        <p className="text-muted-foreground text-lg font-bold font-mono uppercase tracking-widest leading-relaxed max-w-2xl">Compare performance metrics between two top-tier athletes from Europe's TOP 5 leagues.</p>
       </div>
 
       {loading ? (
         <div className="flex flex-col items-center justify-center py-20 gap-4">
           <Loader2 className="h-10 w-10 animate-spin text-green-500" />
-          <p className="text-zinc-400 text-sm font-medium">Loading players from Statorium API...</p>
-          <p className="text-xs text-zinc-600">Fetching data from TOP 5 European leagues...</p>
+          <p className="text-muted-foreground text-sm font-bold uppercase tracking-widest">Loading players from Statorium API...</p>
+          <p className="text-[10px] text-muted-foreground/50 font-black uppercase tracking-widest leading-relaxed">Fetching data from TOP 5 European leagues...</p>
         </div>
       ) : (
         <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-4">
-            <label className="text-sm font-bold uppercase tracking-wider text-green-500">Player 1</label>
+            <label className="text-sm font-black uppercase tracking-widest text-green-500">Player 1</label>
             {!player1 ? (
               <PlayerSelector
                 players={allPlayers}
@@ -305,7 +305,7 @@ function CompareContent() {
           </div>
 
           <div className="space-y-4">
-            <label className="text-sm font-bold uppercase tracking-wider text-emerald-500">Player 2</label>
+            <label className="text-sm font-black uppercase tracking-widest text-emerald-500">Player 2</label>
             {!player2 ? (
               <PlayerSelector
                 players={allPlayers}
@@ -322,23 +322,19 @@ function CompareContent() {
 
       {player1 && player2 ? (
         <div className={`
-          rounded-3xl border border-zinc-800/50 bg-zinc-900/40 backdrop-blur-xl p-8 md:p-10 shadow-2xl shadow-black/50
-          transition-all duration-700 ease-out
-          animate-in fade-in slide-in-from-bottom-4
+          rounded-3xl border border-border bg-card backdrop-blur-xl p-8 md:p-10 shadow-2xl transition-all duration-700 ease-out animate-in fade-in slide-in-from-bottom-4
         `}>
           <div className={`
-            flex items-center gap-4 mb-10
-            transition-all duration-500 delay-100
-            animate-in fade-in slide-in-from-left-4
+            flex items-center gap-4 mb-10 transition-all duration-500 delay-100 animate-in fade-in slide-in-from-left-4
           `}>
             <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center shadow-lg shadow-green-500/20 hover:scale-110 hover:shadow-green-500/40 transition-all duration-300 border border-green-500/20">
               <ArrowRightLeft className="h-7 w-7 text-green-500" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-green-400 via-emerald-400 to-green-500 bg-clip-text text-transparent tracking-tight">
+              <h2 className="text-3xl font-black italic uppercase tracking-tighter bg-gradient-to-r from-green-400 via-emerald-400 to-green-500 bg-clip-text text-transparent">
                 Player Comparison Matrix
               </h2>
-              <p className="text-sm text-zinc-500 font-medium">Advanced analytics & performance metrics from Statorium API</p>
+              <p className="text-[10px] text-muted-foreground uppercase font-black tracking-[0.2em]">Advanced analytics & performance metrics from Statorium API</p>
             </div>
           </div>
 
@@ -381,7 +377,7 @@ function CompareContent() {
           </div>
 
           <div className={`
-            mt-10 rounded-2xl border border-zinc-800/50 bg-zinc-900/60 backdrop-blur-sm p-6
+            mt-10 rounded-2xl border border-border bg-accent/40 backdrop-blur-sm p-6
             transition-all duration-500 delay-200
             animate-in fade-in slide-in-from-bottom-4
           `}>
@@ -391,8 +387,8 @@ function CompareContent() {
                   <Activity className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-white text-lg">Season Statistics</h3>
-                  <p className="text-xs text-zinc-500 font-medium">Real-time performance data from Statorium API</p>
+                  <h3 className="font-bold text-foreground text-lg uppercase tracking-tight italic">Season Statistics</h3>
+                  <p className="text-xs text-muted-foreground font-black uppercase tracking-widest">Real-time performance data from Statorium API</p>
                 </div>
               </div>
               <Badge variant="outline" className="text-[10px] bg-green-500/10 border-green-500/30 text-green-500 font-semibold">
@@ -418,7 +414,7 @@ function CompareContent() {
             {player1?.stat && player2?.stat ? (
               <AdvancedStatsComparison player1={player1} player2={player2} />
             ) : (
-              <div className="text-center text-sm text-zinc-500 py-4">
+              <div className="text-center text-[10px] text-muted-foreground font-black uppercase tracking-widest py-8 italic">
                 Loading advanced comparison data...
               </div>
             )}
@@ -426,32 +422,32 @@ function CompareContent() {
 
           <div className="mt-12 grid grid-cols-2 gap-6">
             <div className={`
-              p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-green-500/5 border border-green-500/20 backdrop-blur-sm
-              transition-all duration-500 delay-500 hover:scale-105 hover:shadow-lg hover:shadow-green-500/20
+              p-6 rounded-2xl bg-primary/5 border border-primary/20 backdrop-blur-sm
+              transition-all duration-500 delay-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20
               animate-in fade-in slide-in-from-left-4
             `}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-3 h-3 rounded-full bg-green-500 shadow-lg shadow-green-500/50 animate-pulse" />
                 <span className="font-bold text-green-500">{player1.fullName}</span>
               </div>
-              <div className="text-sm text-zinc-400 space-y-2">
+              <div className="text-sm text-muted-foreground space-y-2">
                 <div className="flex items-center gap-2">
-                  {player1.position && <span className="font-medium text-zinc-300">{player1.position}</span>}
-                  {player1.position && player1.country && <span className="text-zinc-600">•</span>}
+                  {player1.position && <span className="font-black text-foreground uppercase italic">{player1.position}</span>}
+                  {player1.position && player1.country && <span className="text-border">•</span>}
                   {player1.country && (
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1 font-bold uppercase tracking-tight">
                       🌍 {typeof player1.country === 'string' ? player1.country : player1.country.name}
                     </span>
                   )}
                 </div>
-                <div className="flex items-center gap-1.5 text-zinc-500">
+                <div className="flex items-center gap-1.5 text-muted-foreground uppercase font-black tracking-tight text-[10px]">
                   <Shield className="h-3 w-3 text-green-500" />
                   {player1.teamName || 'Free Agent'}
                 </div>
               </div>
             </div>
             <div className={`
-              p-6 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 border border-emerald-500/20 backdrop-blur-sm
+              p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 backdrop-blur-sm
               transition-all duration-500 delay-600 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20
               animate-in fade-in slide-in-from-right-4
             `}>
@@ -459,17 +455,17 @@ function CompareContent() {
                 <div className="w-3 h-3 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50 animate-pulse" />
                 <span className="font-bold text-emerald-500">{player2.fullName}</span>
               </div>
-              <div className="text-sm text-zinc-400 space-y-2">
+              <div className="text-sm text-muted-foreground space-y-2">
                 <div className="flex items-center gap-2">
-                  {player2.position && <span className="font-medium text-zinc-300">{player2.position}</span>}
-                  {player2.position && player2.country && <span className="text-zinc-600">•</span>}
+                  {player2.position && <span className="font-black text-foreground uppercase italic">{player2.position}</span>}
+                  {player2.position && player2.country && <span className="text-border">•</span>}
                   {player2.country && (
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1 font-bold uppercase tracking-tight">
                       🌍 {typeof player2.country === 'string' ? player2.country : player2.country.name}
                     </span>
                   )}
                 </div>
-                <div className="flex items-center gap-1.5 text-zinc-500">
+                <div className="flex items-center gap-1.5 text-muted-foreground uppercase font-black tracking-tight text-[10px]">
                   <Shield className="h-3 w-3 text-emerald-500" />
                   {player2.teamName || 'Free Agent'}
                 </div>
@@ -478,9 +474,9 @@ function CompareContent() {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center py-20 border-2 border-dashed border-zinc-800/50 rounded-3xl bg-zinc-900/40 backdrop-blur-sm">
-          <Users className="h-16 w-16 text-zinc-700 mb-6" />
-          <p className="text-zinc-500 text-center font-medium">Select two players to generate a side-by-side comparison report.</p>
+        <div className="flex flex-col items-center justify-center py-20 border-2 border-dashed border-border rounded-3xl bg-accent/40 backdrop-blur-sm">
+          <Users className="h-16 w-16 text-muted-foreground/20 mb-6" />
+          <p className="text-muted-foreground text-center font-black uppercase tracking-widest italic text-sm">Select two players to generate a side-by-side comparison report.</p>
         </div>
       )}
     </div>
@@ -711,7 +707,7 @@ function ComparisonRow({ icon, label, description, p1, p2 }: {
 
   return (
     <div className={`
-      p-5 rounded-2xl bg-zinc-900/60 backdrop-blur-sm border border-zinc-800/50 hover:border-zinc-700/50 hover:bg-zinc-900/80 transition-all duration-300
+      p-5 rounded-2xl bg-card/60 backdrop-blur-sm border border-border hover:border-primary/20 hover:bg-accent/80 transition-all duration-300
       ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
     `}>
       <div className="flex items-start justify-between mb-4">
@@ -726,28 +722,28 @@ function ComparisonRow({ icon, label, description, p1, p2 }: {
             transition-all duration-500 delay-100
             ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}
           `}>
-            <h3 className="font-bold text-white text-lg tracking-tight">{label}</h3>
-            <p className="text-xs text-zinc-500 font-medium">{description}</p>
+            <h3 className="font-bold text-foreground text-lg tracking-tight uppercase italic">{label}</h3>
+            <p className="text-[10px] text-muted-foreground font-black uppercase tracking-widest">{description}</p>
           </div>
         </div>
-        <div className="flex items-center gap-6 text-sm font-bold">
+        <div className="flex items-center gap-6 text-sm font-black tabular-nums font-mono">
           <span className={`
             text-2xl transition-all duration-300
-            ${winner === 'p1' ? 'text-green-500 scale-110 drop-shadow-lg drop-shadow-green-500/50' : 'text-zinc-600'}
+            ${winner === 'p1' ? 'text-green-500 scale-110 drop-shadow-lg drop-shadow-green-500/50' : 'text-muted-foreground/30'}
           `}>
             {animatedP1}%
           </span>
-          <span className="text-zinc-700 text-xs uppercase tracking-wider font-semibold">vs</span>
+          <span className="text-muted-foreground/20 text-[10px] uppercase tracking-wider font-black">vs</span>
           <span className={`
             text-2xl transition-all duration-300
-            ${winner === 'p2' ? 'text-emerald-500 scale-110 drop-shadow-lg drop-shadow-emerald-500/50' : 'text-zinc-600'}
+            ${winner === 'p2' ? 'text-emerald-500 scale-110 drop-shadow-lg drop-shadow-emerald-500/50' : 'text-muted-foreground/30'}
           `}>
             {animatedP2}%
           </span>
         </div>
       </div>
 
-      <div className="relative h-6 overflow-hidden rounded-full bg-zinc-800/50 backdrop-blur-sm shadow-inner border border-zinc-800/50">
+      <div className="relative h-6 overflow-hidden rounded-full bg-accent/50 backdrop-blur-sm shadow-inner border border-border">
         <div
           className={`
             absolute left-0 top-0 h-full transition-all duration-1000 ease-out
@@ -773,11 +769,11 @@ function ComparisonRow({ icon, label, description, p1, p2 }: {
         )}
       </div>
 
-      <div className="flex justify-between mt-3 text-[10px] uppercase tracking-wider font-bold">
-        <span className={winner === 'p1' ? 'text-green-500' : 'text-zinc-600'}>
+      <div className="flex justify-between mt-3 text-[10px] uppercase tracking-[0.3em] font-black italic">
+        <span className={winner === 'p1' ? 'text-green-500' : 'text-muted-foreground/30'}>
           {animatedP1 >= 85 ? 'Elite' : animatedP1 >= 70 ? 'Good' : animatedP1 >= 55 ? 'Average' : 'Low'}
         </span>
-        <span className={winner === 'p2' ? 'text-emerald-500' : 'text-zinc-600'}>
+        <span className={winner === 'p2' ? 'text-emerald-500' : 'text-muted-foreground/30'}>
           {animatedP2 >= 85 ? 'Elite' : animatedP2 >= 70 ? 'Good' : animatedP2 >= 55 ? 'Average' : 'Low'}
         </span>
       </div>
@@ -827,14 +823,14 @@ function PlayerSelector({ players, selectedPlayer, onSelect, placeholder }: {
         }}
         onFocus={() => setOpen(true)}
         onBlur={() => setTimeout(() => setOpen(false), 200)}
-        className="w-full px-4 py-3 border border-zinc-800/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/50 bg-zinc-900/60 backdrop-blur-sm text-white placeholder-zinc-500 transition-all duration-300 hover:border-zinc-700/50"
+        className="w-full px-4 py-3 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 bg-accent/40 backdrop-blur-sm text-foreground placeholder-muted-foreground transition-all duration-300 hover:border-primary/50"
       />
 
       {open && (
-        <div className="absolute z-50 w-full mt-1 bg-zinc-900/95 backdrop-blur-xl border border-zinc-800/50 rounded-2xl shadow-2xl shadow-black/50 max-h-96 overflow-y-auto">
+        <div className="absolute z-50 w-full mt-1 bg-card/95 backdrop-blur-2xl border border-border rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] max-h-96 overflow-y-auto animate-in fade-in slide-in-from-top-2">
           {filteredPlayers.length === 0 ? (
-            <div className="p-6 text-sm text-zinc-500 text-center">
-              {search.length >= 2 ? 'No players found matching your search' : 'Type at least 2 characters to search...'}
+            <div className="p-10 text-[10px] text-muted-foreground text-center font-black uppercase tracking-widest italic">
+              {search.length >= 2 ? 'No performance data found' : 'Type at least 2 chars...'}
             </div>
           ) : (
             filteredPlayers.map((player) => (
@@ -845,30 +841,30 @@ function PlayerSelector({ players, selectedPlayer, onSelect, placeholder }: {
                   setOpen(false)
                   setSearch('')
                 }}
-                className="w-full p-4 flex items-center gap-4 hover:bg-zinc-800/80 transition-colors text-left border-b border-zinc-800/50 last:border-0 group"
+                className="w-full p-4 flex items-center gap-4 hover:bg-accent/80 transition-all duration-300 text-left border-b border-border/50 last:border-0 group"
               >
-                <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-zinc-800 to-zinc-900 border-2 border-zinc-700 group-hover:border-green-500/50 transition-all duration-300">
+                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-accent border-2 border-border group-hover:border-primary/50 transition-all duration-300 shadow-lg">
                   {player.playerPhoto || player.photo ? (
                     <Image
                       src={player.playerPhoto || player.photo || `https://api.statorium.com/media/bearleague/bl${player.playerID}.webp`}
                       alt={player.fullName}
                       fill
                       unoptimized
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   ) : (
-                    <div className="h-full w-full flex items-center justify-center text-xl font-bold text-zinc-600 bg-gradient-to-br from-zinc-800 to-zinc-900">
+                    <div className="h-full w-full flex items-center justify-center text-xl font-black text-muted-foreground/30 bg-accent uppercase italic">
                       {player.fullName.split(' ').slice(-1)[0][0]}
                     </div>
                   )}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="font-bold text-white truncate group-hover:text-green-500 transition-colors">
+                  <div className="font-black text-foreground truncate group-hover:text-primary transition-colors italic uppercase tracking-tighter text-lg">
                     {player.fullName}
                   </div>
-                  <div className="text-xs text-zinc-500 flex items-center gap-2 mt-1 flex-wrap">
+                  <div className="text-xs text-muted-foreground flex items-center gap-2 mt-1 flex-wrap font-bold uppercase tracking-tight">
                     {player.position && (
-                      <span className="px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400 font-medium group-hover:bg-green-500/20 group-hover:text-green-500 transition-all duration-300">
+                      <span className="px-2 py-0.5 rounded-full bg-accent text-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                         {player.position}
                       </span>
                     )}
@@ -940,32 +936,32 @@ function PlayerCard({ player, onClear }: { player: StatoriumPlayerBasic; onClear
   const position = getPositionName(player)
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-zinc-800/50 bg-zinc-900/60 backdrop-blur-sm shadow-2xl group hover:scale-105 hover:shadow-green-500/20 transition-all duration-500 ease-out">
+    <div className="relative overflow-hidden rounded-3xl border border-border bg-card/60 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6)] group hover:scale-[1.02] hover:shadow-primary/20 transition-all duration-500 ease-out border-2">
       {/* Remove Button */}
       <Button
         variant="ghost"
         size="icon"
         onClick={onClear}
-        className="absolute top-3 right-3 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-500/20 hover:bg-red-500/80 hover:text-white backdrop-blur-sm"
+        className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-red-500/10 hover:bg-red-500 hover:text-white backdrop-blur-md rounded-xl"
       >
-        <Trash2 className="h-4 w-4" />
+        <Trash2 className="h-5 w-5" />
       </Button>
 
       {/* Player Photo - Fixed Size Container */}
-      <div className="relative h-48 w-full flex items-center justify-center bg-gradient-to-b from-zinc-800/50 to-zinc-900/80">
-        <div className="relative w-32 h-32 rounded-xl overflow-hidden border-2 border-zinc-700/50 shadow-2xl">
+      <div className="relative h-60 w-full flex items-center justify-center bg-gradient-to-b from-accent/50 to-card">
+        <div className="relative w-40 h-40 rounded-2xl overflow-hidden border-2 border-border shadow-2xl">
           {!imageError && (player.playerPhoto || player.photo) ? (
             <Image
               src={player.playerPhoto || player.photo || `https://api.statorium.com/media/bearleague/bl${player.playerID}.webp`}
               alt={player.fullName}
               fill
               unoptimized
-              className="object-contain bg-zinc-800 transition-transform duration-700 group-hover:scale-110"
+              className="object-contain transition-transform duration-700 group-hover:scale-110"
               onError={() => setImageError(true)}
             />
           ) : (
-            <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-zinc-700 to-zinc-800">
-              <UserCircle className="h-12 w-12 text-zinc-600" />
+            <div className="h-full w-full flex items-center justify-center bg-accent">
+              <UserCircle className="h-16 w-16 text-muted-foreground/20" />
             </div>
           )}
         </div>
@@ -978,39 +974,39 @@ function PlayerCard({ player, onClear }: { player: StatoriumPlayerBasic; onClear
       </div>
 
       {/* Player Info */}
-      <div className="relative z-20 p-5 space-y-4">
+      <div className="relative z-20 p-6 space-y-5">
         {/* Player Name */}
-        <h3 className="text-2xl font-bold text-center text-white tracking-tight">
+        <h3 className="text-2xl font-black text-center text-foreground tracking-tighter italic uppercase">
           {player.fullName}
         </h3>
 
         {/* Position Badge */}
         <div className="flex justify-center">
-          <Badge className="bg-zinc-800 text-zinc-300 rounded-full px-3 py-1 text-xs font-semibold border border-zinc-700/50">
+          <Badge className="bg-primary/10 text-primary rounded-full px-4 py-1 text-[10px] font-black uppercase tracking-widest border border-primary/20">
             {position}
           </Badge>
         </div>
 
         {/* Team & Country */}
-        <div className="flex items-center justify-center gap-3 text-sm text-zinc-400">
+        <div className="flex items-center justify-center gap-4 text-xs font-black uppercase tracking-widest text-muted-foreground/60 leading-none">
           {player.teamName && (
-            <span className="flex items-center gap-1.5">
-              <Shield className="h-3.5 w-3.5 text-green-500" />
+            <span className="flex items-center gap-2">
+              <Shield className="h-4 w-4 text-primary" />
               {player.teamName}
             </span>
           )}
           {countryName && player.teamName && (
-            <span className="text-zinc-600">•</span>
+            <span className="text-border">/</span>
           )}
           {countryName && (
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-2">
               🌍 {countryName}
             </span>
           )}
         </div>
 
         {/* Decorative Line */}
-        <div className="h-0.5 w-12 mx-auto bg-gradient-to-r from-transparent via-green-500 to-transparent opacity-50" />
+        <div className="h-1 w-16 mx-auto bg-gradient-to-r from-transparent via-primary/50 to-transparent rounded-full" />
       </div>
 
       {/* Subtle Glow Effect */}
@@ -1096,11 +1092,11 @@ function AnimatedStatsCard({ player, color, loading, error }: { player: Statoriu
   // Show loading state
   if (loading) {
     return (
-      <Card className={`${c.bg} border ${c.border} bg-zinc-900/40 backdrop-blur-sm`}>
+      <Card className={`${c.bg} border ${c.border} bg-accent/40 backdrop-blur-sm`}>
         <CardContent className="p-5 flex items-center justify-center h-40">
           <div className="flex flex-col items-center gap-3">
-            <Loader2 className="h-6 w-6 animate-spin text-zinc-400" />
-            <span className="text-sm text-zinc-500">Loading statistics...</span>
+            <Loader2 className="h-6 w-6 animate-spin text-primary" />
+            <span className="text-sm text-muted-foreground uppercase font-black tracking-widest">Loading statistics...</span>
           </div>
         </CardContent>
       </Card>
@@ -1110,11 +1106,11 @@ function AnimatedStatsCard({ player, color, loading, error }: { player: Statoriu
   // Show error state
   if (error) {
     return (
-      <Card className={`${c.bg} border ${c.border} bg-zinc-900/40 backdrop-blur-sm`}>
+      <Card className={`${c.bg} border ${c.border} bg-accent/40 backdrop-blur-sm`}>
         <CardContent className="p-5 flex items-center justify-center h-40">
           <div className="text-center">
             <AlertTriangle className="h-8 w-8 text-red-500 mx-auto mb-2" />
-            <span className="text-sm text-red-500">{error}</span>
+            <span className="text-sm text-red-500 font-bold uppercase">{error}</span>
           </div>
         </CardContent>
       </Card>
@@ -1124,11 +1120,11 @@ function AnimatedStatsCard({ player, color, loading, error }: { player: Statoriu
   // Show loading state if player doesn't have stat data yet
   if (!player?.stat || player.stat.length === 0) {
     return (
-      <Card className={`${c.bg} border ${c.border} bg-zinc-900/40 backdrop-blur-sm`}>
+      <Card className={`${c.bg} border ${c.border} bg-accent/40 backdrop-blur-sm`}>
         <CardContent className="p-5 flex items-center justify-center h-40">
           <div className="flex flex-col items-center gap-3">
-            <Loader2 className="h-6 w-6 animate-spin text-zinc-400" />
-            <span className="text-sm text-zinc-500">Loading statistics for {player?.fullName || 'player'}...</span>
+            <Loader2 className="h-6 w-6 animate-spin text-primary" />
+            <span className="text-sm text-muted-foreground font-black uppercase tracking-widest italic">Loading data for {player?.fullName || 'player'}...</span>
           </div>
         </CardContent>
       </Card>
@@ -1136,78 +1132,78 @@ function AnimatedStatsCard({ player, color, loading, error }: { player: Statoriu
   }
 
   return (
-    <Card className={`${c.bg} border ${c.border} bg-zinc-900/40 backdrop-blur-sm hover:${c.bg} transition-all duration-300`}>
+    <Card className={`${c.bg} border ${c.border} bg-accent/40 backdrop-blur-sm hover:${c.bg} transition-all duration-300 shadow-xl`}>
       <CardContent className="p-5">
         <div className="grid grid-cols-2 gap-4">
           <div className="flex items-center gap-3">
-            <div className={`${c.accent} text-white p-2.5 rounded-xl shadow-lg ${c.glow}`}>
+            <div className={`${c.accent} text-primary p-2.5 rounded-xl shadow-lg ${c.glow} border border-primary/20`}>
               <Goal className="h-5 w-5" />
             </div>
             <div>
-              <div className={`text-2xl font-bold ${c.primary} tracking-tight`}>
+              <div className={`text-2xl font-black italic ${c.primary} tracking-tighter tabular-nums font-mono`}>
                 {animatedValues.goals}
               </div>
-              <div className="text-xs text-zinc-500 font-medium">Goals</div>
+              <div className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">Goals</div>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className={`${c.accent} text-white p-2.5 rounded-xl shadow-lg ${c.glow}`}>
+            <div className={`${c.accent} text-primary p-2.5 rounded-xl shadow-lg ${c.glow} border border-primary/20`}>
               <Target className="h-5 w-5" />
             </div>
             <div>
-              <div className={`text-2xl font-bold ${c.primary} tracking-tight`}>
+              <div className={`text-2xl font-black italic ${c.primary} tracking-tighter tabular-nums font-mono`}>
                 {animatedValues.assists}
               </div>
-              <div className="text-xs text-zinc-500 font-medium">Assists</div>
+              <div className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">Assists</div>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-zinc-700 text-white p-2.5 rounded-xl shadow-lg">
-              <Activity className="h-5 w-5" />
+            <div className="bg-secondary p-2.5 rounded-xl shadow-lg border border-border">
+              <Activity className="h-5 w-5 text-foreground" />
             </div>
             <div>
-              <div className={`text-2xl font-bold ${c.primary} tracking-tight`}>
+              <div className={`text-2xl font-black italic ${c.primary} tracking-tighter tabular-nums font-mono`}>
                 {animatedValues.matches}
               </div>
-              <div className="text-xs text-zinc-500 font-medium">Matches</div>
+              <div className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">Matches</div>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-zinc-700 text-white p-2.5 rounded-xl shadow-lg">
-              <Clock className="h-5 w-5" />
+            <div className="bg-secondary p-2.5 rounded-xl shadow-lg border border-border">
+              <Clock className="h-5 w-5 text-foreground" />
             </div>
             <div>
-              <div className={`text-2xl font-bold ${c.primary} tracking-tight`}>
+              <div className={`text-2xl font-black italic ${c.primary} tracking-tighter tabular-nums font-mono`}>
                 {animatedValues.minutes}
               </div>
-              <div className="text-xs text-zinc-500 font-medium">Minutes</div>
+              <div className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">Minutes</div>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-yellow-500/90 text-white p-2.5 rounded-xl shadow-lg shadow-yellow-500/20">
+            <div className="bg-yellow-500/10 p-2.5 rounded-xl shadow-lg border border-yellow-500/20 text-yellow-600 dark:text-yellow-500">
               <Shield className="h-5 w-5" />
             </div>
             <div>
-              <div className={`text-2xl font-bold ${c.primary} tracking-tight`}>
+              <div className={`text-2xl font-black italic ${c.primary} tracking-tighter tabular-nums font-mono text-yellow-600 dark:text-yellow-500`}>
                 {animatedValues.yellowCards}
               </div>
-              <div className="text-xs text-zinc-500 font-medium">Yellow Cards</div>
+              <div className="text-[10px] text-muted-foreground uppercase font-black tracking-widest font-mono">Yellow Cards</div>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-red-500/90 text-white p-2.5 rounded-xl shadow-lg shadow-red-500/20">
+            <div className="bg-red-500/10 p-2.5 rounded-xl shadow-lg border border-red-500/20 text-red-600 dark:text-red-500">
               <AlertTriangle className="h-5 w-5" />
             </div>
             <div>
-              <div className={`text-2xl font-bold ${c.primary} tracking-tight`}>
+              <div className={`text-2xl font-black italic ${c.primary} tracking-tighter tabular-nums font-mono text-red-600 dark:text-red-500`}>
                 {animatedValues.redCards}
               </div>
-              <div className="text-xs text-zinc-500 font-medium">Red Cards</div>
+              <div className="text-[10px] text-muted-foreground uppercase font-black tracking-widest font-mono">Red Cards</div>
             </div>
           </div>
         </div>
@@ -1231,14 +1227,14 @@ function AdvancedStatsComparison({ player1, player2 }: { player1: StatoriumPlaye
   return (
     <div className="space-y-3">
       {comparisonMetrics.map((metric, index) => (
-        <div key={index} className="flex items-center justify-between p-4 bg-zinc-900/60 backdrop-blur-sm rounded-xl border border-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300">
-          <span className="text-sm font-semibold text-zinc-300">{metric.label}</span>
-          <div className="flex items-center gap-6">
-            <span className={`text-lg font-bold ${metric.winner === 'p1' ? 'text-green-500' : 'text-zinc-600'}`}>
+        <div key={index} className="flex items-center justify-between p-4 bg-card/60 backdrop-blur-sm rounded-xl border border-border hover:border-primary/20 transition-all duration-300">
+          <span className="text-sm font-black text-foreground uppercase tracking-tight">{metric.label}</span>
+          <div className="flex items-center gap-6 font-mono">
+            <span className={`text-lg font-black ${metric.winner === 'p1' ? 'text-green-600 dark:text-green-500' : 'text-muted-foreground'}`}>
               {metric.value1}
             </span>
-            <span className="text-zinc-700 text-xs uppercase tracking-wider font-semibold">vs</span>
-            <span className={`text-lg font-bold ${metric.winner === 'p2' ? 'text-emerald-500' : 'text-zinc-600'}`}>
+            <span className="text-muted-foreground/30 text-[10px] uppercase tracking-wider font-black">vs</span>
+            <span className={`text-lg font-black ${metric.winner === 'p2' ? 'text-emerald-600 dark:text-emerald-500' : 'text-muted-foreground'}`}>
               {metric.value2}
             </span>
           </div>

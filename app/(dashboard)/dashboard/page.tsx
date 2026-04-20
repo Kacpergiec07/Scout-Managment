@@ -71,7 +71,7 @@ function DynamicLeagueCard({ league, isActive }: { league: AppLeagueConfig, isAc
   const activeClub = league.clubs[clubIndex]
 
   return (
-    <div className={`relative w-full h-full flex flex-col justify-end overflow-hidden bg-[#0d0d0d] rounded-2xl ${isActive ? 'filter-none' : 'brightness-75'}`}>
+    <div className={`relative w-full h-full flex flex-col justify-end overflow-hidden bg-background border border-border rounded-2xl ${isActive ? 'filter-none' : 'brightness-75'}`}>
       
       <div 
         className="absolute inset-0 opacity-40 mix-blend-color-dodge transition-opacity duration-500 z-0 pointer-events-none"
@@ -102,7 +102,7 @@ function DynamicLeagueCard({ league, isActive }: { league: AppLeagueConfig, isAc
 
       {/* Gradients to blend text at bottom */}
       <div className={`absolute bottom-0 left-0 w-full h-[60%] bg-gradient-to-t ${league.color} to-transparent mix-blend-multiply z-10 opacity-90 pointer-events-none`} />
-      <div className="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent z-10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-background via-background/80 to-transparent z-10 pointer-events-none" />
 
       {/* Center Layout for Text Info */}
       <div className="absolute inset-0 w-full mb-16 flex flex-col items-center justify-center gap-1 z-20 transition-all duration-300 pointer-events-none">
@@ -119,7 +119,7 @@ function DynamicLeagueCard({ league, isActive }: { league: AppLeagueConfig, isAc
       {/* Bottom Bar containing static league name */}
       <div className="flex-1" />
       <div className="relative z-30 w-full py-8 text-center flex items-center justify-center">
-          <h2 className="text-sm md:text-base lg:text-lg font-bold tracking-[0.3em] uppercase text-zinc-200/70 whitespace-nowrap px-4 drop-shadow-lg">
+          <h2 className="text-sm md:text-base lg:text-lg font-bold tracking-[0.3em] uppercase text-foreground/70 whitespace-nowrap px-4 drop-shadow-lg">
             {league.name}
           </h2>
       </div>
@@ -170,10 +170,10 @@ export default function DashboardPage() {
   })) as any
 
   return (
-    <div className="relative w-full h-full bg-[#050505] font-sans flex flex-col items-center select-none overflow-y-auto overflow-x-hidden min-h-screen">
+    <div className="relative w-full h-full bg-background font-sans flex flex-col items-center select-none overflow-y-auto overflow-x-hidden min-h-screen">
       
-      {/* Base global black background */}
-      <div className="fixed inset-0 bg-[#0a0a0a] z-0 pointer-events-none" />
+      {/* Base global background */}
+      <div className="fixed inset-0 bg-background z-0 pointer-events-none" />
       
       {/* Dynamic blurred league logo background */}
       <AnimatePresence>
@@ -192,10 +192,10 @@ export default function DashboardPage() {
       </AnimatePresence>
 
       {/* Top Navbar */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-[#090909]/80 backdrop-blur-lg border-b border-white/5 px-6 py-4 flex items-center justify-between">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-lg border-b border-border px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2 cursor-pointer">
           <span className="text-2xl drop-shadow-[0_0_8px_rgba(34,197,94,0.8)]">⚽</span>
-          <span className="text-xl font-bold tracking-widest text-white drop-shadow-[0_0_5px_rgba(34,197,94,0.5)]">SCOUT PRO</span>
+          <span className="text-xl font-bold tracking-widest text-foreground drop-shadow-[0_0_5px_rgba(34,197,94,0.5)]">SCOUT PRO</span>
         </div>
 
         <div className="hidden md:flex gap-8 lg:gap-12 items-center justify-center absolute left-1/2 -translate-x-1/2">
@@ -209,7 +209,7 @@ export default function DashboardPage() {
             <Link 
               key={item.name} 
               href={item.href} 
-              className="text-xs lg:text-sm font-semibold tracking-[0.15em] text-zinc-400 hover:text-white transition-colors duration-300 uppercase"
+              className="text-xs lg:text-sm font-semibold tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase"
             >
               {item.name}
             </Link>
@@ -218,8 +218,8 @@ export default function DashboardPage() {
 
         <div className="flex items-center gap-6">
           <div className="relative cursor-pointer group">
-            <Bell className="w-5 h-5 text-zinc-300 hover:text-green-400 transition-colors" />
-            <span className="absolute -top-1.5 -right-1.5 bg-green-500 text-[#090909] text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow-lg">
+            <Bell className="w-5 h-5 text-muted-foreground hover:text-green-500 transition-colors" />
+            <span className="absolute -top-1.5 -right-1.5 bg-green-500 text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow-lg">
               3
             </span>
           </div>
@@ -230,7 +230,7 @@ export default function DashboardPage() {
       <div className="w-full flex-grow flex flex-col justify-center items-center relative z-10 pt-28 pb-12 px-4 sm:px-8 md:px-12 lg:px-20 min-h-screen">
         
         {isLoading ? (
-          <div className="h-[65vh] w-full flex items-center justify-center text-white/50 text-2xl font-bold tracking-widest animate-pulse">
+          <div className="h-[65vh] w-full flex items-center justify-center text-muted-foreground text-2xl font-bold tracking-widest animate-pulse">
             LOADING LEAGUES...
           </div>
         ) : (
@@ -254,12 +254,12 @@ export default function DashboardPage() {
 
         {/* Below Hero Section CTA */}
         <div className="mt-8 flex flex-col items-center w-full z-20">
-          <h1 className="text-2xl md:text-3xl font-black tracking-widest text-[#f8f8f8] mb-4 uppercase drop-shadow-[0_0_15px_rgba(0,0,0,1)] text-center">
+          <h1 className="text-2xl md:text-3xl font-black tracking-widest text-foreground mb-4 uppercase drop-shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:drop-shadow-[0_0_15px_rgba(0,0,0,1)] text-center">
             {activeLeague ? `Dominating ${activeLeague.name}` : "Explore The World's Best"}
           </h1>
           <Link 
             href={activeLeague ? `/leagues?sId=${activeLeague.id}` : "/leagues"}
-            className="bg-white/90 backdrop-blur-md text-black px-12 py-3 text-sm font-black tracking-[0.2em] uppercase rounded-sm hover:-translate-y-1 hover:bg-white hover:shadow-[0_10px_30px_rgba(255,255,255,0.2)] transition-all duration-300 pointer-events-auto"
+            className="bg-foreground text-background px-12 py-3 text-sm font-black tracking-[0.2em] uppercase rounded-sm hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_10px_30px_rgba(255,255,255,0.2)] transition-all duration-300 pointer-events-auto"
           >
             ENTER LEAGUE HUB
           </Link>

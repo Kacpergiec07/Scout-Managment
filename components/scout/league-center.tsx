@@ -110,12 +110,12 @@ export function LeagueCenter() {
             <Trophy className="w-8 h-8 text-primary" />
           </div>
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-white">League Intelligence</h2>
-            <p className="text-white/50 text-sm">Real-time standings, fixtures, and squad analysis.</p>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">League Intelligence</h2>
+            <p className="text-muted-foreground text-sm">Real-time standings, fixtures, and squad analysis.</p>
           </div>
         </div>
 
-        <div className="flex flex-wrap p-1 bg-white/5 rounded-xl border border-white/10 gap-1">
+        <div className="flex flex-wrap p-1 bg-accent/20 rounded-xl border border-border gap-1">
           {TOP_LEAGUES.map((league) => (
             <button
               key={league.id}
@@ -123,7 +123,7 @@ export function LeagueCenter() {
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 activeLeague.id === league.id 
                 ? "bg-primary text-primary-foreground shadow-lg" 
-                : "text-white/40 hover:text-white hover:bg-white/5"
+                : "text-muted-foreground hover:text-foreground hover:bg-accent"
               }`}
             >
               <span className="mr-2">{league.flag}</span>
@@ -135,14 +135,14 @@ export function LeagueCenter() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Standings Table */}
-        <Card className="lg:col-span-2 border-white/10 bg-black/40 backdrop-blur-xl transition-all hover:bg-black/50 overflow-hidden">
-          <CardHeader className="bg-white/5 border-b border-white/10 flex flex-row items-center justify-between">
+        <Card className="lg:col-span-2 border-border bg-card/40 backdrop-blur-xl transition-all hover:bg-card/50 overflow-hidden">
+          <CardHeader className="bg-accent/10 border-b border-border flex flex-row items-center justify-between">
             <div>
               <CardTitle className="text-lg flex items-center gap-2">
                 <Trophy className="w-4 h-4 text-yellow-500" />
                 {activeLeague.name} Standings
               </CardTitle>
-              <CardDescription className="text-xs text-white/30">Season 2025/26</CardDescription>
+              <CardDescription className="text-xs text-muted-foreground">Season 2025/26</CardDescription>
             </div>
           </CardHeader>
           <CardContent className="p-0">
@@ -153,7 +153,7 @@ export function LeagueCenter() {
             ) : (
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-white/5 text-white/40 border-b border-white/10">
+                  <tr className="bg-accent/20 text-muted-foreground border-b border-border">
                     <th className="px-6 py-3 text-left w-12 text-xs font-black">#</th>
                     <th className="px-6 py-3 text-left text-xs font-black">TEAM</th>
                     <th className="px-6 py-3 text-center text-xs font-black">P</th>
@@ -164,11 +164,11 @@ export function LeagueCenter() {
                     <th className="px-6 py-3 text-center text-xs font-black">PTS</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-border">
                   {(standings.length > 0 ? standings : Array(10).fill({})).map((row, idx) => (
                     <tr 
                       key={row.teamID || idx} 
-                      className={`group hover:bg-white/5 transition-colors cursor-pointer border-l-2 ${
+                      className={`group hover:bg-accent/40 transition-colors cursor-pointer border-l-2 ${
                         (row.rank || idx + 1) <= 5 ? "border-blue-500/50" : 
                         (row.rank || idx + 1) === 6 ? "border-orange-500/50" : 
                         (row.rank || idx + 1) === 7 ? "border-emerald-500/50" : 
@@ -176,40 +176,40 @@ export function LeagueCenter() {
                       }`}
                       onClick={() => row.teamID && handleViewTeam(row.teamID)}
                     >
-                      <td className="px-6 py-4 font-mono">
+                      <td className="px-6 py-4 font-mono font-bold">
                         <div className="flex items-center gap-2">
-                          <span className={`${
-                            (row.rank || idx + 1) <= 5 ? "text-blue-400 font-bold" : 
-                            (row.rank || idx + 1) === 6 ? "text-orange-400" : 
-                            (row.rank || idx + 1) === 7 ? "text-emerald-400" : 
-                            "text-white/20"
-                          }`}>
-                            {row.rank || idx + 1}
-                          </span>
-                          {(row.rank || idx + 1) <= 5 && <div className="w-1 h-1 rounded-full bg-blue-400 shadow-[0_0_5px_rgba(59,130,246,0.5)]" title="Champions League" />}
-                          {(row.rank || idx + 1) === 6 && <div className="w-1 h-1 rounded-full bg-orange-400 shadow-[0_0_5px_rgba(249,115,22,0.5)]" title="Europa League" />}
-                          {(row.rank || idx + 1) === 7 && <div className="w-1 h-1 rounded-full bg-emerald-400 shadow-[0_0_5px_rgba(16,185,129,0.5)]" title="Conference League" />}
+                           <span className={`${
+                             (row.rank || idx + 1) <= 5 ? "text-blue-600 dark:text-blue-400 font-black" : 
+                             (row.rank || idx + 1) === 6 ? "text-orange-600 dark:text-orange-400" : 
+                             (row.rank || idx + 1) === 7 ? "text-emerald-600 dark:text-emerald-400" : 
+                             "text-foreground/40"
+                           }`}>
+                             {row.rank || idx + 1}
+                           </span>
+                           {(row.rank || idx + 1) <= 5 && <div className="w-1 h-1 rounded-full bg-blue-500 shadow-[0_0_5px_rgba(59,130,246,0.5)]" title="Champions League" />}
+                           {(row.rank || idx + 1) === 6 && <div className="w-1 h-1 rounded-full bg-orange-500 shadow-[0_0_5px_rgba(249,115,22,0.5)]" title="Europa League" />}
+                           {(row.rank || idx + 1) === 7 && <div className="w-1 h-1 rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.5)]" title="Conference League" />}
                         </div>
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-4">
-                          <div className="relative w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center p-1 overflow-hidden border border-white/10 group-hover:border-primary/50 transition-all">
+                          <div className="relative w-10 h-10 bg-accent/20 rounded-xl flex items-center justify-center p-1 overflow-hidden border border-border group-hover:border-primary/50 transition-all">
                             {row.teamLogo ? (
                               <img src={row.teamLogo} alt={row.teamName} className="object-contain w-full h-full" />
                             ) : (
-                               <Trophy className="w-4 h-4 text-white/10" />
+                               <Trophy className="w-4 h-4 text-muted-foreground/20" />
                             )}
                           </div>
-                          <span className="font-bold text-white group-hover:text-primary transition-colors text-base">
+                          <span className="font-bold text-foreground group-hover:text-primary transition-colors text-base">
                             {row.teamName}
                           </span>
                         </div>
                       </td>
-                      <td className="px-6 py-4 text-center text-white/60">{row.played || 0}</td>
-                      <td className="px-6 py-4 text-center text-white/60">{row.won || 0}</td>
-                      <td className="px-6 py-4 text-center text-white/60">{row.drawn || 0}</td>
-                      <td className="px-6 py-4 text-center text-white/60">{row.lost || 0}</td>
-                      <td className="px-6 py-4 text-center text-white/60">{row.goalsFor - row.goalsAgainst || 0}</td>
+                      <td className="px-6 py-4 text-center text-muted-foreground">{row.played || 0}</td>
+                      <td className="px-6 py-4 text-center text-muted-foreground">{row.won || 0}</td>
+                      <td className="px-6 py-4 text-center text-muted-foreground">{row.drawn || 0}</td>
+                      <td className="px-6 py-4 text-center text-muted-foreground">{row.lost || 0}</td>
+                      <td className="px-6 py-4 text-center text-muted-foreground">{row.goalsFor - row.goalsAgainst || 0}</td>
                       <td className="px-6 py-4 text-center font-bold text-primary">{row.points || 0}</td>
                     </tr>
                   ))}
@@ -222,13 +222,13 @@ export function LeagueCenter() {
         {/* Matches & Team Detail */}
         <div className="space-y-8">
           {/* Upcoming Matches */}
-          <Card className="border-white/10 bg-black/40 backdrop-blur-xl">
-            <CardHeader className="bg-white/5 border-b border-white/10">
+          <Card className="border-border bg-card/40 backdrop-blur-xl">
+            <CardHeader className="bg-accent/10 border-b border-border">
               <CardTitle className="text-base flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-primary" />
                 Next Fixtures
               </CardTitle>
-              <CardDescription className="text-xs text-white/30">
+              <CardDescription className="text-xs text-muted-foreground">
                 Next 10 upcoming matches for {activeLeague.name}
               </CardDescription>
             </CardHeader>
@@ -237,36 +237,36 @@ export function LeagueCenter() {
                 {loading ? (
                    <div className="p-8 text-center"><Loader2 className="w-4 h-4 animate-spin inline mr-2 text-primary"/></div>
                 ) : matches.length === 0 ? (
-                  <div className="p-8 text-center text-white/30 text-sm">
+                  <div className="p-8 text-center text-muted-foreground text-sm">
                     No upcoming fixtures available
                   </div>
                 ) : (
-                  <div className="divide-y divide-white/5">
+                  <div className="divide-y divide-border">
                     {matches.map((match, idx) => (
-                      <div key={match.matchID || idx} className="p-4 hover:bg-white/5 transition-all">
-                        <div className="text-[10px] text-white/30 uppercase tracking-widest mb-3 flex justify-between">
+                      <div key={match.matchID || idx} className="p-4 hover:bg-accent/40 transition-all">
+                        <div className="text-[10px] text-muted-foreground uppercase tracking-widest mb-3 flex justify-between font-mono font-bold">
                           <span>{formatMatchDate(match.matchDate)}</span>
                           <span>{match.matchTime || 'TBC'}</span>
                         </div>
                         <div className="flex items-center justify-between gap-4">
                           <div className="flex-1 text-center space-y-2">
-                            <div className="w-10 h-10 bg-white/5 rounded-xl mx-auto flex items-center justify-center p-1 border border-white/5">
+                            <div className="w-10 h-10 bg-accent rounded-xl mx-auto flex items-center justify-center p-1 border border-border">
                               {(match.homeParticipant?.logo || match.homeTeam?.teamLogo) ? (
                                 <img src={match.homeParticipant?.logo || match.homeTeam?.teamLogo} className="w-full h-full object-contain" />
-                              ) : <span className="text-[10px] text-white/20">H</span>}
+                              ) : <span className="text-[10px] text-muted-foreground/20">H</span>}
                             </div>
-                            <div className="text-xs font-bold text-white truncate max-w-[100px] mx-auto">
+                            <div className="text-xs font-black text-foreground truncate max-w-[100px] mx-auto uppercase tracking-tighter">
                               {match.homeParticipant?.participantName || match.homeTeam?.teamName || 'Home Team'}
                             </div>
                           </div>
-                          <div className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-white/40">VS</div>
+                          <div className="px-3 py-1 bg-primary/10 rounded-lg text-[10px] font-black text-primary italic">VS</div>
                           <div className="flex-1 text-center space-y-2">
-                            <div className="w-10 h-10 bg-white/5 rounded-xl mx-auto flex items-center justify-center p-1 border border-white/5">
+                            <div className="w-10 h-10 bg-accent rounded-xl mx-auto flex items-center justify-center p-1 border border-border">
                               {(match.awayParticipant?.logo || match.awayTeam?.teamLogo) ? (
                                 <img src={match.awayParticipant?.logo || match.awayTeam?.teamLogo} className="w-full h-full object-contain" />
-                              ) : <span className="text-[10px] text-white/20">A</span>}
+                              ) : <span className="text-[10px] text-muted-foreground/20">A</span>}
                             </div>
-                            <div className="text-xs font-bold text-white truncate max-w-[100px] mx-auto">
+                            <div className="text-xs font-black text-foreground truncate max-w-[100px] mx-auto uppercase tracking-tighter">
                               {match.awayParticipant?.participantName || match.awayTeam?.teamName || 'Away Team'}
                             </div>
                           </div>
@@ -287,7 +287,7 @@ export function LeagueCenter() {
                 <Users className="w-4 h-4 text-primary" />
                 Squad Intelligence
               </CardTitle>
-              <CardDescription className="text-white/40">Select a team from standings to view roster.</CardDescription>
+              <CardDescription className="text-muted-foreground">Select a team from standings to view roster.</CardDescription>
             </CardHeader>
             <CardContent>
               {loadingTeam ? (
@@ -303,23 +303,23 @@ export function LeagueCenter() {
                        )}
                      </div>
                      <div>
-                       <h3 className="font-black text-xl text-white tracking-tight">{selectedTeam.teamName}</h3>
-                       <p className="text-xs text-white/30 uppercase font-bold tracking-widest">{selectedTeam.city} &bull; {selectedTeam.venueName}</p>
+                       <h3 className="font-black text-xl text-foreground tracking-tight">{selectedTeam.teamName}</h3>
+                       <p className="text-xs text-muted-foreground uppercase font-bold tracking-widest">{selectedTeam.city} &bull; {selectedTeam.venueName}</p>
                      </div>
                    </div>
                    <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2">
                       {selectedTeam.players?.length ? (
                         <>
                           <div>
-                            <h4 className="text-[10px] text-white/50 uppercase font-black tracking-widest mb-2 border-b border-white/5 pb-1">Starting XI (Top 11)</h4>
+                            <h4 className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mb-2 border-b border-border pb-1">Starting XI (Top 11)</h4>
                             <div className="space-y-1">
                               {selectedTeam.players.slice(0, 11).map((p: any) => (
                                 <Link 
                                   href={`/analysis?id=${p.playerID}&name=${encodeURIComponent(p.fullName)}`}
                                   key={p.playerID} 
-                                  className="flex items-center justify-between p-2 rounded-lg hover:bg-white/5 text-xs border border-transparent hover:border-white/10 transition-all bg-white/5"
+                                  className="flex items-center justify-between p-2 rounded-lg hover:bg-accent/20 text-xs border border-transparent hover:border-border transition-all bg-accent/10"
                                 >
-                                  <span className="text-white font-medium">{p.fullName}</span>
+                                  <span className="text-foreground font-medium">{p.fullName}</span>
                                   <Badge variant="outline" className="text-[9px] h-4 bg-primary/20 border-primary/50 text-primary uppercase">{p.additionalInfo?.position || p.position || 'N/A'}</Badge>
                                 </Link>
                               ))}
@@ -327,16 +327,16 @@ export function LeagueCenter() {
                           </div>
                           {selectedTeam.players.length > 11 && (
                             <div>
-                              <h4 className="text-[10px] text-white/50 uppercase font-black tracking-widest mb-2 border-b border-white/5 pb-1">Bench (Reserves)</h4>
+                              <h4 className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mb-2 border-b border-border pb-1">Bench (Reserves)</h4>
                               <div className="space-y-1">
                                 {selectedTeam.players.slice(11).map((p: any) => (
                                   <Link 
                                     href={`/analysis?id=${p.playerID}&name=${encodeURIComponent(p.fullName)}`}
                                     key={p.playerID} 
-                                    className="flex items-center justify-between p-2 rounded-lg hover:bg-white/5 text-xs border border-transparent hover:border-white/10 transition-all"
+                                    className="flex items-center justify-between p-2 rounded-lg hover:bg-accent/20 text-xs border border-transparent hover:border-border transition-all"
                                   >
-                                    <span className="text-white/60">{p.fullName}</span>
-                                    <Badge variant="outline" className="text-[9px] h-4 bg-white/10 border-white/20 text-white/50 uppercase">{p.additionalInfo?.position || p.position || 'N/A'}</Badge>
+                                    <span className="text-muted-foreground">{p.fullName}</span>
+                                    <Badge variant="outline" className="text-[9px] h-4 bg-accent/20 border-border text-muted-foreground uppercase">{p.additionalInfo?.position || p.position || 'N/A'}</Badge>
                                   </Link>
                                 ))}
                               </div>
@@ -344,19 +344,19 @@ export function LeagueCenter() {
                           )}
                         </>
                       ) : (
-                        <div className="text-xs text-white/20 italic p-4 text-center">No squad data available for this team.</div>
+                        <div className="text-xs text-muted-foreground italic p-4 text-center">No squad data available for this team.</div>
                       )}
                    </div>
                 </div>
               ) : (
-                <div className="flex flex-col items-center justify-center h-40 border-2 border-dashed border-white/5 rounded-2xl opacity-40">
-                  <Users className="w-12 h-12 mb-2 text-white/20" />
+                <div className="flex flex-col items-center justify-center h-40 border-2 border-dashed border-border rounded-2xl opacity-40">
+                  <Users className="w-12 h-12 mb-2 text-muted-foreground" />
                   <p className="text-[10px] uppercase font-bold tracking-widest text-center mt-2 px-4">Select a team for quick view or details</p>
                 </div>
               )}
             </CardContent>
             {selectedTeam && (
-              <div className="p-4 bg-white/5 border-t border-white/10">
+              <div className="p-4 bg-accent/20 border-t border-border">
                 <Button 
                   onClick={() => router.push(`/leagues/team/${selectedTeam.teamID}?seasonId=${activeLeague.seasonId}#squad`)}
                   className="w-full bg-primary hover:bg-primary/80 text-primary-foreground font-bold"

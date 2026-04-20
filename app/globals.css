@@ -62,7 +62,7 @@
     --secondary: #f4f4f5;
     --secondary-foreground: #18181b;
     --muted: #f4f4f5;
-    --muted-foreground: #71717a;
+    --muted-foreground: #3f3f46;
     --accent: #f4f4f5;
     --accent-foreground: #18181b;
     --destructive: #ef4444;
@@ -75,8 +75,8 @@
     --chart-4: #d97706;
     --chart-5: #7c3aed;
     --radius: 0.625rem;
-    --sidebar: #fbfbfb;
-    --sidebar-foreground: #18181b;
+    --sidebar: #f5f5f7;
+    --sidebar-foreground: #09090b;
     --sidebar-primary: #18181b;
     --sidebar-primary-foreground: #fafafa;
     --sidebar-accent: #f4f4f5;
@@ -133,11 +133,11 @@
 
 @layer utilities {
   .glass-panel {
-    @apply bg-zinc-900/40 backdrop-blur-md border border-zinc-800/50;
+    @apply bg-card/40 dark:bg-zinc-900/40 backdrop-blur-md border border-border;
   }
   
   .emerald-gradient {
-    @apply bg-linear-to-br from-emerald-500/20 via-transparent to-transparent;
+    @apply bg-linear-to-br from-emerald-500/10 via-transparent to-transparent dark:from-emerald-500/20;
   }
 }
 

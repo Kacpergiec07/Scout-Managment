@@ -75,16 +75,24 @@ export async function getStandingsAction(seasonId: string) {
     const standings = await client.getStandings(seasonId);
 
     if (standings && standings.length > 0) {
-      return standings.slice(0, 10).map((s: any) => {
+      return standings.map((s: any) => {
         let stats: any = {};
         try {
           stats = typeof s.options === 'string' ? JSON.parse(s.options) : (s.options || {});
         } catch (e) { }
 
+        const teamID = s.teamID?.toString() || "";
+        let teamLogo = resolveTeamLogo(s.logo || s.teamLogo || s);
+        
+        // Fallback for missing logos using ID convention
+        if (!teamLogo && teamID && teamID !== "undefined") {
+          teamLogo = `https://api.statorium.com/media/bearleague/ct${teamID}.png`;
+        }
+
         return {
-          teamID: s.teamID?.toString() || "",
+          teamID,
           teamName: s.teamName || s.teamMiddleName || "Unknown Team",
-          teamLogo: s.logo || s.teamLogo || "",
+          teamLogo,
           rank: Number(s.ordering || s.rank || 0),
           played: Number(stats.played_chk || s.played || 0),
           won: Number(stats.win_chk || s.won || 0),
@@ -100,6 +108,52 @@ export async function getStandingsAction(seasonId: string) {
   } catch (error) {
     console.error('Get Standings Action Error:', error);
     return [];
+  }
+}
+
+function resolveTeamLogo(logo: any): string {
+  if (!logo) return "";
+  let path = typeof logo === 'string' ? logo : (logo.logo || logo.teamLogo || "");
+  if (!path) return "";
+  
+  if (path.startsWith('http')) return path;
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  if (!cleanPath.startsWith('/media/bearleague/')) {
+    return `https://api.statorium.com/media/bearleague${cleanPath}`;
+  }
+  return `https://api.statorium.com${cleanPath}`;
+}
+
+export async function getTeamLogosAction(teamIds: string[]): Promise<Record<string, string>> {
+  const logoMap: Record<string, string> = {};
+  if (!teamIds.length) return logoMap;
+  
+  try {
+    const client = getStatoriumClient();
+    const results = await Promise.allSettled(
+      teamIds.map(id => client.getTeamDetails(id))
+    );
+
+    results.forEach((result, idx) => {
+      const id = teamIds[idx];
+      let logo = "";
+      
+      if (result.status === 'fulfilled' && result.value) {
+        logo = resolveTeamLogo(result.value);
+      }
+      
+      // Fallback for major Statorium club IDs if details failed 
+      // ct[ID].png is the standard naming convention for team logos
+      if (!logo && id && id !== "hub" && id !== "undefined") {
+        logo = `https://api.statorium.com/media/bearleague/ct${id}.png`;
+      }
+      
+      logoMap[id] = logo;
+    });
+    return logoMap;
+  } catch (error) {
+    console.error('Get Team Logos Action Error:', error);
+    return logoMap;
   }
 }
 
@@ -301,8 +355,21 @@ export async function getPlayerPhotosAction(
 ): Promise<Record<string, string | null>> {
   const results = await Promise.allSettled(
     players.map(async (p) => {
+      // Priority 1: Name-based lookup in static data
+      if (typeof PLAYER_PHOTOS !== 'undefined' && p.playerName && PLAYER_PHOTOS[p.playerName]) {
+        return { id: p.playerID, photo: PLAYER_PHOTOS[p.playerName] };
+      }
+      
+      // Priority 2: Normalized name-based lookup
+      const idx = getPhotoIdx();
+      const nl = normalizeName(p.playerName);
+      if (idx.has(nl)) {
+        return { id: p.playerID, photo: idx.get(nl)! };
+      }
+
+      // Priority 3: API-based lookup
       const photo = await getPlayerPhotoAction(p.playerID);
-      return { id: p.playerID, photo };
+      return { id: p.id || p.playerID, photo: photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp` };
     })
   );
 

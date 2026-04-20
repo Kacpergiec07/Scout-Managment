@@ -2,11 +2,20 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Search, List, History, User, LogOut, Settings, LayoutDashboard, ArrowRightLeft, Globe, Bell, Moon } from 'lucide-react'
+import { Search, List, History, User, LogOut, Settings, LayoutDashboard, ArrowRightLeft, Globe, Bell, Moon, Sun } from 'lucide-react'
+import { useTheme } from 'next-themes'
 import { signOut } from '@/app/auth/actions'
+import { useEffect, useState } from 'react'
 
 export function Sidebar() {
   const pathname = usePathname()
+  const { theme, setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // Avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const navItems = [
     { href: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
@@ -23,19 +32,30 @@ export function Sidebar() {
   ]
 
   return (
-    <aside className="hidden w-64 flex-col border-r border-white/5 md:flex bg-[#050505]">
+    <aside className="hidden w-64 flex-col border-r border-border md:flex bg-sidebar transition-colors duration-300">
       {/* Top Header Logo */}
       <div className="flex h-[88px] items-center justify-between px-6">
-        <Link href="/dashboard" className="flex items-center gap-3 font-black text-white text-lg tracking-widest mt-2">
+        <Link href="/dashboard" className="flex items-center gap-3 font-black text-foreground text-lg tracking-widest mt-2">
           <div className="h-6 w-1 bg-green-500 rounded-sm shadow-[0_0_10px_rgba(34,197,94,0.8)]" />
           SCOUT PRO
         </Link>
-        <div className="flex items-center gap-4 text-zinc-500 mt-2">
-          <Moon className="w-4 h-4 cursor-pointer hover:text-white transition-colors" />
+        <div className="flex items-center gap-4 text-muted-foreground mt-2">
+          {mounted && (
+            <div 
+              onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+              className="cursor-pointer hover:text-foreground transition-all duration-300"
+            >
+              {resolvedTheme === 'dark' ? (
+                <Sun className="w-4 h-4" />
+              ) : (
+                <Moon className="w-4 h-4" />
+              )}
+            </div>
+          )}
           <div className="relative cursor-pointer group">
-            <Bell className="w-4 h-4 hover:text-white transition-colors" />
+            <Bell className="w-4 h-4 hover:text-foreground transition-colors" />
             {/* Fake little dot representing unread notifications */}
-            <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full border border-[#050505]"></div>
+            <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full border border-sidebar"></div>
           </div>
         </div>
       </div>
@@ -50,11 +70,11 @@ export function Sidebar() {
               href={item.href}
               className={`group flex items-center gap-4 rounded-md px-3 py-2.5 text-[15px] font-semibold transition-all duration-300 ${
                 isActive 
-                 ? 'text-green-400 bg-white/5 shadow-inner' 
-                 : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-200'
+                 ? 'text-green-500 bg-accent shadow-inner' 
+                 : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground'
               }`}
             >
-              <item.icon className={`h-5 w-5 ${isActive ? 'text-green-500' : 'text-zinc-500 group-hover:text-zinc-300'}`} />
+              <item.icon className={`h-5 w-5 ${isActive ? 'text-green-500' : 'text-muted-foreground group-hover:text-foreground'}`} />
               <span className="tracking-[0.05em]">{item.label}</span>
             </Link>
           )
@@ -62,7 +82,7 @@ export function Sidebar() {
       </nav>
 
       {/* Footer Navigation */}
-      <div className="border-t border-white/5 p-6 space-y-3">
+      <div className="border-t border-border p-6 space-y-3">
         {bottomItems.map((item) => {
           const isActive = pathname === item.href
           return (
@@ -71,8 +91,8 @@ export function Sidebar() {
               href={item.href}
               className={`group flex items-center gap-4 rounded-md px-3 py-2.5 text-[15px] font-semibold transition-all duration-300 ${
                 isActive 
-                 ? 'text-white bg-white/5' 
-                 : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-200'
+                 ? 'text-foreground bg-accent' 
+                 : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground'
               }`}
             >
               <item.icon className="h-5 w-5" />
@@ -83,10 +103,10 @@ export function Sidebar() {
         <form>
           <button
             formAction={signOut}
-            className="flex w-full items-center gap-4 rounded-md px-3 py-2.5 text-[15px] font-semibold text-zinc-500 hover:bg-red-500/10 hover:text-red-400 transition-all duration-300"
+            className="flex w-full items-center gap-4 rounded-md px-3 py-2.5 text-[15px] font-semibold text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-all duration-300"
           >
-            <div className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center mr-1">
-              <span className="text-white text-xs font-black">N</span>
+            <div className="w-8 h-8 rounded-full bg-secondary border border-border flex items-center justify-center mr-1">
+              <span className="text-foreground text-xs font-black">N</span>
             </div>
             <span className="tracking-[0.05em]">Sign Out</span>
           </button>

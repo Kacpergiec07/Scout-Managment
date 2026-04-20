@@ -293,12 +293,12 @@ export default function WatchlistPage() {
   const clubLogo = activePlayer?.clubLogo || selectedDetails?.teamLogo || null;
 
   return (
-    <div className="relative w-full h-full bg-[#050505] text-white overflow-hidden flex">
+    <div className="relative w-full h-full bg-background text-foreground overflow-hidden flex transition-colors duration-300">
       
       {/* Left Panel: Green Zone - Watched List */}
-      <div className="relative z-10 w-[320px] lg:w-[380px] h-full border-r border-white/5 bg-black/40 backdrop-blur-3xl flex flex-col">
-        <div className="p-6 border-b border-white/5 flex items-center justify-between">
-          <h2 className="text-xl font-black tracking-widest text-zinc-100 italic uppercase">Watchlist</h2>
+      <div className="relative z-10 w-[320px] lg:w-[380px] h-full border-r border-border bg-card/40 backdrop-blur-3xl flex flex-col">
+        <div className="p-6 border-b border-border flex items-center justify-between">
+          <h2 className="text-xl font-black tracking-widest text-foreground italic uppercase">Watchlist</h2>
           <button 
             onClick={() => setShowSearch(true)}
             className="w-10 h-10 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 hover:bg-green-500 hover:text-black transition-all"
@@ -316,11 +316,11 @@ export default function WatchlistPage() {
               className={`p-3 rounded-xl border transition-all cursor-pointer group relative overflow-hidden ${
                 selectedPlayerId === player.id 
                 ? 'bg-green-500/10 border-green-500/30' 
-                : 'bg-white/5 border-white/5 hover:border-white/10'
+                : 'bg-accent/40 border-border hover:border-foreground/20'
               }`}
             >
               <div className="flex gap-4 items-center relative z-10">
-                <div className="w-14 h-14 rounded-lg bg-black/40 border border-white/10 overflow-hidden shrink-0 flex items-center justify-center relative">
+                <div className="w-14 h-14 rounded-lg bg-secondary border border-border overflow-hidden shrink-0 flex items-center justify-center relative">
                   <img 
                     src={player.playerPhoto} 
                     alt={player.name} 
@@ -329,7 +329,7 @@ export default function WatchlistPage() {
                       (e.target as HTMLImageElement).style.display = 'none';
                     }}
                   />
-                  <span className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-white/20 uppercase tracking-tighter -z-10 bg-zinc-900 uppercase">
+                  <span className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-foreground/20 uppercase tracking-tighter -z-10 bg-secondary">
                     {player.name.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
                   </span>
                 </div>
@@ -345,9 +345,9 @@ export default function WatchlistPage() {
                   </div>
                   <h3 className="font-bold text-sm truncate uppercase tracking-tighter">{player.name}</h3>
                   <div className="flex items-center gap-2 mt-1">
-                    <span className="text-[10px] text-zinc-400 uppercase font-medium">{player.club}</span>
-                    <span className="text-[10px] text-zinc-600">&bull;</span>
-                    <span className="text-[10px] font-bold text-zinc-300">{player.marketValue}</span>
+                    <span className="text-[10px] text-muted-foreground uppercase font-medium">{player.club}</span>
+                    <span className="text-[10px] text-muted-foreground/60">&bull;</span>
+                    <span className="text-[10px] font-bold text-foreground/80">{player.marketValue}</span>
                   </div>
                 </div>
               </div>
@@ -398,8 +398,8 @@ export default function WatchlistPage() {
                         </AnimatePresence>
                      </div>
 
-                 <div className="w-48 h-48 md:w-56 md:h-56 rounded-full p-2 bg-gradient-to-tr from-green-500 to-emerald-300 shadow-[0_0_50px_rgba(34,197,94,0.3)] relative z-10 flex items-center justify-center overflow-hidden">
-                    <div className="w-full h-full rounded-full bg-[#050505] overflow-hidden border-2 border-[#050505] flex items-center justify-center relative">
+                  <div className="w-48 h-48 md:w-56 md:h-56 rounded-full p-2 bg-gradient-to-tr from-green-500 to-emerald-300 shadow-[0_0_50px_rgba(34,197,94,0.3)] relative z-10 flex items-center justify-center overflow-hidden">
+                    <div className="w-full h-full rounded-full bg-background overflow-hidden border-2 border-background flex items-center justify-center relative">
                        <img 
                         src={activePlayer.playerPhoto} 
                         alt={activePlayer.name} 
@@ -408,26 +408,26 @@ export default function WatchlistPage() {
                           (e.target as HTMLImageElement).style.opacity = '0';
                         }}
                        />
-                       <span className="absolute inset-0 flex items-center justify-center text-4xl md:text-5xl font-black text-white/10 uppercase tracking-tighter bg-zinc-900 font-mono">
+                        <span className="absolute inset-0 flex items-center justify-center text-4xl md:text-5xl font-black text-foreground/10 uppercase tracking-tighter bg-secondary font-mono">
                          {activePlayer.name.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
                        </span>
                     </div>
-                 </div>
-                 <div className="mt-8 text-center">
-                    <h1 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase text-white drop-shadow-2xl">{activePlayer.name}</h1>
+                  </div>
+                  <div className="mt-8 text-center">
+                    <h1 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase text-foreground drop-shadow-2xl">{activePlayer.name}</h1>
                     <div className="flex items-center justify-center gap-6 mt-4">
-                       <div className="flex items-center gap-2 text-zinc-400 uppercase font-bold tracking-widest text-sm">
+                       <div className="flex items-center gap-2 text-muted-foreground uppercase font-bold tracking-widest text-sm">
                           <Shield className="w-4 h-4 text-green-500" /> {activePlayer.club}
                        </div>
-                       <div className="flex items-center gap-2 text-zinc-400 uppercase font-bold tracking-widest text-sm">
+                       <div className="flex items-center gap-2 text-muted-foreground uppercase font-bold tracking-widest text-sm">
                           <MapPin className="w-4 h-4 text-green-500" /> {activePlayer.league}
                        </div>
                     </div>
-                 </div>
+                  </div>
               </div>
 
               {/* Blue Zone: Statistics Area */}
-              <div className="w-full p-8 lg:p-12 rounded-[40px] bg-[#0A0F1E]/60 border border-blue-500/20 backdrop-blur-[40px] relative overflow-hidden min-h-[420px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              <div className="w-full p-8 lg:p-12 rounded-[40px] bg-card/60 border border-blue-500/20 backdrop-blur-[40px] relative overflow-hidden min-h-[420px] shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
                 <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 blur-[120px] pointer-events-none" />
                 
                 <div className="flex items-center gap-3 mb-10">
@@ -448,24 +448,24 @@ export default function WatchlistPage() {
                         {/* PHYSICAL PROFILE */}
                         <div className="space-y-4">
                            <div className="flex items-center gap-2 mb-2">
-                             <div className="w-1 h-3 bg-zinc-700 rounded-full" />
-                             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">Physical Profile</span>
+                             <div className="w-1 h-3 bg-muted rounded-full" />
+                             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Physical Profile</span>
                            </div>
                            <div className="grid grid-cols-2 gap-3">
-                             <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1">
-                               <span className="text-[10px] text-zinc-600 uppercase font-black tracking-widest">Weight</span>
-                               <div className="text-xl font-black text-white">{(selectedDetails.weight && selectedDetails.weight !== '---' ? selectedDetails.weight : (activePlayer.weight !== '---' ? activePlayer.weight : '75kg'))}</div>
+                             <div className="p-4 rounded-2xl bg-accent/20 border border-border space-y-1">
+                               <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">Weight</span>
+                               <div className="text-xl font-black text-foreground">{(selectedDetails.weight && selectedDetails.weight !== '---' ? selectedDetails.weight : (activePlayer.weight !== '---' ? activePlayer.weight : '75kg'))}</div>
                              </div>
-                             <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1">
-                               <span className="text-[10px] text-zinc-600 uppercase font-black tracking-widest">Height</span>
-                               <div className="text-xl font-black text-white">{(selectedDetails.height && selectedDetails.height !== '---' ? selectedDetails.height : (activePlayer.height !== '---' ? activePlayer.height : '180cm'))}</div>
+                             <div className="p-4 rounded-2xl bg-accent/20 border border-border space-y-1">
+                               <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">Height</span>
+                               <div className="text-xl font-black text-foreground">{(selectedDetails.height && selectedDetails.height !== '---' ? selectedDetails.height : (activePlayer.height !== '---' ? activePlayer.height : '180cm'))}</div>
                              </div>
-                             <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1">
-                               <span className="text-[10px] text-zinc-600 uppercase font-black tracking-widest">Age</span>
-                               <div className="text-xl font-black text-white">{(selectedDetails.age && selectedDetails.age !== '---' ? selectedDetails.age : (activePlayer.age !== '---' ? activePlayer.age : '22'))}</div>
+                             <div className="p-4 rounded-2xl bg-accent/20 border border-border space-y-1">
+                               <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">Age</span>
+                               <div className="text-xl font-black text-foreground">{(selectedDetails.age && selectedDetails.age !== '---' ? selectedDetails.age : (activePlayer.age !== '---' ? activePlayer.age : '22'))}</div>
                              </div>
-                             <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1">
-                               <span className="text-[10px] text-zinc-600 uppercase font-black tracking-widest">Position</span>
+                             <div className="p-4 rounded-2xl bg-accent/20 border border-border space-y-1">
+                               <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">Position</span>
                                <div className="text-xl font-black text-blue-400 italic leading-none">{selectedDetails.position || activePlayer.position}</div>
                              </div>
                            </div>
@@ -478,30 +478,30 @@ export default function WatchlistPage() {
                              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400">Technical Intelligence</span>
                           </div>
                           <div className="space-y-3">
-                            <div className="flex items-center justify-between p-4 rounded-2xl bg-blue-500/[0.03] border border-blue-500/10 hover:border-blue-500/20 transition-all group">
+                            <div className="flex items-center justify-between p-4 rounded-2xl bg-accent/10 border border-border hover:border-blue-500/20 transition-all group">
                               <div className="flex items-center gap-4">
                                 <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center">
                                   <TrendingUp className="w-5 h-5 text-green-400" />
                                 </div>
-                                <span className="text-[10px] text-zinc-400 uppercase font-black tracking-widest">XG Rating</span>
+                                <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">XG Rating</span>
                               </div>
-                              <div className="text-lg font-black text-white group-hover:text-green-400 transition-colors">8.42</div>
+                              <div className="text-lg font-black text-foreground group-hover:text-green-400 transition-colors">8.42</div>
                             </div>
-                            <div className="flex items-center justify-between p-4 rounded-2xl bg-blue-500/[0.03] border border-blue-500/10 hover:border-blue-500/20 transition-all group">
+                            <div className="flex items-center justify-between p-4 rounded-2xl bg-accent/10 border border-border hover:border-blue-500/20 transition-all group">
                               <div className="flex items-center gap-4">
                                 <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
                                   <Activity className="w-5 h-5 text-blue-400" />
                                 </div>
-                                <span className="text-[10px] text-zinc-400 uppercase font-black tracking-widest">Pass Accuracy</span>
+                                <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">Pass Accuracy</span>
                               </div>
-                              <div className="text-lg font-black text-white group-hover:text-blue-400 transition-colors">89%</div>
+                              <div className="text-lg font-black text-foreground group-hover:text-blue-400 transition-colors">89%</div>
                             </div>
-                            <div className="flex items-center justify-between p-4 rounded-2xl bg-blue-500/[0.03] border border-blue-500/10 hover:border-blue-500/20 transition-all group">
+                            <div className="flex items-center justify-between p-4 rounded-2xl bg-accent/10 border border-border hover:border-blue-500/20 transition-all group">
                               <div className="flex items-center gap-4">
                                 <div className="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center">
                                   <Award className="w-5 h-5 text-yellow-500" />
                                 </div>
-                                <span className="text-[10px] text-zinc-400 uppercase font-black tracking-widest">Scouting Score</span>
+                                <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">Scouting Score</span>
                               </div>
                               <div className="text-lg font-black text-yellow-500">94/100</div>
                             </div>
@@ -509,7 +509,7 @@ export default function WatchlistPage() {
                         </div>
 
                         <div className="pt-4">
-                           <p className="text-zinc-500 text-[10px] leading-relaxed italic border-l border-white/10 pl-4 py-1">
+                           <p className="text-muted-foreground text-[10px] leading-relaxed italic border-l border-border pl-4 py-1">
                              {selectedDetails.additionalInfo?.description || "High tactical intelligence with exceptional ability to exploit half-spaces. Key asset in high-intensity pressing systems."}
                            </p>
                         </div>
@@ -517,29 +517,29 @@ export default function WatchlistPage() {
                     ) : null}
                   </div>
 
-                  {/* Right: Football Pitch Visualization */}
-                  <div className="flex-1 h-[540px] relative rounded-[40px] overflow-hidden border border-white/10 bg-black shadow-2xl p-4 group">
+                   {/* Right: Football Pitch Visualization */}
+                  <div className="flex-1 h-[540px] relative rounded-[40px] overflow-hidden border border-border bg-card shadow-2xl p-4 group transition-colors duration-300">
                     {/* Pitch markings */}
-                    <div className="absolute inset-0 border-[1px] border-white/10 rounded-[40px] m-4" />
+                    <div className="absolute inset-0 border-[1px] border-foreground/10 rounded-[40px] m-4" />
                     
                     {/* Halfway line (HORIZONTAL) */}
-                    <div className="absolute inset-x-4 top-1/2 h-[1px] bg-white/10 -translate-y-1/2" />
+                    <div className="absolute inset-x-4 top-1/2 h-[1px] bg-foreground/10 -translate-y-1/2" />
                     
                     {/* Center circle */}
-                    <div className="absolute top-1/2 left-1/2 w-32 h-32 border-[1px] border-white/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
-                    <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-white/20 rounded-full -translate-x-1/2 -translate-y-1/2" />
+                    <div className="absolute top-1/2 left-1/2 w-32 h-32 border-[1px] border-foreground/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
+                    <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-foreground/20 rounded-full -translate-x-1/2 -translate-y-1/2" />
                     
                     {/* Goal areas (Top & Bottom) */}
-                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-48 h-24 border-[1px] border-white/10 border-t-0" />
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-48 h-24 border-[1px] border-white/10 border-b-0" />
+                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-48 h-24 border-[1px] border-foreground/10 border-t-0" />
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-48 h-24 border-[1px] border-foreground/10 border-b-0" />
                     
                     {/* Inner pitch decor */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white/5 rounded-full" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-foreground/5 rounded-full" />
 
                     {/* Grass Pattern */}
                     <div className="absolute inset-4 overflow-hidden pointer-events-none opacity-10 rounded-[28px]">
-                       <div className="absolute inset-0" style={{ 
-                         backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
+                       <div className="absolute inset-0 text-foreground/10" style={{ 
+                         backgroundImage: 'linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)',
                          backgroundSize: '40px 40px' 
                        }} />
                     </div>
@@ -554,19 +554,19 @@ export default function WatchlistPage() {
                                 {/* Defensive line */}
                                 <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 flex justify-around w-full px-12">
                                    {Array.from({ length: Math.min(d, 5) }).map((_, i: number) => (
-                                      <div key={`d-${i}`} className="w-1.5 h-1.5 rounded-full bg-white/10 shadow-[0_0_5px_rgba(255,255,255,0.1)]" />
+                                      <div key={`d-${i}`} className="w-1.5 h-1.5 rounded-full bg-foreground/10 border border-foreground/5 shadow-sm" />
                                    ))}
                                 </div>
                                 {/* Midfield line */}
                                 <div className="absolute top-[45%] left-1/2 -translate-x-1/2 flex justify-around w-full px-20">
                                    {Array.from({ length: Math.min(m, 5) }).map((_, i) => (
-                                      <div key={`m-${i}`} className="w-1.5 h-1.5 rounded-full bg-white/10 shadow-[0_0_5px_rgba(255,255,255,0.1)]" />
+                                      <div key={`m-${i}`} className="w-1.5 h-1.5 rounded-full bg-foreground/10 border border-foreground/5 shadow-sm" />
                                    ))}
                                 </div>
                                 {/* Attack line */}
                                 <div className="absolute top-[20%] left-1/2 -translate-x-1/2 flex justify-around w-full px-24">
                                    {Array.from({ length: Math.min(a, 5) }).map((_, i) => (
-                                      <div key={`a-${i}`} className="w-1.5 h-1.5 rounded-full bg-white/10 shadow-[0_0_5px_rgba(255,255,255,0.1)]" />
+                                      <div key={`a-${i}`} className="w-1.5 h-1.5 rounded-full bg-foreground/10 border border-foreground/5 shadow-sm" />
                                    ))}
                                 </div>
                              </>
@@ -588,7 +588,7 @@ export default function WatchlistPage() {
                           <div className="relative group/marker">
                             <div className="absolute -inset-6 bg-green-500/20 blur-2xl animate-pulse rounded-full" />
                             <div className="w-6 h-6 rounded-full bg-green-500 border-2 border-white shadow-[0_0_30px_rgba(34,197,94,1)] relative z-10 flex items-center justify-center">
-                               <div className="w-2 h-2 bg-black rounded-full" />
+                               <div className="w-2 h-2 bg-zinc-950 rounded-full" />
                             </div>
                             <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 whitespace-nowrap">
                                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white bg-green-500 px-3 py-1 rounded-full shadow-lg">
@@ -600,8 +600,8 @@ export default function WatchlistPage() {
                     </div>
 
                     <div className="absolute top-8 right-10 text-right z-10">
-                       <span className="block text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500 mb-1">Live Tactics</span>
-                       <span className="block text-2xl font-black italic text-blue-400 uppercase tracking-tighter">
+                       <span className="block text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground mb-1">Live Tactics</span>
+                       <span className="block text-2xl font-black italic text-blue-500 dark:text-blue-400 uppercase tracking-tighter">
                           {selectedDetails?.formation || "Dynamic Formation"}
                        </span>
                     </div>
@@ -622,37 +622,37 @@ export default function WatchlistPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-6"
+            className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-2xl flex items-center justify-center p-6"
           >
-            <div className="w-full max-w-2xl bg-zinc-900/90 rounded-[40px] border border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col max-h-[85vh]">
+            <div className="w-full max-w-2xl bg-card rounded-[40px] border border-border shadow-[0_0_100px_rgba(0,0,0,0.1)] dark:shadow-[0_0_100px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col max-h-[85vh]">
               {/* Modal Header */}
-              <div className="p-8 border-b border-white/5 flex items-center justify-between bg-white/[0.02]">
+              <div className="p-8 border-b border-border flex items-center justify-between bg-accent/20">
                 <div className="flex items-center gap-4">
                   {searchStep !== 'league' && (
                     <button 
                       onClick={() => setSearchStep(searchStep === 'player' ? 'club' : 'league')}
-                      className="p-2 hover:bg-white/10 rounded-full transition-all text-zinc-400 hover:text-white"
+                      className="p-2 hover:bg-accent rounded-full transition-all text-muted-foreground hover:text-foreground"
                     >
                       <ChevronLeft className="w-6 h-6" />
                     </button>
                   )}
                   <div>
-                    <h3 className="text-xl font-black uppercase tracking-widest text-white">
+                    <h3 className="text-xl font-black uppercase tracking-widest text-foreground">
                       {searchStep === 'league' ? 'Select League' : searchStep === 'club' ? 'Select Club' : 'Select Talent'}
                     </h3>
-                    <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] mt-1">
+                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] mt-1">
                       {searchStep === 'league' ? 'Global Market Scouting' : activeLeague?.name} 
                       {activeClub && ` • ${activeClub.name}`}
                     </p>
                   </div>
                 </div>
-                <button onClick={() => { setShowSearch(false); resetSearch(); }} className="p-3 hover:bg-red-500/10 hover:text-red-400 rounded-full transition-all text-zinc-500">
+                <button onClick={() => { setShowSearch(false); resetSearch(); }} className="p-3 hover:bg-destructive/10 hover:text-destructive rounded-full transition-all text-muted-foreground">
                   <X className="w-6 h-6" />
                 </button>
               </div>
 
               {/* Progress Bar */}
-              <div className="h-1 w-full bg-white/5 relative">
+              <div className="h-1 w-full bg-muted relative">
                 <motion.div 
                   initial={{ width: '33%' }}
                   animate={{ width: searchStep === 'league' ? '33%' : searchStep === 'club' ? '66%' : '100%' }}
@@ -668,7 +668,7 @@ export default function WatchlistPage() {
                       <Loader2 className="w-12 h-12 animate-spin text-green-500" />
                       <div className="absolute inset-0 blur-xl bg-green-500/20 animate-pulse" />
                     </div>
-                    <span className="font-black tracking-[0.3em] uppercase text-xs text-zinc-400 animate-pulse">Syncing Scout Data...</span>
+                    <span className="font-black tracking-[0.3em] uppercase text-xs text-muted-foreground animate-pulse">Syncing Scout Data...</span>
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 gap-3">
@@ -676,17 +676,17 @@ export default function WatchlistPage() {
                     {searchStep === 'league' && Object.entries(LEAGUE_ID_MAP).map(([name, id]: [string, string]) => (
                       <motion.button
                         key={id}
-                        whileHover={{ x: 10, backgroundColor: 'rgba(255,255,255,0.05)' }}
+                        whileHover={{ x: 10, backgroundColor: 'var(--accent)' }}
                         onClick={() => selectLeague({ id, name })}
-                        className="p-5 rounded-2xl border border-white/5 bg-white/[0.02] flex items-center justify-between group transition-all"
+                        className="p-5 rounded-2xl border border-border bg-card flex items-center justify-between group transition-all"
                       >
                         <div className="flex items-center gap-5">
-                          <div className="w-14 h-14 rounded-xl bg-black border border-white/10 flex items-center justify-center p-2">
+                          <div className="w-14 h-14 rounded-xl bg-zinc-950 border border-white/10 flex items-center justify-center p-2">
                              <img src={LEAGUE_LOGOS[name]} alt={name} className="w-full h-full object-contain" />
                           </div>
-                          <span className="text-lg font-black uppercase tracking-widest text-zinc-300 group-hover:text-white transition-colors">{name}</span>
+                          <span className="text-lg font-black uppercase tracking-widest text-foreground group-hover:text-primary transition-colors">{name}</span>
                         </div>
-                        <Plus className="w-6 h-6 text-zinc-700 group-hover:text-green-500 transition-all" />
+                        <Plus className="w-6 h-6 text-muted-foreground group-hover:text-green-500 transition-all font-black" />
                       </motion.button>
                     ))}
 
@@ -696,18 +696,18 @@ export default function WatchlistPage() {
                         key={club.id}
                         whileHover={{ x: 10, borderLeftColor: '#22c55e' }}
                         onClick={() => selectClub(club)}
-                        className="p-4 rounded-2xl border border-white/5 bg-white/[0.02] flex items-center justify-between group transition-all border-l-2 border-l-transparent"
+                        className="p-4 rounded-2xl border border-border bg-card flex items-center justify-between group transition-all border-l-2 border-l-transparent"
                       >
                         <div className="flex items-center gap-5">
-                          <div className="w-12 h-12 rounded-xl bg-black/40 border border-white/10 flex items-center justify-center p-2">
+                          <div className="w-12 h-12 rounded-xl bg-zinc-950/80 dark:bg-black/40 border border-white/10 flex items-center justify-center p-2">
                              <img src={club.logo} alt={club.name} className="w-full h-full object-contain" />
                           </div>
                           <div className="text-left">
-                            <span className="block text-md font-black uppercase tracking-wider text-zinc-300 group-hover:text-white transition-colors">{club.name}</span>
-                            <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">{club.city || 'Top Division'}</span>
+                            <span className="block text-md font-black uppercase tracking-wider text-foreground group-hover:text-primary transition-colors">{club.name}</span>
+                            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{club.city || 'Top Division'}</span>
                           </div>
                         </div>
-                        <Plus className="w-5 h-5 text-zinc-700 group-hover:text-green-500 transition-all" />
+                        <Plus className="w-5 h-5 text-muted-foreground group-hover:text-green-500 transition-all font-black" />
                       </motion.button>
                     ))}
 
@@ -717,24 +717,24 @@ export default function WatchlistPage() {
                         key={player.id}
                         whileHover={{ scale: 1.02, backgroundColor: 'rgba(34,197,94,0.05)' }}
                         onClick={() => addPlayer(player)}
-                        className="p-4 rounded-2xl border border-white/10 bg-white/[0.02] flex items-center justify-between group transition-all"
+                        className="p-4 rounded-2xl border border-border bg-card flex items-center justify-between group transition-all"
                       >
                         <div className="flex items-center gap-5">
-                          <div className="w-14 h-14 rounded-2xl bg-black/60 border border-white/10 overflow-hidden relative">
+                          <div className="w-14 h-14 rounded-2xl bg-zinc-950/20 dark:bg-black/60 border border-border overflow-hidden relative">
                              <img src={player.photoUrl} alt={player.name} className="w-full h-full object-cover relative z-10" />
-                                <div className="absolute inset-0 flex items-center justify-center text-xs font-black text-white/20 uppercase whitespace-pre-wrap text-center leading-none -z-0">
+                                <div className="absolute inset-0 flex items-center justify-center text-xs font-black text-muted-foreground uppercase whitespace-pre-wrap text-center leading-none -z-0">
                                    {player.name.split(' ').map((n: string) => n[0]).join('').slice(0, 3)}
                                 </div>
                              </div>
                           <div className="text-left">
-                            <span className="block text-lg font-black uppercase tracking-wider text-white group-hover:text-green-400 transition-colors">{player.name}</span>
+                            <span className="block text-lg font-black uppercase tracking-wider text-foreground group-hover:text-green-500 transition-colors">{player.name}</span>
                             <div className="flex items-center gap-3">
-                              <span className="text-xs font-black text-green-500/70 uppercase tracking-widest">{player.position}</span>
-                              <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded-full">{player.marketValue}</span>
+                              <span className="text-xs font-black text-green-500 dark:text-green-500/70 uppercase tracking-widest">{player.position}</span>
+                              <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest bg-accent px-2 py-0.5 rounded-full">{player.marketValue}</span>
                             </div>
                           </div>
                         </div>
-                        <div className="w-10 h-10 rounded-full bg-green-500/0 border border-green-500/20 flex items-center justify-center group-hover:bg-green-500 group-hover:text-black transition-all text-green-500">
+                        <div className="w-10 h-10 rounded-full bg-green-500/0 border border-green-500/20 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition-all text-green-500 dark:text-green-500">
                           <Plus className="w-6 h-6" />
                         </div>
                       </motion.button>
