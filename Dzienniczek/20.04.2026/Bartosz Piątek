@@ -1,0 +1,5 @@
+dzisiaj skupiłem się na dopracowaniu warstwy wizualnej oraz poprawie spójności stylów w kluczowych komponentach aplikacji a prace objęły szczegółowe dostosowanie layoutów i formatowania w następujących sekcjach
+player compare optymalizacja wyglądu tabel i kart porównawczych dla lepszej czytelności danych
+watchlist poprawa estetyki elementów listy oraz stanów interaktywnych komponentów
+analysis dostosowanie stylizacji wykresów i kontenerów informacyjnych
+history uporządkowanie widoku osi czasu i logów zdarzeń pod kątem przejrzystości
