@@ -7,7 +7,7 @@ import { getAllTop5PlayersAction, getPlayerDataAction } from '@/app/actions/stat
 import { StatoriumPlayerBasic, StatoriumSeasonStats } from '@/lib/statorium/types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Users, Trash2, ArrowRightLeft, Loader2, UserCircle, TrendingUp, Shield, Zap, Target, Award, Activity, Goal, Clock, AlertTriangle, Hexagon, X, Search } from 'lucide-react'
+import { Users, Trash2, ArrowRightLeft, Loader2, UserCircle, TrendingUp, Shield, Zap, Target, Award, Activity, Goal, Clock, AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 
@@ -276,61 +276,22 @@ function CompareContent() {
   }
 
   return (
-    <>
-      {/* Particle background effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-emerald-500/10"
-            style={{
-              width: Math.random() * 4 + 1,
-              height: Math.random() * 4 + 1,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `pulse ${Math.random() * 3 + 2}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 2}s`
-            }}
-          />
-        ))}
+    <div className="space-y-8 animate-in fade-in duration-500 min-h-screen">
+      <div className="flex flex-col gap-3">
+        <h1 className="text-4xl font-bold tracking-tight text-white">Player Comparison</h1>
+        <p className="text-zinc-500 text-lg font-medium">Compare performance metrics between two top-tier athletes from Europe's TOP 5 leagues.</p>
       </div>
-
-      <div className="space-y-12 animate-in fade-in duration-500 min-h-screen px-4 py-12">
-        <div className="space-y-3 animate-in fade-in slide-in-from-top-4 duration-700">
-          <div className="flex items-center gap-4">
-            <div className="relative">
-              <div className="absolute inset-0 bg-[#00ff88]/20 blur-xl rounded-lg" />
-              <div className="relative h-14 w-14 rounded-xl bg-[#00ff88]/10 border border-[#00ff88]/30 flex items-center justify-center shadow-2xl shadow-[#00ff88]/20">
-                <ArrowRightLeft className="h-7 w-7 text-[#00ff88]" />
-              </div>
-            </div>
-            <div>
-              <h1
-                className="text-4xl sm:text-5xl font-bold tracking-tight"
-                style={{
-                  color: '#00ff88',
-                  textShadow: '0 0 20px rgba(0, 255, 136, 0.5)'
-                }}
-              >
-                Player Comparison
-              </h1>
-              <p className="text-gray-400 text-base mt-2 font-medium">
-                Compare performance metrics between two top-tier athletes from Europe's TOP 5 leagues.
-              </p>
-            </div>
-          </div>
-        </div>
 
       {loading ? (
         <div className="flex flex-col items-center justify-center py-20 gap-4">
-          <Loader2 className="h-10 w-10 animate-spin text-[#00ff88]" />
-          <p className="text-gray-400 text-sm font-medium">Loading players from Statorium API...</p>
-          <p className="text-xs text-gray-600">Fetching data from TOP 5 European leagues...</p>
+          <Loader2 className="h-10 w-10 animate-spin text-green-500" />
+          <p className="text-zinc-400 text-sm font-medium">Loading players from Statorium API...</p>
+          <p className="text-xs text-zinc-600">Fetching data from TOP 5 European leagues...</p>
         </div>
       ) : (
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-4">
-            <label className="text-sm font-bold uppercase tracking-wider text-[#00ff88]">Player 1</label>
+            <label className="text-sm font-bold uppercase tracking-wider text-green-500">Player 1</label>
             {!player1 ? (
               <PlayerSelector
                 players={allPlayers}
@@ -344,7 +305,7 @@ function CompareContent() {
           </div>
 
           <div className="space-y-4">
-            <label className="text-sm font-bold uppercase tracking-wider text-[#00ff88]">Player 2</label>
+            <label className="text-sm font-bold uppercase tracking-wider text-emerald-500">Player 2</label>
             {!player2 ? (
               <PlayerSelector
                 players={allPlayers}
@@ -361,33 +322,27 @@ function CompareContent() {
 
       {player1 && player2 ? (
         <div className={`
-          rounded-3xl border border-gray-800/50 bg-black/60 backdrop-blur-xl p-10 md:p-12 shadow-2xl shadow-black/50
+          rounded-3xl border border-zinc-800/50 bg-zinc-900/40 backdrop-blur-xl p-8 md:p-10 shadow-2xl shadow-black/50
           transition-all duration-700 ease-out
           animate-in fade-in slide-in-from-bottom-4
         `}>
           <div className={`
-            flex items-center gap-4 mb-12
+            flex items-center gap-4 mb-10
             transition-all duration-500 delay-100
             animate-in fade-in slide-in-from-left-4
           `}>
-            <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-[#00ff88]/20 to-[#00cc6a]/10 flex items-center justify-center shadow-lg shadow-[#00ff88]/20 hover:scale-110 hover:shadow-[#00ff88]/40 transition-all duration-300 border border-[#00ff88]/20">
-              <ArrowRightLeft className="h-7 w-7 text-[#00ff88]" />
+            <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center shadow-lg shadow-green-500/20 hover:scale-110 hover:shadow-green-500/40 transition-all duration-300 border border-green-500/20">
+              <ArrowRightLeft className="h-7 w-7 text-green-500" />
             </div>
             <div>
-              <h2
-                className="text-3xl font-bold tracking-tight"
-                style={{
-                  color: '#00ff88',
-                  textShadow: '0 0 20px rgba(0, 255, 136, 0.5)'
-                }}
-              >
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-green-400 via-emerald-400 to-green-500 bg-clip-text text-transparent tracking-tight">
                 Player Comparison Matrix
               </h2>
-              <p className="text-sm text-gray-500 font-medium">Advanced analytics & performance metrics from Statorium API</p>
+              <p className="text-sm text-zinc-500 font-medium">Advanced analytics & performance metrics from Statorium API</p>
             </div>
           </div>
 
-          <div className="grid gap-8">
+          <div className="grid gap-6">
             <ComparisonRow
               icon={<Zap className="h-5 w-5" />}
               label="Technical Ability"
@@ -426,26 +381,26 @@ function CompareContent() {
           </div>
 
           <div className={`
-            mt-12 rounded-2xl border border-gray-800/50 bg-black/60 backdrop-blur-sm p-8
+            mt-10 rounded-2xl border border-zinc-800/50 bg-zinc-900/60 backdrop-blur-sm p-6
             transition-all duration-500 delay-200
             animate-in fade-in slide-in-from-bottom-4
           `}>
-            <div className="flex items-center justify-between mb-10">
+            <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
-                <div className="p-3 rounded-xl bg-gradient-to-br from-[#00ff88]/10 to-[#00cc6a]/5 text-[#00ff88] border border-[#00ff88]/20">
+                <div className="p-3 rounded-xl bg-gradient-to-br from-green-500/10 to-emerald-500/5 text-green-500 border border-green-500/20">
                   <Activity className="h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="font-bold text-white text-lg">Season Statistics</h3>
-                  <p className="text-xs text-gray-500 font-medium">Real-time performance data from Statorium API</p>
+                  <p className="text-xs text-zinc-500 font-medium">Real-time performance data from Statorium API</p>
                 </div>
               </div>
-              <Badge variant="outline" className="text-[10px] bg-[#00ff88]/10 border-[#00ff88]/30 text-[#00ff88] font-semibold">
+              <Badge variant="outline" className="text-[10px] bg-green-500/10 border-green-500/30 text-green-500 font-semibold">
                 📊 Live Data
               </Badge>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <AnimatedStatsCard
                 player={player1}
                 color="green"
@@ -463,59 +418,59 @@ function CompareContent() {
             {player1?.stat && player2?.stat ? (
               <AdvancedStatsComparison player1={player1} player2={player2} />
             ) : (
-              <div className="text-center text-sm text-gray-500 py-4">
+              <div className="text-center text-sm text-zinc-500 py-4">
                 Loading advanced comparison data...
               </div>
             )}
           </div>
 
-          <div className="mt-16 grid grid-cols-2 gap-8">
+          <div className="mt-12 grid grid-cols-2 gap-6">
             <div className={`
-              p-8 rounded-2xl bg-gradient-to-br from-[#00ff88]/10 to-[#00cc6a]/5 border border-[#00ff88]/20 backdrop-blur-sm
-              transition-all duration-500 delay-500 hover:scale-105 hover:shadow-lg hover:shadow-[#00ff88]/20
+              p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-green-500/5 border border-green-500/20 backdrop-blur-sm
+              transition-all duration-500 delay-500 hover:scale-105 hover:shadow-lg hover:shadow-green-500/20
               animate-in fade-in slide-in-from-left-4
             `}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-3 h-3 rounded-full bg-[#00ff88] shadow-lg shadow-[#00ff88]/50 animate-pulse" />
-                <span className="font-bold text-[#00ff88]">{player1.fullName}</span>
+                <div className="w-3 h-3 rounded-full bg-green-500 shadow-lg shadow-green-500/50 animate-pulse" />
+                <span className="font-bold text-green-500">{player1.fullName}</span>
               </div>
-              <div className="text-sm text-gray-400 space-y-2">
+              <div className="text-sm text-zinc-400 space-y-2">
                 <div className="flex items-center gap-2">
-                  {player1.position && <span className="font-medium text-gray-300">{player1.position}</span>}
-                  {player1.position && player1.country && <span className="text-gray-700">•</span>}
+                  {player1.position && <span className="font-medium text-zinc-300">{player1.position}</span>}
+                  {player1.position && player1.country && <span className="text-zinc-600">•</span>}
                   {player1.country && (
                     <span className="flex items-center gap-1">
                       🌍 {typeof player1.country === 'string' ? player1.country : player1.country.name}
                     </span>
                   )}
                 </div>
-                <div className="flex items-center gap-1.5 text-gray-500">
-                  <Shield className="h-3 w-3 text-[#00ff88]" />
+                <div className="flex items-center gap-1.5 text-zinc-500">
+                  <Shield className="h-3 w-3 text-green-500" />
                   {player1.teamName || 'Free Agent'}
                 </div>
               </div>
             </div>
             <div className={`
-              p-8 rounded-2xl bg-gradient-to-br from-[#00ff88]/10 to-[#00cc6a]/5 border border-[#00ff88]/20 backdrop-blur-sm
-              transition-all duration-500 delay-600 hover:scale-105 hover:shadow-lg hover:shadow-[#00ff88]/20
+              p-6 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 border border-emerald-500/20 backdrop-blur-sm
+              transition-all duration-500 delay-600 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20
               animate-in fade-in slide-in-from-right-4
             `}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-3 h-3 rounded-full bg-[#00ff88] shadow-lg shadow-[#00ff88]/50 animate-pulse" />
-                <span className="font-bold text-[#00ff88]">{player2.fullName}</span>
+                <div className="w-3 h-3 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50 animate-pulse" />
+                <span className="font-bold text-emerald-500">{player2.fullName}</span>
               </div>
-              <div className="text-sm text-gray-400 space-y-2">
+              <div className="text-sm text-zinc-400 space-y-2">
                 <div className="flex items-center gap-2">
-                  {player2.position && <span className="font-medium text-gray-300">{player2.position}</span>}
-                  {player2.position && player2.country && <span className="text-gray-700">•</span>}
+                  {player2.position && <span className="font-medium text-zinc-300">{player2.position}</span>}
+                  {player2.position && player2.country && <span className="text-zinc-600">•</span>}
                   {player2.country && (
                     <span className="flex items-center gap-1">
                       🌍 {typeof player2.country === 'string' ? player2.country : player2.country.name}
                     </span>
                   )}
                 </div>
-                <div className="flex items-center gap-1.5 text-gray-500">
-                  <Shield className="h-3 w-3 text-[#00ff88]" />
+                <div className="flex items-center gap-1.5 text-zinc-500">
+                  <Shield className="h-3 w-3 text-emerald-500" />
                   {player2.teamName || 'Free Agent'}
                 </div>
               </div>
@@ -523,13 +478,12 @@ function CompareContent() {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center py-20 border-2 border-dashed border-zinc-800/50 rounded-3xl bg-gray-900/40 backdrop-blur-sm">
-          <Users className="h-16 w-16 text-gray-700 mb-6" />
-          <p className="text-gray-500 text-center font-medium">Select two players to generate a side-by-side comparison report.</p>
+        <div className="flex flex-col items-center justify-center py-20 border-2 border-dashed border-zinc-800/50 rounded-3xl bg-zinc-900/40 backdrop-blur-sm">
+          <Users className="h-16 w-16 text-zinc-700 mb-6" />
+          <p className="text-zinc-500 text-center font-medium">Select two players to generate a side-by-side comparison report.</p>
         </div>
       )}
-      </div>
-    </>
+    </div>
   )
 }
 
@@ -757,13 +711,13 @@ function ComparisonRow({ icon, label, description, p1, p2 }: {
 
   return (
     <div className={`
-      p-5 rounded-2xl bg-black/60 backdrop-blur-sm border border-gray-800/50 hover:border-gray-700/50 hover:bg-black/80 transition-all duration-300
+      p-5 rounded-2xl bg-zinc-900/60 backdrop-blur-sm border border-zinc-800/50 hover:border-zinc-700/50 hover:bg-zinc-900/80 transition-all duration-300
       ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
     `}>
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-4">
           <div className={`
-            p-3 rounded-xl bg-gradient-to-br from-[#00ff88]/10 to-[#00cc6a]/5 text-[#00ff88] border border-[#00ff88]/20
+            p-3 rounded-xl bg-gradient-to-br from-green-500/10 to-emerald-500/5 text-green-500 border border-green-500/20
             transition-all duration-500 ${isVisible ? 'scale-100 opacity-100' : 'scale-90 opacity-0'}
           `}>
             {icon}
@@ -773,40 +727,40 @@ function ComparisonRow({ icon, label, description, p1, p2 }: {
             ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}
           `}>
             <h3 className="font-bold text-white text-lg tracking-tight">{label}</h3>
-            <p className="text-xs text-gray-500 font-medium">{description}</p>
+            <p className="text-xs text-zinc-500 font-medium">{description}</p>
           </div>
         </div>
         <div className="flex items-center gap-6 text-sm font-bold">
           <span className={`
             text-2xl transition-all duration-300
-            ${winner === 'p1' ? 'text-[#00ff88] scale-110 drop-shadow-lg drop-shadow-[#00ff88]/50' : 'text-gray-700'}
+            ${winner === 'p1' ? 'text-green-500 scale-110 drop-shadow-lg drop-shadow-green-500/50' : 'text-zinc-600'}
           `}>
             {animatedP1}%
           </span>
-          <span className="text-gray-800 text-xs uppercase tracking-wider font-semibold">vs</span>
+          <span className="text-zinc-700 text-xs uppercase tracking-wider font-semibold">vs</span>
           <span className={`
             text-2xl transition-all duration-300
-            ${winner === 'p2' ? 'text-[#00ff88] scale-110 drop-shadow-lg drop-shadow-[#00ff88]/50' : 'text-gray-700'}
+            ${winner === 'p2' ? 'text-emerald-500 scale-110 drop-shadow-lg drop-shadow-emerald-500/50' : 'text-zinc-600'}
           `}>
             {animatedP2}%
           </span>
         </div>
       </div>
 
-      <div className="relative h-6 overflow-hidden rounded-full bg-gray-900/50 backdrop-blur-sm shadow-inner border border-gray-800/50">
+      <div className="relative h-6 overflow-hidden rounded-full bg-zinc-800/50 backdrop-blur-sm shadow-inner border border-zinc-800/50">
         <div
           className={`
             absolute left-0 top-0 h-full transition-all duration-1000 ease-out
-            ${winner === 'p1' ? 'rounded-l-full rounded-r-none shadow-lg shadow-[#00ff88]/30' : 'rounded-l-none'}
-            bg-gradient-to-r from-[#00ff88] via-[#00cc6a] to-[#00aa55]
+            ${winner === 'p1' ? 'rounded-l-full rounded-r-none shadow-lg shadow-green-500/30' : 'rounded-l-none'}
+            bg-gradient-to-r from-green-600 via-green-500 to-emerald-400
           `}
           style={{ width: `${animatedP1}%` }}
         />
         <div
           className={`
             absolute right-0 top-0 h-full transition-all duration-1000 ease-out
-            ${winner === 'p2' ? 'rounded-r-full rounded-l-none shadow-lg shadow-[#00ff88]/30' : 'rounded-r-none'}
-            bg-gradient-to-l from-[#00aa55] via-[#00cc6a] to-[#00ff88]
+            ${winner === 'p2' ? 'rounded-r-full rounded-l-none shadow-lg shadow-emerald-500/30' : 'rounded-r-none'}
+            bg-gradient-to-l from-emerald-600 via-emerald-500 to-green-400
           `}
           style={{ width: `${animatedP2}%` }}
         />
@@ -820,10 +774,10 @@ function ComparisonRow({ icon, label, description, p1, p2 }: {
       </div>
 
       <div className="flex justify-between mt-3 text-[10px] uppercase tracking-wider font-bold">
-        <span className={winner === 'p1' ? 'text-[#00ff88]' : 'text-gray-700'}>
+        <span className={winner === 'p1' ? 'text-green-500' : 'text-zinc-600'}>
           {animatedP1 >= 85 ? 'Elite' : animatedP1 >= 70 ? 'Good' : animatedP1 >= 55 ? 'Average' : 'Low'}
         </span>
-        <span className={winner === 'p2' ? 'text-[#00ff88]' : 'text-gray-700'}>
+        <span className={winner === 'p2' ? 'text-emerald-500' : 'text-zinc-600'}>
           {animatedP2 >= 85 ? 'Elite' : animatedP2 >= 70 ? 'Good' : animatedP2 >= 55 ? 'Average' : 'Low'}
         </span>
       </div>
@@ -873,13 +827,13 @@ function PlayerSelector({ players, selectedPlayer, onSelect, placeholder }: {
         }}
         onFocus={() => setOpen(true)}
         onBlur={() => setTimeout(() => setOpen(false), 200)}
-        className="w-full px-4 py-3 border border-gray-800/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00ff88]/50 bg-black/60 backdrop-blur-sm text-white placeholder-gray-600 transition-all duration-300 hover:border-gray-700/50"
+        className="w-full px-4 py-3 border border-zinc-800/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/50 bg-zinc-900/60 backdrop-blur-sm text-white placeholder-zinc-500 transition-all duration-300 hover:border-zinc-700/50"
       />
 
       {open && (
-        <div className="absolute z-50 w-full mt-1 bg-black/95 backdrop-blur-xl border border-gray-800/50 rounded-2xl shadow-2xl shadow-black/50 max-h-96 overflow-y-auto">
+        <div className="absolute z-50 w-full mt-1 bg-zinc-900/95 backdrop-blur-xl border border-zinc-800/50 rounded-2xl shadow-2xl shadow-black/50 max-h-96 overflow-y-auto">
           {filteredPlayers.length === 0 ? (
-            <div className="p-6 text-sm text-gray-600 text-center">
+            <div className="p-6 text-sm text-zinc-500 text-center">
               {search.length >= 2 ? 'No players found matching your search' : 'Type at least 2 characters to search...'}
             </div>
           ) : (
@@ -891,9 +845,9 @@ function PlayerSelector({ players, selectedPlayer, onSelect, placeholder }: {
                   setOpen(false)
                   setSearch('')
                 }}
-                className="w-full p-4 flex items-center gap-4 hover:bg-gray-800/80 transition-colors text-left border-b border-gray-800/50 last:border-0 group"
+                className="w-full p-4 flex items-center gap-4 hover:bg-zinc-800/80 transition-colors text-left border-b border-zinc-800/50 last:border-0 group"
               >
-                <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-gray-700 group-hover:border-[#00ff88]/50 transition-all duration-300">
+                <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-zinc-800 to-zinc-900 border-2 border-zinc-700 group-hover:border-green-500/50 transition-all duration-300">
                   {player.playerPhoto || player.photo ? (
                     <Image
                       src={player.playerPhoto || player.photo || `https://api.statorium.com/media/bearleague/bl${player.playerID}.webp`}
@@ -903,18 +857,18 @@ function PlayerSelector({ players, selectedPlayer, onSelect, placeholder }: {
                       className="object-cover"
                     />
                   ) : (
-                    <div className="h-full w-full flex items-center justify-center text-xl font-bold text-gray-600 bg-gradient-to-br from-zinc-800 to-zinc-900">
+                    <div className="h-full w-full flex items-center justify-center text-xl font-bold text-zinc-600 bg-gradient-to-br from-zinc-800 to-zinc-900">
                       {player.fullName.split(' ').slice(-1)[0][0]}
                     </div>
                   )}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="font-bold text-white truncate group-hover:text-[#00ff88] transition-colors">
+                  <div className="font-bold text-white truncate group-hover:text-green-500 transition-colors">
                     {player.fullName}
                   </div>
-                  <div className="text-xs text-gray-600 flex items-center gap-2 mt-1 flex-wrap">
+                  <div className="text-xs text-zinc-500 flex items-center gap-2 mt-1 flex-wrap">
                     {player.position && (
-                      <span className="px-2 py-0.5 rounded-full bg-gray-800 text-gray-500 font-medium group-hover:bg-[#00ff88]/20 group-hover:text-[#00ff88] transition-all duration-300">
+                      <span className="px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400 font-medium group-hover:bg-green-500/20 group-hover:text-green-500 transition-all duration-300">
                         {player.position}
                       </span>
                     )}
@@ -986,7 +940,7 @@ function PlayerCard({ player, onClear }: { player: StatoriumPlayerBasic; onClear
   const position = getPositionName(player)
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-gray-800/50 bg-black/60 backdrop-blur-sm shadow-2xl group hover:scale-105 hover:shadow-[#00ff88]/20 transition-all duration-500 ease-out">
+    <div className="relative overflow-hidden rounded-2xl border border-zinc-800/50 bg-zinc-900/60 backdrop-blur-sm shadow-2xl group hover:scale-105 hover:shadow-green-500/20 transition-all duration-500 ease-out">
       {/* Remove Button */}
       <Button
         variant="ghost"
@@ -1006,20 +960,20 @@ function PlayerCard({ player, onClear }: { player: StatoriumPlayerBasic; onClear
               alt={player.fullName}
               fill
               unoptimized
-              className="object-contain bg-gray-800 transition-transform duration-700 group-hover:scale-110"
+              className="object-contain bg-zinc-800 transition-transform duration-700 group-hover:scale-110"
               onError={() => setImageError(true)}
             />
           ) : (
             <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-zinc-700 to-zinc-800">
-              <UserCircle className="h-12 w-12 text-gray-600" />
+              <UserCircle className="h-12 w-12 text-zinc-600" />
             </div>
           )}
         </div>
 
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-[#00ff88] rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-[#00cc6a] rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-green-500 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-emerald-500 rounded-full blur-3xl" />
         </div>
       </div>
 
@@ -1032,21 +986,21 @@ function PlayerCard({ player, onClear }: { player: StatoriumPlayerBasic; onClear
 
         {/* Position Badge */}
         <div className="flex justify-center">
-          <Badge className="bg-gray-800 text-gray-300 rounded-full px-3 py-1 text-xs font-semibold border border-gray-700/50">
+          <Badge className="bg-zinc-800 text-zinc-300 rounded-full px-3 py-1 text-xs font-semibold border border-zinc-700/50">
             {position}
           </Badge>
         </div>
 
         {/* Team & Country */}
-        <div className="flex items-center justify-center gap-3 text-sm text-gray-400">
+        <div className="flex items-center justify-center gap-3 text-sm text-zinc-400">
           {player.teamName && (
             <span className="flex items-center gap-1.5">
-              <Shield className="h-3.5 w-3.5 text-[#00ff88]" />
+              <Shield className="h-3.5 w-3.5 text-green-500" />
               {player.teamName}
             </span>
           )}
           {countryName && player.teamName && (
-            <span className="text-gray-700">•</span>
+            <span className="text-zinc-600">•</span>
           )}
           {countryName && (
             <span className="flex items-center gap-1.5">
@@ -1056,11 +1010,11 @@ function PlayerCard({ player, onClear }: { player: StatoriumPlayerBasic; onClear
         </div>
 
         {/* Decorative Line */}
-        <div className="h-0.5 w-12 mx-auto bg-gradient-to-r from-transparent via-[#00ff88] to-transparent opacity-50" />
+        <div className="h-0.5 w-12 mx-auto bg-gradient-to-r from-transparent via-green-500 to-transparent opacity-50" />
       </div>
 
       {/* Subtle Glow Effect */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#00ff88]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
     </div>
   )
 }
@@ -1122,18 +1076,18 @@ function AnimatedStatsCard({ player, color, loading, error }: { player: Statoriu
 
   const colorClasses = {
     green: {
-      primary: 'text-[#00ff88]',
-      bg: 'bg-[#00ff88]/10',
-      border: 'border-[#00ff88]/20',
-      accent: 'bg-[#00ff88]',
-      glow: 'shadow-[#00ff88]/20'
+      primary: 'text-green-500',
+      bg: 'bg-green-500/10',
+      border: 'border-green-500/20',
+      accent: 'bg-green-500',
+      glow: 'shadow-green-500/20'
     },
     emerald: {
-      primary: 'text-[#00ff88]',
-      bg: 'bg-[#00ff88]/10',
-      border: 'border-[#00ff88]/20',
-      accent: 'bg-[#00ff88]',
-      glow: 'shadow-[#00ff88]/20'
+      primary: 'text-emerald-500',
+      bg: 'bg-emerald-500/10',
+      border: 'border-emerald-500/20',
+      accent: 'bg-emerald-500',
+      glow: 'shadow-emerald-500/20'
     }
   }
 
@@ -1142,11 +1096,11 @@ function AnimatedStatsCard({ player, color, loading, error }: { player: Statoriu
   // Show loading state
   if (loading) {
     return (
-      <Card className={`${c.bg} border ${c.border} bg-gray-900/40 backdrop-blur-sm`}>
+      <Card className={`${c.bg} border ${c.border} bg-zinc-900/40 backdrop-blur-sm`}>
         <CardContent className="p-5 flex items-center justify-center h-40">
           <div className="flex flex-col items-center gap-3">
-            <Loader2 className="h-6 w-6 animate-spin text-gray-400" />
-            <span className="text-sm text-gray-500">Loading statistics...</span>
+            <Loader2 className="h-6 w-6 animate-spin text-zinc-400" />
+            <span className="text-sm text-zinc-500">Loading statistics...</span>
           </div>
         </CardContent>
       </Card>
@@ -1156,7 +1110,7 @@ function AnimatedStatsCard({ player, color, loading, error }: { player: Statoriu
   // Show error state
   if (error) {
     return (
-      <Card className={`${c.bg} border ${c.border} bg-gray-900/40 backdrop-blur-sm`}>
+      <Card className={`${c.bg} border ${c.border} bg-zinc-900/40 backdrop-blur-sm`}>
         <CardContent className="p-5 flex items-center justify-center h-40">
           <div className="text-center">
             <AlertTriangle className="h-8 w-8 text-red-500 mx-auto mb-2" />
@@ -1170,11 +1124,11 @@ function AnimatedStatsCard({ player, color, loading, error }: { player: Statoriu
   // Show loading state if player doesn't have stat data yet
   if (!player?.stat || player.stat.length === 0) {
     return (
-      <Card className={`${c.bg} border ${c.border} bg-gray-900/40 backdrop-blur-sm`}>
+      <Card className={`${c.bg} border ${c.border} bg-zinc-900/40 backdrop-blur-sm`}>
         <CardContent className="p-5 flex items-center justify-center h-40">
           <div className="flex flex-col items-center gap-3">
-            <Loader2 className="h-6 w-6 animate-spin text-gray-400" />
-            <span className="text-sm text-gray-500">Loading statistics for {player?.fullName || 'player'}...</span>
+            <Loader2 className="h-6 w-6 animate-spin text-zinc-400" />
+            <span className="text-sm text-zinc-500">Loading statistics for {player?.fullName || 'player'}...</span>
           </div>
         </CardContent>
       </Card>
@@ -1182,7 +1136,7 @@ function AnimatedStatsCard({ player, color, loading, error }: { player: Statoriu
   }
 
   return (
-    <Card className={`${c.bg} border ${c.border} bg-gray-900/40 backdrop-blur-sm hover:${c.bg} transition-all duration-300`}>
+    <Card className={`${c.bg} border ${c.border} bg-zinc-900/40 backdrop-blur-sm hover:${c.bg} transition-all duration-300`}>
       <CardContent className="p-5">
         <div className="grid grid-cols-2 gap-4">
           <div className="flex items-center gap-3">
@@ -1193,7 +1147,7 @@ function AnimatedStatsCard({ player, color, loading, error }: { player: Statoriu
               <div className={`text-2xl font-bold ${c.primary} tracking-tight`}>
                 {animatedValues.goals}
               </div>
-              <div className="text-xs text-gray-500 font-medium">Goals</div>
+              <div className="text-xs text-zinc-500 font-medium">Goals</div>
             </div>
           </div>
 
@@ -1205,31 +1159,31 @@ function AnimatedStatsCard({ player, color, loading, error }: { player: Statoriu
               <div className={`text-2xl font-bold ${c.primary} tracking-tight`}>
                 {animatedValues.assists}
               </div>
-              <div className="text-xs text-gray-500 font-medium">Assists</div>
+              <div className="text-xs text-zinc-500 font-medium">Assists</div>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-gray-700 text-white p-2.5 rounded-xl shadow-lg">
+            <div className="bg-zinc-700 text-white p-2.5 rounded-xl shadow-lg">
               <Activity className="h-5 w-5" />
             </div>
             <div>
               <div className={`text-2xl font-bold ${c.primary} tracking-tight`}>
                 {animatedValues.matches}
               </div>
-              <div className="text-xs text-gray-500 font-medium">Matches</div>
+              <div className="text-xs text-zinc-500 font-medium">Matches</div>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-gray-700 text-white p-2.5 rounded-xl shadow-lg">
+            <div className="bg-zinc-700 text-white p-2.5 rounded-xl shadow-lg">
               <Clock className="h-5 w-5" />
             </div>
             <div>
               <div className={`text-2xl font-bold ${c.primary} tracking-tight`}>
                 {animatedValues.minutes}
               </div>
-              <div className="text-xs text-gray-500 font-medium">Minutes</div>
+              <div className="text-xs text-zinc-500 font-medium">Minutes</div>
             </div>
           </div>
 
@@ -1241,7 +1195,7 @@ function AnimatedStatsCard({ player, color, loading, error }: { player: Statoriu
               <div className={`text-2xl font-bold ${c.primary} tracking-tight`}>
                 {animatedValues.yellowCards}
               </div>
-              <div className="text-xs text-gray-500 font-medium">Yellow Cards</div>
+              <div className="text-xs text-zinc-500 font-medium">Yellow Cards</div>
             </div>
           </div>
 
@@ -1253,7 +1207,7 @@ function AnimatedStatsCard({ player, color, loading, error }: { player: Statoriu
               <div className={`text-2xl font-bold ${c.primary} tracking-tight`}>
                 {animatedValues.redCards}
               </div>
-              <div className="text-xs text-gray-500 font-medium">Red Cards</div>
+              <div className="text-xs text-zinc-500 font-medium">Red Cards</div>
             </div>
           </div>
         </div>
@@ -1277,14 +1231,14 @@ function AdvancedStatsComparison({ player1, player2 }: { player1: StatoriumPlaye
   return (
     <div className="space-y-3">
       {comparisonMetrics.map((metric, index) => (
-        <div key={index} className="flex items-center justify-between p-4 bg-black/60 backdrop-blur-sm rounded-xl border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300">
-          <span className="text-sm font-semibold text-gray-300">{metric.label}</span>
+        <div key={index} className="flex items-center justify-between p-4 bg-zinc-900/60 backdrop-blur-sm rounded-xl border border-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300">
+          <span className="text-sm font-semibold text-zinc-300">{metric.label}</span>
           <div className="flex items-center gap-6">
-            <span className={`text-lg font-bold ${metric.winner === 'p1' ? 'text-[#00ff88]' : 'text-gray-700'}`}>
+            <span className={`text-lg font-bold ${metric.winner === 'p1' ? 'text-green-500' : 'text-zinc-600'}`}>
               {metric.value1}
             </span>
-            <span className="text-gray-800 text-xs uppercase tracking-wider font-semibold">vs</span>
-            <span className={`text-lg font-bold ${metric.winner === 'p2' ? 'text-[#00ff88]' : 'text-gray-700'}`}>
+            <span className="text-zinc-700 text-xs uppercase tracking-wider font-semibold">vs</span>
+            <span className={`text-lg font-bold ${metric.winner === 'p2' ? 'text-emerald-500' : 'text-zinc-600'}`}>
               {metric.value2}
             </span>
           </div>
@@ -1296,10 +1250,8 @@ function AdvancedStatsComparison({ player1, player2 }: { player1: StatoriumPlaye
 
 export default function Page() {
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ backgroundColor: '#0a0f0a' }}>
-      <Suspense fallback={<div>Loading...</div>}>
-        <CompareContent />
-      </Suspense>
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <CompareContent />
+    </Suspense>
   )
 }

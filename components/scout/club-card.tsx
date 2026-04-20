@@ -1,5 +1,4 @@
 import { CompatibilityResult } from '@/lib/engine/scoring'
-import { Card, CardContent } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
 
@@ -11,58 +10,68 @@ interface ClubCardProps {
 }
 
 export function ClubCard({ clubName, leagueName, score, breakdown }: ClubCardProps) {
+  const metrics = [
+    { label: 'Tactical DNA', value: breakdown.tactical },
+    { label: 'Benchmarking', value: breakdown.stats },
+    { label: 'Squad Need', value: breakdown.positional },
+    { label: 'Club Form', value: breakdown.form },
+  ]
+
   return (
-    <Card className="glass-panel overflow-hidden hover:border-emerald-500/50 transition-colors relative">
-      <div className="absolute inset-0 emerald-gradient opacity-10 pointer-events-none" />
-      <CardContent className="p-0">
-        <div className="flex items-center justify-between p-6">
-          <div className="space-y-1">
-            <h3 className="text-xl font-bold text-zinc-50">{clubName}</h3>
-            <p className="text-sm text-zinc-400">{leagueName}</p>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="text-right">
-              <span className="text-4xl font-black text-emerald-500">{score}</span>
-              <p className="text-[10px] uppercase tracking-widest text-zinc-500">Score</p>
-            </div>
-            {score >= 80 && (
-              <Badge className="bg-emerald-500/10 text-emerald-500 border-emerald-500/20 hover:bg-emerald-500/10 h-6">
-                PRO RECOMMENDED
-              </Badge>
-            )}
-          </div>
+    <div className="group relative rounded-xl border-2 border-gray-800/50 bg-black/40 backdrop-blur-xl p-5 shadow-lg hover:border-[#00ff88]/40 hover:shadow-[0_0_30px_rgba(0,255,136,0.1)] transition-all duration-300 h-[220px] flex flex-col">
+      <div className="flex items-start justify-between mb-5 shrink-0">
+        <div className="space-y-1">
+          <h3 className="text-lg font-bold text-white group-hover:text-[#00ff88] transition-colors">
+            {clubName}
+          </h3>
+          <p className="text-xs text-gray-500">{leagueName}</p>
         </div>
-        
-        <div className="bg-zinc-950/50 p-6 pt-2 space-y-4">
-          <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-            <StatRow label="Tactical DNA" value={breakdown.tactical} />
-            <StatRow label="Squad Need" value={breakdown.positional} />
-            <StatRow label="Benchmarking" value={breakdown.stats} />
-            <StatRow label="Club Form" value={breakdown.form} />
-          </div>
-          
-          <div className="flex gap-2 pt-2">
-            <Badge variant="outline" className="text-[10px] border-zinc-800 text-zinc-500 uppercase">
-              High Pressing
-            </Badge>
-            <Badge variant="outline" className="text-[10px] border-zinc-800 text-zinc-500 uppercase">
-              Positional Need
-            </Badge>
-          </div>
+        <div className="flex flex-col items-end">
+          <span className="text-3xl font-black text-[#00ff88] tabular-nums" style={{ textShadow: '0 0 10px rgba(0, 255, 136, 0.3)' }}>
+            {score}
+          </span>
+          <p className="text-[9px] font-semibold text-gray-600 uppercase tracking-widest">Score</p>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+
+      <div className="flex-1">
+        <div className="grid grid-cols-2 gap-x-5 gap-y-3.5">
+          {metrics.map((metric) => (
+            <MetricRow
+              key={metric.label}
+              label={metric.label}
+              value={metric.value}
+            />
+          ))}
+        </div>
+
+        <div className="flex gap-2 mt-4 pt-3 border-t border-gray-800/50 shrink-0">
+          <Badge className="text-[10px] bg-[#00ff88]/5 border-[#00ff88]/20 text-[#00ff88] hover:bg-[#00ff88]/10 px-2 py-0.5 h-5">
+            High Pressing
+          </Badge>
+          <Badge className="text-[10px] bg-[#00ff88]/5 border-[#00ff88]/20 text-[#00ff88] hover:bg-[#00ff88]/10 px-2 py-0.5 h-5">
+            Positional Need
+          </Badge>
+        </div>
+      </div>
+    </div>
   )
 }
 
-function StatRow({ label, value }: { label: string; value: number }) {
+function MetricRow({ label, value }: { label: string; value: number }) {
   return (
     <div className="space-y-1.5">
-      <div className="flex justify-between text-[10px] uppercase tracking-tight text-zinc-400">
-        <span>{label}</span>
-        <span>{value}%</span>
+      <div className="flex justify-between items-baseline">
+        <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-tight">
+          {label}
+        </span>
+        <span className="text-xs font-bold text-[#00ff88] tabular-nums">
+          {value}%
+        </span>
       </div>
-      <Progress value={value} className="h-1 bg-zinc-800" indicatorClassName="bg-emerald-500" />
+      <div className="w-full">
+        <Progress value={value} className="h-1.5 bg-gray-800/50" indicatorClassName="bg-[#00ff88]" />
+      </div>
     </div>
   )
 }
