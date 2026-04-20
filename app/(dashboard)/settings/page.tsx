@@ -44,8 +44,12 @@ export default function SettingsPage() {
   useEffect(() => {
     async function loadUserData() {
       setLoading(true)
+      console.log('Settings: Starting to load user data...')
+
       try {
         const profileData = await getProfileData()
+        console.log('Settings: Profile data received:', profileData)
+
         if (profileData) {
           setUser(profileData as UserProfile)
           setFullName(profileData.full_name || '')
@@ -53,11 +57,16 @@ export default function SettingsPage() {
           setRegion(profileData.region || '')
           setBio(profileData.bio || '')
           setAvatarUrl(profileData.avatar_url || '')
+        } else {
+          console.warn('Settings: No profile data returned, using empty state')
+          setUser(null)
         }
       } catch (error) {
-        console.error('Failed to load user data:', error)
+        console.error('Settings: Failed to load user data:', error)
+        setUser(null)
+      } finally {
+        setLoading(false)
       }
-      setLoading(false)
     }
 
     loadUserData()
