@@ -131,9 +131,14 @@ export async function removeFromWatchlist(playerId: string) {
       return { error: 'User not authenticated' }
     }
 
+    // Update status to 'unfollowed' instead of deleting
     const { error } = await supabase
       .from('watchlist')
-      .delete()
+      .update({
+        status: 'unfollowed',
+        unfollowed_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      })
       .eq('user_id', user.id)
       .eq('player_id', playerId)
 
@@ -142,8 +147,9 @@ export async function removeFromWatchlist(playerId: string) {
       return { error: error.message }
     }
 
-    console.log('removeFromWatchlist: Player removed successfully:', playerId)
+    console.log('removeFromWatchlist: Player unfollowed successfully:', playerId)
     revalidatePath('/watchlist')
+    revalidatePath('/history')
     revalidatePath('/profile')
     revalidatePath('/settings')
     return { success: true }

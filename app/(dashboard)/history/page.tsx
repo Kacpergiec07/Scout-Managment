@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { Search, Plus, Hexagon, ChevronDown } from 'lucide-react'
+import { Search, Plus, Hexagon, ChevronDown, Loader2 } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import {
   Select,
@@ -11,102 +11,23 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { getHistory } from '@/app/actions/history'
 
 export default function HistoryPage() {
   const [searchQuery, setSearchQuery] = React.useState('')
   const [sortBy, setSortBy] = React.useState('date-desc')
+  const [history, setHistory] = React.useState<any[]>([])
+  const [loading, setLoading] = React.useState(true)
 
-  // Updated player data with exact positions and clubs from requirements, using Statorium API photos
-  const history = [
-    {
-      id: '14633',
-      date: '2026-04-15',
-      player: 'Florian Wirtz',
-      club: 'Bayer 04 Leverkusen',
-      league: 'Bundesliga',
-      highScore: 95,
-      nation: 'Germany',
-      pos: 'Attacking Midfield',
-      photo: 'https://api.statorium.com/media/bearleague/bl17158001911496.webp'
-    },
-    {
-      id: '6466',
-      date: '2026-04-15',
-      player: 'Jude Bellingham',
-      club: 'Real Madrid',
-      league: 'La Liga',
-      highScore: 92,
-      nation: 'England',
-      pos: 'Center Central Midfielder',
-      photo: 'https://api.statorium.com/media/bearleague/bl1695891720352.webp'
-    },
-    {
-      id: '53041',
-      date: '2026-04-14',
-      player: 'Lamine Yamal',
-      club: 'FC Barcelona',
-      league: 'La Liga',
-      highScore: 96,
-      nation: 'Spain',
-      pos: 'Right Winger',
-      photo: 'https://api.statorium.com/media/bearleague/bl17322791692175.webp'
-    },
-    {
-      id: '4812',
-      date: '2026-04-13',
-      player: 'Erling Haaland',
-      club: 'Manchester City',
-      league: 'Premier League',
-      highScore: 98,
-      nation: 'Norway',
-      pos: 'Center Forward',
-      photo: 'https://api.statorium.com/media/bearleague/bl17313179872374.webp'
-    },
-    {
-      id: '670',
-      date: '2026-04-13',
-      player: 'Ousmane Dembélé',
-      club: 'PSG',
-      league: 'Ligue 1',
-      highScore: 89,
-      nation: 'France',
-      pos: 'Right Winger',
-      photo: 'https://api.statorium.com/media/bearleague/bl1702304187852.webp'
-    },
-    {
-      id: '1994',
-      date: '2026-04-12',
-      player: 'Kylian Mbappé',
-      club: 'PSG',
-      league: 'Ligue 1',
-      highScore: 97,
-      nation: 'France',
-      pos: 'Center Forward',
-      photo: 'https://api.statorium.com/media/bearleague/bl17023015741660.webp'
-    },
-    {
-      id: '26718',
-      date: '2026-04-12',
-      player: 'Amadou Onana',
-      club: 'Everton',
-      league: 'Premier League',
-      highScore: 85,
-      nation: 'Belgium',
-      pos: 'Central Midfielder',
-      photo: 'https://api.statorium.com/media/bearleague/bl17337166521193.webp'
-    },
-    {
-      id: '3482',
-      date: '2026-04-11',
-      player: 'Lautaro Martinez',
-      club: 'Inter Milan',
-      league: 'Serie A',
-      highScore: 91,
-      nation: 'Argentina',
-      pos: 'Center Forward',
-      photo: 'https://api.statorium.com/media/bearleague/bl1695386805672.webp'
-    },
-  ]
+  React.useEffect(() => {
+    async function loadHistory() {
+      setLoading(true)
+      const data = await getHistory()
+      setHistory(data)
+      setLoading(false)
+    }
+    loadHistory()
+  }, [])
 
   const filteredAndSortedHistory = React.useMemo(() => {
     return history
@@ -269,7 +190,12 @@ export default function HistoryPage() {
 
         {/* Player Cards List */}
         <div className="space-y-3">
-          {filteredAndSortedHistory.length > 0 ? (
+          {loading ? (
+            <div className="py-20 text-center">
+              <Loader2 className="h-8 w-8 animate-spin text-[#00ff88] mx-auto mb-4" />
+              <p className="text-gray-400">Loading history...</p>
+            </div>
+          ) : filteredAndSortedHistory.length > 0 ? (
             filteredAndSortedHistory.map((record, index) => (
               <Link
                 key={record.id}
@@ -344,6 +270,13 @@ export default function HistoryPage() {
             ))
           ) : (
             <div className="py-20 text-center border-2 border-dashed border-gray-800 rounded-xl bg-black/40 backdrop-blur-xl">
+              <div className="w-16 h-16 rounded-full bg-[#00ff88]/10 flex items-center justify-center mx-auto mb-4 border border-[#00ff88]/30">
+                <Search className="h-8 w-8 text-[#00ff88]/50" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-400">No history yet</h3>
+              <p className="text-gray-600 text-sm mt-1">Players you remove from your watchlist will appear here.</p>
+            </div>
+          )}
               <div className="w-16 h-16 rounded-full bg-[#00ff88]/10 flex items-center justify-center mx-auto mb-4 border border-[#00ff88]/30">
                 <Search className="h-8 w-8 text-[#00ff88]/50" />
               </div>

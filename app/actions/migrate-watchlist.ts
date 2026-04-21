@@ -16,7 +16,8 @@ export async function migrateWatchlistSchema() {
       'market_value TEXT',
       'weight TEXT',
       'height TEXT',
-      'age TEXT'
+      'age TEXT',
+      'unfollowed_at TIMESTAMP WITH TIME ZONE'
     ]
 
     let successCount = 0
