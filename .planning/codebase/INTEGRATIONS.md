@@ -6,12 +6,13 @@
 
 **Sports Data:**
 - Statorium API - Football/soccer data provider
-  - SDK/Client: Custom client implementation in `lib/statorium/client.ts`
+  - SDK/Client: Custom client implementation in `src/lib/statorium/client.ts`
   - Auth: STATORIUM_API_KEY environment variable
   - Base URL: https://api.statorium.com/api/v1
   - Features: Player search, team stats, standings, transfers, match data, formations
   - Caching: 3600 seconds (1 hour) via Next.js fetch cache
   - Fallback: Mock data pool for search when API fails
+  - Implementation: `src/lib/statorium/client.ts` with 30+ verified player pool
 
 **AI & Machine Learning:**
 - Z.ai (OpenAI-compatible) - Chat and advisory AI
@@ -19,14 +20,25 @@
   - Auth: ZAI_API_KEY environment variable
   - Base URL: https://api.z.ai/api/coding/paas/v4/
   - Model: glm-4.7 (configurable via ZAI_MODEL)
-  - Use case: Scout AI chatbot in `app/api/chat/route.ts`
+  - Use case: Scout AI chatbot in `src/app/api/chat/route.ts`
   - Streaming responses supported
+  - Implementation: `src/app/actions/ai.ts`
 
 - Anthropic Claude (via AI SDK) - Player valuation and analysis
   - SDK/Client: @ai-sdk/anthropic
   - Auth: ANTHROPIC_API_KEY environment variable
   - Model: claude-3-5-sonnet-20241022
-  - Use case: Transfer fee valuation engine in `app/api/valuation/route.ts`
+  - Use case: Transfer fee valuation engine in `src/app/api/valuation/route.ts`
+  - System prompt: Scout valuation specialist with tactical awareness
+
+**Web Scraping:**
+- Transfermarkt - Football market value data
+  - Implementation: Custom scraper in `src/lib/transfermarkt.ts`
+  - Tools: Axios + Cheerio
+  - Features: Player search, market value extraction
+  - Rate limiting: 1 second delay between requests
+  - Caching: 24 hours via Next.js unstable_cache
+  - User agent spoofing for access
 
 ## Data Storage
 
@@ -34,7 +46,7 @@
 - Supabase (PostgreSQL) - Main database and authentication
   - Connection: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY
   - Client: @supabase/supabase-js, @supabase/ssr
-  - Schema: Custom tables defined in `lib/supabase/schema.sql`
+  - Schema: Custom tables defined in `src/lib/supabase/schema.sql`
   - Tables:
     - profiles - User profiles with stats and preferences
     - watchlist - User-saved players for tracking
@@ -45,9 +57,9 @@
     - Auth users integration
     - Auto-profile creation on signup
     - Trigger-based timestamp updates
-  - Browser client: `lib/supabase/client.ts`
-  - Server client: `lib/supabase/server.ts`
-  - Middleware: `lib/supabase/middleware.ts`
+  - Browser client: `src/lib/supabase/client.ts`
+  - Server client: `src/lib/supabase/server.ts`
+  - Middleware: `src/lib/supabase/middleware.ts`
 
 **File Storage:**
 - No dedicated file storage service detected
@@ -55,6 +67,7 @@
 
 **Caching:**
 - Next.js Data Cache (3600 seconds for Statorium API)
+- Next.js unstable_cache (24 hours for Transfermarkt data)
 - Server-side React state management
 
 ## Authentication & Identity
@@ -62,15 +75,16 @@
 **Auth Provider:**
 - Supabase Auth - Built-in authentication service
   - Implementation: Email/password authentication
-  - Client: `app/auth/actions.ts`
+  - Client: `src/app/auth/actions.ts`
   - Functions:
     - login - User sign in with email/password
     - signup - User registration
     - signOut - User logout
-  - Callback route: `app/auth/callback/route.ts`
+  - Callback route: `src/app/auth/callback/route.ts`
   - Redirect handling: Login with error messages, post-login redirects to dashboard
   - Path revalidation: Automatic cache clearing on auth changes
   - Profile auto-creation: Trigger on auth.users insert
+  - Middleware: `src/middleware.ts` for session refresh
 
 ## Monitoring & Observability
 
@@ -88,6 +102,7 @@
 **Hosting:**
 - Not specified - Compatible with any Next.js hosting platform
 - Likely candidates: Vercel, Netlify, or custom Node.js server
+- Image optimization configured for external domains
 
 **CI Pipeline:**
 - None detected - No CI/CD configuration files found
@@ -110,7 +125,7 @@
 ## Webhooks & Callbacks
 
 **Incoming:**
-- Supabase auth callback: `app/auth/callback/route.ts`
+- Supabase auth callback: `src/app/auth/callback/route.ts`
 
 **Outgoing:**
 - None detected - No outgoing webhooks configured
@@ -125,11 +140,12 @@
 - images.unsplash.com: Stock photography
 - assets.aceternity.com: UI assets
 - unpkg.com: Package assets
+- cdn.futwiz.com: Football imagery
 
 ## Data Flow
 
 **External API Integration Pattern:**
-1. Custom client class wraps external API (`lib/statorium/client.ts`)
+1. Custom client class wraps external API (`src/lib/statorium/client.ts`)
 2. Authentication via constructor injection of API key from environment
 3. Centralized fetch method with error handling and logging
 4. Response normalization and transformation
@@ -137,7 +153,7 @@
 6. Fallback to mock data when API fails (Statorium search with 30+ player pool)
 
 **AI Integration Pattern:**
-1. Route handlers receive requests (`app/api/*`)
+1. Route handlers receive requests (`src/app/api/*`)
 2. Initialize AI SDK client with environment variables
 3. Configure system prompts with context (scouting terminology, data awareness)
 4. Stream or generate responses based on request type
@@ -151,6 +167,13 @@
 4. RLS policies enforce data isolation per user
 5. Triggers auto-create profiles on signup
 6. Functions handle timestamp updates automatically
+
+**Web Scraping Pattern:**
+1. Axios fetch with user agent spoofing
+2. Cheerio DOM parsing
+3. Rate limiting with delays
+4. Caching via Next.js unstable_cache
+5. Error handling with fallback values
 
 ---
 

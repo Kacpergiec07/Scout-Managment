@@ -5,109 +5,112 @@
 ## Languages
 
 **Primary:**
-- TypeScript 5.9.3 - Core application logic and components
-- JavaScript - Used in configuration files
+- TypeScript 5.9.3 - Primary language for all source code (96 TypeScript files)
+- JavaScript (ES2022 target) - Used where dynamic typing is acceptable
 
 **Secondary:**
 - SQL - Database schema definitions and migrations
-- CSS - Tailwind CSS styling with custom extensions
+- CSS - Tailwind CSS imports and custom styling
 
 ## Runtime
 
 **Environment:**
-- Node.js (via TypeScript compilation)
-- Target: ES2022
+- Node.js 18+ - Required runtime environment
+- Next.js 15.1.7 - React framework with App Router
 
 **Package Manager:**
-- npm - Package manager
-- Lockfile: package-lock.json (present)
+- npm - Primary package manager
+- Lockfile: `package-lock.json` present
 
 ## Frameworks
 
 **Core:**
-- Next.js 15.1.7 - React framework with App Router and Server Components
-- React 19.2.4 - UI library
-- React DOM 19.2.4 - React DOM renderer
-
-**AI/ML:**
-- ai 6.0.160 - Vercel AI SDK framework
-- @ai-sdk/anthropic 3.0.69 - Anthropic Claude integration
-- @ai-sdk/openai 3.0.53 - OpenAI-compatible AI SDK
-- @ai-sdk/react 3.0.162 - React hooks for AI SDK
-- @ai-sdk/rsc 2.0.160 - React Server Components for AI SDK
-
-**Authentication & Database:**
-- @supabase/supabase-js 2.103.0 - Supabase client library
-- @supabase/ssr 0.10.2 - Server-side rendering support for Supabase
-
-**UI/3D:**
-- Three.js 0.184.0 - 3D graphics rendering
-- @react-three/fiber 9.6.0 - React renderer for Three.js
-- @react-three/drei 10.7.7 - Useful helpers for react-three-fiber
-- three-globe 2.45.2 - Globe visualization component
-
-**Data Visualization:**
-- recharts 3.8.0 - Charting library
-- leaflet 1.9.4 - Interactive maps
-- react-leaflet 5.0.0 - React components for Leaflet
+- Next.js 15.1.7 - Full-stack React framework with SSR/SSG capabilities
+- React 19.2.4 - UI component library with concurrent features
 
 **Testing:**
-- Not detected - No test framework configured
+- None configured - No test framework detected
 
 **Build/Dev:**
-- TypeScript 5.9.3 - Type checking and compilation
-- Tailwind CSS 4.2.1 - Utility-first CSS framework
-- PostCSS 8 - CSS processing
-- ESLint 9.39.4 - Linting
-- Prettier 3.8.1 - Code formatting
-- tsx 4.21.0 - TypeScript execution
+- Tailwind CSS 4.2.1 - Utility-first CSS framework with PostCSS integration
+- PostCSS 8 - CSS preprocessing pipeline
+- TypeScript 5.9.3 - Static type checking and compilation
+- ESLint 9.39.4 - Code linting with Next.js configuration
+- Prettier 3.8.1 - Code formatting with Tailwind plugin
 
 ## Key Dependencies
 
 **Critical:**
-- @supabase/supabase-js + @supabase/ssr - Handles server-side authentication and database sessions
-- @ai-sdk/openai + @ai-sdk/anthropic - AI capabilities for player analysis and chat
-- next-themes 0.4.6 - Dark mode theming
+- @supabase/ssr 0.10.2 - Server-side rendering integration for Supabase auth
+- @supabase/supabase-js 2.103.0 - Supabase client for database operations
+- @ai-sdk/anthropic 3.0.69 - Anthropic AI SDK integration
+- @ai-sdk/openai 3.0.53 - OpenAI SDK for alternative AI models
+- @ai-sdk/react 3.0.162 - React components for AI streaming responses
+- @ai-sdk/rsc 2.0.160 - React Server Components integration
+- ai 6.0.160 - Vercel AI SDK core
 
 **Infrastructure:**
-- react-hook-form 7.72.1 - Form handling with Zod validation
-- zod 4.3.6 - Schema validation
-- @dnd-kit/core 6.3.1 - Drag and drop functionality
-- html2canvas 1.4.1 - Screenshot generation for reports
-- jspdf 4.2.1 - PDF generation
+- axios 1.15.1 - HTTP client for external API requests
+- cheerio 1.2.0 - Web scraping for Transfermarkt market value data
+- zod 4.3.6 - Schema validation and type inference
+- react-hook-form 7.72.1 - Form state management and validation
+- @hookform/resolvers 5.2.2 - Integration between react-hook-form and Zod
 
 **UI Components:**
-- radix-ui 1.4.3 - Unstyled UI components
+- shadcn 4.2.0 - Radix UI component system
+- @dnd-kit/core 6.3.1 - Drag and drop functionality
+- @dnd-kit/sortable 10.0.0 - Sortable list components
+- @dnd-kit/utilities 3.2.2 - Utilities for DnD operations
 - lucide-react 1.8.0 - Icon library
-- cmdk 1.1.1 - Command palette
-- class-variance-authority 0.7.1 - Component variants
-- clsx 2.1.1 - Conditional classes
-- tailwind-merge 3.5.0 - Tailwind class merging
+- framer-motion 12.38.0 - Animation library
+- cmdk 1.1.1 - Command palette component
+
+**Visualization:**
+- recharts 3.8.0 - Charting and data visualization
+- @react-three/fiber 9.6.0 - React renderer for Three.js
+- @react-three/drei 10.7.7 - Helper components for Three.js
+- three 0.184.0 - 3D graphics library
+- three-globe 2.45.2 - Interactive 3D globe visualization
+- react-leaflet 5.0.0 - Leaflet map integration for React
+- leaflet 1.9.4 - Interactive map library
+- leaflet-curve 1.0.0 - Curve drawing for Leaflet
+
+**Utilities:**
+- jspdf 4.2.1 - PDF generation
+- html2canvas 1.4.1 - HTML to canvas conversion
+- react-markdown 10.1.0 - Markdown rendering
+- next-themes 0.4.6 - Theme switching (dark/light mode)
+- use-debounce 10.1.1 - Debouncing hook
+- clsx 2.1.1 - Conditional class name utility
+- class-variance-authority 0.7.1 - Component variant management
+- tailwind-merge 3.5.0 - Tailwind class merging utility
+- tw-animate-css 1.4.0 - Tailwind animation utilities
 
 ## Configuration
 
 **Environment:**
-- .env.local file present for environment variables
-- Required: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, STATORIUM_API_KEY, ZAI_API_KEY
+- Environment variables configured via `.env.local`
+- Key configs required: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `STATORIUM_API_KEY`, `ANTHROPIC_API_KEY`, `ZAI_API_KEY`
 
 **Build:**
-- next.config.mjs - Next.js configuration with image domains
-- tsconfig.json - TypeScript configuration with path aliases (@/*)
-- eslint.config.mjs - ESLint configuration using Next.js presets
-- postcss.config.mjs - PostCSS configuration for Tailwind CSS
+- `next.config.mjs` - Next.js configuration with image optimization
+- `tsconfig.json` - TypeScript compilation settings
+- `postcss.config.mjs` - PostCSS configuration for Tailwind CSS
+- `eslint.config.mjs` - ESLint configuration with Next.js presets
+- `.prettierrc` - Prettier formatting rules with Tailwind plugin
+- `components.json` - shadcn/radix UI component configuration
 
 ## Platform Requirements
 
 **Development:**
-- Node.js with npm
-- TypeScript 5.9.3
-- Modern browser for development server
+- Node.js 18+ runtime environment
+- npm package manager
+- Modern web browser with ES2022 support
 
 **Production:**
-- Next.js 15.x compatible hosting (Vercel, Netlify, or Node.js server)
-- Supabase PostgreSQL database
-- Statorium API access
-- AI provider API keys (Anthropic/Z.ai)
+- Vercel-compatible deployment target (Next.js optimized)
+- Supabase cloud infrastructure for database and auth
+- External API access: Statorium API, Anthropic AI, Z.ai, Transfermarkt web scraping
 
 ---
 
