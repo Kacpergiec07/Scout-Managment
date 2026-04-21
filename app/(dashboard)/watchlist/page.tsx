@@ -15,7 +15,10 @@ import {
   Loader2,
   ChevronLeft,
 } from "lucide-react"
+<<<<<<< HEAD
 import { MarketValue } from "@/components/scout/market-value"
+=======
+>>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
 import {
   getPlayerDetailsAction,
   searchPlayersAction,
@@ -424,6 +427,7 @@ export default function WatchlistPage() {
                         <span className="text-[10px] font-medium text-muted-foreground uppercase">
                           {player.club}
                         </span>
+<<<<<<< HEAD
                       </div>
                     </div>
                   </div>
@@ -432,6 +436,17 @@ export default function WatchlistPage() {
                     showIcon={false} 
                     className="absolute bottom-3 right-3 origin-right" 
                   />
+=======
+                        <span className="text-[10px] text-muted-foreground/60">
+                          &bull;
+                        </span>
+                        <span className="text-[10px] font-bold text-foreground/80">
+                          {player.marketValue}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+>>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
                 </motion.div>
               ))}
             </>
@@ -521,7 +536,10 @@ export default function WatchlistPage() {
                           {activePlayer.league}
                         </span>
                       </div>
+<<<<<<< HEAD
                       <MarketValue playerName={activePlayer.name} className="px-4 py-1.5 text-base" />
+=======
+>>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
                     </div>
                   </div>
 
@@ -980,11 +998,17 @@ export default function WatchlistPage() {
                                   <span className="text-xs font-black tracking-widest text-green-500 uppercase dark:text-green-500/70">
                                     {player.position}
                                   </span>
+<<<<<<< HEAD
                                   <MarketValue 
                                     playerName={player.name} 
                                     showIcon={false} 
                                     className="scale-75 origin-left h-5 bg-accent border-transparent" 
                                   />
+=======
+                                  <span className="rounded-full bg-accent px-2 py-0.5 text-[10px] font-bold tracking-widest text-muted-foreground uppercase">
+                                    {player.marketValue}
+                                  </span>
+>>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
                                 </div>
                               </div>
                             </div>

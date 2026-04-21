@@ -5,7 +5,10 @@ import { getCompatibilityAnalysis } from '@/app/actions/analysis'
 import { PlayerRadarChart } from '@/components/scout/radar-chart'
 import { RankingList } from '@/components/scout/ranking-list'
 import { ReportButton } from '@/components/scout/report-button'
+<<<<<<< HEAD
 import { MarketValue } from '@/components/scout/market-value'
+=======
+>>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
 import { ScoutProPlayer, Position } from '@/lib/types/player'
 
 import { useSearchParams } from 'next/navigation'
@@ -115,12 +118,18 @@ function AnalysisContent() {
               >
                 {mockPlayer.name}
               </h1>
+<<<<<<< HEAD
               <div className="flex flex-wrap items-center gap-3 mt-2">
                 <p className="text-gray-400 text-base font-medium">
                   {mockPlayer.position} • {mockPlayer.club} • {mockPlayer.league}
                 </p>
                 <MarketValue playerName={mockPlayer.name} className="bg-[#00ff88]/10 text-[#00ff88] border-[#00ff88]/20" />
               </div>
+=======
+              <p className="text-gray-400 text-base mt-2 font-medium">
+                {mockPlayer.position} • {mockPlayer.club} • {mockPlayer.league}
+              </p>
+>>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
             </div>
           </div>
         </div>

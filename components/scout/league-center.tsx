@@ -9,7 +9,10 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Loader2, Trophy, Calendar, Users, ChevronRight, MapPin } from "lucide-react";
 import { getStandingsAction, getMatchesAction, getUpcomingMatchesAction, getTeamDetailsAction } from "@/app/actions/statorium";
 import { StatoriumStanding, StatoriumMatch, StatoriumTeamDetail } from "@/lib/statorium/types";
+<<<<<<< HEAD
 import { MarketValue } from "./market-value";
+=======
+>>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -320,10 +323,14 @@ export function LeagueCenter() {
                                   key={p.playerID} 
                                   className="flex items-center justify-between p-2 rounded-lg hover:bg-accent/20 text-xs border border-transparent hover:border-border transition-all bg-accent/10"
                                 >
+<<<<<<< HEAD
                                   <div className="flex flex-col items-start gap-1">
                                     <span className="text-foreground font-medium">{p.fullName}</span>
                                     <MarketValue playerName={p.fullName} showIcon={false} className="scale-75 origin-left h-4" />
                                   </div>
+=======
+                                  <span className="text-foreground font-medium">{p.fullName}</span>
+>>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
                                   <Badge variant="outline" className="text-[9px] h-4 bg-primary/20 border-primary/50 text-primary uppercase">{p.additionalInfo?.position || p.position || 'N/A'}</Badge>
                                 </Link>
                               ))}
@@ -339,10 +346,14 @@ export function LeagueCenter() {
                                     key={p.playerID} 
                                     className="flex items-center justify-between p-2 rounded-lg hover:bg-accent/20 text-xs border border-transparent hover:border-border transition-all"
                                   >
+<<<<<<< HEAD
                                     <div className="flex flex-col items-start gap-1">
                                       <span className="text-muted-foreground">{p.fullName}</span>
                                       <MarketValue playerName={p.fullName} showIcon={false} className="scale-75 origin-left h-4" />
                                     </div>
+=======
+                                    <span className="text-muted-foreground">{p.fullName}</span>
+>>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
                                     <Badge variant="outline" className="text-[9px] h-4 bg-accent/20 border-border text-muted-foreground uppercase">{p.additionalInfo?.position || p.position || 'N/A'}</Badge>
                                   </Link>
                                 ))}
