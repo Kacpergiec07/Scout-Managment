@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { Search, Plus, Hexagon, ChevronDown, Loader2 } from 'lucide-react'
+import { Search, Plus, Hexagon, ChevronDown, Loader2, RefreshCw } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { MarketValue } from '@/components/scout/market-value'
 import {
@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { getWatchHistory } from '@/app/actions/watchlist'
+import { getWatchHistory, updateWatchlistStatus } from '@/app/actions/watchlist'
 
 export default function HistoryPage() {
   const [searchQuery, setSearchQuery] = React.useState('')
@@ -21,6 +21,7 @@ export default function HistoryPage() {
   const [history, setHistory] = React.useState<any[]>([])
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState<string | null>(null)
+  const [restoringId, setRestoringId] = React.useState<string | null>(null)
 
   // Prevent hydration error by only rendering particles after mount
   React.useEffect(() => {
@@ -111,6 +112,25 @@ export default function HistoryPage() {
         }
       })
   }, [searchQuery, sortBy, history])
+
+  const handleRestore = async (recordId: string, playerName: string) => {
+    setRestoringId(recordId)
+    try {
+      const result = await updateWatchlistStatus(recordId, 'following')
+      if (result.success) {
+        // Remove the player from history list
+        setHistory(prev => prev.filter(item => item.id !== recordId))
+      } else {
+        console.error('Failed to restore player:', result.error)
+        alert(`Failed to restore ${playerName}: ${result.error}`)
+      }
+    } catch (error) {
+      console.error('Error restoring player:', error)
+      alert(`Failed to restore ${playerName}: An unexpected error occurred`)
+    } finally {
+      setRestoringId(null)
+    }
+  }
 
   return (
     <>
@@ -264,74 +284,94 @@ export default function HistoryPage() {
             </div>
           ) : filteredAndSortedHistory.length > 0 ? (
             filteredAndSortedHistory.map((record, index) => (
-              <Link
+              <div
                 key={record.id}
-                href={`/analysis?id=${record.id}&name=${encodeURIComponent(record.player)}&club=${encodeURIComponent(record.club)}&league=${encodeURIComponent(record.league)}&nation=${encodeURIComponent(record.nation || 'Unknown')}&pos=${encodeURIComponent(record.pos)}&photo=${encodeURIComponent(record.photo)}`}
-                className="block group"
+                className={`
+                  racing-border-card relative bg-black/80 backdrop-blur-xl border-2 border-gray-800
+                  rounded-xl p-5 shadow-xl
+                  transition-all duration-300 ease-out
+                  hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#00ff88]/20
+                  hover:border-[#00ff88]/50 hover:bg-black/90
+                  animate-in fade-in slide-in-from-bottom-4
+                `}
+                style={{
+                  animationDelay: `${index * 50}ms`,
+                  '--angle': '0deg'
+                } as React.CSSProperties}
               >
-                <div
-                  className={`
-                    racing-border-card relative bg-black/80 backdrop-blur-xl border-2 border-gray-800
-                    rounded-xl p-5 shadow-xl
-                    transition-all duration-300 ease-out
-                    hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#00ff88]/20
-                    hover:border-[#00ff88]/50 hover:bg-black/90
-                    animate-in fade-in slide-in-from-bottom-4
-                  `}
-                  style={{
-                    animationDelay: `${index * 50}ms`,
-                    '--angle': '0deg'
-                  } as React.CSSProperties}
-                >
-                  <div className="relative flex items-center justify-between">
-                    {/* Left Side - Player Info */}
-                    <div className="flex items-center gap-5">
-                      {/* Avatar */}
-                      <div className="relative">
-                        <div className="relative h-14 w-14 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-[#00ff88] transition-all duration-300 shadow-lg">
-                          <img
-                            src={record.photo}
-                            alt={record.player}
-                            className="object-cover w-full h-full"
-                            onError={(e) => (e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(record.player)}&background=00ff88&color=000&size=56`)}
-                          />
-                        </div>
-                      </div>
-
-                      {/* Player Details */}
-                      <div className="space-y-1">
-                        <h3 className="text-xl font-bold text-white group-hover:text-[#00ff88] transition-colors duration-300 tracking-tight">
-                          {record.player}
-                        </h3>
-                        <div className="flex items-center gap-2 text-sm">
-                          <span className="text-gray-500 group-hover:text-gray-400 transition-colors">
-                            {record.club}
-                          </span>
-                          <span className="text-gray-600 group-hover:text-gray-500 transition-colors">
-                            {record.position}
-                          </span>
-                          <span className="text-gray-700 mx-1">•</span>
-                          <MarketValue playerName={record.player} showIcon={false} className="scale-75 origin-left h-4" />
-                        </div>
+                <div className="relative flex items-center justify-between">
+                  {/* Left Side - Player Info (clickable link) */}
+                  <Link
+                    href={`/analysis?id=${record.id}&name=${encodeURIComponent(record.player)}&club=${encodeURIComponent(record.club)}&league=${encodeURIComponent(record.league)}&nation=${encodeURIComponent(record.nation || 'Unknown')}&pos=${encodeURIComponent(record.pos)}&photo=${encodeURIComponent(record.photo)}`}
+                    className="flex items-center gap-5 flex-1 group"
+                  >
+                    {/* Avatar */}
+                    <div className="relative">
+                      <div className="relative h-14 w-14 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-[#00ff88] transition-all duration-300 shadow-lg">
+                        <img
+                          src={record.photo}
+                          alt={record.player}
+                          className="object-cover w-full h-full"
+                          onError={(e) => (e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(record.player)}&background=00ff88&color=000&size=56`)}
+                        />
                       </div>
                     </div>
 
-                    {/* Right Side - Match Score */}
-                    <div className="flex items-center gap-6">
-                      <div className="text-right space-y-1">
-                        <div className="text-[10px] font-bold text-gray-600 uppercase tracking-wider">
-                          Removed
-                        </div>
-                        <div
-                          className="text-sm font-black tabular-nums text-gray-400"
-                        >
-                          {new Date(record.date).toLocaleDateString()}
-                        </div>
+                    {/* Player Details */}
+                    <div className="space-y-1">
+                      <h3 className="text-xl font-bold text-white group-hover:text-[#00ff88] transition-colors duration-300 tracking-tight">
+                        {record.player}
+                      </h3>
+                      <div className="flex items-center gap-2 text-sm">
+                        <span className="text-gray-500 group-hover:text-gray-400 transition-colors">
+                          {record.club}
+                        </span>
+                        <span className="text-gray-600 group-hover:text-gray-500 transition-colors">
+                          {record.position}
+                        </span>
+                        <span className="text-gray-700 mx-1">•</span>
+                        <MarketValue playerName={record.player} showIcon={false} className="scale-75 origin-left h-4" />
                       </div>
                     </div>
+                  </Link>
+
+                  {/* Right Side - Actions */}
+                  <div className="flex items-center gap-6">
+                    <div className="text-right space-y-1">
+                      <div className="text-[10px] font-bold text-gray-600 uppercase tracking-wider">
+                        Removed
+                      </div>
+                      <div className="text-sm font-black tabular-nums text-gray-400">
+                        {new Date(record.date).toLocaleDateString()}
+                      </div>
+                    </div>
+
+                    {/* Restore Button */}
+                    <button
+                      onClick={() => handleRestore(record.id, record.player)}
+                      disabled={restoringId === record.id}
+                      className="relative group"
+                      title="Restore to watchlist"
+                    >
+                      <div className="absolute inset-0 bg-[#00ff88]/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300" />
+                      <div
+                        className={`
+                          relative h-10 w-10 rounded-full bg-[#00ff88] flex items-center justify-center
+                          shadow-lg shadow-[#00ff88]/20 hover:shadow-[#00ff88]/40
+                          transition-all duration-300
+                          ${restoringId === record.id ? 'opacity-70 cursor-not-allowed' : 'hover:scale-110 active:scale-95'}
+                        `}
+                      >
+                        {restoringId === record.id ? (
+                          <Loader2 className="h-5 w-5 text-black animate-spin" />
+                        ) : (
+                          <RefreshCw className="h-5 w-5 text-black" />
+                        )}
+                      </div>
+                    </button>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))
           ) : (
             <div className="py-20 text-center border-2 border-dashed border-gray-800 rounded-xl bg-black/40 backdrop-blur-xl">
