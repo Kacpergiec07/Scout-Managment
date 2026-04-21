@@ -87,7 +87,23 @@ function PlayerDot({ player, pulse, pos, subs }: { player?: any, pulse?: boolean
           <div className="flex items-center gap-3 mb-2">
             <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
               {player.photo ? (
-                 <img src={player.photo} alt={player.fullName} className="w-full h-full object-cover rounded-full" />
+                 <>
+                   <img
+                     src={player.photo}
+                     alt={player.fullName}
+                     className="w-full h-full object-cover rounded-full"
+                     onError={(e) => {
+                       e.currentTarget.style.display = 'none';
+                       const placeholder = e.currentTarget.parentElement?.querySelector('.placeholder-icon');
+                       if (placeholder) {
+                         (placeholder as HTMLElement).style.display = 'flex';
+                       }
+                     }}
+                   />
+                   <div className="placeholder-icon hidden absolute inset-0 flex items-center justify-center bg-zinc-900/90 rounded-full">
+                     <UserCircle className="w-6 h-6 text-primary" />
+                   </div>
+                 </>
               ) : <UserCircle className="w-6 h-6 text-primary" />}
             </div>
             <div>

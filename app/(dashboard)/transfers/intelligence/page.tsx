@@ -18,9 +18,9 @@ import {
   getPlayersByClubAction,
   getTransfersAction
 } from "@/app/actions/statorium";
-import { 
-  ArrowLeft, BrainCircuit, Globe2, ChevronUp, ChevronDown, ScanEye, Trash2, ArrowLeftRight, Repeat, 
-  ArrowRightLeft, X, Activity, TrendingUp, DollarSign, UserCheck, ShieldCheck, Plus, Loader2 
+import {
+  ArrowLeft, BrainCircuit, Globe2, ChevronUp, ChevronDown, ScanEye, Trash2, ArrowLeftRight, Repeat,
+  ArrowRightLeft, X, Activity, TrendingUp, DollarSign, UserCheck, ShieldCheck, Plus, Loader2, UserCircle
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -713,24 +713,24 @@ export default function TransferIntelligencePage() {
       </div>
 
       <Dialog open={isDiscoveryOpen} onOpenChange={setIsDiscoveryOpen}>
-        <DialogContent className="sm:max-w-[500px] bg-card/95 backdrop-blur-2xl border-border text-foreground rounded-3xl overflow-hidden shadow-2xl">
-          <DialogHeader className="p-6 border-b border-border">
+        <DialogContent className="sm:max-w-[500px] bg-[#0a1a0f]/95 backdrop-blur-2xl border-[#1a2e1f] text-white rounded-3xl overflow-hidden shadow-2xl">
+          <DialogHeader className="p-6 border-b border-[#1a2e1f]">
             <DialogTitle className="text-xl font-black italic tracking-tighter flex items-center gap-3 uppercase">
-              <ScanEye className="w-6 h-6 text-primary" />
+              <ScanEye className="w-6 h-6 text-[#00ff88]" />
               Intelligence Discovery Hub
             </DialogTitle>
           </DialogHeader>
-          
+
           <div className="p-8 space-y-8">
             <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">1. Intelligence Source (League)</label>
+              <label className="text-[10px] font-black uppercase tracking-widest text-[#6b7a6e] ml-1">1. Intelligence Source (League)</label>
               <Select value={selectedLeague} onValueChange={handleLeagueChange}>
-                <SelectTrigger className="bg-accent/40 border-border rounded-2xl h-14 text-foreground focus:ring-primary h-14 font-bold">
+                <SelectTrigger className="bg-[#111c14] border-[#1a2e1f] rounded-xl h-14 text-white focus:ring-[#00ff88] h-14 font-bold">
                   <SelectValue placeholder="Select competitive region..." />
                 </SelectTrigger>
-                <SelectContent className="bg-card border-border text-foreground rounded-2xl">
+                <SelectContent className="bg-[#0a1a0f] border-[#1a2e1f] text-white rounded-xl">
                   {LEAGUES.map(league => (
-                    <SelectItem key={league.id} value={league.id} className="focus:bg-primary/20 focus:text-primary font-bold">
+                    <SelectItem key={league.id} value={league.id} className="focus:bg-[#00ff88]/20 focus:text-[#00ff88] font-bold">
                       <div className="flex items-center gap-2">
                         <span className="text-lg">{league.flag}</span>
                         <span className="font-bold">{league.name}</span>
@@ -742,14 +742,14 @@ export default function TransferIntelligencePage() {
             </div>
  
             <div className={cn("space-y-3 transition-all duration-500", !selectedLeague && "opacity-20 pointer-events-none blur-[2px]")}>
-              <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">2. Target Cluster (Team)</label>
+              <label className="text-[10px] font-black uppercase tracking-widest text-[#6b7a6e] ml-1">2. Target Cluster (Team)</label>
               <Select value={selectedTeam} onValueChange={handleTeamChange}>
-                <SelectTrigger className="bg-accent/40 border-border rounded-2xl h-14 text-foreground focus:ring-primary font-bold">
+                <SelectTrigger className="bg-[#111c14] border-[#1a2e1f] rounded-xl h-14 text-white focus:ring-[#00ff88] font-bold">
                   <SelectValue placeholder={isLoadingDiscovery ? "Initializing node scan..." : "Identify tactical unit..."} />
                 </SelectTrigger>
-                <SelectContent className="bg-card border-border text-foreground rounded-2xl max-h-[300px]">
+                <SelectContent className="bg-[#0a1a0f] border-[#1a2e1f] text-white rounded-xl max-h-[300px]">
                   {leagueTeams.map(team => (
-                    <SelectItem key={team.teamID} value={team.teamID} className="focus:bg-primary/20 focus:text-primary font-bold">
+                    <SelectItem key={team.teamID} value={team.teamID} className="focus:bg-[#00ff88]/20 focus:text-[#00ff88] font-bold">
                       <div className="flex items-center gap-2">
                         {team.teamLogo && <img src={team.teamLogo} className="w-5 h-5 object-contain" />}
                         <span className="font-bold">{team.teamName}</span>
@@ -761,18 +761,40 @@ export default function TransferIntelligencePage() {
             </div>
  
             <div className={cn("space-y-3 transition-all duration-500", !selectedTeam && "opacity-20 pointer-events-none blur-[2px]")}>
-              <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">3. Subject Identification (Player)</label>
+              <label className="text-[10px] font-black uppercase tracking-widest text-[#6b7a6e] ml-1">3. Subject Identification (Player)</label>
               <Select value={selectedPlayer} onValueChange={handlePlayerChange}>
-                <SelectTrigger className="bg-accent/40 border-border rounded-2xl h-14 text-foreground focus:ring-primary font-bold">
+                <SelectTrigger className="bg-[#111c14] border-[#1a2e1f] rounded-xl h-14 text-white focus:ring-[#00ff88] font-bold">
                   <SelectValue placeholder="Select asset signature..." />
                 </SelectTrigger>
-                <SelectContent className="bg-card border-border text-foreground rounded-2xl max-h-[300px]">
+                <SelectContent className="bg-[#0a1a0f] border-[#1a2e1f] text-white rounded-xl max-h-[300px]">
                   {teamPlayers.map(player => (
-                    <SelectItem key={player.id} value={player.id} className="focus:bg-primary/20 focus:text-primary font-bold">
+                    <SelectItem key={player.id} value={player.id} className="focus:bg-[#00ff88]/20 focus:text-[#00ff88] font-bold">
                       <div className="flex items-center gap-2">
-                        {player.photoUrl && <img src={player.photoUrl} className="w-5 h-5 rounded-full object-cover" />}
-                        <span className="font-bold">{player.name}</span>
-                        <Badge variant="outline" className="text-[8px] border-border bg-accent text-muted-foreground">{player.position}</Badge>
+                        {player.photoUrl ? (
+                          <>
+                            <img
+                              src={player.photoUrl}
+                              alt={player.name}
+                              className="w-5 h-5 rounded-full object-cover"
+                              onError={(e) => {
+                                e.currentTarget.style.display = 'none';
+                                const placeholder = e.currentTarget.parentElement?.querySelector('.placeholder-icon');
+                                if (placeholder) {
+                                  (placeholder as HTMLElement).style.display = 'flex';
+                                }
+                              }}
+                            />
+                            <div className="placeholder-icon hidden w-5 h-5 rounded-full bg-zinc-900/90 flex items-center justify-center">
+                              <UserCircle className="w-3 h-3 text-[#6b7a6e]/40" />
+                            </div>
+                          </>
+                        ) : (
+                          <div className="w-5 h-5 rounded-full bg-[#0a1a0f]/90 flex items-center justify-center">
+                            <UserCircle className="w-3 h-3 text-[#6b7a6e]/40" />
+                          </div>
+                        )}
+                        <span className="font-bold text-white">{player.name}</span>
+                        <Badge variant="outline" className="text-[8px] border-[#00ff88] bg-[#00ff88]/10 text-[#00ff88]">{player.position}</Badge>
                       </div>
                     </SelectItem>
                   ))}
@@ -805,11 +827,11 @@ export default function TransferIntelligencePage() {
                 <div className="flex items-center gap-2 mt-1">
                    <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">{hoveredArc.fromTeamName}</span>
                    <div className="w-1.5 h-px bg-white/20" />
-                   <span className="text-[10px] font-bold text-primary uppercase tracking-widest">{hoveredArc.toTeamName}</span>
+                   <span className="text-[10px] font-bold text-[#00ff88] uppercase tracking-widest">{hoveredArc.toTeamName}</span>
                 </div>
                 <div className="mt-2 flex items-center justify-between">
-                   <div className="text-xs font-black text-emerald-400 font-mono tracking-tighter">{hoveredArc.fee}</div>
-                   <div className="px-2 py-0.5 bg-primary/20 rounded-full text-[8px] font-black text-primary uppercase">Market Link</div>
+                   <div className="text-xs font-black text-[#00ff88] font-mono tracking-tighter">{hoveredArc.fee}</div>
+                   <div className="px-2 py-0.5 bg-[#00ff88]/10 rounded-full text-[8px] font-black text-[#00ff88] uppercase">Market Link</div>
                 </div>
              </div>
           </div>

@@ -5,16 +5,17 @@ import dynamic from "next/dynamic";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  Loader2, 
-  ArrowRightLeft, 
-  TrendingUp, 
-  Trash2, 
-  Plus, 
-  Search, 
+import {
+  Loader2,
+  ArrowRightLeft,
+  TrendingUp,
+  Trash2,
+  Plus,
+  Search,
   ChevronDown,
   ChevronUp,
-  Globe
+  Globe,
+  UserCircle
 } from "lucide-react";
 import { getTopLeaguesClubsAction, getPlayersByClubAction, getPlayerPhotosAction } from "@/app/actions/statorium";
 import { geocodeCity, getCachedGeocode } from "@/lib/utils/geocoding";
@@ -410,9 +411,27 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
                         <div className="flex items-center gap-4">
                            <div className="w-12 h-12 rounded-xl bg-accent border border-border overflow-hidden flex items-center justify-center p-2 relative">
                               {t.photoUrl ? (
-                                <img src={t.photoUrl} alt={t.playerName} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                <>
+                                  <img
+                                    src={t.photoUrl}
+                                    alt={t.playerName}
+                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    onError={(e) => {
+                                      e.currentTarget.style.display = 'none';
+                                      const placeholder = e.currentTarget.parentElement?.querySelector('.placeholder-icon');
+                                      if (placeholder) {
+                                        (placeholder as HTMLElement).style.display = 'flex';
+                                      }
+                                    }}
+                                  />
+                                  <div className="placeholder-icon hidden absolute inset-0 flex items-center justify-center bg-zinc-900/90">
+                                    <UserCircle className="w-6 h-6 text-muted-foreground/40" />
+                                  </div>
+                                </>
                               ) : (
-                                <Globe className="w-5 h-5 text-muted-foreground/20" />
+                                <div className="absolute inset-0 flex items-center justify-center bg-zinc-900/90">
+                                  <UserCircle className="w-6 h-6 text-muted-foreground/40" />
+                                </div>
                               )}
                            </div>
                            <div>

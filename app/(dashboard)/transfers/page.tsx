@@ -18,9 +18,9 @@ import {
   getPlayersByClubAction,
   getTransfersAction
 } from "@/app/actions/statorium";
-import { 
-  ArrowLeft, BrainCircuit, Globe2, ChevronUp, ChevronDown, ScanEye, Trash2, ArrowLeftRight, Repeat, 
-  ArrowRightLeft, X, Activity, TrendingUp, DollarSign, UserCheck, ShieldCheck, Plus, Loader2 
+import {
+  ArrowLeft, BrainCircuit, Globe2, ChevronUp, ChevronDown, ScanEye, Trash2, ArrowLeftRight, Repeat,
+  ArrowRightLeft, X, Activity, TrendingUp, DollarSign, UserCheck, ShieldCheck, Plus, Loader2, UserCircle
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -391,31 +391,31 @@ export default function TransfersPage() {
   }, [focusedTransfer]);
 
   return (
-    <div className="relative h-full w-full overflow-hidden bg-background">
+    <div className="relative h-full w-full overflow-hidden bg-[#0a1a0f]">
       {/* Immersive Background Globe */}
-      <div 
+      <div
         onClick={() => { if (focusedTransfer) { setFocusedTransfer(null); setFocusedStats(null); } }}
         className={cn(
           "absolute top-0 bottom-0 w-[140%] z-0 overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]",
-          focusedTransfer 
-            ? "-left-[18%]" 
-            : isExpanded 
-              ? "-left-[40%]" 
+          focusedTransfer
+            ? "-left-[18%]"
+            : isExpanded
+              ? "-left-[40%]"
               : "-left-[20%]",
           focusedTransfer ? "cursor-pointer pointer-events-auto" : ""
         )}
       >
-        <Globe3D 
+        <Globe3D
           markers={globeMarkers}
-          arcs={globeArcs} 
+          arcs={globeArcs}
           focusPoint={focusPoint}
-          className="h-full w-full scale-105" 
+          className="h-full w-full scale-105"
           onArcHover={handleArcHover}
         />
         {/* Cinematic Atmospheric Gradients */}
         <div className={cn(
-          "absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/10 opacity-40 dark:opacity-70 pointer-events-none transition-all duration-1000",
-          focusedTransfer ? "backdrop-blur-sm bg-background/60" : ""
+          "absolute inset-0 bg-gradient-to-t from-[#0a1a0f]/80 via-transparent to-[#0a1a0f]/10 opacity-40 dark:opacity-70 pointer-events-none transition-all duration-1000",
+          focusedTransfer ? "backdrop-blur-sm bg-[#0a1a0f]/60" : ""
         )} />
         <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40 opacity-30 dark:opacity-50 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_50%,var(--color-background)_100%)] opacity-30 dark:opacity-40 pointer-events-none" />
@@ -429,19 +429,19 @@ export default function TransfersPage() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -400, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="absolute top-0 left-0 bottom-0 w-[450px] bg-card/95 backdrop-blur-3xl border-r border-border z-[60] flex flex-col shadow-[20px_0_40px_rgba(0,0,0,0.1)] dark:shadow-[20px_0_40px_rgba(0,0,0,0.2)] pointer-events-auto"
+            className="absolute top-0 left-0 bottom-0 w-[450px] bg-[#0a1a0f]/95 backdrop-blur-3xl border-r border-[#1a2e1f] z-[60] flex flex-col shadow-[20px_0_40px_rgba(0,0,0,0.3)] pointer-events-auto"
           >
             <div className="flex-1 overflow-y-auto no-scrollbar pt-24 px-8 pb-12">
               <div className="flex items-center justify-between mb-8">
-                 <Badge className="bg-primary/20 text-primary border-primary/20 uppercase font-black text-[10px] tracking-widest px-4 py-1.5 rounded-full flex items-center gap-2">
-                    <Activity className="w-3 h-3 animate-pulse" />
+                 <Badge className="bg-[#00ff88]/10 text-[#00ff88] border-[#00ff88]/20 uppercase font-black text-[10px] tracking-widest px-4 py-1.5 rounded-full flex items-center gap-2">
+                    <Activity className="w-3 h-3 animate-pulse text-[#00ff88]" />
                     Neural Deep Scan Active
                  </Badge>
-                 <Button 
+                 <Button
                    onClick={() => { setFocusedTransfer(null); setFocusedStats(null); }}
-                   variant="ghost" 
-                   size="icon" 
-                   className="rounded-full bg-accent hover:bg-rose-500/20 hover:text-rose-500 text-muted-foreground"
+                   variant="ghost"
+                   size="icon"
+                   className="rounded-full bg-[#111c14] hover:bg-rose-500/20 hover:text-rose-500 text-white"
                  >
                     <X className="w-5 h-5" />
                  </Button>
@@ -449,22 +449,22 @@ export default function TransfersPage() {
 
               {/* Transfer Journey Visualizer */}
               <div className="flex items-center justify-center gap-4 mb-12 relative">
-                 <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full" />
-                 <div className="relative z-10 flex items-center gap-6 p-4 bg-accent border border-border rounded-full backdrop-blur-md">
-                    <div className="w-14 h-14 rounded-full bg-background border border-border p-2 shadow-2xl group overflow-hidden">
-                       <img 
-                         src={focusedTransfer.fromTeamLogo || "/globe.svg"} 
-                         className="w-full h-full object-contain group-hover:scale-110 transition-transform" 
+                 <div className="absolute inset-0 bg-[#00ff88]/5 blur-3xl rounded-full" />
+                 <div className="relative z-10 flex items-center gap-6 p-4 bg-[#111c14] border border-[#1a2e1f] rounded-full backdrop-blur-md">
+                    <div className="w-14 h-14 rounded-full bg-[#0a1a0f] border border-[#1a2e1f] p-2 shadow-2xl group overflow-hidden">
+                       <img
+                         src={focusedTransfer.fromTeamLogo || "/globe.svg"}
+                         className="w-full h-full object-contain group-hover:scale-110 transition-transform"
                        />
                     </div>
                     <div className="flex flex-col items-center gap-1">
-                       <ArrowRightLeft className="w-5 h-5 text-primary animate-pulse" />
-                       <div className="text-[8px] font-black text-primary uppercase tracking-[0.2em]">Trajectory</div>
+                       <ArrowRightLeft className="w-5 h-5 text-[#00ff88] animate-pulse" />
+                       <div className="text-[8px] font-black text-[#00ff88] uppercase tracking-[0.2em]">Trajectory</div>
                     </div>
-                    <div className="w-14 h-14 rounded-full bg-background border border-border p-2 shadow-2xl group overflow-hidden border-primary/30">
-                       <img 
-                         src={focusedTransfer.toTeamLogo || "/globe.svg"} 
-                         className="w-full h-full object-contain group-hover:scale-110 transition-transform" 
+                    <div className="w-14 h-14 rounded-full bg-[#0a1a0f] border border-[#00ff88]/30 p-2 shadow-2xl group overflow-hidden">
+                       <img
+                         src={focusedTransfer.toTeamLogo || "/globe.svg"}
+                         className="w-full h-full object-contain group-hover:scale-110 transition-transform"
                        />
                     </div>
                  </div>
@@ -472,66 +472,66 @@ export default function TransfersPage() {
 
               {/* Player Header Card */}
               <div className="relative mb-12 text-center">
-                 <div className="mx-auto relative w-32 h-32 rounded-full bg-background border-2 border-primary/30 p-1 mb-6 overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.3)]">
-                    <img 
-                      src={focusedTransfer.photoUrl} 
-                      className="w-full h-full object-cover rounded-full" 
+                 <div className="mx-auto relative w-32 h-32 rounded-full bg-[#0a1a0f] border-2 border-[#00ff88]/30 p-1 mb-6 overflow-hidden shadow-[0_0_40px_rgba(0,255,136,0.3)]">
+                    <img
+                      src={focusedTransfer.photoUrl}
+                      className="w-full h-full object-cover rounded-full"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a1a0f]/80 via-transparent to-transparent" />
                  </div>
-                 <h2 className="text-4xl font-black text-foreground italic uppercase tracking-tighter leading-tight drop-shadow-2xl">{focusedTransfer.playerName}</h2>
+                 <h2 className="text-4xl font-black text-white italic uppercase tracking-tighter leading-tight drop-shadow-2xl">{focusedTransfer.playerName}</h2>
                  <div className="flex items-center justify-center gap-3 mt-2">
-                    <Badge variant="outline" className="border-border text-muted-foreground uppercase font-black text-[9px] tracking-widest px-3">{focusedTransfer.fromTeamName}</Badge>
-                    <div className="w-4 h-[2px] bg-primary/30" />
-                    <Badge variant="outline" className="border-primary/50 text-foreground uppercase font-black text-[9px] tracking-widest px-3 bg-primary/20">{focusedTransfer.toTeamName}</Badge>
+                    <Badge variant="outline" className="border-[#1a2e1f] text-[#6b7a6e] uppercase font-black text-[9px] tracking-widest px-3 bg-[#111c14]">{focusedTransfer.fromTeamName}</Badge>
+                    <div className="w-4 h-[2px] bg-[#00ff88]/30" />
+                    <Badge variant="outline" className="border-[#00ff88]/50 text-white uppercase font-black text-[9px] tracking-widest px-3 bg-[#00ff88]/10">{focusedTransfer.toTeamName}</Badge>
                  </div>
               </div>
 
               {/* Transfer Metrics Grid */}
               <div className="grid grid-cols-2 gap-4 mb-12">
-                 <div className="bg-accent/40 border border-border rounded-2xl p-6 relative overflow-hidden group">
-                    <DollarSign className="absolute -right-4 -bottom-4 w-16 h-16 text-emerald-500/10 group-hover:scale-125 transition-transform" />
-                    <span className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.2em]">Agreed Fee</span>
-                    <div className="text-3xl font-black text-foreground italic mt-1">{focusedTransfer.fee}</div>
+                 <div className="bg-[#111c14] border border-[#1a2e1f] rounded-xl p-6 relative overflow-hidden group">
+                    <DollarSign className="absolute -right-4 -bottom-4 w-16 h-16 text-[#00ff88]/10 group-hover:scale-125 transition-transform" />
+                    <span className="text-[9px] font-black text-[#6b7a6e] uppercase tracking-[0.2em]">Agreed Fee</span>
+                    <div className="text-3xl font-black text-white italic mt-1">{focusedTransfer.fee}</div>
                  </div>
-                 <div className="bg-accent/40 border border-border rounded-2xl p-6 relative overflow-hidden group">
-                    <TrendingUp className="absolute -right-4 -bottom-4 w-16 h-16 text-primary/10 group-hover:scale-125 transition-transform" />
-                    <span className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.2em]">Market Valuation</span>
-                    <div className="text-3xl font-black text-primary italic mt-1">{focusedTransfer.marketValue}</div>
+                 <div className="bg-[#111c14] border border-[#1a2e1f] rounded-xl p-6 relative overflow-hidden group">
+                    <TrendingUp className="absolute -right-4 -bottom-4 w-16 h-16 text-[#00ff88]/10 group-hover:scale-125 transition-transform" />
+                    <span className="text-[9px] font-black text-[#6b7a6e] uppercase tracking-[0.2em]">Market Valuation</span>
+                    <div className="text-3xl font-black text-[#00ff88] italic mt-1">{focusedTransfer.marketValue}</div>
                  </div>
               </div>
 
               {/* Intelligence Stream (API Stats) */}
               <div className="space-y-6">
-                 <h3 className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em] flex items-center gap-4">
+                 <h3 className="text-[10px] font-black text-[#6b7a6e] uppercase tracking-[0.3em] flex items-center gap-4">
                     Intelligence Stream
-                    <div className="flex-1 h-px bg-border" />
+                    <div className="flex-1 h-px bg-[#1a2e1f]" />
                  </h3>
 
                  {isAnalyzing ? (
                    <div className="space-y-4 py-8">
                      {[1,2,3].map(i => (
-                       <div key={i} className="h-20 bg-accent rounded-2xl animate-pulse" />
+                       <div key={i} className="h-20 bg-[#111c14] border border-[#1a2e1f] rounded-xl animate-pulse" />
                      ))}
-                     <div className="text-center text-[10px] font-black text-muted-foreground animate-pulse uppercase tracking-widest italic mt-8">Decrypting Market Telemetry...</div>
+                     <div className="text-center text-[10px] font-black text-[#6b7a6e] animate-pulse uppercase tracking-widest italic mt-8">Decrypting Market Telemetry...</div>
                    </div>
                  ) : focusedStats ? (
                    <div className="space-y-4">
                       {/* Detailed API Data Mapping */}
-                      <div className="bg-accent/40 border border-border rounded-2xl p-6 hover:border-primary/20 transition-colors">
+                      <div className="bg-[#111c14] border border-[#1a2e1f] rounded-xl p-6 hover:border-[#00ff88]/20 transition-colors">
                          <div className="flex items-center gap-4 mb-6">
-                            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                            <div className="w-10 h-10 rounded-xl bg-[#00ff88]/10 flex items-center justify-center text-[#00ff88]">
                                <ShieldCheck className="w-5 h-5" />
                             </div>
                             <div>
-                               <div className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">Biometric Data</div>
-                               <div className="text-sm font-bold text-foreground uppercase tracking-wider italic">Profile Core</div>
+                               <div className="text-[9px] font-black text-[#00ff88] uppercase tracking-widest">Biometric Data</div>
+                               <div className="text-sm font-bold text-white uppercase tracking-wider italic">Profile Core</div>
                             </div>
                          </div>
                          <div className="grid grid-cols-2 gap-y-4">
                             <div>
-                               <div className="text-[8px] text-muted-foreground uppercase font-bold">Position</div>
-                               <div className="text-xs font-black text-foreground uppercase italic">
+                               <div className="text-[8px] text-[#6b7a6e] uppercase font-bold">Position</div>
+                               <div className="text-xs font-black text-white uppercase italic">
                                  {((pos) => {
                                    const map: Record<string, string> = { "1": "Goalkeeper", "2": "Defender", "3": "Midfielder", "4": "Forward" };
                                    return map[pos] || pos || "N/A";
@@ -539,8 +539,8 @@ export default function TransfersPage() {
                                 </div>
                             </div>
                             <div>
-                               <div className="text-[8px] text-muted-foreground uppercase font-bold">Age</div>
-                               <div className="text-xs font-black text-foreground uppercase italic">
+                               <div className="text-[8px] text-[#6b7a6e] uppercase font-bold">Age</div>
+                               <div className="text-xs font-black text-white uppercase italic">
                                  {focusedStats.additionalInfo?.age || ((birth) => {
                                    if (!birth) return "N/A";
                                    const match = birth.match(/(\d{4})/);
@@ -549,14 +549,14 @@ export default function TransfersPage() {
                                </div>
                             </div>
                             <div>
-                               <div className="text-[8px] text-muted-foreground uppercase font-bold">Nationality</div>
-                               <div className="text-xs font-black text-foreground uppercase italic">
+                               <div className="text-[8px] text-[#6b7a6e] uppercase font-bold">Nationality</div>
+                               <div className="text-xs font-black text-white uppercase italic">
                                  {focusedTransfer.nationality || focusedStats.additionalInfo?.nationality || "International"}
                                </div>
                             </div>
                             <div>
-                               <div className="text-[8px] text-muted-foreground uppercase font-bold">Weight/Height</div>
-                               <div className="text-xs font-black text-foreground uppercase italic">
+                               <div className="text-[8px] text-[#6b7a6e] uppercase font-bold">Weight/Height</div>
+                               <div className="text-xs font-black text-white uppercase italic">
                                  {focusedStats.additionalInfo?.weight || "N/A"} / {focusedStats.additionalInfo?.height || "N/A"}
                                </div>
                             </div>
@@ -565,57 +565,57 @@ export default function TransfersPage() {
 
                       {/* Statistical Aggregates */}
                       {focusedStats.stat && focusedStats.stat.length > 0 && (
-                        <div className="bg-accent/40 border border-border rounded-3xl p-8 hover:border-emerald-500/20 transition-all group">
+                        <div className="bg-[#111c14] border border-[#1a2e1f] rounded-xl p-8 hover:border-[#00ff88]/20 transition-all group">
                            <div className="flex items-center gap-4 mb-8">
-                              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:scale-110 transition-transform">
+                              <div className="w-12 h-12 rounded-2xl bg-[#00ff88]/10 flex items-center justify-center text-[#00ff88] group-hover:scale-110 transition-transform">
                                  <Activity className="w-6 h-6" />
                               </div>
                               <div>
-                                 <div className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em]">Live Performance Data</div>
-                                 <div className="text-lg font-black text-foreground italic uppercase tracking-tight">Season 2024–25 Matrix</div>
+                                 <div className="text-[10px] font-black text-[#00ff88] uppercase tracking-[0.2em]">Live Performance Data</div>
+                                 <div className="text-lg font-black text-white italic uppercase tracking-tight">Season 2024–25 Matrix</div>
                               </div>
                            </div>
-                           
+
                            <div className="grid grid-cols-2 gap-4 font-mono">
-                              <div className="bg-background border border-border rounded-2xl p-4 flex flex-col items-center text-center">
-                                 <span className="text-[8px] font-black text-muted-foreground uppercase tracking-widest mb-1">Appearances</span>
-                                 <span className="text-2xl font-black text-foreground italic">
+                              <div className="bg-[#0a1a0f] border border-[#1a2e1f] rounded-xl p-4 flex flex-col items-center text-center">
+                                 <span className="text-[8px] font-black text-[#6b7a6e] uppercase tracking-widest mb-1">Appearances</span>
+                                 <span className="text-2xl font-black text-white italic">
                                     {focusedStats.stat[0]?.statPlayed || focusedStats.stat[0]?.played || 0}
                                  </span>
                               </div>
-                              <div className="bg-background border border-border rounded-2xl p-4 flex flex-col items-center text-center">
-                                 <span className="text-[8px] font-black text-emerald-600/50 uppercase tracking-widest mb-1">Goals</span>
-                                 <span className="text-2xl font-black text-emerald-600 dark:text-emerald-400 italic">
+                              <div className="bg-[#0a1a0f] border border-[#1a2e1f] rounded-xl p-4 flex flex-col items-center text-center">
+                                 <span className="text-[8px] font-black text-[#00ff88]/50 uppercase tracking-widest mb-1">Goals</span>
+                                 <span className="text-2xl font-black text-[#00ff88] italic">
                                     {focusedStats.stat[0]?.statGoals || focusedStats.stat[0]?.goals || 0}
                                  </span>
                               </div>
-                              <div className="bg-background border border-border rounded-2xl p-4 flex flex-col items-center text-center">
-                                 <span className="text-[8px] font-black text-primary/50 uppercase tracking-widest mb-1">Assists</span>
-                                 <span className="text-2xl font-black text-primary italic">
+                              <div className="bg-[#0a1a0f] border border-[#1a2e1f] rounded-xl p-4 flex flex-col items-center text-center">
+                                 <span className="text-[8px] font-black text-[#00ff88]/50 uppercase tracking-widest mb-1">Assists</span>
+                                 <span className="text-2xl font-black text-[#00ff88] italic">
                                     {focusedStats.stat[0]?.statAssists || focusedStats.stat[0]?.assists || 0}
                                  </span>
                               </div>
-                              <div className="bg-background border border-border rounded-2xl p-4 flex flex-col items-center text-center">
+                              <div className="bg-[#0a1a0f] border border-[#1a2e1f] rounded-xl p-4 flex flex-col items-center text-center">
                                  <span className="text-[8px] font-black text-rose-500/50 uppercase tracking-widest mb-1">Yel/Red Cards</span>
                                  <div className="flex items-center gap-2">
                                     <span className="text-xl font-black text-amber-600 dark:text-amber-400 italic">{focusedStats.stat[0]?.statYellowCards || 0}</span>
-                                    <div className="w-px h-4 bg-border" />
+                                    <div className="w-px h-4 bg-[#1a2e1f]" />
                                     <span className="text-xl font-black text-rose-600 dark:text-rose-500 italic">{focusedStats.stat[0]?.statRedCards || 0}</span>
                                  </div>
                               </div>
                            </div>
 
                            {/* Market Potential Bar */}
-                           <div className="mt-8 pt-6 border-t border-border">
+                           <div className="mt-8 pt-6 border-t border-[#1a2e1f]">
                               <div className="flex items-center justify-between mb-3">
-                                 <span className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">Market Efficiency Rating</span>
-                                 <span className="text-[9px] font-black text-emerald-600 dark:text-emerald-400 uppercase">94% Optimal</span>
+                                 <span className="text-[9px] font-black text-[#6b7a6e] uppercase tracking-widest">Market Efficiency Rating</span>
+                                 <span className="text-[9px] font-black text-[#00ff88] uppercase">94% Optimal</span>
                               </div>
-                              <div className="h-1.5 w-full bg-accent rounded-full overflow-hidden">
-                                 <motion.div 
+                              <div className="h-1.5 w-full bg-[#0a1a0f] rounded-full overflow-hidden">
+                                 <motion.div
                                     initial={{ width: 0 }}
                                     animate={{ width: "94%" }}
-                                    className="h-full bg-gradient-to-r from-primary to-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]"
+                                    className="h-full bg-[#00ff88] shadow-[0_0_10px_rgba(0,255,136,0.3)]"
                                  />
                               </div>
                            </div>
@@ -698,13 +698,13 @@ export default function TransfersPage() {
             ) : (
               <Button
                 onClick={() => setIsExpanded(true)}
-                className="group relative w-16 h-16 rounded-full bg-background/80 backdrop-blur-2xl border border-border text-foreground shadow-2xl hover:scale-110 transition-all duration-500 flex items-center justify-center pointer-events-auto"
+                className="group relative w-16 h-16 rounded-full bg-[#0a1a0f]/80 backdrop-blur-2xl border border-[#1a2e1f] text-[#00ff88] shadow-2xl hover:scale-110 transition-all duration-500 flex items-center justify-center pointer-events-auto"
               >
                 <div className="relative flex items-center justify-center">
-                  <ArrowLeftRight className="w-10 h-10 text-primary group-hover:rotate-12 transition-transform" />
+                  <ArrowLeftRight className="w-10 h-10 text-[#00ff88] group-hover:rotate-12 transition-transform" />
                 </div>
                 {/* Notification Bubble */}
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full border-2 border-background flex items-center justify-center text-[9px] font-black text-white shadow-xl">
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-[#00ff88] rounded-full border-2 border-[#0a1a0f] flex items-center justify-center text-[9px] font-black text-[#0a1a0f] shadow-xl">
                   {transfers.length}
                 </span>
               </Button>
@@ -771,7 +771,29 @@ export default function TransfersPage() {
                   {teamPlayers.map(player => (
                     <SelectItem key={player.id} value={player.id} className="focus:bg-primary/20 focus:text-primary font-bold">
                       <div className="flex items-center gap-2">
-                        {player.photoUrl && <img src={player.photoUrl} className="w-5 h-5 rounded-full object-cover" />}
+                        {player.photoUrl ? (
+                          <>
+                            <img
+                              src={player.photoUrl}
+                              alt={player.name}
+                              className="w-5 h-5 rounded-full object-cover"
+                              onError={(e) => {
+                                e.currentTarget.style.display = 'none';
+                                const placeholder = e.currentTarget.parentElement?.querySelector('.placeholder-icon');
+                                if (placeholder) {
+                                  (placeholder as HTMLElement).style.display = 'flex';
+                                }
+                              }}
+                            />
+                            <div className="placeholder-icon hidden w-5 h-5 rounded-full bg-zinc-900/90 flex items-center justify-center">
+                              <UserCircle className="w-3 h-3 text-muted-foreground/40" />
+                            </div>
+                          </>
+                        ) : (
+                          <div className="w-5 h-5 rounded-full bg-zinc-900/90 flex items-center justify-center">
+                            <UserCircle className="w-3 h-3 text-muted-foreground/40" />
+                          </div>
+                        )}
                         <span className="font-bold">{player.name}</span>
                         <Badge variant="outline" className="text-[8px] border-border bg-accent text-muted-foreground">{player.position}</Badge>
                       </div>
@@ -794,10 +816,10 @@ export default function TransfersPage() {
             transform: 'translate(0, 0)'
           }}
         >
-          <div className="bg-black/90 backdrop-blur-2xl border border-white/20 rounded-2xl p-4 shadow-[0_0_40px_rgba(0,0,0,0.5)] flex items-center gap-4 min-w-[300px] animate-in fade-in zoom-in duration-300">
-             <div className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 p-0.5 overflow-hidden">
-                <img 
-                  src={hoveredArc.photoUrl || "/globe.svg"} 
+          <div className="bg-[#0a1a0f]/90 backdrop-blur-2xl border border-[#1a2e1f] rounded-2xl p-4 shadow-[0_0_40px_rgba(0,0,0,0.5)] flex items-center gap-4 min-w-[300px] animate-in fade-in zoom-in duration-300">
+             <div className="w-16 h-16 rounded-xl bg-[#111c14]/5 border border-[#1a2e1f] p-0.5 overflow-hidden">
+                <img
+                  src={hoveredArc.photoUrl || "/globe.svg"}
                   className="w-full h-full object-cover rounded-lg"
                   alt={hoveredArc.playerName}
                 />
@@ -805,13 +827,13 @@ export default function TransfersPage() {
              <div className="flex-1">
                 <div className="text-xl font-black text-white italic leading-tight uppercase tracking-tighter">{hoveredArc.playerName}</div>
                 <div className="flex items-center gap-2 mt-1">
-                   <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">{hoveredArc.fromTeamName}</span>
-                   <div className="w-1.5 h-px bg-white/20" />
-                   <span className="text-[10px] font-bold text-primary uppercase tracking-widest">{hoveredArc.toTeamName}</span>
+                   <span className="text-[10px] font-bold text-[#6b7a6e]/40 uppercase tracking-widest">{hoveredArc.fromTeamName}</span>
+                   <div className="w-1.5 h-px bg-[#1a2e1f]" />
+                   <span className="text-[10px] font-bold text-[#00ff88] uppercase tracking-widest">{hoveredArc.toTeamName}</span>
                 </div>
                 <div className="mt-2 flex items-center justify-between">
-                   <div className="text-xs font-black text-emerald-400 font-mono tracking-tighter">{hoveredArc.fee}</div>
-                   <div className="px-2 py-0.5 bg-primary/20 rounded-full text-[8px] font-black text-primary uppercase">Market Link</div>
+                   <div className="text-xs font-black text-[#00ff88] font-mono tracking-tighter">{hoveredArc.fee}</div>
+                   <div className="px-2 py-0.5 bg-[#00ff88]/10 rounded-full text-[8px] font-black text-[#00ff88] uppercase">Market Link</div>
                 </div>
              </div>
           </div>

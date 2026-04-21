@@ -6,6 +6,7 @@ import { Bell, Settings, LogOut } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getStandingsAction } from '@/app/actions/statorium'
 import { CardStack, CardStackItem } from '@/components/ui/card-stack'
+import { NotificationsBell } from '@/components/notifications-bell-new'
 
 const LEAGUE_CONFIGS = [
   {
@@ -217,12 +218,7 @@ export default function DashboardPage() {
         </div>
 
         <div className="flex items-center gap-6">
-          <div className="relative cursor-pointer group">
-            <Bell className="w-5 h-5 text-muted-foreground hover:text-green-500 transition-colors" />
-            <span className="absolute -top-1.5 -right-1.5 bg-green-500 text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow-lg">
-              3
-            </span>
-          </div>
+          <NotificationsBell />
         </div>
       </nav>
 

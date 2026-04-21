@@ -9,6 +9,8 @@ export default async function LoginPage({
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
+  const params = await searchParams;
+
   return (
     <div className="flex min-h-svh items-center justify-center p-6 bg-zinc-950 text-zinc-50">
       <Card className="w-full max-w-md bg-zinc-900 border-zinc-800">
@@ -57,14 +59,14 @@ export default async function LoginPage({
               Request Access / Sign Up
             </Button>
             {/* Display errors if any */}
-            {(await searchParams).error && (
+            {params.error && (
               <p className="text-sm text-red-400 text-center w-full">
-                {decodeURIComponent((await searchParams).error as string)}
+                {decodeURIComponent(params.error as string)}
               </p>
             )}
-            {(await searchParams).message && (
+            {params.message && (
               <p className="text-sm text-emerald-400 text-center w-full">
-                {decodeURIComponent((await searchParams).message as string)}
+                {decodeURIComponent(params.message as string)}
               </p>
             )}
           </CardFooter>

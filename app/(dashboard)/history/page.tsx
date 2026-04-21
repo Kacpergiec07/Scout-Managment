@@ -15,6 +15,25 @@ import {
 export default function HistoryPage() {
   const [searchQuery, setSearchQuery] = React.useState('')
   const [sortBy, setSortBy] = React.useState('date-desc')
+  const [mounted, setMounted] = React.useState(false)
+
+  // Prevent hydration error by only rendering particles after mount
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Generate static particle data once
+  const particles = React.useMemo(() => {
+    return [...Array(50)].map((_, i) => ({
+      id: i,
+      width: Math.random() * 4 + 1,
+      height: Math.random() * 4 + 1,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDuration: `${Math.random() * 3 + 2}s`,
+      animationDelay: `${Math.random() * 2}s`
+    }))
+  }, [])
 
   // Updated player data with exact positions and clubs from requirements, using Statorium API photos
   const history = [
@@ -184,22 +203,24 @@ export default function HistoryPage() {
         }}
       >
       {/* Particle background effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-emerald-500/10"
-            style={{
-              width: Math.random() * 4 + 1,
-              height: Math.random() * 4 + 1,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `pulse ${Math.random() * 3 + 2}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
+      {mounted && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {particles.map((particle) => (
+            <div
+              key={particle.id}
+              className="absolute rounded-full bg-emerald-500/10"
+              style={{
+                width: particle.width,
+                height: particle.height,
+                left: particle.left,
+                top: particle.top,
+                animation: `pulse ${particle.animationDuration} ease-in-out infinite`,
+                animationDelay: particle.animationDelay
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">

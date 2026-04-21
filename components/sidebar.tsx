@@ -6,6 +6,7 @@ import { Search, List, History, User, LogOut, Settings, LayoutDashboard, ArrowRi
 import { useTheme } from 'next-themes'
 import { signOut } from '@/app/auth/actions'
 import { useEffect, useState } from 'react'
+import { NotificationsBell } from './notifications-bell-new'
 
 export function Sidebar() {
   const pathname = usePathname()
@@ -41,7 +42,7 @@ export function Sidebar() {
         </Link>
         <div className="flex items-center gap-4 text-muted-foreground mt-2">
           {mounted && (
-            <div 
+            <div
               onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
               className="cursor-pointer hover:text-foreground transition-all duration-300"
             >
@@ -52,11 +53,7 @@ export function Sidebar() {
               )}
             </div>
           )}
-          <div className="relative cursor-pointer group">
-            <Bell className="w-4 h-4 hover:text-foreground transition-colors" />
-            {/* Fake little dot representing unread notifications */}
-            <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full border border-sidebar"></div>
-          </div>
+          <NotificationsBell />
         </div>
       </div>
 

@@ -11,7 +11,6 @@ import {
   StatoriumPlayerBasic,
   StatoriumSeasonStats,
 } from "@/lib/statorium/types"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
   Users,
@@ -24,88 +23,12 @@ import {
   Zap,
   Target,
   Award,
-  Activity,
-  Goal,
-  Clock,
-  AlertTriangle,
   Hexagon,
   X,
   Search,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-
-function extractSeasonStats(player: any): {
-  goals: number
-  assists: number
-  matches: number
-  minutes: number
-  yellowCards: number
-  redCards: number
-  secondYellowCards: number
-  ownGoals: number
-  penaltyGoals: number
-  missedPenalties: number
-} {
-  const defaultStats = {
-    goals: 0,
-    assists: 0,
-    matches: 0,
-    minutes: 0,
-    yellowCards: 0,
-    redCards: 0,
-    secondYellowCards: 0,
-    ownGoals: 0,
-    penaltyGoals: 0,
-    missedPenalties: 0,
-  }
-
-  if (!player) return defaultStats
-
-  const statsArray = player.stat
-
-  if (statsArray && Array.isArray(statsArray) && statsArray.length > 0) {
-    const topTierSeason = statsArray.find((season: any) => {
-      const seasonName = season.season_name || ""
-      const isTopTier =
-        seasonName.includes("Premier League") ||
-        seasonName.includes("La Liga") ||
-        seasonName.includes("Bundesliga") ||
-        seasonName.includes("Serie A") ||
-        seasonName.includes("Ligue 1")
-      const is2024_25 = seasonName.includes("2024-25")
-      return isTopTier && is2024_25
-    })
-
-    const currentStat = topTierSeason || statsArray[0]
-
-    return {
-      goals: parseInt(String(currentStat["Goals"] || currentStat["Goal"] || 0)),
-      assists: parseInt(String(currentStat["Assist"] || 0)),
-      matches: parseInt(String(currentStat["played"] || 0)),
-      minutes: parseInt(String(currentStat["career_minutes"] || 0)),
-      yellowCards: parseInt(String(currentStat["Yellow card"] || 0)),
-      redCards: parseInt(String(currentStat["Red card"] || 0)),
-      secondYellowCards: parseInt(String(currentStat["Second yellow"] || 0)),
-      ownGoals: parseInt(String(currentStat["Own goal"] || 0)),
-      penaltyGoals: parseInt(String(currentStat["Penalty goal"] || 0)),
-      missedPenalties: parseInt(String(currentStat["Missed penalty"] || 0)),
-    }
-  }
-
-  return {
-    goals: player.goals || 0,
-    assists: player.assists || 0,
-    matches: player.matchesPlayed || 0,
-    minutes: player.minutesPlayed || 0,
-    yellowCards: player.yellowCards || 0,
-    redCards: player.redCards || 0,
-    secondYellowCards: 0,
-    ownGoals: 0,
-    penaltyGoals: 0,
-    missedPenalties: 0,
-  }
-}
 
 function CompareContent() {
   const searchParams = useSearchParams()
@@ -117,16 +40,10 @@ function CompareContent() {
   )
   const [allPlayers, setAllPlayers] = React.useState<StatoriumPlayerBasic[]>([])
   const [loading, setLoading] = React.useState(true)
-  const [player1Error, setPlayer1Error] = React.useState<string | null>(null)
-  const [player2Error, setPlayer2Error] = React.useState<string | null>(null)
-  const [loadingDetailed, setLoadingDetailed] = React.useState(false)
 
   React.useEffect(() => {
     async function loadPlayers() {
       setLoading(true)
-      setLoadingDetailed(true)
-      setPlayer1Error(null)
-      setPlayer2Error(null)
 
       try {
         const players = await getAllTop5PlayersAction()
@@ -150,18 +67,13 @@ function CompareContent() {
                     data,
                     name: foundP1.fullName,
                   }))
-                  .catch((error: any) => {
-                    setPlayer1Error("Failed to load player data")
-                    return {
-                      player: 1,
-                      data: null,
-                      name: foundP1.fullName,
-                      error: error.message,
-                    }
-                  })
+                  .catch((error: any) => ({
+                    player: 1,
+                    data: null,
+                    name: foundP1.fullName,
+                    error: error.message,
+                  }))
               )
-            } else {
-              setPlayer1Error("Player not found")
             }
           }
 
@@ -177,18 +89,13 @@ function CompareContent() {
                     data,
                     name: foundP2.fullName,
                   }))
-                  .catch((error: any) => {
-                    setPlayer2Error("Failed to load player data")
-                    return {
-                      player: 2,
-                      data: null,
-                      name: foundP2.fullName,
-                      error: error.message,
-                    }
-                  })
+                  .catch((error: any) => ({
+                    player: 2,
+                    data: null,
+                    name: foundP2.fullName,
+                    error: error.message,
+                  }))
               )
-            } else {
-              setPlayer2Error("Player not found")
             }
           }
 
@@ -206,7 +113,6 @@ function CompareContent() {
         console.error("[Compare] Error loading players:", error)
       } finally {
         setLoading(false)
-        setLoadingDetailed(false)
       }
     }
     loadPlayers()
@@ -296,11 +202,11 @@ function CompareContent() {
       {player1 && player2 ? (
         <div className="animate-in rounded-3xl border border-border bg-card p-8 shadow-2xl backdrop-blur-xl transition-all duration-700 ease-out fade-in slide-in-from-bottom-4 md:p-10">
           <div className="mb-10 flex animate-in items-center gap-4 transition-all delay-100 duration-500 fade-in slide-in-from-left-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#00ff88]/20 bg-gradient-to-br from-[#00ff88]/20 to-[#00cc6a]/10 shadow-lg shadow-[#00ff88]/20 transition-all duration-300 hover:scale-110 hover:shadow-[#00ff88]/40">
-              <ArrowRightLeft className="h-7 w-7 text-[#00ff88]" />
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/20 bg-zinc-800 shadow-lg shadow-cyan-400/20 transition-all duration-300 hover:scale-110 hover:shadow-cyan-400/40">
+              <ArrowRightLeft className="h-7 w-7 text-cyan-400" />
             </div>
             <div>
-              <h2 className="bg-gradient-to-r from-green-400 via-emerald-400 to-green-500 bg-clip-text text-3xl font-black tracking-tighter text-transparent uppercase italic">
+              <h2 className="bg-gradient-to-r from-cyan-400 via-green-400 to-green-500 bg-clip-text text-3xl font-black tracking-tighter text-transparent uppercase italic">
                 Player Comparison Matrix
               </h2>
               <p className="text-[10px] font-black tracking-[0.2em] text-muted-foreground uppercase">
@@ -347,58 +253,11 @@ function CompareContent() {
             />
           </div>
 
-          <div className="mt-10 animate-in rounded-2xl border border-border bg-accent/40 p-6 backdrop-blur-sm transition-all delay-200 duration-500 fade-in slide-in-from-bottom-4">
-            <div className="mb-10 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="rounded-xl border border-[#00ff88]/20 bg-gradient-to-br from-[#00ff88]/10 to-[#00cc6a]/5 p-3 text-[#00ff88]">
-                  <Activity className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold tracking-tight text-foreground uppercase italic">
-                    Season Statistics
-                  </h3>
-                  <p className="text-xs font-black tracking-widest text-muted-foreground uppercase">
-                    Real-time performance data from Statorium API
-                  </p>
-                </div>
-              </div>
-              <Badge
-                variant="outline"
-                className="border-[#00ff88]/30 bg-[#00ff88]/10 text-[10px] font-semibold text-[#00ff88]"
-              >
-                📊 Live Data
-              </Badge>
-            </div>
-
-            <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-              <AnimatedStatsCard
-                player={player1}
-                color="green"
-                loading={loadingDetailed}
-                error={player1Error}
-              />
-              <AnimatedStatsCard
-                player={player2}
-                color="emerald"
-                loading={loadingDetailed}
-                error={player2Error}
-              />
-            </div>
-
-            {player1?.stat && player2?.stat ? (
-              <AdvancedStatsComparison player1={player1} player2={player2} />
-            ) : (
-              <div className="py-8 text-center text-[10px] font-black tracking-widest text-muted-foreground uppercase italic">
-                Loading advanced comparison data...
-              </div>
-            )}
-          </div>
-
           <div className="mt-16 grid grid-cols-2 gap-8">
-            <div className="animate-in rounded-2xl border border-primary/20 bg-primary/5 p-6 backdrop-blur-sm transition-all delay-500 duration-500 fade-in slide-in-from-left-4 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+            <div className="animate-in rounded-2xl border border-cyan-400/20 bg-cyan-400/5 p-6 backdrop-blur-sm transition-all delay-500 duration-500 fade-in slide-in-from-left-4 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/20">
               <div className="mb-4 flex items-center gap-3">
-                <div className="h-3 w-3 animate-pulse rounded-full bg-[#00ff88] shadow-lg shadow-[#00ff88]/50" />
-                <span className="font-bold text-[#00ff88]">
+                <div className="h-3 w-3 animate-pulse rounded-full bg-cyan-400 shadow-lg shadow-cyan-400/50" />
+                <span className="font-bold text-cyan-400">
                   {player1.fullName}
                 </span>
               </div>
@@ -422,16 +281,16 @@ function CompareContent() {
                   )}
                 </div>
                 <div className="flex items-center gap-1.5 text-[10px] font-black tracking-tight text-muted-foreground uppercase">
-                  <Shield className="h-3 w-3 text-green-500" />
+                  <Shield className="h-3 w-3 text-cyan-400" />
                   {player1.teamName || "Free Agent"}
                 </div>
               </div>
             </div>
 
-            <div className="animate-in rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-6 backdrop-blur-sm transition-all delay-600 duration-500 fade-in slide-in-from-right-4 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20">
+            <div className="animate-in rounded-2xl border border-green-400/20 bg-green-400/5 p-6 backdrop-blur-sm transition-all delay-600 duration-500 fade-in slide-in-from-right-4 hover:scale-105 hover:shadow-lg hover:shadow-green-400/20">
               <div className="mb-4 flex items-center gap-3">
-                <div className="h-3 w-3 animate-pulse rounded-full bg-[#00ff88] shadow-lg shadow-[#00ff88]/50" />
-                <span className="font-bold text-[#00ff88]">
+                <div className="h-3 w-3 animate-pulse rounded-full bg-green-400 shadow-lg shadow-green-400/50" />
+                <span className="font-bold text-green-400">
                   {player2.fullName}
                 </span>
               </div>
@@ -455,7 +314,7 @@ function CompareContent() {
                   )}
                 </div>
                 <div className="flex items-center gap-1.5 text-[10px] font-black tracking-tight text-muted-foreground uppercase">
-                  <Shield className="h-3 w-3 text-emerald-500" />
+                  <Shield className="h-3 w-3 text-green-400" />
                   {player2.teamName || "Free Agent"}
                 </div>
               </div>
@@ -476,7 +335,6 @@ function CompareContent() {
 
 function calculateScore(player: StatoriumPlayerBasic, type: string): number {
   const position = player.position?.toUpperCase() || ""
-  const stats = extractSeasonStats(player)
 
   const getTeamStrength = (teamName?: string): number => {
     if (!teamName) return 50
@@ -559,44 +417,26 @@ function calculateScore(player: StatoriumPlayerBasic, type: string): number {
   switch (type) {
     case "technical":
       score = getPositionScore(position, "technical")
-      if (stats.matches > 0) {
-        const contributionsPerMatch =
-          (stats.goals + stats.assists) / stats.matches
-        score += Math.min(20, contributionsPerMatch * 30)
-        if (stats.penaltyGoals > 0) score += Math.min(5, stats.penaltyGoals * 2)
-      }
-      score += (hash % 10) - 5
+      score += (hash % 15) - 7
       break
 
     case "physical":
       score = getPositionScore(position, "physical")
-      if (stats.minutes > 500) score += Math.min(10, stats.minutes / 1000)
-      if (stats.matches >= 20) score += 5
-      else if (stats.matches >= 10) score += 2
       const ageBonus = age < 25 ? (25 - age) * 2 : age > 30 ? (age - 30) * 3 : 0
       score = Math.max(score, 75 - ageBonus)
-      score += (hash % 8) - 4
+      score += (hash % 12) - 6
       break
 
     case "tactical":
       score = getPositionScore(position, "tactical")
-      if (stats.matches > 0) {
-        const cardsPerMatch =
-          (stats.yellowCards + stats.redCards * 3) / stats.matches
-        score += Math.max(0, 10 - cardsPerMatch * 20)
-        if (stats.secondYellowCards === 0 && stats.matches > 10) score += 3
-      }
       score = Math.min(95, score + (age > 28 ? (age - 28) * 2 : 0))
-      score += (hash % 8) - 4
+      score += (hash % 12) - 6
       break
 
     case "market":
       score = teamStrength
       if (age < 25) score += (25 - age) * 2
-      if (stats.goals > 0) score += Math.min(10, stats.goals)
-      if (stats.assists > 0) score += Math.min(5, stats.assists)
-      if (stats.penaltyGoals > 0) score += Math.min(3, stats.penaltyGoals)
-      if (stats.matches >= 25) score += 5
+      if (age >= 20 && age <= 28) score += 10
       const topTeams = ["Man City", "Real Madrid", "Barcelona", "Bayern", "PSG"]
       if (
         player.teamName &&
@@ -605,7 +445,7 @@ function calculateScore(player: StatoriumPlayerBasic, type: string): number {
         )
       )
         score += 10
-      score += (hash % 10) - 5
+      score += (hash % 15) - 7
       break
 
     case "recruitment":
@@ -688,7 +528,7 @@ function ComparisonRow({
       <div className="mb-4 flex items-start justify-between">
         <div className="flex items-center gap-4">
           <div
-            className={`rounded-xl border border-[#00ff88]/20 bg-gradient-to-br from-[#00ff88]/10 to-[#00cc6a]/5 p-3 text-[#00ff88] transition-all duration-500 ${isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}
+            className={`rounded-xl border border-cyan-400/20 bg-zinc-800 p-3 text-cyan-400 transition-all duration-500 ${isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}
           >
             {icon}
           </div>
@@ -705,7 +545,7 @@ function ComparisonRow({
         </div>
         <div className="flex items-center gap-6 font-mono text-sm font-black tabular-nums">
           <span
-            className={`text-2xl transition-all duration-300 ${winner === "p1" ? "scale-110 text-green-500 drop-shadow-lg drop-shadow-green-500/50" : "text-muted-foreground/30"}`}
+            className={`text-2xl transition-all duration-300 ${winner === "p1" ? "scale-110 text-cyan-400 drop-shadow-lg drop-shadow-cyan-400/50" : "text-muted-foreground/30"}`}
           >
             {animatedP1}%
           </span>
@@ -713,34 +553,32 @@ function ComparisonRow({
             vs
           </span>
           <span
-            className={`text-2xl transition-all duration-300 ${winner === "p2" ? "scale-110 text-emerald-500 drop-shadow-lg drop-shadow-emerald-500/50" : "text-muted-foreground/30"}`}
+            className={`text-2xl transition-all duration-300 ${winner === "p2" ? "scale-110 text-green-400 drop-shadow-lg drop-shadow-green-400/50" : "text-muted-foreground/30"}`}
           >
             {animatedP2}%
           </span>
         </div>
       </div>
 
-      <div className="relative h-6 overflow-hidden rounded-full border border-border bg-accent/50 shadow-inner backdrop-blur-sm">
+      <div className="relative h-6 overflow-hidden rounded-full border border-border bg-zinc-800 shadow-inner backdrop-blur-sm">
         <div
-          className={`absolute top-0 left-0 h-full transition-all duration-1000 ease-out ${winner === "p1" ? "rounded-l-full rounded-r-none shadow-lg shadow-[#00ff88]/30" : ""} bg-gradient-to-r from-[#00ff88] via-[#00cc6a] to-[#00aa55]`}
+          className="absolute top-0 left-0 h-full transition-all duration-1000 ease-out bg-cyan-400"
           style={{ width: `${animatedP1}%` }}
         />
         <div
-          className={`absolute top-0 right-0 h-full transition-all duration-1000 ease-out ${winner === "p2" ? "rounded-l-none rounded-r-full shadow-lg shadow-[#00ff88]/30" : ""} bg-gradient-to-l from-[#00aa55] via-[#00cc6a] to-[#00ff88]`}
-          style={{ width: `${animatedP2}%` }}
+          className="absolute top-0 right-0 h-full transition-all duration-1000 ease-out bg-green-400"
+          style={{ width: `${100 - animatedP1}%` }}
         />
-        {winner !== "tie" && (
-          <div
-            className="absolute top-1/2 z-10 h-7 w-1.5 -translate-y-1/2 rounded-full bg-white/90 shadow-lg backdrop-blur-sm transition-all duration-1000 ease-out"
-            style={{ left: `calc(${animatedP1}% - 3px)` }}
-          />
-        )}
+        <div
+          className="absolute top-0 h-full w-[2px] bg-white/90 shadow-lg"
+          style={{ left: `${animatedP2}%` }}
+        />
       </div>
 
       <div className="mt-3 flex justify-between text-[10px] font-black tracking-[0.3em] uppercase italic">
         <span
           className={
-            winner === "p1" ? "text-green-500" : "text-muted-foreground/30"
+            winner === "p1" ? "text-cyan-400" : "text-muted-foreground/30"
           }
         >
           {animatedP1 >= 85
@@ -753,7 +591,7 @@ function ComparisonRow({
         </span>
         <span
           className={
-            winner === "p2" ? "text-emerald-500" : "text-muted-foreground/30"
+            winner === "p2" ? "text-green-400" : "text-muted-foreground/30"
           }
         >
           {animatedP2 >= 85
@@ -810,7 +648,7 @@ function PlayerSelector({
         }}
         onFocus={() => setOpen(true)}
         onBlur={() => setTimeout(() => setOpen(false), 200)}
-        className="w-full rounded-xl border border-border bg-accent/40 px-4 py-3 text-foreground placeholder-muted-foreground backdrop-blur-sm transition-all duration-300 hover:border-primary/50 focus:ring-2 focus:ring-primary/50 focus:outline-none"
+        className="w-full rounded-xl border border-border bg-zinc-800 px-4 py-3 text-white placeholder-zinc-400 transition-all duration-300 hover:border-primary/50 focus:ring-2 focus:ring-primary/50 focus:outline-none"
       />
 
       {open && (
@@ -832,7 +670,7 @@ function PlayerSelector({
                 }}
                 className="group flex w-full items-center gap-4 border-b border-border/50 p-4 text-left transition-all duration-300 last:border-0 hover:bg-accent/80"
               >
-                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-border bg-accent shadow-lg transition-all duration-300 group-hover:border-primary/50">
+                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-border bg-zinc-800 shadow-lg transition-all duration-300 group-hover:border-primary/50">
                   {player.playerPhoto || player.photo ? (
                     <Image
                       src={
@@ -844,10 +682,21 @@ function PlayerSelector({
                       fill
                       unoptimized
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      onError={(e) => {
+                        const img = e.currentTarget;
+                        const parent = img.parentElement;
+                        if (parent && !parent.querySelector('.placeholder-icon')) {
+                          const placeholder = document.createElement('div');
+                          placeholder.className = 'placeholder-icon absolute inset-0 flex h-full w-full items-center justify-center bg-zinc-800';
+                          placeholder.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 text-zinc-500"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
+                          img.remove();
+                          parent.appendChild(placeholder);
+                        }
+                      }}
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-accent text-xl font-black text-muted-foreground/30 uppercase italic">
-                      {player.fullName.split(" ").slice(-1)[0][0]}
+                    <div className="absolute inset-0 flex h-full w-full items-center justify-center bg-zinc-800">
+                      <UserCircle className="h-10 w-10 text-zinc-500" />
                     </div>
                   )}
                 </div>
@@ -945,21 +794,28 @@ function PlayerCard({
       <div className="relative flex h-60 w-full items-center justify-center bg-gradient-to-b from-accent/50 to-card">
         <div className="relative h-40 w-40 overflow-hidden rounded-2xl border-2 border-border shadow-2xl">
           {!imageError && (player.playerPhoto || player.photo) ? (
-            <Image
-              src={
-                player.playerPhoto ||
-                player.photo ||
-                `https://api.statorium.com/media/bearleague/bl${player.playerID}.webp`
-              }
-              alt={player.fullName}
-              fill
-              unoptimized
-              className="object-contain transition-transform duration-700 group-hover:scale-110"
-              onError={() => setImageError(true)}
-            />
+            <>
+              <Image
+                src={
+                  player.playerPhoto ||
+                  player.photo ||
+                  `https://api.statorium.com/media/bearleague/bl${player.playerID}.webp`
+                }
+                alt={player.fullName}
+                fill
+                unoptimized
+                className="object-contain transition-transform duration-700 group-hover:scale-110"
+                onError={() => setImageError(true)}
+              />
+              {imageError && (
+                <div className="absolute inset-0 flex h-full w-full items-center justify-center bg-zinc-900/95 text-muted-foreground/40">
+                  <UserCircle className="h-20 w-20" />
+                </div>
+              )}
+            </>
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-accent">
-              <UserCircle className="h-16 w-16 text-muted-foreground/20" />
+            <div className="flex h-full w-full items-center justify-center bg-zinc-900/95 text-muted-foreground/40">
+              <UserCircle className="h-20 w-20" />
             </div>
           )}
         </div>
@@ -996,322 +852,6 @@ function PlayerCard({
       </div>
 
       <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-[#00ff88]/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-    </div>
-  )
-}
-
-function AnimatedStatsCard({
-  player,
-  color,
-  loading,
-  error,
-}: {
-  player: StatoriumPlayerBasic | null
-  color: "green" | "emerald"
-  loading?: boolean
-  error?: string | null
-}) {
-  const [isVisible, setIsVisible] = React.useState(false)
-  const [animatedValues, setAnimatedValues] = React.useState({
-    goals: 0,
-    assists: 0,
-    matches: 0,
-    minutes: 0,
-    yellowCards: 0,
-    redCards: 0,
-    secondYellowCards: 0,
-    ownGoals: 0,
-    penaltyGoals: 0,
-    missedPenalties: 0,
-  })
-
-  React.useEffect(() => {
-    if (player) {
-      const stats = extractSeasonStats(player)
-      setIsVisible(true)
-      const duration = 1500
-      const steps = 60
-      let step = 0
-      const animate = () => {
-        step++
-        const easeProgress = 1 - Math.pow(1 - step / steps, 3)
-        setAnimatedValues({
-          goals: Math.round(stats.goals * easeProgress),
-          assists: Math.round(stats.assists * easeProgress),
-          matches: Math.round(stats.matches * easeProgress),
-          minutes: Math.round(stats.minutes * easeProgress),
-          yellowCards: Math.round(stats.yellowCards * easeProgress),
-          redCards: Math.round(stats.redCards * easeProgress),
-          secondYellowCards: Math.round(stats.secondYellowCards * easeProgress),
-          ownGoals: Math.round(stats.ownGoals * easeProgress),
-          penaltyGoals: Math.round(stats.penaltyGoals * easeProgress),
-          missedPenalties: Math.round(stats.missedPenalties * easeProgress),
-        })
-        if (step < steps) setTimeout(animate, duration / steps)
-        else setAnimatedValues(stats)
-      }
-      animate()
-    }
-  }, [player])
-
-  const c = {
-    primary: "text-[#00ff88]",
-    bg: "bg-[#00ff88]/10",
-    border: "border-[#00ff88]/20",
-    accent: "bg-[#00ff88]",
-    glow: "shadow-[#00ff88]/20",
-  }
-
-  if (loading) {
-    return (
-      <Card
-        className={`${c.bg} border ${c.border} bg-accent/40 backdrop-blur-sm`}
-      >
-        <CardContent className="flex h-40 items-center justify-center p-5">
-          <div className="flex flex-col items-center gap-3">
-            <Loader2 className="h-6 w-6 animate-spin text-primary" />
-            <span className="text-sm font-black tracking-widest text-muted-foreground uppercase">
-              Loading statistics...
-            </span>
-          </div>
-        </CardContent>
-      </Card>
-    )
-  }
-
-  if (error) {
-    return (
-      <Card
-        className={`${c.bg} border ${c.border} bg-accent/40 backdrop-blur-sm`}
-      >
-        <CardContent className="flex h-40 items-center justify-center p-5">
-          <div className="text-center">
-            <AlertTriangle className="mx-auto mb-2 h-8 w-8 text-red-500" />
-            <span className="text-sm font-bold text-red-500 uppercase">
-              {error}
-            </span>
-          </div>
-        </CardContent>
-      </Card>
-    )
-  }
-
-  if (!player?.stat || player.stat.length === 0) {
-    return (
-      <Card
-        className={`${c.bg} border ${c.border} bg-accent/40 backdrop-blur-sm`}
-      >
-        <CardContent className="flex h-40 items-center justify-center p-5">
-          <div className="flex flex-col items-center gap-3">
-            <Loader2 className="h-6 w-6 animate-spin text-primary" />
-            <span className="text-sm font-black tracking-widest text-muted-foreground uppercase italic">
-              Loading data for {player?.fullName || "player"}...
-            </span>
-          </div>
-        </CardContent>
-      </Card>
-    )
-  }
-
-  const statItems = [
-    {
-      icon: <Goal className="h-5 w-5" />,
-      value: animatedValues.goals,
-      label: "Goals",
-      colorClass: c.primary,
-      bgClass: c.accent,
-    },
-    {
-      icon: <Target className="h-5 w-5" />,
-      value: animatedValues.assists,
-      label: "Assists",
-      colorClass: c.primary,
-      bgClass: c.accent,
-    },
-    {
-      icon: <Activity className="h-5 w-5" />,
-      value: animatedValues.matches,
-      label: "Matches",
-      colorClass: c.primary,
-      bgClass: "bg-secondary",
-    },
-    {
-      icon: <Clock className="h-5 w-5" />,
-      value: animatedValues.minutes,
-      label: "Minutes",
-      colorClass: c.primary,
-      bgClass: "bg-secondary",
-    },
-    {
-      icon: <Shield className="h-5 w-5" />,
-      value: animatedValues.yellowCards,
-      label: "Yellow Cards",
-      colorClass: "text-yellow-600 dark:text-yellow-500",
-      bgClass: "bg-yellow-500/10",
-    },
-    {
-      icon: <AlertTriangle className="h-5 w-5" />,
-      value: animatedValues.redCards,
-      label: "Red Cards",
-      colorClass: "text-red-600 dark:text-red-500",
-      bgClass: "bg-red-500/10",
-    },
-  ]
-
-  return (
-    <Card
-      className={`${c.bg} border ${c.border} bg-accent/40 backdrop-blur-sm hover:${c.bg} shadow-xl transition-all duration-300`}
-    >
-      <CardContent className="p-5">
-        <div className="grid grid-cols-2 gap-4">
-          {statItems.map((item, i) => (
-            <div key={i} className="flex items-center gap-3">
-              <div
-                className={`${item.bgClass} rounded-xl border border-primary/20 p-2.5 text-primary shadow-lg`}
-              >
-                {item.icon}
-              </div>
-              <div>
-                <div
-                  className={`text-2xl font-black italic ${item.colorClass} font-mono tracking-tighter tabular-nums`}
-                >
-                  {item.value}
-                </div>
-                <div className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
-                  {item.label}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
-  )
-}
-
-function AdvancedStatsComparison({
-  player1,
-  player2,
-}: {
-  player1: StatoriumPlayerBasic
-  player2: StatoriumPlayerBasic
-}) {
-  const stats1 = extractSeasonStats(player1)
-  const stats2 = extractSeasonStats(player2)
-
-  const comparisonMetrics = [
-    {
-      label: "Goals per Match",
-      value1:
-        stats1.matches > 0
-          ? (stats1.goals / stats1.matches).toFixed(2)
-          : "0.00",
-      value2:
-        stats2.matches > 0
-          ? (stats2.goals / stats2.matches).toFixed(2)
-          : "0.00",
-      winner:
-        stats1.matches > 0 && stats2.matches > 0
-          ? stats1.goals / stats1.matches > stats2.goals / stats2.matches
-            ? "p1"
-            : "p2"
-          : "tie",
-    },
-    {
-      label: "Assists per Match",
-      value1:
-        stats1.matches > 0
-          ? (stats1.assists / stats1.matches).toFixed(2)
-          : "0.00",
-      value2:
-        stats2.matches > 0
-          ? (stats2.assists / stats2.matches).toFixed(2)
-          : "0.00",
-      winner:
-        stats1.matches > 0 && stats2.matches > 0
-          ? stats1.assists / stats1.matches > stats2.assists / stats2.matches
-            ? "p1"
-            : "p2"
-          : "tie",
-    },
-    {
-      label: "Minutes per Match",
-      value1:
-        stats1.matches > 0 ? Math.round(stats1.minutes / stats1.matches) : 0,
-      value2:
-        stats2.matches > 0 ? Math.round(stats2.minutes / stats2.matches) : 0,
-      winner:
-        stats1.matches > 0 && stats2.matches > 0
-          ? stats1.minutes / stats1.matches > stats2.minutes / stats2.matches
-            ? "p1"
-            : "p2"
-          : "tie",
-    },
-    {
-      label: "Discipline Rate",
-      value1:
-        stats1.matches > 0
-          ? (
-              (stats1.yellowCards + stats1.redCards * 3) /
-              stats1.matches
-            ).toFixed(2)
-          : "0.00",
-      value2:
-        stats2.matches > 0
-          ? (
-              (stats2.yellowCards + stats2.redCards * 3) /
-              stats2.matches
-            ).toFixed(2)
-          : "0.00",
-      winner:
-        stats1.matches > 0 && stats2.matches > 0
-          ? (stats1.yellowCards + stats1.redCards * 3) / stats1.matches <
-            (stats2.yellowCards + stats2.redCards * 3) / stats2.matches
-            ? "p1"
-            : "p2"
-          : "tie",
-    },
-    {
-      label: "Penalty Success",
-      value1:
-        stats1.penaltyGoals > 0
-          ? `${stats1.penaltyGoals}/${stats1.penaltyGoals + stats1.missedPenalties}`
-          : "N/A",
-      value2:
-        stats2.penaltyGoals > 0
-          ? `${stats2.penaltyGoals}/${stats2.penaltyGoals + stats2.missedPenalties}`
-          : "N/A",
-      winner: "tie",
-    },
-  ]
-
-  return (
-    <div className="space-y-3">
-      {comparisonMetrics.map((metric, index) => (
-        <div
-          key={index}
-          className="flex items-center justify-between rounded-xl border border-border bg-card/60 p-4 backdrop-blur-sm transition-all duration-300 hover:border-primary/20"
-        >
-          <span className="text-sm font-black tracking-tight text-foreground uppercase">
-            {metric.label}
-          </span>
-          <div className="flex items-center gap-6 font-mono">
-            <span
-              className={`text-lg font-black ${metric.winner === "p1" ? "text-green-600 dark:text-green-500" : "text-muted-foreground"}`}
-            >
-              {metric.value1}
-            </span>
-            <span className="text-[10px] font-black tracking-wider text-muted-foreground/30 uppercase">
-              vs
-            </span>
-            <span
-              className={`text-lg font-black ${metric.winner === "p2" ? "text-emerald-600 dark:text-emerald-500" : "text-muted-foreground"}`}
-            >
-              {metric.value2}
-            </span>
-          </div>
-        </div>
-      ))}
     </div>
   )
 }

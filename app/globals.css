@@ -15,11 +15,11 @@
     --color-sidebar-primary: var(--sidebar-primary);
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar: var(--sidebar);
-    --color-chart-5: var(--chart-5);
-    --color-chart-4: var(--chart-4);
-    --color-chart-3: var(--chart-3);
-    --color-chart-2: var(--chart-2);
-    --color-chart-1: var(--chart-1);
+    --color-chart5: var(--chart5);
+    --color-chart4: var(--chart4);
+    --color-chart3: var(--chart3);
+    --color-chart2: var(--chart2);
+    --color-chart1: var(--chart1);
     --color-ring: var(--ring);
     --color-input: var(--input);
     --color-border: var(--border);
@@ -40,17 +40,17 @@
     --color-background: var(--background);
     --radius-sm: calc(var(--radius) * 0.6);
     --radius-md: calc(var(--radius) * 0.8);
-    --radius-lg: var(--radius);
+    --radius-lg: calc(var(--radius) * 1.4);
     --radius-xl: calc(var(--radius) * 1.4);
-    --radius-2xl: calc(var(--radius) * 1.8);
-    --radius-3xl: calc(var(--radius) * 2.2);
-    --radius-4xl: calc(var(--radius) * 2.6);
+    --radius-2xl: calc(var(--radius) * 2.2);
+    --radius-3xl: calc(var(--radius) * 2.6);
+    --radius-4xl: calc(var(--radius) * 3.0);
     --color-chart-emerald: var(--chart-emerald);
-    --color-emerald-500: oklch(0.696 0.17 162.48);
-    --color-emerald-600: oklch(0.577 0.155 162.48);
+    --color-emerald-500: rgb(0, 96, 0);
+    --color-emerald-600: rgb(0, 77, 0);
 }
 
-:root {
+root {
     --background: #ffffff;
     --foreground: #09090b;
     --card: #ffffff;
@@ -69,18 +69,16 @@
     --border: #e4e4e7;
     --input: #e4e4e7;
     --ring: #18181b;
-    --chart-1: #e11d48;
-    --chart-2: #2563eb;
-    --chart-3: #16a34a;
-    --chart-4: #d97706;
-    --chart-5: #7c3aed;
+    --chart1: #e11d48;
+    --chart2: #2563eb;
+    --chart3: #16a34a;
+    --chart4: #d97706;
+    --chart5: #7c3aed;
     --radius: 0.625rem;
     --sidebar: #f5f5f7;
     --sidebar-foreground: #09090b;
     --sidebar-primary: #18181b;
-    --sidebar-primary-foreground: #fafafa;
     --sidebar-accent: #f4f4f5;
-    --sidebar-accent-foreground: #18181b;
     --sidebar-border: #e4e4e7;
     --sidebar-ring: #18181b;
 }
@@ -88,33 +86,32 @@
 .dark {
     --background: #050505;
     --foreground: #fafafa;
-    --card: #090909;
+    --card: #050505;
     --card-foreground: #fafafa;
-    --popover: #090909;
+    --popover: #050505;
     --popover-foreground: #fafafa;
     --primary: #fafafa;
-    --primary-foreground: #18181b;
+    --primary-foreground: #ffffff;
     --secondary: #27272a;
     --secondary-foreground: #fafafa;
     --muted: #27272a;
-    --muted-foreground: #a1a1aa;
+    --muted-foreground: #3f3f46;
     --accent: #27272a;
     --accent-foreground: #fafafa;
     --destructive: #7f1d1d;
     --border: rgba(255, 255, 255, 0.1);
     --input: rgba(255, 255, 255, 0.15);
-    --ring: #d4d4d8;
-    --chart-1: #3b82f6;
-    --chart-2: #10b981;
-    --chart-3: #f59e0b;
-    --chart-4: #6366f1;
-    --chart-5: #ec4899;
+    --ring: #fafafa;
+    --chart1: #3b82f6;
+    --chart2: #8b5cf6;
+    --chart3: #6366f1;
+    --chart4: #97706;
+    --chart5: #ec4899;
+    --radius: 0.625rem;
     --sidebar: #050505;
     --sidebar-foreground: #fafafa;
     --sidebar-primary: #3b82f6;
-    --sidebar-primary-foreground: #ffffff;
     --sidebar-accent: #27272a;
-    --sidebar-accent-foreground: #fafafa;
     --sidebar-border: rgba(255, 255, 255, 0.1);
     --sidebar-ring: #3b82f6;
 }
@@ -122,20 +119,22 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    }
+  }
+
   body {
     @apply bg-background text-foreground;
-    }
+  }
+
   html {
     @apply font-sans;
-    }
+  }
 }
 
 @layer utilities {
   .glass-panel {
-    @apply bg-card/40 dark:bg-zinc-900/40 backdrop-blur-md border border-border;
+    @apply bg-card/40 dark:bg-zinc-900/40 backdrop-blur-md border-border;
   }
-  
+
   .emerald-gradient {
     @apply bg-linear-to-br from-emerald-500/10 via-transparent to-transparent dark:from-emerald-500/20;
   }
@@ -173,4 +172,32 @@
     stroke-width: 2;
     stroke-opacity: 1;
   }
+}
+
+/* Custom Scrollbar for Notifications Panel */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #0a1a0f;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #00ff88;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #00cc6a;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+  background: #00aa55;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #00ff88 #0a1a0f;
 }
