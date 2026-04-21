@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { Search, Plus, Hexagon, ChevronDown } from 'lucide-react'
+import { Search, Plus, Hexagon, ChevronDown, Loader2 } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { MarketValue } from '@/components/scout/market-value'
 import {
@@ -12,15 +12,65 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { getWatchHistory } from '@/app/actions/watchlist'
 
 export default function HistoryPage() {
   const [searchQuery, setSearchQuery] = React.useState('')
   const [sortBy, setSortBy] = React.useState('date-desc')
   const [mounted, setMounted] = React.useState(false)
+  const [history, setHistory] = React.useState<any[]>([])
+  const [loading, setLoading] = React.useState(true)
+  const [error, setError] = React.useState<string | null>(null)
 
   // Prevent hydration error by only rendering particles after mount
   React.useEffect(() => {
     setMounted(true)
+  }, [])
+
+  // Load watch history from database
+  React.useEffect(() => {
+    async function loadHistory() {
+      try {
+        const data = await getWatchHistory()
+        if (data && data.length > 0) {
+          // Deduplicate by player_id to avoid showing the same player multiple times
+          const uniqueData = data.reduce((acc: any[], current: any) => {
+            const existingIndex = acc.findIndex(item => item.player_id === current.player_id)
+            if (existingIndex === -1) {
+              acc.push(current)
+            } else {
+              // Keep the most recently removed entry
+              if (new Date(current.removed_at) > new Date(acc[existingIndex].removed_at)) {
+                acc[existingIndex] = current
+              }
+            }
+            return acc
+          }, [])
+
+          const transformedData = uniqueData.map((item: any) => ({
+            id: item.id, // Use the database record id as unique key
+            player: item.player_name,
+            club: item.club || 'Unknown Club',
+            league: item.league || 'Unknown League',
+            position: item.position || 'Unknown Position',
+            photo: item.player_photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(item.player_name)}&background=00ff88&color=000&size=56`,
+            date: item.removed_at || item.created_at,
+            market_value: item.market_value,
+            highScore: 85, // Default score for history items
+            nation: 'Unknown',
+            pos: item.position || 'Unknown Position'
+          }))
+          setHistory(transformedData)
+        }
+      } catch (err) {
+        console.error('Failed to load history:', err)
+        setError('Failed to load watch history')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadHistory()
   }, [])
 
   // Generate static particle data once
@@ -35,98 +85,6 @@ export default function HistoryPage() {
       animationDelay: `${Math.random() * 2}s`
     }))
   }, [])
-
-  // Updated player data with exact positions and clubs from requirements, using Statorium API photos
-  const history = [
-    {
-      id: '14633',
-      date: '2026-04-15',
-      player: 'Florian Wirtz',
-      club: 'Bayer 04 Leverkusen',
-      league: 'Bundesliga',
-      highScore: 95,
-      nation: 'Germany',
-      pos: 'Attacking Midfield',
-      photo: 'https://api.statorium.com/media/bearleague/bl17158001911496.webp'
-    },
-    {
-      id: '6466',
-      date: '2026-04-15',
-      player: 'Jude Bellingham',
-      club: 'Real Madrid',
-      league: 'La Liga',
-      highScore: 92,
-      nation: 'England',
-      pos: 'Center Central Midfielder',
-      photo: 'https://api.statorium.com/media/bearleague/bl1695891720352.webp'
-    },
-    {
-      id: '53041',
-      date: '2026-04-14',
-      player: 'Lamine Yamal',
-      club: 'FC Barcelona',
-      league: 'La Liga',
-      highScore: 96,
-      nation: 'Spain',
-      pos: 'Right Winger',
-      photo: 'https://api.statorium.com/media/bearleague/bl17322791692175.webp'
-    },
-    {
-      id: '4812',
-      date: '2026-04-13',
-      player: 'Erling Haaland',
-      club: 'Manchester City',
-      league: 'Premier League',
-      highScore: 98,
-      nation: 'Norway',
-      pos: 'Center Forward',
-      photo: 'https://api.statorium.com/media/bearleague/bl17313179872374.webp'
-    },
-    {
-      id: '670',
-      date: '2026-04-13',
-      player: 'Ousmane Dembélé',
-      club: 'PSG',
-      league: 'Ligue 1',
-      highScore: 89,
-      nation: 'France',
-      pos: 'Right Winger',
-      photo: 'https://api.statorium.com/media/bearleague/bl1702304187852.webp'
-    },
-    {
-      id: '1994',
-      date: '2026-04-12',
-      player: 'Kylian Mbappé',
-      club: 'PSG',
-      league: 'Ligue 1',
-      highScore: 97,
-      nation: 'France',
-      pos: 'Center Forward',
-      photo: 'https://api.statorium.com/media/bearleague/bl17023015741660.webp'
-    },
-    {
-      id: '26718',
-      date: '2026-04-12',
-      player: 'Amadou Onana',
-      club: 'Everton',
-      league: 'Premier League',
-      highScore: 85,
-      nation: 'Belgium',
-      pos: 'Central Midfielder',
-      photo: 'https://api.statorium.com/media/bearleague/bl17337166521193.webp'
-    },
-    {
-      id: '3482',
-      date: '2026-04-11',
-      player: 'Lautaro Martinez',
-      club: 'Inter Milan',
-      league: 'Serie A',
-      highScore: 91,
-      nation: 'Argentina',
-      pos: 'Center Forward',
-      photo: 'https://api.statorium.com/media/bearleague/bl1695386805672.webp'
-    },
-  ]
 
   const filteredAndSortedHistory = React.useMemo(() => {
     return history
@@ -152,7 +110,7 @@ export default function HistoryPage() {
             return 0
         }
       })
-  }, [searchQuery, sortBy])
+  }, [searchQuery, sortBy, history])
 
   return (
     <>
@@ -291,11 +249,24 @@ export default function HistoryPage() {
 
         {/* Player Cards List */}
         <div className="space-y-3">
-          {filteredAndSortedHistory.length > 0 ? (
+          {loading ? (
+            <div className="py-20 text-center">
+              <Loader2 className="h-12 w-12 animate-spin text-[#00ff88] mx-auto mb-4" />
+              <p className="text-gray-400">Loading watch history...</p>
+            </div>
+          ) : error ? (
+            <div className="py-20 text-center border-2 border-dashed border-red-800 rounded-xl bg-black/40 backdrop-blur-xl">
+              <div className="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center mx-auto mb-4 border border-red-500/30">
+                <Search className="h-8 w-8 text-red-500/50" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-400">Error loading history</h3>
+              <p className="text-gray-600 text-sm mt-1">{error}</p>
+            </div>
+          ) : filteredAndSortedHistory.length > 0 ? (
             filteredAndSortedHistory.map((record, index) => (
               <Link
                 key={record.id}
-                href={`/analysis?id=${record.id}&name=${encodeURIComponent(record.player)}&club=${encodeURIComponent(record.club)}&league=${encodeURIComponent(record.league)}&nation=${encodeURIComponent(record.nation)}&pos=${encodeURIComponent(record.pos)}&photo=${encodeURIComponent(record.photo)}`}
+                href={`/analysis?id=${record.id}&name=${encodeURIComponent(record.player)}&club=${encodeURIComponent(record.club)}&league=${encodeURIComponent(record.league)}&nation=${encodeURIComponent(record.nation || 'Unknown')}&pos=${encodeURIComponent(record.pos)}&photo=${encodeURIComponent(record.photo)}`}
                 className="block group"
               >
                 <div
@@ -337,7 +308,7 @@ export default function HistoryPage() {
                             {record.club}
                           </span>
                           <span className="text-gray-600 group-hover:text-gray-500 transition-colors">
-                            {record.pos}
+                            {record.position}
                           </span>
                           <span className="text-gray-700 mx-1">•</span>
                           <MarketValue playerName={record.player} showIcon={false} className="scale-75 origin-left h-4" />
@@ -349,15 +320,12 @@ export default function HistoryPage() {
                     <div className="flex items-center gap-6">
                       <div className="text-right space-y-1">
                         <div className="text-[10px] font-bold text-gray-600 uppercase tracking-wider">
-                          Match Score
+                          Removed
                         </div>
                         <div
-                          className="text-3xl font-black tabular-nums group-hover:scale-105 transition-transform duration-300"
-                          style={{
-                            color: '#00ff88'
-                          }}
+                          className="text-sm font-black tabular-nums text-gray-400"
                         >
-                          {record.highScore}%
+                          {new Date(record.date).toLocaleDateString()}
                         </div>
                       </div>
                     </div>
@@ -370,8 +338,8 @@ export default function HistoryPage() {
               <div className="w-16 h-16 rounded-full bg-[#00ff88]/10 flex items-center justify-center mx-auto mb-4 border border-[#00ff88]/30">
                 <Search className="h-8 w-8 text-[#00ff88]/50" />
               </div>
-              <h3 className="text-lg font-bold text-gray-400">No results found</h3>
-              <p className="text-gray-600 text-sm mt-1">Try adjusting your search query or filters.</p>
+              <h3 className="text-lg font-bold text-gray-400">No watch history yet</h3>
+              <p className="text-gray-600 text-sm mt-1">Players you remove from your watchlist will appear here.</p>
             </div>
           )}
         </div>

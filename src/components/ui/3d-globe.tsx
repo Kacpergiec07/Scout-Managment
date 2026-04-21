@@ -226,12 +226,12 @@ function GlobeInner({ markers = [], arcs = [], config = {}, onArcHover, focusPoi
             }}
           >
             <div className="flex items-center justify-center">
-              {marker.logoUrl && (
+              {marker.src && (
                 <div className="w-16 h-16 flex items-center justify-center">
-                  <img 
-                    src={marker.logoUrl} 
-                    className="w-full h-full object-contain drop-shadow-[0_8px_20px_rgba(0,0,0,0.95)]" 
-                    alt="club logo" 
+                  <img
+                    src={marker.src}
+                    className="w-full h-full object-contain drop-shadow-[0_8px_20px_rgba(0,0,0,0.95)]"
+                    alt="club logo"
                   />
                 </div>
               )}

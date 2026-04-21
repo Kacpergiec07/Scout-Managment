@@ -45,7 +45,10 @@
       "Bash(xargs grep:*)",
       "Bash(find:*)",
       "Bash(git add:*)",
-      "Bash(git commit -m 'docs: refresh codebase map with parallel mapper analysis:*)"
+      "Bash(git commit -m 'docs: refresh codebase map with parallel mapper analysis:*)",
+      "Bash(grep -E \"\\\\.\\(ts|js\\)$\")",
+      "Bash(wc:*)",
+      "Bash(git commit -m ':*)"
     ]
   }
 }

@@ -15,7 +15,7 @@ const getCachedMarketValue = (playerName: string) =>
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { playerName: string } }
+  { params }: { params: Promise<{ playerName: string }> }
 ) {
   try {
     // Await params if using Next.js 15+

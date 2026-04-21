@@ -78,6 +78,7 @@ const POSITION_COORDINATES: Record<string, { top: string; left: string }> = {
 
 interface Player {
   id: string
+  playerId: string // Database record ID for unique keys
   name: string
   club: string
   clubLogo: string | null
@@ -88,6 +89,7 @@ interface Player {
   weight: string
   height: string
   age: string
+  birthdate?: string
 }
 
 export default function WatchlistPage() {
@@ -100,23 +102,24 @@ export default function WatchlistPage() {
       setLoadingWatchlist(true)
       const data = await getWatchlist()
 
-      if (data && data.length > 0) {
-        const transformedData = data.map((item: any) => ({
-          id: item.player_id,
-          name: item.player_name,
-          club: item.club,
-          clubLogo: item.club_logo,
-          position: item.position,
-          league: item.league,
-          playerPhoto: item.player_photo,
-          marketValue: item.market_value,
-          weight: item.weight,
-          height: item.height,
-          age: item.age,
-        }))
-        setWatchedPlayers(transformedData)
-      }
+      // Always update state, even if data is empty
+      // Use database record id as unique key to prevent React key errors
+      const transformedData = (data || []).map((item: any) => ({
+        id: item.id, // ← Use database record ID as unique key
+        playerId: item.player_id, // ← Keep player_id for operations
+        name: item.player_name,
+        club: item.club,
+        clubLogo: item.club_logo,
+        position: item.position,
+        league: item.league,
+        playerPhoto: item.player_photo,
+        marketValue: item.market_value,
+        weight: item.weight,
+        height: item.height,
+        age: item.age,
+      }))
 
+      setWatchedPlayers(transformedData)
       setIsLoaded(true)
       setLoadingWatchlist(false)
     }
@@ -156,9 +159,19 @@ export default function WatchlistPage() {
     }
   }, [selectedPlayerId])
 
-  async function loadPlayerDetails(id: string) {
+  async function loadPlayerDetails(recordId: string) {
     setLoadingDetails(true)
-    const details = await getPlayerDetailsAction(id)
+
+    // Find the player by record ID to get the player_id for the API call
+    const player = watchedPlayers.find(p => p.id === recordId)
+    if (!player) {
+      console.error('loadPlayerDetails: Player not found with record ID:', recordId)
+      setLoadingDetails(false)
+      return
+    }
+
+    console.log('loadPlayerDetails: Loading details for player:', player.name, 'with player_id:', player.playerId)
+    const details = await getPlayerDetailsAction(player.playerId)
     if (details) {
       const clubName = details.teamName || activePlayer?.club
       const leagueName = activePlayer?.league || "La Liga"
@@ -176,7 +189,7 @@ export default function WatchlistPage() {
 
       setWatchedPlayers((prev) =>
         prev.map((p) =>
-          p.id === id
+          p.id === recordId
             ? {
                 ...p,
                 clubLogo: (details as any).teamLogo || p.clubLogo,
@@ -288,7 +301,8 @@ export default function WatchlistPage() {
     if (result.success) {
       const updatedData = await getWatchlist()
       const transformedData = updatedData.map((item: any) => ({
-        id: item.player_id,
+        id: item.id, // ← Use database record ID as unique key
+        playerId: item.player_id, // ← Keep player_id for operations
         name: item.player_name,
         club: item.club,
         clubLogo: item.club_logo,
@@ -301,15 +315,33 @@ export default function WatchlistPage() {
         age: item.age,
       }))
       setWatchedPlayers(transformedData)
-      setSelectedPlayerId(playerData.player_id)
+
+      // Find the newly added player by player_id and set it as selected
+      const newPlayer = transformedData.find(p => p.playerId === playerData.player_id)
+      if (newPlayer) {
+        setSelectedPlayerId(newPlayer.id)
+      }
     }
 
     setShowSearch(false)
     resetSearch()
   }
 
-  async function removePlayer(id: string) {
-    const result = await removeFromWatchlist(id)
+  async function removePlayer(recordId: string) {
+    console.log('removePlayer: Starting removal for record ID:', recordId)
+
+    // Find the player by record ID to get the player_id
+    const playerToRemove = watchedPlayers.find(p => p.id === recordId)
+
+    if (!playerToRemove) {
+      console.error('removePlayer: Player not found with record ID:', recordId)
+      alert('Player not found in watchlist')
+      return
+    }
+
+    console.log('removePlayer: Found player to remove:', playerToRemove.name, 'with player_id:', playerToRemove.playerId)
+
+    const result = await removeFromWatchlist(playerToRemove.playerId)
 
     if (result.error) {
       alert(`Failed to remove player: ${result.error}`)
@@ -317,9 +349,17 @@ export default function WatchlistPage() {
     }
 
     if (result.success) {
+      console.log('removePlayer: Player removed successfully, refreshing watchlist...')
+
+      // Force a refresh of the watchlist
       const updatedData = await getWatchlist()
-      const transformedData = updatedData.map((item: any) => ({
-        id: item.player_id,
+      console.log('removePlayer: Updated watchlist data:', updatedData)
+
+      // Always update state, even if empty
+      // Use database record id as unique key to prevent React key errors
+      const transformedData = (updatedData || []).map((item: any) => ({
+        id: item.id, // ← Use database record ID as unique key
+        playerId: item.player_id, // ← Keep player_id for operations
         name: item.player_name,
         club: item.club,
         clubLogo: item.club_logo,
@@ -331,10 +371,15 @@ export default function WatchlistPage() {
         height: item.height,
         age: item.age,
       }))
+
+      console.log('removePlayer: Setting watched players to:', transformedData)
       setWatchedPlayers(transformedData)
 
-      if (selectedPlayerId === id) {
-        setSelectedPlayerId(transformedData[0]?.id || null)
+      // Update selected player if needed
+      if (selectedPlayerId === recordId) {
+        const newSelectedId = transformedData[0]?.id || null
+        console.log('removePlayer: Updating selected player to:', newSelectedId)
+        setSelectedPlayerId(newSelectedId)
       }
     }
   }

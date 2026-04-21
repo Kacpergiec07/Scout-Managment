@@ -131,11 +131,13 @@ export async function getProfileData() {
     console.log('getProfileData: User authenticated, fetching profile...', user.id)
 
     // Fetch profile data
-    const { data: profile, error: profileError } = await supabase
+    const { data: profileData, error: profileError } = await supabase
       .from('profiles')
       .select('*')
       .eq('id', user.id)
       .single()
+
+    let profile = profileData
 
     if (profileError) {
       console.error('getProfileData: Database error:', profileError)

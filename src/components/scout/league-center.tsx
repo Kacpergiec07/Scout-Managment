@@ -259,12 +259,12 @@ export function LeagueCenter() {
                           <div className="flex-1 text-center space-y-2">
                             <div className="w-10 h-10 bg-accent rounded-xl mx-auto flex items-center justify-center p-1 border border-border relative">
                               {(match.homeParticipant?.logo || match.homeTeam?.teamLogo) ? (
-                                <Image 
-                                  src={match.homeParticipant?.logo || match.homeTeam?.teamLogo} 
+                                <Image
+                                  src={match.homeParticipant?.logo || match.homeTeam?.teamLogo || '/placeholder.png'}
                                   alt="Home logo"
                                   width={40}
                                   height={40}
-                                  className="object-contain" 
+                                  className="object-contain"
                                 />
                               ) : <span className="text-[10px] text-muted-foreground/20">H</span>}
                             </div>
@@ -276,12 +276,12 @@ export function LeagueCenter() {
                           <div className="flex-1 text-center space-y-2">
                             <div className="w-10 h-10 bg-accent rounded-xl mx-auto flex items-center justify-center p-1 border border-border relative">
                               {(match.awayParticipant?.logo || match.awayTeam?.teamLogo) ? (
-                                <Image 
-                                  src={match.awayParticipant?.logo || match.awayTeam?.teamLogo} 
+                                <Image
+                                  src={match.awayParticipant?.logo || match.awayTeam?.teamLogo || '/placeholder.png'}
                                   alt="Away logo"
                                   width={40}
                                   height={40}
-                                  className="object-contain" 
+                                  className="object-contain"
                                 />
                               ) : <span className="text-[10px] text-muted-foreground/20">A</span>}
                             </div>

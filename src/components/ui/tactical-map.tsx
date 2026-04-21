@@ -63,10 +63,10 @@ export function TacticalMap({ markers = [], arcs = [], className }: TacticalMapP
           className="relative w-[95%] aspect-[16/9] bg-card border border-border rounded-2xl shadow-[0_50px_100px_-20px_rgba(0,0,0,0.1)] dark:shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] flex items-center justify-center overflow-hidden"
         >
           {/* Grid Background */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{
+          <div className="absolute inset-0 opacity-[0.03] text-foreground" style={{
             backgroundImage: "linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)",
             backgroundSize: "40px 40px"
-          }} className="text-foreground" />
+          }} />
 
           <svg
             viewBox="0 0 1000 600"
@@ -118,8 +118,8 @@ export function TacticalMap({ markers = [], arcs = [], className }: TacticalMapP
                       strokeWidth="2.5"
                       fill="none"
                       strokeDasharray="6 10"
-                      initial={{ strokeDashOffset: 200 }}
-                      animate={{ strokeDashOffset: 0 }}
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
                       transition={{
                         duration: 12,
                         repeat: Infinity,

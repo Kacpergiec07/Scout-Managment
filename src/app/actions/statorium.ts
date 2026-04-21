@@ -369,7 +369,7 @@ export async function getPlayerPhotosAction(
 
       // Priority 3: API-based lookup
       const photo = await getPlayerPhotoAction(p.playerID);
-      return { id: p.id || p.playerID, photo: photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp` };
+      return { id: p.playerID, photo: photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp` };
     })
   );
 

@@ -24,6 +24,7 @@ export async function getWatchlist() {
       .from('watchlist')
       .select('*')
       .eq('user_id', user.id)
+      .neq('status', 'removed') // Exclude removed players from watchlist
       .order('created_at', { ascending: false })
 
     if (error) {
@@ -66,15 +67,38 @@ export async function addToWatchlist(playerData: {
       return { error: 'User not authenticated' }
     }
 
-    // Prepare insert data with only required fields initially
+    // Check if player already exists (in any state: watchlist OR history)
+    const { data: existingPlayer } = await supabase
+      .from('watchlist')
+      .select('*')
+      .eq('user_id', user.id)
+      .eq('player_id', playerData.player_id)
+      .maybeSingle() // Use maybeSingle to handle null gracefully
+
+    // If player exists, prevent addition
+    if (existingPlayer) {
+      if (existingPlayer.status === 'removed') {
+        return {
+          error: `${playerData.player_name} is in your watch history. Check the History page to restore this player.`
+        }
+      } else {
+        return {
+          error: `${playerData.player_name} is already in your watchlist.`
+        }
+      }
+    }
+
+    // Prepare insert data with all fields
     const insertData: any = {
       user_id: user.id,
       player_id: playerData.player_id,
       player_name: playerData.player_name,
-      status: 'following'
+      status: 'following',
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
     }
 
-    // Try to add optional fields, handle cases where columns might not exist
+    // Add optional fields if provided
     const optionalFields = [
       'club', 'club_logo', 'position', 'league', 'player_photo',
       'market_value', 'weight', 'height', 'age'
@@ -86,6 +110,7 @@ export async function addToWatchlist(playerData: {
       }
     }
 
+    // Insert the new player
     const { data, error } = await supabase
       .from('watchlist')
       .insert(insertData)
@@ -107,6 +132,7 @@ export async function addToWatchlist(playerData: {
 
     console.log('addToWatchlist: Player added successfully:', data)
     revalidatePath('/watchlist')
+    revalidatePath('/history')
     revalidatePath('/profile')
     revalidatePath('/settings')
     return { success: true, data }
@@ -131,9 +157,15 @@ export async function removeFromWatchlist(playerId: string) {
       return { error: 'User not authenticated' }
     }
 
+    // Simply UPDATE the existing player's status to 'removed'
+    // Instead of deleting and recreating the entry
     const { error } = await supabase
       .from('watchlist')
-      .delete()
+      .update({
+        status: 'removed',
+        removed_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      })
       .eq('user_id', user.id)
       .eq('player_id', playerId)
 
@@ -142,14 +174,52 @@ export async function removeFromWatchlist(playerId: string) {
       return { error: error.message }
     }
 
-    console.log('removeFromWatchlist: Player removed successfully:', playerId)
+    console.log('removeFromWatchlist: Player marked as removed successfully:', playerId)
     revalidatePath('/watchlist')
+    revalidatePath('/history')
     revalidatePath('/profile')
     revalidatePath('/settings')
     return { success: true }
   } catch (error) {
     console.error('removeFromWatchlist: Unexpected error:', error)
     return { error: 'An unexpected error occurred' }
+  }
+}
+
+export async function getWatchHistory() {
+  console.log('getWatchHistory: Starting watch history fetch...')
+
+  try {
+    const supabase = await createClient()
+    const {
+      data: { user },
+      error: userError
+    } = await supabase.auth.getUser()
+
+    if (userError || !user) {
+      console.error('getWatchHistory: User not authenticated')
+      return []
+    }
+
+    console.log('getWatchHistory: User authenticated, fetching history...', user.id)
+
+    const { data: history, error } = await supabase
+      .from('watchlist')
+      .select('*')
+      .eq('user_id', user.id)
+      .eq('status', 'removed')
+      .order('removed_at', { ascending: false })
+
+    if (error) {
+      console.error('getWatchHistory: Database error:', error)
+      return []
+    }
+
+    console.log('getWatchHistory: History fetched successfully:', history?.length || 0)
+    return history || []
+  } catch (error) {
+    console.error('getWatchHistory: Unexpected error:', error)
+    return []
   }
 }
 

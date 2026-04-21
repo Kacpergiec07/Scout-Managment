@@ -95,8 +95,8 @@ function generateNewsItem(id: string, type: NewsItem["type"], playerName: string
     .replace("{player}", playerName)
     .replace("{club}", club)
     .replace("{injury}", INJURY_TYPES[Math.floor(Math.random() * INJURY_TYPES.length)])
-    .replace("{weeks}", Math.floor(Math.random() * 8) + 1)
-    .replace("{price}", price)
+    .replace("{weeks}", String(Math.floor(Math.random() * 8) + 1))
+    .replace("{price}", String(price))
 
   const timestamps = ["5 min", "15 min", "30 min", "1 godz.", "2 godz.", "3 godz.", "5 godz.", "8 godz.", "12 godz.", "1 dzień", "2 dni", "3 dni"]
   const timestamp = timestamps[Math.floor(Math.random() * timestamps.length)] + " temu"
