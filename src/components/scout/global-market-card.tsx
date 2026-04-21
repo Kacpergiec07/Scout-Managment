@@ -121,15 +121,10 @@ export function GlobalMarketCard({ transfers, onSelectTransfer, onRemoveTransfer
                     </Button>
                   </td>
                   <td className="px-4 py-4 text-center">
-<<<<<<< HEAD:components/scout/global-market-card.tsx
                     <div className="text-sm font-black text-[#00ff88] tabular-nums font-mono">{t.fee}</div>
-                    <div className="text-[9px] text-[#6b7a6e] uppercase font-black font-mono mt-0.5">EST. {t.marketValue}</div>
-=======
-                    <div className="text-sm font-black text-foreground tabular-nums font-mono">{t.fee}</div>
                     <div className="flex justify-center mt-1">
-                      <MarketValue playerName={t.playerName} showIcon={false} className="scale-90" />
+                      <MarketValue playerName={t.playerName} showIcon={false} className="scale-90 bg-emerald-500/10 border-emerald-500/20 text-emerald-400" />
                     </div>
->>>>>>> ee8b355c4ff38b1e1c9e13789831a42a6f94dda1:src/components/scout/global-market-card.tsx
                   </td>
                   <td className="px-4 py-4 text-right">
                     <Button

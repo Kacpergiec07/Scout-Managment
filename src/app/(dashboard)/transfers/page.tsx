@@ -495,19 +495,12 @@ export default function TransfersPage() {
                     <span className="text-[9px] font-black text-[#6b7a6e] uppercase tracking-[0.2em]">Agreed Fee</span>
                     <div className="text-3xl font-black text-white italic mt-1">{focusedTransfer.fee}</div>
                  </div>
-<<<<<<< HEAD:app/(dashboard)/transfers/page.tsx
                  <div className="bg-[#111c14] border border-[#1a2e1f] rounded-xl p-6 relative overflow-hidden group">
                     <TrendingUp className="absolute -right-4 -bottom-4 w-16 h-16 text-[#00ff88]/10 group-hover:scale-125 transition-transform" />
                     <span className="text-[9px] font-black text-[#6b7a6e] uppercase tracking-[0.2em]">Market Valuation</span>
-                    <div className="text-3xl font-black text-[#00ff88] italic mt-1">{focusedTransfer.marketValue}</div>
-=======
-                 <div className="bg-accent/40 border border-border rounded-2xl p-6 relative overflow-hidden group">
-                    <TrendingUp className="absolute -right-4 -bottom-4 w-16 h-16 text-primary/10 group-hover:scale-125 transition-transform" />
-                    <span className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.2em]">Market Valuation</span>
-                    <div className="mt-2">
-                       <MarketValue playerName={focusedTransfer.playerName} className="text-xl px-4 py-2" />
+                    <div className="mt-2 text-[#00ff88]">
+                       <MarketValue playerName={focusedTransfer.playerName} className="text-xl px-4 py-2 bg-[#00ff88]/10 border-[#00ff88]/20" />
                     </div>
->>>>>>> ee8b355c4ff38b1e1c9e13789831a42a6f94dda1:src/app/(dashboard)/transfers/page.tsx
                  </div>
               </div>
 
