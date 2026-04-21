@@ -24,6 +24,7 @@ export async function getWatchlist() {
       .from('watchlist')
       .select('*')
       .eq('user_id', user.id)
+      .eq('status', 'following')
       .order('created_at', { ascending: false })
 
     if (error) {
