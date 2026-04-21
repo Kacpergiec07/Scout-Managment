@@ -9,6 +9,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'assets.aceternity.com' },
       { protocol: 'https', hostname: 'unpkg.com' },
+      { protocol: 'https', hostname: 'cdn.futwiz.com' },
     ],
   },
 }
