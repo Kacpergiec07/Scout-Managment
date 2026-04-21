@@ -17,10 +17,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Transfer } from "./transfer-flow";
 import { Button } from "@/components/ui/button";
-<<<<<<< HEAD
 import { MarketValue } from "./market-value";
-=======
->>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
 
 interface GlobalMarketCardProps {
   transfers: any[];
@@ -125,13 +122,9 @@ export function GlobalMarketCard({ transfers, onSelectTransfer, onRemoveTransfer
                   </td>
                   <td className="px-4 py-4 text-center">
                     <div className="text-sm font-black text-foreground tabular-nums font-mono">{t.fee}</div>
-<<<<<<< HEAD
                     <div className="flex justify-center mt-1">
                       <MarketValue playerName={t.playerName} showIcon={false} className="scale-90" />
                     </div>
-=======
-                    <div className="text-[9px] text-muted-foreground uppercase font-black font-mono mt-0.5">EST. {t.marketValue}</div>
->>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
                   </td>
                   <td className="px-4 py-4 text-right">
                     <Button 

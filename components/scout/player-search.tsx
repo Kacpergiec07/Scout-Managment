@@ -21,10 +21,7 @@ import { searchPlayersAction } from '@/app/actions/statorium'
 import { StatoriumPlayerBasic } from '@/lib/statorium/types'
 import { useDebounce } from 'use-debounce'
 import { useRouter } from 'next/navigation'
-<<<<<<< HEAD
 import { MarketValue } from './market-value'
-=======
->>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
 import Image from 'next/image'
 
 export interface PlayerSearchProps {
@@ -118,10 +115,7 @@ export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
                     <span className="text-[10px] opacity-70 uppercase tracking-widest truncate font-medium">
                       {typeof player.country === 'object' ? (player.country as any).name : player.country || 'International'} • {player.teamName || 'Free Agent'}
                     </span>
-<<<<<<< HEAD
                     <MarketValue playerName={player.fullName} showIcon={false} className="scale-75 origin-left h-4 mt-0.5" />
-=======
->>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
                   </div>
                   <Check
                     className={cn(

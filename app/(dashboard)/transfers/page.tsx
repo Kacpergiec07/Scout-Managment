@@ -10,10 +10,7 @@ const Globe3D = dynamic(() => import("@/components/ui/3d-globe").then((mod) => m
 
 import { GlobeArc } from "@/components/ui/3d-globe";
 import { GlobalMarketCard } from "@/components/scout/global-market-card";
-<<<<<<< HEAD
 import { MarketValue } from "@/components/scout/market-value";
-=======
->>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
 import { 
   getPlayerPhotosAction, 
   getTeamLogosAction, 
@@ -501,13 +498,9 @@ export default function TransfersPage() {
                  <div className="bg-accent/40 border border-border rounded-2xl p-6 relative overflow-hidden group">
                     <TrendingUp className="absolute -right-4 -bottom-4 w-16 h-16 text-primary/10 group-hover:scale-125 transition-transform" />
                     <span className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.2em]">Market Valuation</span>
-<<<<<<< HEAD
                     <div className="mt-2">
                        <MarketValue playerName={focusedTransfer.playerName} className="text-xl px-4 py-2" />
                     </div>
-=======
-                    <div className="text-3xl font-black text-primary italic mt-1">{focusedTransfer.marketValue}</div>
->>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
                  </div>
               </div>
 

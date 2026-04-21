@@ -33,10 +33,7 @@ import {
   Search,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-<<<<<<< HEAD
 import { MarketValue } from "@/components/scout/market-value"
-=======
->>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
 import Image from "next/image"
 
 function extractSeasonStats(player: any): {
@@ -996,12 +993,9 @@ function PlayerCard({
             <span className="flex items-center gap-2">🌍 {countryName}</span>
           )}
         </div>
-<<<<<<< HEAD
         <div className="flex justify-center">
           <MarketValue playerName={player.fullName} className="px-6 py-2 text-lg" />
         </div>
-=======
->>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
         <div className="mx-auto h-1 w-16 rounded-full bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       </div>
 

@@ -4,10 +4,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import { Search, Plus, Hexagon, ChevronDown } from 'lucide-react'
 import { Input } from '@/components/ui/input'
-<<<<<<< HEAD
 import { MarketValue } from '@/components/scout/market-value'
-=======
->>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
 import {
   Select,
   SelectContent,
@@ -318,18 +315,11 @@ export default function HistoryPage() {
                           <span className="text-gray-500 group-hover:text-gray-400 transition-colors">
                             {record.club}
                           </span>
-<<<<<<< HEAD
                           <span className="text-gray-600 group-hover:text-gray-500 transition-colors">
                             {record.pos}
                           </span>
                           <span className="text-gray-700 mx-1">•</span>
                           <MarketValue playerName={record.player} showIcon={false} className="scale-75 origin-left h-4" />
-=======
-                          <span className="text-gray-700">•</span>
-                          <span className="text-gray-600 group-hover:text-gray-500 transition-colors">
-                            {record.pos}
-                          </span>
->>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
                         </div>
                       </div>
                     </div>

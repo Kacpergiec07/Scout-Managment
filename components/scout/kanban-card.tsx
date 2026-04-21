@@ -7,10 +7,7 @@ import { Badge } from '@/components/ui/badge'
 
 import Link from 'next/link'
 import Image from 'next/image'
-<<<<<<< HEAD
 import { MarketValue } from './market-value'
-=======
->>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
 import { GripVertical } from 'lucide-react'
 
 export function KanbanCard({ item }: { item: any }) {
@@ -96,10 +93,7 @@ export function KanbanCard({ item }: { item: any }) {
               <Badge variant="secondary" className="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-transparent text-[10px] h-5 tabular-nums font-bold">
                 {item.score}%
               </Badge>
-<<<<<<< HEAD
               <MarketValue playerName={item.name} showIcon={false} className="scale-75 origin-right" />
-=======
->>>>>>> d6b4363621fd8fde6374b3f9a22b408083280f57
             </div>
           </div>
         </div>
