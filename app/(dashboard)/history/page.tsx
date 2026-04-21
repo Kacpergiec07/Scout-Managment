@@ -32,8 +32,8 @@ export default function HistoryPage() {
   const filteredAndSortedHistory = React.useMemo(() => {
     return history
       .filter((record) =>
-        record.player.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        record.club.toLowerCase().includes(searchQuery.toLowerCase())
+        record.player?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        record.club?.toLowerCase().includes(searchQuery.toLowerCase())
       )
       .sort((a, b) => {
         switch (sortBy) {
@@ -53,7 +53,7 @@ export default function HistoryPage() {
             return 0
         }
       })
-  }, [searchQuery, sortBy])
+  }, [searchQuery, sortBy, history])
 
   return (
     <>
@@ -275,13 +275,6 @@ export default function HistoryPage() {
               </div>
               <h3 className="text-lg font-bold text-gray-400">No history yet</h3>
               <p className="text-gray-600 text-sm mt-1">Players you remove from your watchlist will appear here.</p>
-            </div>
-          )}
-              <div className="w-16 h-16 rounded-full bg-[#00ff88]/10 flex items-center justify-center mx-auto mb-4 border border-[#00ff88]/30">
-                <Search className="h-8 w-8 text-[#00ff88]/50" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-400">No results found</h3>
-              <p className="text-gray-600 text-sm mt-1">Try adjusting your search query or filters.</p>
             </div>
           )}
         </div>
