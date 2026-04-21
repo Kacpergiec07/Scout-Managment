@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { User, MapPin, Mail, Shield, Trophy, Target, Award, TrendingUp, Edit, Calendar, Loader2 } from 'lucide-react'
+import { User, MapPin, Mail, Shield, Trophy, Target, Award, TrendingUp, Edit, Calendar, Loader2, RefreshCw } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { getProfileData } from '@/app/actions/profile'
 
@@ -16,7 +16,7 @@ interface UserProfile {
   email: string
   avatar_url: string | null
   role: string | null
-  region: string | null
+  assigned_region: string | null
   bio: string | null
   join_date: string | null
   // Dynamic statistics from database
@@ -37,31 +37,43 @@ export default function ProfilePage() {
     players_watched_count: 0
   })
 
-  useEffect(() => {
-    async function loadProfileData() {
-      setLoading(true)
-      try {
-        const profileData = await getProfileData()
-        if (profileData) {
-          setUser(profileData as UserProfile)
-          // Set real statistics from database
-          setStats({
-            players_watched_count: profileData.players_watched_count || 0
-          })
-        }
-      } catch (error) {
-        console.error('Failed to load profile:', error)
+  const loadProfileData = async () => {
+    setLoading(true)
+    try {
+      const profileData = await getProfileData()
+      if (profileData) {
+        setUser(profileData as UserProfile)
+        // Set real statistics from database
+        setStats({
+          players_watched_count: profileData.players_watched_count || 0
+        })
       }
-      setLoading(false)
+    } catch (error) {
+      console.error('Failed to load profile:', error)
+    }
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    loadProfileData()
+
+    // Add event listener for visibility change to refresh data when tab becomes visible
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        loadProfileData()
+      }
     }
 
-    loadProfileData()
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
   }, [])
 
   // Calculate derived data
   const userName = user?.full_name || user?.email?.split('@')[0] || 'Scout'
   const userRole = user?.role || 'Scout'
-  const userRegion = user?.region || 'Global'
+  const userRegion = user?.assigned_region || 'Global'
   const userAvatar = user?.avatar_url || `https://ui-avatars.com/api/?name=${userName.replace(/\s+/g, '+')}&background=22c55e&color=fff`
   const joinDate = user?.join_date || new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' })
 
@@ -107,12 +119,18 @@ export default function ProfilePage() {
                 Scout Management Dashboard
               </p>
             </div>
-            <Button variant="outline" size="sm" asChild>
-              <a href="/settings">
-                <Edit className="w-4 h-4 mr-2" />
-                Edit Profile
-              </a>
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button variant="outline" size="sm" onClick={() => loadProfileData()} disabled={loading}>
+                <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+                Refresh
+              </Button>
+              <Button variant="outline" size="sm" asChild>
+                <a href="/settings">
+                  <Edit className="w-4 h-4 mr-2" />
+                  Edit Profile
+                </a>
+              </Button>
+            </div>
           </div>
 
           {/* Profile Card */}
