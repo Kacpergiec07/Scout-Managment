@@ -86,5 +86,3 @@ Projekt utrzymuje rygorystyczne standardy kodowania:
 -   **Type Safety**: Pełna implementacja TypeScript.
 -   **Performance**: Optymalizacja Core Web Vitals dzięki Next.js SSR.
 -   **Design Consistency**: Ścisłe przyleganie do tokenów projektowych Neubrutalist.
-
-*System monitorowany i wspierany przez Antigravity AI.*
