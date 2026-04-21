@@ -142,39 +142,37 @@ export async function getRealFormation(teamId: string, seasonId: string): Promis
     // Get all matches for the season
     const matches = await client.getMatches(seasonId);
 
-    // Find most recent played match with lineup data for this team
+    // Sort matches by date descending to find the most recent one first
+    const sortedMatches = [...matches].sort((a, b) => 
+      new Date(b.matchDate).getTime() - new Date(a.matchDate).getTime()
+    );
+    
     let mostRecentMatchWithLineup = null;
-    let mostRecentDate = null;
 
-    for (const match of matches) {
-      // Only consider played matches
-      if ((match as any).matchStatus?.statusID === "1") {
-        const isHomeTeam = (match as any).homeParticipant?.participantID?.toString() === teamId;
-        const isAwayTeam = (match as any).awayParticipant?.participantID?.toString() === teamId;
+    // Only look at the 10 most recent played matches to avoid excessive API calls
+    const playedMatches = sortedMatches.filter((match: any) => 
+      (match as any).matchStatus?.statusID === "1" && 
+      ((match as any).homeParticipant?.participantID?.toString() === teamId || 
+       (match as any).awayParticipant?.participantID?.toString() === teamId)
+    ).slice(0, 10);
 
-        if (isHomeTeam || isAwayTeam) {
-          const matchDate = new Date(match.matchDate);
+    for (const match of playedMatches) {
+      // Check if this match has lineup data by fetching details
+      try {
+        const matchDetails = await client.getMatchDetails(match.matchID.toString());
 
-          // Check if this match has lineup data by fetching details
-          try {
-            const matchDetails = await client.getMatchDetails(match.matchID.toString());
+        const homeLineup = matchDetails.homeParticipant?.squad?.lineup || [];
+        const awayLineup = matchDetails.awayParticipant?.squad?.lineup || [];
 
-            const homeLineup = matchDetails.homeParticipant?.squad?.lineup || [];
-            const awayLineup = matchDetails.awayParticipant?.squad?.lineup || [];
+        const hasLineup = homeLineup.length > 0 || awayLineup.length > 0;
 
-            const hasLineup = homeLineup.length > 0 || awayLineup.length > 0;
-
-            if (hasLineup) {
-              if (!mostRecentDate || matchDate > mostRecentDate) {
-                mostRecentDate = matchDate;
-                mostRecentMatchWithLineup = matchDetails;
-              }
-            }
-          } catch (error) {
-            // Skip matches that error out
-            continue;
-          }
+        if (hasLineup) {
+          mostRecentMatchWithLineup = matchDetails;
+          break; // Stop immediately once we find the most recent match with a lineup
         }
+      } catch (error) {
+        // Skip matches that error out
+        continue;
       }
     }
 

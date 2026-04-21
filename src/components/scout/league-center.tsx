@@ -196,7 +196,13 @@ export function LeagueCenter() {
                         <div className="flex items-center gap-4">
                           <div className="relative w-10 h-10 bg-accent/20 rounded-xl flex items-center justify-center p-1 overflow-hidden border border-border group-hover:border-primary/50 transition-all">
                             {row.teamLogo ? (
-                              <img src={row.teamLogo} alt={row.teamName} className="object-contain w-full h-full" />
+                              <Image 
+                                src={row.teamLogo} 
+                                alt={row.teamName} 
+                                width={40} 
+                                height={40} 
+                                className="object-contain" 
+                              />
                             ) : (
                                <Trophy className="w-4 h-4 text-muted-foreground/20" />
                             )}
@@ -251,9 +257,15 @@ export function LeagueCenter() {
                         </div>
                         <div className="flex items-center justify-between gap-4">
                           <div className="flex-1 text-center space-y-2">
-                            <div className="w-10 h-10 bg-accent rounded-xl mx-auto flex items-center justify-center p-1 border border-border">
+                            <div className="w-10 h-10 bg-accent rounded-xl mx-auto flex items-center justify-center p-1 border border-border relative">
                               {(match.homeParticipant?.logo || match.homeTeam?.teamLogo) ? (
-                                <img src={match.homeParticipant?.logo || match.homeTeam?.teamLogo} className="w-full h-full object-contain" />
+                                <Image 
+                                  src={match.homeParticipant?.logo || match.homeTeam?.teamLogo} 
+                                  alt="Home logo"
+                                  width={40}
+                                  height={40}
+                                  className="object-contain" 
+                                />
                               ) : <span className="text-[10px] text-muted-foreground/20">H</span>}
                             </div>
                             <div className="text-xs font-black text-foreground truncate max-w-[100px] mx-auto uppercase tracking-tighter">
@@ -262,9 +274,15 @@ export function LeagueCenter() {
                           </div>
                           <div className="px-3 py-1 bg-primary/10 rounded-lg text-[10px] font-black text-primary italic">VS</div>
                           <div className="flex-1 text-center space-y-2">
-                            <div className="w-10 h-10 bg-accent rounded-xl mx-auto flex items-center justify-center p-1 border border-border">
+                            <div className="w-10 h-10 bg-accent rounded-xl mx-auto flex items-center justify-center p-1 border border-border relative">
                               {(match.awayParticipant?.logo || match.awayTeam?.teamLogo) ? (
-                                <img src={match.awayParticipant?.logo || match.awayTeam?.teamLogo} className="w-full h-full object-contain" />
+                                <Image 
+                                  src={match.awayParticipant?.logo || match.awayTeam?.teamLogo} 
+                                  alt="Away logo"
+                                  width={40}
+                                  height={40}
+                                  className="object-contain" 
+                                />
                               ) : <span className="text-[10px] text-muted-foreground/20">A</span>}
                             </div>
                             <div className="text-xs font-black text-foreground truncate max-w-[100px] mx-auto uppercase tracking-tighter">
@@ -292,13 +310,35 @@ export function LeagueCenter() {
             </CardHeader>
             <CardContent>
               {loadingTeam ? (
-                <div className="flex justify-center p-8"><Loader2 className="w-6 h-6 animate-spin text-primary" /></div>
+                <div className="space-y-4 p-4">
+                  <div className="flex items-center gap-4 animate-pulse">
+                    <div className="w-14 h-14 bg-accent/40 rounded-2xl" />
+                    <div className="space-y-2">
+                      <div className="w-32 h-6 bg-accent/40 rounded" />
+                      <div className="w-24 h-4 bg-accent/40 rounded" />
+                    </div>
+                  </div>
+                  <div className="space-y-2 pt-4">
+                    {[1, 2, 3, 4, 5].map(i => (
+                      <div key={i} className="flex items-center justify-between p-2 h-10 bg-accent/20 rounded-lg animate-pulse">
+                         <div className="w-24 h-4 bg-accent/40 rounded" />
+                         <div className="w-12 h-4 bg-accent/40 rounded" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               ) : selectedTeam ? (
                 <div className="space-y-4">
                    <div className="flex items-center gap-4">
-                     <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center p-2 border border-white/10">
+                     <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center p-2 border border-white/10 relative">
                        {selectedTeam.teamLogo ? (
-                         <img src={selectedTeam.teamLogo} alt={selectedTeam.teamName} className="object-contain w-full h-full" />
+                         <Image 
+                           src={selectedTeam.teamLogo} 
+                           alt={selectedTeam.teamName} 
+                           width={56} 
+                           height={56} 
+                           className="object-contain" 
+                         />
                        ) : (
                          <div className="font-bold text-primary">{selectedTeam.teamID}</div>
                        )}
