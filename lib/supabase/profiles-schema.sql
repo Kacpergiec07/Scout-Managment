@@ -9,6 +9,11 @@ CREATE TABLE IF NOT EXISTS profiles (
   region TEXT,
   join_date TIMESTAMPTZ DEFAULT NOW(),
   notification_preferences JSONB DEFAULT '{"email_alerts": true, "push_notifications": false, "player_updates": true, "transfer_alerts": true, "weekly_reports": false}'::jsonb,
+  -- Statistics fields (can be calculated or manually set)
+  years_experience INTEGER DEFAULT 0,
+  players_watched_count INTEGER DEFAULT 0,
+  active_scouting_count INTEGER DEFAULT 0,
+  reports_created_count INTEGER DEFAULT 0,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );

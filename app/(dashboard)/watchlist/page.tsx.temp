@@ -1,0 +1,18 @@
+                            {(() => {
+                              const formation = selectedDetails?.formation || "4-3-3"
+                              const [d, m, a] = formation.split('-').map((n: string) => parseInt(n) || 0)
+
+                              <>
+                                {/* Defensive line */}
+                                <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 flex justify-around w-full px-12">
+                                  {Array.from({ length: Math.min(d, 5) }).map((_, i: number) => (
+                                    <div key={`d-${i}`} className="w-1.5 h-1.5 rounded-full bg-foreground/10 border-foreground/5 shadow-sm" />
+                                  ))}
+                                {/* Midfield line */}
+                                <div className="absolute top-[45%] left-1/2 -translate-x-1/2 flex justify-around w-full px-20">
+                                  {Array.from({ length: Math.min(m, 5) }).map((_, i: number) => (
+                                    <div key={`m-${i}`} className="w-1.5 h-1.5 rounded-full bg-foreground/10 border-foreground/5 shadow-sm" />
+                                  ))}
+                                </>
+                              )
+                            </div>

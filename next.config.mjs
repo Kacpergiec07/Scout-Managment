@@ -11,7 +11,6 @@ const nextConfig = {
       { protocol: 'https', hostname: 'unpkg.com' },
     ],
   },
-  transpilePackages: ["three", "three-globe", "three-conic-polygon-geometry", "three-fatline"],
 }
 
-export default nextConfig
+export default nextConfig;

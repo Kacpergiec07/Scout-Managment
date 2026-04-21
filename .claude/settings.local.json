@@ -1,7 +1,6 @@
 {
   "permissions": {
     "allow": [
-<<<<<<< HEAD
       "Bash(timeout 30 npm run dev)",
       "Bash(curl -s \"https://api.statorium.com/api/v1/teams/9/staff/?apikey=d35d1fc1aabe0671e1e80ee5a6296bef\")",
       "Bash(curl -s \"https://api.statorium.com/api/v1/seasons/515/teams/9/?apikey=d35d1fc1aabe0671e1e80ee5a6296bef\")",
@@ -36,10 +35,17 @@
       "Bash(curl -s \"http://localhost:3000/leagues/team/105\")",
       "Bash(curl -s \"http://localhost:3000/leagues/team/106\")",
       "Bash(curl -s \"http://localhost:3000/leagues/team/112\")",
-      "Bash(npx tsc:*)"
-=======
-      "Bash(timeout 30 npm run dev)"
->>>>>>> 0fced7fac57a646d79d15a5adebe45adaee32fbd
+      "Bash(npx tsc:*)",
+      "Bash(npx next:*)",
+      "Bash(npm install:*)",
+      "Bash(node -e \"console.log\\('Checking syntax issues...'\\)\")",
+      "Bash(awk 'NR>=250 && NR<=300' app/\\\\\\(dashboard\\\\\\)/watchlist/page.tsx)",
+      "Bash(ls:*)",
+      "Bash(xargs wc:*)",
+      "Bash(xargs grep:*)",
+      "Bash(find:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m 'docs: refresh codebase map with parallel mapper analysis:*)"
     ]
   }
 }

@@ -1,12 +1,15 @@
 'use client'
 
+export const dynamic = 'force-dynamic'
+
 import React, { useState, useEffect } from 'react'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
-import { User, Bell, Database, Shield, Save, Check, Mail, Moon, Sun, Loader2, Key } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { User, Bell, Database, Shield, Save, Check, Mail, Moon, Sun, Loader2, Key, TrendingUp } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { getProfileData, updateProfile, updateNotificationPreferences } from '@/app/actions/profile'
@@ -17,7 +20,7 @@ interface UserProfile {
   email: string
   avatar_url: string | null
   role: string | null
-  region: string | null
+  assigned_region: string | null
   bio: string | null
   notification_preferences: {
     email_alerts: boolean
@@ -26,6 +29,11 @@ interface UserProfile {
     transfer_alerts: boolean
     weekly_reports: boolean
   }
+  // Statistics fields
+  years_experience: number
+  players_watched_count: number
+  active_scouting_count: number
+  reports_created_count: number
 }
 
 export default function SettingsPage() {
@@ -37,9 +45,14 @@ export default function SettingsPage() {
   // Form states
   const [fullName, setFullName] = useState('')
   const [role, setRole] = useState('')
-  const [region, setRegion] = useState('')
+  const [assignedRegion, setAssignedRegion] = useState('')
   const [bio, setBio] = useState('')
   const [avatarUrl, setAvatarUrl] = useState('')
+  // Statistics states
+  const [yearsExperience, setYearsExperience] = useState(0)
+  const [playersWatchedCount, setPlayersWatchedCount] = useState(0)
+  const [activeScoutingCount, setActiveScoutingCount] = useState(0)
+  const [reportsCreatedCount, setReportsCreatedCount] = useState(0)
 
   useEffect(() => {
     async function loadUserData() {
@@ -54,9 +67,14 @@ export default function SettingsPage() {
           setUser(profileData as UserProfile)
           setFullName(profileData.full_name || '')
           setRole(profileData.role || 'Scout')
-          setRegion(profileData.region || '')
+          setAssignedRegion(profileData.assigned_region || '')
           setBio(profileData.bio || '')
           setAvatarUrl(profileData.avatar_url || '')
+          // Set statistics
+          setYearsExperience(profileData.years_experience || 0)
+          setPlayersWatchedCount(profileData.players_watched_count || 0)
+          setActiveScoutingCount(profileData.active_scouting_count || 0)
+          setReportsCreatedCount(profileData.reports_created_count || 0)
         } else {
           console.warn('Settings: No profile data returned, using empty state')
           setUser(null)
@@ -72,16 +90,24 @@ export default function SettingsPage() {
     loadUserData()
   }, [])
 
-  const handleProfileUpdate = async (formData: FormData) => {
+  const handleProfileUpdate = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
     setSaveStatus('saving')
+
+    const formData = new FormData(event.currentTarget)
+    console.log('Settings: Form submitted with data:', Object.fromEntries(formData.entries()))
+
     const result = await updateProfile(formData)
 
     if (result.error) {
+      console.error('Settings: Profile update failed:', result.error)
       setSaveStatus('error')
+      setTimeout(() => setSaveStatus('idle'), 3000)
       return
     }
 
     if (result.success) {
+      console.log('Settings: Profile update successful:', result.data)
       setSaveStatus('saved')
       setTimeout(() => setSaveStatus('idle'), 2000)
 
@@ -89,12 +115,22 @@ export default function SettingsPage() {
       const profileData = await getProfileData()
       if (profileData) {
         setUser(profileData as UserProfile)
+        // Update local state with new values
+        setYearsExperience(profileData.years_experience || 0)
+        setPlayersWatchedCount(profileData.players_watched_count || 0)
+        setActiveScoutingCount(profileData.active_scouting_count || 0)
+        setReportsCreatedCount(profileData.reports_created_count || 0)
       }
     }
   }
 
-  const handleNotificationUpdate = async (formData: FormData) => {
+  const handleNotificationUpdate = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
     setSaveStatus('saving')
+
+    const formData = new FormData(event.currentTarget)
+    console.log('Settings: Notification form submitted with data:', Object.fromEntries(formData.entries()))
+
     const result = await updateNotificationPreferences(formData)
 
     if (result.error) {
@@ -158,10 +194,9 @@ export default function SettingsPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                 >
-                  <Button variant="default" size="lg" formAction={handleProfileUpdate}>
-                    <Save className="w-4 h-4 mr-2" />
-                    Save Changes
-                  </Button>
+                  <div className="px-8 py-3 rounded-lg bg-accent border-border text-sm font-black uppercase tracking-widest">
+                    Ready to save
+                  </div>
                 </motion.div>
               )}
               {saveStatus === 'saving' && (
@@ -220,7 +255,7 @@ export default function SettingsPage() {
               </div>
             </CardHeader>
             <CardContent>
-              <form className="space-y-6">
+              <form onSubmit={handleProfileUpdate} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="fullName" className="text-foreground">Full Name</Label>
                   <Input
@@ -246,12 +281,12 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="region" className="text-foreground">Assigned Region</Label>
+                  <Label htmlFor="assignedRegion" className="text-foreground">Assigned Region</Label>
                   <Input
-                    id="region"
-                    name="region"
-                    value={region}
-                    onChange={(e) => setRegion(e.target.value)}
+                    id="assignedRegion"
+                    name="assigned_region"
+                    value={assignedRegion}
+                    onChange={(e) => setAssignedRegion(e.target.value)}
                     placeholder="Europe, Asia, etc."
                     className="bg-accent/20 border-border text-foreground placeholder:text-muted-foreground"
                   />
@@ -288,6 +323,113 @@ export default function SettingsPage() {
                     To change email, use the account management in Supabase
                   </p>
                 </div>
+
+                <div className="pt-4">
+                  <Button type="submit" variant="outline" size="sm">
+                    <Save className="w-4 h-4 mr-2" />
+                    Save Profile Changes
+                  </Button>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
+
+          {/* Statistics Settings */}
+          <Card>
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center">
+                  <TrendingUp className="w-5 h-5 text-orange-500" />
+                </div>
+                <div>
+                  <CardTitle>Performance Statistics</CardTitle>
+                  <CardDescription>Manually set or override statistics</CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleProfileUpdate} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="yearsExperience" className="text-foreground">Years of Experience</Label>
+                  <Input
+                    id="yearsExperience"
+                    name="yearsExperience"
+                    type="number"
+                    value={yearsExperience}
+                    onChange={(e) => setYearsExperience(parseInt(e.target.value) || 0)}
+                    placeholder="Enter your years of experience"
+                    className="bg-accent/20 border-border text-foreground placeholder:text-muted-foreground"
+                  />
+                  <p className="text-xs text-muted-foreground italic">
+                    Manual field - cannot be calculated automatically
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="playersWatched" className="text-foreground">Players Watched</Label>
+                    <Input
+                      id="playersWatched"
+                      name="playersWatched"
+                      type="number"
+                      value={playersWatchedCount}
+                      disabled
+                      placeholder="Auto-calculated"
+                      className="bg-muted/30 border-border text-muted-foreground placeholder:text-muted-foreground cursor-not-allowed"
+                    />
+                    <p className="text-xs text-muted-foreground italic">
+                      Auto-calculated from watchlist
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="activeScouting" className="text-foreground">Active Scouting</Label>
+                    <Input
+                      id="activeScouting"
+                      name="activeScouting"
+                      type="number"
+                      value={activeScoutingCount}
+                      disabled
+                      placeholder="Auto-calculated"
+                      className="bg-muted/30 border-border text-muted-foreground placeholder:text-muted-foreground cursor-not-allowed"
+                    />
+                    <p className="text-xs text-muted-foreground italic">
+                      Auto-calculated from watchlist
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="reportsCreated" className="text-foreground">Reports Created</Label>
+                    <Input
+                      id="reportsCreated"
+                      name="reportsCreated"
+                      type="number"
+                      value={reportsCreatedCount}
+                      disabled
+                      placeholder="Auto-calculated"
+                      className="bg-muted/30 border-border text-muted-foreground placeholder:text-muted-foreground cursor-not-allowed"
+                    />
+                    <p className="text-xs text-muted-foreground italic">
+                      Auto-calculated from analysis history
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-xl bg-blue-500/10 border-blue-500/30">
+                  <p className="text-sm font-semibold text-foreground mb-2">
+                    ℹ️ Statistics Information
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Statistics are automatically calculated from your database activity. "Players Watched" and "Active Scouting" reflect real counts from your watchlist. "Reports Created" shows your analysis history. "Years of Experience" is the only manual field that must be set by you.
+                  </p>
+                </div>
+
+                <div className="pt-4">
+                  <Button type="submit" variant="outline" size="sm">
+                    <Save className="w-4 h-4 mr-2" />
+                    Save Statistics
+                  </Button>
+                </div>
               </form>
             </CardContent>
           </Card>
@@ -306,7 +448,7 @@ export default function SettingsPage() {
               </div>
             </CardHeader>
             <CardContent>
-              <form className="space-y-4" action={handleNotificationUpdate}>
+              <form onSubmit={handleNotificationUpdate} className="space-y-4">
                 <div className="p-4 rounded-xl bg-accent/10 border-border">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-4">
@@ -418,7 +560,7 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="pt-4">
-                  <Button variant="outline" size="sm" formAction={handleNotificationUpdate}>
+                  <Button type="submit" variant="outline" size="sm">
                     <Save className="w-4 h-4 mr-2" />
                     Save Notification Preferences
                   </Button>

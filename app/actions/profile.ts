@@ -16,39 +16,57 @@ export async function updateProfile(formData: FormData) {
     return { error: 'User not authenticated' }
   }
 
-  const profileData = {
+  const profileData: any = {
     full_name: formData.get('fullName') as string,
     bio: formData.get('bio') as string,
     role: formData.get('role') as string,
-    region: formData.get('region') as string,
+    assigned_region: formData.get('assigned_region') as string,
     avatar_url: formData.get('avatar_url') as string | null,
   }
 
-  // Remove undefined values
-  Object.keys(profileData).forEach(key => {
-    if (profileData[key as keyof typeof profileData] === undefined) {
-      delete profileData[key as keyof typeof profileData]
-    }
-  })
+  // Only add statistics fields if they have values
+  const yearsExperience = formData.get('yearsExperience')
+  if (yearsExperience) {
+    profileData.years_experience = parseInt(yearsExperience as string)
+  }
+
+  console.log('UpdateProfile: Profile data to update:', profileData)
 
   console.log('UpdateProfile: Attempting to update profile:', profileData)
 
-  const { error } = await supabase
-    .from('profiles')
-    .update(profileData)
-    .eq('id', user.id)
-    .select()
-    .single()
+  try {
+    const { data, error } = await supabase
+      .from('profiles')
+      .update(profileData)
+      .eq('id', user.id)
+      .select()
+      .single()
 
-  if (error) {
-    console.error('UpdateProfile: Database error:', error)
-    return { error: error.message }
+    if (error) {
+      console.error('UpdateProfile: Database error:', error)
+      console.error('UpdateProfile: Error details:', {
+        message: error.message,
+        code: error.code,
+        details: error.details,
+        hint: error.hint
+      })
+      return { error: error.message }
+    }
+
+    console.log('UpdateProfile: Profile updated successfully:', data)
+    revalidatePath('/profile', 'layout')
+    revalidatePath('/settings', 'layout')
+    return {
+      success: true,
+      data: {
+        ...profileData,
+        email: user.email
+      }
+    }
+  } catch (error) {
+    console.error('UpdateProfile: Unexpected error:', error)
+    return { error: 'An unexpected error occurred' }
   }
-
-  console.log('UpdateProfile: Profile updated successfully')
-  revalidatePath('/profile', 'layout')
-  revalidatePath('/settings', 'layout')
-  return { success: true, data: { ...profileData, email: user.email } }
 }
 
 export async function updateNotificationPreferences(formData: FormData) {
@@ -112,6 +130,7 @@ export async function getProfileData() {
 
     console.log('getProfileData: User authenticated, fetching profile...', user.id)
 
+    // Fetch profile data
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
       .select('*')
@@ -135,7 +154,11 @@ export async function getProfileData() {
               player_updates: true,
               transfer_alerts: true,
               weekly_reports: false
-            } as any
+            } as any,
+            years_experience: 0,
+            players_watched_count: 0,
+            active_scouting_count: 0,
+            reports_created_count: 0
           })
           .select()
           .single()
@@ -146,11 +169,7 @@ export async function getProfileData() {
         }
 
         console.log('getProfileData: Profile created successfully:', newProfile)
-        return {
-          ...newProfile,
-          email: user.email,
-          id: user.id
-        }
+        profile = newProfile
       } catch (error) {
         console.error('getProfileData: Profile creation failed:', error)
         return null
@@ -162,11 +181,43 @@ export async function getProfileData() {
       return null
     }
 
+    // Fetch real counts from database
+    console.log('getProfileData: Fetching real statistics...')
+
+    // Count players on watchlist - use auth.uid() for current user
+    console.log('getProfileData: Using user.id:', user.id)
+
+    const { count: totalWatched } = await supabase
+      .from('watchlist')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', user.id)
+
+    console.log('getProfileData: Total players watched:', totalWatched)
+
+    // Count active scouting (players with 'following', 'priority', or 'analyzing' status)
+    const { count: activeScouting } = await supabase
+      .from('watchlist')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', user.id)
+      .in('status', ['following', 'priority', 'analyzing'])
+
+    console.log('getProfileData: Active scouting count:', activeScouting)
+
+    // Count analysis history (reports)
+    const { count: totalReports } = await supabase
+      .from('analysis_history')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', user.id)
+
+    console.log('getProfileData: Total reports created:', totalReports)
+
     console.log('getProfileData: Profile data fetched successfully:', profile)
     return {
       ...profile,
       email: user.email,
-      id: user.id
+      players_watched_count: totalWatched || 0,
+      active_scouting_count: activeScouting || 0,
+      reports_created_count: totalReports || 0
     }
   } catch (error) {
     console.error('getProfileData: Unexpected error:', error)

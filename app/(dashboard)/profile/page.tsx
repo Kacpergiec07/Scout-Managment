@@ -1,5 +1,7 @@
 'use client'
 
+export const dynamic = 'force-dynamic'
+
 import React, { useEffect, useState } from 'react'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -17,17 +19,22 @@ interface UserProfile {
   region: string | null
   bio: string | null
   join_date: string | null
+  // Dynamic statistics from database
+  players_watched_count: number
+  active_scouting_count: number
+  reports_created_count: number
+  years_experience: number
 }
 
 interface WatchlistStats {
-  players_watched: number
+  players_watched_count: number
 }
 
 export default function ProfilePage() {
   const [user, setUser] = useState<UserProfile | null>(null)
   const [loading, setLoading] = useState(true)
   const [stats, setStats] = useState<WatchlistStats>({
-    players_watched: 0
+    players_watched_count: 0
   })
 
   useEffect(() => {
@@ -37,9 +44,9 @@ export default function ProfilePage() {
         const profileData = await getProfileData()
         if (profileData) {
           setUser(profileData as UserProfile)
-          // In a real app, you would fetch stats from watchlist table
+          // Set real statistics from database
           setStats({
-            players_watched: Math.floor(Math.random() * 50) + 10
+            players_watched_count: profileData.players_watched_count || 0
           })
         }
       } catch (error) {
@@ -58,11 +65,11 @@ export default function ProfilePage() {
   const userAvatar = user?.avatar_url || `https://ui-avatars.com/api/?name=${userName.replace(/\s+/g, '+')}&background=22c55e&color=fff`
   const joinDate = user?.join_date || new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' })
 
-  const mockStats = [
-    { label: 'Players Watched', value: String(stats.players_watched), icon: Target, color: 'text-green-500' },
-    { label: 'Years Experience', value: '3', icon: Award, color: 'text-purple-500' },
-    { label: 'Reports Created', value: '47', icon: Trophy, color: 'text-blue-500' },
-    { label: 'Active Scouting', value: '12', icon: TrendingUp, color: 'text-orange-500' },
+  const dynamicStats = [
+    { label: 'Players Watched', value: String(user?.players_watched_count || 0), icon: Target, color: 'text-green-500' },
+    { label: 'Years Experience', value: String(user?.years_experience || 0), icon: Award, color: 'text-purple-500' },
+    { label: 'Reports Created', value: String(user?.reports_created_count || 0), icon: Trophy, color: 'text-blue-500' },
+    { label: 'Active Scouting', value: String(user?.active_scouting_count || 0), icon: TrendingUp, color: 'text-orange-500' },
   ]
 
   const mockActivity = [
@@ -203,7 +210,7 @@ export default function ProfilePage() {
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {mockStats.map((stat, index) => (
+              {dynamicStats.map((stat, index) => (
                 <Card key={stat.label}>
                   <CardContent className="p-6">
                     <motion.div
