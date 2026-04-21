@@ -54,6 +54,7 @@ export default function MigrateWatchlistPage() {
             <li>weight</li>
             <li>height</li>
             <li>age</li>
+            <li>unfollowed_at</li>
           </ul>
         </div>
 
@@ -73,12 +74,14 @@ ADD COLUMN IF NOT EXISTS player_photo TEXT,
 ADD COLUMN IF NOT EXISTS market_value TEXT,
 ADD COLUMN IF NOT EXISTS weight TEXT,
 ADD COLUMN IF NOT EXISTS height TEXT,
-ADD COLUMN IF NOT EXISTS age TEXT;
+ADD COLUMN IF NOT EXISTS age TEXT,
+ADD COLUMN IF NOT EXISTS unfollowed_at TIMESTAMP WITH TIME ZONE;
 
 CREATE INDEX IF NOT EXISTS idx_watchlist_user_id ON watchlist(user_id);
 CREATE INDEX IF NOT EXISTS idx_watchlist_player_id ON watchlist(player_id);
 CREATE INDEX IF NOT EXISTS idx_watchlist_status ON watchlist(status);
-CREATE INDEX IF NOT EXISTS idx_watchlist_created_at ON watchlist(created_at DESC);`}
+CREATE INDEX IF NOT EXISTS idx_watchlist_created_at ON watchlist(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_watchlist_unfollowed_at ON watchlist(unfollowed_at DESC);`}
           </pre>
         </div>
 
