@@ -31,6 +31,14 @@ export async function getCompatibilityAnalysis(player: ScoutProPlayer) {
         needs: { ST: 70, CB: 80 },
         form: 65,
         historyMatch: 85,
+      },
+      {
+        id: '3',
+        name: 'Atletico Madrid',
+        dna: { possession: 55, pressing: 95, tempo: 70 },
+        needs: { ST: 85, CM: 60 },
+        form: 78,
+        historyMatch: 75,
       }
     ];
 
