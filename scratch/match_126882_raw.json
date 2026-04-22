@@ -1,0 +1,158 @@
+{
+  "gmtUpdated": 1776680132,
+  "match": {
+    "matchID": 126882,
+    "matchdayID": 13807,
+    "matchStatus": {
+      "statusID": "0"
+    },
+    "extraTime": {
+      "is_extra": "0",
+      "home_score": 0,
+      "away_score": 0
+    },
+    "matchDate": "2026-04-23",
+    "matchTime": "19:30",
+    "matchVenue": {
+      "venueID": 401,
+      "venueName": "Estadio Carlos Tartiere",
+      "translations": null
+    },
+    "homeParticipant": {
+      "participantID": 364,
+      "score": 0,
+      "participantName": "Real Oviedo",
+      "teamShortName": "RO",
+      "teamMiddleName": "Real Oviedo",
+      "logo": "https://api.statorium.com/media/bearleague/bl17196147401543.webp",
+      "translations": {
+        "ar": {
+          "name": "ريال أوفييدو"
+        },
+        "gr": {
+          "name": "Ρεάλ Οβιέδο"
+        }
+      },
+      "squad": {
+        "lineup": [],
+        "bench": [],
+        "subs": []
+      },
+      "events": [],
+      "teamStats": []
+    },
+    "awayParticipant": {
+      "participantID": 38,
+      "score": 0,
+      "participantName": "Villarreal CF",
+      "teamShortName": "VIL",
+      "teamMiddleName": "Villarreal",
+      "logo": "https://api.statorium.com/media/bearleague/bl1756795682865.png",
+      "translations": {
+        "ar": {
+          "name": "فياريال",
+          "short_name": "فياريال",
+          "middle_name": "فياريال"
+        },
+        "zh": {
+          "name": "維拉利爾",
+          "middle_name": "維拉利爾"
+        },
+        "gr": {
+          "name": "Βιγιαρεάλ",
+          "middle_name": "Βιγιαρεάλ"
+        },
+        "th": {
+          "name": "สโมสรฟุตบอลบิยาร์เรอัล"
+        }
+      },
+      "squad": {
+        "lineup": [],
+        "bench": [],
+        "subs": []
+      },
+      "events": [],
+      "teamStats": []
+    },
+    "matchDuration": "",
+    "matchTicker": "",
+    "group": {
+      "groupID": 0,
+      "groupName": ""
+    },
+    "additionalInfo": {
+      "attendance": null,
+      "referee": "",
+      "referee assitant": "",
+      "fourth official": ""
+    },
+    "h2h": [
+      {
+        "matchID": 126565,
+        "matchStatus": {
+          "statusID": "1"
+        },
+        "league": {
+          "seasonID": 558,
+          "seasonName": "2025-26",
+          "tournamentID": 2,
+          "tournamentName": "SPAIN: La Liga",
+          "translations": []
+        },
+        "extraTime": {
+          "is_extra": "0",
+          "home_score": 0,
+          "away_score": 0
+        },
+        "matchDate": "2025-08-15",
+        "matchTime": "19:30",
+        "matchVenue": {
+          "venueID": 32
+        },
+        "homeParticipant": {
+          "participantID": 38,
+          "participantName": "Villarreal CF",
+          "score": 2,
+          "logo": "https://api.statorium.com/media/bearleague/bl1756795682865.png",
+          "translations": {
+            "ar": {
+              "name": "فياريال",
+              "short_name": "فياريال",
+              "middle_name": "فياريال"
+            },
+            "zh": {
+              "name": "維拉利爾",
+              "middle_name": "維拉利爾"
+            },
+            "gr": {
+              "name": "Βιγιαρεάλ",
+              "middle_name": "Βιγιαρεάλ"
+            },
+            "th": {
+              "name": "สโมสรฟุตบอลบิยาร์เรอัล"
+            }
+          }
+        },
+        "awayParticipant": {
+          "participantID": 364,
+          "participantName": "Real Oviedo",
+          "score": 0,
+          "logo": "https://api.statorium.com/media/bearleague/bl17196147401543.webp",
+          "translations": {
+            "ar": {
+              "name": "ريال أوفييدو"
+            },
+            "gr": {
+              "name": "Ρεάλ Οβιέδο"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "stages": [],
+  "sport": {
+    "name": "Football",
+    "type": "team"
+  }
+}

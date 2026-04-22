@@ -39,7 +39,7 @@ export function KanbanCard({ item }: { item: any }) {
     <Card
       ref={setNodeRef}
       style={style}
-      className="group relative border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all shadow-sm overflow-hidden"
+      className="group relative border-border bg-card hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all shadow-sm overflow-hidden"
     >
       <div 
         {...attributes} 
@@ -64,12 +64,12 @@ export function KanbanCard({ item }: { item: any }) {
               />
             </div>
             <div className="flex-1 min-w-0">
-              <h4 className="font-bold text-zinc-900 dark:text-zinc-50 leading-none truncate mb-1">{item.name}</h4>
+              <h4 className="font-bold text-foreground leading-none truncate mb-1">{item.name}</h4>
               <div className="flex items-center gap-1.5 mb-2">
-                <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded">
+                <span className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider bg-secondary px-1.5 py-0.5 rounded">
                   {item.position}
                 </span>
-                <span className="text-[10px] text-zinc-400 font-medium truncate">
+                <span className="text-[10px] text-muted-foreground font-medium truncate">
                   {item.club}
                 </span>
               </div>

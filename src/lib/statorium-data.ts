@@ -8,14 +8,15 @@ export interface LeagueInfo {
   name: string;
   seasonId: string;
   flag: string;
+  logo: string;
 }
 
 export const LEAGUES: LeagueInfo[] = [
-  { id: "pl", name: "Premier League", seasonId: "515", flag: "🇬🇧" },
-  { id: "laliga", name: "La Liga", seasonId: "558", flag: "🇪🇸" },
-  { id: "seriea", name: "Serie A", seasonId: "511", flag: "🇮🇹" },
-  { id: "bundesliga", name: "Bundesliga", seasonId: "521", flag: "🇩🇪" },
-  { id: "ligue1", name: "Ligue 1", seasonId: "519", flag: "🇫🇷" },
+  { id: "laliga", name: "La Liga", seasonId: "558", flag: "🇪🇸", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/53.png" },
+  { id: "pl", name: "Premier League", seasonId: "515", flag: "🇬🇧", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/13.png" },
+  { id: "seriea", name: "Serie A", seasonId: "511", flag: "🇮🇹", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/31.png" },
+  { id: "bundesliga", name: "Bundesliga", seasonId: "521", flag: "🇩🇪", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/19.png" },
+  { id: "ligue1", name: "Ligue 1", seasonId: "519", flag: "🇫🇷", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/16.png" },
 ];
 
 export const POSITION_MAP: Record<string, string> = {
@@ -74,7 +75,7 @@ export const COACH_MAP: Record<string, string> = {
 
   // La Liga
   "23": "Hansi Flick", // Barcelona
-  "37": "Carlo Ancelotti", // Real Madrid
+  "37": "Alvaro Arbeloa", // Real Madrid
   "38": "Marcelino García Toral", // Villarreal
   "39": "Diego Simeone", // Atlético Madrid
   "30": "Manuel Pellegrini", // Real Betis

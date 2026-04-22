@@ -1,0 +1,106 @@
+
+function TeamLineupView({ participant, side }: { participant: any, side: 'home' | 'away' }) {
+   if (!participant?.squad) return (
+      <div className="p-12 bg-white/5 rounded-3xl border border-dashed border-white/10 flex flex-col items-center justify-center text-center">
+         <Users className="w-8 h-8 text-white/20 mb-3" />
+         <span className="text-[10px] font-black uppercase tracking-widest text-white/20">Lineup Unavailable</span>
+      </div>
+   );
+
+   const lineup = participant.squad.lineup || [];
+   const subs = participant.squad.subs || [];
+
+   const getPlayersByPos = (pos: string) => lineup.filter((p: any) => (p.additionalInfo?.position || p.position) === pos);
+   
+   const gks = getPlayersByPos("1");
+   const dfs = getPlayersByPos("2");
+   const mfs = getPlayersByPos("3");
+   const fws = getPlayersByPos("4");
+
+   return (
+      <div className="flex flex-col gap-6">
+         <h3 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-500 flex items-center gap-2">
+            <Shield className="w-4 h-4" />
+            Tactical Formation
+         </h3>
+         
+         <div className="relative aspect-[3/4] bg-emerald-950/20 border border-emerald-500/20 rounded-2xl overflow-hidden p-6 shadow-[inset_0_0_40px_rgba(16,185,129,0.1)]">
+            {/* Pitch Markings */}
+            <div className="absolute inset-0 opacity-10" style={{ 
+               backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 19%, rgba(16, 185, 129, 0.4) 20%)',
+               backgroundSize: '100% 20%' 
+            }} />
+            <div className="absolute top-1/2 left-0 right-0 h-px bg-white/5" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-white/5" />
+            
+            {/* Lineup Layers */}
+            <div className="relative h-full flex flex-col justify-between py-4">
+               {/* FW */}
+               <div className="flex justify-around">
+                  {fws.length > 0 ? fws.map((p: any) => <PlayerDot key={p.playerID} player={p} />) : <div className="h-10" />}
+               </div>
+               {/* MF */}
+               <div className="flex justify-around">
+                  {mfs.length > 0 ? mfs.map((p: any) => <PlayerDot key={p.playerID} player={p} />) : <div className="h-10" />}
+               </div>
+               {/* DF */}
+               <div className="flex justify-around">
+                  {dfs.length > 0 ? dfs.map((p: any) => <PlayerDot key={p.playerID} player={p} />) : <div className="h-10" />}
+               </div>
+               {/* GK */}
+               <div className="flex justify-center">
+                  {gks.map((p: any) => <PlayerDot key={p.playerID} player={p} />)}
+               </div>
+            </div>
+         </div>
+
+         {/* Substitutions */}
+         <div className="space-y-4">
+            <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white/40 flex items-center gap-2">
+               <ArrowRightLeft className="w-4 h-4" />
+               Substitutions
+            </h3>
+            <div className="space-y-2">
+               {subs.length > 0 ? subs.map((s: any, idx: number) => (
+                  <div key={idx} className="p-3 bg-white/5 rounded-xl border border-white/5 flex flex-col gap-1">
+                     <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-black text-emerald-500 tabular-nums">{s.minute}'</span>
+                        <ArrowRightLeft className="w-3 h-3 text-white/20" />
+                     </div>
+                     <div className="flex flex-col">
+                        <span className="text-[10px] font-black text-white uppercase tracking-tight truncate flex items-center gap-1">
+                           <span className="text-emerald-500">IN:</span> {s.playerINFullName || s.playerIN}
+                        </span>
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-tight truncate flex items-center gap-1">
+                           <span className="text-red-500/60">OUT:</span> {s.playerOUTFullName || s.playerOUT}
+                        </span>
+                     </div>
+                  </div>
+               )) : (
+                  <div className="p-4 text-center text-[10px] text-white/10 italic bg-white/5 rounded-xl border border-dashed border-white/10">
+                     No changes recorded
+                  </div>
+               )}
+            </div>
+         </div>
+      </div>
+   );
+}
+
+function PlayerDot({ player }: { player: any }) {
+   return (
+      <div className="flex flex-col items-center gap-1 group/player">
+         <div className="w-10 h-10 rounded-full bg-black border-2 border-emerald-500/50 flex items-center justify-center overflow-hidden shadow-lg group-hover/player:scale-110 transition-transform cursor-help ring-2 ring-emerald-500/10">
+            {player.playerPhoto ? (
+               <img src={player.playerPhoto} alt="" className="w-full h-full object-cover" />
+            ) : (
+               <UserCircle className="w-6 h-6 text-emerald-500/30" />
+            )}
+         </div>
+         <span className="text-[8px] font-black text-white/80 uppercase tracking-tight text-center max-w-[60px] leading-tight truncate px-1 bg-black/40 rounded">
+            {player.playerFullName?.split(' ').pop()}
+         </span>
+         <span className="text-[7px] font-bold text-emerald-500 bg-emerald-500/10 px-1 rounded tabular-nums">#{player.playerNumber || "??"}</span>
+      </div>
+   );
+}

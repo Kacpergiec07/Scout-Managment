@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import { Badge } from '@/components/ui/badge'
-import { User, Bell, Database, Shield, Save, Check, Mail, Moon, Sun, Loader2, Key, TrendingUp } from 'lucide-react'
+import { User, Bell, Database, Shield, Save, Check, Mail, Moon, Sun, Loader2, Key, TrendingUp, RefreshCw } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { getProfileData, updateProfile, updateNotificationPreferences } from '@/app/actions/profile'
@@ -157,13 +157,39 @@ export default function SettingsPage() {
     setTheme(newTheme)
   }
 
-  if (loading || !user) {
+  if (loading) {
     return (
       <div className="relative w-full h-full bg-background text-foreground overflow-hidden flex transition-colors duration-300">
         <div className="flex-1 w-full h-full flex items-center justify-center">
           <div className="text-center space-y-4">
-            <Loader2 className="w-12 h-12 animate-spin text-green-500 mx-auto" />
-            <p className="text-muted-foreground text-lg">Loading settings...</p>
+            <Loader2 className="w-12 h-12 animate-spin text-emerald-500 mx-auto" />
+            <p className="text-muted-foreground text-lg font-medium tracking-wide">Loading settings...</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (!user) {
+    return (
+      <div className="relative w-full h-full bg-background text-foreground overflow-hidden flex transition-colors duration-300">
+        <div className="flex-1 w-full h-full flex items-center justify-center">
+          <div className="text-center space-y-6 max-w-md px-6">
+            <div className="w-20 h-20 bg-destructive/10 rounded-full flex items-center justify-center mx-auto">
+              <Shield className="w-10 h-10 text-destructive" />
+            </div>
+            <div className="space-y-2">
+              <h2 className="text-2xl font-black uppercase tracking-tighter italic">Access Interrupted</h2>
+              <p className="text-muted-foreground">We couldn't retrieve your profile intelligence. This might be a temporary synchronization issue.</p>
+            </div>
+            <Button 
+              onClick={() => window.location.reload()} 
+              variant="outline" 
+              className="border-emerald-500/50 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10"
+            >
+              <RefreshCw className="w-4 h-4 mr-2" />
+              Retry Connection
+            </Button>
           </div>
         </div>
       </div>
@@ -220,7 +246,7 @@ export default function SettingsPage() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
-                  className="px-8 py-3 rounded-lg bg-green-500 text-black text-sm font-black uppercase tracking-widest flex items-center gap-2"
+                  className="px-8 py-3 rounded-lg bg-emerald-500 text-black text-sm font-black uppercase tracking-widest flex items-center gap-2"
                 >
                   <Check className="w-5 h-5" />
                   Saved Successfully
@@ -438,8 +464,8 @@ export default function SettingsPage() {
           <Card>
             <CardHeader>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center">
-                  <Bell className="w-5 h-5 text-green-500" />
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+                  <Bell className="w-5 h-5 text-emerald-500" />
                 </div>
                 <div>
                   <CardTitle>Notification Preferences</CardTitle>
@@ -619,10 +645,10 @@ export default function SettingsPage() {
               <div className="p-4 rounded-xl bg-accent/10 border-border">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-green-500" />
+                    <div className="w-3 h-3 rounded-full bg-emerald-500" />
                     <p className="font-semibold text-foreground">Statorium API</p>
                   </div>
-                  <Badge variant="outline" className="text-green-500 border-green-500/30">
+                  <Badge variant="outline" className="text-emerald-500 border-emerald-500/30">
                     Connected
                   </Badge>
                 </div>
@@ -632,10 +658,10 @@ export default function SettingsPage() {
               <div className="p-4 rounded-xl bg-accent/10 border-border">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-green-500" />
+                    <div className="w-3 h-3 rounded-full bg-emerald-500" />
                     <p className="font-semibold text-foreground">Neon Database</p>
                   </div>
-                  <Badge variant="outline" className="text-green-500 border-green-500/30">
+                  <Badge variant="outline" className="text-emerald-500 border-emerald-500/30">
                     Connected
                   </Badge>
                 </div>
@@ -645,10 +671,10 @@ export default function SettingsPage() {
               <div className="p-4 rounded-xl bg-accent/10 border-border">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-green-500" />
+                    <div className="w-3 h-3 rounded-full bg-emerald-500" />
                     <p className="font-semibold text-foreground">OpenAI API</p>
                   </div>
-                  <Badge variant="outline" className="text-green-500 border-green-500/30">
+                  <Badge variant="outline" className="text-emerald-500 border-emerald-500/30">
                     Connected
                   </Badge>
                 </div>
@@ -660,21 +686,6 @@ export default function SettingsPage() {
         </div>
       </div>
 
-      <style jsx global>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(255, 255, 255, 0.05);
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 255, 255, 0.1);
-        }
-      `}</style>
     </div>
   )
 }

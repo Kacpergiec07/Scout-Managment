@@ -10,13 +10,12 @@ const Globe3D = dynamic(() => import("@/components/ui/3d-globe").then((mod) => m
 
 import { GlobeArc } from "@/components/ui/3d-globe";
 import { GlobalMarketCard } from "@/components/scout/global-market-card";
-import { 
-  getPlayerPhotosAction, 
-  getTeamLogosAction, 
+import {
+  getPlayerPhotosAction,
+  getTeamLogosAction,
   getPlayerDataAction,
   getStandingsAction,
-  getPlayersByClubAction,
-  getTransfersAction
+  getPlayersByClubAction
 } from "@/app/actions/statorium";
 import {
   ArrowLeft, BrainCircuit, Globe2, ChevronUp, ChevronDown, ScanEye, Trash2, ArrowLeftRight, Repeat,

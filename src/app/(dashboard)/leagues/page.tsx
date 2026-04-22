@@ -1,23 +1,26 @@
-import { LeagueCenter } from "@/components/scout/league-center";
-import { Metadata } from 'next';
 import { Suspense } from "react";
 import { Loader2 } from "lucide-react";
+import { LeagueGalaxy } from "@/components/scout/league-galaxy";
 
-export const metadata: Metadata = {
-  title: 'League Center | ScoutPro',
-  description: 'Top 5 European Leagues standings, fixtures, and squad analytics.',
+export const metadata = {
+  title: "League Galaxy | ScoutPro",
+  description: "Explore world football leagues in a dynamic galaxy visualization.",
 };
 
 export default function LeaguesPage() {
   return (
-    <div className="container mx-auto p-6">
-      <Suspense fallback={
-        <div className="flex flex-col items-center justify-center min-h-[400px]">
-          <Loader2 className="w-10 h-10 animate-spin text-emerald-500 mb-4" />
-          <p className="text-zinc-400 font-medium">Synchronizing Global League Data...</p>
-        </div>
-      }>
-        <LeagueCenter />
+    <div className="relative w-full h-[calc(100vh-64px)] overflow-hidden bg-black text-white">
+      <Suspense
+        fallback={
+          <div className="flex flex-col items-center justify-center min-h-screen">
+            <Loader2 className="w-10 h-10 animate-spin text-emerald-500 mb-4" />
+            <p className="text-zinc-400 font-medium tracking-widest uppercase text-xs">
+              Aligning Galactic Coordinates...
+            </p>
+          </div>
+        }
+      >
+        <LeagueGalaxy />
       </Suspense>
     </div>
   );

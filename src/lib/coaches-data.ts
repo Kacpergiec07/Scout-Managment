@@ -29,7 +29,7 @@ export const COACH_MAP: Record<string, string> = {
 
   // La Liga
   "23": "Hansi Flick", // Barcelona
-  "37": "Carlo Ancelotti", // Real Madrid
+  "37": "Alvaro Arbeloa", // Real Madrid
   "38": "Marcelino García Toral", // Villarreal
   "39": "Diego Simeone", // Atlético Madrid
   "30": "Manuel Pellegrini", // Real Betis

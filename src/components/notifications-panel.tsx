@@ -119,30 +119,30 @@ function generateNewsItem(id: string, type: NewsItem["type"], playerName: string
 const getTypeColor = (type: NewsItem["type"]) => {
   switch (type) {
     case "transfer":
-      return "#00ff88"
+      return "var(--primary)"
     case "injury":
-      return "#ff4444"
+      return "var(--destructive)"
     case "rumor":
       return "#ffaa00"
     case "official":
       return "#00aaff"
     default:
-      return "#00ff88"
+      return "var(--primary)"
   }
 }
 
 const getTypeBadgeColor = (type: NewsItem["type"]) => {
   switch (type) {
     case "transfer":
-      return "bg-[#00ff88] text-[#0a1a0f]"
+      return "bg-primary text-primary-foreground"
     case "injury":
-      return "bg-[#ff4444] text-white"
+      return "bg-destructive text-destructive-foreground"
     case "rumor":
-      return "bg-[#ffaa00] text-[#0a1a0f]"
+      return "bg-amber-500 text-black"
     case "official":
-      return "bg-[#00aaff] text-[#0a1a0f]"
+      return "bg-blue-500 text-white"
     default:
-      return "bg-[#00ff88] text-[#0a1a0f]"
+      return "bg-primary text-primary-foreground"
   }
 }
 
@@ -180,7 +180,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
       // Add transfer items from real API data
       if (realTransfers && realTransfers.length > 0) {
         const recentTransfers = realTransfers.slice(0, 2)
-        recentTransfers.forEach((transfer: any, index) => {
+        recentTransfers.forEach((transfer: any, index: number) => {
           const randomId = Math.floor(Math.random() * 1000000)
           const source = getRandomSource()
 
@@ -315,7 +315,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
     <div
       ref={panelRef}
       className={cn(
-        `absolute top-full mt-2 w-[380px] max-w-[calc(100vw-16px)] max-h-[480px] overflow-y-auto custom-scrollbar bg-[#0a1a0f] border border-[#1a2e1f] rounded-xl z-[9999] transition-all duration-200`,
+        `absolute top-full mt-2 w-[380px] max-w-[calc(100vw-16px)] max-h-[480px] overflow-y-auto custom-scrollbar bg-card border border-border rounded-xl z-[9999] shadow-2xl transition-all duration-200`,
         isDashboard ? "right-0" : "left-0",
         isOpen
           ? "opacity-100 translate-y-0"
@@ -323,15 +323,15 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
       )}
     >
       {/* Header */}
-      <div className="sticky top-0 z-10 bg-[#0a1a0f]/95 backdrop-blur-md border-b border-[#1a2e1f] p-4">
+      <div className="sticky top-0 z-10 bg-card/95 backdrop-blur-md border-b border-border p-4">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-3">
-            <h2 className="text-base font-bold text-white uppercase tracking-widest">
+            <h2 className="text-base font-bold text-foreground uppercase tracking-widest">
               Football Intelligence Feed
             </h2>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-[#00ff88] rounded-full animate-pulse" />
-              <span className="text-[10px] font-bold text-[#00ff88] uppercase tracking-widest">
+              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <span className="text-[10px] font-bold text-primary uppercase tracking-widest">
                 LIVE
               </span>
             </div>
@@ -344,25 +344,25 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
                 "p-1.5 rounded-full transition-all duration-200",
                 loading
                   ? "opacity-50 cursor-not-allowed"
-                  : "hover:bg-[#00ff88]/10 cursor-pointer"
+                  : "hover:bg-primary/10 cursor-pointer"
               )}
             >
               <RefreshCw className={cn(
-                "w-4 h-4 text-[#00ff88]",
+                "w-4 h-4 text-primary",
                 loading && "animate-spin"
               )} />
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-full hover:bg-[#1a2e1f]/50 transition-all duration-200"
+              className="p-1.5 rounded-full hover:bg-accent transition-all duration-200"
             >
-              <div className="w-4 h-4 text-[#6b7a6e] font-bold text-lg">
+              <div className="w-4 h-4 text-muted-foreground font-bold text-lg">
                 ×
               </div>
             </button>
           </div>
         </div>
-        <p className="text-[10px] text-[#6b7a6e] font-normal">
+        <p className="text-[10px] text-muted-foreground font-normal">
           Live transfers · Injuries · Rumors
         </p>
       </div>
@@ -371,8 +371,8 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
       <div className="p-3 space-y-2">
         {error && (
           <div className="flex flex-col items-center gap-3 py-8 px-4 text-center">
-            <AlertCircle className="w-8 h-8 text-[#ff4444]" />
-            <span className="text-sm font-medium text-[#ff4444]">
+            <AlertCircle className="w-8 h-8 text-destructive" />
+            <span className="text-sm font-medium text-destructive">
               {error}
             </span>
           </div>
@@ -381,7 +381,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
         {loading && news.length === 0 ? (
           <div className="space-y-2 py-4">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="h-20 bg-[#111c14] border border-[#1a2e1f] rounded-xl animate-pulse" />
+              <div key={i} className="h-20 bg-muted/50 border border-border rounded-xl animate-pulse" />
             ))}
           </div>
         ) : (
@@ -390,7 +390,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
               key={item.id}
               onClick={() => handleNewsClick(item)}
               className={cn(
-                "group relative bg-[#111c14] border border-[#1a2e1f] rounded-xl p-4 cursor-pointer transition-all duration-200 hover:border-[#00ff88]/20",
+                "group relative bg-accent/40 border border-border rounded-xl p-4 cursor-pointer transition-all duration-200 hover:border-primary/20",
                 item.read ? "opacity-70" : ""
               )}
             >
@@ -418,43 +418,43 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
 
                 {/* Title */}
                 <h3 className={cn(
-                  "font-semibold text-white leading-snug line-clamp-2 max-w-[280px] mt-1",
-                  !item.read && "font-semibold"
+                  "font-semibold text-foreground leading-snug line-clamp-2 max-w-[280px] mt-1",
+                  !item.read && "font-bold"
                 )}>
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs text-[#6b7a6e] mt-1 line-clamp-2">
+                <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
                   {item.description}
                 </p>
 
                 {/* Meta Info */}
                 <div className="flex items-center gap-2 mt-2 flex-wrap">
                   {item.player && (
-                    <span className="text-[10px] text-[#00ff88] font-medium">
+                    <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">
                       {item.player}
                     </span>
                   )}
                   {item.club && (
                     <>
-                      <span className="text-[10px] text-[#6b7a6e]">•</span>
-                      <span className="text-[10px] text-[#6b7a6e]">
+                      <span className="text-[10px] text-muted-foreground">•</span>
+                      <span className="text-[10px] text-muted-foreground">
                         {item.club}
                       </span>
                     </>
                   )}
-                  <span className="text-[10px] text-[#6b7a6e]">•</span>
+                  <span className="text-[10px] text-muted-foreground">•</span>
                   <button
                     onClick={(e) => handleSourceClick(e, item)}
-                    className="text-[10px] text-[#00ff88] font-medium hover:text-[#00cc6a] transition-colors underline"
+                    className="text-[10px] text-primary font-medium hover:text-primary/80 transition-colors underline"
                   >
                     {item.source}
                   </button>
-                  <span className="text-[10px] text-[#6b7a6e]">•</span>
+                  <span className="text-[10px] text-muted-foreground">•</span>
                   <div className="flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-[#6b7a6e]" />
-                    <span className="text-[10px] text-[#6b7a6e]">
+                    <Clock className="w-3 h-3 text-muted-foreground" />
+                    <span className="text-[10px] text-muted-foreground">
                       {item.timestamp}
                     </span>
                   </div>
@@ -466,11 +466,12 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
 
         {news.length === 0 && !loading && !error && (
           <div className="text-center py-12">
-            <p className="text-sm text-[#6b7a6e]">
+            <p className="text-sm text-muted-foreground">
               Brak dostępnych informacji
             </p>
           </div>
         )}
+
       </div>
     </div>
   )

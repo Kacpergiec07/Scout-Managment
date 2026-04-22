@@ -125,17 +125,34 @@ export class StatoriumClient {
 
   async getStandings(seasonId: string): Promise<StatoriumStanding[]> {
     const data = await this.fetch<any>(`/standings/${seasonId}/`);
-    // Handle different nesting (data.standings, data.season.standings or data.league.standings)
-    let list = data.standings || data.season?.standings || [];
-    if (!list.length && data.league?.standings) {
+    
+    // Statorium API can nest standings in many ways. Let's be thorough.
+    let list: any[] = [];
+    
+    if (data.standings) {
+      list = data.standings;
+    } else if (data.season?.standings) {
+      list = data.season.standings;
+    } else if (data.league?.standings) {
       list = data.league.standings;
+    } else if (data.season?.groups && data.season.groups.length > 0) {
+      list = data.season.groups[0].standings || [];
+    } else if (data.league?.groups && data.league.groups.length > 0) {
+      list = data.league.groups[0].standings || [];
     }
-    return list;
+    
+    // If it's wrapped in an object like { "515": [...] }
+    if (!Array.isArray(list) && typeof list === 'object') {
+       const keys = Object.keys(list);
+       if (keys.length > 0) list = (list as any)[keys[0]];
+    }
+
+    return Array.isArray(list) ? list : [];
   }
 
   async getPlayersByTeam(teamId: string, seasonId: string): Promise<StatoriumPlayerBasic[]> {
     // Use the squad endpoint which returns more complete player data
-    const data = await this.fetch<any>(`/teams/${teamId}/squad/${seasonId}/`, { season_id: seasonId });
+    const data = await this.fetch<any>(`/teams/${teamId}/squad/${seasonId}/`, { season_id: seasonId, showstat: '1' });
     return data.team?.players || data.players || data.team?.squad || [];
   }
 
@@ -153,8 +170,22 @@ export class StatoriumClient {
     return data.team;
   }
 
-  async getMatches(seasonId: string): Promise<StatoriumMatch[]> {
-    const data = await this.fetch<any>(`/matches/`, { season_id: seasonId });
+  async getMatches(seasonId: string, participantId?: string): Promise<StatoriumMatch[]> {
+    const params: Record<string, string> = { season_id: seasonId };
+    if (participantId) params.participant_id = participantId;
+
+    // Try primary query
+    let data = await this.fetch<any>(`/matches/`, params);
+    
+    // If empty and we didn't use participantId yet, try with league_id fallback
+    if ((!data.matches || data.matches.length === 0) && (!data.calendar)) {
+      const LEAGUE_MAP: Record<string, string> = { "515": "1", "558": "2", "511": "4", "521": "3", "519": "5" };
+      if (LEAGUE_MAP[seasonId]) {
+         params.league_id = LEAGUE_MAP[seasonId];
+         data = await this.fetch<any>(`/matches/`, params);
+      }
+    }
+
     if (data.calendar && data.calendar.matchdays) {
       return data.calendar.matchdays.flatMap((md: any) => md.matches || []);
     }
@@ -162,7 +193,7 @@ export class StatoriumClient {
   }
 
   async getMatchDetails(matchId: string): Promise<any> {
-    const data = await this.fetch<any>(`/matches/${matchId}/`);
+    const data = await this.fetch<any>(`/matches/${matchId}/`, { details: '1' });
     return data.match;
   }
 

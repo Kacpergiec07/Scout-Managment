@@ -18,19 +18,19 @@ export function ClubCard({ clubName, leagueName, score, breakdown }: ClubCardPro
   ]
 
   return (
-    <div className="group relative rounded-xl border-2 border-gray-800/50 bg-black/40 backdrop-blur-xl p-5 shadow-lg hover:border-[#00ff88]/40 hover:shadow-[0_0_30px_rgba(0,255,136,0.1)] transition-all duration-300 h-[220px] flex flex-col">
+    <div className="group relative rounded-xl border border-border bg-card/40 backdrop-blur-xl p-5 shadow-lg hover:border-emerald-500/40 dark:hover:border-emerald-400/40 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all duration-300 h-[220px] flex flex-col">
       <div className="flex items-start justify-between mb-5 shrink-0">
         <div className="space-y-1">
-          <h3 className="text-lg font-bold text-white group-hover:text-[#00ff88] transition-colors">
+          <h3 className="text-lg font-bold text-foreground group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
             {clubName}
           </h3>
-          <p className="text-xs text-gray-500">{leagueName}</p>
+          <p className="text-xs text-muted-foreground">{leagueName}</p>
         </div>
         <div className="flex flex-col items-end">
-          <span className="text-3xl font-black text-[#00ff88] tabular-nums" style={{ textShadow: '0 0 10px rgba(0, 255, 136, 0.3)' }}>
+          <span className="text-3xl font-black text-emerald-600 dark:text-emerald-400 tabular-nums" style={{ textShadow: '0 0 10px rgba(16, 185, 129, 0.3)' }}>
             {score}
           </span>
-          <p className="text-[9px] font-semibold text-gray-600 uppercase tracking-widest">Score</p>
+          <p className="text-[9px] font-semibold text-muted-foreground uppercase tracking-widest">Score</p>
         </div>
       </div>
 
@@ -45,11 +45,11 @@ export function ClubCard({ clubName, leagueName, score, breakdown }: ClubCardPro
           ))}
         </div>
 
-        <div className="flex gap-2 mt-4 pt-3 border-t border-gray-800/50 shrink-0">
-          <Badge className="text-[10px] bg-[#00ff88]/5 border-[#00ff88]/20 text-[#00ff88] hover:bg-[#00ff88]/10 px-2 py-0.5 h-5">
+        <div className="flex gap-2 mt-4 pt-3 border-t border-border shrink-0">
+          <Badge className="text-[10px] bg-emerald-500/5 border-emerald-500/20 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 px-2 py-0.5 h-5">
             High Pressing
           </Badge>
-          <Badge className="text-[10px] bg-[#00ff88]/5 border-[#00ff88]/20 text-[#00ff88] hover:bg-[#00ff88]/10 px-2 py-0.5 h-5">
+          <Badge className="text-[10px] bg-emerald-500/5 border-emerald-500/20 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 px-2 py-0.5 h-5">
             Positional Need
           </Badge>
         </div>
@@ -62,15 +62,15 @@ function MetricRow({ label, value }: { label: string; value: number }) {
   return (
     <div className="space-y-1.5">
       <div className="flex justify-between items-baseline">
-        <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-tight">
+        <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-tight">
           {label}
         </span>
-        <span className="text-xs font-bold text-[#00ff88] tabular-nums">
+        <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 tabular-nums">
           {value}%
         </span>
       </div>
       <div className="w-full">
-        <Progress value={value} className="h-1.5 bg-gray-800/50" indicatorClassName="bg-[#00ff88]" />
+        <Progress value={value} className="h-1.5 bg-muted" indicatorClassName="bg-emerald-500 dark:bg-emerald-400" />
       </div>
     </div>
   )

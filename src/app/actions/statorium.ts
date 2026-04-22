@@ -5,7 +5,7 @@ import { StatoriumTeamDetail, StatoriumPlayerBasic, StatoriumMatch } from '@/lib
 import { geocodeCity, getCachedGeocode } from '@/lib/utils/geocoding';
 import { COACH_MAP } from '@/lib/coaches-data';
 import { getRealFormation } from '@/lib/statorium/formation-service';
-import { PLAYER_PHOTOS } from '@/lib/statorium-data';
+import { PLAYER_PHOTOS, VERIFIED_TRANSFERS } from '@/lib/statorium-data';
 
 let clientInstance: StatoriumClient | null = null;
 
@@ -74,40 +74,149 @@ export async function getStandingsAction(seasonId: string) {
     const client = getStatoriumClient();
     const standings = await client.getStandings(seasonId);
 
+    console.log(`[Action] getStandingsAction for ${seasonId}: found ${standings?.length || 0} teams`);
+
     if (standings && standings.length > 0) {
-      return standings.map((s: any) => {
+      // Fetch all matches for this season to calculate real-time form
+      let allMatches: any[] = [];
+      try {
+        allMatches = await client.getMatches(seasonId);
+      } catch (e) {
+        console.warn('Could not fetch matches for form calculation');
+      }
+
+      const processedStandings = standings.map((s: any) => {
         let stats: any = {};
         try {
           stats = typeof s.options === 'string' ? JSON.parse(s.options) : (s.options || {});
         } catch (e) { }
 
-        const teamID = s.teamID?.toString() || "";
-        let teamLogo = resolveTeamLogo(s.logo || s.teamLogo || s);
+        const teamId = (s.teamID || s.team_id || s.id || "").toString();
+        const teamName = s.teamName || s.team_name || s.teamMiddleName || "Unknown Team";
+        let teamLogo = resolveTeamLogo(s.logo || s.teamLogo || s.team_logo || s);
         
-        // Fallback for missing logos using ID convention
-        if (!teamLogo && teamID && teamID !== "undefined") {
-          teamLogo = `https://api.statorium.com/media/bearleague/ct${teamID}.png`;
+        if (!teamLogo && teamId && teamId !== "undefined") {
+          teamLogo = `https://api.statorium.com/media/bearleague/ct${teamId}.png`;
+        }
+
+        // Calculate form from actual matches
+        let calculatedForm: { result: string, matchId: string }[] = [];
+        const cleanTeamName = teamName.toLowerCase().trim();
+
+        if (allMatches.length > 0) {
+          const teamMatches = allMatches.filter((m: any) => {
+             const hId = (m.homeID || m.home_id || m.homeParticipantID || m.homeTeamID || m.home_participant_id || m.homeParticipant?.participantID || "").toString();
+             const aId = (m.awayID || m.away_id || m.awayParticipantID || m.awayTeamID || m.away_participant_id || m.awayParticipant?.participantID || "").toString();
+             
+             const hName = (m.homeName || m.home_name || m.homeParticipantName || "").toLowerCase();
+             const aName = (m.awayName || m.away_name || m.awayParticipantName || "").toLowerCase();
+
+             // Check if match was played (has score AND is not in the future)
+             const hScore = m.homeScore ?? m.home_score ?? m.homeScore_chk ?? m.homeParticipant?.score;
+             const mDate = new Date(m.matchDate || m.match_date || "1900-01-01");
+             const now = new Date();
+             const played = hScore !== undefined && hScore !== null && hScore.toString() !== "" && mDate <= now;
+             
+             const isHome = hId === teamId || (cleanTeamName && hName.includes(cleanTeamName));
+             const isAway = aId === teamId || (cleanTeamName && aName.includes(cleanTeamName));
+
+             return played && (isHome || isAway);
+          });
+
+          teamMatches.sort((a: any, b: any) => {
+            const dateA = new Date(`${a.matchDate || a.match_date} ${a.matchTime || a.match_time || '00:00'}`);
+            const dateB = new Date(`${b.matchDate || b.match_date} ${b.matchTime || b.match_time || '00:00'}`);
+            return dateB.getTime() - dateA.getTime();
+          });
+
+          calculatedForm = teamMatches.slice(0, 5).map((m: any) => {
+             const hId = (m.homeID || m.home_id || m.homeParticipantID || m.homeTeamID || m.home_participant_id || m.homeParticipant?.participantID || "").toString();
+             const hName = (m.homeName || m.home_name || m.homeParticipantName || m.homeParticipant?.participantName || "").toLowerCase();
+             const hScore = parseInt(m.homeScore ?? m.home_score ?? m.homeScore_chk ?? m.homeParticipant?.score ?? "0");
+             const aScore = parseInt(m.awayScore ?? m.away_score ?? m.awayScore_chk ?? m.awayParticipant?.score ?? "0");
+             
+             const isHome = hId === teamId || (cleanTeamName && hName.includes(cleanTeamName));
+             let res = isHome ? (hScore > aScore ? "W" : hScore < aScore ? "L" : "D") : (aScore > hScore ? "W" : aScore < hScore ? "L" : "D");
+             
+             return { result: res, matchId: (m.matchID || m.match_id || m.id).toString() };
+          });
+        }
+
+        // DEEP FALLBACK: Use team's own results list IF available in standings OR a dummy pattern that matches their REAL season stats
+        if (calculatedForm.length === 0) {
+           const formString = (s.form || stats.form || "").toString();
+           if (formString && formString.length >= 1) {
+             const formArray = formString.split('').filter((c: string) => ['W','D','L'].includes(c.toUpperCase()));
+             calculatedForm = formArray.slice(0, 5).map((res: string) => ({
+                result: res.toUpperCase(),
+                matchId: "static"
+             }));
+           }
+        }
+
+        // FINAL FAILSAFE: If still nothing, use a simple W-D-L sequence based on their wins/losses (not random, just deterministic)
+        if (calculatedForm.length === 0) {
+           const w = parseInt(stats.win_chk || s.won || "0");
+           const d = parseInt(stats.draw_chk || s.drawn || "0");
+           const l = parseInt(stats.lost_chk || s.lost || "0");
+           
+           const results: string[] = [];
+           for(let i=0; i<w && i<5; i++) results.push("W");
+           for(let i=0; i<d && results.length<5; i++) results.push("D");
+           for(let i=0; i<l && results.length<5; i++) results.push("L");
+           
+           calculatedForm = results.map(r => ({ result: r, matchId: "static" }));
         }
 
         return {
-          teamID,
-          teamName: s.teamName || s.teamMiddleName || "Unknown Team",
+          teamID: teamId,
+          teamName,
           teamLogo,
-          rank: Number(s.ordering || s.rank || 0),
-          played: Number(stats.played_chk || s.played || 0),
-          won: Number(stats.win_chk || s.won || 0),
-          drawn: Number(stats.draw_chk || s.drawn || 0),
-          lost: Number(stats.lost_chk || s.lost || 0),
-          goalsFor: Number(stats.goalscore_chk || s.goalsFor || 0),
-          goalsAgainst: Number(stats.goalconc_chk || s.goalsAgainst || 0),
-          points: Number(stats.point_chk || s.points || 0),
+          rank: parseInt(s.ordering || s.rank || s.position || "0"),
+          played: parseInt(stats.played_chk || s.played || s.matches_played || "0"),
+          won: parseInt(stats.win_chk || s.won || s.wins || "0"),
+          drawn: parseInt(stats.draw_chk || s.drawn || s.draws || "0"),
+          lost: parseInt(stats.lost_chk || s.lost || s.losses || "0"),
+          goalsFor: parseInt(stats.goalscore_chk || s.goalsFor || s.goals_for || "0"),
+          goalsAgainst: parseInt(stats.goalconc_chk || s.goalsAgainst || s.goals_against || "0"),
+          points: parseInt(stats.point_chk || s.points || "0"),
+          formObjects: calculatedForm,
         };
-      }).sort((a: any, b: any) => b.points - a.points || a.rank - b.rank);
+      }).sort((a: any, b: any) => parseInt(b.points) - parseInt(a.points) || parseInt(a.position) - parseInt(b.position));
+      
+      return processedStandings;
     }
     return [];
   } catch (error) {
     console.error('Get Standings Action Error:', error);
     return [];
+  }
+}
+
+export async function getSeasonDetailsAction(seasonId: string) {
+  try {
+    const client = getStatoriumClient();
+    // In Statorium, standings endpoint often returns season meta
+    // We can also use getStandings and check the wrapper
+    const data: any = await client.getStandings(seasonId);
+    
+    // Attempt to find league info in the standings list or top-level objects
+    // Since getStandings client method returns just the list, we might need a more raw fetch
+    // But for the TOP 5 leagues, we can just map the IDs
+    const TOP_5_MAP: Record<string, any> = {
+      "515": { name: "Premier League", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/13.png" },
+      "558": { name: "La Liga", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/53.png" },
+      "511": { name: "Serie A", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/31.png" },
+      "521": { name: "Bundesliga", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/19.png" },
+      "519": { name: "Ligue 1", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/16.png" }
+    };
+
+    if (TOP_5_MAP[seasonId]) return TOP_5_MAP[seasonId];
+
+    return { name: "League Details", logo: "" };
+  } catch (error) {
+    console.error('Get Season Details Action Error:', error);
+    return null;
   }
 }
 
@@ -154,6 +263,42 @@ export async function getTeamLogosAction(teamIds: string[]): Promise<Record<stri
   } catch (error) {
     console.error('Get Team Logos Action Error:', error);
     return logoMap;
+  }
+}
+
+export async function getClubProfileDataAction(teamId: string, seasonId?: string) {
+  try {
+    const teamDetails = await getTeamDetailsAction(teamId, seasonId);
+    if (!teamDetails) return null;
+    
+    let leagueInfo = null;
+    let standing = null;
+    
+    // Auto-detect seasonId if not provided (needed for rank/league info)
+    let finalSeasonId = seasonId;
+    if (!finalSeasonId) {
+       for (const league of TOP_LEAGUES) {
+          const client = getStatoriumClient();
+          try {
+             const standings = await client.getStandings(league.id);
+             if (standings.find((s: any) => s.teamID?.toString() === teamId)) {
+                finalSeasonId = league.id;
+                break;
+             }
+          } catch(e){}
+       }
+    }
+
+    if (finalSeasonId) {
+      leagueInfo = await getSeasonDetailsAction(finalSeasonId);
+      const standings = await getStandingsAction(finalSeasonId);
+      standing = standings.find((s: any) => s.teamID?.toString() === teamId);
+    }
+    
+    return { teamDetails, leagueInfo, standing, seasonId: finalSeasonId };
+  } catch (error) {
+    console.error("Get Club Profile Data Action Error:", error);
+    return null;
   }
 }
 
@@ -441,14 +586,70 @@ export async function getUpcomingMatchesAction(seasonId: string, limit: number =
   }
 }
 
-export async function getTransfersAction(teamId?: string, seasonId?: string) {
+export async function getTeamRecentMatchesAction(teamId: string, seasonId: string, teamName: string = "") {
   try {
     const client = getStatoriumClient();
-    const transfers = await client.getTransfers(teamId, seasonId);
-    return transfers || [];
+    // Use participant_id for targeted search
+    const allMatches = await client.getMatches(seasonId, teamId);
+    
+    // Normalize team name for search
+    const cleanTeamName = teamName.toLowerCase().trim();
+
+    // Filter matches where this team played - using multiple fallback IDs AND names
+    const teamMatches = allMatches.filter((m: any) => {
+      const hId = (m.homeID || m.home_id || m.homeParticipantID || m.homeTeamID || m.home_participant_id || m.homeParticipant?.participantID || "").toString();
+      const aId = (m.awayID || m.away_id || m.awayParticipantID || m.awayTeamID || m.away_participant_id || m.awayParticipant?.participantID || "").toString();
+      
+      const hName = (m.homeName || m.home_name || m.homeParticipantName || m.homeParticipant?.participantName || "").toLowerCase();
+      const aName = (m.awayName || m.away_name || m.awayParticipantName || m.awayParticipant?.participantName || "").toLowerCase();
+
+      return hId === teamId || aId === teamId || (cleanTeamName && (hName.includes(cleanTeamName) || aName.includes(cleanTeamName)));
+    });
+
+    console.log(`[Action] getTeamRecentMatches for team ${teamId}: found ${teamMatches.length} matches`);
+
+    // Only include played matches (with a score and in the past/today)
+    const playedMatches = teamMatches.filter((m: any) => {
+      const hScore = m.homeScore ?? m.home_score ?? m.homeScore_chk ?? m.homeParticipant?.score;
+      const aScore = m.awayScore ?? m.away_score ?? m.awayScore_chk ?? m.awayParticipant?.score;
+      const mDate = new Date(m.matchDate || m.match_date || "1900-01-01");
+      const now = new Date();
+      return (hScore !== undefined && hScore !== null && hScore !== "") && mDate <= now;
+    });
+
+    // Sort by date descending (most recent first)
+    playedMatches.sort((a: any, b: any) => {
+      const dateA = new Date(`${a.matchDate || a.match_date} ${a.matchTime || a.match_time || '00:00'}`);
+      const dateB = new Date(`${b.matchDate || b.match_date} ${b.matchTime || b.match_time || '00:00'}`);
+      return dateB.getTime() - dateA.getTime();
+    });
+
+    return playedMatches.slice(0, 10).map((m: any) => ({
+      matchID: m.matchID || m.match_id || m.id,
+      homeName: m.homeName || m.home_name || m.homeParticipantName,
+      awayName: m.awayName || m.away_name || m.awayParticipantName,
+      homeLogo: resolveTeamLogo(m.homeLogo || m.home_logo || m.homeID || m.home_id),
+      awayLogo: resolveTeamLogo(m.awayLogo || m.away_logo || m.awayID || m.away_id),
+      homeScore: m.homeScore ?? m.home_score ?? m.homeParticipant?.score ?? "?",
+      awayScore: m.awayScore ?? m.away_score ?? m.awayParticipant?.score ?? "?",
+      matchDate: m.matchDate || m.match_date,
+      matchTime: m.matchTime || m.match_time,
+      venue: m.venueName || m.venue_name || m.venue
+    }));
   } catch (error) {
-    console.error('Get Transfers Action Error:', error);
+    console.error('Get Team Recent Matches Error:', error);
     return [];
+  }
+}
+
+export async function getMatchDetailsAction(matchId: string) {
+  try {
+    const client = getStatoriumClient();
+    const match = await client.getMatchDetails(matchId);
+    return match;
+  } catch (error) {
+    console.error('Get Match Details Error:', error);
+    return null;
   }
 }
 
@@ -599,6 +800,15 @@ export async function getPlayersByClubAction(teamId: string, seasonId?: string) 
     });
   } catch (error) {
     console.error('Get Players By Club Action Error:', error);
+    return [];
+  }
+}
+
+export async function getTransfersAction() {
+  try {
+    return VERIFIED_TRANSFERS;
+  } catch (error) {
+    console.error('Get Transfers Action Error:', error);
     return [];
   }
 }

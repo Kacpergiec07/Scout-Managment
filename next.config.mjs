@@ -8,8 +8,10 @@ const nextConfig = {
       { protocol: 'https', hostname: 'upload.wikimedia.org' },
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'assets.aceternity.com' },
-      { protocol: 'https', hostname: 'unpkg.com' },
       { protocol: 'https', hostname: 'cdn.futwiz.com' },
+      { protocol: 'https', hostname: 'flagcdn.com' },
+      { protocol: 'https', hostname: 'unpkg.com' },
+      { protocol: 'https', hostname: 'tmssl.akamaized.net' },
     ],
   },
 }

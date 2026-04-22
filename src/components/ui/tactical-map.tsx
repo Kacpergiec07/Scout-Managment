@@ -1,7 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useMemo, memo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const FootballGlobe = dynamic(() => import("@/components/ui/football-globe").then(mod => mod.FootballGlobe), { 
+  ssr: false,
+  loading: () => <div className="w-40 h-40 bg-blue-500/5 animate-pulse rounded-full" />
+});
 
 interface Marker {
   lat: number;
@@ -34,7 +40,7 @@ function project(lat: number, lng: number, width: number, height: number) {
   return [x, y];
 }
 
-export function TacticalMap({ markers = [], arcs = [], className }: TacticalMapProps) {
+export const TacticalMap = memo(({ markers = [], arcs = [], className }: TacticalMapProps) => {
   const [countries, setCountries] = useState<any[]>([]);
   const width = 1000;
   const height = 600;
@@ -47,7 +53,7 @@ export function TacticalMap({ markers = [], arcs = [], className }: TacticalMapP
   }, []);
 
   return (
-    <div className={`relative w-full h-full bg-background overflow-hidden flex items-center justify-center p-4 transition-colors duration-300 ${className}`}>
+    <div className={`relative w-full h-full bg-background overflow-hidden flex items-center justify-center p-4 transition-colors duration-300 ${className || ""}`}>
       {/* 3D Tilted Container */}
       <div 
         className="relative w-full h-full flex items-center justify-center"
@@ -72,28 +78,32 @@ export function TacticalMap({ markers = [], arcs = [], className }: TacticalMapP
             viewBox="0 0 1000 600"
             className="w-full h-full overflow-visible scale-[1.2]"
           >
-            {/* Countries Rendering */}
-            <g className="countries opacity-40">
-              {countries.map((feature, i) => {
-                if (!feature.geometry) return null;
-                const coords = feature.geometry.type === "Polygon" 
-                  ? [feature.geometry.coordinates] 
-                  : feature.geometry.coordinates;
+            {/* Countries Rendering (Memoized) */}
+            {useMemo(() => (
+              <g className="countries opacity-40">
+                {countries.map((feature, i) => {
+                  if (!feature.geometry) return null;
+                  const coords = feature.geometry.type === "Polygon" 
+                    ? [feature.geometry.coordinates] 
+                    : feature.geometry.coordinates;
 
-                return coords.map((polygon: any[], j: number) => (
-                  <path
-                    key={`country-${i}-${j}`}
-                    d={polygon[0].map((pt: any, k: number) => {
-                      const [x, y] = project(pt[1], pt[0], width, height);
-                      return `${k === 0 ? 'M' : 'L'} ${x} ${y}`;
-                    }).join(' ')}
-                    fill="#166534"
-                    stroke="#22c55e"
-                    strokeWidth="0.2"
-                  />
-                ));
-              })}
-            </g>
+                  return coords.map((polygon: any[], j: number) => (
+                    <path
+                      key={`country-${i}-${j}`}
+                      d={polygon[0].map((pt: any, k: number) => {
+                        const [px, py] = project(pt[1], pt[0], width, height);
+                        return `${k === 0 ? 'M' : 'L'} ${px} ${py}`;
+                      }).join(' ')}
+                      fill="currentColor"
+                      className="text-emerald-500/10 dark:text-emerald-950/40"
+                      stroke="currentColor"
+                      strokeWidth="0.2"
+                      style={{ color: 'inherit' }}
+                    />
+                  ));
+                })}
+              </g>
+            ), [countries])}
 
             {/* Arcs as Dashed Lines with Crests */}
             <g className="arcs">
@@ -118,8 +128,8 @@ export function TacticalMap({ markers = [], arcs = [], className }: TacticalMapP
                       strokeWidth="2.5"
                       fill="none"
                       strokeDasharray="6 10"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
+                      initial={{ strokeDashoffset: 200 } as any}
+                      animate={{ strokeDashoffset: 0 } as any}
                       transition={{
                         duration: 12,
                         repeat: Infinity,
@@ -166,6 +176,21 @@ export function TacticalMap({ markers = [], arcs = [], className }: TacticalMapP
             </g>
           </svg>
 
+          {/* Central Ball Anchor */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-56 h-56 relative">
+              <FootballGlobe 
+                config={{ 
+                  autoRotate: true, 
+                  autoRotateSpeed: 1,
+                  enableZoom: false 
+                }} 
+              />
+              {/* Glow effect behind the ball */}
+              <div className="absolute inset-0 bg-blue-500/10 blur-[60px] rounded-full -z-10" />
+            </div>
+          </div>
+
           {/* Interface Decor */}
           <div className="absolute inset-0 pointer-events-none border-[1px] border-border rounded-2xl" />
           <div className="absolute bottom-6 right-8 font-mono text-[10px] text-muted-foreground/30 whitespace-pre">
@@ -179,4 +204,6 @@ export function TacticalMap({ markers = [], arcs = [], className }: TacticalMapP
       </div>
     </div>
   );
-}
+});
+
+TacticalMap.displayName = 'TacticalMap';

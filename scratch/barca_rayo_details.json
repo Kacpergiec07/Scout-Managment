@@ -1,0 +1,1610 @@
+{
+  "gmtUpdated": 1774191748,
+  "match": {
+    "matchID": 126837,
+    "matchdayID": 13803,
+    "matchStatus": {
+      "statusID": "1"
+    },
+    "extraTime": {
+      "is_extra": "0",
+      "home_score": 0,
+      "away_score": 0
+    },
+    "matchDate": "2026-03-22",
+    "matchTime": "13:00",
+    "matchVenue": {
+      "venueID": 2329,
+      "venueName": "Estadi Olímpic Lluís Companys",
+      "translations": null
+    },
+    "homeParticipant": {
+      "participantID": 23,
+      "score": 1,
+      "participantName": "FC Barcelona",
+      "teamShortName": "FCB",
+      "teamMiddleName": "Barcelona",
+      "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp",
+      "translations": {
+        "ar": {
+          "name": "برشلونة"
+        },
+        "zh": {
+          "name": "巴塞隆拿",
+          "middle_name": "巴塞隆拿"
+        },
+        "gr": {
+          "name": "Μπαρτσελόνα",
+          "middle_name": "Μπαρτσελόνα"
+        },
+        "th": {
+          "name": "สโมสรฟุตบอลบาร์เซโลนา"
+        }
+      },
+      "squad": {
+        "lineup": [
+          {
+            "playerID": 1407,
+            "playerFullName": "Robert Lewandowski",
+            "additionalInfo": {
+              "Height": "185 cm",
+              "Weight": "79 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "21-08-1988  (37)"
+            },
+            "playerNumber": "9",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl16958917002070.webp"
+          },
+          {
+            "playerID": 3392,
+            "playerFullName": "João Cancelo",
+            "additionalInfo": {
+              "Height": "182 cm",
+              "Weight": "74 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "27-05-1994  (31)"
+            },
+            "playerNumber": "2",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl16194701982429.webp"
+          },
+          {
+            "playerID": 4957,
+            "playerFullName": "Raphinha",
+            "additionalInfo": {
+              "Height": "176 cm",
+              "Weight": "58 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "14-12-1996  (29)"
+            },
+            "playerNumber": "11",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl17448101802085.webp"
+          },
+          {
+            "playerID": 7168,
+            "playerFullName": "Ronald Araújo",
+            "additionalInfo": {
+              "Height": "191 cm",
+              "Weight": "91 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "07-03-1999  (27)"
+            },
+            "playerNumber": "4",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl1624102264465.webp"
+          },
+          {
+            "playerID": 8585,
+            "playerFullName": "Pedri",
+            "additionalInfo": {
+              "Height": "177 cm",
+              "Weight": "69 kg",
+              "Position": "Midfielder",
+              "Fantasy Value": null,
+              "Birthdate": "25-11-2002  (23)"
+            },
+            "playerNumber": "8",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl1619642571861.webp"
+          },
+          {
+            "playerID": 23445,
+            "playerFullName": "Joan García",
+            "additionalInfo": {
+              "Height": "188 cm",
+              "Weight": "77 kg",
+              "Position": "Goalkeeper",
+              "Fantasy Value": null,
+              "Birthdate": "04-05-2001  (24)"
+            },
+            "playerNumber": "13",
+            "playerPhoto": ""
+          },
+          {
+            "playerID": 24745,
+            "playerFullName": "Gerard Martin",
+            "additionalInfo": {
+              "Height": "186 cm",
+              "Weight": "76 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "26-02-2002  (24)"
+            },
+            "playerNumber": "18",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl16431229911273.webp"
+          },
+          {
+            "playerID": 45448,
+            "playerFullName": "Fermín López",
+            "additionalInfo": {
+              "Height": "176 cm",
+              "Weight": "64 kg",
+              "Position": "Midfielder",
+              "Fantasy Value": null,
+              "Birthdate": "11-05-2003  (22)"
+            },
+            "playerNumber": "16",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl17611258051596.webp"
+          },
+          {
+            "playerID": 53041,
+            "playerFullName": "Lamine Yamal",
+            "additionalInfo": {
+              "Height": "180 cm",
+              "Weight": "72 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "13-07-2007  (18)"
+            },
+            "playerNumber": "10",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl17322791692175.webp"
+          },
+          {
+            "playerID": 58066,
+            "playerFullName": "Pau Cubarsí",
+            "additionalInfo": {
+              "Height": "184 cm",
+              "Weight": "75 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "22-01-2007  (19)"
+            },
+            "playerNumber": "5",
+            "playerPhoto": ""
+          },
+          {
+            "playerID": 58117,
+            "playerFullName": "Marc Bernal",
+            "additionalInfo": {
+              "Height": "188 cm",
+              "Weight": "75 kg",
+              "Position": "Midfielder",
+              "Fantasy Value": null,
+              "Birthdate": "26-05-2007  (18)"
+            },
+            "playerNumber": "22",
+            "playerPhoto": ""
+          }
+        ],
+        "bench": [
+          {
+            "playerID": 110,
+            "playerFullName": "Eric García",
+            "additionalInfo": {
+              "Height": "182 cm",
+              "Weight": "79 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "09-01-2001  (25)"
+            },
+            "playerNumber": "24",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl15547316192910.webp"
+          },
+          {
+            "playerID": 186,
+            "playerFullName": "Marcus Rashford",
+            "additionalInfo": {
+              "Height": "180 cm",
+              "Weight": "70 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "31-10-1997  (28)"
+            },
+            "playerNumber": "14",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl17340470261326.webp"
+          },
+          {
+            "playerID": 729,
+            "playerFullName": "Ferran Torres",
+            "additionalInfo": {
+              "Height": "182 cm",
+              "Weight": "77 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "29-02-2000  (26)"
+            },
+            "playerNumber": "7",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl1619637023999.webp"
+          },
+          {
+            "playerID": 3377,
+            "playerFullName": "Wojciech Szczesny",
+            "additionalInfo": {
+              "Height": "196 cm",
+              "Weight": "90 kg",
+              "Position": "Goalkeeper",
+              "Fantasy Value": null,
+              "Birthdate": "18-04-1990  (35)"
+            },
+            "playerNumber": "25",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl1618425782599.webp"
+          },
+          {
+            "playerID": 4725,
+            "playerFullName": "Dani Olmo",
+            "additionalInfo": {
+              "Height": "179 cm",
+              "Weight": "68 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "07-05-1998  (27)"
+            },
+            "playerNumber": "20",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl1619636123261.webp"
+          },
+          {
+            "playerID": 31621,
+            "playerFullName": "Gavi",
+            "additionalInfo": {
+              "Height": "173 cm",
+              "Weight": "70 kg",
+              "Position": "Midfielder",
+              "Fantasy Value": null,
+              "Birthdate": "05-08-2004  (21)"
+            },
+            "playerNumber": "6",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl16689390682016.webp"
+          },
+          {
+            "playerID": 34092,
+            "playerFullName": "Marc Casadó",
+            "additionalInfo": {
+              "Height": "172 cm",
+              "Weight": "66 kg",
+              "Position": "Midfielder",
+              "Fantasy Value": null,
+              "Birthdate": "14-09-2003  (22)"
+            },
+            "playerNumber": "17",
+            "playerPhoto": ""
+          },
+          {
+            "playerID": 37986,
+            "playerFullName": "Roony Bardghji",
+            "additionalInfo": {
+              "Height": "182 cm",
+              "Weight": "70 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "15-11-2005  (20)"
+            },
+            "playerNumber": "19",
+            "playerPhoto": ""
+          },
+          {
+            "playerID": 47056,
+            "playerFullName": "Diego Kochen",
+            "additionalInfo": {
+              "Height": "188 cm",
+              "Weight": "60 kg",
+              "Position": "Goalkeeper",
+              "Fantasy Value": null,
+              "Birthdate": "19-03-2006  (20)"
+            },
+            "playerNumber": "31",
+            "playerPhoto": ""
+          },
+          {
+            "playerID": 58116,
+            "playerFullName": "Álvaro Cortés",
+            "additionalInfo": {
+              "Height": "189 cm",
+              "Weight": "80 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "17-03-2005  (21)"
+            },
+            "playerNumber": "36",
+            "playerPhoto": ""
+          },
+          {
+            "playerID": 70444,
+            "playerFullName": "Xavi Espart",
+            "additionalInfo": {
+              "Height": "171 cm",
+              "Weight": "56 kg",
+              "Position": "Midfielder",
+              "Fantasy Value": null,
+              "Birthdate": "21-05-2007  (18)"
+            },
+            "playerNumber": "42",
+            "playerPhoto": ""
+          }
+        ],
+        "subs": [
+          {
+            "playerIN": 729,
+            "playerINFullName": "Ferran Torres",
+            "playerOUT": 1407,
+            "playerOUTFullName": "Robert Lewandowski",
+            "minute": "46"
+          },
+          {
+            "playerIN": 4725,
+            "playerINFullName": "Dani Olmo",
+            "playerOUT": 45448,
+            "playerOUTFullName": "Fermín López",
+            "minute": "61"
+          },
+          {
+            "playerIN": 34092,
+            "playerINFullName": "Marc Casadó",
+            "playerOUT": 58117,
+            "playerOUTFullName": "Marc Bernal",
+            "minute": "61"
+          },
+          {
+            "playerIN": 186,
+            "playerINFullName": "Marcus Rashford",
+            "playerOUT": 53041,
+            "playerOUTFullName": "Lamine Yamal",
+            "minute": "82"
+          },
+          {
+            "playerIN": 70444,
+            "playerINFullName": "Xavi Espart",
+            "playerOUT": 3392,
+            "playerOUTFullName": "João Cancelo",
+            "minute": "90"
+          }
+        ]
+      },
+      "events": [
+        {
+          "rowId": 3994384,
+          "eventId": 5,
+          "eventName": "Yellow card",
+          "playerID": 4957,
+          "playerFullName": "Raphinha",
+          "minute": "8",
+          "stageID": 0
+        },
+        {
+          "rowId": 3994472,
+          "eventId": 1,
+          "eventName": "Goal",
+          "playerID": 7168,
+          "playerFullName": "Ronald Araújo",
+          "minute": "24",
+          "stageID": 0,
+          "assist": [
+            {
+              "rowId": 3994473,
+              "eventId": 2,
+              "eventName": "Assist",
+              "playerID": 3392,
+              "playerFullName": "João Cancelo",
+              "minute": "24"
+            }
+          ]
+        },
+        {
+          "rowId": 3994476,
+          "eventId": 5,
+          "eventName": "Yellow card",
+          "playerID": 53041,
+          "playerFullName": "Lamine Yamal",
+          "minute": "26",
+          "stageID": 0
+        },
+        {
+          "rowId": 3994586,
+          "eventId": 5,
+          "eventName": "Yellow card",
+          "playerID": 58066,
+          "playerFullName": "Pau Cubarsí",
+          "minute": "72",
+          "stageID": 0
+        }
+      ],
+      "teamStats": [
+        {
+          "rowId": 3994721,
+          "teamStatID": 11,
+          "teamStatName": "Possession",
+          "count": 61
+        },
+        {
+          "rowId": 3994723,
+          "teamStatID": 9,
+          "teamStatName": "Total shots",
+          "count": 15
+        },
+        {
+          "rowId": 3994725,
+          "teamStatID": 16,
+          "teamStatName": "Shots on target",
+          "count": 4
+        },
+        {
+          "rowId": 3994727,
+          "teamStatID": 15,
+          "teamStatName": "Shots off target",
+          "count": 6
+        },
+        {
+          "rowId": 3994729,
+          "teamStatID": 17,
+          "teamStatName": "Blocked shots",
+          "count": 5
+        },
+        {
+          "rowId": 3994731,
+          "teamStatID": 12,
+          "teamStatName": "Corners",
+          "count": 6
+        },
+        {
+          "rowId": 3994734,
+          "teamStatID": 10,
+          "teamStatName": "Fouls",
+          "count": 12
+        }
+      ]
+    },
+    "awayParticipant": {
+      "participantID": 29,
+      "score": 0,
+      "participantName": "Rayo Vallecano",
+      "teamShortName": "RAY",
+      "teamMiddleName": "Rayo Vallecano",
+      "logo": "https://api.statorium.com/media/bearleague/bl17162992601520.webp",
+      "translations": {
+        "ar": {
+          "name": "رايو فاليكانو"
+        },
+        "zh": {
+          "name": "華歷簡奴",
+          "middle_name": "華歷簡奴"
+        },
+        "gr": {
+          "name": "Ράγιο Βαγιεκάνο",
+          "middle_name": "Ράγιο Βαγιεκάνο"
+        },
+        "th": {
+          "name": "ราโยบาเยกาโน"
+        }
+      },
+      "squad": {
+        "lineup": [
+          {
+            "playerID": 281,
+            "playerFullName": "Florian Lejeune",
+            "additionalInfo": {
+              "Height": "190 cm",
+              "Weight": "89 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "20-05-1991  (34)"
+            },
+            "playerNumber": "24",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl15554880561005.webp"
+          },
+          {
+            "playerID": 842,
+            "playerFullName": "Álvaro García",
+            "additionalInfo": {
+              "Height": "167 cm",
+              "Weight": "58 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "27-10-1992  (33)"
+            },
+            "playerNumber": "18",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl15744286631981.webp"
+          },
+          {
+            "playerID": 3006,
+            "playerFullName": "Luiz Felipe",
+            "additionalInfo": {
+              "Height": "187 cm",
+              "Weight": "80 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "22-03-1997  (29)"
+            },
+            "playerNumber": "5",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl17023166982367.webp"
+          },
+          {
+            "playerID": 3617,
+            "playerFullName": "Andrei Rațiu",
+            "additionalInfo": {
+              "Height": "183 cm",
+              "Weight": "74 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "20-06-1998  (27)"
+            },
+            "playerNumber": "2",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl15584370992694.webp"
+          },
+          {
+            "playerID": 4361,
+            "playerFullName": "Jorge de Frutos",
+            "additionalInfo": {
+              "Height": "173 cm",
+              "Weight": "72 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "20-02-1997  (29)"
+            },
+            "playerNumber": "19",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl15897959451497.webp"
+          },
+          {
+            "playerID": 8540,
+            "playerFullName": "Óscar Valentín",
+            "additionalInfo": {
+              "Height": "177 cm",
+              "Weight": "72 kg",
+              "Position": "Midfielder",
+              "Fantasy Value": null,
+              "Birthdate": "20-08-1994  (31)"
+            },
+            "playerNumber": "23",
+            "playerPhoto": ""
+          },
+          {
+            "playerID": 8908,
+            "playerFullName": "Isi Palazón",
+            "additionalInfo": {
+              "Height": "169 cm",
+              "Weight": "71 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "27-12-1994  (31)"
+            },
+            "playerNumber": "7",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl15898809911301.webp"
+          },
+          {
+            "playerID": 8947,
+            "playerFullName": "Pathé Ciss",
+            "additionalInfo": {
+              "Height": "186 cm",
+              "Weight": "71 kg",
+              "Position": "Midfielder",
+              "Fantasy Value": null,
+              "Birthdate": "16-03-1994  (32)"
+            },
+            "playerNumber": "6",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl15755404721463.webp"
+          },
+          {
+            "playerID": 19437,
+            "playerFullName": "Pep Chavarría",
+            "additionalInfo": {
+              "Height": "174 cm",
+              "Weight": "72 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "10-04-1998  (27)"
+            },
+            "playerNumber": "3",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl176113314955.webp"
+          },
+          {
+            "playerID": 44405,
+            "playerFullName": "Fran Pérez",
+            "additionalInfo": {
+              "Height": "176 cm",
+              "Weight": "67 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "09-09-2002  (23)"
+            },
+            "playerNumber": "21",
+            "playerPhoto": ""
+          },
+          {
+            "playerID": 51356,
+            "playerFullName": "Augusto Batalla",
+            "additionalInfo": {
+              "Height": "186 cm",
+              "Weight": "87 kg",
+              "Position": "Goalkeeper",
+              "Fantasy Value": null,
+              "Birthdate": "30-04-1996  (29)"
+            },
+            "playerNumber": "13",
+            "playerPhoto": ""
+          }
+        ],
+        "bench": [
+          {
+            "playerID": 981,
+            "playerFullName": "Gerard Gumbau",
+            "additionalInfo": {
+              "Height": "188 cm",
+              "Weight": "78 kg",
+              "Position": "Midfielder",
+              "Fantasy Value": null,
+              "Birthdate": "18-12-1994  (31)"
+            },
+            "playerNumber": "15",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl17023165642393.webp"
+          },
+          {
+            "playerID": 1151,
+            "playerFullName": "Unai López",
+            "additionalInfo": {
+              "Height": "170 cm",
+              "Weight": "64 kg",
+              "Position": "Midfielder",
+              "Fantasy Value": null,
+              "Birthdate": "30-10-1995  (30)"
+            },
+            "playerNumber": "17",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl15562914391147.webp"
+          },
+          {
+            "playerID": 3681,
+            "playerFullName": "Sergio Camello",
+            "additionalInfo": {
+              "Height": "177 cm",
+              "Weight": "67 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "10-02-2001  (25)"
+            },
+            "playerNumber": "10",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl15562768051903.webp"
+          },
+          {
+            "playerID": 7314,
+            "playerFullName": "Dani Cárdenas",
+            "additionalInfo": {
+              "Height": "186 cm",
+              "Weight": "80 kg",
+              "Position": "Goalkeeper",
+              "Fantasy Value": null,
+              "Birthdate": "28-03-1997  (28)"
+            },
+            "playerNumber": "1",
+            "playerPhoto": ""
+          },
+          {
+            "playerID": 8604,
+            "playerFullName": "Iván Balliu",
+            "additionalInfo": {
+              "Height": "172 cm",
+              "Weight": "63 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "01-01-1992  (34)"
+            },
+            "playerNumber": "20",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl15898768802280.webp"
+          },
+          {
+            "playerID": 8672,
+            "playerFullName": "Pedro Díaz",
+            "additionalInfo": {
+              "Height": "180 cm",
+              "Weight": "75 kg",
+              "Position": "Midfielder",
+              "Fantasy Value": null,
+              "Birthdate": "05-06-1998  (27)"
+            },
+            "playerNumber": "4",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl1575975917898.webp"
+          },
+          {
+            "playerID": 8689,
+            "playerFullName": "Alfonso Espino",
+            "additionalInfo": {
+              "Height": "172 cm",
+              "Weight": "71 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "05-01-1992  (34)"
+            },
+            "playerNumber": "22",
+            "playerPhoto": "https://api.statorium.com/media/bearleague/bl15760453942195.webp"
+          },
+          {
+            "playerID": 8950,
+            "playerFullName": "Randy Nteka",
+            "additionalInfo": {
+              "Height": "189 cm",
+              "Weight": "75 kg",
+              "Position": "Midfielder",
+              "Fantasy Value": null,
+              "Birthdate": "06-12-1997  (28)"
+            },
+            "playerNumber": "11",
+            "playerPhoto": ""
+          },
+          {
+            "playerID": 18563,
+            "playerFullName": "Abdul Mumin",
+            "additionalInfo": {
+              "Height": "189 cm",
+              "Weight": "79 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "06-06-1998  (27)"
+            },
+            "playerNumber": "16",
+            "playerPhoto": ""
+          },
+          {
+            "playerID": 35254,
+            "playerFullName": "Carlos Martín",
+            "additionalInfo": {
+              "Height": "180 cm",
+              "Weight": "74 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "22-04-2002  (23)"
+            },
+            "playerNumber": "14",
+            "playerPhoto": ""
+          },
+          {
+            "playerID": 39533,
+            "playerFullName": "Alemão",
+            "additionalInfo": {
+              "Height": "182 cm",
+              "Weight": "78 kg",
+              "Position": "Atacker",
+              "Fantasy Value": null,
+              "Birthdate": "01-04-1998  (27)"
+            },
+            "playerNumber": "9",
+            "playerPhoto": ""
+          },
+          {
+            "playerID": 41120,
+            "playerFullName": "Jozhua Vertrouwd",
+            "additionalInfo": {
+              "Height": "188 cm",
+              "Weight": "73 kg",
+              "Position": "Defender",
+              "Fantasy Value": null,
+              "Birthdate": "21-08-2004  (21)"
+            },
+            "playerNumber": "33",
+            "playerPhoto": ""
+          }
+        ],
+        "subs": [
+          {
+            "playerIN": 842,
+            "playerINFullName": "Álvaro García",
+            "playerOUT": 35254,
+            "playerOUTFullName": "Carlos Martín",
+            "minute": "46"
+          },
+          {
+            "playerIN": 8689,
+            "playerINFullName": "Alfonso Espino",
+            "playerOUT": 8540,
+            "playerOUTFullName": "Óscar Valentín",
+            "minute": "46"
+          },
+          {
+            "playerIN": 4361,
+            "playerINFullName": "Jorge de Frutos",
+            "playerOUT": 8672,
+            "playerOUTFullName": "Pedro Díaz",
+            "minute": "59"
+          },
+          {
+            "playerIN": 1151,
+            "playerINFullName": "Unai López",
+            "playerOUT": 981,
+            "playerOUTFullName": "Gerard Gumbau",
+            "minute": "59"
+          },
+          {
+            "playerIN": 3681,
+            "playerINFullName": "Sergio Camello",
+            "playerOUT": 44405,
+            "playerOUTFullName": "Fran Pérez",
+            "minute": "82"
+          }
+        ]
+      },
+      "events": [
+        {
+          "rowId": 3994482,
+          "eventId": 5,
+          "eventName": "Yellow card",
+          "playerID": 8540,
+          "playerFullName": "Óscar Valentín",
+          "minute": "34",
+          "stageID": 0
+        },
+        {
+          "rowId": 3994577,
+          "eventId": 5,
+          "eventName": "Yellow card",
+          "playerID": 44405,
+          "playerFullName": "Fran Pérez",
+          "minute": "65",
+          "stageID": 0
+        },
+        {
+          "rowId": 3994581,
+          "eventId": 5,
+          "eventName": "Yellow card",
+          "playerID": 8947,
+          "playerFullName": "Pathé Ciss",
+          "minute": "67",
+          "stageID": 0
+        },
+        {
+          "rowId": 3994699,
+          "eventId": 5,
+          "eventName": "Yellow card",
+          "playerID": 8908,
+          "playerFullName": "Isi Palazón",
+          "minute": "88",
+          "stageID": 0
+        }
+      ],
+      "teamStats": [
+        {
+          "rowId": 3994722,
+          "teamStatID": 11,
+          "teamStatName": "Possession",
+          "count": 39
+        },
+        {
+          "rowId": 3994724,
+          "teamStatID": 9,
+          "teamStatName": "Total shots",
+          "count": 8
+        },
+        {
+          "rowId": 3994726,
+          "teamStatID": 16,
+          "teamStatName": "Shots on target",
+          "count": 4
+        },
+        {
+          "rowId": 3994728,
+          "teamStatID": 15,
+          "teamStatName": "Shots off target",
+          "count": 3
+        },
+        {
+          "rowId": 3994730,
+          "teamStatID": 17,
+          "teamStatName": "Blocked shots",
+          "count": 1
+        },
+        {
+          "rowId": 3994732,
+          "teamStatID": 12,
+          "teamStatName": "Corners",
+          "count": 9
+        },
+        {
+          "rowId": 3994733,
+          "teamStatID": 14,
+          "teamStatName": "Offsides",
+          "count": 3
+        },
+        {
+          "rowId": 3994735,
+          "teamStatID": 10,
+          "teamStatName": "Fouls",
+          "count": 11
+        }
+      ]
+    },
+    "matchDuration": 90,
+    "matchTicker": "",
+    "group": {
+      "groupID": 0,
+      "groupName": ""
+    },
+    "additionalInfo": {
+      "Attendance": "",
+      "Referee": "",
+      "Referee assitant": "",
+      "Fourth official": ""
+    },
+    "h2h": [
+      {
+        "matchID": 484,
+        "matchStatus": {
+          "statusID": "1"
+        },
+        "league": {
+          "seasonID": 2,
+          "seasonName": "2018-19",
+          "tournamentID": 2,
+          "tournamentName": "SPAIN: La Liga",
+          "translations": null
+        },
+        "extraTime": {
+          "is_extra": "0",
+          "home_score": 0,
+          "away_score": 0
+        },
+        "matchDate": "2018-11-03",
+        "matchTime": "19:45",
+        "matchVenue": {
+          "venueID": 42
+        },
+        "homeParticipant": {
+          "participantID": 29,
+          "participantName": "Rayo Vallecano",
+          "score": 2,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162992601520.webp",
+          "translations": {
+            "ar": {
+              "name": "رايو فاليكانو"
+            },
+            "zh": {
+              "name": "華歷簡奴",
+              "middle_name": "華歷簡奴"
+            },
+            "gr": {
+              "name": "Ράγιο Βαγιεκάνο",
+              "middle_name": "Ράγιο Βαγιεκάνο"
+            },
+            "th": {
+              "name": "ราโยบาเยกาโน"
+            }
+          }
+        },
+        "awayParticipant": {
+          "participantID": 23,
+          "participantName": "FC Barcelona",
+          "score": 3,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp",
+          "translations": {
+            "ar": {
+              "name": "برشلونة"
+            },
+            "zh": {
+              "name": "巴塞隆拿",
+              "middle_name": "巴塞隆拿"
+            },
+            "gr": {
+              "name": "Μπαρτσελόνα",
+              "middle_name": "Μπαρτσελόνα"
+            },
+            "th": {
+              "name": "สโมสรฟุตบอลบาร์เซโลนา"
+            }
+          }
+        }
+      },
+      {
+        "matchID": 644,
+        "matchStatus": {
+          "statusID": "1"
+        },
+        "league": {
+          "seasonID": 2,
+          "seasonName": "2018-19",
+          "tournamentID": 2,
+          "tournamentName": "SPAIN: La Liga",
+          "translations": null
+        },
+        "extraTime": {
+          "is_extra": "0",
+          "home_score": 0,
+          "away_score": 0
+        },
+        "matchDate": "2019-03-09",
+        "matchTime": "17:30",
+        "matchVenue": {
+          "venueID": 34
+        },
+        "homeParticipant": {
+          "participantID": 23,
+          "participantName": "FC Barcelona",
+          "score": 3,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp",
+          "translations": {
+            "ar": {
+              "name": "برشلونة"
+            },
+            "zh": {
+              "name": "巴塞隆拿",
+              "middle_name": "巴塞隆拿"
+            },
+            "gr": {
+              "name": "Μπαρτσελόνα",
+              "middle_name": "Μπαρτσελόνα"
+            },
+            "th": {
+              "name": "สโมสรฟุตบอลบาร์เซโลนา"
+            }
+          }
+        },
+        "awayParticipant": {
+          "participantID": 29,
+          "participantName": "Rayo Vallecano",
+          "score": 1,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162992601520.webp",
+          "translations": {
+            "ar": {
+              "name": "رايو فاليكانو"
+            },
+            "zh": {
+              "name": "華歷簡奴",
+              "middle_name": "華歷簡奴"
+            },
+            "gr": {
+              "name": "Ράγιο Βαγιεκάνο",
+              "middle_name": "Ράγιο Βαγιεκάνο"
+            },
+            "th": {
+              "name": "ราโยบาเยกาโน"
+            }
+          }
+        }
+      },
+      {
+        "matchID": 21152,
+        "matchStatus": {
+          "statusID": "1"
+        },
+        "league": {
+          "seasonID": 86,
+          "seasonName": "2020-21",
+          "tournamentID": 43,
+          "tournamentName": "SPAIN: Copa del Rey",
+          "translations": null
+        },
+        "extraTime": {
+          "is_extra": "0",
+          "home_score": 0,
+          "away_score": 0
+        },
+        "matchDate": "2021-01-27",
+        "matchTime": "20:00",
+        "matchVenue": {
+          "venueID": 42
+        },
+        "homeParticipant": {
+          "participantID": 29,
+          "participantName": "Rayo Vallecano",
+          "score": 1,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162992601520.webp",
+          "translations": {
+            "ar": {
+              "name": "رايو فاليكانو"
+            },
+            "zh": {
+              "name": "華歷簡奴",
+              "middle_name": "華歷簡奴"
+            },
+            "gr": {
+              "name": "Ράγιο Βαγιεκάνο",
+              "middle_name": "Ράγιο Βαγιεκάνο"
+            },
+            "th": {
+              "name": "ราโยบาเยกาโน"
+            }
+          }
+        },
+        "awayParticipant": {
+          "participantID": 23,
+          "participantName": "FC Barcelona",
+          "score": 2,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp",
+          "translations": {
+            "ar": {
+              "name": "برشلونة"
+            },
+            "zh": {
+              "name": "巴塞隆拿",
+              "middle_name": "巴塞隆拿"
+            },
+            "gr": {
+              "name": "Μπαρτσελόνα",
+              "middle_name": "Μπαρτσελόνα"
+            },
+            "th": {
+              "name": "สโมสรฟุตบอลบาร์เซโลนา"
+            }
+          }
+        }
+      },
+      {
+        "matchID": 28696,
+        "matchStatus": {
+          "statusID": "1"
+        },
+        "league": {
+          "seasonID": 113,
+          "seasonName": "2021-22",
+          "tournamentID": 2,
+          "tournamentName": "SPAIN: La Liga",
+          "translations": null
+        },
+        "extraTime": {
+          "is_extra": "0",
+          "home_score": 0,
+          "away_score": 0
+        },
+        "matchDate": "2021-10-27",
+        "matchTime": "17:00",
+        "matchVenue": {
+          "venueID": 42
+        },
+        "homeParticipant": {
+          "participantID": 29,
+          "participantName": "Rayo Vallecano",
+          "score": 1,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162992601520.webp",
+          "translations": {
+            "ar": {
+              "name": "رايو فاليكانو"
+            },
+            "zh": {
+              "name": "華歷簡奴",
+              "middle_name": "華歷簡奴"
+            },
+            "gr": {
+              "name": "Ράγιο Βαγιεκάνο",
+              "middle_name": "Ράγιο Βαγιεκάνο"
+            },
+            "th": {
+              "name": "ราโยบาเยกาโน"
+            }
+          }
+        },
+        "awayParticipant": {
+          "participantID": 23,
+          "participantName": "FC Barcelona",
+          "score": 0,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp",
+          "translations": {
+            "ar": {
+              "name": "برشلونة"
+            },
+            "zh": {
+              "name": "巴塞隆拿",
+              "middle_name": "巴塞隆拿"
+            },
+            "gr": {
+              "name": "Μπαρτσελόνα",
+              "middle_name": "Μπαρτσελόνα"
+            },
+            "th": {
+              "name": "สโมสรฟุตบอลบาร์เซโลนา"
+            }
+          }
+        }
+      },
+      {
+        "matchID": 28791,
+        "matchStatus": {
+          "statusID": "1"
+        },
+        "league": {
+          "seasonID": 113,
+          "seasonName": "2021-22",
+          "tournamentID": 2,
+          "tournamentName": "SPAIN: La Liga",
+          "translations": null
+        },
+        "extraTime": {
+          "is_extra": "0",
+          "home_score": 0,
+          "away_score": 0
+        },
+        "matchDate": "2022-04-24",
+        "matchTime": "19:00",
+        "matchVenue": {
+          "venueID": 34
+        },
+        "homeParticipant": {
+          "participantID": 23,
+          "participantName": "FC Barcelona",
+          "score": 0,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp",
+          "translations": {
+            "ar": {
+              "name": "برشلونة"
+            },
+            "zh": {
+              "name": "巴塞隆拿",
+              "middle_name": "巴塞隆拿"
+            },
+            "gr": {
+              "name": "Μπαρτσελόνα",
+              "middle_name": "Μπαρτσελόνα"
+            },
+            "th": {
+              "name": "สโมสรฟุตบอลบาร์เซโลนา"
+            }
+          }
+        },
+        "awayParticipant": {
+          "participantID": 29,
+          "participantName": "Rayo Vallecano",
+          "score": 1,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162992601520.webp",
+          "translations": {
+            "ar": {
+              "name": "رايو فاليكانو"
+            },
+            "zh": {
+              "name": "華歷簡奴",
+              "middle_name": "華歷簡奴"
+            },
+            "gr": {
+              "name": "Ράγιο Βαγιεκάνο",
+              "middle_name": "Ράγιο Βαγιεκάνο"
+            },
+            "th": {
+              "name": "ราโยบาเยกาโน"
+            }
+          }
+        }
+      },
+      {
+        "matchID": 42682,
+        "matchStatus": {
+          "statusID": "1"
+        },
+        "league": {
+          "seasonID": 162,
+          "seasonName": "2022-23",
+          "tournamentID": 2,
+          "tournamentName": "SPAIN: La Liga",
+          "translations": null
+        },
+        "extraTime": {
+          "is_extra": "0",
+          "home_score": 0,
+          "away_score": 0
+        },
+        "matchDate": "2022-08-13",
+        "matchTime": "19:00",
+        "matchVenue": {
+          "venueID": 34
+        },
+        "homeParticipant": {
+          "participantID": 23,
+          "participantName": "FC Barcelona",
+          "score": 0,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp",
+          "translations": {
+            "ar": {
+              "name": "برشلونة"
+            },
+            "zh": {
+              "name": "巴塞隆拿",
+              "middle_name": "巴塞隆拿"
+            },
+            "gr": {
+              "name": "Μπαρτσελόνα",
+              "middle_name": "Μπαρτσελόνα"
+            },
+            "th": {
+              "name": "สโมสรฟุตบอลบาร์เซโลนา"
+            }
+          }
+        },
+        "awayParticipant": {
+          "participantID": 29,
+          "participantName": "Rayo Vallecano",
+          "score": 0,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162992601520.webp",
+          "translations": {
+            "ar": {
+              "name": "رايو فاليكانو"
+            },
+            "zh": {
+              "name": "華歷簡奴",
+              "middle_name": "華歷簡奴"
+            },
+            "gr": {
+              "name": "Ράγιο Βαγιεκάνο",
+              "middle_name": "Ράγιο Βαγιεκάνο"
+            },
+            "th": {
+              "name": "ราโยบาเยกาโน"
+            }
+          }
+        }
+      },
+      {
+        "matchID": 42987,
+        "matchStatus": {
+          "statusID": "1"
+        },
+        "league": {
+          "seasonID": 162,
+          "seasonName": "2022-23",
+          "tournamentID": 2,
+          "tournamentName": "SPAIN: La Liga",
+          "translations": null
+        },
+        "extraTime": {
+          "is_extra": "0",
+          "home_score": 0,
+          "away_score": 0
+        },
+        "matchDate": "2023-04-26",
+        "matchTime": "20:00",
+        "matchVenue": {
+          "venueID": 42
+        },
+        "homeParticipant": {
+          "participantID": 29,
+          "participantName": "Rayo Vallecano",
+          "score": 2,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162992601520.webp",
+          "translations": {
+            "ar": {
+              "name": "رايو فاليكانو"
+            },
+            "zh": {
+              "name": "華歷簡奴",
+              "middle_name": "華歷簡奴"
+            },
+            "gr": {
+              "name": "Ράγιο Βαγιεκάνο",
+              "middle_name": "Ράγιο Βαγιεκάνο"
+            },
+            "th": {
+              "name": "ราโยบาเยกาโน"
+            }
+          }
+        },
+        "awayParticipant": {
+          "participantID": 23,
+          "participantName": "FC Barcelona",
+          "score": 1,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp",
+          "translations": {
+            "ar": {
+              "name": "برشلونة"
+            },
+            "zh": {
+              "name": "巴塞隆拿",
+              "middle_name": "巴塞隆拿"
+            },
+            "gr": {
+              "name": "Μπ��ρτ��ελόνα",
+              "middle_name": "Μπαρτσελόνα"
+            },
+            "th": {
+              "name": "สโมสรฟุตบอลบาร์เซโลนา"
+            }
+          }
+        }
+      },
+      {
+        "matchID": 58088,
+        "matchStatus": {
+          "statusID": "1"
+        },
+        "league": {
+          "seasonID": 262,
+          "seasonName": "2023-24",
+          "tournamentID": 2,
+          "tournamentName": "SPAIN: La Liga",
+          "translations": null
+        },
+        "extraTime": {
+          "is_extra": "0",
+          "home_score": 0,
+          "away_score": 0
+        },
+        "matchDate": "2023-11-25",
+        "matchTime": "13:00",
+        "matchVenue": {
+          "venueID": 42
+        },
+        "homeParticipant": {
+          "participantID": 29,
+          "participantName": "Rayo Vallecano",
+          "score": 1,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162992601520.webp",
+          "translations": {
+            "ar": {
+              "name": "رايو فاليكانو"
+            },
+            "zh": {
+              "name": "華歷簡奴",
+              "middle_name": "華歷簡奴"
+            },
+            "gr": {
+              "name": "Ράγιο Βαγιεκάνο",
+              "middle_name": "Ράγιο Βαγιεκάνο"
+            },
+            "th": {
+              "name": "ราโยบาเยกาโน"
+            }
+          }
+        },
+        "awayParticipant": {
+          "participantID": 23,
+          "participantName": "FC Barcelona",
+          "score": 1,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp",
+          "translations": {
+            "ar": {
+              "name": "برشلونة"
+            },
+            "zh": {
+              "name": "巴塞隆拿",
+              "middle_name": "巴塞隆拿"
+            },
+            "gr": {
+              "name": "Μπαρτσελόνα",
+              "middle_name": "Μπαρτσελόνα"
+            },
+            "th": {
+              "name": "สโมสรฟุตบอลบาร์เซโลนา"
+            }
+          }
+        }
+      },
+      {
+        "matchID": 58315,
+        "matchStatus": {
+          "statusID": "1"
+        },
+        "league": {
+          "seasonID": 262,
+          "seasonName": "2023-24",
+          "tournamentID": 2,
+          "tournamentName": "SPAIN: La Liga",
+          "translations": null
+        },
+        "extraTime": {
+          "is_extra": "0",
+          "home_score": 0,
+          "away_score": 0
+        },
+        "matchDate": "2024-05-19",
+        "matchTime": "17:00",
+        "matchVenue": {
+          "venueID": 34
+        },
+        "homeParticipant": {
+          "participantID": 23,
+          "participantName": "FC Barcelona",
+          "score": 3,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp",
+          "translations": {
+            "ar": {
+              "name": "برشلونة"
+            },
+            "zh": {
+              "name": "巴塞隆拿",
+              "middle_name": "巴塞隆拿"
+            },
+            "gr": {
+              "name": "Μπαρτσελόνα",
+              "middle_name": "Μπαρτσελόνα"
+            },
+            "th": {
+              "name": "สโมสรฟุตบอลบาร์เซโลนา"
+            }
+          }
+        },
+        "awayParticipant": {
+          "participantID": 29,
+          "participantName": "Rayo Vallecano",
+          "score": 0,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162992601520.webp",
+          "translations": {
+            "ar": {
+              "name": "رايو فاليكانو"
+            },
+            "zh": {
+              "name": "華歷簡奴",
+              "middle_name": "華歷簡奴"
+            },
+            "gr": {
+              "name": "Ράγιο Βαγιεκάνο",
+              "middle_name": "Ράγιο Βαγιεκάνο"
+            },
+            "th": {
+              "name": "ราโยบาเยกาโน"
+            }
+          }
+        }
+      },
+      {
+        "matchID": 81067,
+        "matchStatus": {
+          "statusID": "1"
+        },
+        "league": {
+          "seasonID": 344,
+          "seasonName": "2024-25",
+          "tournamentID": 2,
+          "tournamentName": "SPAIN: La Liga",
+          "translations": null
+        },
+        "extraTime": {
+          "is_extra": "0",
+          "home_score": 0,
+          "away_score": 0
+        },
+        "matchDate": "2024-08-27",
+        "matchTime": "19:30",
+        "matchVenue": {
+          "venueID": 42
+        },
+        "homeParticipant": {
+          "participantID": 29,
+          "participantName": "Rayo Vallecano",
+          "score": 1,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162992601520.webp",
+          "translations": {
+            "ar": {
+              "name": "رايو فاليكانو"
+            },
+            "zh": {
+              "name": "華歷簡奴",
+              "middle_name": "華歷簡奴"
+            },
+            "gr": {
+              "name": "Ράγιο Βαγιεκάνο",
+              "middle_name": "Ράγιο Βαγιεκάνο"
+            },
+            "th": {
+              "name": "ราโยบาเยกาโน"
+            }
+          }
+        },
+        "awayParticipant": {
+          "participantID": 23,
+          "participantName": "FC Barcelona",
+          "score": 2,
+          "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp",
+          "translations": {
+            "ar": {
+              "name": "برشلونة"
+            },
+            "zh": {
+              "name": "巴塞隆拿",
+              "middle_name": "巴塞隆拿"
+            },
+            "gr": {
+              "name": "Μπαρτσελόνα",
+              "middle_name": "Μπαρτσελόνα"
+            },
+            "th": {
+              "name": "สโมสรฟุตบอลบาร์เซโลนา"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "stages": [],
+  "sport": {
+    "name": "Football",
+    "type": "team"
+  }
+}

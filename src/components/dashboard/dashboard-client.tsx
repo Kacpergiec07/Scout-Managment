@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { CardStack, CardStackItem } from '@/components/ui/card-stack'
 import { NotificationsBell } from '@/components/notifications-bell-new'
+import { FloatingSettings } from '@/components/scout/floating-settings'
 
 interface Club {
   teamID: string;
@@ -24,7 +25,7 @@ interface LeagueConfig {
   clubs: Club[];
 }
 
-function DynamicLeagueCard({ league, isActive }: { league: LeagueConfig, isActive: boolean }) {
+const DynamicLeagueCard = React.memo(function DynamicLeagueCard({ league, isActive }: { league: LeagueConfig, isActive: boolean }) {
   const [clubIndex, setClubIndex] = React.useState(0)
 
   React.useEffect(() => {
@@ -32,7 +33,7 @@ function DynamicLeagueCard({ league, isActive }: { league: LeagueConfig, isActiv
     if (isActive && league.clubs && league.clubs.length > 0) {
       interval = setInterval(() => {
         setClubIndex((prev) => (prev + 1) % league.clubs.length)
-      }, 4000) // Slower for better performance
+      }, 5000) // Even slower for better performance
     }
     return () => clearInterval(interval)
   }, [isActive, league.id, league.clubs?.length])
@@ -102,7 +103,7 @@ function DynamicLeagueCard({ league, isActive }: { league: LeagueConfig, isActiv
       </div>
     </div>
   )
-}
+})
 
 export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConfig[] }) {
   const [activeIndex, setActiveIndex] = useState(2)
@@ -110,11 +111,15 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
   const activeLeague = initialLeagues[activeIndex]
   const activeBg = activeLeague?.logo;
 
-  const stackItems: CardStackItem[] = initialLeagues.map((league) => ({
+  const stackItems: CardStackItem[] = React.useMemo(() => initialLeagues.map((league) => ({
     id: league.id,
     title: league.name,
     leagueData: league 
-  })) as any
+  })) as any, [initialLeagues])
+
+  const renderCard = React.useCallback((item: any, state: { active: boolean }) => (
+    <DynamicLeagueCard league={item.leagueData} isActive={state.active} />
+  ), [])
 
   return (
     <div className="relative w-full h-full bg-background font-sans flex flex-col items-center select-none overflow-y-auto overflow-x-hidden min-h-screen">
@@ -182,9 +187,7 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
             spreadDeg={60}
             depthPx={120}
             onChangeIndex={(idx) => setActiveIndex(idx)}
-            renderCard={(item: any, state) => (
-              <DynamicLeagueCard league={item.leagueData} isActive={state.active} />
-            )}
+            renderCard={renderCard}
           />
         </div>
 
@@ -204,6 +207,10 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
             ENTER LEAGUE HUB
           </Link>
         </div>
+      </div>
+
+      <div className="fixed bottom-6 right-24 z-50">
+        <FloatingSettings />
       </div>
     </div>
   )

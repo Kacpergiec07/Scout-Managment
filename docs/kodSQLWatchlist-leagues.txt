@@ -1,0 +1,45 @@
+/*
+  INSTRUKCJA WDROŻENIA TABELI WATCHLIST W SUPABASE:
+  
+  1. Zaloguj się do panelu Supabase (supabase.com).
+  2. Wybierz swój projekt.
+  3. Kliknij ikonę "SQL Editor" w menu po lewej stronie (ikona z napisem SQL).
+  4. Kliknij przycisk "+ New query" u góry strony.
+  5. Skopiuj całą poniższą treść i wklej ją w edytorze.
+  6. Kliknij błękitny przycisk "Run" w prawym dolnym rogu.
+  
+  Po poprawnym wykonaniu (status "Success"), funkcja dodawania zawodników do obserwacji zacznie działać.
+*/
+
+CREATE TABLE IF NOT EXISTS public.watchlist (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+    player_id TEXT NOT NULL,
+    player_name TEXT NOT NULL,
+    status TEXT DEFAULT 'following',
+    club TEXT,
+    club_logo TEXT,
+    position TEXT,
+    league TEXT,
+    player_photo TEXT,
+    market_value TEXT,
+    weight TEXT,
+    height TEXT,
+    age TEXT,
+    created_at TIMESTAMPTZ DEFAULT now(),
+    updated_at TIMESTAMPTZ DEFAULT now(),
+    removed_at TIMESTAMPTZ
+);
+
+-- Włączenie RLS (Row Level Security)
+ALTER TABLE public.watchlist ENABLE ROW LEVEL SECURITY;
+
+-- Polityki dostępu
+CREATE POLICY "Users can view their own watchlist" ON public.watchlist FOR SELECT USING (auth.uid() = user_id);
+CREATE POLICY "Users can insert into their own watchlist" ON public.watchlist FOR INSERT WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can update their own watchlist" ON public.watchlist FOR UPDATE USING (auth.uid() = user_id);
+
+-- Indeksy dla wydajności
+CREATE INDEX IF NOT EXISTS idx_watchlist_user_id ON public.watchlist(user_id);
+CREATE INDEX IF NOT EXISTS idx_watchlist_player_id ON public.watchlist(player_id);
+CREATE INDEX IF NOT EXISTS idx_watchlist_status ON public.watchlist(status);

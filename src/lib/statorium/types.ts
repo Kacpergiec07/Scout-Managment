@@ -81,6 +81,8 @@ export interface StatoriumTeamStats {
 }
 export interface StatoriumStanding {
   teamID: string;
+  teamName: string;
+  teamLogo: string;
   rank: number;
   played: number;
   won: number;
@@ -89,6 +91,7 @@ export interface StatoriumStanding {
   goalsFor: number;
   goalsAgainst: number;
   points: number;
+  formObjects?: { result: string; matchId: string }[];
 }
 
 export interface StatoriumTransfer {

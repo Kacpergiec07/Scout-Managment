@@ -1,5 +1,5 @@
 import { SidebarWrapper } from '@/components/sidebar-wrapper'
-import { ScoutBot } from '@/components/scout/scout-bot'
+import { FloatingElements } from '@/components/scout/floating-elements'
 
 export default function DashboardLayout({
   children,
@@ -12,6 +12,7 @@ export default function DashboardLayout({
       <main className="flex-1 w-full h-full relative overflow-y-auto">
         {children}
       </main>
+      <FloatingElements />
     </div>
   )
 }

@@ -37,14 +37,14 @@ export function Sidebar() {
       {/* Top Header Logo */}
       <div className="flex h-[88px] items-center justify-between px-6">
         <Link href="/dashboard" className="flex items-center gap-3 font-black text-foreground text-lg tracking-widest mt-2">
-          <div className="h-6 w-1 bg-green-500 rounded-sm shadow-[0_0_10px_rgba(34,197,94,0.8)]" />
+          <div className="h-6 w-1 bg-emerald-500 rounded-sm shadow-[0_0_10px_rgba(16,185,129,0.8)]" />
           SCOUT PRO
         </Link>
         <div className="flex items-center gap-4 text-muted-foreground mt-2">
           {mounted && (
             <div
               onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-              className="cursor-pointer hover:text-foreground transition-all duration-300"
+              className="cursor-pointer hover:text-foreground transition-all duration-300 p-2 hover:bg-accent rounded-lg"
             >
               {resolvedTheme === 'dark' ? (
                 <Sun className="w-4 h-4" />
@@ -65,13 +65,13 @@ export function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`group flex items-center gap-4 rounded-md px-3 py-2.5 text-[15px] font-semibold transition-all duration-300 ${
+              className={`group flex items-center gap-4 rounded-xl px-3 py-2.5 text-[15px] font-semibold transition-all duration-300 ${
                 isActive 
-                 ? 'text-green-500 bg-accent shadow-inner' 
-                 : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground'
+                 ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 shadow-sm border border-emerald-500/20' 
+                 : 'text-muted-foreground hover:bg-accent hover:text-foreground'
               }`}
             >
-              <item.icon className={`h-5 w-5 ${isActive ? 'text-green-500' : 'text-muted-foreground group-hover:text-foreground'}`} />
+              <item.icon className={`h-5 w-5 transition-colors ${isActive ? 'text-emerald-600 dark:text-emerald-400' : 'text-muted-foreground group-hover:text-foreground'}`} />
               <span className="tracking-[0.05em]">{item.label}</span>
             </Link>
           )
@@ -86,10 +86,10 @@ export function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`group flex items-center gap-4 rounded-md px-3 py-2.5 text-[15px] font-semibold transition-all duration-300 ${
+              className={`group flex items-center gap-4 rounded-xl px-3 py-2.5 text-[15px] font-semibold transition-all duration-300 ${
                 isActive 
-                 ? 'text-foreground bg-accent' 
-                 : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground'
+                 ? 'text-foreground bg-accent border border-border shadow-sm' 
+                 : 'text-muted-foreground hover:bg-accent hover:text-foreground'
               }`}
             >
               <item.icon className="h-5 w-5" />
@@ -97,10 +97,10 @@ export function Sidebar() {
             </Link>
           )
         })}
-        <form>
+        <form action={signOut}>
           <button
-            formAction={signOut}
-            className="flex w-full items-center gap-4 rounded-md px-3 py-2.5 text-[15px] font-semibold text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-all duration-300"
+            type="submit"
+            className="flex w-full items-center gap-4 rounded-xl px-3 py-2.5 text-[15px] font-semibold text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-all duration-300"
           >
             <div className="w-8 h-8 rounded-full bg-secondary border border-border flex items-center justify-center mr-1">
               <span className="text-foreground text-xs font-black">N</span>
