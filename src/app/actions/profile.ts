@@ -149,7 +149,8 @@ export async function getProfileData() {
           .from('profiles')
           .insert({
             id: user.id,
-            full_name: user.email,
+            full_name: user.email?.split('@')[0] || 'New User',
+            email: user.email,
             notification_preferences: {
               email_alerts: true,
               push_notifications: false,
@@ -160,7 +161,11 @@ export async function getProfileData() {
             years_experience: 0,
             players_watched_count: 0,
             active_scouting_count: 0,
-            reports_created_count: 0
+            reports_created_count: 0,
+            assigned_region: 'Global',
+            role: 'Scout',
+            bio: null,
+            avatar_url: null
           })
           .select()
           .single()
