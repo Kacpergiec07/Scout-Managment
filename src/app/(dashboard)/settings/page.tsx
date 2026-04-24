@@ -13,6 +13,7 @@ import { User, Bell, Database, Shield, Save, Check, Mail, Moon, Sun, Loader2, Ke
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { getProfileData, updateProfile, updateNotificationPreferences } from '@/app/actions/profile'
+import { fixUserProfile } from '@/app/actions/fix-profile'
 
 interface UserProfile {
   id: string
@@ -55,7 +56,7 @@ export default function SettingsPage() {
   const [reportsCreatedCount, setReportsCreatedCount] = useState(0)
 
   useEffect(() => {
-    async function loadUserData() {
+    async function loadUserData(autoFix = true) {
       setLoading(true)
       console.log('Settings: Starting to load user data...')
 
@@ -75,12 +76,33 @@ export default function SettingsPage() {
           setPlayersWatchedCount(profileData.players_watched_count || 0)
           setActiveScoutingCount(profileData.active_scouting_count || 0)
           setReportsCreatedCount(profileData.reports_created_count || 0)
+        } else if (autoFix) {
+          // Auto-fix profile if data is missing
+          console.log('Settings: No profile data, attempting auto-fix...')
+          const fixResult = await fixUserProfile()
+          if (fixResult.success) {
+            console.log('Settings: Auto-fix successful, reloading data...')
+            await loadUserData(false) // Don't auto-fix again
+          } else {
+            console.error('Settings: Auto-fix failed:', fixResult.error)
+            setUser(null)
+          }
         } else {
           console.warn('Settings: No profile data returned, using empty state')
           setUser(null)
         }
       } catch (error) {
         console.error('Settings: Failed to load user data:', error)
+        if (autoFix) {
+          console.log('Settings: Error loading data, attempting auto-fix...')
+          const fixResult = await fixUserProfile()
+          if (fixResult.success) {
+            console.log('Settings: Auto-fix successful, reloading data...')
+            await loadUserData(false)
+          } else {
+            console.error('Settings: Auto-fix failed:', fixResult.error)
+          }
+        }
         setUser(null)
       } finally {
         setLoading(false)

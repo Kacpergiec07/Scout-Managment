@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge'
 import { User, MapPin, Mail, Shield, Trophy, Target, Award, TrendingUp, Edit, Calendar, Loader2, RefreshCw } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { getProfileData } from '@/app/actions/profile'
+import { fixUserProfile } from '@/app/actions/fix-profile'
 
 interface UserProfile {
   id: string
@@ -37,7 +38,7 @@ export default function ProfilePage() {
     players_watched_count: 0
   })
 
-  const loadProfileData = async () => {
+  const loadProfileData = async (autoFix = true) => {
     setLoading(true)
     try {
       const profileData = await getProfileData()
@@ -47,9 +48,28 @@ export default function ProfilePage() {
         setStats({
           players_watched_count: profileData.players_watched_count || 0
         })
+      } else if (autoFix) {
+        // If profile data is null and auto-fix is enabled, try to fix it
+        console.log('Profile data is null, attempting auto-fix...')
+        const fixResult = await fixUserProfile()
+        if (fixResult.success) {
+          console.log('Auto-fix successful, reloading profile data...')
+          // Reload profile data after fix
+          await loadProfileData(false) // Don't auto-fix again to prevent loops
+        } else {
+          console.error('Auto-fix failed:', fixResult.error)
+        }
       }
     } catch (error) {
       console.error('Failed to load profile:', error)
+      if (autoFix) {
+        console.log('Error loading profile, attempting auto-fix...')
+        const fixResult = await fixUserProfile()
+        if (fixResult.success) {
+          console.log('Auto-fix successful, reloading profile data...')
+          await loadProfileData(false)
+        }
+      }
     }
     setLoading(false)
   }
