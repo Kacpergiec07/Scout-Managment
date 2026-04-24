@@ -7,6 +7,9 @@ import { COACH_MAP } from '@/lib/coaches-data';
 import { getRealFormation } from '@/lib/statorium/formation-service';
 import { PLAYER_PHOTOS, VERIFIED_TRANSFERS } from '@/lib/statorium-data';
 
+import { createClient } from '@/lib/supabase/server';
+import { getCachedPlayersByTeam } from './sync';
+
 let clientInstance: StatoriumClient | null = null;
 
 function getStatoriumClient() {
@@ -26,7 +29,7 @@ function getPhotoIdx(): Map<string, string> {
   _photoIdx = new Map();
   if (typeof PLAYER_PHOTOS !== 'undefined') {
     for (const [name, url] of Object.entries(PLAYER_PHOTOS)) {
-      _photoIdx.set(normalizeName(name), url);
+      _photoIdx.set(normalizeName(name), url as string);
     }
   }
   return _photoIdx;
@@ -306,6 +309,39 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
   if (!teamId || teamId === 'undefined') return null;
 
   try {
+    const supabase = await createClient();
+    
+    // Check Cache First
+    const { data: cachedTeam } = await supabase
+      .from('cached_teams')
+      .select('*')
+      .eq('id', teamId)
+      .single();
+
+    if (cachedTeam) {
+      console.log(`[Cache] Hit for team ${teamId}`);
+      // If we have cached players, we can construct the result
+      const cachedPlayers = await getCachedPlayersByTeam(teamId);
+      if (cachedPlayers && cachedPlayers.length > 0) {
+        return {
+          teamID: teamId,
+          teamName: cachedTeam.name,
+          teamLogo: cachedTeam.logo,
+          players: cachedPlayers.map(p => ({
+            playerID: p.id,
+            fullName: p.full_name,
+            position: p.position,
+            photo: p.photo_url,
+            additionalInfo: { birthdate: p.birthdate },
+            stat: p.stats,
+            medicalReport: p.injury_status,
+            contractStatus: p.contract_expiry
+          })),
+          formation: 'N/A' 
+        } as any;
+      }
+    }
+
     const client = getStatoriumClient();
 
     // Auto-detect seasonId if not provided by checking top 5 leagues
@@ -748,6 +784,25 @@ export async function getAllTop5PlayersAction() {
 export async function getPlayerDetailsAction(playerId: string) {
   if (!playerId) return null;
   try {
+    const supabase = await createClient();
+    const { data: cachedPlayer } = await supabase
+      .from('cached_players')
+      .select('*')
+      .eq('id', playerId)
+      .single();
+
+    if (cachedPlayer) {
+      console.log(`[Cache] Hit for player ${playerId}`);
+      return {
+        playerID: cachedPlayer.id,
+        fullName: cachedPlayer.full_name,
+        position: cachedPlayer.position,
+        photo: cachedPlayer.photo_url,
+        stat: cachedPlayer.stats,
+        additionalInfo: { birthdate: cachedPlayer.birthdate }
+      };
+    }
+
     const client = getStatoriumClient();
     console.log(`[Action] Fetching details for player ${playerId}`);
 

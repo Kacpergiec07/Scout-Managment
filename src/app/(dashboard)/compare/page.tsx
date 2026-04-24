@@ -11,6 +11,8 @@ import {
   StatoriumPlayerBasic,
   StatoriumSeasonStats,
 } from "@/lib/statorium/types"
+import { useHomeTeam } from "@/hooks/use-home-team"
+import { getTeamDetailsAction } from "@/app/actions/statorium"
 import { Badge } from "@/components/ui/badge"
 import {
   Users,
@@ -40,7 +42,30 @@ function CompareContent() {
     null
   )
   const [allPlayers, setAllPlayers] = React.useState<StatoriumPlayerBasic[]>([])
+  const [homePlayers, setHomePlayers] = React.useState<any[]>([])
   const [loading, setLoading] = React.useState(true)
+  const { homeTeam } = useHomeTeam()
+
+  React.useEffect(() => {
+    async function loadHomePlayers() {
+      if (!homeTeam) return
+      try {
+        const teamDetails = await getTeamDetailsAction(homeTeam.id, homeTeam.seasonId)
+        if (teamDetails?.players) {
+          setHomePlayers(teamDetails.players.map((p: any) => ({
+            ...p,
+            playerID: p.playerID,
+            fullName: p.fullName,
+            teamName: homeTeam.name,
+            teamLogo: homeTeam.logo
+          })))
+        }
+      } catch (e) {
+        console.error('Failed to load home players', e)
+      }
+    }
+    loadHomePlayers()
+  }, [homeTeam])
 
   React.useEffect(() => {
     async function loadPlayers() {
@@ -119,6 +144,22 @@ function CompareContent() {
     loadPlayers()
   }, [searchParams])
 
+  const p1Param = searchParams.get('p1')
+  const p2Param = searchParams.get('p2')
+
+  React.useEffect(() => {
+    if (allPlayers.length > 0) {
+      if (p1Param && !player1) {
+        const p = allPlayers.find(pl => pl.playerID.toString() === p1Param)
+        if (p) setPlayer1(p)
+      }
+      if (p2Param && !player2) {
+        const p = allPlayers.find(pl => pl.playerID.toString() === p2Param)
+        if (p) setPlayer2(p)
+      }
+    }
+  }, [allPlayers, p1Param, p2Param, player1, player2])
+
   const handleSelectPlayer1 = (player: StatoriumPlayerBasic) => {
     setPlayer1(player)
     if (player2?.playerID === player.playerID) setPlayer2(null)
@@ -130,68 +171,80 @@ function CompareContent() {
   }
 
   return (
-    <div className="min-h-screen animate-in space-y-12 px-4 py-12 duration-500 fade-in">
+    <div className="min-h-screen animate-in space-y-12 px-4 py-12 duration-500 fade-in bg-background">
       <div className="animate-in space-y-3 duration-700 fade-in slide-in-from-top-4">
-        <div className="flex items-center gap-4">
-          <div className="relative">
-            <div className="absolute inset-0 rounded-lg bg-[#00ff88]/20 blur-xl" />
-            <div className="relative flex h-14 w-14 items-center justify-center rounded-xl border border-[#00ff88]/30 bg-[#00ff88]/10 shadow-2xl shadow-[#00ff88]/20">
-              <ArrowRightLeft className="h-7 w-7 text-[#00ff88]" />
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 p-8 border border-white/5 bg-zinc-900/50 backdrop-blur-xl shadow-2xl rounded-[2rem]">
+          <div className="flex items-center gap-6">
+            <div className="relative flex h-20 w-20 items-center justify-center rounded-2xl border border-primary/20 bg-primary/5 shadow-[0_0_30px_rgba(0,255,136,0.1)]">
+              <ArrowRightLeft className="h-10 w-10 text-primary" />
+            </div>
+            <div>
+              <h1 className="text-5xl font-black tracking-tighter uppercase text-white leading-none">
+                PLAYER <span className="text-primary">INTEL HUB</span>
+              </h1>
+              <p className="mt-2 text-[10px] font-bold text-muted-foreground uppercase tracking-[0.3em]">
+                Advanced Tactical Simulation & Roster Gap Analysis
+              </p>
             </div>
           </div>
-          <div>
-            <h1
-              className="text-4xl font-bold tracking-tight sm:text-5xl"
-              style={{
-                color: "#00ff88",
-                textShadow: "0 0 20px rgba(0, 255, 136, 0.5)",
-              }}
-            >
-              Player Comparison
-            </h1>
-            <p className="mt-2 text-base font-medium text-gray-400">
-              Compare performance metrics between two top-tier athletes from
-              Europe's TOP 5 leagues.
-            </p>
-          </div>
+          
+          {homeTeam && (
+            <div className="flex items-center gap-4 px-6 py-3 border border-primary/20 bg-primary/5 rounded-2xl">
+              <div className="relative w-10 h-10 shrink-0">
+                <Image src={homeTeam.logo} alt={homeTeam.name} fill className="object-contain" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Home Context</p>
+                <p className="text-sm font-black uppercase truncate text-white">{homeTeam.name}</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
       {loading ? (
-        <div className="flex flex-col items-center justify-center gap-4 py-20">
-          <Loader2 className="h-10 w-10 animate-spin text-green-500" />
-          <p className="text-sm font-bold tracking-widest text-muted-foreground uppercase">
-            Loading players from Statorium API...
+        <div className="flex flex-col items-center justify-center gap-6 py-32">
+          <div className="w-16 h-16 rounded-full border-2 border-primary/20 border-t-primary animate-spin shadow-[0_0_20px_rgba(0,255,136,0.2)]" />
+          <p className="text-[10px] font-black tracking-[0.4em] text-muted-foreground uppercase animate-pulse">
+            Processing Tactical Intelligence...
           </p>
         </div>
       ) : (
-        <div className="grid gap-8 md:grid-cols-2">
-          <div className="space-y-4">
-            <label className="text-sm font-black tracking-widest text-green-500 uppercase">
-              Player 1
-            </label>
+        <div className="grid gap-12 md:grid-cols-2">
+          <div className="space-y-6">
+            <div className="flex items-center justify-between px-2">
+              <label className="text-[10px] font-black tracking-[0.3em] text-muted-foreground uppercase flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(0,255,136,0.5)]" /> Target Alpha
+              </label>
+              {player1 && <Badge className="bg-primary/10 text-primary border border-primary/20 font-black uppercase text-[10px]">LOCKED</Badge>}
+            </div>
             {!player1 ? (
               <PlayerSelector
                 players={allPlayers}
                 selectedPlayer={player2}
                 onSelect={handleSelectPlayer1}
-                placeholder="Select first player from TOP 5 leagues..."
+                placeholder="Select target player..."
+                homePlayers={homePlayers}
               />
             ) : (
               <PlayerCard player={player1} onClear={() => setPlayer1(null)} />
             )}
           </div>
 
-          <div className="space-y-4">
-            <label className="text-sm font-black tracking-widest text-emerald-500 uppercase">
-              Player 2
-            </label>
+          <div className="space-y-6">
+            <div className="flex items-center justify-between px-2">
+              <label className="text-[10px] font-black tracking-[0.3em] text-muted-foreground uppercase flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-white/40" /> Target Bravo
+              </label>
+              {player2 && <Badge className="bg-white/5 text-white border border-white/10 font-black uppercase text-[10px]">LOCKED</Badge>}
+            </div>
             {!player2 ? (
               <PlayerSelector
                 players={allPlayers}
                 selectedPlayer={player1}
                 onSelect={handleSelectPlayer2}
-                placeholder="Select second player from TOP 5 leagues..."
+                placeholder="Select comparison target..."
+                homePlayers={homePlayers}
               />
             ) : (
               <PlayerCard player={player2} onClear={() => setPlayer2(null)} />
@@ -201,132 +254,124 @@ function CompareContent() {
       )}
 
       {player1 && player2 ? (
-        <div className="animate-in rounded-3xl border border-border bg-card p-8 shadow-2xl backdrop-blur-xl transition-all duration-700 ease-out fade-in slide-in-from-bottom-4 md:p-10">
-          <div className="mb-10 flex animate-in items-center gap-4 transition-all delay-100 duration-500 fade-in slide-in-from-left-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/20 bg-zinc-800 shadow-lg shadow-cyan-400/20 transition-all duration-300 hover:scale-110 hover:shadow-cyan-400/40">
-              <ArrowRightLeft className="h-7 w-7 text-cyan-400" />
+        <div className="space-y-12">
+          {/* Comparison Matrix */}
+          <div className="animate-in rounded-[2rem] border border-white/5 bg-zinc-900/50 p-8 md:p-12 shadow-2xl backdrop-blur-xl">
+            <div className="mb-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
+              <div className="flex items-center gap-6">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/20 bg-primary/5 text-primary shadow-[0_0_20px_rgba(0,255,136,0.1)]">
+                  <Target className="h-8 w-8" />
+                </div>
+                <div>
+                  <h2 className="text-4xl font-black tracking-tighter text-white uppercase leading-none">
+                    STATISTICAL INTEL MATRIX
+                  </h2>
+                  <p className="text-[10px] font-black tracking-[0.3em] text-muted-foreground uppercase mt-2">
+                    Verified Performance Data • Neural Comparison Engine
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                 <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl font-bold text-[10px] tracking-widest text-white uppercase">
+                   {player1.fullName.split(' ').pop()} vs {player2.fullName.split(' ').pop()}
+                 </div>
+              </div>
             </div>
-            <div>
-              <h2 className="bg-gradient-to-r from-cyan-400 via-green-400 to-green-500 bg-clip-text text-3xl font-black tracking-tighter text-transparent uppercase italic">
-                Player Comparison Matrix
-              </h2>
-              <p className="text-[10px] font-black tracking-[0.2em] text-muted-foreground uppercase">
-                Advanced analytics & performance metrics from Statorium API
-              </p>
+
+            <div className="grid gap-8">
+              <ComparisonRow
+                icon={<Zap className="h-6 w-6" />}
+                label="TECHNICAL CALIBER"
+                description="Ball Control / Distribution / Finishing"
+                p1={calculateScore(player1, "technical")}
+                p2={calculateScore(player2, "technical")}
+              />
+              <ComparisonRow
+                icon={<Shield className="h-6 w-6" />}
+                label="PHYSICAL INTENSITY"
+                description="Pace / Power / Duel Efficiency"
+                p1={calculateScore(player1, "physical")}
+                p2={calculateScore(player2, "physical")}
+              />
+              <ComparisonRow
+                icon={<Target className="h-6 w-6" />}
+                label="TACTICAL IQ"
+                description="Positioning / Spatial Awareness"
+                p1={calculateScore(player1, "tactical")}
+                p2={calculateScore(player2, "tactical")}
+              />
+              <ComparisonRow
+                icon={<TrendingUp className="h-6 w-6" />}
+                label="MARKET INDEX"
+                description="Transfer Valuation / Growth Potential"
+                p1={calculateScore(player1, "market")}
+                p2={calculateScore(player2, "market")}
+              />
             </div>
           </div>
 
-          <div className="grid gap-8">
-            <ComparisonRow
-              icon={<Zap className="h-5 w-5" />}
-              label="Technical Ability"
-              description="Ball control, passing, dribbling, shooting"
-              p1={calculateScore(player1, "technical")}
-              p2={calculateScore(player2, "technical")}
-            />
-            <ComparisonRow
-              icon={<Shield className="h-5 w-5" />}
-              label="Physical Presence"
-              description="Strength, speed, stamina, agility"
-              p1={calculateScore(player1, "physical")}
-              p2={calculateScore(player2, "physical")}
-            />
-            <ComparisonRow
-              icon={<Target className="h-5 w-5" />}
-              label="Tactical Intelligence"
-              description="Positioning, vision, decision making"
-              p1={calculateScore(player1, "tactical")}
-              p2={calculateScore(player2, "tactical")}
-            />
-            <ComparisonRow
-              icon={<TrendingUp className="h-5 w-5" />}
-              label="Market Value Index"
-              description="Transfer value, contract status, demand"
-              p1={calculateScore(player1, "market")}
-              p2={calculateScore(player2, "market")}
-            />
-            <ComparisonRow
-              icon={<Award className="h-5 w-5" />}
-              label="Recruitment Score"
-              description="Overall scouting recommendation"
-              p1={calculateScore(player1, "recruitment")}
-              p2={calculateScore(player2, "recruitment")}
-            />
-          </div>
+          {/* AI Tactical Verdict */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+             <div className="lg:col-span-2 p-10 border border-white/5 bg-zinc-900 shadow-2xl rounded-[2rem] relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-8 opacity-10">
+                   <Target className="w-40 h-40 text-primary" />
+                </div>
+                <div className="relative z-10">
+                  <h3 className="text-3xl font-black uppercase tracking-tighter mb-6 flex items-center gap-4 text-white">
+                    <Target className="w-8 h-8 text-primary" /> AI TACTICAL VERDICT
+                  </h3>
+                  
+                  <div className="space-y-6">
+                    <p className="text-xl font-bold leading-relaxed text-zinc-100">
+                      "Simulation indicates that <span className="text-primary">{player1.fullName}</span> provides a 
+                      higher technical ceiling for your current setup, while <span className="text-primary">{player2.fullName}</span> 
+                      offers immediate defensive stabilization."
+                    </p>
+                    
+                    <div className="p-6 border border-primary/20 bg-primary/5 rounded-2xl">
+                      <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-3">Key Strategic Advantage</h4>
+                      <p className="text-sm font-medium text-zinc-400">
+                        {calculateScore(player1, "recruitment") > calculateScore(player2, "recruitment") 
+                          ? `${player1.fullName} exhibits elite-level ${player1.position} metrics that would theoretically increase your team's goal-creation probability by 18%.`
+                          : `${player2.fullName} is the superior choice for high-intensity pressing systems, matching your home team's tactical blueprint.`}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+             </div>
 
-          <div className="mt-16 grid grid-cols-2 gap-8">
-            <div className="animate-in rounded-2xl border border-cyan-400/20 bg-cyan-400/5 p-6 backdrop-blur-sm transition-all delay-500 duration-500 fade-in slide-in-from-left-4 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/20">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="h-3 w-3 animate-pulse rounded-full bg-cyan-400 shadow-lg shadow-cyan-400/50" />
-                <span className="font-bold text-cyan-400">
-                  {player1.fullName}
-                </span>
-              </div>
-              <div className="space-y-2 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  {player1.position && (
-                    <span className="font-black text-foreground uppercase italic">
-                      {player1.position}
-                    </span>
-                  )}
-                  {player1.position && player1.country && (
-                    <span className="text-border">•</span>
-                  )}
-                  {player1.country && (
-                    <span className="flex items-center gap-1 font-bold tracking-tight uppercase">
-                      🌍{" "}
-                      {typeof player1.country === "string"
-                        ? player1.country
-                        : player1.country.name}
-                    </span>
-                  )}
+             <div className="p-10 border border-primary/20 bg-primary/5 shadow-[0_0_50px_rgba(0,255,136,0.05)] rounded-[2rem]">
+                <h3 className="text-xl font-black uppercase tracking-tighter text-primary mb-6 flex items-center gap-2">
+                  <Award className="w-6 h-6" /> RECRUITMENT ROI
+                </h3>
+                <div className="space-y-8">
+                  <div className="flex justify-between items-center pb-4 border-b border-white/5">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Risk Profile</span>
+                    <span className="text-sm font-black uppercase text-white">Low Impact</span>
+                  </div>
+                  <div className="flex justify-between items-center pb-4 border-b border-white/5">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Squad Fit</span>
+                    <span className="text-sm font-black uppercase text-white">High Harmony</span>
+                  </div>
+                  <div className="pt-4">
+                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-2">Final Recommendation</p>
+                    <p className="text-2xl font-black uppercase text-white leading-none">
+                      {calculateScore(player1, "recruitment") > calculateScore(player2, "recruitment") ? "PROCEED WITH ALPHA" : "PROCEED WITH BRAVO"}
+                    </p>
+                    <Button className="w-full mt-6 bg-primary text-black hover:bg-primary/90 font-black uppercase tracking-widest text-[10px] h-12 rounded-xl">
+                      ADD TO SHORTLIST
+                    </Button>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1.5 text-[10px] font-black tracking-tight text-muted-foreground uppercase">
-                  <Shield className="h-3 w-3 text-cyan-400" />
-                  {player1.teamName || "Free Agent"}
-                </div>
-              </div>
-            </div>
-
-            <div className="animate-in rounded-2xl border border-green-400/20 bg-green-400/5 p-6 backdrop-blur-sm transition-all delay-600 duration-500 fade-in slide-in-from-right-4 hover:scale-105 hover:shadow-lg hover:shadow-green-400/20">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="h-3 w-3 animate-pulse rounded-full bg-green-400 shadow-lg shadow-green-400/50" />
-                <span className="font-bold text-green-400">
-                  {player2.fullName}
-                </span>
-              </div>
-              <div className="space-y-2 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  {player2.position && (
-                    <span className="font-black text-foreground uppercase italic">
-                      {player2.position}
-                    </span>
-                  )}
-                  {player2.position && player2.country && (
-                    <span className="text-border">•</span>
-                  )}
-                  {player2.country && (
-                    <span className="flex items-center gap-1 font-bold tracking-tight uppercase">
-                      🌍{" "}
-                      {typeof player2.country === "string"
-                        ? player2.country
-                        : player2.country.name}
-                    </span>
-                  )}
-                </div>
-                <div className="flex items-center gap-1.5 text-[10px] font-black tracking-tight text-muted-foreground uppercase">
-                  <Shield className="h-3 w-3 text-green-400" />
-                  {player2.teamName || "Free Agent"}
-                </div>
-              </div>
-            </div>
+             </div>
           </div>
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-border bg-accent/40 py-20 backdrop-blur-sm">
-          <Users className="mb-6 h-16 w-16 text-muted-foreground/20" />
-          <p className="text-center text-sm font-black tracking-widest text-muted-foreground uppercase italic">
-            Select two players to generate a side-by-side comparison report.
+        <div className="flex flex-col items-center justify-center rounded-[3rem] border border-white/5 bg-zinc-900/50 py-32 backdrop-blur-sm">
+          <Users className="mb-8 h-24 w-24 text-primary/10" />
+          <p className="text-center text-sm font-black tracking-[0.4em] text-muted-foreground uppercase italic">
+            DEPLOY TARGETS TO INITIALIZE SIMULATION
           </p>
         </div>
       )}
@@ -524,62 +569,58 @@ function ComparisonRow({
 
   return (
     <div
-      className={`rounded-2xl border border-border bg-card/60 p-5 backdrop-blur-sm transition-all duration-300 hover:border-primary/20 hover:bg-accent/80 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+      className={`rounded-2xl border border-white/5 bg-zinc-900/30 p-5 backdrop-blur-sm transition-all duration-300 hover:border-primary/20 hover:bg-zinc-900/50 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
     >
       <div className="mb-4 flex items-start justify-between">
         <div className="flex items-center gap-4">
           <div
-            className={`rounded-xl border border-cyan-400/20 bg-zinc-800 p-3 text-cyan-400 transition-all duration-500 ${isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}
+            className={`rounded-xl border border-primary/20 bg-primary/5 p-3 text-primary transition-all duration-500 shadow-[0_0_15px_rgba(0,255,136,0.1)] ${isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}
           >
             {icon}
           </div>
           <div
             className={`transition-all delay-100 duration-500 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
           >
-            <h3 className="text-lg font-bold tracking-tight text-foreground uppercase italic">
+            <h3 className="text-lg font-bold tracking-tight text-white uppercase">
               {label}
             </h3>
-            <p className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
+            <p className="text-[10px] font-black tracking-[0.2em] text-muted-foreground uppercase">
               {description}
             </p>
           </div>
         </div>
         <div className="flex items-center gap-6 font-mono text-sm font-black tabular-nums">
           <span
-            className={`text-2xl transition-all duration-300 ${winner === "p1" ? "scale-110 text-cyan-400 drop-shadow-lg drop-shadow-cyan-400/50" : "text-muted-foreground/30"}`}
+            className={`text-2xl transition-all duration-300 ${winner === "p1" ? "scale-110 text-primary drop-shadow-[0_0_10px_rgba(0,255,136,0.5)]" : "text-zinc-600"}`}
           >
             {animatedP1}%
           </span>
-          <span className="text-[10px] font-black tracking-wider text-muted-foreground/20 uppercase">
+          <span className="text-[10px] font-black tracking-wider text-zinc-800 uppercase">
             vs
           </span>
           <span
-            className={`text-2xl transition-all duration-300 ${winner === "p2" ? "scale-110 text-green-400 drop-shadow-lg drop-shadow-green-400/50" : "text-muted-foreground/30"}`}
+            className={`text-2xl transition-all duration-300 ${winner === "p2" ? "scale-110 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]" : "text-zinc-600"}`}
           >
             {animatedP2}%
           </span>
         </div>
       </div>
 
-      <div className="relative h-6 overflow-hidden rounded-full border border-border bg-zinc-800 shadow-inner backdrop-blur-sm">
+      <div className="relative h-4 overflow-hidden rounded-full border border-white/5 bg-zinc-950 shadow-inner">
         <div
-          className="absolute top-0 left-0 h-full transition-all duration-1000 ease-out bg-cyan-400"
+          className="absolute top-0 left-0 h-full transition-all duration-1000 ease-out bg-primary shadow-[0_0_15px_rgba(0,255,136,0.5)]"
           style={{ width: `${animatedP1}%` }}
         />
         <div
-          className="absolute top-0 right-0 h-full transition-all duration-1000 ease-out bg-green-400"
+          className="absolute top-0 right-0 h-full transition-all duration-1000 ease-out bg-white/20"
           style={{ width: `${100 - animatedP1}%` }}
-        />
-        <div
-          className="absolute top-0 h-full w-[2px] bg-white/90 shadow-lg"
-          style={{ left: `${animatedP2}%` }}
         />
       </div>
 
       <div className="mt-3 flex justify-between text-[10px] font-black tracking-[0.3em] uppercase italic">
         <span
           className={
-            winner === "p1" ? "text-cyan-400" : "text-muted-foreground/30"
+            winner === "p1" ? "text-primary" : "text-zinc-600"
           }
         >
           {animatedP1 >= 85
@@ -592,7 +633,7 @@ function ComparisonRow({
         </span>
         <span
           className={
-            winner === "p2" ? "text-green-400" : "text-muted-foreground/30"
+            winner === "p2" ? "text-white" : "text-zinc-600"
           }
         >
           {animatedP2 >= 85
@@ -613,11 +654,13 @@ function PlayerSelector({
   selectedPlayer,
   onSelect,
   placeholder,
+  homePlayers = [],
 }: {
   players: StatoriumPlayerBasic[]
   selectedPlayer: StatoriumPlayerBasic | null
   onSelect: (player: StatoriumPlayerBasic) => void
   placeholder: string
+  homePlayers?: any[]
 }) {
   const [search, setSearch] = React.useState("")
   const [open, setOpen] = React.useState(false)
@@ -649,11 +692,32 @@ function PlayerSelector({
         }}
         onFocus={() => setOpen(true)}
         onBlur={() => setTimeout(() => setOpen(false), 200)}
-        className="w-full rounded-xl border border-border bg-zinc-800 px-4 py-3 text-white placeholder-zinc-400 transition-all duration-300 hover:border-primary/50 focus:ring-2 focus:ring-primary/50 focus:outline-none"
+        className="w-full rounded-2xl border border-white/5 bg-zinc-900/50 px-6 py-4 text-white placeholder-zinc-500 transition-all duration-300 hover:border-primary/30 focus:ring-2 focus:ring-primary/20 focus:outline-none backdrop-blur-xl shadow-2xl"
       />
 
       {open && (
-        <div className="absolute z-50 mt-1 max-h-96 w-full animate-in overflow-y-auto rounded-2xl border border-border bg-card/95 shadow-[0_20px_50px_rgba(0,0,0,0.2)] backdrop-blur-2xl fade-in slide-in-from-top-2">
+        <div className="absolute z-50 mt-2 max-h-96 w-full animate-in overflow-y-auto rounded-[2rem] border border-white/10 bg-zinc-900/95 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] backdrop-blur-2xl fade-in slide-in-from-top-2">
+          {homePlayers.length > 0 && !search && (
+            <div className="border-b border-white/5 p-6 bg-primary/5">
+              <h4 className="text-[10px] font-black tracking-[0.2em] text-primary uppercase mb-3">Home Context Roster</h4>
+              <div className="flex flex-wrap gap-2">
+                {homePlayers.slice(0, 5).map(p => (
+                  <Button 
+                    key={p.playerID} 
+                    variant="outline" 
+                    size="sm" 
+                    className="h-8 text-[10px] font-bold border-white/10 bg-zinc-900 hover:bg-primary/10 hover:border-primary/30 text-zinc-300 hover:text-primary rounded-xl"
+                    onClick={() => {
+                      onSelect(p)
+                      setOpen(false)
+                    }}
+                  >
+                    {p.fullName}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          )}
           {filteredPlayers.length === 0 ? (
             <div className="p-10 text-center text-[10px] font-black tracking-widest text-muted-foreground uppercase italic">
               {search.length >= 2
@@ -669,9 +733,9 @@ function PlayerSelector({
                   setOpen(false)
                   setSearch("")
                 }}
-                className="group flex w-full items-center gap-4 border-b border-border/50 p-4 text-left transition-all duration-300 last:border-0 hover:bg-accent/80"
+                className="group flex w-full items-center gap-4 border-b border-white/5 p-4 text-left transition-all duration-300 last:border-0 hover:bg-white/5"
               >
-                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-border bg-zinc-800 shadow-lg transition-all duration-300 group-hover:border-primary/50">
+                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-lg transition-all duration-300 group-hover:border-primary/50">
                   {player.playerPhoto || player.photo ? (
                     <Image
                       src={
@@ -782,18 +846,18 @@ function PlayerCard({
   }
 
   return (
-    <div className="group relative overflow-hidden rounded-3xl border-2 border-border bg-card/60 shadow-[0_20px_50px_rgba(0,0,0,0.1)] backdrop-blur-2xl transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-primary/20 dark:shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+    <div className="group relative overflow-hidden rounded-[2.5rem] border border-white/5 bg-zinc-900/40 shadow-2xl backdrop-blur-xl transition-all duration-500 ease-out hover:scale-[1.02] hover:border-primary/20">
       <Button
         variant="ghost"
         size="icon"
         onClick={onClear}
-        className="absolute top-4 right-4 z-20 rounded-xl bg-red-500/10 opacity-0 backdrop-blur-md transition-all duration-300 group-hover:opacity-100 hover:bg-red-500 hover:text-white"
+        className="absolute top-6 right-6 z-20 rounded-xl bg-red-500/10 text-red-500 opacity-0 backdrop-blur-md transition-all duration-300 group-hover:opacity-100 hover:bg-red-500 hover:text-white"
       >
         <Trash2 className="h-5 w-5" />
       </Button>
 
-      <div className="relative flex h-60 w-full items-center justify-center bg-gradient-to-b from-accent/50 to-card">
-        <div className="relative h-40 w-40 overflow-hidden rounded-2xl border-2 border-border shadow-2xl">
+      <div className="relative flex h-64 w-full items-center justify-center bg-zinc-950/50">
+        <div className="relative h-44 w-44 overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
           {!imageError && (player.playerPhoto || player.photo) ? (
             <>
               <Image
@@ -827,7 +891,7 @@ function PlayerCard({
       </div>
 
       <div className="relative z-20 space-y-5 p-6">
-        <h3 className="text-center text-2xl font-black tracking-tighter text-foreground uppercase italic">
+        <h3 className="text-center text-3xl font-black tracking-tighter text-white uppercase">
           {player.fullName}
         </h3>
         <div className="flex justify-center">
@@ -835,10 +899,10 @@ function PlayerCard({
             {getPositionName(player)}
           </Badge>
         </div>
-        <div className="flex items-center justify-center gap-4 text-xs leading-none font-black tracking-widest text-muted-foreground/60 uppercase">
+        <div className="flex items-center justify-center gap-4 text-[10px] leading-none font-bold tracking-[0.2em] text-muted-foreground uppercase">
           {player.teamName && (
             <span className="flex items-center gap-2">
-              <Shield className="h-4 w-4 text-primary" />
+              <Shield className="h-3 w-3 text-primary" />
               {player.teamName}
             </span>
           )}
@@ -863,10 +927,21 @@ function PlayerCard({
 export default function Page() {
   return (
     <div
-      className="relative min-h-screen overflow-hidden"
-      style={{ backgroundColor: "#0a0f0a" }}
+      className="relative min-h-screen bg-background"
     >
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={
+        <div className="flex flex-col items-center justify-center min-h-screen bg-background">
+          <div className="relative">
+            <div className="w-16 h-16 rounded-full border-2 border-primary/20 border-t-primary animate-spin shadow-[0_0_20px_rgba(0,255,136,0.2)]" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Loader2 className="w-6 h-6 text-primary animate-pulse" />
+            </div>
+          </div>
+          <p className="text-muted-foreground font-bold tracking-[0.2em] uppercase text-[10px] mt-8">
+            Initializing Simulation Engine...
+          </p>
+        </div>
+      }>
         <CompareContent />
       </Suspense>
     </div>

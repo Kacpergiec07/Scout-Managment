@@ -1,27 +1,25 @@
 import { Suspense } from "react";
 import { Loader2 } from "lucide-react";
-import { LeagueGalaxy } from "@/components/scout/league-galaxy";
-
-export const metadata = {
-  title: "League Galaxy | ScoutPro",
-  description: "Explore world football leagues in a dynamic galaxy visualization.",
-};
+import { LeagueTacticalHub } from "@/components/scout/league-tactical-hub";
 
 export default function LeaguesPage() {
   return (
-    <div className="relative w-full h-[calc(100vh-64px)] overflow-hidden bg-black text-white">
-      <Suspense
-        fallback={
-          <div className="flex flex-col items-center justify-center min-h-screen">
-            <Loader2 className="w-10 h-10 animate-spin text-emerald-500 mb-4" />
-            <p className="text-zinc-400 font-medium tracking-widest uppercase text-xs">
-              Aligning Galactic Coordinates...
-            </p>
+    <Suspense
+      fallback={
+        <div className="flex flex-col items-center justify-center min-h-screen bg-background">
+          <div className="relative">
+            <div className="w-16 h-16 rounded-full border-2 border-primary/20 border-t-primary animate-spin shadow-[0_0_20px_rgba(0,255,136,0.2)]" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Loader2 className="w-6 h-6 text-primary animate-pulse" />
+            </div>
           </div>
-        }
-      >
-        <LeagueGalaxy />
-      </Suspense>
-    </div>
+          <p className="text-muted-foreground font-bold tracking-[0.2em] uppercase text-[10px] mt-8">
+            Initializing Tactical Matrix...
+          </p>
+        </div>
+      }
+    >
+      <LeagueTacticalHub />
+    </Suspense>
   );
 }

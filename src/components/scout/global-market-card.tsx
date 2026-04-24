@@ -104,11 +104,11 @@ export const GlobalMarketCard = React.memo(function GlobalMarketCard({ transfers
       <div className="relative bg-muted/30 border-b border-border p-8">
         <div className="flex items-center justify-between">
           <div className="space-y-1">
-            <h3 className="text-2xl font-black italic flex items-center gap-3 text-foreground uppercase tracking-tighter">
+            <h3 className="text-2xl font-black flex items-center gap-3 text-foreground uppercase tracking-tighter">
               <Activity className="w-6 h-6 text-primary animate-pulse" />
               Global Market Intelligence
             </h3>
-            <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.3em]">Neural Network Analysis • Real-time Flow</p>
+            <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.4em]">Neural Network Analysis • Real-time Flow</p>
           </div>
           <div className="flex items-center gap-2">
             <Button
