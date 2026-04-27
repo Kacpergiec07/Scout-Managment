@@ -6,10 +6,12 @@ import React, { useEffect, useState } from 'react'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { User, MapPin, Mail, Shield, Trophy, Target, Award, TrendingUp, Edit, Calendar, Loader2, RefreshCw } from 'lucide-react'
+import { User, MapPin, Mail, Shield, Trophy, Target, Award, TrendingUp, Edit, Calendar, Loader2, RefreshCw, Briefcase, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { getProfileData } from '@/app/actions/profile'
 import { fixUserProfile } from '@/app/actions/fix-profile'
+import { getRecentJobs } from '@/app/actions/job-generation'
 
 interface UserProfile {
   id: string
@@ -31,12 +33,21 @@ interface WatchlistStats {
   players_watched_count: number
 }
 
+interface JobActivity {
+  id: string
+  club_name: string
+  position: string
+  created_at: string
+  status: string
+}
+
 export default function ProfilePage() {
   const [user, setUser] = useState<UserProfile | null>(null)
   const [loading, setLoading] = useState(true)
   const [stats, setStats] = useState<WatchlistStats>({
     players_watched_count: 0
   })
+  const [recentJobs, setRecentJobs] = useState<JobActivity[]>([])
 
   const loadProfileData = async (autoFix = true) => {
     setLoading(true)
@@ -59,6 +70,20 @@ export default function ProfilePage() {
         } else {
           console.error('Auto-fix failed:', fixResult.error)
         }
+      }
+
+      // Load recent jobs
+      try {
+        const jobs = await getRecentJobs(5)
+        setRecentJobs(jobs.map((job: any) => ({
+          id: job.id,
+          club_name: job.club.name,
+          position: job.position,
+          created_at: new Date().toISOString(), // In real app, use actual created_at
+          status: 'Active'
+        })))
+      } catch (error) {
+        console.error('Failed to load recent jobs:', error)
       }
     } catch (error) {
       console.error('Failed to load profile:', error)
@@ -101,14 +126,18 @@ export default function ProfilePage() {
     { label: 'Players Watched', value: String(user?.players_watched_count || 0), icon: Target, color: 'text-green-500' },
     { label: 'Years Experience', value: String(user?.years_experience || 0), icon: Award, color: 'text-purple-500' },
     { label: 'Reports Created', value: String(user?.reports_created_count || 0), icon: Trophy, color: 'text-blue-500' },
-    { label: 'Active Scouting', value: String(user?.active_scouting_count || 0), icon: TrendingUp, color: 'text-orange-500' },
+    { label: 'Active Jobs', value: String(recentJobs.filter(j => j.status === 'Active').length), icon: Briefcase, color: 'text-orange-500' },
   ]
 
-  const mockActivity = [
-    { id: 1, player: 'Florian Wirtz', action: 'Added to watchlist', date: '2 hours ago' },
-    { id: 2, player: 'Jude Bellingham', action: 'Updated scouting notes', date: '1 day ago' },
-    { id: 3, player: 'Lamine Yamal', action: 'Analysis completed', date: '3 days ago' },
-  ]
+  // Use real jobs if available, otherwise empty array
+  const recentActivity = recentJobs.length > 0
+    ? recentJobs.map((job, index) => ({
+        id: job.id,
+        player: `${job.club_name} - ${job.position}`,
+        action: 'Scouting Assignment',
+        date: 'Recently received'
+      }))
+    : []
 
   if (loading) {
     return (
@@ -281,28 +310,42 @@ export default function ProfilePage() {
             </div>
             <Card>
               <CardContent className="p-6">
-                <div className="space-y-4">
-                  {mockActivity.map((activity, index) => (
-                    <motion.div
-                      key={activity.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="flex items-center justify-between p-4 rounded-xl bg-accent/10 border border-border hover:border-green-500/30 transition-all"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
-                          <Target className="w-5 h-5 text-green-500" />
-                        </div>
-                        <div>
-                          <p className="font-semibold text-foreground text-sm">{activity.player}</p>
-                          <p className="text-muted-foreground text-xs">{activity.action}</p>
-                        </div>
-                      </div>
-                      <p className="text-xs text-muted-foreground font-medium">{activity.date}</p>
-                    </motion.div>
-                  ))}
-                </div>
+                {recentActivity.length > 0 ? (
+                  <div className="space-y-4">
+                    {recentActivity.map((activity, index) => (
+                      <Link key={activity.id} href="/dashboard">
+                        <motion.div
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="flex items-center justify-between p-4 rounded-xl bg-accent/10 border border-border hover:border-green-500/30 transition-all cursor-pointer group"
+                        >
+                          <div className="flex items-center gap-4">
+                            <div className="w-10 h-10 rounded-full bg-orange-500/10 flex items-center justify-center">
+                              <Briefcase className="w-5 h-5 text-orange-500" />
+                            </div>
+                            <div>
+                              <p className="font-semibold text-foreground text-sm group-hover:text-primary transition-colors">{activity.player}</p>
+                              <p className="text-muted-foreground text-xs">{activity.action}</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <p className="text-xs text-muted-foreground font-medium">{activity.date}</p>
+                            <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                          </div>
+                        </motion.div>
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-8">
+                    <Briefcase className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
+                    <p className="text-muted-foreground text-sm">No recent scouting assignments</p>
+                    <Link href="/dashboard" className="text-primary text-sm font-medium hover:underline mt-2 inline-block">
+                      Go to Dashboard to receive a job
+                    </Link>
+                  </div>
+                )}
               </CardContent>
             </Card>
           </div>

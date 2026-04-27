@@ -1,15 +1,29 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Bell } from 'lucide-react'
+import { Bell, Briefcase, Target, Clock, ArrowRight, CheckCircle, Trash2, User, Settings } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { CardStack, CardStackItem } from '@/components/ui/card-stack'
 import { NotificationsBell } from '@/components/notifications-bell-new'
-import { FloatingSettings } from '@/components/scout/floating-settings'
-import { HomeTeamSelector } from '@/components/scout/home-team-selector'
-import { SquadIntelligence } from '@/components/scout/squad-intelligence'
+import { generateJobOffer, getLatestJob, deleteJob, getRecentJobs } from '@/app/actions/job-generation'
+
+interface JobOffer {
+  id: string
+  club: {
+    id: string
+    name: string
+    logo: string
+    league: string
+    leagueId: string
+  }
+  position: string
+  requirements: string[]
+  priority: 'high' | 'medium' | 'low'
+  deadline: string
+  description: string
+}
 
 interface Club {
   teamID: string;
@@ -168,17 +182,260 @@ function DynamicLeagueTable({ leagues, activeIndex, onSelect }: { leagues: Leagu
   )
 }
 
-export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConfig[] }) {
-  const [activeIndex, setActiveIndex] = useState(0)
+function JobOfferPanel({ job, onClose, onDelete, onCycleJob, currentIndex, totalJobs }: {
+  job: JobOffer,
+  onClose: () => void,
+  onDelete: () => void,
+  onCycleJob: () => void,
+  currentIndex: number,
+  totalJobs: number
+}) {
+  const priorityColors = {
+    high: 'bg-red-500/20 border-red-500/30 text-red-400',
+    medium: 'bg-amber-500/20 border-amber-500/30 text-amber-400',
+    low: 'bg-emerald-500/20 border-emerald-500/30 text-emerald-400'
+  }
 
-  const activeLeague = initialLeagues[activeIndex]
+  return (
+    <motion.div
+      key={job.id}
+      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -20, scale: 0.95 }}
+      transition={{ duration: 0.3 }}
+      className="w-full max-w-4xl mx-auto"
+    >
+      <div className="premium-card bg-gradient-to-br from-card to-card/80 backdrop-blur-xl border border-border rounded-3xl p-8 shadow-2xl">
+        {/* Header */}
+        <div className="flex items-start justify-between mb-8">
+          <div className="flex items-center gap-4">
+            <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center border border-primary/30">
+              <Briefcase className="w-8 h-8 text-primary" />
+            </div>
+            <div>
+              <div className="flex items-center gap-3">
+                <h3 className="text-2xl font-black uppercase tracking-tight">Scouting Mission</h3>
+                <span className="px-3 py-1 bg-muted rounded-full text-xs font-bold text-muted-foreground">
+                  {currentIndex + 1}/{totalJobs}
+                </span>
+              </div>
+              <p className="text-sm text-muted-foreground font-medium tracking-wide">
+                AI-Generated Assignment
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={onDelete}
+              className="p-2 rounded-xl hover:bg-red-500/10 text-muted-foreground hover:text-red-500 transition-colors"
+              title="Delete Assignment"
+            >
+              <Trash2 className="w-5 h-5" />
+            </button>
+            {totalJobs > 1 && (
+              <button
+                onClick={onCycleJob}
+                className="p-2 rounded-xl hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors"
+                title="Next Assignment"
+              >
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            )}
+            <button
+              onClick={onClose}
+              className="p-2 rounded-xl hover:bg-muted transition-colors"
+              title="Close"
+            >
+              <ArrowRight className="w-5 h-5 rotate-45" />
+            </button>
+          </div>
+        </div>
+
+        {/* Club Information */}
+        <div className="bg-muted/50 rounded-2xl p-6 mb-6 border border-border">
+          <div className="flex items-center gap-6">
+            {job.club.logo && (
+              <div className="w-20 h-20 relative bg-white rounded-2xl p-2 shadow-lg border border-border">
+                <Image src={job.club.logo} alt={job.club.name} fill className="object-contain" />
+              </div>
+            )}
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-2">
+                <h4 className="text-3xl font-black uppercase tracking-tight">{job.club.name}</h4>
+                <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${priorityColors[job.priority]}`}>
+                  {job.priority} Priority
+                </span>
+              </div>
+              <p className="text-sm text-muted-foreground font-medium">{job.club.league}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Position and Requirements */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="bg-primary/5 rounded-2xl p-6 border border-primary/20">
+            <div className="flex items-center gap-3 mb-4">
+              <Target className="w-5 h-5 text-primary" />
+              <h5 className="font-bold uppercase tracking-wider text-sm">Target Position</h5>
+            </div>
+            <p className="text-2xl font-black uppercase tracking-tight text-primary">{job.position}</p>
+          </div>
+
+          <div className="bg-muted/30 rounded-2xl p-6 border border-border">
+            <div className="flex items-center gap-3 mb-4">
+              <Clock className="w-5 h-5 text-muted-foreground" />
+              <h5 className="font-bold uppercase tracking-wider text-sm">Deadline</h5>
+            </div>
+            <p className="text-2xl font-black uppercase tracking-tight">{job.deadline}</p>
+          </div>
+        </div>
+
+        {/* Requirements */}
+        <div className="mb-8">
+          <h5 className="font-bold uppercase tracking-wider text-sm mb-4 flex items-center gap-3">
+            <CheckCircle className="w-5 h-5 text-primary" />
+            Requirements
+          </h5>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {job.requirements.map((req, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex items-center gap-3 bg-muted/30 rounded-xl p-4 border border-border"
+              >
+                <div className="w-2 h-2 rounded-full bg-primary" />
+                <span className="text-sm font-medium">{req}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Description */}
+        <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-2xl p-6 mb-8 border-l-4 border-primary">
+          <p className="text-sm font-medium leading-relaxed text-foreground/90">
+            {job.description}
+          </p>
+        </div>
+
+        {/* Navigation Links */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <Link href="/watchlist">
+            <button className="w-full h-14 bg-muted/50 hover:bg-muted border border-border rounded-2xl flex items-center justify-center gap-3 transition-all group">
+              <span className="text-sm font-bold uppercase tracking-wider">Watchlist</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </Link>
+
+          <Link href="/leagues">
+            <button className="w-full h-14 bg-muted/50 hover:bg-muted border border-border rounded-2xl flex items-center justify-center gap-3 transition-all group">
+              <span className="text-sm font-bold uppercase tracking-wider">Leagues</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </Link>
+
+          <Link href={`/teams/${job.club.id}`}>
+            <button className="w-full h-14 premium-btn flex items-center justify-center gap-3 transition-all group">
+              <span className="text-sm font-bold uppercase tracking-wider">Team Details</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </Link>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
+export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConfig[] }) {
+  const [currentJob, setCurrentJob] = useState<JobOffer | null>(null)
+  const [allJobs, setAllJobs] = useState<JobOffer[]>([])
+  const [currentJobIndex, setCurrentJobIndex] = useState(0)
+  const [isLoading, setIsLoading] = useState(false)
+  const [showJob, setShowJob] = useState(false)
+
+  // Load all jobs from database on component mount
+  useEffect(() => {
+    const loadAllJobs = async () => {
+      try {
+        const jobs = await getRecentJobs(10) // Load up to 10 recent jobs
+        if (jobs.length > 0) {
+          setAllJobs(jobs)
+          setCurrentJob(jobs[0]) // Start with the most recent job
+          setCurrentJobIndex(0)
+          setShowJob(true) // Show the job panel when loading from database
+        }
+      } catch (error) {
+        console.error('Failed to load jobs:', error)
+      }
+    }
+
+    loadAllJobs()
+  }, [])
+
+  const handleGenerateJob = async () => {
+    setIsLoading(true)
+    try {
+      const job = await generateJobOffer()
+      // Add new job to beginning of the list
+      setAllJobs([job, ...allJobs])
+      setCurrentJob(job)
+      setCurrentJobIndex(0)
+      setShowJob(true)
+    } catch (error) {
+      console.error('Failed to generate job:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleCloseJob = () => {
+    setShowJob(false)
+    setCurrentJob(null)
+  }
+
+  const handleCycleJob = () => {
+    if (allJobs.length <= 1) return
+
+    const nextIndex = (currentJobIndex + 1) % allJobs.length
+    setCurrentJobIndex(nextIndex)
+    setCurrentJob(allJobs[nextIndex])
+  }
+
+  const handleDeleteJob = async () => {
+    if (!currentJob) return
+
+    try {
+      const result = await deleteJob(currentJob.id)
+      if (result.success) {
+        // Remove deleted job from the list
+        const updatedJobs = allJobs.filter(job => job.id !== currentJob.id)
+        setAllJobs(updatedJobs)
+
+        if (updatedJobs.length > 0) {
+          // Move to the next available job
+          const nextIndex = Math.min(currentJobIndex, updatedJobs.length - 1)
+          setCurrentJobIndex(nextIndex)
+          setCurrentJob(updatedJobs[nextIndex])
+        } else {
+          // No more jobs, close the panel
+          setShowJob(false)
+          setCurrentJob(null)
+        }
+      } else {
+        console.error('Failed to delete job:', result.error)
+      }
+    } catch (error) {
+      console.error('Failed to delete job:', error)
+    }
+  }
 
   return (
     <div className="relative w-full h-full bg-background font-sans flex flex-col items-center select-none overflow-y-auto overflow-x-hidden min-h-screen pb-20">
       {/* Refined Background Effect */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]" 
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
            style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-      
+
       <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3 cursor-pointer group">
           <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-xl border border-primary/30 group-hover:scale-110 transition-transform">
@@ -194,9 +451,9 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
             { name: 'Transfers', href: '/transfers' },
             { name: 'Leagues', href: '/leagues' }
           ].map((item) => (
-            <Link 
-              key={item.name} 
-              href={item.href} 
+            <Link
+              key={item.name}
+              href={item.href}
               className="text-[10px] font-bold tracking-[0.2em] text-muted-foreground hover:text-primary transition-all uppercase relative group"
             >
               {item.name}
@@ -206,113 +463,137 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
         </div>
 
         <div className="flex items-center gap-6">
-          <HomeTeamSelector />
+          <Link href="/profile">
+            <button className="p-2 rounded-xl hover:bg-muted transition-colors" title="Profile">
+              <User className="w-5 h-5" />
+            </button>
+          </Link>
+          <Link href="/settings">
+            <button className="p-2 rounded-xl hover:bg-muted transition-colors" title="Settings">
+              <Settings className="w-5 h-5" />
+            </button>
+          </Link>
           <div className="h-6 w-px bg-border" />
           <NotificationsBell />
         </div>
       </nav>
 
-      <main className="w-full max-w-[1400px] mt-32 px-6 space-y-20 relative z-10">
-        {/* Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center py-12">
-          <div className="lg:col-span-3 space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full border border-primary/20">
-              <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
-              <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Scouting Engine v4.0</span>
-            </div>
-            <h1 className="text-7xl md:text-9xl font-black tracking-tighter uppercase text-foreground leading-[0.85]">
-              TACTICAL <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">INTELLIGENCE</span>
+      <main className="w-full max-w-[1400px] mt-32 px-6 space-y-16 relative z-10">
+        {/* Application Description */}
+        <div className="text-center space-y-6 py-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase text-foreground leading-[0.9] mb-6">
+              PROFESSIONAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">SCOUTING</span>
             </h1>
-            <p className="text-lg font-medium text-muted-foreground max-w-xl leading-relaxed">
-              Global player monitoring, contract tracking, and AI-driven scouting vectors for the elite modern strategist.
+            <div className="max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+                Scout Pro is an advanced platform designed for professional football scouts.
+                Search and analyze players from top European leagues, compare performances,
+                track transfers, and receive AI-generated scouting assignments tailored to club needs.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
+                <span className="px-4 py-2 bg-primary/10 rounded-full border border-primary/20 text-primary">
+                  Player Search & Analysis
+                </span>
+                <span className="px-4 py-2 bg-primary/10 rounded-full border border-primary/20 text-primary">
+                  Performance Comparison
+                </span>
+                <span className="px-4 py-2 bg-primary/10 rounded-full border border-primary/20 text-primary">
+                  Transfer Intelligence
+                </span>
+                <span className="px-4 py-2 bg-primary/10 rounded-full border border-primary/20 text-primary">
+                  AI-Powered Insights
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Job Generation Section */}
+        <div className="w-full space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground uppercase italic">
+              Receive New Assignment
+            </h2>
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+              Click below to generate a new scouting mission. Our AI will analyze club needs from top 5 European leagues and create a tailored assignment for you.
             </p>
-            <div className="flex gap-6 pt-4">
-              <button className="premium-btn h-14 px-10 text-sm">Deploy Scout</button>
-              <button className="h-14 px-10 text-sm font-bold uppercase tracking-widest border border-border rounded-2xl hover:bg-muted transition-colors">War Room</button>
-            </div>
           </div>
-          
-          <div className="lg:col-span-2 premium-card p-1 rounded-[2.5rem] overflow-hidden">
-             <div className="bg-card/50 backdrop-blur-xl p-8 rounded-[2.4rem]">
-               <div className="flex items-center justify-between mb-8">
-                 <div className="space-y-1">
-                   <span className="text-[10px] font-bold text-primary uppercase tracking-widest">Database Access</span>
-                   <h3 className="font-bold uppercase tracking-tight text-xl">Global Leagues</h3>
-                 </div>
-                 <div className="w-10 h-10 rounded-2xl bg-primary text-black flex items-center justify-center text-xs font-black shadow-[0_0_20px_rgba(0,255,136,0.3)]">PRO</div>
-               </div>
-               <div className="space-y-4">
-                 {initialLeagues.map((league, idx) => (
-                   <div 
-                     key={league.id} 
-                     onClick={() => setActiveIndex(idx)}
-                     className={`flex items-center justify-between p-4 rounded-2xl border transition-all cursor-pointer group ${activeIndex === idx ? 'bg-primary/5 border-primary/30' : 'border-border/50 hover:border-border'}`}
-                   >
-                     <div className="flex items-center gap-4">
-                       <div className="w-10 h-10 relative bg-white rounded-xl p-1 shadow-sm border border-border group-hover:scale-110 transition-transform">
-                         <Image src={league.logo} alt={league.name} fill className="object-contain" />
-                       </div>
-                       <span className={`font-bold text-sm ${activeIndex === idx ? 'text-primary' : 'text-foreground'}`}>{league.name}</span>
-                     </div>
-                     <Link href={`/leagues?sId=${league.id}`}>
-                       <button className={`p-2 rounded-xl border transition-all ${activeIndex === idx ? 'bg-primary border-primary text-black' : 'border-border opacity-0 group-hover:opacity-100'}`}>
-                         <Bell className="w-4 h-4" />
-                       </button>
-                     </Link>
-                   </div>
-                 ))}
-               </div>
-             </div>
+
+          <div className="flex justify-center">
+            <motion.button
+              onClick={handleGenerateJob}
+              disabled={isLoading}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="premium-btn h-16 px-12 text-base font-bold tracking-wider rounded-2xl flex items-center gap-4 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isLoading ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                  <span>Generating Mission...</span>
+                </>
+              ) : (
+                <>
+                  <Briefcase className="w-6 h-6" />
+                  <span>Receive New Job</span>
+                </>
+              )}
+            </motion.button>
           </div>
+
+          {/* Job Offer Panel */}
+          <AnimatePresence>
+            {showJob && currentJob && (
+              <div className="w-full">
+                <JobOfferPanel
+                  job={currentJob}
+                  onClose={handleCloseJob}
+                  onDelete={handleDeleteJob}
+                  onCycleJob={handleCycleJob}
+                  currentIndex={currentJobIndex}
+                  totalJobs={allJobs.length}
+                />
+              </div>
+            )}
+          </AnimatePresence>
         </div>
 
-        {/* Squad Intelligence Section */}
-        <div className="w-full space-y-10">
-          <div className="flex items-center justify-between">
-            <div className="space-y-1">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground uppercase italic">Active Operations</h2>
-              <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Real-time squad analysis</p>
-            </div>
-            <div className="h-px flex-1 mx-12 bg-border/50" />
-            <Link href="/compare">
-              <button className="text-[10px] font-bold uppercase tracking-widest text-primary hover:underline">View All Data</button>
-            </Link>
-          </div>
-          <SquadIntelligence />
-        </div>
-
-        {/* Tactical Feed / Transfers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
-          <div className="premium-card p-8 rounded-[2rem] bg-gradient-to-br from-amber-500/5 to-transparent border-amber-500/20">
-            <h3 className="font-bold uppercase tracking-[0.2em] text-[10px] mb-6 text-amber-500">Market Alert</h3>
-            <p className="text-2xl font-bold italic leading-tight mb-6">Transfer Window Opens In 12 Days</p>
-            <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs font-medium text-amber-200/70 leading-relaxed uppercase">
-              Expect high volatility in Premier League mid-field values.
-            </div>
-          </div>
-          
-          <div className="premium-card p-8 rounded-[2rem] bg-gradient-to-br from-primary/5 to-transparent border-primary/20">
-            <h3 className="font-bold uppercase tracking-[0.2em] text-[10px] mb-6 text-primary">Tactical Insight</h3>
-            <p className="text-2xl font-bold italic leading-tight mb-6">Full-Back Inversion Meta Rising</p>
-            <Link href="/compare">
-              <button className="premium-btn w-full h-12 text-[10px]">Analyze Global Fit</button>
-            </Link>
+        {/* Available Leagues Quick Access */}
+        <div className="w-full space-y-6 pt-8 border-t border-border">
+          <div className="text-center space-y-2">
+            <h2 className="text-2xl font-bold tracking-tight text-foreground uppercase">
+              Available Leagues
+            </h2>
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">
+              Top 5 European Football Leagues
+            </p>
           </div>
 
-          <div className="premium-card p-8 rounded-[2rem] bg-gradient-to-br from-zinc-500/5 to-transparent border-zinc-500/20">
-            <h3 className="font-bold uppercase tracking-[0.2em] text-[10px] mb-6 text-muted-foreground">System Status</h3>
-            <p className="text-2xl font-bold italic leading-tight mb-6">Database Fully Synchronized</p>
-            <div className="flex items-center gap-3 p-4 rounded-xl bg-muted/50 border border-border">
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(0,255,136,0.8)]" />
-              <span className="text-[10px] font-bold uppercase tracking-widest">All API Feeds Live</span>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {initialLeagues.map((league) => (
+              <Link
+                key={league.id}
+                href={`/leagues?sId=${league.id}`}
+                className="group"
+              >
+                <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/50 transition-all hover:scale-105">
+                  <div className="w-16 h-16 relative bg-white rounded-xl p-2 mx-auto mb-4 shadow-sm border border-border group-hover:shadow-lg transition-shadow">
+                    <Image src={league.logo} alt={league.name} fill className="object-contain" />
+                  </div>
+                  <p className="text-xs font-bold text-center uppercase tracking-wider text-foreground/70 group-hover:text-primary transition-colors">
+                    {league.name.replace(/ /g, '\n')}
+                  </p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </main>
-
-      <div className="fixed bottom-10 right-10 z-50">
-        <FloatingSettings />
-      </div>
     </div>
   )
 }
