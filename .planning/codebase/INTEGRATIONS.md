@@ -1,6 +1,6 @@
 # External Integrations
 
-**Analysis Date:** 2026-04-21
+**Analysis Date:** 2026-04-27
 
 ## APIs & External Services
 
@@ -141,6 +141,8 @@
 - assets.aceternity.com: UI assets
 - unpkg.com: Package assets
 - cdn.futwiz.com: Football imagery
+- tmssl.akamaized.net: Player and team images
+- flagcdn.com: Country flags
 
 ## Data Flow
 
@@ -177,4 +179,4 @@
 
 ---
 
-*Integration audit: 2026-04-21*
+*Integration audit: 2026-04-27*

@@ -1,277 +1,258 @@
 # Codebase Structure
 
-**Analysis Date:** 2026-04-21
+**Analysis Date:** 2026-04-27
 
 ## Directory Layout
 
 ```
-[project-root]/
-├── src/
-│   ├── app/                      # Next.js App Router
-│   │   ├── (dashboard)/          # Route group for authenticated dashboard pages
-│   │   │   ├── analysis/         # Player analysis page
-│   │   │   ├── compare/          # Player comparison page
-│   │   │   ├── dashboard/        # Main dashboard page
-│   │   │   ├── history/          # Analysis history page
-│   │   │   ├── leagues/          # League standings and team details
-│   │   │   │   └── team/[id]/    # Dynamic team detail pages
-│   │   │   ├── players/new/      # Add new player page
-│   │   │   ├── profile/          # User profile page
-│   │   │   ├── settings/         # Settings page
-│   │   │   ├── transfers/        # Transfer market page
-│   │   │   │   └── intelligence/ # Transfer intelligence page
-│   │   │   ├── watchlist/        # Watchlist management page
+scout-managment/
+├── src/                          # Main application source
+│   ├── app/                      # Next.js App Router (Server & Client)
+│   │   ├── (dashboard)/          # Dashboard route group
+│   │   │   ├── analysis/         # Player analysis pages
+│   │   │   ├── compare/          # Player comparison tool
+│   │   │   ├── dashboard/        # Main dashboard
+│   │   │   ├── history/          # Analysis history
+│   │   │   ├── leagues/          # League standings and details
+│   │   │   ├── players/          # Player search and profiles
+│   │   │   ├── profile/          # User profile settings
+│   │   │   ├── settings/         # App settings
+│   │   │   ├── teams/            # Team profiles
+│   │   │   ├── transfers/        # Transfer intelligence
+│   │   │   ├── watchlist/        # Watchlist management
 │   │   │   └── layout.tsx        # Dashboard layout wrapper
-│   │   ├── actions/              # Server Actions
-│   │   │   ├── ai.ts             # AI narrative generation
-│   │   │   ├── analysis.ts       # Compatibility analysis
-│   │   │   ├── profile.ts        # User profile operations
-│   │   │   ├── refresh-stats.ts  # Statistics refresh
-│   │   │   ├── statorium.ts      # Statorium API integration
-│   │   │   ├── watchlist.ts      # Watchlist operations
-│   │   │   └── migrate-watchlist.ts # Database migration
+│   │   ├── actions/              # Server Actions (mutations & data fetching)
 │   │   ├── api/                  # API routes
-│   │   │   ├── chat/             # AI chat endpoint
-│   │   │   ├── market-value/     # Player valuation endpoint
-│   │   │   └── valuation/        # Valuation endpoint
-│   │   ├── auth/                 # Authentication pages and actions
-│   │   │   ├── actions.ts        # Login/signup/signout actions
-│   │   │   └── callback/         # OAuth callback handler
+│   │   ├── auth/                 # Authentication pages
 │   │   ├── login/                # Login page
-│   │   ├── migrate-watchlist/    # Watchlist migration page
-│   │   ├── globals.css           # Global styles
 │   │   ├── layout.tsx            # Root layout
-│   │   └── page.tsx              # Root page (redirects to /dashboard)
+│   │   ├── page.tsx              # Home page (redirects to /dashboard)
+│   │   └── globals.css           # Global styles
 │   ├── components/               # React components
-│   │   ├── scout/                # Scout-specific components
-│   │   │   ├── ai-narrative.tsx  # AI-generated analysis text
-│   │   │   ├── club-card.tsx     # Club information card
-│   │   │   ├── global-market-card.tsx # Market overview card
-│   │   │   ├── kanban-board.tsx  # Kanban-style watchlist board
-│   │   │   ├── kanban-card.tsx   # Kanban card component
-│   │   │   ├── kanban-column.tsx  # Kanban column component
-│   │   │   ├── league-center.tsx # League center hub
-│   │   │   ├── market-value.tsx  # Market value display
-│   │   │   ├── player-form.tsx   # Player data entry form
-│   │   │   ├── player-search.tsx # Player search interface
-│   │   │   ├── radar-chart.tsx   # Stats radar chart
-│   │   │   ├── ranking-list.tsx  # Ranking list display
-│   │   │   ├── report-button.tsx # Report generation button
-│   │   │   ├── scout-bot.tsx     # AI scout chatbot
-│   │   │   ├── squad-row.tsx     # Squad row component
-│   │   │   ├── tactical-pitch.tsx # Tactical pitch visualization
-│   │   │   ├── transfer-details-modal.tsx # Transfer details modal
-│   │   │   └── transfer-flow.tsx # Transfer flow component
-│   │   ├── ui/                   # UI components (shadcn/ui)
-│   │   │   ├── 3d-globe.tsx      # 3D globe visualization
-│   │   │   ├── badge.tsx         # Badge component
-│   │   │   ├── button.tsx        # Button component
-│   │   │   ├── card-stack.tsx    # Card stack animation
-│   │   │   ├── card.tsx          # Card component
-│   │   │   ├── chart.tsx         # Chart components
-│   │   │   ├── checkbox.tsx      # Checkbox component
-│   │   │   ├── command.tsx       # Command palette
-│   │   │   ├── dialog.tsx        # Dialog component
-│   │   │   ├── dropdown-menu.tsx # Dropdown menu
-│   │   │   ├── form.tsx          # Form components
-│   │   │   ├── input-group.tsx   # Input group component
-│   │   │   ├── input.tsx         # Input component
-│   │   │   ├── label.tsx         # Label component
-│   │   │   ├── popover.tsx       # Popover component
-│   │   │   ├── progress.tsx      # Progress component
-│   │   │   ├── scroll-area.tsx   # Scroll area component
-│   │   │   ├── select.tsx        # Select component
-│   │   │   ├── switch.tsx        # Switch component
-│   │   │   ├── tabs.tsx          # Tabs component
-│   │   │   ├── tactical-map.tsx  # Tactical map visualization
-│   │   │   └── textarea.tsx      # Textarea component
 │   │   ├── dashboard/            # Dashboard-specific components
-│   │   │   └── dashboard-client.tsx # Dashboard client component
-│   │   ├── notifications-bell-new.tsx # Notifications bell
-│   │   ├── notifications-bell.tsx     # Legacy notifications
-│   │   ├── notifications-panel.tsx    # Notifications panel
-│   │   ├── sidebar-wrapper.tsx   # Sidebar layout wrapper
-│   │   ├── sidebar.tsx           # Main navigation sidebar
-│   │   ├── theme-provider.tsx    # Theme context provider
-│   │   └── theme-toggle.tsx      # Theme toggle button
-│   ├── hooks/                    # React hooks
-│   │   └── use-market-value.ts  # Market value hook
-│   ├── lib/                      # Library and utilities
-│   │   ├── coaches-data.ts       # Coach information data
-│   │   ├── statorium-data.ts     # Statorium static data cache
-│   │   ├── transfermarkt.ts      # Transfermarkt scraper
-│   │   ├── utils.ts              # General utilities (cn function)
-│   │   ├── engine/               # Scoring engine
-│   │   │   ├── benchmark.ts      # Benchmark calculations
-│   │   │   └── scoring.ts        # Compatibility scoring algorithm
-│   │   ├── statorium/            # Statorium API integration
-│   │   │   ├── client.ts         # API client class
-│   │   │   ├── formation-service.ts # Formation parsing
-│   │   │   └── types.ts         # API response types
-│   │   ├── supabase/             # Supabase integration
-│   │   │   ├── client.ts         # Browser client factory
-│   │   │   ├── server.ts         # Server client factory
-│   │   │   └── middleware.ts     # Session management
-│   │   ├── types/                # Type definitions
-│   │   │   └── player.ts        # Player type definitions
+│   │   ├── scout/                # Scouting-specific components
+│   │   └── ui/                   # shadcn/ui components
+│   ├── hooks/                    # Custom React hooks
+│   ├── lib/                      # Business logic and utilities
+│   │   ├── engine/               # Scoring and analysis engines
+│   │   ├── statorium/            # Statorium API client
+│   │   ├── supabase/             # Supabase configuration and schemas
+│   │   ├── types/                # TypeScript type definitions
 │   │   └── utils/                # Utility functions
-│   │       ├── geocoding.ts      # Geocoding utilities
-│   │       └── pdf-generator.ts  # PDF generation utilities
-│   └── middleware.ts             # Next.js middleware for auth
-├── public/                       # Static assets
+│   └── middleware.ts             # Next.js middleware
 ├── docs/                         # Documentation
-│   ├── adapters/                 # Adapter documentation
-│   ├── internal/                 # Internal documentation
-│   └── reports/                  # Reports
-├── scripts/                      # Build/deployment scripts
-├── .planning/                    # Planning directory
-│   └── codebase/                # Codebase documentation
+├── public/                       # Static assets
+├── scripts/                      # Automation and maintenance scripts
+├── .env.local                    # Environment variables (not committed)
+├── .gitignore                    # Git ignore rules
+├── components.json               # shadcn/ui configuration
+├── eslint.config.mjs             # ESLint configuration
 ├── next.config.mjs               # Next.js configuration
 ├── package.json                  # Dependencies and scripts
+├── postcss.config.mjs            # PostCSS configuration
+├── prettierrc                    # Prettier configuration
 ├── tsconfig.json                 # TypeScript configuration
-├── tailwind.config.ts           # Tailwind CSS configuration
-└── [config files]                # ESLint, Prettier, PostCSS configs
+└── README.md                     # Project documentation
 ```
 
 ## Directory Purposes
 
-**src/app/**:
-- Purpose: Next.js App Router pages, layouts, and server actions
-- Contains: Page components, route handlers, server actions, authentication flow
-- Key files: `layout.tsx` (root layout), `(dashboard)/layout.tsx` (dashboard layout), `actions/*.ts` (server-side business logic)
+**`src/app/`**:
+- Purpose: Next.js App Router pages and server logic
+- Contains: Route groups, page components, server actions, API routes
+- Key files: `layout.tsx`, `page.tsx`, `actions/`, `api/`
 
-**src/components/**:
-- Purpose: Reusable React components for UI and features
-- Contains: Scout-specific components, generic UI components, layout components
-- Key files: `components/scout/` (feature components), `components/ui/` (design system components)
+**`src/app/(dashboard)/`**:
+- Purpose: Dashboard route group with shared layout
+- Contains: All dashboard features (analysis, watchlist, leagues, etc.)
+- Key files: `layout.tsx` (sidebar wrapper), individual feature pages
 
-**src/lib/**:
-- Purpose: Shared libraries, utilities, and business logic
-- Contains: Database clients, API clients, scoring engine, type definitions
-- Key files: `lib/supabase/` (database layer), `lib/statorium/` (external API), `lib/engine/` (scoring algorithms)
+**`src/app/actions/`**:
+- Purpose: Server Actions for mutations and data fetching
+- Contains: Reusable server-side functions called from components
+- Key files: `analysis.ts`, `watchlist.ts`, `statorium.ts`, `profile.ts`, `ai.ts`
 
-**src/hooks/**:
-- Purpose: Custom React hooks for state management and data fetching
-- Contains: Market value hook, future hooks for other reusable logic
-- Key files: `use-market-value.ts`
+**`src/app/api/`**:
+- Purpose: RESTful API endpoints for external integrations
+- Contains: Route handlers for HTTP requests
+- Key files: `chat/route.ts`, `market-value/[playerName]/route.ts`
 
-**public/**:
-- Purpose: Static assets served directly
-- Contains: Images, fonts, favicon, other static resources
+**`src/components/`**:
+- Purpose: Reusable React components
+- Contains: UI components organized by domain
+- Key files: `dashboard/`, `scout/`, `ui/`
 
-**docs/**:
-- Purpose: Project documentation
-- Contains: Adapter documentation, internal docs, reports
-- Key files: Documentation for adapters and internal processes
+**`src/components/dashboard/`**:
+- Purpose: Dashboard-specific UI components
+- Contains: Main dashboard client component
+- Key files: `dashboard-client.tsx`
 
-**scripts/**:
-- Purpose: Build, deployment, and maintenance scripts
-- Contains: Automation scripts for various tasks
+**`src/components/scout/`**:
+- Purpose: Scouting-specific UI components
+- Contains: Player cards, tactical visualizations, transfer tools
+- Key files: `player-search.tsx`, `club-card.tsx`, `tactical-pitch.tsx`, `transfer-flow.tsx`
 
-**.planning/**:
-- Purpose: Planning and development documentation
-- Contains: Codebase analysis, phase plans, examples
-- Key files: Codebase architecture and structure docs
+**`src/components/ui/`**:
+- Purpose: Generic UI components (shadcn/ui)
+- Contains: Reusable primitives (Button, Card, Dialog, etc.)
+- Key files: `button.tsx`, `card.tsx`, `dialog.tsx`, `input.tsx`
+
+**`src/hooks/`**:
+- Purpose: Custom React hooks for state management
+- Contains: Domain-specific hooks
+- Key files: `use-home-team.ts`, `use-market-value.ts`
+
+**`src/lib/`**:
+- Purpose: Business logic, utilities, and configurations
+- Contains: Engines, API clients, type definitions, helpers
+- Key files: `engine/`, `statorium/`, `supabase/`, `types/`, `utils/`
+
+**`src/lib/engine/`**:
+- Purpose: Core business logic and algorithms
+- Contains: Scoring engines, benchmarking logic
+- Key files: `scoring.ts` (compatibility calculation), `benchmark.ts`
+
+**`src/lib/statorium/`**:
+- Purpose: Statorium API integration
+- Contains: API client, type definitions, formation service
+- Key files: `client.ts`, `types.ts`, `formation-service.ts`
+
+**`src/lib/supabase/`**:
+- Purpose: Supabase configuration and database schemas
+- Contains: Client factories, SQL schemas, RLS policies
+- Key files: `client.ts`, `server.ts`, `middleware.ts`, `schema.sql`, `profiles-schema.sql`
+
+**`src/lib/types/`**:
+- Purpose: Shared TypeScript type definitions
+- Contains: Domain models and API response types
+- Key files: `player.ts` (ScoutProPlayer interface)
+
+**`src/lib/utils/`**:
+- Purpose: Utility functions and helpers
+- Contains: Geocoding, PDF generation, helper functions
+- Key files: `geocoding.ts`, `pdf-generator.ts`, `utils.ts`
 
 ## Key File Locations
 
 **Entry Points:**
-- `src/app/layout.tsx`: Root layout with theme provider and fonts
-- `src/app/page.tsx`: Root page that redirects to dashboard
-- `src/middleware.ts`: Route protection and session validation
-- `src/app/(dashboard)/dashboard/page.tsx`: Main dashboard page
+- `src/app/layout.tsx`: Root layout with global providers
+- `src/app/page.tsx`: Home page (redirects to /dashboard)
+- `src/app/(dashboard)/layout.tsx`: Dashboard layout with sidebar
+- `src/middleware.ts`: Request middleware for auth and session management
 
 **Configuration:**
 - `next.config.mjs`: Next.js configuration (image domains, etc.)
-- `tsconfig.json`: TypeScript configuration (path aliases, compiler options)
-- `package.json`: Dependencies and build scripts
-- `tailwind.config.ts`: Tailwind CSS configuration
-- `eslint.config.mjs`: ESLint configuration
-- `postcss.config.mjs`: PostCSS configuration
+- `tsconfig.json`: TypeScript configuration with path aliases
+- `components.json`: shadcn/ui component configuration
+- `.env.local`: Environment variables (not in git)
 
 **Core Logic:**
 - `src/lib/engine/scoring.ts`: Compatibility scoring algorithm
-- `src/lib/statorium/client.ts`: External API client
-- `src/lib/supabase/client.ts` & `server.ts`: Database client factories
-- `src/app/actions/`: Server-side business logic (8 action files)
+- `src/lib/statorium/client.ts`: Statorium API client
+- `src/app/actions/statorium.ts`: Statorium data fetching actions
+- `src/app/actions/analysis.ts`: Player-club compatibility analysis
+- `src/app/actions/watchlist.ts`: Watchlist management
 
 **Testing:**
-- No test files detected in current codebase
+- Not currently implemented (no test directory)
 
 ## Naming Conventions
 
 **Files:**
-- Page components: `page.tsx` (App Router convention)
-- Layout components: `layout.tsx`
-- Server Actions: `*.ts` with descriptive names (e.g., `watchlist.ts`, `statorium.ts`)
-- UI Components: `kebab-case.tsx` (e.g., `card-stack.tsx`, `player-search.tsx`)
-- Utility files: `*.ts` with descriptive names (e.g., `geocoding.ts`, `pdf-generator.ts`)
-- Route handlers: `route.ts` (in API directories)
+- React Components: PascalCase with `.tsx` extension (`dashboard-client.tsx`)
+- Server Actions: kebab-case with `.ts` extension (`watchlist.ts`, `analysis.ts`)
+- Utilities: kebab-case with `.ts` extension (`geocoding.ts`, `pdf-generator.ts`)
+- Types: kebab-case or camelCase with `.ts` extension (`player.ts`, `types.ts`)
+- API Routes: `route.ts` in directory structure (`api/chat/route.ts`)
 
 **Directories:**
-- Route groups: `(group-name)` with parentheses (e.g., `(dashboard)`)
-- Dynamic routes: `[param]` syntax (e.g., `team/[id]`)
-- Feature directories: lowercase (e.g., `scout`, `ui`, `auth`)
-- Utility directories: lowercase (e.g., `lib`, `hooks`, `utils`)
+- kebab-case for feature directories (`dashboard`, `watchlist`, `leagues`)
+- kebab-case for library directories (`statorium`, `supabase`, `utils`)
+- Parentheses for route groups (`(dashboard)`)
+
+**Components:**
+- PascalCase for component names (`DashboardClient`, `PlayerSearch`)
+- kebab-case for component files (`dashboard-client.tsx`, `player-search.tsx`)
+
+**Server Actions:**
+- camelCase with descriptive names (`getWatchlist`, `addToWatchlist`, `getCompatibilityAnalysis`)
+
+**Types/Interfaces:**
+- PascalCase for type names (`ScoutProPlayer`, `ClubContext`, `CompatibilityResult`)
+- kebab-case for type files (`player.ts`, `types.ts`)
 
 ## Where to Add New Code
 
-**New Feature:**
-- Primary code: Create new route in `src/app/(dashboard)/feature-name/page.tsx`
-- Server Actions: Add to `src/app/actions/` or create feature-specific action file
-- Tests: No test directory exists - would need to create `__tests__/` or `tests/` at root
+**New Feature (Dashboard):**
+- Primary code: `src/app/(dashboard)/[feature-name]/page.tsx`
+- Server Actions: `src/app/actions/[feature-name].ts`
+- Components: `src/components/scout/[feature-name].tsx` or `src/components/dashboard/[feature-name].tsx`
+- Tests: Create `src/app/[feature-name]/__tests__/` (when tests are added)
 
-**New Component/Module:**
-- Implementation: Add to appropriate directory:
-  - UI components: `src/components/ui/component-name.tsx`
-  - Scout feature components: `src/components/scout/component-name.tsx`
-  - Dashboard components: `src/components/dashboard/component-name.tsx`
-  - Layout components: `src/components/component-name.tsx`
-- Shared utilities: Add to `src/lib/utils/` or `src/lib/` for major utilities
-- Types: Add to `src/lib/types/type-name.ts` or inline in consuming files
+**New API Endpoint:**
+- Implementation: `src/app/api/[endpoint-name]/route.ts`
+- Server Actions (if needed): `src/app/actions/[related-feature].ts`
+- Types: `src/lib/types/[feature].ts`
 
-**Utilities:**
-- Shared helpers: Add to `src/lib/utils.ts` for small utilities
-- Specialized utilities: Create new file in `src/lib/utils/` (e.g., `geocoding.ts`, `pdf-generator.ts`)
-- Database utilities: Add to `src/lib/supabase/` (e.g., new client factories, schema files)
-- API utilities: Add to `src/lib/statorium/` for Statorium API related utilities
+**New Component:**
+- Dashboard-specific: `src/components/dashboard/[component-name].tsx`
+- Scouting-specific: `src/components/scout/[component-name].tsx`
+- Generic UI: Use shadcn CLI: `npx shadcn@latest add [component-name]`
 
-**Hooks:**
-- Custom hooks: Add to `src/hooks/hook-name.ts`
-- Keep hooks focused and reusable across components
+**New Business Logic:**
+- Engine/Algorithm: `src/lib/engine/[logic-name].ts`
+- Utility Function: `src/lib/utils/[function-name].ts`
+- API Client: `src/lib/statorium/[client-name].ts` or new `src/lib/[provider]/`
+
+**New Database Table:**
+- Schema: `src/lib/supabase/[table-name]-schema.sql`
+- Migration: Run SQL manually in Supabase dashboard
+- Type Definitions: `src/lib/types/[domain].ts`
+- Server Actions: `src/app/actions/[domain].ts`
+
+**New External Integration:**
+- Client: `src/lib/[provider]/client.ts`
+- Types: `src/lib/[provider]/types.ts`
+- Actions: `src/app/actions/[provider].ts`
 
 ## Special Directories
 
-**src/app/(dashboard)/**:
-- Purpose: Route group for authenticated pages sharing common layout
-- Generated: No (user-defined)
+**`src/app/(dashboard)/`**:
+- Purpose: Route group for dashboard pages with shared layout
+- Generated: No (manually created)
 - Committed: Yes
-- Contains all dashboard routes that require authentication
+- Note: Parentheses in name indicate route group (not part of URL)
 
-**src/components/ui/**:
-- Purpose: Design system components (likely from shadcn/ui)
-- Generated: Partially (shadcn CLI generates components)
+**`src/components/ui/`**:
+- Purpose: shadcn/ui components (generated via CLI)
+- Generated: Yes (via `npx shadcn@latest add [component]`)
 - Committed: Yes
-- Contains reusable UI primitives
+- Note: Don't edit manually unless necessary; regenerate via CLI
 
-**src/lib/supabase/**:
-- Purpose: Database integration layer
-- Generated: No (user-defined)
+**`src/lib/statorium-data.ts`**:
+- Purpose: Large static data files (player photos, verified transfers)
+- Generated: Partially (from API responses)
 - Committed: Yes
-- Contains client factories, middleware
+- Note: Contains mock data for development
 
-**src/lib/statorium/**:
-- Purpose: Statorium API integration
-- Generated: No (user-defined)
-- Committed: Yes
-- Contains API client, types, formation service
+**`.next/`**:
+- Purpose: Next.js build output
+- Generated: Yes (automatically by Next.js)
+- Committed: No (in `.gitignore`)
+- Note: Do not modify manually
 
-**.planning/codebase/**:
-- Purpose: Codebase documentation and planning
-- Generated: Yes (by GSD mapping agents)
+**`node_modules/`**:
+- Purpose: npm dependencies
+- Generated: Yes (by `npm install`)
+- Committed: No (in `.gitignore`)
+- Note: Do not modify manually
+
+**`.planning/`**:
+- Purpose: GSD planning documents and codebase analysis
+- Generated: Yes (by GSD tools)
 - Committed: Yes
-- Contains architecture, structure, conventions documentation
+- Note: Contains architecture, structure, and planning documents
 
 ---
 
-*Structure analysis: 2026-04-21*
+*Structure analysis: 2026-04-27*

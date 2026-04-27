@@ -1,32 +1,34 @@
 # Coding Conventions
 
-**Analysis Date:** 2026-04-21
+**Analysis Date:** 2026-04-27
 
 ## Naming Patterns
 
 **Files:**
-- **Components**: kebab-case for component files (`player-search.tsx`, `ai-narrative.tsx`, `kanban-board.tsx`)
+- **Components**: kebab-case for component files (`player-search.tsx`, `ai-narrative.tsx`, `kanban-board.tsx`, `home-team-selector.tsx`)
 - **Pages**: `page.tsx` for Next.js App Router pages, organized in route groups
-- **Server Actions**: kebab-case (`profile.ts`, `watchlist.ts`, `analysis.ts`, `statorium.ts`)
+- **Server Actions**: kebab-case (`profile.ts`, `watchlist.ts`, `analysis.ts`, `statorium.ts`, `sync.ts`)
 - **Utilities**: kebab-case (`utils.ts`, `geocoding.ts`, `benchmark.ts`)
 - **Types**: TypeScript interfaces use PascalCase, defined in `lib/types/` directories
 - **Page Routes**: Organized in route groups like `(dashboard)/profile/page.tsx`
+- **Hooks**: kebab-case with `use-` prefix (`use-market-value.ts`, `use-home-team.ts`)
 
 **Functions:**
-- **Server Actions**: camelCase with descriptive names (`getProfileData`, `updateProfile`, `addToWatchlist`, `removeFromWatchlist`)
+- **Server Actions**: camelCase with descriptive names (`getProfileData`, `updateProfile`, `addToWatchlist`, `removeFromWatchlist`, `syncPlayerData`)
 - **Helper Functions**: camelCase (`cn`, `calculateCompatibility`, `normalizeName`, `resolvePosition`)
-- **Component Functions**: PascalCase for React components (`PlayerSearch`, `AiNarrative`, `Card`, `Button`)
+- **Component Functions**: PascalCase for React components (`PlayerSearch`, `AiNarrative`, `Card`, `Button`, `HomeTeamSelector`)
 - **Export Functions**: camelCase for utility exports (`getStatoriumClient`, `searchPlayersAction`, `getStandingsAction`)
-- **Event Handlers**: camelCase (`handleProfileUpdate`, `handleNotificationUpdate`, `toggleTheme`)
+- **Event Handlers**: camelCase (`handleProfileUpdate`, `handleNotificationUpdate`, `toggleTheme`, `selectHomeTeam`)
+- **Hook Functions**: camelCase with `use` prefix (`useHomeTeam`, `useMarketValue`)
 
 **Variables:**
-- camelCase for all variables (`user`, `loading`, `profileData`, `watchlist`, `query`)
-- Constants: SCREAMING_SNAKE_CASE for configuration constants (`COACH_MAP`, `POSITION_MAP`, `POSITION_OVERRIDE`)
-- State variables: camelCase with descriptive names (`setUser`, `setLoading`, `setStats`, `setSaveStatus`)
-- Boolean flags: `isLoading`, `isMounted`, `isActive`
+- camelCase for all variables (`user`, `loading`, `profileData`, `watchlist`, `query`, `homeTeam`)
+- Constants: SCREAMING_SNAKE_CASE for configuration constants (`COACH_MAP`, `POSITION_MAP`, `POSITION_OVERRIDE`, `LEAGUE_CONFIGS`)
+- State variables: camelCase with descriptive names (`setUser`, `setLoading`, `setStats`, `setSaveStatus`, `setHomeTeam`)
+- Boolean flags: `isLoading`, `isMounted`, `isActive`, `isLoaded`
 
 **Types:**
-- Interfaces: PascalCase with descriptive names (`UserProfile`, `ScoutProPlayer`, `ClubContext`, `CompatibilityResult`, `StatoriumTeam`)
+- Interfaces: PascalCase with descriptive names (`UserProfile`, `ScoutProPlayer`, `ClubContext`, `CompatibilityResult`, `StatoriumTeam`, `HomeTeam`)
 - Type unions: PascalCase with pipe-separated values (`Position = 'GK' | 'CB' | 'LB' | 'RB' | 'CM' | 'CDM' | 'CAM' | 'LW' | 'RW' | 'ST'`)
 - Generic types: PascalCase single letters or descriptive names (`T`, `ClassValue`, `StadiumPlayerBasic`)
 - Type aliases: PascalCase for type definitions (`PlayerSearchProps`, `AiNarrativeProps`)
@@ -64,10 +66,11 @@
 4. Local utility imports (from `@/lib/`)
 5. Type imports (mixed with regular imports)
 6. Action imports (from `@/app/actions/`)
+7. Hook imports (from `@/hooks/`)
 
 **Path Aliases:**
 - `@/*`: Root directory alias configured in `tsconfig.json`
-- Example: `@/lib/utils`, `@/components/ui/button`, `@/app/actions/profile`
+- Example: `@/lib/utils`, `@/components/ui/button`, `@/app/actions/profile`, `@/hooks/use-home-team`
 - All imports use the `@/` alias pattern consistently
 
 **Import patterns observed:**
@@ -86,10 +89,15 @@ import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
+import { HomeTeamSelector } from '@/components/scout/home-team-selector'
 
 // Local utilities
 import { cn } from "@/lib/utils"
 import { createClient } from "@/lib/supabase/server"
+
+// Hooks
+import { useHomeTeam } from '@/hooks/use-home-team'
+import { useMarketValue } from '@/hooks/use-market-value'
 
 // Actions
 import { getProfileData } from "@/app/actions/profile"
@@ -100,7 +108,7 @@ import { searchPlayersAction } from "@/app/actions/statorium"
 
 **Patterns:**
 - **Server Actions**: Always wrap in try-catch blocks, return error objects
-- **Error Logging**: Extensive console.error logging with context (178 console statements in app directory)
+- **Error Logging**: Extensive console.error logging with context (78+ files with console statements)
 - **Error Returns**: Return objects with `{ error: string }` structure
 - **Error User Messages**: User-friendly error messages returned to client
 - **Error Object Structure**: Includes error details (message, code, details, hint)
@@ -143,16 +151,33 @@ try {
 - Return null: `return null` for profile data failures
 - Never throw from server actions, always return error objects
 
+**Hook error handling:**
+```typescript
+// From use-home-team.ts
+useEffect(() => {
+  const stored = localStorage.getItem('scoutpro_home_team');
+  if (stored) {
+    try {
+      setHomeTeam(JSON.parse(stored));
+    } catch (e) {
+      console.error('Failed to parse home team from localStorage', e);
+    }
+  }
+  setIsLoaded(true);
+}, []);
+```
+
 ## Logging
 
-**Framework:** Console logging throughout codebase (178 console statements in app directory)
+**Framework:** Console logging throughout codebase (37 files with console statements)
 
 **Patterns:**
 - **Debug Logging**: Extensive logging prefixed with function names
 - **Prefix Convention**: `FunctionName: Contextual message` format
 - **Error Logging**: `console.error()` with structured error details
 - **Success Logging**: `console.log()` for successful operations
-- **Data Logging**: Truncated JSON data logging (200 characters max) for debugging
+- **Data Logging**: Truncated JSON data logging for debugging
+- **Hook Logging**: Error logging in custom hooks for localStorage operations
 
 **Logging patterns observed:**
 ```typescript
@@ -177,6 +202,9 @@ console.error('UpdateProfile: Error details:', {
 console.log('UpdateProfile: Profile updated successfully:', data)
 console.log('getWatchlist: Watchlist fetched successfully:', watchlist?.length || 0)
 
+// Hook error logging
+console.error('Failed to parse home team from localStorage', e);
+
 // Data logging (truncated)
 console.log('[StatoriumClient] Data from ${endpoint}:', JSON.stringify(data).substring(0, 200) + '...')
 ```
@@ -195,6 +223,7 @@ console.log('[StatoriumClient] Data from ${endpoint}:', JSON.stringify(data).sub
 - **Data Transformations**: Complex data normalization or mapping
 - **API Fallbacks**: Comments explaining mock data or fallback behavior
 - **Component Purpose**: Brief descriptions of component functionality
+- **Performance Optimizations**: Comments explaining caching, memoization, or optimization strategies
 
 **JSDoc/TSDoc:**
 - **Not extensively used**: Minimal JSDoc documentation in codebase
@@ -221,6 +250,16 @@ console.log('getProfileData: Profile not found, attempting to create...')
 
 // Count players on watchlist - use auth.uid() for current user
 console.log('getProfileData: Using user.id:', user.id)
+
+// Performance optimization: memo to prevent unnecessary re-renders
+const DynamicLeagueCard = React.memo(function DynamicLeagueCard({ league, isActive }: { league: LeagueConfig, isActive: boolean }) {
+  // ...
+})
+
+// Even slower for better performance
+interval = setInterval(() => {
+  setClubIndex((prev) => (prev + 1) % league.clubs.length)
+}, 5000)
 ```
 
 **Algorithm comments:**
@@ -241,13 +280,15 @@ const positionalScore = club.needs[player.position] || 50
 - **Large files**: `app/actions/statorium.ts` (781 lines) - complex API integration
 - **Medium files**: `app/actions/profile.ts` (225 lines) - profile management
 - **Small files**: `app/actions/analysis.ts` (59 lines) - focused analysis logic
-- **Action files range**: 59-781 lines
+- **Action files range**: 37-781 lines
+- **Component files**: Can be large for complex UI (e.g., `dashboard-client.tsx` at 319 lines)
 
 **Parameters:**
 - **Server Actions**: FormData objects for form submissions, typed parameters for API calls
 - **Component Props**: Interface-defined props with optional fields
 - **Helper Functions**: Specific parameters with clear types
 - **Event Handlers**: Typed with React event types
+- **Hook Parameters**: Minimal parameters, typically configuration objects or simple values
 
 **Parameter patterns:**
 ```typescript
@@ -270,6 +311,18 @@ export interface PlayerSearchProps {
 const handleProfileUpdate = async (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault()
 }
+
+// Hook with interface
+export interface HomeTeam {
+  id: string;
+  name: string;
+  logo: string;
+  seasonId: string;
+}
+
+export function useHomeTeam() {
+  // ...
+}
 ```
 
 **Return Values:**
@@ -277,6 +330,7 @@ const handleProfileUpdate = async (event: React.FormEvent<HTMLFormElement>) => {
 - **Async Functions**: Typed return values with interfaces
 - **Component Functions**: React elements or component references
 - **Helper Functions**: Primitive values or complex objects
+- **Hooks**: Object pattern with state and functions `{ homeTeam, selectHomeTeam, isLoaded }`
 
 **Return value patterns:**
 ```typescript
@@ -307,6 +361,9 @@ export function calculateCompatibility(
     breakdown: {...}
   }
 }
+
+// Hook returns
+return { homeTeam, selectHomeTeam, isLoaded };
 ```
 
 ## Module Design
@@ -361,6 +418,12 @@ export default function ProfilePage() {
 export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
   return <div>...</div>
 }
+
+// Hook exports
+export function useHomeTeam() {
+  // ...
+  return { homeTeam, selectHomeTeam, isLoaded };
+}
 ```
 
 ## Server/Client Architecture
@@ -369,6 +432,7 @@ export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
 - **Server Actions**: `'use server'` directive at top of action files
 - **Client Components**: `'use client'` directive at top of component files
 - **Page Components**: Both server and client pages depending on interactivity needs
+- **Total Directives**: 37 files with 'use client' or 'use server' directives
 
 **Server Action Patterns:**
 - All server actions use `'use server'` directive
@@ -383,11 +447,13 @@ export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
 - Client components call server actions directly
 - Client components manage local state and UI interactions
 - Client components handle form submissions
+- Client components use custom hooks for reusable state logic
 
 **Component organization:**
 - **Dashboard pages**: Client components with `'use client'` directive
 - **Action files**: Server actions with `'use server'` directive
 - **UI components**: Generally client components but can be used in both contexts
+- **Page components**: Can be server components (for data fetching) or client components (for interactivity)
 
 **Examples:**
 ```typescript
@@ -404,7 +470,17 @@ export async function updateProfile(formData: FormData) {
 export default function ProfilePage() {
   const [user, setUser] = useState<UserProfile | null>(null)
   const [loading, setLoading] = useState(true)
+  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
   // ... logic
+}
+
+// Custom hook (implicitly client)
+'use client'
+export function useHomeTeam() {
+  const [homeTeam, setHomeTeam] = useState<HomeTeam | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  // ... logic
+  return { homeTeam, selectHomeTeam, isLoaded };
 }
 ```
 
@@ -412,14 +488,16 @@ export default function ProfilePage() {
 
 **Component Structure:**
 - **Functional Components**: Only functional components used (no class components)
-- **Hooks**: Extensive use of React hooks (useState, useEffect, useDebounce)
+- **Hooks**: Extensive use of React hooks (useState, useEffect, useDebounce, custom hooks)
 - **Composition**: Component composition patterns for UI elements
 - **Props Interface**: Component props defined as TypeScript interfaces
+- **Performance Optimization**: Use of React.memo for expensive components
 
 **State Management:**
 - **Local State**: useState for component-level state
 - **Server Actions**: Direct calls from client components
 - **Context**: useTheme hook for theme management
+- **Custom Hooks**: Reusable state logic (useHomeTeam, useMarketValue)
 - **No Redux**: No global state management library observed
 
 **Key React patterns:**
@@ -447,6 +525,52 @@ export default function ProfilePage() {
     loadProfileData()
   }, [])
 }
+
+// Performance-optimized component with React.memo
+const DynamicLeagueCard = React.memo(function DynamicLeagueCard({ league, isActive }: { league: LeagueConfig, isActive: boolean }) {
+  const [clubIndex, setClubIndex] = React.useState(0)
+
+  React.useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isActive && league.clubs && league.clubs.length > 0) {
+      interval = setInterval(() => {
+        setClubIndex((prev) => (prev + 1) % league.clubs.length)
+      }, 5000) // Even slower for better performance
+    }
+    return () => clearInterval(interval)
+  }, [isActive, league.id, league.clubs?.length])
+
+  // ... component logic
+})
+
+// Custom hook pattern
+export function useHomeTeam() {
+  const [homeTeam, setHomeTeam] = useState<HomeTeam | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const stored = localStorage.getItem('scoutpro_home_team');
+    if (stored) {
+      try {
+        setHomeTeam(JSON.parse(stored));
+      } catch (e) {
+        console.error('Failed to parse home team from localStorage', e);
+      }
+    }
+    setIsLoaded(true);
+  }, []);
+
+  const selectHomeTeam = (team: HomeTeam | null) => {
+    setHomeTeam(team);
+    if (team) {
+      localStorage.setItem('scoutpro_home_team', JSON.stringify(team));
+    } else {
+      localStorage.removeItem('scoutpro_home_team');
+    }
+  };
+
+  return { homeTeam, selectHomeTeam, isLoaded };
+}
 ```
 
 ## TypeScript Patterns
@@ -456,6 +580,7 @@ export default function ProfilePage() {
 - **Type Annotations**: Function parameters and return values typed
 - **Interface Definitions**: Clear interfaces for complex data structures
 - **Type Guards**: Limited type guard usage observed
+- **Type Inference**: Relies on TypeScript inference where possible
 
 **Type Definition Patterns:**
 ```typescript
@@ -499,6 +624,14 @@ export interface ClubContext {
   form: number
   historyMatch: number
 }
+
+// Hook interface pattern
+export interface HomeTeam {
+  id: string;
+  name: string;
+  logo: string;
+  seasonId: string;
+}
 ```
 
 ## Styling Patterns
@@ -509,6 +642,7 @@ export interface ClubContext {
 - **Custom Utilities**: `cn()` function for conditional classes
 - **Component Variants**: class-variance-authority (cva) for button variants
 - **Dark Mode**: Dark mode support through next-themes
+- **Performance**: Optimized class names and minimal inline styles
 
 **Styling patterns:**
 ```typescript
@@ -544,6 +678,9 @@ const buttonVariants = cva(
     },
   }
 )
+
+// Performance-optimized styling with inline styles for dynamic values
+style={{ background: `radial-gradient(ellipse at center, ${league.stormTint} 0%, transparent 80%)` }}
 ```
 
 ## Supabase Patterns
@@ -585,6 +722,93 @@ export async function updateProfile(formData: FormData) {
 }
 ```
 
+## Performance Patterns
+
+**Optimization Techniques:**
+- **React.memo**: Used for expensive components (DynamicLeagueCard)
+- **useEffect cleanup**: Proper cleanup of intervals and subscriptions
+- **Conditional rendering**: Early returns to avoid unnecessary rendering
+- **Debouncing**: useDebounce hook for API calls and search
+- **Image optimization**: Next.js Image component with proper sizing
+- **Code splitting**: Dynamic imports where appropriate
+
+**Performance patterns observed:**
+```typescript
+// React.memo for expensive components
+const DynamicLeagueCard = React.memo(function DynamicLeagueCard({ league, isActive }: { league: LeagueConfig, isActive: boolean }) {
+  // Component logic
+})
+
+// Proper useEffect cleanup
+React.useEffect(() => {
+  let interval: NodeJS.Timeout;
+  if (isActive && league.clubs && league.clubs.length > 0) {
+    interval = setInterval(() => {
+      setClubIndex((prev) => (prev + 1) % league.clubs.length)
+    }, 5000)
+  }
+  return () => clearInterval(interval)
+}, [isActive, league.id, league.clubs?.length])
+
+// Early returns for performance
+if (!league.clubs || league.clubs.length === 0) return null;
+
+// Next.js Image optimization
+<Image
+  src={activeClub.teamLogo}
+  alt={activeClub.teamName}
+  fill
+  sizes="(max-width: 768px) 100vw, 500px"
+  className="object-contain"
+  priority={isActive}
+/>
+```
+
+## Data Fetching Patterns
+
+**Server-Side Fetching:**
+- **Parallel fetching**: Use Promise.all for concurrent API calls
+- **Server components**: Fetch data in server components when possible
+- **Client-side fetching**: Use custom hooks for interactive data
+- **Caching**: Implement local caching in hooks (useMarketValue)
+- **Error handling**: Graceful fallbacks and error states
+
+**Data fetching patterns:**
+```typescript
+// Server-side parallel fetching
+export default async function DashboardPage() {
+  const leaguesData = await Promise.all(
+    LEAGUE_CONFIGS.map(async (config) => {
+      const standings = await getStandingsAction(config.id)
+      let topClubs = standings || []
+      return { ...config, clubs: topClubs }
+    })
+  )
+  return <DashboardClient initialLeagues={leaguesData} />
+}
+
+// Client-side data fetching with caching
+const localCache: Record<string, MarketValueData> = {};
+
+export function useMarketValue(playerName: string) {
+  const [data, setData] = useState<MarketValueData | null>(() => {
+    if (playerName && localCache[playerName]) {
+      return localCache[playerName];
+    }
+    return null;
+  });
+
+  useEffect(() => {
+    if (localCache[playerName]) {
+      setData(localCache[playerName]);
+      setIsLoading(false);
+      return;
+    }
+    // Fetch and cache data
+  }, [playerName]);
+}
+```
+
 ---
 
-*Convention analysis: 2026-04-21*
+*Convention analysis: 2026-04-27*
