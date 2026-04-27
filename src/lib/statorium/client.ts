@@ -197,9 +197,9 @@ export class StatoriumClient {
     return data.match;
   }
 
-  async getLeagues(): Promise<StatoriumLeague[]> {
-    const data = await this.fetch<any>(`/leagues/`);
-    return data.leagues || [];
+  async getTopScorers(seasonId: string): Promise<any[]> {
+    const data = await this.fetch<any>(`/scorers/${seasonId}/`);
+    return data.scorers || [];
   }
 }
 

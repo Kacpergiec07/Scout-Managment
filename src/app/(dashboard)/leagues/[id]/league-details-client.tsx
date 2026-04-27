@@ -6,9 +6,10 @@ import Link from "next/link";
 import { useState, useMemo, useCallback, memo } from "react";
 import Image from "next/image";
 import { ChevronLeft, Trophy, Users, Calendar, Info, X as CloseIcon, MapPin, Target, Activity, Circle, Clock, Shield, AlertTriangle, Flag, RefreshCw, Crosshair, TrendingUp, ArrowRightLeft, UserCircle } from "lucide-react";
-import { getTeamRecentMatchesAction, getMatchDetailsAction } from "@/app/actions/statorium";
+import { getTeamRecentMatchesAction, getMatchDetailsAction, getTopScorersAction } from "@/app/actions/statorium";
 import { LEAGUES } from "@/lib/statorium-data";
 import { SafeImage } from "@/components/ui/safe-image";
+import { useEffect } from "react";
 
 const MemoizedStandingRow = memo(({ team, idx, id, onFormClick, initialStandingsCount }: any) => {
   const pos = team.rank;
@@ -108,6 +109,23 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
   const [selectedMatch, setSelectedMatch] = useState<any>(null);
   const [isMatchLoading, setIsMatchLoading] = useState(false);
   const [teamHistory, setTeamHistory] = useState<any[]>([]);
+  const [topScorers, setTopScorers] = useState<any[]>([]);
+  const [isScorersLoading, setIsScorersLoading] = useState(false);
+
+  useEffect(() => {
+    async function loadScorers() {
+      setIsScorersLoading(true);
+      try {
+        const data = await getTopScorersAction(id);
+        setTopScorers(data);
+      } catch (err) {
+        console.error('Failed to load top scorers:', err);
+      } finally {
+        setIsScorersLoading(false);
+      }
+    }
+    loadScorers();
+  }, [id]);
 
   const handleFormClick = async (matchId: string, teamId: string, teamName: string, index: number) => {
     setIsMatchLoading(true);
@@ -354,28 +372,70 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
               </div>
             </motion.div>
 
-            {/* Predicted Relegation */}
+            {/* Top Scorers (Forwards) */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="p-8 bg-card border border-dashed border-red-500/20 rounded-3xl"
+              className="p-8 bg-card border border-border rounded-3xl overflow-hidden relative"
             >
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-red-400/40 mb-6 font-mono">
-                AI Predicted Relegation
-              </h3>
-              <div className="space-y-2">
-                <p className="text-xs text-white/30 leading-relaxed">
-                  Based on current form and upcoming fixtures, the following teams are at high risk:
-                </p>
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {initialStandings.slice(-3).map((team) => (
-                    <span key={team.teamID} className="text-[9px] font-black bg-white/5 text-white/40 border border-white/10 px-3 py-1 rounded-full">
-                      {team.teamName}
-                    </span>
-                  ))}
-                </div>
+              <div className="absolute top-0 right-0 p-8 opacity-5">
+                 <Target className="w-24 h-24 text-primary" />
               </div>
+
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-emerald-500 mb-8 flex items-center gap-2">
+                <Target className="w-4 h-4" />
+                Elite Forwards (2025/26)
+              </h3>
+              
+              <div className="space-y-4">
+                {isScorersLoading ? (
+                  Array(5).fill(0).map((_, i) => (
+                    <div key={i} className="flex items-center gap-4 animate-pulse">
+                      <div className="w-10 h-10 bg-muted rounded-full" />
+                      <div className="flex-1 space-y-2">
+                        <div className="h-3 bg-muted rounded w-3/4" />
+                        <div className="h-2 bg-muted rounded w-1/2" />
+                      </div>
+                    </div>
+                  ))
+                ) : topScorers.length > 0 ? (
+                  topScorers.slice(0, 5).map((player, i) => (
+                    <div key={player.playerID} className="flex items-center justify-between group">
+                      <div className="flex items-center gap-4">
+                        <div className="relative w-12 h-12 bg-black rounded-xl border border-white/5 overflow-hidden group-hover:border-emerald-500/50 transition-colors">
+                          <SafeImage 
+                            src={player.photo} 
+                            alt={player.fullName}
+                            fill
+                            sizes="48px"
+                            className="object-cover" 
+                          />
+                        </div>
+                        <div>
+                          <p className="text-sm font-black text-white group-hover:text-emerald-400 transition-colors">{player.fullName}</p>
+                          <p className="text-[10px] font-bold text-white/40 uppercase tracking-tight">{player.teamName}</p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-xl font-black italic text-emerald-500 tabular-nums">{player.goals}</p>
+                        <p className="text-[8px] font-black text-white/20 uppercase tracking-widest">GOALS</p>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="py-12 text-center border border-dashed border-white/5 rounded-2xl">
+                    <Info className="w-8 h-8 text-white/10 mx-auto mb-3" />
+                    <p className="text-[10px] font-black uppercase tracking-widest text-white/20">Scoring data indexing...</p>
+                  </div>
+                )}
+              </div>
+
+              {topScorers.length > 5 && (
+                <button className="w-full mt-8 py-3 border-t border-white/5 text-[10px] font-black uppercase tracking-widest text-white/40 hover:text-emerald-400 transition-colors">
+                  View Full Scoring Index
+                </button>
+              )}
             </motion.div>
           </div>
         </div>

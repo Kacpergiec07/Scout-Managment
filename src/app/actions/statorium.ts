@@ -1044,3 +1044,28 @@ export async function getPlayerDataAction(playerId: string, timeoutMs: number = 
     return null;
   }
 }
+export async function getTopScorersAction(seasonId: string) {
+  try {
+    const client = getStatoriumClient();
+    const scorers = await client.getTopScorers(seasonId);
+    
+    // Filter for forwards only as requested
+    // Resolve position for each scorer to identify forwards
+    const processedScorers = scorers.filter((s: any) => {
+      const pos = resolvePosition(s.position || s.positionID);
+      return pos === "FW";
+    }).map((s: any) => ({
+      playerID: s.playerID,
+      fullName: s.fullName,
+      goals: parseInt(s.goals || "0"),
+      teamName: s.teamName,
+      teamID: s.teamID,
+      photo: resolvePlayerPhoto(s)
+    }));
+
+    return processedScorers.sort((a: any, b: any) => b.goals - a.goals).slice(0, 10);
+  } catch (error) {
+    console.error('Get Top Scorers Action Error:', error);
+    return [];
+  }
+}
