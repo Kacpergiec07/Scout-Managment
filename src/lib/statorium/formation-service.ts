@@ -1,14 +1,6 @@
 import { StatoriumClient } from './client';
 
-// Simple in-memory cache (in production, use Redis or database)
-const formationCache = new Map<string, { formation: string; timestamp: number }>();
 const CACHE_DURATION = 3600 * 1000; // 1 hour in milliseconds
-
-interface TeamFormation {
-  teamId: string;
-  formation: string;
-  timestamp: number;
-}
 
 /**
  * Calculate formation from lineup positions
@@ -124,16 +116,23 @@ function calculateFormationFromLineup(lineup: any[]): string {
   }
 }
 
+export interface FormationResult {
+  formation: string;
+  lineup: any[]; // The real lineup from the last match
+}
+
+const formationCache = new Map<string, { data: FormationResult; timestamp: number }>();
+
 /**
- * Get real formation from most recent match with lineup data
+ * Get real formation and lineup from most recent match with lineup data
  */
-export async function getRealFormation(teamId: string, seasonId: string): Promise<string> {
+export async function getRealFormation(teamId: string, seasonId: string): Promise<FormationResult> {
   // Check cache first
   const cacheKey = `${teamId}_${seasonId}`;
   const cached = formationCache.get(cacheKey);
 
   if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
-    return cached.formation;
+    return cached.data;
   }
 
   try {
@@ -157,7 +156,6 @@ export async function getRealFormation(teamId: string, seasonId: string): Promis
     ).slice(0, 10);
 
     for (const match of playedMatches) {
-      // Check if this match has lineup data by fetching details
       try {
         const matchDetails = await client.getMatchDetails(match.matchID.toString());
 
@@ -168,17 +166,15 @@ export async function getRealFormation(teamId: string, seasonId: string): Promis
 
         if (hasLineup) {
           mostRecentMatchWithLineup = matchDetails;
-          break; // Stop immediately once we find the most recent match with a lineup
+          break;
         }
       } catch (error) {
-        // Skip matches that error out
         continue;
       }
     }
 
     if (!mostRecentMatchWithLineup) {
-      // No recent match with lineup data found
-      return 'N/A';
+      return { formation: 'N/A', lineup: [] };
     }
 
     // Extract the lineup for this team
@@ -188,23 +184,25 @@ export async function getRealFormation(teamId: string, seasonId: string): Promis
       : mostRecentMatchWithLineup.awayParticipant?.squad?.lineup || [];
 
     if (lineup.length === 0) {
-      return 'N/A';
+      return { formation: 'N/A', lineup: [] };
     }
 
     // Calculate formation from the lineup
     const formation = calculateFormationFromLineup(lineup);
 
+    const result = { formation, lineup };
+
     // Cache the result
     formationCache.set(cacheKey, {
-      formation,
+      data: result,
       timestamp: Date.now()
     });
 
-    return formation;
+    return result;
 
   } catch (error) {
     console.error(`Error getting real formation for team ${teamId}:`, error);
-    return 'N/A';
+    return { formation: 'N/A', lineup: [] };
   }
 }
 

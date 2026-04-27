@@ -1,193 +1,294 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { 
-  Trophy, 
-  ChevronRight, 
-  Search, 
-  Filter, 
-  Activity, 
-  Target,
-  Globe2,
-  TrendingUp,
-  MapPin
-} from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Trophy, Calendar, Users, Target, Shield, ChevronRight, Activity, Search } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { LEAGUES } from '@/lib/statorium-data'
+import { getStandingsAction, getUpcomingMatchesAction, getTeamDetailsAction } from '@/app/actions/statorium'
+import { TacticalPitch } from './tactical-pitch'
 
 export function LeagueTacticalHub() {
-  const [search, setSearch] = useState('')
-  const [filter, setFilter] = useState('ALL')
+  const [selectedLeague, setSelectedLeague] = useState(LEAGUES[1]) // Default to PL
+  const [standings, setStandings] = useState<any[]>([])
+  const [fixtures, setFixtures] = useState<any[]>([])
+  const [selectedTeamId, setSelectedTeamId] = useState<string | null>(null)
+  const [teamData, setTeamData] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
+  const [teamLoading, setTeamLoading] = useState(false)
 
-  const filteredLeagues = LEAGUES.filter(l => {
-    const matchesSearch = l.name.toLowerCase().includes(search.toLowerCase())
-    const matchesFilter = filter === 'ALL' || l.country?.toUpperCase() === filter
-    return matchesSearch && matchesFilter
-  })
+  useEffect(() => {
+    async function loadLeagueData() {
+      setLoading(true)
+      try {
+        const [standingsData, fixturesData] = await Promise.all([
+          getStandingsAction(selectedLeague.seasonId),
+          getUpcomingMatchesAction(selectedLeague.seasonId, 4)
+        ])
+        setStandings(standingsData || [])
+        setFixtures(fixturesData || [])
+        setSelectedTeamId(null)
+        setTeamData(null)
+      } catch (e) {
+        console.error(e)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadLeagueData()
+  }, [selectedLeague])
 
-  const countries = ['ALL', ...Array.from(new Set(LEAGUES.map(l => l.country?.toUpperCase() || 'UNKNOWN')))]
+  useEffect(() => {
+    if (!selectedTeamId) return
+    async function loadTeamData() {
+      setTeamLoading(true)
+      try {
+        const data = await getTeamDetailsAction(selectedTeamId, selectedLeague.seasonId)
+        setTeamData(data)
+      } catch (e) {
+        console.error(e)
+      } finally {
+        setTeamLoading(false)
+      }
+    }
+    loadTeamData()
+  }, [selectedTeamId, selectedLeague.seasonId])
 
   return (
-    <div className="min-h-screen bg-background p-8 lg:p-12 space-y-16">
-      {/* Header Section */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 border-b border-border pb-16">
-        <div className="space-y-6">
-          <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 border-none px-4 py-1 text-xs font-bold uppercase tracking-widest">
-            Tactical Coverage v4.0
-          </Badge>
-          <h1 className="text-7xl lg:text-9xl font-bold tracking-tighter text-foreground leading-none">
-            League <span className="text-muted-foreground font-light">Directory</span>
-          </h1>
-          <p className="text-lg font-medium text-muted-foreground max-w-2xl leading-relaxed">
-            Real-time surveillance across global competitive sectors. Select a professional theater to begin deep tactical analysis.
-          </p>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-6 w-full lg:w-auto">
-          <div className="relative flex-1 sm:w-96">
-            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-            <Input 
-              placeholder="Filter by league or sector..." 
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="h-16 pl-14 bg-muted/50 border-border rounded-2xl font-bold uppercase tracking-widest focus:ring-primary/20"
-            />
+    <div className="min-h-screen bg-[#050505] text-zinc-100 p-6 lg:p-10 space-y-8 font-sans">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 bg-zinc-900 rounded-2xl flex items-center justify-center border border-zinc-800 shadow-2xl">
+            <Trophy className="w-7 h-7 text-primary" />
+          </div>
+          <div>
+            <h1 className="text-3xl font-black uppercase tracking-tight">League Intelligence</h1>
+            <p className="text-zinc-500 text-sm font-medium">Real-time standings, fixtures, and squad analysis.</p>
           </div>
         </div>
+
+        <div className="flex bg-zinc-900/50 p-1 rounded-xl border border-zinc-800/50 backdrop-blur-sm overflow-x-auto max-w-full">
+          {LEAGUES.map((league) => (
+            <button
+              key={league.id}
+              onClick={() => setSelectedLeague(league)}
+              className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 whitespace-nowrap ${
+                selectedLeague.id === league.id 
+                ? "bg-zinc-100 text-black shadow-lg" 
+                : "text-zinc-500 hover:text-zinc-300"
+              }`}
+            >
+              <span className="text-lg">{league.flag}</span>
+              {league.name}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Filters */}
-      <div className="flex flex-wrap gap-3 p-1 bg-muted/30 rounded-2xl border border-border w-fit">
-        {countries.map(c => (
-          <button
-            key={c}
-            onClick={() => setFilter(c)}
-            className={`px-6 py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all ${
-              filter === c 
-              ? "bg-card text-primary shadow-sm" 
-              : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            {c}
-          </button>
-        ))}
-      </div>
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
+        {/* Standings Table */}
+        <div className="xl:col-span-7 space-y-6">
+          <div className="bg-zinc-900/30 border border-zinc-800/50 rounded-3xl overflow-hidden backdrop-blur-md shadow-2xl">
+            <div className="p-6 border-b border-zinc-800/50 flex items-center justify-between">
+              <h2 className="text-lg font-black uppercase tracking-tighter flex items-center gap-2">
+                <Trophy className="w-5 h-5 text-primary" />
+                {selectedLeague.name} Standings
+              </h2>
+              <Badge variant="outline" className="text-[10px] uppercase font-bold border-zinc-800 text-zinc-400">Season 2024/25</Badge>
+            </div>
+            
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="text-[10px] text-zinc-500 font-black uppercase tracking-[0.2em] border-b border-zinc-800/30">
+                    <th className="px-6 py-4 w-12">#</th>
+                    <th className="px-4 py-4">Team</th>
+                    <th className="px-4 py-4 text-center">P</th>
+                    <th className="px-4 py-4 text-center">W</th>
+                    <th className="px-4 py-4 text-center">D</th>
+                    <th className="px-4 py-4 text-center">L</th>
+                    <th className="px-4 py-4 text-center">GD</th>
+                    <th className="px-6 py-4 text-right">PTS</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-zinc-800/20">
+                  {loading ? (
+                    Array.from({ length: 10 }).map((_, i) => (
+                      <tr key={i} className="animate-pulse">
+                        <td colSpan={8} className="px-6 py-4 h-14 bg-zinc-900/10" />
+                      </tr>
+                    ))
+                  ) : standings.map((team, idx) => (
+                    <tr 
+                      key={team.teamID} 
+                      onClick={() => setSelectedTeamId(team.teamID)}
+                      className={`group cursor-pointer transition-colors ${
+                        selectedTeamId === team.teamID ? "bg-primary/5" : "hover:bg-zinc-800/20"
+                      }`}
+                    >
+                      <td className="px-6 py-5">
+                        <span className={`text-xs font-black ${
+                          idx < 4 ? "text-primary" : idx > 16 ? "text-red-500" : "text-zinc-500"
+                        }`}>
+                          {idx + 1}.
+                        </span>
+                      </td>
+                      <td className="px-4 py-5">
+                        <div className="flex items-center gap-4">
+                          <div className="relative w-8 h-8">
+                            <Image 
+                              src={team.teamLogo} 
+                              alt={team.teamName} 
+                              fill 
+                              className="object-contain"
+                              unoptimized
+                            />
+                          </div>
+                          <span className="text-sm font-bold tracking-tight group-hover:text-primary transition-colors">
+                            {team.teamName}
+                          </span>
+                        </div>
+                      </td>
+                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.played}</td>
+                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.won}</td>
+                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.drawn}</td>
+                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.lost}</td>
+                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.goalsFor - team.goalsAgainst}</td>
+                      <td className="px-6 py-5 text-right">
+                        <span className="text-sm font-black text-white">{team.points}</span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
 
-      {/* Leagues Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
-        {filteredLeagues.map((league) => (
-          <motion.div
-            key={league.id}
-            whileHover={{ y: -8 }}
-            className="group relative"
-          >
-            <div className="premium-card overflow-hidden flex flex-col h-full rounded-[2.5rem]">
-              {/* Card Header with Flag */}
-              <div className="relative h-56 border-b border-border overflow-hidden bg-muted/20">
-                {league.flag && (league.flag.startsWith('http') || league.flag.startsWith('/')) ? (
-                  <Image 
-                    src={league.flag} 
-                    alt={league.country || 'Flag'} 
-                    fill 
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105 opacity-10 group-hover:opacity-40"
+        {/* Right Sidebar */}
+        <div className="xl:col-span-5 space-y-8">
+          {/* Next Fixtures */}
+          <div className="bg-zinc-900/30 border border-zinc-800/50 rounded-3xl overflow-hidden backdrop-blur-md">
+            <div className="p-6 border-b border-zinc-800/50 flex items-center justify-between">
+              <h2 className="text-sm font-black uppercase tracking-widest flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-primary" />
+                Next Fixtures
+              </h2>
+            </div>
+            <div className="p-4 space-y-3">
+              {loading ? (
+                Array.from({ length: 3 }).map((_, i) => (
+                  <div key={i} className="h-20 bg-zinc-800/20 rounded-2xl animate-pulse" />
+                ))
+              ) : fixtures.length > 0 ? fixtures.map((match) => (
+                <div key={match.matchID} className="p-4 rounded-2xl bg-zinc-800/20 border border-zinc-800/30 flex items-center justify-between hover:border-zinc-700 transition-colors">
+                  <div className="flex flex-col items-center gap-1 w-20">
+                    <div className="w-10 h-10 relative">
+                      <Image 
+                        src={match.homeLogo}
+                        alt="Home"
+                        fill
+                        className="object-contain"
+                        unoptimized
+                      />
+                    </div>
+                    <span className="text-[9px] font-black uppercase tracking-tighter text-center truncate w-full text-zinc-400">
+                      {match.homeParticipant?.participantName}
+                    </span>
+                  </div>
+                  
+                  <div className="flex flex-col items-center">
+                    <span className="text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded uppercase tracking-tighter mb-1">
+                      {match.matchTime || 'TBD'}
+                    </span>
+                    <span className="text-[9px] font-black text-zinc-600 uppercase">vs</span>
+                    <span className="text-[8px] text-zinc-500 mt-1 font-bold">{match.matchDate}</span>
+                  </div>
+
+                  <div className="flex flex-col items-center gap-1 w-20">
+                    <div className="w-10 h-10 relative">
+                      <Image 
+                        src={match.awayLogo}
+                        alt="Away"
+                        fill
+                        className="object-contain"
+                        unoptimized
+                      />
+                    </div>
+                    <span className="text-[9px] font-black uppercase tracking-tighter text-center truncate w-full text-zinc-400">
+                      {match.awayParticipant?.participantName}
+                    </span>
+                  </div>
+                </div>
+              )) : (
+                <div className="p-8 text-center text-zinc-600 text-xs font-bold uppercase tracking-widest italic">No upcoming matches</div>
+              )}
+            </div>
+          </div>
+
+          {/* Squad Intelligence */}
+          <div className="bg-zinc-900/30 border border-zinc-800/50 rounded-3xl overflow-hidden backdrop-blur-md h-fit">
+            <div className="p-6 border-b border-zinc-800/50">
+              <h2 className="text-sm font-black uppercase tracking-widest flex items-center gap-2">
+                <Users className="w-4 h-4 text-primary" />
+                Squad Intelligence
+              </h2>
+              {teamData && (
+                <p className="text-[10px] font-bold text-zinc-500 uppercase mt-1 tracking-widest">
+                  Analyzing <span className="text-primary">{teamData.teamName}</span> • Formation: {teamData.formation}
+                </p>
+              )}
+            </div>
+            <div className="p-8">
+              {teamLoading ? (
+                <div className="flex flex-col items-center justify-center py-20 gap-4">
+                  <Activity className="w-8 h-8 text-primary animate-pulse" />
+                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">Decrypting Formation...</p>
+                </div>
+              ) : teamData ? (
+                <div className="space-y-6">
+                  <TacticalPitch 
+                    startingXI={teamData.players.slice(0, 11)} 
+                    allPlayers={teamData.players}
+                    formationLayout={{
+                      d: parseInt(teamData.formation.split('-')[0]) || 4,
+                      m: parseInt(teamData.formation.split('-')[1]) || 4,
+                      f: parseInt(teamData.formation.split('-')[2]) || 2
+                    }}
                   />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center text-8xl opacity-5 group-hover:opacity-10 transition-opacity">
-                    {league.flag || '⚽'}
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-                <div className="absolute bottom-8 left-8 flex items-center gap-6">
-                  <div className="w-20 h-20 bg-card rounded-2xl border border-border p-3 shadow-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    {league.logo && (league.logo.startsWith('http') || league.logo.startsWith('/')) ? (
-                      <Image src={league.logo} alt={league.name} width={80} height={80} className="object-contain" />
-                    ) : (
-                      <Globe2 className="w-10 h-10 text-primary" />
-                    )}
-                  </div>
-                  <div className="space-y-1">
-                    <h2 className="text-3xl font-bold text-foreground leading-none">{league.name}</h2>
-                    <p className="text-[10px] font-bold text-primary uppercase tracking-[0.3em]">{league.country}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card Body */}
-              <div className="p-8 space-y-8 flex-1">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-5 rounded-2xl bg-muted/30 border border-border/50">
-                    <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Market Value</span>
-                    <p className="text-xl font-bold text-foreground leading-none mt-2 italic">€4.2B</p>
-                  </div>
-                  <div className="p-5 rounded-2xl bg-muted/30 border border-border/50">
-                    <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Clubs Active</span>
-                    <p className="text-xl font-bold text-foreground leading-none mt-2 italic">20</p>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider">
-                    <span className="text-muted-foreground">Tactical Complexity</span>
-                    <span className="text-primary">94%</span>
-                  </div>
-                  <div className="h-2 bg-muted rounded-full overflow-hidden border border-border/30">
-                    <div className="h-full bg-primary shadow-[0_0_10px_rgba(0,255,136,0.5)]" style={{ width: '94%' }} />
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 pt-2">
-                  <div className="flex -space-x-3">
-                    {[1, 2, 3, 4].map(i => (
-                      <div key={i} className="w-10 h-10 rounded-full border-4 border-card bg-muted flex items-center justify-center text-[10px] font-bold shadow-sm">
-                        {i}
+                  <div className="flex items-center justify-between p-4 bg-zinc-900/50 rounded-2xl border border-zinc-800/50">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+                        <Shield className="w-4 h-4 text-primary" />
                       </div>
-                    ))}
+                      <div>
+                        <p className="text-[10px] font-black uppercase text-zinc-500 leading-none">Team Manager</p>
+                        <p className="text-xs font-bold text-white mt-1">{teamData.coach || 'Unassigned'}</p>
+                      </div>
+                    </div>
+                    <Button variant="ghost" size="sm" className="text-primary hover:bg-primary/5 text-[10px] font-black uppercase tracking-tighter">
+                      Full Squad <ChevronRight className="w-3 h-3 ml-1" />
+                    </Button>
                   </div>
-                  <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-tight ml-2">Assigned Scouts</span>
                 </div>
-              </div>
-
-              {/* Card Footer */}
-              <div className="p-8 pt-0 mt-auto">
-                <Link href={`/dashboard?sId=${league.id}`}>
-                  <Button className="premium-btn w-full h-16 text-xs group/btn">
-                    VIEW HUB <ChevronRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-              </div>
+              ) : (
+                <div className="flex flex-col items-center justify-center py-20 text-center space-y-4">
+                  <div className="w-16 h-16 rounded-3xl bg-zinc-900 flex items-center justify-center border border-zinc-800 shadow-inner">
+                    <Search className="w-8 h-8 text-zinc-700" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-widest text-zinc-400">Sector Selection Required</p>
+                    <p className="text-[10px] font-bold text-zinc-600 uppercase mt-1 tracking-widest">Select a team from standings to view roster.</p>
+                  </div>
+                </div>
+              )}
             </div>
-
-            {/* Corner Badge */}
-            <div className="absolute -top-3 -right-3 bg-primary text-black px-4 py-1.5 font-bold text-[10px] uppercase italic tracking-widest shadow-xl rounded-lg z-10">
-              HOT SECTOR
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Global Stats */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 pt-16">
-        {[
-          { label: 'Players Tracked', val: '124,502', icon: Globe2, color: 'text-blue-400' },
-          { label: 'Market Flow', val: '842', icon: TrendingUp, color: 'text-emerald-400' },
-          { label: 'System Precision', val: '99.8%', icon: Target, color: 'text-amber-400' },
-          { label: 'Strategic Nodes', val: '42', icon: Activity, color: 'text-purple-400' },
-        ].map((stat, i) => (
-          <div key={i} className="premium-card p-10 rounded-[2rem] bg-gradient-to-br from-muted/20 to-transparent">
-            <div className="flex items-center justify-between mb-8">
-              <stat.icon className={`w-8 h-8 ${stat.color}`} />
-              <div className="bg-primary/5 px-3 py-1 rounded-full text-[8px] font-bold text-primary uppercase tracking-widest border border-primary/20">Active</div>
-            </div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-2">{stat.label}</p>
-            <p className="text-4xl font-bold text-foreground italic tracking-tight">{stat.val}</p>
           </div>
-        ))}
+        </div>
       </div>
     </div>
   )

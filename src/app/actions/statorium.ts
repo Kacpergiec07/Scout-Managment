@@ -66,11 +66,44 @@ function resolvePlayerPhoto(p: any): string {
   return photo || `https://api.statorium.com/media/bearleague/bl` + (p.playerID || p.id) + `.webp`;
 }
 
+/**
+ * Adjusts a UTC date/time string from Statorium to Europe/Warsaw timezone.
+ */
+function formatToWarsaw(dateStr: string, timeStr: string) {
+  if (!dateStr) return { date: dateStr, time: timeStr };
+  
+  try {
+    // Statorium usually provides date as YYYY-MM-DD and time as HH:mm
+    // We assume these are in UTC as the user reports they are "too early" (UTC vs PL time)
+    const combined = `${dateStr}T${timeStr || '00:00'}:00Z`;
+    const date = new Date(combined);
+    
+    if (isNaN(date.getTime())) return { date: dateStr, time: timeStr };
 
+    const options: Intl.DateTimeFormatOptions = {
+      timeZone: 'Europe/Warsaw',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    };
 
-// Normalize a name by converting all special characters to ASCII equivalents
+    // Use en-CA for YYYY-MM-DD format parts, but we'll manually assemble to be sure
+    const parts = new Intl.DateTimeFormat('en-GB', options).formatToParts(date);
+    const p: Record<string, string> = {};
+    parts.forEach(part => { p[part.type] = part.value; });
 
-
+    return {
+      date: `${p.year}-${p.month}-${p.day}`,
+      time: `${p.hour}:${p.minute}`
+    };
+  } catch (e) {
+    console.error("Error converting to Warsaw time:", e);
+    return { date: dateStr, time: timeStr };
+  }
+}
 
 export async function getStandingsAction(seasonId: string) {
   try {
@@ -390,13 +423,7 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
     // Filter first-team players
     const firstTeamPlayers = players.filter((p: any) => {
       // Must be active
-      if (p.playerDeparted !== "0") return false;
-
-      // Must be between 18 and 35 years old
-      const age = calculateAge(p.additionalInfo?.birthdate);
-      if (age < 18 || age > 35) return false;
-
-      return true;
+      return p.playerDeparted === "0";
     });
 
     // Categorize first-team players by position
@@ -418,35 +445,53 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
     });
 
     // Get real formation from most recent match with lineup data
-    const formation = await getRealFormation(teamId, seasonId || '');
+    const formationResult = await getRealFormation(teamId, seasonId || '');
+    const formation = formationResult.formation;
+    const realLineupIds = new Set(formationResult.lineup.map((p: any) => p.playerID.toString()));
 
-    // Parse formation for player selection (default to 4-4-2 if N/A)
-    let d = 4, m = 4, f = 2;
-    if (formation !== 'N/A') {
-      const parts = formation.split('-');
-      if (parts.length === 3) {
-        d = parseInt(parts[0]) || 4;
-        m = parseInt(parts[1]) || 4;
-        f = parseInt(parts[2]) || 2;
+    // Select starting XI from actual lineup data if available
+    let startingXI = firstTeamPlayers.filter(p => realLineupIds.has(p.playerID.toString()));
+
+    // If real lineup is missing or incomplete, fallback to heuristic
+    if (startingXI.length < 7) {
+      const gks = firstTeamPlayers.filter((p: any) => {
+        const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
+        return pos === 'goalkeeper' || pos === 'gk' || pos.startsWith('goal');
+      });
+      const dfs = firstTeamPlayers.filter((p: any) => {
+        const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
+        return pos === 'defender' || pos === 'df' || pos.startsWith('def') && !pos.includes('mid');
+      });
+      const mfs = firstTeamPlayers.filter((p: any) => {
+        const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
+        return pos === 'midfielder' || pos === 'mf' || pos.includes('mid');
+      });
+      const fws = firstTeamPlayers.filter((p: any) => {
+        const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
+        return pos === 'atacker' || pos === 'attacker' || pos === 'forward' || pos === 'fw' || pos === 'striker' || pos === 'st' || pos.includes('ata');
+      });
+
+      let d = 4, m = 4, f = 2;
+      if (formation !== 'N/A') {
+        const parts = formation.split('-');
+        if (parts.length === 3) {
+          d = parseInt(parts[0]) || 4;
+          m = parseInt(parts[1]) || 4;
+          f = parseInt(parts[2]) || 2;
+        }
       }
-    }
 
-    // Select the actual starting XI players based on real formation
-    const startingXI: StatoriumPlayerBasic[] = [];
+      startingXI = [];
+      if (gks.length > 0) startingXI.push(gks[0]);
+      startingXI.push(...dfs.slice(0, d));
+      startingXI.push(...mfs.slice(0, m));
+      startingXI.push(...fws.slice(0, f));
 
-    // Always include a goalkeeper
-    if (gks.length > 0) startingXI.push(gks[0]);
-
-    // Add defenders, midfielders, forwards
-    startingXI.push(...dfs.slice(0, d));
-    startingXI.push(...mfs.slice(0, m));
-    startingXI.push(...fws.slice(0, f));
-
-    // Fill to 11 if still missing some positions
-    if (startingXI.length < 11) {
-      const usedIds = new Set(startingXI.map(p => p.playerID));
-      const remainingFirstTeam = firstTeamPlayers.filter(p => !usedIds.has(p.playerID));
-      startingXI.push(...remainingFirstTeam.slice(0, 11 - startingXI.length));
+      if (startingXI.length < 11) {
+        const usedIds = new Set(startingXI.map(p => p.playerID.toString()));
+        const remaining = firstTeamPlayers.filter(p => !usedIds.has(p.playerID.toString()));
+        startingXI.push(...remaining.slice(0, 11 - startingXI.length));
+      }
     }
 
     // Reorder players array to have starting XI first
@@ -568,7 +613,12 @@ export async function getMatchesAction(seasonId: string) {
     const client = getStatoriumClient();
     const matches = await client.getMatches(seasonId);
 
-    if (matches && matches.length > 0) return matches;
+    if (matches && matches.length > 0) {
+      return matches.map((m: any) => {
+        const { date, time } = formatToWarsaw(m.matchDate || m.match_date, m.matchTime || m.match_time);
+        return { ...m, matchDate: date, matchTime: time };
+      });
+    }
     return [];
   } catch (error) {
     console.error('Get Matches Action Error:', error);
@@ -614,8 +664,21 @@ export async function getUpcomingMatchesAction(seasonId: string, limit: number =
       return timeA.localeCompare(timeB);
     });
 
-    // Limit to specified number of results (default 10)
-    return upcomingMatches.slice(0, limit);
+    // Limit and map to include resolved logos and adjusted timezone
+    return upcomingMatches.slice(0, limit).map((m: any) => {
+      const homeId = (m.homeParticipant?.participantID || m.homeID || m.home_id || "").toString();
+      const awayId = (m.awayParticipant?.participantID || m.awayID || m.away_id || "").toString();
+      
+      const { date, time } = formatToWarsaw(m.matchDate || m.match_date, m.matchTime || m.match_time);
+
+      return {
+        ...m,
+        matchDate: date,
+        matchTime: time,
+        homeLogo: resolveTeamLogo(m.homeParticipant?.logo || m.homeLogo || m.home_logo || homeId),
+        awayLogo: resolveTeamLogo(m.awayParticipant?.logo || m.awayLogo || m.away_logo || awayId),
+      };
+    });
   } catch (error) {
     console.error('Get Upcoming Matches Action Error:', error);
     return [];
@@ -660,18 +723,22 @@ export async function getTeamRecentMatchesAction(teamId: string, seasonId: strin
       return dateB.getTime() - dateA.getTime();
     });
 
-    return playedMatches.slice(0, 10).map((m: any) => ({
-      matchID: m.matchID || m.match_id || m.id,
-      homeName: m.homeName || m.home_name || m.homeParticipantName,
-      awayName: m.awayName || m.away_name || m.awayParticipantName,
-      homeLogo: resolveTeamLogo(m.homeLogo || m.home_logo || m.homeID || m.home_id),
-      awayLogo: resolveTeamLogo(m.awayLogo || m.away_logo || m.awayID || m.away_id),
-      homeScore: m.homeScore ?? m.home_score ?? m.homeParticipant?.score ?? "?",
-      awayScore: m.awayScore ?? m.away_score ?? m.awayParticipant?.score ?? "?",
-      matchDate: m.matchDate || m.match_date,
-      matchTime: m.matchTime || m.match_time,
-      venue: m.venueName || m.venue_name || m.venue
-    }));
+    return playedMatches.slice(0, 10).map((m: any) => {
+      const { date, time } = formatToWarsaw(m.matchDate || m.match_date, m.matchTime || m.match_time);
+      
+      return {
+        matchID: m.matchID || m.match_id || m.id,
+        homeName: m.homeName || m.home_name || m.homeParticipantName,
+        awayName: m.awayName || m.away_name || m.awayParticipantName,
+        homeLogo: resolveTeamLogo(m.homeLogo || m.home_logo || m.homeID || m.home_id),
+        awayLogo: resolveTeamLogo(m.awayLogo || m.away_logo || m.awayID || m.away_id),
+        homeScore: m.homeScore ?? m.home_score ?? m.homeParticipant?.score ?? "?",
+        awayScore: m.awayScore ?? m.away_score ?? m.awayParticipant?.score ?? "?",
+        matchDate: date,
+        matchTime: time,
+        venue: m.venueName || m.venue_name || m.venue
+      };
+    });
   } catch (error) {
     console.error('Get Team Recent Matches Error:', error);
     return [];
