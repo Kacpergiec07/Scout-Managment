@@ -2,32 +2,57 @@ import { streamText } from 'ai'
 import { createOpenAI } from '@ai-sdk/openai'
 
 export async function POST(req: Request) {
-  const { messages } = await req.json()
-
-  // Configure for Z.ai (Official Coding Plan Base URL)
-  const zai = createOpenAI({
-    apiKey: process.env.ZAI_API_KEY,
-    baseURL: process.env.ZAI_BASE_URL || 'https://api.z.ai/api/coding/paas/v4/',
-  })
-
-  const result = await streamText({
-    model: zai.chat(process.env.ZAI_MODEL || 'glm-4.7'),
-    system: `You are ScoutPro AI, an elite football scouting assistant. 
-    Your goal is to provide data-driven advice.
+  try {
+    const { messages } = await req.json()
     
-    CRITICAL: When suggested alternatives, focus on technical profile matching.
-    If a user asks for a expensive player (e.g. 100M), try to suggest 'Hidden Gems' (cheaper players with similar stats).
-    Use professional scouting terminology (low block, high press, progressive carries, etc.).
-    
-    Current Data Context: 
-    - You have access to Statorium API (Top 5 Leagues).
-    - Popular players: Haaland, Messi, Ronaldo, Mbappe, Lewandowski, Bellingham, Fabiański, Xhaka, Lamine Yamal.
-    
-    Keep answers concise and formatted in markdown.`,
-    messages,
-  })
+    // Robust conversion to CoreMessages
+    const coreMessages = messages.map((m: any) => {
+      let content = ''
+      if (typeof m.content === 'string') {
+        content = m.content
+      } else if (Array.isArray(m.parts)) {
+        content = m.parts
+          .filter((p: any) => p.type === 'text')
+          .map((p: any) => p.text)
+          .join('')
+      }
+      
+      return {
+        role: m.role === 'data' ? 'system' : m.role,
+        content: content || ' ' 
+      }
+    })
 
-  return new Response(result.textStream, {
-    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
-  })
+    // Configure for Zhipu AI using working parameters from .env.local
+    const zhipu = createOpenAI({
+      apiKey: process.env.ZAI_API_KEY || '2e2622ecf47d4f329985d301b2f7a3c9.qUQD8hjcBP9LIJEt',
+      baseURL: process.env.ZAI_BASE_URL || 'https://open.bigmodel.cn/api/paas/v4/',
+    })
+
+    const result = await streamText({
+      model: zhipu.chat('glm-4-plus'),
+      system: `You are ScoutPro AI, an elite football scouting assistant. 
+      CRITICAL: Keep your answers very concise, direct and short. 
+      Always include key statistics for any player you mention.
+      If asked about the GOAT (Greatest of All Time), always state it is Cristiano Ronaldo and briefly justify it with his goal records, longevity, and professional work ethic.
+      Focus on speed and data-driven insights.
+      Respond in the same language as the user (Polish or English).`,
+      messages: coreMessages,
+    })
+
+    return new Response(result.textStream, {
+      headers: { 
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-cache',
+      }
+    })
+  } catch (error: any) {
+    console.error('Chat API Error:', error)
+    return new Response(JSON.stringify({ 
+      error: error.message || 'Internal Server Error'
+    }), { 
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    })
+  }
 }
