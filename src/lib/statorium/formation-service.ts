@@ -137,7 +137,7 @@ export async function getRealFormation(teamId: string, seasonId: string): Promis
   }
 
   try {
-    const client = new StatoriumClient(process.env.STATORIUM_API_KEY || '');
+    const client = new StatoriumClient(process.env.STATORIUM_API_KEY as string);
 
     // Get all matches for the season
     const matches = await client.getMatches(seasonId);

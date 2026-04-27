@@ -25,8 +25,8 @@ export async function POST(req: Request) {
 
     // Configure for Zhipu AI using working parameters from .env.local
     const zhipu = createOpenAI({
-      apiKey: process.env.ZAI_API_KEY || '2e2622ecf47d4f329985d301b2f7a3c9.qUQD8hjcBP9LIJEt',
-      baseURL: process.env.ZAI_BASE_URL || 'https://open.bigmodel.cn/api/paas/v4/',
+      apiKey: process.env.ZAI_API_KEY,
+      baseURL: process.env.ZAI_BASE_URL,
     })
 
     const result = await streamText({

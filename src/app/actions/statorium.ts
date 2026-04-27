@@ -14,7 +14,7 @@ let clientInstance: StatoriumClient | null = null;
 
 function getStatoriumClient() {
   if (!clientInstance) {
-    clientInstance = new StatoriumClient(process.env.STATORIUM_API_KEY || '');
+    clientInstance = new StatoriumClient(process.env.STATORIUM_API_KEY as string);
   }
   return clientInstance;
 }
@@ -904,7 +904,7 @@ export async function getTeamLogoAction(teamName: string, leagueId?: string, tea
 export async function getPlayerFullDataAction(playerId: string) {
   if (!playerId) return null;
   try {
-    const apiKey = process.env.STATORIUM_API_KEY || 'd35d1fc1aabe0671e1e80ee5a6296bef';
+    const apiKey = process.env.STATORIUM_API_KEY;
     const url = `https://api.statorium.com/v1/?a=player&playerID=${playerId}&apikey=${apiKey}`;
 
     console.log(`[getPlayerFullDataAction] Fetching full data for player ${playerId}`);
@@ -946,7 +946,7 @@ export async function getPlayerDataAction(playerId: string, timeoutMs: number = 
   const timestamp = Date.now(); // Force cache busting
 
   try {
-    const apiKey = process.env.STATORIUM_API_KEY || 'd35d1fc1aabe0671e1e80ee5a6296bef';
+    const apiKey = process.env.STATORIUM_API_KEY;
     const url = `https://api.statorium.com/api/v1/players/${playerId}/?apikey=${apiKey}&showstat=true&_t=${timestamp}`;
 
     console.log(`[getPlayerDataAction] Fetching detailed data for player ${playerId}`);
