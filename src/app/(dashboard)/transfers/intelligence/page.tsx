@@ -731,7 +731,7 @@ export default function TransferIntelligencePage() {
                   {LEAGUES.map(league => (
                     <SelectItem key={league.id} value={league.id} className="focus:bg-[#00ff88]/20 focus:text-[#00ff88] font-bold">
                       <div className="flex items-center gap-2">
-                        <span className="text-lg">{league.flag}</span>
+                        <img src={league.flag} alt="" className="w-5 h-3.5 object-cover rounded-sm border border-white/10" />
                         <span className="font-bold">{league.name}</span>
                       </div>
                     </SelectItem>

@@ -22,11 +22,11 @@ interface League {
 }
 
 const TOP_LEAGUES: League[] = [
-  { id: "pl", name: "Premier League", seasonId: "515", flag: "🇬🇧" },
-  { id: "laliga", name: "La Liga", seasonId: "558", flag: "🇪🇸" },
-  { id: "seriea", name: "Serie A", seasonId: "511", flag: "🇮🇹" },
-  { id: "bundesliga", name: "Bundesliga", seasonId: "521", flag: "🇩🇪" },
-  { id: "ligue1", name: "Ligue 1", seasonId: "519", flag: "🇫🇷" },
+  { id: "pl", name: "Premier League", seasonId: "515", flag: "https://flagcdn.com/w40/gb.png" },
+  { id: "laliga", name: "La Liga", seasonId: "558", flag: "https://flagcdn.com/w40/es.png" },
+  { id: "seriea", name: "Serie A", seasonId: "511", flag: "https://flagcdn.com/w40/it.png" },
+  { id: "bundesliga", name: "Bundesliga", seasonId: "521", flag: "https://flagcdn.com/w40/de.png" },
+  { id: "ligue1", name: "Ligue 1", seasonId: "519", flag: "https://flagcdn.com/w40/fr.png" },
 ];
 
 // Helper function to format dates in a user-friendly way
@@ -120,11 +120,14 @@ export function LeagueCenter() {
             <button
               key={league.id}
               onClick={() => setActiveLeague(league)}
-              className={`px-4 py-2 rounded-lg font-bold text-xs uppercase tracking-widest transition-all ${activeLeague.id === league.id
+              className={`px-4 py-2 rounded-lg font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-2 ${activeLeague.id === league.id
                   ? "bg-card text-primary shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
                 }`}
             >
+              <div className="relative w-4 h-3 shrink-0 overflow-hidden rounded-sm border border-border/50">
+                <Image src={league.flag} alt="" fill className="object-cover" unoptimized />
+              </div>
               {league.name}
             </button>
           ))}

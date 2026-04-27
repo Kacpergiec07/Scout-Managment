@@ -12,11 +12,11 @@ export interface LeagueInfo {
 }
 
 export const LEAGUES: LeagueInfo[] = [
-  { id: "laliga", name: "La Liga", seasonId: "558", flag: "🇪🇸", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/53.png" },
-  { id: "pl", name: "Premier League", seasonId: "515", flag: "🇬🇧", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/13.png" },
-  { id: "seriea", name: "Serie A", seasonId: "511", flag: "🇮🇹", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/31.png" },
-  { id: "bundesliga", name: "Bundesliga", seasonId: "521", flag: "🇩🇪", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/19.png" },
-  { id: "ligue1", name: "Ligue 1", seasonId: "519", flag: "🇫🇷", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/16.png" },
+  { id: "laliga", name: "La Liga", seasonId: "558", flag: "https://flagcdn.com/w40/es.png", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/53.png" },
+  { id: "pl", name: "Premier League", seasonId: "515", flag: "https://flagcdn.com/w40/gb.png", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/13.png" },
+  { id: "seriea", name: "Serie A", seasonId: "511", flag: "https://flagcdn.com/w40/it.png", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/31.png" },
+  { id: "bundesliga", name: "Bundesliga", seasonId: "521", flag: "https://flagcdn.com/w40/de.png", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/19.png" },
+  { id: "ligue1", name: "Ligue 1", seasonId: "519", flag: "https://flagcdn.com/w40/fr.png", logo: "https://cdn.futwiz.com/assets/img/fc24/leagues/16.png" },
 ];
 
 export const POSITION_MAP: Record<string, string> = {

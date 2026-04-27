@@ -10,8 +10,10 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { LEAGUES } from '@/lib/statorium-data'
 import { getStandingsAction, getUpcomingMatchesAction, getTeamDetailsAction } from '@/app/actions/statorium'
 import { TacticalPitch } from './tactical-pitch'
+import { useRouter } from 'next/navigation'
 
 export function LeagueTacticalHub() {
+  const router = useRouter()
   const [selectedLeague, setSelectedLeague] = useState(LEAGUES[1]) // Default to PL
   const [standings, setStandings] = useState<any[]>([])
   const [fixtures, setFixtures] = useState<any[]>([])
@@ -82,7 +84,9 @@ export function LeagueTacticalHub() {
                 : "text-zinc-500 hover:text-zinc-300"
               }`}
             >
-              <span className="text-lg">{league.flag}</span>
+              <div className="relative w-5 h-3.5 shrink-0 overflow-hidden rounded-sm border border-zinc-800/20">
+                <Image src={league.flag} alt="" fill className="object-cover" unoptimized />
+              </div>
               {league.name}
             </button>
           ))}
@@ -270,7 +274,12 @@ export function LeagueTacticalHub() {
                         <p className="text-xs font-bold text-white mt-1">{teamData.coach || 'Unassigned'}</p>
                       </div>
                     </div>
-                    <Button variant="ghost" size="sm" className="text-primary hover:bg-primary/5 text-[10px] font-black uppercase tracking-tighter">
+                    <Button 
+                      onClick={() => router.push(`/teams/${selectedTeamId}`)}
+                      variant="ghost" 
+                      size="sm" 
+                      className="text-primary hover:bg-primary/5 text-[10px] font-black uppercase tracking-tighter"
+                    >
                       Full Squad <ChevronRight className="w-3 h-3 ml-1" />
                     </Button>
                   </div>
