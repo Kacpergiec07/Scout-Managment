@@ -465,23 +465,6 @@ export default function HistoryPage() {
         </div>
       </div>
 
-      {/* FAB - Floating Action Button */}
-      <Link
-        href="/scouting"
-        className="fixed bottom-8 right-8 z-50 group"
-      >
-        <div className="relative">
-          <div className="absolute inset-0 bg-[#00ff88]/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300" />
-          <div
-            className="relative h-16 w-16 rounded-full bg-[#00ff88] flex items-center justify-center shadow-2xl shadow-[#00ff88]/30 hover:shadow-[#00ff88]/50 transition-all duration-300 group-hover:scale-110 group-active:scale-95"
-            style={{
-              boxShadow: '0 0 30px rgba(0, 255, 136, 0.3)'
-            }}
-          >
-            <Plus className="h-8 w-8 text-black" />
-          </div>
-        </div>
-      </Link>
       </div>
     </>
   )

@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Search,
@@ -94,6 +95,7 @@ interface Player {
 }
 
 export default function WatchlistPage() {
+  const router = useRouter()
   const [watchedPlayers, setWatchedPlayers] = useState<Player[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
   const [loadingWatchlist, setLoadingWatchlist] = useState(false)
@@ -551,6 +553,20 @@ export default function WatchlistPage() {
 
   const clubLogo = activePlayer?.clubLogo || selectedDetails?.teamLogo || null
 
+  // Function to navigate to analysis page with player data
+  function navigateToAnalysis(player: any) {
+    const params = new URLSearchParams()
+    params.set('id', player.playerId || player.id)
+    params.set('name', player.name || player.fullName)
+    params.set('club', player.club || 'Unknown Club')
+    params.set('league', player.league || 'Unknown League')
+    params.set('nation', player.nation || 'Unknown')
+    params.set('pos', player.position || 'Unknown Position')
+    params.set('photo', player.playerPhoto || '')
+
+    router.push(`/analysis?${params.toString()}`)
+  }
+
   return (
     <div className="relative flex h-full w-full overflow-hidden bg-background text-foreground transition-colors duration-300">
       {/* Left Panel: Green Zone - Watched List */}
@@ -581,7 +597,7 @@ export default function WatchlistPage() {
                 <motion.div
                   layout
                   key={player.id}
-                  onClick={() => setSelectedPlayerId(player.id)}
+                  onClick={() => navigateToAnalysis(player)}
                   className={`group relative cursor-pointer overflow-hidden rounded-xl border p-3 transition-all ${
                     selectedPlayerId === player.id
                       ? "border-green-500/30 bg-green-500/10"
@@ -874,7 +890,8 @@ export default function WatchlistPage() {
                       key={`${player.playerID || player.id}-${index}`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="group relative overflow-hidden rounded-2xl border border-border bg-card/60 p-4 transition-all hover:border-green-500/30"
+                      onClick={() => navigateToAnalysis(player)}
+                      className="group relative overflow-hidden rounded-2xl border border-border bg-card/60 p-4 transition-all hover:border-green-500/30 hover:cursor-pointer"
                     >
                       <div className="flex items-center gap-4">
                         <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-zinc-950/20">
