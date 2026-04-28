@@ -247,7 +247,7 @@ export function LeagueCenter() {
               <div className="space-y-8 flex-1 flex flex-col">
                 <div className="flex items-center gap-5 p-4 rounded-2xl bg-muted/30 border border-border">
                   <div className="w-12 h-12 relative bg-white rounded-xl p-1 shadow-sm border border-border shrink-0">
-                    <Image src={selectedTeam.teamLogo} alt={selectedTeam.teamName} fill className="object-contain" />
+                    <Image src={selectedTeam.teamLogo || ""} alt={selectedTeam.teamName} fill className="object-contain" />
                   </div>
                   <div className="min-w-0">
                     <h4 className="font-bold text-sm text-foreground truncate">{selectedTeam.teamName}</h4>

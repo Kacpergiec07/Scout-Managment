@@ -25,7 +25,7 @@ export function ReportButton({ elementId, playerName }: ReportButtonProps) {
     <Button
       onClick={handleDownload}
       disabled={loading}
-      className="bg-emerald-600 hover:bg-emerald-500 text-white gap-2"
+      className="bg-secondary hover:bg-secondary/80 text-white gap-2"
     >
       {loading ? (
         <Loader2 className="h-4 w-4 animate-spin" />

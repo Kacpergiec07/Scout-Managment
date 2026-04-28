@@ -6,6 +6,7 @@ interface RankingListProps {
     club: {
       name: string
       id: string
+      league?: string
     }
     analysis: CompatibilityResult
   }[]
@@ -18,7 +19,7 @@ export function RankingList({ results }: RankingListProps) {
         <ClubCard
           key={result.club.id}
           clubName={result.club.name}
-          leagueName="Premier League"
+          leagueName={result.club.league || "Premier League"}
           score={result.analysis.totalScore}
           breakdown={result.analysis.breakdown}
         />

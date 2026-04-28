@@ -1,0 +1,2152 @@
+{
+  "playerID": 39536,
+  "firstName": "Giovane",
+  "lastName": "Santana do Nascimento",
+  "shortName": "Giovane",
+  "fullName": "Giovane",
+  "homeName": "",
+  "country": {
+    "name": "Brazil",
+    "id": 31
+  },
+  "currentTeam": {
+    "name": null,
+    "id": 0
+  },
+  "photo": "",
+  "additionalInfo": {
+    "height": "184 cm",
+    "weight": "84 kg",
+    "position": 4,
+    "Fantasy Value": null,
+    "birthdate": "24-11-2003  (22)"
+  },
+  "teams": [],
+  "stat": [
+    {
+      "season_name": "ITALY: Serie A 2025-26",
+      "season_id": 511,
+      "team_name": "SSC Napoli",
+      "played": 9,
+      "career_lineup": 1,
+      "career_minutes": 211,
+      "career_subsin": 8,
+      "career_subsout": 2,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 2,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Champions League 2025-26",
+      "season_id": 591,
+      "team_name": "SSC Napoli",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ITALY: Coppa Italia 2025-26",
+      "season_id": 565,
+      "team_name": "SSC Napoli",
+      "played": 1,
+      "career_lineup": 1,
+      "career_minutes": 61,
+      "career_subsin": 0,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ITALY: Serie A 2025-26",
+      "season_id": 511,
+      "team_name": "Hellas Verona",
+      "played": 21,
+      "career_lineup": 19,
+      "career_minutes": 1542,
+      "career_subsin": 2,
+      "career_subsout": 11,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 3,
+      "Assist": 4,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 3,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ITALY: Coppa Italia 2025-26",
+      "season_id": 565,
+      "team_name": "Hellas Verona",
+      "played": 2,
+      "career_lineup": 1,
+      "career_minutes": 90,
+      "career_subsin": 1,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 1,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "BRAZIL: Série A 2025",
+      "season_id": 485,
+      "team_name": "Sport Club Corinthians Paulista",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "BRAZIL: Copa do Brasil 2024",
+      "season_id": 436,
+      "team_name": "Sport Club Corinthians Paulista",
+      "played": 5,
+      "career_lineup": 0,
+      "career_minutes": 118,
+      "career_subsin": 5,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 1,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "BRAZIL: Série A 2024",
+      "season_id": 334,
+      "team_name": "Sport Club Corinthians Paulista",
+      "played": 11,
+      "career_lineup": 1,
+      "career_minutes": 265,
+      "career_subsin": 10,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 0,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "CONMEBOL Copa Sudamericana 2024",
+      "season_id": 337,
+      "team_name": "Sport Club Corinthians Paulista",
+      "played": 3,
+      "career_lineup": 2,
+      "career_minutes": 129,
+      "career_subsin": 1,
+      "career_subsout": 2,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 0,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "CONMEBOL Copa Sudamericana 2023",
+      "season_id": 241,
+      "team_name": "Sport Club Corinthians Paulista",
+      "played": 1,
+      "career_lineup": 0,
+      "career_minutes": 50,
+      "career_subsin": 1,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "BRAZIL: Série A 2023",
+      "season_id": 238,
+      "team_name": "Sport Club Corinthians Paulista",
+      "played": 5,
+      "career_lineup": 1,
+      "career_minutes": 130,
+      "career_subsin": 4,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "CONMEBOL Copa Libertadores 2023",
+      "season_id": 242,
+      "team_name": "Sport Club Corinthians Paulista",
+      "played": 1,
+      "career_lineup": 0,
+      "career_minutes": 11,
+      "career_subsin": 1,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "CONMEBOL Copa Libertadores 2022",
+      "season_id": 153,
+      "team_name": "Sport Club Corinthians Paulista",
+      "played": 2,
+      "career_lineup": 0,
+      "career_minutes": 66,
+      "career_subsin": 2,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "BRAZIL: Série A 2022",
+      "season_id": 152,
+      "team_name": "Sport Club Corinthians Paulista",
+      "played": 10,
+      "career_lineup": 2,
+      "career_minutes": 292,
+      "career_subsin": 8,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    }
+  ],
+  "matches": [
+    {
+      "matchID": 119472,
+      "matchDate": "2026-04-24",
+      "matchTime": "18:45",
+      "minutes_played": 29,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 103,
+        "score": 4,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "awayParticipant": {
+        "participantID": 927,
+        "score": 0,
+        "participantName": "US Cremonese",
+        "teamShortName": "USC",
+        "teamMiddleName": "Cremonese",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154627162904.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119461,
+      "matchDate": "2026-04-18",
+      "matchTime": "16:00",
+      "minutes_played": 27,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 103,
+        "score": 0,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "awayParticipant": {
+        "participantID": 92,
+        "score": 2,
+        "participantName": "SS Lazio",
+        "teamShortName": "LAZ",
+        "teamMiddleName": "Lazio",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782801749.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119441,
+      "matchDate": "2026-04-06",
+      "matchTime": "18:45",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 103,
+        "score": 1,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "awayParticipant": {
+        "participantID": 96,
+        "score": 0,
+        "participantName": "AC Milan",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Milan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377363579.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119420,
+      "matchDate": "2026-03-14",
+      "matchTime": "17:00",
+      "minutes_played": 5,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 103,
+        "score": 2,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119405,
+      "matchDate": "2026-02-28",
+      "matchTime": "17:00",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 1,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 103,
+        "score": 2,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "90+6"
+        }
+      ]
+    },
+    {
+      "matchID": 119388,
+      "matchDate": "2026-02-22",
+      "matchTime": "14:00",
+      "minutes_played": 20,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 106,
+        "score": 2,
+        "participantName": "Atalanta BC",
+        "teamShortName": "ATT",
+        "teamMiddleName": "Atalanta",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377146485.webp"
+      },
+      "awayParticipant": {
+        "participantID": 103,
+        "score": 1,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119381,
+      "matchDate": "2026-02-15",
+      "matchTime": "19:45",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 103,
+        "score": 2,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "awayParticipant": {
+        "participantID": 91,
+        "score": 2,
+        "participantName": "AS Roma",
+        "teamShortName": "ROM",
+        "teamMiddleName": "Roma",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567965862643.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "82"
+        }
+      ]
+    },
+    {
+      "matchID": 142562,
+      "matchDate": "2026-02-10",
+      "matchTime": "20:00",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 103,
+        "score": 1,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "awayParticipant": {
+        "participantID": 1003,
+        "score": 1,
+        "participantName": "Como 1907",
+        "teamShortName": "COM",
+        "teamMiddleName": "Como",
+        "logo": "https://api.statorium.com/media/bearleague/bl16272907302607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119371,
+      "matchDate": "2026-02-07",
+      "matchTime": "17:00",
+      "minutes_played": 31,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 94,
+        "score": 2,
+        "participantName": "Genoa CFC",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Genoa",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201872692357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 103,
+        "score": 3,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119361,
+      "matchDate": "2026-01-31",
+      "matchTime": "17:00",
+      "minutes_played": 6,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 103,
+        "score": 2,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "awayParticipant": {
+        "participantID": 95,
+        "score": 1,
+        "participantName": "ACF Fiorentina",
+        "teamShortName": "FIO",
+        "teamMiddleName": "Fiorentina",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773081536.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119339,
+      "matchDate": "2026-01-19",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 927,
+        "score": 0,
+        "participantName": "US Cremonese",
+        "teamShortName": "USC",
+        "teamMiddleName": "Cremonese",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154627162904.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119295,
+      "matchDate": "2026-01-15",
+      "matchTime": "17:30",
+      "minutes_played": 38,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 2,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 110,
+        "score": 3,
+        "participantName": "Bologna FC 1909",
+        "teamShortName": "BGN",
+        "teamMiddleName": "Bologna",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777411468.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119335,
+      "matchDate": "2026-01-11",
+      "matchTime": "17:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 92,
+        "score": 1,
+        "participantName": "SS Lazio",
+        "teamShortName": "LAZ",
+        "teamMiddleName": "Lazio",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782801749.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119321,
+      "matchDate": "2026-01-07",
+      "matchTime": "17:30",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 103,
+        "score": 2,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 2,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119315,
+      "matchDate": "2026-01-04",
+      "matchTime": "17:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 104,
+        "score": 3,
+        "participantName": "Torino FC",
+        "teamShortName": "TOR",
+        "teamMiddleName": "Torino",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782381717.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119296,
+      "matchDate": "2025-12-28",
+      "matchTime": "11:30",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 96,
+        "score": 3,
+        "participantName": "AC Milan",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Milan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377363579.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119280,
+      "matchDate": "2025-12-14",
+      "matchTime": "14:00",
+      "minutes_played": 35,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 95,
+        "score": 1,
+        "participantName": "ACF Fiorentina",
+        "teamShortName": "FIO",
+        "teamMiddleName": "Fiorentina",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773081536.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 2,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119275,
+      "matchDate": "2025-12-06",
+      "matchTime": "19:45",
+      "minutes_played": 88,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 3,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 106,
+        "score": 1,
+        "participantName": "Atalanta BC",
+        "teamShortName": "ATT",
+        "teamMiddleName": "Atalanta",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377146485.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "71"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "36"
+        }
+      ]
+    },
+    {
+      "matchID": 119261,
+      "matchDate": "2025-11-29",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 94,
+        "score": 2,
+        "participantName": "Genoa CFC",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Genoa",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201872692357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 1,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119255,
+      "matchDate": "2025-11-23",
+      "matchTime": "11:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 1,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "42"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "65"
+        }
+      ]
+    },
+    {
+      "matchID": 119243,
+      "matchDate": "2025-11-08",
+      "matchTime": "14:00",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119235,
+      "matchDate": "2025-11-02",
+      "matchTime": "11:30",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 1,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 108,
+        "score": 2,
+        "participantName": "Inter Milan",
+        "teamShortName": "INT",
+        "teamMiddleName": "Inter",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163783271113.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "40"
+        }
+      ]
+    },
+    {
+      "matchID": 119220,
+      "matchDate": "2025-10-29",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1003,
+        "score": 3,
+        "participantName": "Como 1907",
+        "teamShortName": "COM",
+        "teamMiddleName": "Como",
+        "logo": "https://api.statorium.com/media/bearleague/bl16272907302607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 1,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119215,
+      "matchDate": "2025-10-26",
+      "matchTime": "14:00",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 2,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 102,
+        "score": 2,
+        "participantName": "Cagliari Calcio",
+        "teamShortName": "CAG",
+        "teamMiddleName": "Cagliari",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777181301.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "23"
+        },
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "59"
+        }
+      ]
+    },
+    {
+      "matchID": 119204,
+      "matchDate": "2025-10-18",
+      "matchTime": "13:00",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 923,
+        "score": 0,
+        "participantName": "AC Pisa 1909",
+        "teamShortName": "PIS",
+        "teamMiddleName": "Pisa",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154625241078.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119195,
+      "matchDate": "2025-10-03",
+      "matchTime": "18:45",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 107,
+        "score": 1,
+        "participantName": "US Sassuolo",
+        "teamShortName": "SAS",
+        "teamMiddleName": "Sassuolo",
+        "logo": "https://api.statorium.com/media/bearleague/bl17494658581338.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119177,
+      "matchDate": "2025-09-28",
+      "matchTime": "13:00",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 91,
+        "score": 2,
+        "participantName": "AS Roma",
+        "teamShortName": "ROM",
+        "teamMiddleName": "Roma",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567965862643.png"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 133884,
+      "matchDate": "2025-09-24",
+      "matchTime": "16:30",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 921,
+        "score": 0,
+        "participantName": "Venezia FC",
+        "teamShortName": "VEN",
+        "teamMiddleName": "Venezia",
+        "logo": "https://api.statorium.com/media/bearleague/bl17527585112243.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 21,
+          "eventName": "Penalty shootout scored",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "matchID": 119175,
+      "matchDate": "2025-09-20",
+      "matchTime": "16:00",
+      "minutes_played": 63,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 1,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 105,
+        "score": 1,
+        "participantName": "Juventus FC",
+        "teamShortName": "JUV",
+        "teamMiddleName": "Juventus",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716378301636.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119165,
+      "matchDate": "2025-09-15",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 927,
+        "score": 0,
+        "participantName": "US Cremonese",
+        "teamShortName": "USC",
+        "teamMiddleName": "Cremonese",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154627162904.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "45+2"
+        }
+      ]
+    },
+    {
+      "matchID": 119150,
+      "matchDate": "2025-08-31",
+      "matchTime": "18:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 92,
+        "score": 4,
+        "participantName": "SS Lazio",
+        "teamShortName": "LAZ",
+        "teamMiddleName": "Lazio",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782801749.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119145,
+      "matchDate": "2025-08-25",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 97,
+        "score": 1,
+        "participantName": "Udinese Calcio",
+        "teamShortName": "UDI",
+        "teamMiddleName": "Udinese",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377997384.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 1,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "73"
+        }
+      ]
+    },
+    {
+      "matchID": 133879,
+      "matchDate": "2025-08-18",
+      "matchTime": "16:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 2512,
+        "score": 1,
+        "participantName": "SS Audace Cerignola",
+        "teamShortName": "CER",
+        "teamMiddleName": "Audace Cerignola",
+        "logo": "https://api.statorium.com/media/bearleague/bl17048219572969.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 1,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 103122,
+      "matchDate": "2024-10-20",
+      "matchTime": "19:00",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 202,
+        "score": 0,
+        "participantName": "Clube de Regatas do Flamengo",
+        "teamShortName": "FLA",
+        "teamMiddleName": "Flamengo",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698377582794.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 103114,
+      "matchDate": "2024-09-12",
+      "matchTime": "00:00",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 3,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 934,
+        "score": 1,
+        "participantName": "Esporte Clube Juventude",
+        "teamShortName": "JUV",
+        "teamMiddleName": "Juventude",
+        "logo": "https://api.statorium.com/media/bearleague/bl17105508431519.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 78533,
+      "matchDate": "2024-08-25",
+      "matchTime": "19:00",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 204,
+        "score": 1,
+        "participantName": "Fortaleza Esporte Clube",
+        "teamShortName": "FOR",
+        "teamMiddleName": "Fortaleza",
+        "logo": "https://api.statorium.com/media/bearleague/bl16444906052490.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 93068,
+      "matchDate": "2024-08-21",
+      "matchTime": "00:30",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 1,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 566,
+        "score": 2,
+        "participantName": "Red Bull Bragantino",
+        "teamShortName": "RBB",
+        "teamMiddleName": "Bragantino",
+        "logo": "https://api.statorium.com/media/bearleague/bl15955125491333.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "26"
+        }
+      ]
+    },
+    {
+      "matchID": 78524,
+      "matchDate": "2024-08-18",
+      "matchTime": "00:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 203,
+        "score": 0,
+        "participantName": "Fluminense FC",
+        "teamShortName": "FLU",
+        "teamMiddleName": "Fluminense",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698377832604.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 93060,
+      "matchDate": "2024-08-14",
+      "matchTime": "00:30",
+      "minutes_played": 62,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 566,
+        "score": 1,
+        "participantName": "Red Bull Bragantino",
+        "teamShortName": "RBB",
+        "teamMiddleName": "Bragantino",
+        "logo": "https://api.statorium.com/media/bearleague/bl15955125491333.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 2,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "6"
+        }
+      ]
+    },
+    {
+      "matchID": 78509,
+      "matchDate": "2024-08-11",
+      "matchTime": "00:30",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 1,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 566,
+        "score": 1,
+        "participantName": "Red Bull Bragantino",
+        "teamShortName": "RBB",
+        "teamMiddleName": "Bragantino",
+        "logo": "https://api.statorium.com/media/bearleague/bl15955125491333.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 103097,
+      "matchDate": "2024-08-08",
+      "matchTime": "00:30",
+      "minutes_played": 14,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 206,
+        "score": 0,
+        "participantName": "Grêmio Foot-Ball Porto Alegrense",
+        "teamShortName": "GRÊ",
+        "teamMiddleName": "Grêmio",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698380412788.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 21,
+          "eventName": "Penalty shootout scored",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "matchID": 78500,
+      "matchDate": "2024-08-04",
+      "matchTime": "19:00",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 1,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 934,
+        "score": 1,
+        "participantName": "Esporte Clube Juventude",
+        "teamShortName": "JUV",
+        "teamMiddleName": "Juventude",
+        "logo": "https://api.statorium.com/media/bearleague/bl17105508431519.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 103105,
+      "matchDate": "2024-08-01",
+      "matchTime": "00:30",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 206,
+        "score": 0,
+        "participantName": "Grêmio Foot-Ball Porto Alegrense",
+        "teamShortName": "GRÊ",
+        "teamMiddleName": "Grêmio",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698380412788.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 78469,
+      "matchDate": "2024-07-21",
+      "matchTime": "19:00",
+      "minutes_played": 19,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 214,
+        "score": 0,
+        "participantName": "Esporte Clube Bahia",
+        "teamShortName": "ECB",
+        "teamMiddleName": "Bahia",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675233812728.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 1,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 78456,
+      "matchDate": "2024-07-10",
+      "matchTime": "22:00",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 211,
+        "score": 2,
+        "participantName": "CR Vasco da Gama",
+        "teamShortName": "VAS",
+        "teamMiddleName": "Vasco da Gama",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675233112512.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "83"
+        }
+      ]
+    },
+    {
+      "matchID": 78440,
+      "matchDate": "2024-07-07",
+      "matchTime": "19:00",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 200,
+        "score": 3,
+        "participantName": "Cruzeiro Esporte Clube",
+        "teamShortName": "CRU",
+        "teamMiddleName": "Cruzeiro",
+        "logo": "https://api.statorium.com/media/bearleague/bl167678025224.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 78432,
+      "matchDate": "2024-07-04",
+      "matchTime": "23:00",
+      "minutes_played": 7,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 3,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 2605,
+        "score": 2,
+        "participantName": "Esporte Clube Vitória",
+        "teamShortName": "VIT",
+        "teamMiddleName": "Vitória",
+        "logo": "https://api.statorium.com/media/bearleague/bl17105498882847.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+6"
+        }
+      ]
+    },
+    {
+      "matchID": 78369,
+      "matchDate": "2024-06-11",
+      "matchTime": "22:00",
+      "minutes_played": 20,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 565,
+        "score": 2,
+        "participantName": "Atlético Clube Goianiense",
+        "teamShortName": "ACG",
+        "teamMiddleName": "Atlético Goianiense",
+        "logo": "https://api.statorium.com/media/bearleague/bl15955124491224.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 2,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 78341,
+      "matchDate": "2024-05-05",
+      "matchTime": "00:00",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 204,
+        "score": 0,
+        "participantName": "Fortaleza Esporte Clube",
+        "teamShortName": "FOR",
+        "teamMiddleName": "Fortaleza",
+        "logo": "https://api.statorium.com/media/bearleague/bl16444906052490.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 103086,
+      "matchDate": "2024-05-01",
+      "matchTime": "23:00",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 3101,
+        "score": 1,
+        "participantName": "América Futebol Clube (RN)",
+        "teamShortName": "AMÉ",
+        "teamMiddleName": "América de Natal",
+        "logo": "https://api.statorium.com/media/bearleague/bl17290777462784.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 2,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 54872,
+      "matchDate": "2023-12-07",
+      "matchTime": "00:30",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 567,
+        "score": 0,
+        "participantName": "Coritiba Foot Ball Club",
+        "teamShortName": "CFC",
+        "teamMiddleName": "Coritiba",
+        "logo": "https://api.statorium.com/media/bearleague/bl15955127011593.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 2,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 54866,
+      "matchDate": "2023-12-02",
+      "matchTime": "21:00",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 1,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 207,
+        "score": 2,
+        "participantName": "Sport Club Internacional",
+        "teamShortName": "INT",
+        "teamMiddleName": "Internacional",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675228942815.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 54860,
+      "matchDate": "2023-11-29",
+      "matchTime": "00:30",
+      "minutes_played": 9,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 211,
+        "score": 2,
+        "participantName": "CR Vasco da Gama",
+        "teamShortName": "VAS",
+        "teamMiddleName": "Vasco da Gama",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675233112512.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 4,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+4"
+        }
+      ]
+    },
+    {
+      "matchID": 54693,
+      "matchDate": "2023-08-20",
+      "matchTime": "00:00",
+      "minutes_played": 32,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 200,
+        "score": 1,
+        "participantName": "Cruzeiro Esporte Clube",
+        "teamShortName": "CRU",
+        "teamMiddleName": "Cruzeiro",
+        "logo": "https://api.statorium.com/media/bearleague/bl167678025224.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 1,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 62908,
+      "matchDate": "2023-07-12",
+      "matchTime": "00:30",
+      "minutes_played": 50,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 1,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 948,
+        "score": 0,
+        "participantName": "Club Universitario de Deportes",
+        "teamShortName": "UNI",
+        "teamMiddleName": "Universitario",
+        "logo": "https://api.statorium.com/media/bearleague/bl16188326582119.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 56155,
+      "matchDate": "2023-06-29",
+      "matchTime": "00:30",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 3,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1870,
+        "score": 0,
+        "participantName": "Liverpool FC (Montevideo)",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool UY",
+        "logo": "https://api.statorium.com/media/bearleague/bl1680211542976.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 54528,
+      "matchDate": "2023-04-29",
+      "matchTime": "21:30",
+      "minutes_played": 21,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 208,
+        "score": 2,
+        "participantName": "Sociedade Esportiva Palmeiras",
+        "teamShortName": "PAL",
+        "teamMiddleName": "Palmeiras",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675230561966.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 1,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 36872,
+      "matchDate": "2022-11-13",
+      "matchTime": "19:00",
+      "minutes_played": 18,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 212,
+        "score": 1,
+        "participantName": "Clube Atlético Mineiro",
+        "teamShortName": "CAM",
+        "teamMiddleName": "Atlético Mineiro",
+        "logo": "https://api.statorium.com/media/bearleague/bl1569838235881.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 36815,
+      "matchDate": "2022-10-29",
+      "matchTime": "22:30",
+      "minutes_played": 9,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 205,
+        "score": 0,
+        "participantName": "Goiás Esporte Clube",
+        "teamShortName": "GOI",
+        "teamMiddleName": "Goiás",
+        "logo": "https://api.statorium.com/media/bearleague/bl16444899611880.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 36831,
+      "matchDate": "2022-10-27",
+      "matchTime": "00:45",
+      "minutes_played": 17,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 203,
+        "score": 2,
+        "participantName": "Fluminense FC",
+        "teamShortName": "FLU",
+        "teamMiddleName": "Fluminense",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698377832604.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 47562,
+      "matchDate": "2022-08-03",
+      "matchTime": "00:30",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 202,
+        "score": 2,
+        "participantName": "Clube de Regatas do Flamengo",
+        "teamShortName": "FLA",
+        "teamMiddleName": "Flamengo",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698377582794.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 36692,
+      "matchDate": "2022-07-30",
+      "matchTime": "22:00",
+      "minutes_played": 60,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 1,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 215,
+        "score": 0,
+        "participantName": "Botafogo de Futebol e Regatas",
+        "teamShortName": "BOT",
+        "teamMiddleName": "Botafogo",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698392232849.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 36679,
+      "matchDate": "2022-07-24",
+      "matchTime": "21:00",
+      "minutes_played": 13,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 212,
+        "score": 1,
+        "participantName": "Clube Atlético Mineiro",
+        "teamShortName": "CAM",
+        "teamMiddleName": "Atlético Mineiro",
+        "logo": "https://api.statorium.com/media/bearleague/bl1569838235881.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 2,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 36663,
+      "matchDate": "2022-07-17",
+      "matchTime": "00:00",
+      "minutes_played": 33,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 197,
+        "score": 3,
+        "participantName": "Ceará Sporting Club",
+        "teamShortName": "CEA",
+        "teamMiddleName": "Ceará",
+        "logo": "https://api.statorium.com/media/bearleague/bl1569837334339.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 1,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "71"
+        }
+      ]
+    },
+    {
+      "matchID": 36650,
+      "matchDate": "2022-07-10",
+      "matchTime": "19:00",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 1,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 202,
+        "score": 0,
+        "participantName": "Clube de Regatas do Flamengo",
+        "teamShortName": "FLA",
+        "teamMiddleName": "Flamengo",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698377582794.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "81"
+        }
+      ]
+    },
+    {
+      "matchID": 38548,
+      "matchDate": "2022-07-06",
+      "matchTime": "00:30",
+      "minutes_played": 40,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 413,
+        "score": 0,
+        "participantName": "Club Atlético Boca Juniors",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Boca Juniors",
+        "logo": "https://api.statorium.com/media/bearleague/bl15786518502272.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 36644,
+      "matchDate": "2022-07-02",
+      "matchTime": "19:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 203,
+        "score": 4,
+        "participantName": "Fluminense FC",
+        "teamShortName": "FLU",
+        "teamMiddleName": "Fluminense",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698377832604.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 0,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 36512,
+      "matchDate": "2022-04-16",
+      "matchTime": "22:00",
+      "minutes_played": 8,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 199,
+        "score": 3,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 213,
+        "score": 0,
+        "participantName": "Avaí FC",
+        "teamShortName": "AFC",
+        "teamMiddleName": "Avaí",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698382541018.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 36501,
+      "matchDate": "2022-04-10",
+      "matchTime": "19:00",
+      "minutes_played": 34,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 215,
+        "score": 1,
+        "participantName": "Botafogo de Futebol e Regatas",
+        "teamShortName": "BOT",
+        "teamMiddleName": "Botafogo",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698392232849.webp"
+      },
+      "awayParticipant": {
+        "participantID": 199,
+        "score": 3,
+        "participantName": "Sport Club Corinthians Paulista",
+        "teamShortName": "COR",
+        "teamMiddleName": "Corinthians",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698376492607.webp"
+      },
+      "playerEvents": []
+    }
+  ]
+}

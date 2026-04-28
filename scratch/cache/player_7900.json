@@ -1,0 +1,3622 @@
+{
+  "playerID": 7900,
+  "firstName": "Lameck",
+  "lastName": "Banda",
+  "shortName": "L. Banda",
+  "fullName": "Lameck Banda",
+  "homeName": "",
+  "country": {
+    "name": "Zambia",
+    "id": 245
+  },
+  "currentTeam": {
+    "name": null,
+    "id": 0
+  },
+  "photo": "https://api.statorium.com/media/bearleague/bl1573026118431.webp",
+  "additionalInfo": {
+    "height": "169 cm",
+    "weight": "69 kg",
+    "position": 4,
+    "Fantasy Value": null,
+    "birthdate": "29-01-2001  (25)"
+  },
+  "teams": [],
+  "stat": [
+    {
+      "season_name": "CAF Africa Cup of Nations 2025",
+      "season_id": 484,
+      "team_name": "Zambia",
+      "played": 3,
+      "career_lineup": 2,
+      "career_minutes": 204,
+      "career_subsin": 1,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ITALY: Serie A 2025-26",
+      "season_id": 511,
+      "team_name": "US Lecce",
+      "played": 28,
+      "career_lineup": 17,
+      "career_minutes": 1485,
+      "career_subsin": 11,
+      "career_subsout": 14,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 3,
+      "Assist": 3,
+      "Yellow card": 6,
+      "Second yellow": 0,
+      "Red card": 1,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 3,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ITALY: Coppa Italia 2025-26",
+      "season_id": 565,
+      "team_name": "US Lecce",
+      "played": 1,
+      "career_lineup": 1,
+      "career_minutes": 45,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 1,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ITALY: Coppa Italia 2024-25",
+      "season_id": 390,
+      "team_name": "US Lecce",
+      "played": 2,
+      "career_lineup": 1,
+      "career_minutes": 76,
+      "career_subsin": 1,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 1,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ITALY: Serie A 2024-25",
+      "season_id": 387,
+      "team_name": "US Lecce",
+      "played": 15,
+      "career_lineup": 6,
+      "career_minutes": 607,
+      "career_subsin": 9,
+      "career_subsout": 6,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 1,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "CAF Africa Cup of Nations 2023",
+      "season_id": 158,
+      "team_name": "Zambia",
+      "played": 3,
+      "career_lineup": 2,
+      "career_minutes": 191,
+      "career_subsin": 1,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FIFA World Cup Qualification 2026 CAF",
+      "season_id": 231,
+      "team_name": "Zambia",
+      "played": 5,
+      "career_lineup": 4,
+      "career_minutes": 356,
+      "career_subsin": 1,
+      "career_subsout": 3,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 1,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ITALY: Serie A 2023-24",
+      "season_id": 280,
+      "team_name": "US Lecce",
+      "played": 21,
+      "career_lineup": 17,
+      "career_minutes": 1362,
+      "career_subsin": 4,
+      "career_subsout": 14,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 2,
+      "Assist": 4,
+      "Yellow card": 5,
+      "Second yellow": 0,
+      "Red card": 1,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 2,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ITALY: Coppa Italia 2023-24",
+      "season_id": 301,
+      "team_name": "US Lecce",
+      "played": 2,
+      "career_lineup": 1,
+      "career_minutes": 100,
+      "career_subsin": 1,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 1,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ITALY: Serie A 2022-23",
+      "season_id": 161,
+      "team_name": "US Lecce",
+      "played": 36,
+      "career_lineup": 19,
+      "career_minutes": 1636,
+      "career_subsin": 17,
+      "career_subsout": 16,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 2,
+      "Assist": 1,
+      "Yellow card": 6,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 2,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "RUSSIA: Premier League 2021-22",
+      "season_id": 103,
+      "team_name": "FC Arsenal Tula",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "RUSSIA: Premier League 2020-21",
+      "season_id": 64,
+      "team_name": "FC Arsenal Tula",
+      "played": 2,
+      "career_lineup": 0,
+      "career_minutes": 36,
+      "career_subsin": 2,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "RUSSIA: Premier League 2019-20",
+      "season_id": 32,
+      "team_name": "FC Arsenal Tula",
+      "played": 9,
+      "career_lineup": 1,
+      "career_minutes": 138,
+      "career_subsin": 8,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 1,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    }
+  ],
+  "matches": [
+    {
+      "matchID": 119475,
+      "matchDate": "2026-04-25",
+      "matchTime": "18:45",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119460,
+      "matchDate": "2026-04-20",
+      "matchTime": "18:45",
+      "minutes_played": 34,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 95,
+        "score": 1,
+        "participantName": "ACF Fiorentina",
+        "teamShortName": "FIO",
+        "teamMiddleName": "Fiorentina",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773081536.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119449,
+      "matchDate": "2026-04-12",
+      "matchTime": "16:00",
+      "minutes_played": 64,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 110,
+        "score": 2,
+        "participantName": "Bologna FC 1909",
+        "teamShortName": "BGN",
+        "teamMiddleName": "Bologna",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777411468.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119440,
+      "matchDate": "2026-04-06",
+      "matchTime": "13:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 106,
+        "score": 3,
+        "participantName": "Atalanta BC",
+        "teamShortName": "ATT",
+        "teamMiddleName": "Atalanta",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377146485.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119427,
+      "matchDate": "2026-03-22",
+      "matchTime": "17:00",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 91,
+        "score": 1,
+        "participantName": "AS Roma",
+        "teamShortName": "ROM",
+        "teamMiddleName": "Roma",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567965862643.png"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119420,
+      "matchDate": "2026-03-14",
+      "matchTime": "17:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 103,
+        "score": 2,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119414,
+      "matchDate": "2026-03-08",
+      "matchTime": "11:30",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 927,
+        "score": 1,
+        "participantName": "US Cremonese",
+        "teamShortName": "USC",
+        "teamMiddleName": "Cremonese",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154627162904.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119397,
+      "matchDate": "2026-02-28",
+      "matchTime": "14:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1003,
+        "score": 3,
+        "participantName": "Como 1907",
+        "teamShortName": "COM",
+        "teamMiddleName": "Como",
+        "logo": "https://api.statorium.com/media/bearleague/bl16272907302607.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "13"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "70"
+        }
+      ]
+    },
+    {
+      "matchID": 119394,
+      "matchDate": "2026-02-21",
+      "matchTime": "17:00",
+      "minutes_played": 30,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 108,
+        "score": 2,
+        "participantName": "Inter Milan",
+        "teamShortName": "INT",
+        "teamMiddleName": "Inter",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163783271113.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119373,
+      "matchDate": "2026-02-08",
+      "matchTime": "14:00",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 97,
+        "score": 1,
+        "participantName": "Udinese Calcio",
+        "teamShortName": "UDI",
+        "teamMiddleName": "Udinese",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377997384.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "83"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90"
+        }
+      ]
+    },
+    {
+      "matchID": 119364,
+      "matchDate": "2026-02-01",
+      "matchTime": "11:30",
+      "minutes_played": 25,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 104,
+        "score": 1,
+        "participantName": "Torino FC",
+        "teamShortName": "TOR",
+        "teamMiddleName": "Torino",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782381717.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119353,
+      "matchDate": "2026-01-24",
+      "matchTime": "19:45",
+      "minutes_played": 64,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 92,
+        "score": 0,
+        "participantName": "SS Lazio",
+        "teamShortName": "LAZ",
+        "teamMiddleName": "Lazio",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782801749.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119336,
+      "matchDate": "2026-01-18",
+      "matchTime": "19:45",
+      "minutes_played": 36,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 96,
+        "score": 1,
+        "participantName": "AC Milan",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Milan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377363579.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119333,
+      "matchDate": "2026-01-11",
+      "matchTime": "11:30",
+      "minutes_played": 57,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "1"
+        },
+        {
+          "eventID": 7,
+          "eventName": "Red card",
+          "minutes": "57"
+        }
+      ]
+    },
+    {
+      "matchID": 119320,
+      "matchDate": "2026-01-06",
+      "matchTime": "17:00",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 91,
+        "score": 2,
+        "participantName": "AS Roma",
+        "teamShortName": "ROM",
+        "teamMiddleName": "Roma",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567965862643.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "5"
+        }
+      ]
+    },
+    {
+      "matchID": 119312,
+      "matchDate": "2026-01-03",
+      "matchTime": "17:00",
+      "minutes_played": 81,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 105,
+        "score": 1,
+        "participantName": "Juventus FC",
+        "teamShortName": "JUV",
+        "teamMiddleName": "Juventus",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716378301636.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "45+2"
+        }
+      ]
+    },
+    {
+      "matchID": 111907,
+      "matchDate": "2025-12-29",
+      "matchTime": "19:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1047,
+        "score": 0,
+        "participantName": "Zambia",
+        "teamShortName": "ZAM",
+        "teamMiddleName": "Zambia",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324025972481.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1071,
+        "score": 3,
+        "participantName": "Morocco",
+        "teamShortName": "MAR",
+        "teamMiddleName": "Morocco",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324024822592.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 111896,
+      "matchDate": "2025-12-26",
+      "matchTime": "17:30",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1047,
+        "score": 0,
+        "participantName": "Zambia",
+        "teamShortName": "ZAM",
+        "teamMiddleName": "Zambia",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324025972481.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1164,
+        "score": 0,
+        "participantName": "Comoros",
+        "teamShortName": "COM",
+        "teamMiddleName": "Comoros",
+        "logo": "https://api.statorium.com/media/bearleague/bl16394733471058.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 111885,
+      "matchDate": "2025-12-22",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1058,
+        "score": 1,
+        "participantName": "Mali",
+        "teamShortName": "MLI",
+        "teamMiddleName": "Mali",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324024661203.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1047,
+        "score": 1,
+        "participantName": "Zambia",
+        "teamShortName": "ZAM",
+        "teamMiddleName": "Zambia",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324025972481.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119282,
+      "matchDate": "2025-12-12",
+      "matchTime": "19:45",
+      "minutes_played": 24,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 923,
+        "score": 0,
+        "participantName": "AC Pisa 1909",
+        "teamShortName": "PIS",
+        "teamMiddleName": "Pisa",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154625241078.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "72"
+        }
+      ]
+    },
+    {
+      "matchID": 119267,
+      "matchDate": "2025-12-07",
+      "matchTime": "11:30",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 927,
+        "score": 2,
+        "participantName": "US Cremonese",
+        "teamShortName": "USC",
+        "teamMiddleName": "Cremonese",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154627162904.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "45+3"
+        }
+      ]
+    },
+    {
+      "matchID": 119263,
+      "matchDate": "2025-11-30",
+      "matchTime": "11:30",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 104,
+        "score": 1,
+        "participantName": "Torino FC",
+        "teamShortName": "TOR",
+        "teamMiddleName": "Torino",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782381717.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "22"
+        }
+      ]
+    },
+    {
+      "matchID": 119250,
+      "matchDate": "2025-11-23",
+      "matchTime": "17:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 92,
+        "score": 2,
+        "participantName": "SS Lazio",
+        "teamShortName": "LAZ",
+        "teamMiddleName": "Lazio",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782801749.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119243,
+      "matchDate": "2025-11-08",
+      "matchTime": "14:00",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119228,
+      "matchDate": "2025-11-02",
+      "matchTime": "14:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 95,
+        "score": 0,
+        "participantName": "ACF Fiorentina",
+        "teamShortName": "FIO",
+        "teamMiddleName": "Fiorentina",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773081536.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119224,
+      "matchDate": "2025-10-28",
+      "matchTime": "17:30",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 103,
+        "score": 1,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119214,
+      "matchDate": "2025-10-25",
+      "matchTime": "13:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 97,
+        "score": 3,
+        "participantName": "Udinese Calcio",
+        "teamShortName": "UDI",
+        "teamMiddleName": "Udinese",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377997384.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119203,
+      "matchDate": "2025-10-18",
+      "matchTime": "13:00",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 107,
+        "score": 0,
+        "participantName": "US Sassuolo",
+        "teamShortName": "SAS",
+        "teamMiddleName": "Sassuolo",
+        "logo": "https://api.statorium.com/media/bearleague/bl17494658581338.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 72242,
+      "matchDate": "2025-10-12",
+      "matchTime": "13:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1047,
+        "score": 0,
+        "participantName": "Zambia",
+        "teamShortName": "ZAM",
+        "teamMiddleName": "Zambia",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324025972481.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1044,
+        "score": 1,
+        "participantName": "Niger",
+        "teamShortName": "NIG",
+        "teamMiddleName": "Niger",
+        "logo": "https://api.statorium.com/media/bearleague/bl1632402510298.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 72215,
+      "matchDate": "2025-10-08",
+      "matchTime": "19:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1074,
+        "score": 0,
+        "participantName": "Tanzania",
+        "teamShortName": "TAN",
+        "teamMiddleName": "Tanzania",
+        "logo": "https://api.statorium.com/media/bearleague/bl1632402565360.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1047,
+        "score": 1,
+        "participantName": "Zambia",
+        "teamShortName": "ZAM",
+        "teamMiddleName": "Zambia",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324025972481.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119193,
+      "matchDate": "2025-10-04",
+      "matchTime": "13:00",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "90+2"
+        }
+      ]
+    },
+    {
+      "matchID": 119182,
+      "matchDate": "2025-09-28",
+      "matchTime": "16:00",
+      "minutes_played": 13,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 110,
+        "score": 2,
+        "participantName": "Bologna FC 1909",
+        "teamShortName": "BGN",
+        "teamMiddleName": "Bologna",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777411468.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 72191,
+      "matchDate": "2025-09-08",
+      "matchTime": "13:00",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1047,
+        "score": 0,
+        "participantName": "Zambia",
+        "teamShortName": "ZAM",
+        "teamMiddleName": "Zambia",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324025972481.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1071,
+        "score": 2,
+        "participantName": "Morocco",
+        "teamShortName": "MAR",
+        "teamMiddleName": "Morocco",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324024822592.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "64"
+        }
+      ]
+    },
+    {
+      "matchID": 119141,
+      "matchDate": "2025-08-23",
+      "matchTime": "16:30",
+      "minutes_played": 59,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 94,
+        "score": 0,
+        "participantName": "Genoa CFC",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Genoa",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201872692357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "22"
+        }
+      ]
+    },
+    {
+      "matchID": 129837,
+      "matchDate": "2025-08-15",
+      "matchTime": "18:45",
+      "minutes_played": 45,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 2579,
+        "score": 0,
+        "participantName": "SS Juve Stabia",
+        "teamShortName": "STA",
+        "teamMiddleName": "Juve Stabia",
+        "logo": "https://api.statorium.com/media/bearleague/bl1752758839700.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 7,
+          "eventName": "Red card",
+          "minutes": "45+4"
+        }
+      ]
+    },
+    {
+      "matchID": 86342,
+      "matchDate": "2025-05-11",
+      "matchTime": "13:00",
+      "minutes_played": 35,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 1,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86309,
+      "matchDate": "2025-04-19",
+      "matchTime": "13:00",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1003,
+        "score": 3,
+        "participantName": "Como 1907",
+        "teamShortName": "COM",
+        "teamMiddleName": "Como",
+        "logo": "https://api.statorium.com/media/bearleague/bl16272907302607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86279,
+      "matchDate": "2025-03-29",
+      "matchTime": "19:45",
+      "minutes_played": 32,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 91,
+        "score": 1,
+        "participantName": "AS Roma",
+        "teamShortName": "ROM",
+        "teamMiddleName": "Roma",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567965862643.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86268,
+      "matchDate": "2025-03-14",
+      "matchTime": "19:45",
+      "minutes_played": 8,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 94,
+        "score": 2,
+        "participantName": "Genoa CFC",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Genoa",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201872692357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86259,
+      "matchDate": "2025-03-08",
+      "matchTime": "17:00",
+      "minutes_played": 8,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 96,
+        "score": 3,
+        "participantName": "AC Milan",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Milan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377363579.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86100,
+      "matchDate": "2024-11-08",
+      "matchTime": "19:45",
+      "minutes_played": 20,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 99,
+        "score": 1,
+        "participantName": "Empoli FC",
+        "teamShortName": "EMP",
+        "teamMiddleName": "Empoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377693431.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86083,
+      "matchDate": "2024-11-02",
+      "matchTime": "14:00",
+      "minutes_played": 57,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 110,
+        "score": 1,
+        "participantName": "Bologna FC 1909",
+        "teamShortName": "BGN",
+        "teamMiddleName": "Bologna",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777411468.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86081,
+      "matchDate": "2024-10-29",
+      "matchTime": "17:30",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "51"
+        }
+      ]
+    },
+    {
+      "matchID": 86069,
+      "matchDate": "2024-10-26",
+      "matchTime": "13:00",
+      "minutes_played": 69,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 103,
+        "score": 1,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86060,
+      "matchDate": "2024-10-20",
+      "matchTime": "13:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 95,
+        "score": 6,
+        "participantName": "ACF Fiorentina",
+        "teamShortName": "FIO",
+        "teamMiddleName": "Fiorentina",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773081536.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86033,
+      "matchDate": "2024-09-27",
+      "matchTime": "18:45",
+      "minutes_played": 31,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 96,
+        "score": 3,
+        "participantName": "AC Milan",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Milan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377363579.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 95346,
+      "matchDate": "2024-09-24",
+      "matchTime": "14:00",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 107,
+        "score": 2,
+        "participantName": "US Sassuolo",
+        "teamShortName": "SAS",
+        "teamMiddleName": "Sassuolo",
+        "logo": "https://api.statorium.com/media/bearleague/bl17494658581338.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86029,
+      "matchDate": "2024-09-21",
+      "matchTime": "18:45",
+      "minutes_played": 25,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86009,
+      "matchDate": "2024-08-31",
+      "matchTime": "16:30",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 102,
+        "score": 0,
+        "participantName": "Cagliari Calcio",
+        "teamShortName": "CAG",
+        "teamMiddleName": "Cagliari",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777181301.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 85996,
+      "matchDate": "2024-08-24",
+      "matchTime": "18:45",
+      "minutes_played": 64,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 108,
+        "score": 2,
+        "participantName": "Inter Milan",
+        "teamShortName": "INT",
+        "teamMiddleName": "Inter",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163783271113.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "60"
+        }
+      ]
+    },
+    {
+      "matchID": 85990,
+      "matchDate": "2024-08-19",
+      "matchTime": "16:30",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 106,
+        "score": 4,
+        "participantName": "Atalanta BC",
+        "teamShortName": "ATT",
+        "teamMiddleName": "Atalanta",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377146485.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 94579,
+      "matchDate": "2024-08-12",
+      "matchTime": "16:30",
+      "minutes_played": 30,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 2805,
+        "score": 1,
+        "participantName": "Mantova 1911",
+        "teamShortName": "MAN",
+        "teamMiddleName": "Mantova",
+        "logo": "https://api.statorium.com/media/bearleague/bl17207368201774.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "86"
+        }
+      ]
+    },
+    {
+      "matchID": 65046,
+      "matchDate": "2024-04-06",
+      "matchTime": "13:00",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 96,
+        "score": 3,
+        "participantName": "AC Milan",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Milan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377363579.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 65042,
+      "matchDate": "2024-04-01",
+      "matchTime": "16:00",
+      "minutes_played": 29,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 91,
+        "score": 0,
+        "participantName": "AS Roma",
+        "teamShortName": "ROM",
+        "teamMiddleName": "Roma",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567965862643.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 65023,
+      "matchDate": "2024-03-10",
+      "matchTime": "11:30",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 1,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "37"
+        }
+      ]
+    },
+    {
+      "matchID": 65008,
+      "matchDate": "2024-03-03",
+      "matchTime": "14:00",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 109,
+        "score": 1,
+        "participantName": "Frosinone Calcio",
+        "teamShortName": "FRO",
+        "teamMiddleName": "Frosinone",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163776721204.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 65003,
+      "matchDate": "2024-02-25",
+      "matchTime": "17:00",
+      "minutes_played": 33,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 108,
+        "score": 4,
+        "participantName": "Inter Milan",
+        "teamShortName": "INT",
+        "teamMiddleName": "Inter",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163783271113.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 64978,
+      "matchDate": "2024-02-11",
+      "matchTime": "14:00",
+      "minutes_played": 38,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 110,
+        "score": 4,
+        "participantName": "Bologna FC 1909",
+        "teamShortName": "BGN",
+        "teamMiddleName": "Bologna",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777411468.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 64972,
+      "matchDate": "2024-02-02",
+      "matchTime": "19:45",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 3,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 95,
+        "score": 2,
+        "participantName": "ACF Fiorentina",
+        "teamShortName": "FIO",
+        "teamMiddleName": "Fiorentina",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773081536.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "77"
+        }
+      ]
+    },
+    {
+      "matchID": 64960,
+      "matchDate": "2024-01-28",
+      "matchTime": "11:30",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 94,
+        "score": 2,
+        "participantName": "Genoa CFC",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Genoa",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201872692357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 72919,
+      "matchDate": "2024-01-24",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1047,
+        "score": 0,
+        "participantName": "Zambia",
+        "teamShortName": "ZAM",
+        "teamMiddleName": "Zambia",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324025972481.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1071,
+        "score": 1,
+        "participantName": "Morocco",
+        "teamShortName": "MAR",
+        "teamMiddleName": "Morocco",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324024822592.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 72907,
+      "matchDate": "2024-01-21",
+      "matchTime": "17:00",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1047,
+        "score": 1,
+        "participantName": "Zambia",
+        "teamShortName": "ZAM",
+        "teamMiddleName": "Zambia",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324025972481.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1074,
+        "score": 1,
+        "participantName": "Tanzania",
+        "teamShortName": "TAN",
+        "teamMiddleName": "Tanzania",
+        "logo": "https://api.statorium.com/media/bearleague/bl1632402565360.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "45"
+        }
+      ]
+    },
+    {
+      "matchID": 72897,
+      "matchDate": "2024-01-17",
+      "matchTime": "20:00",
+      "minutes_played": 14,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1076,
+        "score": 1,
+        "participantName": "DR Congo",
+        "teamShortName": "COD",
+        "teamMiddleName": "DR Congo",
+        "logo": "https://api.statorium.com/media/bearleague/bl1632402864267.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1047,
+        "score": 1,
+        "participantName": "Zambia",
+        "teamShortName": "ZAM",
+        "teamMiddleName": "Zambia",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324025972481.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 64910,
+      "matchDate": "2023-12-23",
+      "matchTime": "17:00",
+      "minutes_played": 84,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 108,
+        "score": 2,
+        "participantName": "Inter Milan",
+        "teamShortName": "INT",
+        "teamMiddleName": "Inter",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163783271113.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 7,
+          "eventName": "Red card",
+          "minutes": "84"
+        }
+      ]
+    },
+    {
+      "matchID": 64902,
+      "matchDate": "2023-12-16",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 109,
+        "score": 1,
+        "participantName": "Frosinone Calcio",
+        "teamShortName": "FRO",
+        "teamMiddleName": "Frosinone",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163776721204.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "11"
+        }
+      ]
+    },
+    {
+      "matchID": 64889,
+      "matchDate": "2023-12-11",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 99,
+        "score": 1,
+        "participantName": "Empoli FC",
+        "teamShortName": "EMP",
+        "teamMiddleName": "Empoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377693431.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "64"
+        }
+      ]
+    },
+    {
+      "matchID": 64880,
+      "matchDate": "2023-12-03",
+      "matchTime": "11:30",
+      "minutes_played": 63,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 110,
+        "score": 1,
+        "participantName": "Bologna FC 1909",
+        "teamShortName": "BGN",
+        "teamMiddleName": "Bologna",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777411468.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 64875,
+      "matchDate": "2023-11-27",
+      "matchTime": "17:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 2,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "24"
+        }
+      ]
+    },
+    {
+      "matchID": 72032,
+      "matchDate": "2023-11-21",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1044,
+        "score": 2,
+        "participantName": "Niger",
+        "teamShortName": "NIG",
+        "teamMiddleName": "Niger",
+        "logo": "https://api.statorium.com/media/bearleague/bl1632402510298.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1047,
+        "score": 1,
+        "participantName": "Zambia",
+        "teamShortName": "ZAM",
+        "teamMiddleName": "Zambia",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324025972481.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "90+6"
+        }
+      ]
+    },
+    {
+      "matchID": 72017,
+      "matchDate": "2023-11-17",
+      "matchTime": "16:00",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1047,
+        "score": 4,
+        "participantName": "Zambia",
+        "teamShortName": "ZAM",
+        "teamMiddleName": "Zambia",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324025972481.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1068,
+        "score": 2,
+        "participantName": "Congo",
+        "teamShortName": "CGO",
+        "teamMiddleName": "Congo",
+        "logo": "https://api.statorium.com/media/bearleague/bl16324026822652.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "70"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "43"
+        }
+      ]
+    },
+    {
+      "matchID": 64861,
+      "matchDate": "2023-11-11",
+      "matchTime": "14:00",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 96,
+        "score": 2,
+        "participantName": "AC Milan",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Milan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377363579.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "70"
+        }
+      ]
+    },
+    {
+      "matchID": 64847,
+      "matchDate": "2023-11-05",
+      "matchTime": "17:00",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 91,
+        "score": 2,
+        "participantName": "AS Roma",
+        "teamShortName": "ROM",
+        "teamMiddleName": "Roma",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567965862643.png"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "72"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "17"
+        }
+      ]
+    },
+    {
+      "matchID": 69611,
+      "matchDate": "2023-11-01",
+      "matchTime": "17:00",
+      "minutes_played": 27,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 4,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "76"
+        }
+      ]
+    },
+    {
+      "matchID": 64842,
+      "matchDate": "2023-10-28",
+      "matchTime": "16:00",
+      "minutes_played": 62,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 104,
+        "score": 1,
+        "participantName": "Torino FC",
+        "teamShortName": "TOR",
+        "teamMiddleName": "Torino",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782381717.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 64834,
+      "matchDate": "2023-10-23",
+      "matchTime": "16:30",
+      "minutes_played": 23,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 97,
+        "score": 1,
+        "participantName": "Udinese Calcio",
+        "teamShortName": "UDI",
+        "teamMiddleName": "Udinese",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377997384.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 64781,
+      "matchDate": "2023-09-17",
+      "matchTime": "13:00",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 919,
+        "score": 1,
+        "participantName": "AC Monza",
+        "teamShortName": "MON",
+        "teamMiddleName": "Monza",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773411397.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 64775,
+      "matchDate": "2023-09-03",
+      "matchTime": "18:45",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 920,
+        "score": 0,
+        "participantName": "US Salernitana 1919",
+        "teamShortName": "SAL",
+        "teamMiddleName": "Salernitana",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163779522141.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "42"
+        }
+      ]
+    },
+    {
+      "matchID": 64760,
+      "matchDate": "2023-08-27",
+      "matchTime": "16:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 95,
+        "score": 2,
+        "participantName": "ACF Fiorentina",
+        "teamShortName": "FIO",
+        "teamMiddleName": "Fiorentina",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773081536.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "49"
+        },
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "76"
+        }
+      ]
+    },
+    {
+      "matchID": 64752,
+      "matchDate": "2023-08-20",
+      "matchTime": "18:45",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 92,
+        "score": 1,
+        "participantName": "SS Lazio",
+        "teamShortName": "LAZ",
+        "teamMiddleName": "Lazio",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782801749.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 68630,
+      "matchDate": "2023-08-13",
+      "matchTime": "19:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1003,
+        "score": 0,
+        "participantName": "Como 1907",
+        "teamShortName": "COM",
+        "teamMiddleName": "Como",
+        "logo": "https://api.statorium.com/media/bearleague/bl16272907302607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43436,
+      "matchDate": "2023-06-04",
+      "matchTime": "19:00",
+      "minutes_played": 55,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 110,
+        "score": 3,
+        "participantName": "Bologna FC 1909",
+        "teamShortName": "BGN",
+        "teamMiddleName": "Bologna",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777411468.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "17"
+        }
+      ]
+    },
+    {
+      "matchID": 43426,
+      "matchDate": "2023-05-28",
+      "matchTime": "13:00",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 919,
+        "score": 0,
+        "participantName": "AC Monza",
+        "teamShortName": "MON",
+        "teamMiddleName": "Monza",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773411397.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "56"
+        }
+      ]
+    },
+    {
+      "matchID": 43405,
+      "matchDate": "2023-05-12",
+      "matchTime": "18:45",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 92,
+        "score": 2,
+        "participantName": "SS Lazio",
+        "teamShortName": "LAZ",
+        "teamMiddleName": "Lazio",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782801749.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "13"
+        }
+      ]
+    },
+    {
+      "matchID": 43396,
+      "matchDate": "2023-05-07",
+      "matchTime": "18:45",
+      "minutes_played": 18,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 1,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43384,
+      "matchDate": "2023-05-03",
+      "matchTime": "16:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 105,
+        "score": 2,
+        "participantName": "Juventus FC",
+        "teamShortName": "JUV",
+        "teamMiddleName": "Juventus",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716378301636.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43376,
+      "matchDate": "2023-04-28",
+      "matchTime": "16:30",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 97,
+        "score": 0,
+        "participantName": "Udinese Calcio",
+        "teamShortName": "UDI",
+        "teamMiddleName": "Udinese",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377997384.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43361,
+      "matchDate": "2023-04-23",
+      "matchTime": "16:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 96,
+        "score": 2,
+        "participantName": "AC Milan",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Milan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377363579.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43345,
+      "matchDate": "2023-04-07",
+      "matchTime": "17:00",
+      "minutes_played": 2,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 103,
+        "score": 2,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43334,
+      "matchDate": "2023-04-03",
+      "matchTime": "16:30",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 99,
+        "score": 1,
+        "participantName": "Empoli FC",
+        "teamShortName": "EMP",
+        "teamMiddleName": "Empoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377693431.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43317,
+      "matchDate": "2023-03-12",
+      "matchTime": "11:30",
+      "minutes_played": 13,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 104,
+        "score": 2,
+        "participantName": "Torino FC",
+        "teamShortName": "TOR",
+        "teamMiddleName": "Torino",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782381717.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43304,
+      "matchDate": "2023-03-05",
+      "matchTime": "17:00",
+      "minutes_played": 7,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 108,
+        "score": 2,
+        "participantName": "Inter Milan",
+        "teamShortName": "INT",
+        "teamMiddleName": "Inter",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163783271113.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43297,
+      "matchDate": "2023-02-25",
+      "matchTime": "19:45",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 107,
+        "score": 1,
+        "participantName": "US Sassuolo",
+        "teamShortName": "SAS",
+        "teamMiddleName": "Sassuolo",
+        "logo": "https://api.statorium.com/media/bearleague/bl17494658581338.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "17"
+        }
+      ]
+    },
+    {
+      "matchID": 43282,
+      "matchDate": "2023-02-19",
+      "matchTime": "11:30",
+      "minutes_played": 62,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 106,
+        "score": 1,
+        "participantName": "Atalanta BC",
+        "teamShortName": "ATT",
+        "teamMiddleName": "Atalanta",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377146485.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43276,
+      "matchDate": "2023-02-11",
+      "matchTime": "17:00",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 91,
+        "score": 1,
+        "participantName": "AS Roma",
+        "teamShortName": "ROM",
+        "teamMiddleName": "Roma",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567965862643.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43262,
+      "matchDate": "2023-02-04",
+      "matchTime": "14:00",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 927,
+        "score": 0,
+        "participantName": "US Cremonese",
+        "teamShortName": "USC",
+        "teamMiddleName": "Cremonese",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154627162904.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43258,
+      "matchDate": "2023-01-27",
+      "matchTime": "19:45",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 920,
+        "score": 2,
+        "participantName": "US Salernitana 1919",
+        "teamShortName": "SAL",
+        "teamMiddleName": "Salernitana",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163779522141.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43250,
+      "matchDate": "2023-01-21",
+      "matchTime": "14:00",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 2,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43236,
+      "matchDate": "2023-01-14",
+      "matchTime": "17:00",
+      "minutes_played": 18,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 96,
+        "score": 2,
+        "participantName": "AC Milan",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Milan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377363579.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43229,
+      "matchDate": "2023-01-08",
+      "matchTime": "14:00",
+      "minutes_played": 24,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 645,
+        "score": 0,
+        "participantName": "Spezia Calcio",
+        "teamShortName": "SPE",
+        "teamMiddleName": "Spezia",
+        "logo": "https://api.statorium.com/media/bearleague/bl17527584381451.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43215,
+      "matchDate": "2023-01-04",
+      "matchTime": "15:30",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 92,
+        "score": 1,
+        "participantName": "SS Lazio",
+        "teamShortName": "LAZ",
+        "teamMiddleName": "Lazio",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782801749.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "5"
+        }
+      ]
+    },
+    {
+      "matchID": 43209,
+      "matchDate": "2022-11-12",
+      "matchTime": "17:00",
+      "minutes_played": 19,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 101,
+        "score": 0,
+        "participantName": "UC Sampdoria",
+        "teamShortName": "SAM",
+        "teamMiddleName": "Sampdoria",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915500725.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "83"
+        }
+      ]
+    },
+    {
+      "matchID": 43195,
+      "matchDate": "2022-11-09",
+      "matchTime": "17:30",
+      "minutes_played": 27,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 106,
+        "score": 1,
+        "participantName": "Atalanta BC",
+        "teamShortName": "ATT",
+        "teamMiddleName": "Atalanta",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377146485.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43190,
+      "matchDate": "2022-11-04",
+      "matchTime": "19:45",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 97,
+        "score": 1,
+        "participantName": "Udinese Calcio",
+        "teamShortName": "UDI",
+        "teamMiddleName": "Udinese",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377997384.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43175,
+      "matchDate": "2022-10-29",
+      "matchTime": "16:00",
+      "minutes_played": 30,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 105,
+        "score": 1,
+        "participantName": "Juventus FC",
+        "teamShortName": "JUV",
+        "teamMiddleName": "Juventus",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716378301636.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43164,
+      "matchDate": "2022-10-23",
+      "matchTime": "13:00",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 110,
+        "score": 2,
+        "participantName": "Bologna FC 1909",
+        "teamShortName": "BGN",
+        "teamMiddleName": "Bologna",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777411468.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43155,
+      "matchDate": "2022-10-17",
+      "matchTime": "18:45",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 95,
+        "score": 1,
+        "participantName": "ACF Fiorentina",
+        "teamShortName": "FIO",
+        "teamMiddleName": "Fiorentina",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773081536.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43142,
+      "matchDate": "2022-10-09",
+      "matchTime": "18:45",
+      "minutes_played": 81,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 91,
+        "score": 2,
+        "participantName": "AS Roma",
+        "teamShortName": "ROM",
+        "teamMiddleName": "Roma",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567965862643.png"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43136,
+      "matchDate": "2022-10-02",
+      "matchTime": "13:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 927,
+        "score": 1,
+        "participantName": "US Cremonese",
+        "teamShortName": "USC",
+        "teamMiddleName": "Cremonese",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154627162904.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43127,
+      "matchDate": "2022-09-16",
+      "matchTime": "18:45",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 920,
+        "score": 1,
+        "participantName": "US Salernitana 1919",
+        "teamShortName": "SAL",
+        "teamMiddleName": "Salernitana",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163779522141.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 2,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43117,
+      "matchDate": "2022-09-11",
+      "matchTime": "13:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 919,
+        "score": 1,
+        "participantName": "AC Monza",
+        "teamShortName": "MON",
+        "teamMiddleName": "Monza",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773411397.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "83"
+        }
+      ]
+    },
+    {
+      "matchID": 43108,
+      "matchDate": "2022-09-05",
+      "matchTime": "18:45",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 104,
+        "score": 1,
+        "participantName": "Torino FC",
+        "teamShortName": "TOR",
+        "teamMiddleName": "Torino",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782381717.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43097,
+      "matchDate": "2022-08-31",
+      "matchTime": "18:45",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 103,
+        "score": 1,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43086,
+      "matchDate": "2022-08-28",
+      "matchTime": "18:45",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 99,
+        "score": 1,
+        "participantName": "Empoli FC",
+        "teamShortName": "EMP",
+        "teamMiddleName": "Empoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377693431.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "40"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "34"
+        }
+      ]
+    },
+    {
+      "matchID": 43078,
+      "matchDate": "2022-08-20",
+      "matchTime": "18:45",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 107,
+        "score": 1,
+        "participantName": "US Sassuolo",
+        "teamShortName": "SAS",
+        "teamMiddleName": "Sassuolo",
+        "logo": "https://api.statorium.com/media/bearleague/bl17494658581338.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 0,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 43065,
+      "matchDate": "2022-08-13",
+      "matchTime": "18:45",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 108,
+        "score": 2,
+        "participantName": "Inter Milan",
+        "teamShortName": "INT",
+        "teamMiddleName": "Inter",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163783271113.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 12822,
+      "matchDate": "2020-08-29",
+      "matchTime": "15:00",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 223,
+        "score": 2,
+        "participantName": "FC Spartak Moscow",
+        "teamShortName": "SPA",
+        "teamMiddleName": "Spartak Moscow",
+        "logo": "https://api.statorium.com/media/bearleague/bl17194392351962.webp"
+      },
+      "awayParticipant": {
+        "participantID": 218,
+        "score": 1,
+        "participantName": "FC Arsenal Tula",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal Tula",
+        "logo": "https://api.statorium.com/media/bearleague/bl15704524722392.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 12794,
+      "matchDate": "2020-08-18",
+      "matchTime": "17:00",
+      "minutes_played": 14,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 148,
+        "score": 2,
+        "participantName": "FC Krasnodar",
+        "teamShortName": "KRA",
+        "teamMiddleName": "Krasnodar",
+        "logo": "https://api.statorium.com/media/bearleague/bl15680308532372.webp"
+      },
+      "awayParticipant": {
+        "participantID": 218,
+        "score": 0,
+        "participantName": "FC Arsenal Tula",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal Tula",
+        "logo": "https://api.statorium.com/media/bearleague/bl15704524722392.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 6583,
+      "matchDate": "2020-06-27",
+      "matchTime": "17:00",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 216,
+        "score": 2,
+        "participantName": "FC Rostov",
+        "teamShortName": "RSM",
+        "teamMiddleName": "Rostov",
+        "logo": "https://api.statorium.com/media/bearleague/bl1570452360587.webp"
+      },
+      "awayParticipant": {
+        "participantID": 218,
+        "score": 1,
+        "participantName": "FC Arsenal Tula",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal Tula",
+        "logo": "https://api.statorium.com/media/bearleague/bl15704524722392.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 6573,
+      "matchDate": "2020-06-20",
+      "matchTime": "13:30",
+      "minutes_played": 17,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 218,
+        "score": 2,
+        "participantName": "FC Arsenal Tula",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal Tula",
+        "logo": "https://api.statorium.com/media/bearleague/bl15704524722392.webp"
+      },
+      "awayParticipant": {
+        "participantID": 223,
+        "score": 3,
+        "participantName": "FC Spartak Moscow",
+        "teamShortName": "SPA",
+        "teamMiddleName": "Spartak Moscow",
+        "logo": "https://api.statorium.com/media/bearleague/bl17194392351962.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "90"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "90+1"
+        }
+      ]
+    },
+    {
+      "matchID": 6566,
+      "matchDate": "2020-03-14",
+      "matchTime": "16:00",
+      "minutes_played": 14,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 218,
+        "score": 0,
+        "participantName": "FC Arsenal Tula",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal Tula",
+        "logo": "https://api.statorium.com/media/bearleague/bl15704524722392.webp"
+      },
+      "awayParticipant": {
+        "participantID": 222,
+        "score": 1,
+        "participantName": "FC Rubin Kazan",
+        "teamShortName": "RUB",
+        "teamMiddleName": "Rubin Kazan",
+        "logo": "https://api.statorium.com/media/bearleague/bl15704530812006.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 6678,
+      "matchDate": "2019-09-01",
+      "matchTime": "13:30",
+      "minutes_played": 1,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 218,
+        "score": 1,
+        "participantName": "FC Arsenal Tula",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal Tula",
+        "logo": "https://api.statorium.com/media/bearleague/bl15704524722392.webp"
+      },
+      "awayParticipant": {
+        "participantID": 161,
+        "score": 2,
+        "participantName": "PFC CSKA Moscow",
+        "teamShortName": "CSK",
+        "teamMiddleName": "CSKA Moscow",
+        "logo": "https://api.statorium.com/media/bearleague/bl15680316642729.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 6664,
+      "matchDate": "2019-08-18",
+      "matchTime": "11:00",
+      "minutes_played": 5,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 222,
+        "score": 1,
+        "participantName": "FC Rubin Kazan",
+        "teamShortName": "RUB",
+        "teamMiddleName": "Rubin Kazan",
+        "logo": "https://api.statorium.com/media/bearleague/bl15704530812006.webp"
+      },
+      "awayParticipant": {
+        "participantID": 218,
+        "score": 0,
+        "participantName": "FC Arsenal Tula",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal Tula",
+        "logo": "https://api.statorium.com/media/bearleague/bl15704524722392.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 6657,
+      "matchDate": "2019-08-11",
+      "matchTime": "11:00",
+      "minutes_played": 5,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 218,
+        "score": 1,
+        "participantName": "FC Arsenal Tula",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal Tula",
+        "logo": "https://api.statorium.com/media/bearleague/bl15704524722392.webp"
+      },
+      "awayParticipant": {
+        "participantID": 217,
+        "score": 0,
+        "participantName": "FC Ufa",
+        "teamShortName": "UFA",
+        "teamMiddleName": "Ufa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1570452412240.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 6631,
+      "matchDate": "2019-07-28",
+      "matchTime": "13:30",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 218,
+        "score": 2,
+        "participantName": "FC Arsenal Tula",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal Tula",
+        "logo": "https://api.statorium.com/media/bearleague/bl15704524722392.webp"
+      },
+      "awayParticipant": {
+        "participantID": 216,
+        "score": 3,
+        "participantName": "FC Rostov",
+        "teamShortName": "RSM",
+        "teamMiddleName": "Rostov",
+        "logo": "https://api.statorium.com/media/bearleague/bl1570452360587.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 6461,
+      "matchDate": "2019-07-12",
+      "matchTime": "17:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 218,
+        "score": 1,
+        "participantName": "FC Arsenal Tula",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal Tula",
+        "logo": "https://api.statorium.com/media/bearleague/bl15704524722392.webp"
+      },
+      "awayParticipant": {
+        "participantID": 226,
+        "score": 1,
+        "participantName": "FC Dynamo Moscow",
+        "teamShortName": "DYN",
+        "teamMiddleName": "Dynamo Moscow",
+        "logo": "https://api.statorium.com/media/bearleague/bl1570453740950.webp"
+      },
+      "playerEvents": []
+    }
+  ]
+}

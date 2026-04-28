@@ -26,9 +26,9 @@ export function AiNarrative({ stream }: AiNarrativeProps) {
   }, [stream])
 
   return (
-    <Card className="bg-zinc-900 border-zinc-800 border-emerald-500/30">
+    <Card className="bg-zinc-900 border-zinc-800 border-secondary/30">
       <CardHeader className="flex flex-row items-center gap-2 space-y-0">
-        <Sparkles className="h-5 w-5 text-emerald-500" />
+        <Sparkles className="h-5 w-5 text-secondary" />
         <CardTitle className="text-lg font-bold text-zinc-50">AI Scout Insights</CardTitle>
       </CardHeader>
       <CardContent className="prose prose-invert max-w-none text-zinc-300 text-sm leading-relaxed">

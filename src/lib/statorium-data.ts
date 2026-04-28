@@ -32,7 +32,11 @@ export const POSITION_MAP: Record<string, string> = {
   "Atacker": "FW",
   "Atacante": "FW",
   "Defensa": "DF",
-  "Centrocampista": "MF"
+  "Centrocampista": "MF",
+  "Puntero": "FW",
+  "Extremo": "FW",
+  "Zaguero": "DF",
+  "Portero": "GK"
 };
 
 export const POSITION_OVERRIDE: Record<string, string> = {
@@ -157,19 +161,20 @@ export const VERIFIED_TRANSFERS = [
   { id: "v1", playerName: "Kylian Mbappé", playerID: "1994", fromTeamID: "66", fromTeamName: "PSG", toTeamID: "37", toTeamName: "Real Madrid", fee: "Free", color: "#facc15", marketValue: "€180M", photoUrl: "https://api.statorium.com/media/bearleague/bl1994.webp", position: "FW" },
   { id: "v2", playerName: "Julián Álvarez", playerID: "19323", fromTeamID: "4", fromTeamName: "Manchester City", toTeamID: "39", toTeamName: "Atlético Madrid", fee: "€75M", color: "#ef4444", marketValue: "€90M", photoUrl: "https://api.statorium.com/media/bearleague/bl19323.webp", position: "FW" },
   { id: "v3", playerName: "Dominic Solanke", playerID: "443", fromTeamID: "16", fromTeamName: "Bournemouth", toTeamID: "2", toTeamName: "Tottenham", fee: "€75M", color: "#ffffff", marketValue: "€50M", photoUrl: "https://api.statorium.com/media/bearleague/bl443.webp", position: "FW" },
-  { id: "v4", playerName: "Michael Olise", playerID: "6123", fromTeamID: "15", fromTeamName: "Crystal Palace", toTeamID: "47", toTeamName: "Bayern Munich", fee: "€53M", color: "#dc2626", marketValue: "€55M", photoUrl: "https://api.statorium.com/media/bearleague/bl6123.webp", position: "MF" },
+  { id: "v4", playerName: "Michael Olise", playerID: "6123", fromTeamID: "15", fromTeamName: "Crystal Palace", toTeamID: "47", toTeamName: "Bayern Munich", fee: "€53M", color: "#dc2626", marketValue: "€55M", photoUrl: "https://api.statorium.com/media/bearleague/bl6123.webp", position: "FW" },
   { id: "v5", playerName: "Douglas Luiz", playerID: "762", fromTeamID: "112", fromTeamName: "Aston Villa", toTeamID: "105", toTeamName: "Juventus", fee: "€50M", color: "#ffffff", marketValue: "€70M", photoUrl: "https://api.statorium.com/media/bearleague/bl762.webp", position: "MF" },
-  { id: "v6", playerName: "Leny Yoro", playerID: "123145", fromTeamID: "69", fromTeamName: "Lille", toTeamID: "7", toTeamName: "Manchester United", fee: "€62M", color: "#dc2626", marketValue: "€50M", photoUrl: "https://api.statorium.com/media/bearleague/bl123145.webp" },
-  { id: "v7", playerName: "Dani Olmo", playerID: "1815", fromTeamID: "166", fromTeamName: "RB Leipzig", toTeamID: "23", toTeamName: "Barcelona", fee: "€55M", color: "#9333ea", marketValue: "€60M", photoUrl: "https://api.statorium.com/media/bearleague/bl1815.webp" },
-  { id: "v8", playerName: "João Neves", playerID: "25014", fromTeamID: "192", fromTeamName: "Benfica", toTeamID: "66", toTeamName: "PSG", fee: "€60M", color: "#1d4ed8", marketValue: "€55M", photoUrl: "https://api.statorium.com/media/bearleague/bl25014.webp" },
-  { id: "v9", playerName: "Teun Koopmeiners", playerID: "4145", fromTeamID: "41", fromTeamName: "Atalanta", toTeamID: "105", toTeamName: "Juventus", fee: "€52M", color: "#ffffff", marketValue: "€50M", photoUrl: "https://api.statorium.com/media/bearleague/bl4145.webp" },
-  { id: "v10", playerName: "Amadou Onana", playerID: "26718", fromTeamID: "6", fromTeamName: "Everton", toTeamID: "112", toTeamName: "Aston Villa", fee: "€59M", color: "#8b5cf6", marketValue: "€50M", photoUrl: "https://api.statorium.com/media/bearleague/bl26718.webp" },
-  { id: "v11", playerName: "Alvaro Morata", playerID: "55", fromTeamID: "39", fromTeamName: "Atletico Madrid", toTeamID: "96", toTeamName: "AC Milan", fee: "€13M", color: "#dc2626", marketValue: "€15M", photoUrl: "https://api.statorium.com/media/bearleague/bl55.webp" },
-  { id: "v12", playerName: "Connor Gallagher", playerID: "12514", fromTeamID: "8", fromTeamName: "Chelsea", toTeamID: "39", toTeamName: "Atletico Madrid", fee: "€42M", color: "#ef4444", marketValue: "€50M", photoUrl: "https://api.statorium.com/media/bearleague/bl12514.webp" },
-  { id: "v13", playerName: "Ilkay Gündogan", playerID: "92", fromTeamID: "23", fromTeamName: "Barcelona", toTeamID: "4", toTeamName: "Manchester City", fee: "Free", color: "#60a5fa", marketValue: "€15M", photoUrl: "https://api.statorium.com/media/bearleague/bl92.webp" },
-  { id: "v14", playerName: "Savinho", playerID: "16498", fromTeamID: "26", fromTeamName: "Girona", toTeamID: "4", toTeamName: "Manchester City", fee: "€25M", color: "#60a5fa", marketValue: "€50M", photoUrl: "https://api.statorium.com/media/bearleague/bl16498.webp" },
-  { id: "v15", playerName: "Riccardo Calafiori", playerID: "31452", fromTeamID: "93", fromTeamName: "Bologna", toTeamID: "9", toTeamName: "Arsenal", fee: "€45M", color: "#ef4444", marketValue: "€45M", photoUrl: "https://api.statorium.com/media/bearleague/bl31452.webp" },
-  { id: "v16", playerName: "Federico Chiesa", playerID: "2345", fromTeamID: "105", fromTeamName: "Juventus", toTeamID: "3", toTeamName: "Liverpool", fee: "€12M", color: "#dc2626", marketValue: "€30M", photoUrl: "https://api.statorium.com/media/bearleague/bl2345.webp" }
+  { id: "v6", playerName: "Leny Yoro", playerID: "123145", fromTeamID: "69", fromTeamName: "Lille", toTeamID: "7", toTeamName: "Manchester United", fee: "€62M", color: "#dc2626", marketValue: "€50M", photoUrl: "https://api.statorium.com/media/bearleague/bl123145.webp", position: "DF" },
+  { id: "v7", playerName: "Dani Olmo", playerID: "1815", fromTeamID: "166", fromTeamName: "RB Leipzig", toTeamID: "23", toTeamName: "Barcelona", fee: "€55M", color: "#9333ea", marketValue: "€60M", photoUrl: "https://api.statorium.com/media/bearleague/bl1815.webp", position: "MF" },
+  { id: "v8", playerName: "João Neves", playerID: "25014", fromTeamID: "192", fromTeamName: "Benfica", toTeamID: "66", toTeamName: "PSG", fee: "€60M", color: "#1d4ed8", marketValue: "€55M", photoUrl: "https://api.statorium.com/media/bearleague/bl25014.webp", position: "MF" },
+  { id: "v9", playerName: "Teun Koopmeiners", playerID: "4145", fromTeamID: "41", fromTeamName: "Atalanta", toTeamID: "105", toTeamName: "Juventus", fee: "€52M", color: "#ffffff", marketValue: "€50M", photoUrl: "https://api.statorium.com/media/bearleague/bl4145.webp", position: "MF" },
+  { id: "v10", playerName: "Amadou Onana", playerID: "26718", fromTeamID: "6", fromTeamName: "Everton", toTeamID: "112", toTeamName: "Aston Villa", fee: "€59M", color: "#8b5cf6", marketValue: "€50M", photoUrl: "https://api.statorium.com/media/bearleague/bl26718.webp", position: "MF" },
+  { id: "v11", playerName: "Alvaro Morata", playerID: "55", fromTeamID: "39", fromTeamName: "Atletico Madrid", toTeamID: "96", toTeamName: "AC Milan", fee: "€13M", color: "#dc2626", marketValue: "€15M", photoUrl: "https://api.statorium.com/media/bearleague/bl55.webp", position: "FW" },
+  { id: "v12", playerName: "Connor Gallagher", playerID: "12514", fromTeamID: "8", fromTeamName: "Chelsea", toTeamID: "39", toTeamName: "Atletico Madrid", fee: "€42M", color: "#ef4444", marketValue: "€50M", photoUrl: "https://api.statorium.com/media/bearleague/bl12514.webp", position: "MF" },
+  { id: "v13", playerName: "Ilkay Gündogan", playerID: "92", fromTeamID: "23", fromTeamName: "Barcelona", toTeamID: "4", toTeamName: "Manchester City", fee: "Free", color: "#60a5fa", marketValue: "€15M", photoUrl: "https://api.statorium.com/media/bearleague/bl92.webp", position: "MF" },
+  { id: "v14", playerName: "Savinho", playerID: "16498", fromTeamID: "26", fromTeamName: "Girona", toTeamID: "4", toTeamName: "Manchester City", fee: "€25M", color: "#60a5fa", marketValue: "€50M", photoUrl: "https://api.statorium.com/media/bearleague/bl16498.webp", position: "FW" },
+  { id: "v15", playerName: "Riccardo Calafiori", playerID: "31452", fromTeamID: "93", fromTeamName: "Bologna", toTeamID: "9", toTeamName: "Arsenal", fee: "€45M", color: "#ef4444", marketValue: "€45M", photoUrl: "https://api.statorium.com/media/bearleague/bl31452.webp", position: "DF" },
+  { id: "v16", playerName: "Federico Chiesa", playerID: "2345", fromTeamID: "105", fromTeamName: "Juventus", toTeamID: "3", toTeamName: "Liverpool", fee: "€12M", color: "#dc2626", marketValue: "€30M", photoUrl: "https://api.statorium.com/media/bearleague/bl2345.webp", position: "FW" },
+  { id: "v17", playerName: "Antonio Rüdiger", playerID: "mock_rudiger", fromTeamID: "8", fromTeamName: "Chelsea", fromTeamLogo: "https://api.statorium.com/media/bearleague/bl15543745262703.png", toTeamID: "37", toTeamName: "Real Madrid", toTeamLogo: "https://api.statorium.com/media/bearleague/bl155800057030.png", fee: "Free", color: "#ffffff", marketValue: "€25M", photoUrl: "https://cdn.futwiz.com/assets/img/fc24/faces/205452.png", position: "DF" }
 ];
 
 export const PLAYER_PHOTOS: Record<string, string> = {

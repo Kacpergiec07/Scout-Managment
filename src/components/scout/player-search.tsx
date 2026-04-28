@@ -64,7 +64,7 @@ export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-full justify-between bg-zinc-100 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-50 transition-all border-dashed"
+          className="w-full justify-between bg-muted border-border text-muted-foreground hover:bg-accent hover:text-foreground transition-all border-dashed"
         >
           <div className="flex items-center gap-2">
             <SearchIcon className="h-4 w-4 opacity-50" />
@@ -73,17 +73,17 @@ export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0 bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 shadow-xl overflow-hidden rounded-xl">
+      <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0 bg-card border-border shadow-xl overflow-hidden rounded-xl">
         <Command shouldFilter={false} className="bg-transparent">
           <CommandInput 
             placeholder="Type player name (min 3 chars)..." 
             onValueChange={setQuery}
-            className="text-zinc-900 dark:text-zinc-50 border-none focus:ring-0"
+            className="text-foreground border-none focus:ring-0"
           />
           <CommandList className="max-h-[300px] overflow-y-auto">
-            {loading && <div className="p-4 text-sm text-zinc-500 text-center animate-pulse">Searching global database...</div>}
+            {loading && <div className="p-4 text-sm text-muted-foreground text-center animate-pulse">Searching global database...</div>}
             {!loading && debouncedQuery.length >= 3 && results.length === 0 && (
-              <CommandEmpty className="p-4 text-sm text-zinc-500 text-center">No players found matching "{debouncedQuery}"</CommandEmpty>
+              <CommandEmpty className="p-4 text-sm text-muted-foreground text-center">No players found matching "{debouncedQuery}"</CommandEmpty>
             )}
             <CommandGroup>
               {results.map((player) => (
@@ -99,9 +99,9 @@ export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
                       router.push(`/analysis?id=${player.playerID}&name=${encodeURIComponent(player.fullName)}`)
                     }
                   }}
-                  className="p-2 gap-3 text-zinc-700 dark:text-zinc-300 aria-selected:bg-emerald-500/10 dark:aria-selected:bg-emerald-500/10 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 cursor-pointer"
+                  className="p-2 gap-3 text-foreground aria-selected:bg-secondary/10 aria-selected:text-secondary cursor-pointer"
                 >
-                  <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
+                  <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-muted border border-border">
                     <Image 
                       src={player.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(player.fullName)}&background=047857&color=fff&size=100`} 
                       alt={player.fullName}
@@ -119,7 +119,7 @@ export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
                   </div>
                   <Check
                     className={cn(
-                      'h-4 w-4 text-emerald-500 transition-opacity',
+                      'h-4 w-4 text-secondary-500 transition-opacity',
                       value === player.playerID ? 'opacity-100' : 'opacity-0'
                     )}
                   />

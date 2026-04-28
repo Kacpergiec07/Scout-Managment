@@ -1,0 +1,644 @@
+[
+  {
+    "teamID": 9,
+    "teamName": "Arsenal FC",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"13\",\"winaway_chk\":\"9\",\"drawhome_chk\":\"2\",\"drawaway_chk\":\"5\",\"losthome_chk\":\"2\",\"lostaway_chk\":\"3\",\"home_win_pts\":\"13\",\"away_win_pts\":\"9\",\"home_draw_pts\":\"2\",\"away_draw_pts\":\"5\",\"home_loose_pts\":\"2\",\"away_loose_pts\":\"3\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"64\",\"goalconc_chk\":\"26\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":9,\"win_chk\":22,\"draw_chk\":7,\"lost_chk\":5,\"diff_chk\":\"64 - 26\",\"gd_chk\":38,\"point_chk\":73,\"bonuspts_chk\":0,\"percent_chk\":\"0.750\",\"pointshome_chk\":41,\"pointsaway_chk\":32,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 1,
+    "form": [
+      "w",
+      "w",
+      "l",
+      "l",
+      "w"
+    ],
+    "teamShortName": "ARS",
+    "teamMiddleName": "Arsenal",
+    "logo": "https://api.statorium.com/media/bearleague/bl1715101847747.webp",
+    "color": "#003300",
+    "translations": {
+      "ar": {
+        "name": "أرسنال"
+      },
+      "zh": {
+        "name": "阿森纳",
+        "middle_name": "阿森纳"
+      },
+      "gr": {
+        "name": "Άρσεναλ",
+        "middle_name": "Άρσεναλ"
+      },
+      "th": {
+        "name": "อาร์เซนอล"
+      }
+    }
+  },
+  {
+    "teamID": 4,
+    "teamName": "Manchester City",
+    "options": "{\"played_chk\":33,\"winhome_chk\":\"12\",\"winaway_chk\":\"9\",\"drawhome_chk\":\"3\",\"drawaway_chk\":\"4\",\"losthome_chk\":\"1\",\"lostaway_chk\":\"4\",\"home_win_pts\":\"12\",\"away_win_pts\":\"9\",\"home_draw_pts\":\"3\",\"away_draw_pts\":\"4\",\"home_loose_pts\":\"1\",\"away_loose_pts\":\"4\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"66\",\"goalconc_chk\":\"29\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":4,\"win_chk\":21,\"draw_chk\":7,\"lost_chk\":5,\"diff_chk\":\"66 - 29\",\"gd_chk\":37,\"point_chk\":70,\"bonuspts_chk\":0,\"percent_chk\":\"0.742\",\"pointshome_chk\":39,\"pointsaway_chk\":31,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 2,
+    "form": [
+      "d",
+      "d",
+      "w",
+      "w",
+      "w"
+    ],
+    "teamShortName": "MCI",
+    "teamMiddleName": "Man City",
+    "logo": "https://api.statorium.com/media/bearleague/bl17151024711246.webp",
+    "color": "#003300",
+    "translations": {
+      "ar": {
+        "name": "مانشستر سيتي"
+      },
+      "zh": {
+        "name": "曼城",
+        "middle_name": "曼城"
+      },
+      "gr": {
+        "name": "Μάντσεστερ Σίτι",
+        "middle_name": "Μάντσεστερ Σίτι"
+      },
+      "th": {
+        "name": "แมนเชสเตอร์ซิตี"
+      }
+    }
+  },
+  {
+    "teamID": 7,
+    "teamName": "Manchester United",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"11\",\"winaway_chk\":\"6\",\"drawhome_chk\":\"3\",\"drawaway_chk\":\"7\",\"losthome_chk\":\"3\",\"lostaway_chk\":\"4\",\"home_win_pts\":\"11\",\"away_win_pts\":\"6\",\"home_draw_pts\":\"3\",\"away_draw_pts\":\"7\",\"home_loose_pts\":\"3\",\"away_loose_pts\":\"4\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"60\",\"goalconc_chk\":\"46\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":7,\"win_chk\":17,\"draw_chk\":10,\"lost_chk\":7,\"diff_chk\":\"60 - 46\",\"gd_chk\":14,\"point_chk\":61,\"bonuspts_chk\":0,\"percent_chk\":\"0.647\",\"pointshome_chk\":36,\"pointsaway_chk\":25,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 3,
+    "form": [
+      "w",
+      "d",
+      "l",
+      "w",
+      "w"
+    ],
+    "teamShortName": "MUN",
+    "teamMiddleName": "Man Utd",
+    "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp",
+    "color": "#003300",
+    "translations": {
+      "ar": {
+        "name": "مانشستر يونايتد"
+      },
+      "zh": {
+        "name": "曼聯",
+        "middle_name": "曼聯"
+      },
+      "gr": {
+        "name": "Μάντσεστερ Γιουνάιτεντ",
+        "middle_name": "Μάντσεστερ Γιουνάιτεντ"
+      },
+      "th": {
+        "name": "สโมสรฟุตบอลแมนเชสเตอร์ยูไนเต็ด"
+      }
+    }
+  },
+  {
+    "teamID": 3,
+    "teamName": "Liverpool FC",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"10\",\"winaway_chk\":\"7\",\"drawhome_chk\":\"4\",\"drawaway_chk\":\"3\",\"losthome_chk\":\"3\",\"lostaway_chk\":\"7\",\"home_win_pts\":\"10\",\"away_win_pts\":\"7\",\"home_draw_pts\":\"4\",\"away_draw_pts\":\"3\",\"home_loose_pts\":\"3\",\"away_loose_pts\":\"7\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"57\",\"goalconc_chk\":\"44\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":3,\"win_chk\":17,\"draw_chk\":7,\"lost_chk\":10,\"diff_chk\":\"57 - 44\",\"gd_chk\":13,\"point_chk\":58,\"bonuspts_chk\":0,\"percent_chk\":\"0.603\",\"pointshome_chk\":34,\"pointsaway_chk\":24,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 4,
+    "form": [
+      "d",
+      "l",
+      "w",
+      "w",
+      "w"
+    ],
+    "teamShortName": "LIV",
+    "teamMiddleName": "Liverpool",
+    "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp",
+    "color": "#003300",
+    "translations": {
+      "ar": {
+        "name": "ليفربول"
+      },
+      "zh": {
+        "name": "利物浦",
+        "middle_name": "利物浦"
+      },
+      "gr": {
+        "name": "Λίβερπουλ",
+        "middle_name": "Λίβερπουλ"
+      },
+      "th": {
+        "name": "ลิเวอร์พูล"
+      }
+    }
+  },
+  {
+    "teamID": 112,
+    "teamName": "Aston Villa",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"11\",\"winaway_chk\":\"6\",\"drawhome_chk\":\"2\",\"drawaway_chk\":\"5\",\"losthome_chk\":\"4\",\"lostaway_chk\":\"6\",\"home_win_pts\":\"11\",\"away_win_pts\":\"6\",\"home_draw_pts\":\"2\",\"away_draw_pts\":\"5\",\"home_loose_pts\":\"4\",\"away_loose_pts\":\"6\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"47\",\"goalconc_chk\":\"42\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":112,\"win_chk\":17,\"draw_chk\":7,\"lost_chk\":10,\"diff_chk\":\"47 - 42\",\"gd_chk\":5,\"point_chk\":58,\"bonuspts_chk\":0,\"percent_chk\":\"0.603\",\"pointshome_chk\":35,\"pointsaway_chk\":23,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 5,
+    "form": [
+      "l",
+      "w",
+      "d",
+      "w",
+      "l"
+    ],
+    "teamShortName": "AVL",
+    "teamMiddleName": "Aston Villa",
+    "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp",
+    "color": "#0000CC",
+    "translations": {
+      "ar": {
+        "name": "أستون فيلا"
+      },
+      "zh": {
+        "name": "阿士東維拉",
+        "middle_name": "阿士東維拉"
+      },
+      "gr": {
+        "name": "Άστον Βίλα",
+        "middle_name": "Άστον Βίλα"
+      },
+      "th": {
+        "name": "แอสตันวิลลา"
+      }
+    }
+  },
+  {
+    "teamID": 19,
+    "teamName": "Brighton & Hove Albion",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"8\",\"winaway_chk\":\"5\",\"drawhome_chk\":\"6\",\"drawaway_chk\":\"5\",\"losthome_chk\":\"3\",\"lostaway_chk\":\"7\",\"home_win_pts\":\"8\",\"away_win_pts\":\"5\",\"home_draw_pts\":\"6\",\"away_draw_pts\":\"5\",\"home_loose_pts\":\"3\",\"away_loose_pts\":\"7\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"48\",\"goalconc_chk\":\"39\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":19,\"win_chk\":13,\"draw_chk\":11,\"lost_chk\":10,\"diff_chk\":\"48 - 39\",\"gd_chk\":9,\"point_chk\":50,\"bonuspts_chk\":0,\"percent_chk\":\"0.544\",\"pointshome_chk\":30,\"pointsaway_chk\":20,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 6,
+    "form": [
+      "w",
+      "w",
+      "w",
+      "d",
+      "w"
+    ],
+    "teamShortName": "BRH",
+    "teamMiddleName": "Brighton",
+    "logo": "https://api.statorium.com/media/bearleague/bl17190134962515.webp",
+    "color": "",
+    "translations": {
+      "ar": {
+        "name": "برايتون أند هوف ألبيون"
+      },
+      "zh": {
+        "name": "白禮頓",
+        "middle_name": "白禮頓"
+      },
+      "gr": {
+        "name": "Μπράιτον",
+        "middle_name": "Μπράιτον"
+      },
+      "th": {
+        "name": "ไบรตันแอนด์โฮฟอัลเบียน"
+      }
+    }
+  },
+  {
+    "teamID": 16,
+    "teamName": "AFC Bournemouth",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"6\",\"winaway_chk\":\"5\",\"drawhome_chk\":\"9\",\"drawaway_chk\":\"7\",\"losthome_chk\":\"2\",\"lostaway_chk\":\"5\",\"home_win_pts\":\"6\",\"away_win_pts\":\"5\",\"home_draw_pts\":\"9\",\"away_draw_pts\":\"7\",\"home_loose_pts\":\"2\",\"away_loose_pts\":\"5\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"52\",\"goalconc_chk\":\"52\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":16,\"win_chk\":11,\"draw_chk\":16,\"lost_chk\":7,\"diff_chk\":\"52 - 52\",\"gd_chk\":0,\"point_chk\":49,\"bonuspts_chk\":0,\"percent_chk\":\"0.559\",\"pointshome_chk\":27,\"pointsaway_chk\":22,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 7,
+    "form": [
+      "d",
+      "d",
+      "w",
+      "w",
+      "d"
+    ],
+    "teamShortName": "BOU",
+    "teamMiddleName": "Bournemouth",
+    "logo": "https://api.statorium.com/media/bearleague/bl171510179519.webp",
+    "color": "",
+    "translations": {
+      "ar": {
+        "name": "إيه إف سي بورنموث"
+      },
+      "zh": {
+        "name": "般尼茅夫",
+        "middle_name": "般尼茅夫"
+      },
+      "gr": {
+        "name": "Μπόρνμουθ",
+        "middle_name": "Μπόρνμουθ"
+      },
+      "th": {
+        "name": "เอเอฟซีบอร์นมัท"
+      }
+    }
+  },
+  {
+    "teamID": 8,
+    "teamName": "Chelsea FC",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"6\",\"winaway_chk\":\"7\",\"drawhome_chk\":\"5\",\"drawaway_chk\":\"4\",\"losthome_chk\":\"6\",\"lostaway_chk\":\"6\",\"home_win_pts\":\"6\",\"away_win_pts\":\"7\",\"home_draw_pts\":\"5\",\"away_draw_pts\":\"4\",\"home_loose_pts\":\"6\",\"away_loose_pts\":\"6\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"53\",\"goalconc_chk\":\"45\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":8,\"win_chk\":13,\"draw_chk\":9,\"lost_chk\":12,\"diff_chk\":\"53 - 45\",\"gd_chk\":8,\"point_chk\":48,\"bonuspts_chk\":0,\"percent_chk\":\"0.515\",\"pointshome_chk\":23,\"pointsaway_chk\":25,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 8,
+    "form": [
+      "l",
+      "l",
+      "l",
+      "l",
+      "l"
+    ],
+    "teamShortName": "CHE",
+    "teamMiddleName": "Chelsea",
+    "logo": "https://api.statorium.com/media/bearleague/bl1756795498585.png",
+    "color": "",
+    "translations": {
+      "ar": {
+        "name": "تشيلسي"
+      },
+      "zh": {
+        "name": "車路士",
+        "middle_name": "車路士"
+      },
+      "gr": {
+        "name": "Τσέλσι",
+        "middle_name": "Τσέλσι"
+      },
+      "th": {
+        "name": "เชลซี"
+      }
+    }
+  },
+  {
+    "teamID": 186,
+    "teamName": "Brentford FC",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"7\",\"winaway_chk\":\"6\",\"drawhome_chk\":\"7\",\"drawaway_chk\":\"2\",\"losthome_chk\":\"3\",\"lostaway_chk\":\"9\",\"home_win_pts\":\"7\",\"away_win_pts\":\"6\",\"home_draw_pts\":\"7\",\"away_draw_pts\":\"2\",\"home_loose_pts\":\"3\",\"away_loose_pts\":\"9\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"49\",\"goalconc_chk\":\"46\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":186,\"win_chk\":13,\"draw_chk\":9,\"lost_chk\":12,\"diff_chk\":\"49 - 46\",\"gd_chk\":3,\"point_chk\":48,\"bonuspts_chk\":0,\"percent_chk\":\"0.515\",\"pointshome_chk\":28,\"pointsaway_chk\":20,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 9,
+    "form": [
+      "d",
+      "d",
+      "d",
+      "d",
+      "l"
+    ],
+    "teamShortName": "BRE",
+    "teamMiddleName": "Brentford",
+    "logo": "https://api.statorium.com/media/bearleague/bl17151020531622.webp",
+    "color": "",
+    "translations": {
+      "ar": {
+        "name": "برينتفورد إف سي"
+      },
+      "zh": {
+        "name": "賓福特",
+        "middle_name": "賓福特"
+      },
+      "gr": {
+        "name": "Μπρέντφορντ",
+        "middle_name": "Μπρέντφορντ"
+      },
+      "th": {
+        "name": "สโมสรฟุตบอลเบรนต์ฟอร์ด"
+      }
+    }
+  },
+  {
+    "teamID": 5,
+    "teamName": "Fulham FC",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"10\",\"winaway_chk\":\"4\",\"drawhome_chk\":\"2\",\"drawaway_chk\":\"4\",\"losthome_chk\":\"5\",\"lostaway_chk\":\"9\",\"home_win_pts\":\"10\",\"away_win_pts\":\"4\",\"home_draw_pts\":\"2\",\"away_draw_pts\":\"4\",\"home_loose_pts\":\"5\",\"away_loose_pts\":\"9\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"44\",\"goalconc_chk\":\"46\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":5,\"win_chk\":14,\"draw_chk\":6,\"lost_chk\":14,\"diff_chk\":\"44 - 46\",\"gd_chk\":-2,\"point_chk\":48,\"bonuspts_chk\":0,\"percent_chk\":\"0.500\",\"pointshome_chk\":32,\"pointsaway_chk\":16,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 10,
+    "form": [
+      "d",
+      "w",
+      "l",
+      "d",
+      "w"
+    ],
+    "teamShortName": "FUL",
+    "teamMiddleName": "Fulham",
+    "logo": "https://api.statorium.com/media/bearleague/bl17151023581920.webp",
+    "color": "",
+    "translations": {
+      "ar": {
+        "name": "فولهام إف سي"
+      },
+      "zh": {
+        "name": "富咸",
+        "middle_name": "富咸"
+      },
+      "gr": {
+        "name": "Φούλαμ",
+        "middle_name": "Φούλαμ"
+      },
+      "th": {
+        "name": "ฟูลัม"
+      }
+    }
+  },
+  {
+    "teamID": 6,
+    "teamName": "Everton FC",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"6\",\"winaway_chk\":\"7\",\"drawhome_chk\":\"4\",\"drawaway_chk\":\"4\",\"losthome_chk\":\"7\",\"lostaway_chk\":\"6\",\"home_win_pts\":\"6\",\"away_win_pts\":\"7\",\"home_draw_pts\":\"4\",\"away_draw_pts\":\"4\",\"home_loose_pts\":\"7\",\"away_loose_pts\":\"6\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"41\",\"goalconc_chk\":\"41\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":6,\"win_chk\":13,\"draw_chk\":8,\"lost_chk\":13,\"diff_chk\":\"41 - 41\",\"gd_chk\":0,\"point_chk\":47,\"bonuspts_chk\":0,\"percent_chk\":\"0.500\",\"pointshome_chk\":22,\"pointsaway_chk\":25,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 11,
+    "form": [
+      "l",
+      "w",
+      "d",
+      "l",
+      "l"
+    ],
+    "teamShortName": "EVE",
+    "teamMiddleName": "Everton",
+    "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp",
+    "color": "",
+    "translations": {
+      "ar": {
+        "name": "إيفرتون"
+      },
+      "zh": {
+        "name": "愛華頓",
+        "middle_name": "愛華頓"
+      },
+      "gr": {
+        "name": "Έβερτον",
+        "middle_name": "Έβερτον"
+      },
+      "th": {
+        "name": "เอฟเวอร์ตัน"
+      }
+    }
+  },
+  {
+    "teamID": 253,
+    "teamName": "Sunderland AFC",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"8\",\"winaway_chk\":\"4\",\"drawhome_chk\":\"5\",\"drawaway_chk\":\"5\",\"losthome_chk\":\"4\",\"lostaway_chk\":\"8\",\"home_win_pts\":\"8\",\"away_win_pts\":\"4\",\"home_draw_pts\":\"5\",\"away_draw_pts\":\"5\",\"home_loose_pts\":\"4\",\"away_loose_pts\":\"8\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"36\",\"goalconc_chk\":\"45\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":253,\"win_chk\":12,\"draw_chk\":10,\"lost_chk\":12,\"diff_chk\":\"36 - 45\",\"gd_chk\":-9,\"point_chk\":46,\"bonuspts_chk\":0,\"percent_chk\":\"0.500\",\"pointshome_chk\":29,\"pointsaway_chk\":17,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 12,
+    "form": [
+      "l",
+      "w",
+      "w",
+      "l",
+      "l"
+    ],
+    "teamShortName": "SUN",
+    "teamMiddleName": "Sunderland",
+    "logo": "https://api.statorium.com/media/bearleague/bl15718396531982.webp",
+    "color": "",
+    "translations": {
+      "ar": {
+        "name": "سندرلاند"
+      },
+      "gr": {
+        "name": "Σάντερλαντ"
+      }
+    }
+  },
+  {
+    "teamID": 15,
+    "teamName": "Crystal Palace",
+    "options": "{\"played_chk\":33,\"winhome_chk\":\"4\",\"winaway_chk\":\"7\",\"drawhome_chk\":\"8\",\"drawaway_chk\":\"2\",\"losthome_chk\":\"5\",\"lostaway_chk\":\"7\",\"home_win_pts\":\"4\",\"away_win_pts\":\"7\",\"home_draw_pts\":\"8\",\"away_draw_pts\":\"2\",\"home_loose_pts\":\"5\",\"away_loose_pts\":\"7\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"36\",\"goalconc_chk\":\"39\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":15,\"win_chk\":11,\"draw_chk\":10,\"lost_chk\":12,\"diff_chk\":\"36 - 39\",\"gd_chk\":-3,\"point_chk\":43,\"bonuspts_chk\":0,\"percent_chk\":\"0.485\",\"pointshome_chk\":20,\"pointsaway_chk\":23,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 13,
+    "form": [
+      "w",
+      "d",
+      "w",
+      "d",
+      "l"
+    ],
+    "teamShortName": "CRY",
+    "teamMiddleName": "Crystal Palace",
+    "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp",
+    "color": "",
+    "translations": {
+      "ar": {
+        "name": "كريستال بالاس"
+      },
+      "zh": {
+        "name": "水晶宮",
+        "middle_name": "水晶宮"
+      },
+      "gr": {
+        "name": "Κρίσταλ Πάλας",
+        "middle_name": "Κρίσταλ Πάλας"
+      },
+      "th": {
+        "name": "คริสตัลพาเลซ"
+      }
+    }
+  },
+  {
+    "teamID": 10,
+    "teamName": "Newcastle United FC",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"8\",\"winaway_chk\":\"4\",\"drawhome_chk\":\"2\",\"drawaway_chk\":\"4\",\"losthome_chk\":\"7\",\"lostaway_chk\":\"9\",\"home_win_pts\":\"8\",\"away_win_pts\":\"4\",\"home_draw_pts\":\"2\",\"away_draw_pts\":\"4\",\"home_loose_pts\":\"7\",\"away_loose_pts\":\"9\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"46\",\"goalconc_chk\":\"50\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":10,\"win_chk\":12,\"draw_chk\":6,\"lost_chk\":16,\"diff_chk\":\"46 - 50\",\"gd_chk\":-4,\"point_chk\":42,\"bonuspts_chk\":0,\"percent_chk\":\"0.441\",\"pointshome_chk\":26,\"pointsaway_chk\":16,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 14,
+    "form": [
+      "w",
+      "l",
+      "l",
+      "l",
+      "l"
+    ],
+    "teamShortName": "NEW",
+    "teamMiddleName": "Newcastle",
+    "logo": "https://api.statorium.com/media/bearleague/bl1715102537848.webp",
+    "color": "",
+    "translations": {
+      "ar": {
+        "name": "نيوكاسل يونايتد"
+      },
+      "zh": {
+        "name": "紐卡素",
+        "middle_name": "紐卡素"
+      },
+      "gr": {
+        "name": "Νιούκασλ",
+        "middle_name": "Νιούκασλ"
+      },
+      "th": {
+        "name": "นิวคาสเซิลยูไนเต็ด"
+      }
+    }
+  },
+  {
+    "teamID": 176,
+    "teamName": "Leeds United FC",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"7\",\"winaway_chk\":\"2\",\"drawhome_chk\":\"5\",\"drawaway_chk\":\"8\",\"losthome_chk\":\"5\",\"lostaway_chk\":\"7\",\"home_win_pts\":\"7\",\"away_win_pts\":\"2\",\"home_draw_pts\":\"5\",\"away_draw_pts\":\"8\",\"home_loose_pts\":\"5\",\"away_loose_pts\":\"7\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"44\",\"goalconc_chk\":\"51\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":176,\"win_chk\":9,\"draw_chk\":13,\"lost_chk\":12,\"diff_chk\":\"44 - 51\",\"gd_chk\":-7,\"point_chk\":40,\"bonuspts_chk\":0,\"percent_chk\":\"0.456\",\"pointshome_chk\":26,\"pointsaway_chk\":14,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 15,
+    "form": [
+      "d",
+      "d",
+      "w",
+      "w",
+      "d"
+    ],
+    "teamShortName": "LEE",
+    "teamMiddleName": "Leeds United",
+    "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp",
+    "color": "",
+    "translations": {
+      "ar": {
+        "name": "ليدز يونايتد"
+      },
+      "gr": {
+        "name": "Λιντς"
+      }
+    }
+  },
+  {
+    "teamID": 183,
+    "teamName": "Nottingham Forest FC",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"4\",\"winaway_chk\":\"6\",\"drawhome_chk\":\"6\",\"drawaway_chk\":\"3\",\"losthome_chk\":\"7\",\"lostaway_chk\":\"8\",\"home_win_pts\":\"4\",\"away_win_pts\":\"6\",\"home_draw_pts\":\"6\",\"away_draw_pts\":\"3\",\"home_loose_pts\":\"7\",\"away_loose_pts\":\"8\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"41\",\"goalconc_chk\":\"45\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":183,\"win_chk\":10,\"draw_chk\":9,\"lost_chk\":15,\"diff_chk\":\"41 - 45\",\"gd_chk\":-4,\"point_chk\":39,\"bonuspts_chk\":0,\"percent_chk\":\"0.426\",\"pointshome_chk\":18,\"pointsaway_chk\":21,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 16,
+    "form": [
+      "d",
+      "w",
+      "d",
+      "w",
+      "w"
+    ],
+    "teamShortName": "NTF",
+    "teamMiddleName": "Nottingham Forest",
+    "logo": "https://api.statorium.com/media/bearleague/bl17151025621698.webp",
+    "color": "",
+    "translations": {
+      "ar": {
+        "name": "نوتينغهام فورست"
+      },
+      "zh": {
+        "name": "諾定咸森林",
+        "middle_name": "諾定咸森林"
+      },
+      "gr": {
+        "name": "Νότιγχαμ Φόρεστ",
+        "middle_name": "Νότιγχαμ Φόρεστ"
+      },
+      "th": {
+        "name": "นอตทิงแฮมฟอเรสต์"
+      }
+    }
+  },
+  {
+    "teamID": 1,
+    "teamName": "West Ham United",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"5\",\"winaway_chk\":\"4\",\"drawhome_chk\":\"4\",\"drawaway_chk\":\"5\",\"losthome_chk\":\"8\",\"lostaway_chk\":\"8\",\"home_win_pts\":\"5\",\"away_win_pts\":\"4\",\"home_draw_pts\":\"4\",\"away_draw_pts\":\"5\",\"home_loose_pts\":\"8\",\"away_loose_pts\":\"8\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"42\",\"goalconc_chk\":\"58\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":1,\"win_chk\":9,\"draw_chk\":9,\"lost_chk\":16,\"diff_chk\":\"42 - 58\",\"gd_chk\":-16,\"point_chk\":36,\"bonuspts_chk\":0,\"percent_chk\":\"0.397\",\"pointshome_chk\":19,\"pointsaway_chk\":17,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 17,
+    "form": [
+      "d",
+      "l",
+      "w",
+      "d",
+      "w"
+    ],
+    "teamShortName": "WHU",
+    "teamMiddleName": "West Ham",
+    "logo": "https://api.statorium.com/media/bearleague/bl17151028161933.webp",
+    "color": "",
+    "translations": {
+      "ar": {
+        "name": "وست هام يونايتد"
+      },
+      "zh": {
+        "name": "韋斯咸",
+        "middle_name": "韋斯咸"
+      },
+      "gr": {
+        "name": "Γουέστ Χαμ",
+        "middle_name": "Γουέστ Χαμ"
+      },
+      "th": {
+        "name": "เวสต์แฮมยูไนเต็ด"
+      }
+    }
+  },
+  {
+    "teamID": 2,
+    "teamName": "Tottenham Hotspur FC",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"2\",\"winaway_chk\":\"6\",\"drawhome_chk\":\"5\",\"drawaway_chk\":\"5\",\"losthome_chk\":\"10\",\"lostaway_chk\":\"6\",\"home_win_pts\":\"2\",\"away_win_pts\":\"6\",\"home_draw_pts\":\"5\",\"away_draw_pts\":\"5\",\"home_loose_pts\":\"10\",\"away_loose_pts\":\"6\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"43\",\"goalconc_chk\":\"53\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":2,\"win_chk\":8,\"draw_chk\":10,\"lost_chk\":16,\"diff_chk\":\"43 - 53\",\"gd_chk\":-10,\"point_chk\":34,\"bonuspts_chk\":0,\"percent_chk\":\"0.382\",\"pointshome_chk\":11,\"pointsaway_chk\":23,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 18,
+    "form": [
+      "d",
+      "l",
+      "l",
+      "d",
+      "w"
+    ],
+    "teamShortName": "TOT",
+    "teamMiddleName": "Tottenham",
+    "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp",
+    "color": "#FF0000",
+    "translations": {
+      "ar": {
+        "name": "توتنهام هوتسبير"
+      },
+      "zh": {
+        "name": "托特纳姆热刺",
+        "middle_name": "托特纳姆热刺"
+      },
+      "gr": {
+        "name": "Τότεναμ",
+        "middle_name": "Τότεναμ"
+      },
+      "th": {
+        "name": "ทอตนัมฮอตสเปอร์"
+      }
+    }
+  },
+  {
+    "teamID": 12,
+    "teamName": "Burnley FC",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"2\",\"winaway_chk\":\"2\",\"drawhome_chk\":\"5\",\"drawaway_chk\":\"3\",\"losthome_chk\":\"10\",\"lostaway_chk\":\"12\",\"home_win_pts\":\"2\",\"away_win_pts\":\"2\",\"home_draw_pts\":\"5\",\"away_draw_pts\":\"3\",\"home_loose_pts\":\"10\",\"away_loose_pts\":\"12\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"34\",\"goalconc_chk\":\"68\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":12,\"win_chk\":4,\"draw_chk\":8,\"lost_chk\":22,\"diff_chk\":\"34 - 68\",\"gd_chk\":-34,\"point_chk\":20,\"bonuspts_chk\":0,\"percent_chk\":\"0.235\",\"pointshome_chk\":11,\"pointsaway_chk\":9,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 19,
+    "form": [
+      "d",
+      "l",
+      "l",
+      "l",
+      "l"
+    ],
+    "teamShortName": "BUR",
+    "teamMiddleName": "Burnley",
+    "logo": "https://api.statorium.com/media/bearleague/bl1715102124426.webp",
+    "color": "#FF0000",
+    "translations": {
+      "ar": {
+        "name": "بيرنلي إف سي"
+      },
+      "zh": {
+        "name": "般尼"
+      },
+      "gr": {
+        "name": "Μπέρνλι"
+      },
+      "th": {
+        "name": "เบิร์นลีย์"
+      }
+    }
+  },
+  {
+    "teamID": 13,
+    "teamName": "Wolverhampton Wanderers",
+    "options": "{\"played_chk\":34,\"winhome_chk\":\"3\",\"winaway_chk\":\"0\",\"drawhome_chk\":\"3\",\"drawaway_chk\":\"5\",\"losthome_chk\":\"11\",\"lostaway_chk\":\"12\",\"home_win_pts\":\"3\",\"away_win_pts\":\"0\",\"home_draw_pts\":\"3\",\"away_draw_pts\":\"5\",\"home_loose_pts\":\"11\",\"away_loose_pts\":\"12\",\"home_bonus\":\"0.00\",\"away_bonus\":\"0.00\",\"goalscore_chk\":\"24\",\"goalconc_chk\":\"62\",\"home_points\":\"0.00\",\"away_points\":\"0.00\",\"id\":13,\"win_chk\":3,\"draw_chk\":8,\"lost_chk\":23,\"diff_chk\":\"24 - 62\",\"gd_chk\":-38,\"point_chk\":17,\"bonuspts_chk\":0,\"percent_chk\":\"0.206\",\"pointshome_chk\":12,\"pointsaway_chk\":5,\"otwin_chk\":0,\"otlost_chk\":0}",
+    "ordering": 20,
+    "form": [
+      "w",
+      "d",
+      "l",
+      "l",
+      "l"
+    ],
+    "teamShortName": "WLV",
+    "teamMiddleName": "Wolverhampton",
+    "logo": "https://api.statorium.com/media/bearleague/bl17190131172980.webp",
+    "color": "#FF0000",
+    "translations": {
+      "ar": {
+        "name": "وولفرهامبتون واندررز"
+      },
+      "zh": {
+        "name": "伍尔弗汉普顿流浪者",
+        "middle_name": "伍尔弗汉普顿流浪者"
+      },
+      "gr": {
+        "name": "Γουλβερχάμπτον Γουόντερερς",
+        "middle_name": "Γουλβερχάμπτον Γουόντερερς"
+      },
+      "th": {
+        "name": "วุลเวอร์แฮมป์ตันวอนเดอเรอส์"
+      }
+    }
+  }
+]

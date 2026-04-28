@@ -27,7 +27,7 @@ export function MarketValue({ playerName, className, showIcon = true }: MarketVa
       className={cn(
         "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-sm font-bold transition-all duration-300",
         isAvailable 
-          ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20" 
+          ? "bg-secondary/10 text-secondary border border-secondary/20 hover:bg-secondary/20" 
           : "bg-muted text-muted-foreground border border-transparent",
         className
       )}
