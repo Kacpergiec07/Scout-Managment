@@ -191,7 +191,7 @@ function AnalysisContent() {
                   </div>
 
                   <p className="text-white/40 text-sm max-w-xl leading-relaxed italic">
-                    {playerData.description || \"Analyzing genetic markers and statistical anomalies in professional performance datasets to determine absolute market compatibility and value projection.\"}
+                    {playerData.description || "Analyzing genetic markers and statistical anomalies in professional performance datasets to determine absolute market compatibility and value projection."}
                   </p>
                 </div>
               </div>
@@ -204,7 +204,7 @@ function AnalysisContent() {
                   <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-500">
                     <TrendingUp className="w-5 h-5" />
                   </div>
-                  <span className=\"text-white/20 font-black italic\">DNA:01</span>
+                  <span className="text-white/20 font-black italic">DNA:01</span>
                 </div>
                 <div>
                   <div className="text-3xl font-black text-white tracking-tighter">{playerData.stats.offensive.goals}</div>
@@ -220,7 +220,7 @@ function AnalysisContent() {
                   <div className="p-2 rounded-xl bg-blue-500/10 text-blue-500">
                     <BarChart3 className="w-5 h-5" />
                   </div>
-                  <span className=\"text-white/20 font-black italic\">DNA:02</span>
+                  <span className="text-white/20 font-black italic">DNA:02</span>
                 </div>
                 <div>
                   <div className="text-3xl font-black text-white tracking-tighter">{playerData.stats.offensive.assists}</div>
@@ -236,7 +236,7 @@ function AnalysisContent() {
                   <div className="p-2 rounded-xl bg-amber-500/10 text-amber-500">
                     <Star className="w-5 h-5" />
                   </div>
-                  <span className=\"text-white/20 font-black italic\">DNA:03</span>
+                  <span className="text-white/20 font-black italic">DNA:03</span>
                 </div>
                 <div>
                   <div className="text-3xl font-black text-white tracking-tighter">{playerData.matches || 28}</div>
@@ -328,9 +328,9 @@ function AnalysisContent() {
 export default function AnalysisPage() {
   return (
     <Suspense fallback={
-      <div className=\"flex flex-col items-center justify-center min-h-[60vh] animate-in fade-in duration-700\">
-        <div className=\"w-16 h-16 rounded-full bg-[#00ff88]/20 blur-xl animate-pulse\" />
-        <p className=\"text-gray-500 text-base font-medium mt-6\">Inhaling player genetic statistical data...</p>
+      <div className="flex flex-col items-center justify-center min-h-[60vh] animate-in fade-in duration-700">
+        <div className="w-16 h-16 rounded-full bg-[#00ff88]/20 blur-xl animate-pulse" />
+        <p className="text-gray-500 text-base font-medium mt-6">Inhaling player genetic statistical data...</p>
       </div>
     }>
       <AnalysisContent />

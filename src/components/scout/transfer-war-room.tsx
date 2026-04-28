@@ -677,7 +677,6 @@ export function TransferWarRoom({ transfers: initialTransfers = OFFICIAL_TRANSFE
                         </div>
                         <Plus className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" />
                       </button>
-                      </button>
                     ))}
                   </div>
                 </ScrollArea>
