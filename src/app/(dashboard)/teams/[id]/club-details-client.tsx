@@ -182,17 +182,17 @@ export default function ClubDetailsClient({
          <div className="lg:col-span-3 space-y-8">
             <div className="flex items-center justify-between">
                <div className="flex items-center gap-6">
-                  <h2 className="text-xl font-black italic tracking-tighter uppercase text-emerald-500 flex items-center gap-4">
-                     <div className="w-12 h-1 bg-emerald-500" />
+                  <h2 className="text-xl font-black italic tracking-tighter uppercase text-secondary-500 flex items-center gap-4">
+                     <div className="w-12 h-1 bg-secondary-500" />
                      Squad Management Engine
                   </h2>
                   <div className="h-10 w-px bg-border hidden md:block" />
                   <div className="hidden lg:flex items-center gap-3">
-                     <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center">
-                        <Users className="w-4 h-4 text-emerald-500" />
+                     <div className="w-8 h-8 rounded-lg bg-secondary-500/10 flex items-center justify-center">
+                        <Users className="w-4 h-4 text-secondary-500" />
                      </div>
                      <div>
-                        <p className="text-[7px] font-black text-emerald-500 uppercase tracking-widest leading-none mb-1">Head Coach</p>
+                        <p className="text-[7px] font-black text-secondary-500 uppercase tracking-widest leading-none mb-1">Head Coach</p>
                         <p className="text-sm font-black italic tracking-tight leading-none text-foreground">{teamDetails.coach || "Unassigned"}</p>
                      </div>
                   </div>
@@ -200,13 +200,13 @@ export default function ClubDetailsClient({
                <div className="flex gap-2">
                   <button 
                      onClick={() => setActiveTab('lineup')}
-                     className={`px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'lineup' ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20' : 'bg-muted text-muted-foreground hover:bg-accent hover:text-foreground'}`}
+                     className={`px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'lineup' ? 'bg-secondary-500 text-black shadow-lg shadow-secondary-500/20' : 'bg-muted text-muted-foreground hover:bg-accent hover:text-foreground'}`}
                   >
                      Tactical View
                   </button>
                   <button 
                      onClick={() => setActiveTab('squad')}
-                     className={`px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'squad' ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20' : 'bg-muted text-muted-foreground hover:bg-accent hover:text-foreground'}`}
+                     className={`px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'squad' ? 'bg-secondary-500 text-black shadow-lg shadow-secondary-500/20' : 'bg-muted text-muted-foreground hover:bg-accent hover:text-foreground'}`}
                   >
                      Full Squad
                   </button>
@@ -227,7 +227,7 @@ export default function ClubDetailsClient({
                         <button
                            key={f.id}
                            onClick={() => setFilterPos(f.id as any)}
-                           className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${filterPos === f.id ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20' : 'text-muted-foreground hover:text-foreground hover:bg-muted'}`}
+                           className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${filterPos === f.id ? 'bg-secondary-500 text-black shadow-lg shadow-secondary-500/20' : 'text-muted-foreground hover:text-foreground hover:bg-muted'}`}
                         >
                            {f.label}
                         </button>
@@ -238,7 +238,7 @@ export default function ClubDetailsClient({
 
             {activeTab === 'lineup' ? (
                <div className="space-y-12">
-                  <div className="relative aspect-[16/9] bg-emerald-950/20 dark:bg-[#0a1a12] rounded-[4rem] border-[12px] border-muted dark:border-white/5 overflow-hidden shadow-2xl group/pitch">
+                  <div className="relative aspect-[16/9] bg-secondary-950/20 dark:bg-[#0a1a12] rounded-[4rem] border-[12px] border-muted dark:border-white/5 overflow-hidden shadow-2xl group/pitch">
                      {/* Premium Pitch Surface */}
                      <div className="absolute inset-0 opacity-30" style={{ 
                         backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 9.9%, currentColor 10%)',
@@ -265,7 +265,7 @@ export default function ClubDetailsClient({
                   <div className="p-8 bg-card border border-border backdrop-blur-xl rounded-[3rem]">
                      <div className="flex items-center justify-between mb-6">
                         <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground">Substitutes Bench</h3>
-                        <p className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest animate-pulse">Select player to swap</p>
+                        <p className="text-[10px] font-bold text-secondary-500 uppercase tracking-widest animate-pulse">Select player to swap</p>
                      </div>
                      <div className="flex flex-wrap justify-center gap-6">
                         {benchPlayers.map((p: any) => (
@@ -318,7 +318,7 @@ export default function ClubDetailsClient({
                                          e.stopPropagation();
                                          handleAddToWatchlist(p);
                                       }}
-                                      className={`transition-all ${watchlistStatus[String(p.playerID)] ? 'text-emerald-500 scale-125' : 'text-muted-foreground hover:text-yellow-500'}`}
+                                      className={`transition-all ${watchlistStatus[String(p.playerID)] ? 'text-secondary-500 scale-125' : 'text-muted-foreground hover:text-yellow-500'}`}
                                    >
                                       {watchlistStatus[String(p.playerID)] ? <CheckCircle2 className="w-3.5 h-3.5" /> : <Star className="w-3.5 h-3.5" />}
                                    </button>
@@ -337,7 +337,7 @@ export default function ClubDetailsClient({
                           <div className="flex gap-4 text-right">
                              <div>
                                 <p className="text-[8px] font-black text-muted-foreground uppercase">Goals</p>
-                                <p className="text-sm font-black text-emerald-500">{getPVal(pStats, ['Goals', 'Goal'])}</p>
+                                <p className="text-sm font-black text-secondary-500">{getPVal(pStats, ['Goals', 'Goal'])}</p>
                              </div>
                              <div>
                                 <p className="text-[8px] font-black text-muted-foreground uppercase">Ast</p>
@@ -364,7 +364,7 @@ export default function ClubDetailsClient({
                animate={{ opacity: 1, scale: 1 }}
                className="relative p-8 bg-card border border-border flex items-center justify-center group overflow-hidden shadow-2xl rounded-[3rem]"
             >
-               <div className="absolute inset-0 bg-emerald-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+               <div className="absolute inset-0 bg-secondary-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
                <img 
                   src={teamDetails.teamLogo} 
                   alt={teamDetails.teamName}
@@ -379,11 +379,11 @@ export default function ClubDetailsClient({
                </h1>
                <div className="flex flex-col gap-3">
                   <div className="flex items-center gap-2">
-                     <span className="px-3 py-1 bg-emerald-500 text-black text-[8px] font-black uppercase tracking-widest rounded">PROFESSIONAL</span>
+                     <span className="px-3 py-1 bg-secondary-500 text-black text-[8px] font-black uppercase tracking-widest rounded">PROFESSIONAL</span>
                      <span className="px-3 py-1 bg-muted text-muted-foreground text-[8px] font-black uppercase tracking-widest rounded border border-border">CLUB</span>
                   </div>
                   <p className="text-sm font-bold text-muted-foreground flex items-center gap-2">
-                     <MapPin className="w-4 h-4 text-emerald-500" />
+                     <MapPin className="w-4 h-4 text-secondary-500" />
                      {teamDetails.venueName || "Santiago Bernabéu Stadium"}
                   </p>
                </div>
@@ -402,7 +402,7 @@ export default function ClubDetailsClient({
                   value={teamDetails.formation || "4-4-2"}
                />
                <StatCard 
-                  icon={<TrendingUp className="w-4 h-4 text-emerald-500" />}
+                  icon={<TrendingUp className="w-4 h-4 text-secondary-500" />}
                   label="Points"
                   value={standing?.points || "73"}
                />
@@ -422,7 +422,7 @@ export default function ClubDetailsClient({
                   </div>
                   <div>
                      <p className="text-lg font-black uppercase tracking-tight leading-none mb-1">{leagueInfo?.name || "La Liga"}</p>
-                     <p className="text-[10px] text-emerald-500 font-black uppercase tracking-widest">Active Season</p>
+                     <p className="text-[10px] text-secondary-500 font-black uppercase tracking-widest">Active Season</p>
                   </div>
                </div>
                
@@ -433,8 +433,8 @@ export default function ClubDetailsClient({
                         <p className="text-2xl font-black italic">{standing?.played || 0}</p>
                      </div>
                      <div className="text-right">
-                        <p className="text-[10px] font-black text-emerald-500 uppercase mb-1">Perf. Score</p>
-                        <p className="text-2xl font-black italic text-emerald-400">
+                        <p className="text-[10px] font-black text-secondary-500 uppercase mb-1">Perf. Score</p>
+                        <p className="text-2xl font-black italic text-secondary-400">
                            {standing?.played ? ((standing.points / (standing.played * 3)) * 100).toFixed(1) : "0"}%
                         </p>
                      </div>
@@ -443,7 +443,7 @@ export default function ClubDetailsClient({
                      <motion.div 
                         initial={{ width: 0 }}
                         animate={{ width: `${standing?.played ? (standing.points / (standing.played * 3)) * 100 : 0}%` }}
-                        className="h-full bg-gradient-to-r from-emerald-600 to-emerald-400"
+                        className="h-full bg-gradient-to-r from-secondary-600 to-secondary-400"
                      />
                   </div>
                </div>
@@ -451,7 +451,7 @@ export default function ClubDetailsClient({
 
             {/* Squad Depth Analysis */}
             <div className="p-8 bg-card border border-border rounded-3xl space-y-6">
-               <h3 className="text-xs font-black uppercase tracking-widest text-emerald-500 flex items-center gap-2">
+               <h3 className="text-xs font-black uppercase tracking-widest text-secondary-500 flex items-center gap-2">
                   <Activity className="w-4 h-4" />
                   Squad Composition
                </h3>
@@ -459,7 +459,7 @@ export default function ClubDetailsClient({
                <div className="space-y-4">
                   <DepthRow label="Goalkeepers" count={gks.length} color="bg-yellow-500" />
                   <DepthRow label="Defenders" count={dfs.length} color="bg-blue-500" />
-                  <DepthRow label="Midfielders" count={mfs.length} color="bg-emerald-500" />
+                  <DepthRow label="Midfielders" count={mfs.length} color="bg-secondary-500" />
                   <DepthRow label="Forwards" count={fws.length} color="bg-red-500" />
                </div>
             </div>
@@ -597,10 +597,10 @@ function PlayerBubble({ player, position, isSelected }: { player: any, position?
          >
             {/* Selection Glow */}
             {isSelected && (
-               <div className="absolute inset-[-8px] bg-emerald-500/20 blur-2xl rounded-full animate-pulse" />
+               <div className="absolute inset-[-8px] bg-secondary-500/20 blur-2xl rounded-full animate-pulse" />
             )}
             <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover/bubble:opacity-100 transition-opacity" />
-            <div className={`w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-card border-2 transition-colors overflow-hidden shadow-xl relative z-10 ${isSelected ? 'border-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.4)]' : 'border-border'}`}>
+            <div className={`w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-card border-2 transition-colors overflow-hidden shadow-xl relative z-10 ${isSelected ? 'border-secondary-500 shadow-[0_0_20px_rgba(16,185,129,0.4)]' : 'border-border'}`}>
                <SafeImage 
                   src={player.playerPhoto} 
                   alt={player.playerFullName || player.fullName} 
@@ -611,7 +611,7 @@ function PlayerBubble({ player, position, isSelected }: { player: any, position?
             </div>
             
             {/* Number Badge */}
-            <div className={`absolute -bottom-1 -right-1 z-20 text-background text-[8px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-background transition-colors ${isSelected ? 'bg-foreground text-background' : 'bg-emerald-500'}`}>
+            <div className={`absolute -bottom-1 -right-1 z-20 text-background text-[8px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-background transition-colors ${isSelected ? 'bg-foreground text-background' : 'bg-secondary-500'}`}>
                {player.playerNumber || "??"}
             </div>
 
@@ -627,7 +627,7 @@ function PlayerBubble({ player, position, isSelected }: { player: any, position?
                   >
                      <div className="space-y-3">
                         <div>
-                           <p className="text-[10px] font-black text-emerald-500 uppercase tracking-widest mb-0.5">Player Profile</p>
+                           <p className="text-[10px] font-black text-secondary-500 uppercase tracking-widest mb-0.5">Player Profile</p>
                            <p className="text-sm font-black italic uppercase leading-tight text-foreground">{player.playerFullName || player.fullName}</p>
                         </div>
                         
@@ -637,8 +637,8 @@ function PlayerBubble({ player, position, isSelected }: { player: any, position?
                               <p className="text-xs font-black text-foreground">{apps}</p>
                            </div>
                            <div className="text-center">
-                              <p className="text-[8px] font-black text-emerald-500 uppercase">Goals</p>
-                              <p className="text-xs font-black text-emerald-600">{goals}</p>
+                              <p className="text-[8px] font-black text-secondary-500 uppercase">Goals</p>
+                              <p className="text-xs font-black text-secondary-600">{goals}</p>
                            </div>
                            <div className="text-center">
                               <p className="text-[8px] font-black text-blue-500 uppercase">Ast</p>

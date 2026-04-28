@@ -18,7 +18,7 @@ export async function fixUserProfile() {
 
     if (userError || !user) {
       console.error('fixUserProfile: User not authenticated')
-      return { error: 'User not authenticated' }
+      return { error: 'User not authenticated', success: false, message: 'User not authenticated' }
     }
 
     console.log('fixUserProfile: User authenticated:', user.id, user.email)
@@ -146,7 +146,7 @@ export async function fixUserProfile() {
 
           if (retryError) {
             console.error('fixUserProfile: Retry also failed:', retryError)
-            return { error: `Failed to create profile: ${retryError.message}` }
+            return { error: `Failed to create profile: ${retryError.message}`, success: false, message: 'Failed to create profile' }
           }
 
           profile = retryProfile
@@ -158,7 +158,7 @@ export async function fixUserProfile() {
 
       } catch (error) {
         console.error('fixUserProfile: Profile creation failed:', error)
-        return { error: 'Failed to create profile' }
+        return { error: 'Failed to create profile', success: false, message: 'Failed to create profile' }
       }
     }
 
@@ -260,6 +260,6 @@ export async function fixUserProfile() {
 
   } catch (error) {
     console.error('fixUserProfile: Unexpected error:', error)
-    return { error: 'An unexpected error occurred while fixing profile' }
+    return { error: 'An unexpected error occurred while fixing profile', success: false, message: 'An unexpected error occurred' }
   }
 }

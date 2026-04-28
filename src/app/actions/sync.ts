@@ -17,7 +17,7 @@ export async function syncLeagueData(seasonId: string) {
 
     const teamsToUpsert = standings.map((s: any) => ({
       id: (s.teamID || s.team_id || s.id).toString(),
-      name: s.teamName || s.teamMiddleName || 'Unknown Team',
+      name: s.teamName || 'Unknown Team',
       logo: s.logo || s.teamLogo || '',
       season_id: seasonId,
       last_synced: new Date().toISOString()
@@ -39,11 +39,13 @@ export async function syncLeagueData(seasonId: string) {
     const topTeams = standings.slice(0, 10)
     
     for (const team of topTeams) {
-      const tid = (team.teamID || team.team_id || team.id).toString()
+      const tid = team.teamID.toString()
       try {
-        const players = await client.getPlayersByTeam(tid, seasonId)
+        const result: any = await client.getPlayersByTeam(tid, seasonId)
+        const players = result.players || result
         if (players && players.length > 0) {
           const playersToUpsert = players.map((p: any) => {
+            const details = p.additionalInfo || {}
             // Simulate injury (10% chance)
             const isInjured = Math.random() < 0.1
             const injuryType = isInjured ? ['ACL Strain', 'Hamstring Pull', 'Ankle Sprain', 'Illness'][Math.floor(Math.random() * 4)] : 'Healthy'
@@ -55,12 +57,16 @@ export async function syncLeagueData(seasonId: string) {
             return {
               id: p.playerID.toString(),
               full_name: p.fullName,
-              position: p.position || p.additionalInfo?.position || 'N/A',
+              position: p.position || details.position || 'N/A',
               team_id: tid,
-              team_name: team.teamName || team.teamMiddleName,
+              team_name: team.teamName,
               season_id: seasonId,
               photo_url: p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`,
-              birthdate: p.additionalInfo?.birthdate || '',
+              country: typeof p.country === 'string' ? p.country : (p.country?.name || ''),
+              birthdate: details.birthdate || '',
+              weight: (details as any).weight || p.weight,
+              height: (details as any).height || p.height,
+              age: (details as any).age || null,
               stats: p.stat || {},
               injury_status: injuryType,
               contract_expiry: expiry.toISOString(),

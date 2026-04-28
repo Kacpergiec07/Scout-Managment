@@ -60,7 +60,7 @@ function AnalysisContent() {
 
   if (loading) return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] animate-in fade-in duration-700">
-      <div className="w-16 h-16 rounded-full bg-[#00ff88]/20 blur-xl animate-pulse" />
+      <div className="w-16 h-16 rounded-full bg-[hsl(var(--secondary))]/20 blur-xl animate-pulse" />
       <p className="text-gray-500 text-base font-medium mt-6">Inhaling player genetic statistical data...</p>
     </div>
   )
@@ -72,7 +72,7 @@ function AnalysisContent() {
         {[...Array(50)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-emerald-500/10"
+            className="absolute rounded-full bg-secondary/10"
             style={{
               width: Math.random() * 4 + 1,
               height: Math.random() * 4 + 1,
@@ -90,7 +90,7 @@ function AnalysisContent() {
         {/* Back button */}
         <Link
           href="/history"
-          className="inline-flex items-center gap-2 text-[#00ff88] hover:text-white transition-colors duration-300 mb-8 animate-in fade-in slide-in-from-left-4 duration-700"
+          className="inline-flex items-center gap-2 text-[hsl(var(--secondary))] hover:text-white transition-colors duration-300 mb-8 animate-in fade-in slide-in-from-left-4 duration-700"
         >
           <ArrowLeft className="h-4 w-4" />
           <span className="font-medium">Back to History</span>
@@ -100,17 +100,17 @@ function AnalysisContent() {
         <div className="space-y-3 animate-in fade-in slide-in-from-top-4 duration-700">
           <div className="flex items-center gap-4">
             <div className="relative">
-              <div className="absolute inset-0 bg-[#00ff88]/20 blur-xl rounded-lg" />
-              <div className="relative h-14 w-14 rounded-xl bg-[#00ff88]/10 border border-[#00ff88]/30 flex items-center justify-center shadow-2xl shadow-[#00ff88]/20">
-                <Hexagon className="h-7 w-7 text-[#00ff88]" fill="currentColor" />
+              <div className="absolute inset-0 bg-[hsl(var(--secondary))]/20 blur-xl rounded-lg" />
+              <div className="relative h-14 w-14 rounded-xl bg-[hsl(var(--secondary))]/10 border border-[hsl(var(--secondary))]/30 flex items-center justify-center shadow-2xl shadow-[hsl(var(--secondary))]/20">
+                <Hexagon className="h-7 w-7 text-[hsl(var(--secondary))]" fill="currentColor" />
               </div>
             </div>
             <div>
               <h1
                 className="text-4xl sm:text-5xl font-bold tracking-tight"
                 style={{
-                  color: '#00ff88',
-                  textShadow: '0 0 20px rgba(0, 255, 136, 0.5)'
+                  color: 'hsl(var(--secondary))',
+                  textShadow: '0 0 20px hsl(var(--secondary) / 0.5)'
                 }}
               >
                 {mockPlayer.name}
@@ -119,7 +119,7 @@ function AnalysisContent() {
                 <p className="text-gray-400 text-base font-medium">
                   {mockPlayer.position} • {mockPlayer.club} • {mockPlayer.league}
                 </p>
-                <MarketValue playerName={mockPlayer.name} className="bg-[#00ff88]/10 text-[#00ff88] border-[#00ff88]/20" />
+                <MarketValue playerName={mockPlayer.name} className="bg-[hsl(var(--secondary))]/10 text-[hsl(var(--secondary))] border-[hsl(var(--secondary))]/20" />
               </div>
             </div>
           </div>
@@ -128,16 +128,16 @@ function AnalysisContent() {
         {/* Player Card */}
         <div className="relative overflow-hidden rounded-3xl border-2 border-gray-800/50 bg-black/80 backdrop-blur-xl p-8 shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-700">
           {/* Gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#00ff88]/10 to-transparent opacity-50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--secondary))]/10 to-transparent opacity-50" />
 
           <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="flex items-center gap-6">
               {/* Player Photo */}
               <div className="relative group">
-                <div className="absolute inset-0 bg-[#00ff88]/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative h-28 w-28 rounded-2xl overflow-hidden border-2 border-gray-700 group-hover:border-[#00ff88] transition-all duration-300 shadow-xl">
+                <div className="absolute inset-0 bg-[hsl(var(--secondary))]/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative h-28 w-28 rounded-2xl overflow-hidden border-2 border-gray-700 group-hover:border-[hsl(var(--secondary))] transition-all duration-300 shadow-xl">
                   <Image
-                    src={mockPlayer.photoUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(mockPlayer.name)}&background=00ff88&color=000&size=200`}
+                    src={mockPlayer.photoUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(mockPlayer.name)}&background=22c55e&color=000&size=200`}
                     alt={mockPlayer.name}
                     fill
                     unoptimized
@@ -145,17 +145,17 @@ function AnalysisContent() {
                   />
                 </div>
                 {/* Rating Badge */}
-                <div className="absolute -bottom-2 -right-2 h-10 w-10 rounded-full bg-gradient-to-br from-[#00ff88] to-[#00cc6a] border-2 border-[#00ff88]/30 flex items-center justify-center shadow-lg shadow-[#00ff88]/50">
+                <div className="absolute -bottom-2 -right-2 h-10 w-10 rounded-full bg-gradient-to-br from-[hsl(var(--secondary))] to-[hsl(var(--secondary) / 0.8)] border-2 border-[hsl(var(--secondary))]/30 flex items-center justify-center shadow-lg shadow-[hsl(var(--secondary))]/50">
                   <span className="text-xl font-black tabular-nums">95</span>
                 </div>
               </div>
 
               {/* Player Info */}
               <div className="space-y-2">
-                <Badge className="bg-[#00ff88]/10 border-[#00ff88]/30 text-[#00ff88] hover:bg-[#00ff88]/20 transition-all">
+                <Badge className="bg-[hsl(var(--secondary))]/10 border-[hsl(var(--secondary))]/30 text-[hsl(var(--secondary))] hover:bg-[hsl(var(--secondary))]/20 transition-all">
                   Analysis Verified
                 </Badge>
-                <h2 className="text-2xl font-bold text-white group-hover:text-[#00ff88] transition-colors">
+                <h2 className="text-2xl font-bold text-white group-hover:text-[hsl(var(--secondary))] transition-colors">
                   AI-Generated Intelligence Profile
                 </h2>
                 <p className="text-gray-500 text-sm">
@@ -167,12 +167,12 @@ function AnalysisContent() {
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-3">
               <ReportButton elementId="analysis-report-content" playerName={mockPlayer.name} />
-              <button className="flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-xl border-2 border-gray-800/50 rounded-xl hover:border-[#00ff88]/50 hover:bg-[#00ff88]/10 transition-all duration-300 group">
-                <Share2 className="h-4 w-4 text-gray-500 group-hover:text-[#00ff88] transition-colors" />
+              <button className="flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-xl border-2 border-gray-800/50 rounded-xl hover:border-[hsl(var(--secondary))]/50 hover:bg-[hsl(var(--secondary))]/10 transition-all duration-300 group">
+                <Share2 className="h-4 w-4 text-gray-500 group-hover:text-[hsl(var(--secondary))] transition-colors" />
                 <span className="text-gray-400 text-sm font-medium group-hover:text-gray-300">Share</span>
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-xl border-2 border-gray-800/50 rounded-xl hover:border-[#00ff88]/50 hover:bg-[#00ff88]/10 transition-all duration-300 group">
-                <Download className="h-4 w-4 text-gray-500 group-hover:text-[#00ff88] transition-colors" />
+              <button className="flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-xl border-2 border-gray-800/50 rounded-xl hover:border-[hsl(var(--secondary))]/50 hover:bg-[hsl(var(--secondary))]/10 transition-all duration-300 group">
+                <Download className="h-4 w-4 text-gray-500 group-hover:text-[hsl(var(--secondary))] transition-colors" />
                 <span className="text-gray-400 text-sm font-medium group-hover:text-gray-300">Export</span>
               </button>
             </div>
@@ -185,7 +185,7 @@ function AnalysisContent() {
           <div className="flex flex-col gap-6 animate-in fade-in slide-in-from-left-4 duration-700 delay-100 h-full">
             <div className="rounded-2xl border-2 border-gray-800/50 bg-black/60 backdrop-blur-xl p-6 shadow-2xl">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-xl bg-[#00ff88]/10 border border-[#00ff88]/20 text-[#00ff88]">
+                <div className="p-3 rounded-xl bg-[hsl(var(--secondary))]/10 border border-[hsl(var(--secondary))]/20 text-[hsl(var(--secondary))]">
                   <Hexagon className="h-6 w-6" fill="currentColor" />
                 </div>
                 <div>
@@ -201,7 +201,7 @@ function AnalysisContent() {
             {mockPlayer.description && (
               <div className="rounded-2xl border-2 border-gray-800/50 bg-black/60 backdrop-blur-xl p-6 shadow-2xl">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 rounded-xl bg-[#00ff88]/10 border border-[#00ff88]/20 text-[#00ff88]">
+                  <div className="p-3 rounded-xl bg-[hsl(var(--secondary))]/10 border border-[hsl(var(--secondary))]/20 text-[hsl(var(--secondary))]">
                     <Download className="h-5 w-5" />
                   </div>
                   <div>
@@ -220,7 +220,7 @@ function AnalysisContent() {
             {/* Key Stats Grid */}
             <div className="flex-1 rounded-2xl border-2 border-gray-800/50 bg-black/60 backdrop-blur-xl p-6 shadow-2xl">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-xl bg-[#00ff88]/10 border border-[#00ff88]/20 text-[#00ff88]">
+                <div className="p-3 rounded-xl bg-[hsl(var(--secondary))]/10 border border-[hsl(var(--secondary))]/20 text-[hsl(var(--secondary))]">
                   <BarChart3 className="h-6 w-6" />
                 </div>
                 <div>
@@ -235,8 +235,8 @@ function AnalysisContent() {
                   { label: 'Matches', value: Math.round(mockPlayer.stats.defensive.clearances * 1.5), icon: '🎮' },
                   { label: 'Rating', value: 95, icon: '⭐' },
                 ].map((stat, i) => (
-                  <div key={i} className="bg-black/40 border-2 border-[#00ff88]/20 rounded-xl p-4 hover:border-[#00ff88]/50 hover:bg-[#00ff88]/10 transition-all duration-300">
-                    <div className="text-2xl font-black text-[#00ff88] tabular-nums mb-2" style={{ textShadow: '0 0 10px rgba(0, 255, 136, 0.3)' }}>
+                  <div key={i} className="bg-black/40 border-2 border-[hsl(var(--secondary))]/20 rounded-xl p-4 hover:border-[hsl(var(--secondary))]/50 hover:bg-[hsl(var(--secondary))]/10 transition-all duration-300">
+                    <div className="text-2xl font-black text-[hsl(var(--secondary))] tabular-nums mb-2" style={{ textShadow: '0 0 10px hsl(var(--secondary) / 0.3)' }}>
                       {stat.value}
                     </div>
                     <div className="flex items-center gap-2">
@@ -253,7 +253,7 @@ function AnalysisContent() {
           <div className="h-full animate-in fade-in slide-in-from-right-4 duration-700 delay-200">
             <div className="h-full rounded-2xl border-2 border-gray-800/50 bg-black/60 backdrop-blur-xl p-6 shadow-2xl flex flex-col">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-xl bg-[#00ff88]/10 border border-[#00ff88]/20 text-[#00ff88]">
+                <div className="p-3 rounded-xl bg-[hsl(var(--secondary))]/10 border border-[hsl(var(--secondary))]/20 text-[hsl(var(--secondary))]">
                   <TrendingUp className="h-6 w-6" />
                 </div>
                 <div>
@@ -276,7 +276,7 @@ export default function AnalysisPage() {
   return (
     <Suspense fallback={
       <div className="flex items-center justify-center min-h-screen" style={{ backgroundColor: '#0a0f0a' }}>
-        <div className="w-16 h-16 rounded-full bg-[#00ff88]/20 blur-xl animate-pulse" />
+        <div className="w-16 h-16 rounded-full bg-[hsl(var(--secondary))]/20 blur-xl animate-pulse" />
         <p className="text-gray-500 text-base font-medium mt-6">Loading analysis...</p>
       </div>
     }>

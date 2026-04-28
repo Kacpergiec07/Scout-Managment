@@ -125,7 +125,7 @@ export default function NewAnalysisPage() {
     <div className="min-h-screen bg-[#0a0f0a] text-white pt-24 pb-12 px-4 sm:px-6 lg:px-8">
       {/* Background Glow */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#00ff88]/10 blur-[120px] rounded-full" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[hsl(var(--secondary))]/10 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-900/20 blur-[120px] rounded-full" />
       </div>
 
@@ -143,13 +143,13 @@ export default function NewAnalysisPage() {
                 <div 
                   className={`w-12 h-12 rounded-2xl flex items-center justify-center border-2 transition-all duration-500 ${
                     step === s.id 
-                    ? 'bg-[#00ff88] border-[#00ff88] text-black shadow-[0_0_20px_rgba(0,255,136,0.4)]' 
+                    ? 'bg-[hsl(var(--secondary))] border-[hsl(var(--secondary))] text-black shadow-[0_0_20px_rgba(0,255,136,0.4)]' 
                     : 'bg-black/40 border-gray-800 text-gray-500'
                   }`}
                 >
                   <s.icon className="h-5 w-5" />
                 </div>
-                <span className={`text-[10px] font-bold uppercase tracking-widest ${step === s.id ? 'text-[#00ff88]' : 'text-gray-600'}`}>
+                <span className={`text-[10px] font-bold uppercase tracking-widest ${step === s.id ? 'text-[hsl(var(--secondary))]' : 'text-gray-600'}`}>
                   {s.label}
                 </span>
               </div>
@@ -173,7 +173,7 @@ export default function NewAnalysisPage() {
                 className="space-y-8"
               >
                 <div className="space-y-2">
-                  <h2 className="text-3xl font-black uppercase italic tracking-tighter text-[#00ff88]">
+                  <h2 className="text-3xl font-black uppercase italic tracking-tighter text-[hsl(var(--secondary))]">
                     Player Identity
                   </h2>
                   <p className="text-gray-400 text-sm">Search for an existing player or enter details manually.</p>
@@ -185,16 +185,16 @@ export default function NewAnalysisPage() {
                       Search Database
                     </Label>
                     <div className="relative group">
-                      <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500 group-focus-within:text-[#00ff88] transition-colors" />
+                      <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500 group-focus-within:text-[hsl(var(--secondary))] transition-colors" />
                       <Input
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Type name (e.g. Lewandowski, Mbappe...)"
-                        className="h-14 pl-12 bg-black/40 border-gray-800 focus:border-[#00ff88]/50 focus:ring-0 rounded-2xl transition-all"
+                        className="h-14 pl-12 bg-black/40 border-gray-800 focus:border-[hsl(var(--secondary))]/50 focus:ring-0 rounded-2xl transition-all"
                       />
                       {isSearching && (
                         <div className="absolute right-4 top-1/2 -translate-y-1/2">
-                          <div className="w-5 h-5 border-2 border-[#00ff88]/30 border-t-[#00ff88] rounded-full animate-spin" />
+                          <div className="w-5 h-5 border-2 border-[hsl(var(--secondary))]/30 border-t-[hsl(var(--secondary))] rounded-full animate-spin" />
                         </div>
                       )}
                     </div>
@@ -212,7 +212,7 @@ export default function NewAnalysisPage() {
                             <button
                               key={p.playerID}
                               onClick={() => selectPlayer(p)}
-                              className="w-full flex items-center gap-4 p-4 hover:bg-[#00ff88]/5 transition-colors border-b border-gray-800/50 last:border-0"
+                              className="w-full flex items-center gap-4 p-4 hover:bg-[hsl(var(--secondary))]/5 transition-colors border-b border-gray-800/50 last:border-0"
                             >
                               <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-700 relative">
                                 <Image src={p.playerPhoto || ''} alt={p.fullName} fill className="object-cover" />
@@ -267,9 +267,9 @@ export default function NewAnalysisPage() {
                      <Button 
                        variant="outline" 
                        onClick={() => document.getElementById('csv-upload')?.click()}
-                       className="w-full h-16 border-dashed border-gray-800 bg-white/5 rounded-2xl hover:bg-[#00ff88]/5 hover:border-[#00ff88]/30 transition-all group"
+                       className="w-full h-16 border-dashed border-gray-800 bg-white/5 rounded-2xl hover:bg-[hsl(var(--secondary))]/5 hover:border-[hsl(var(--secondary))]/30 transition-all group"
                      >
-                        <FileUp className="w-5 h-5 mr-3 text-gray-500 group-hover:text-[#00ff88]" />
+                        <FileUp className="w-5 h-5 mr-3 text-gray-500 group-hover:text-[hsl(var(--secondary))]" />
                         <div className="text-left">
                            <div className="text-xs font-bold text-white uppercase tracking-widest">Import Scout Report (CSV)</div>
                            <div className="text-[10px] text-gray-600 font-medium">Batch import player bio & core metadata</div>
@@ -337,7 +337,7 @@ export default function NewAnalysisPage() {
                   <Button 
                     onClick={handleNext}
                     disabled={!formData.name}
-                    className="h-14 px-8 bg-[#00ff88] hover:bg-[#00cc6a] text-black font-black uppercase italic rounded-2xl transition-all hover:scale-105 active:scale-95"
+                    className="h-14 px-8 bg-[hsl(var(--secondary))] hover:bg-[#00cc6a] text-black font-black uppercase italic rounded-2xl transition-all hover:scale-105 active:scale-95"
                   >
                     Next Step <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -355,7 +355,7 @@ export default function NewAnalysisPage() {
                 className="space-y-8"
               >
                 <div className="space-y-2">
-                  <h2 className="text-3xl font-black uppercase italic tracking-tighter text-[#00ff88]">
+                  <h2 className="text-3xl font-black uppercase italic tracking-tighter text-[hsl(var(--secondary))]">
                     Performance Metrics
                   </h2>
                   <p className="text-gray-400 text-sm">Define the player's core attributes (0-100 scale).</p>
@@ -364,7 +364,7 @@ export default function NewAnalysisPage() {
                 <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
                   {/* Offensive */}
                   <div className="space-y-6">
-                    <div className="flex items-center gap-2 text-[#00ff88]">
+                    <div className="flex items-center gap-2 text-[hsl(var(--secondary))]">
                       <Target className="h-5 w-5" />
                       <h3 className="font-bold uppercase tracking-widest text-sm">Offensive</h3>
                     </div>
@@ -372,12 +372,12 @@ export default function NewAnalysisPage() {
                       <div key={key} className="space-y-3">
                         <div className="flex justify-between items-center">
                           <Label className="text-[10px] font-bold uppercase text-gray-500">{key}</Label>
-                          <span className="text-xs font-mono text-[#00ff88]">{val}</span>
+                          <span className="text-xs font-mono text-[hsl(var(--secondary))]">{val}</span>
                         </div>
                         <input 
                           type="range" min="0" max="100" value={val} 
                           onChange={e => updateStat('offensive', key, parseInt(e.target.value))}
-                          className="w-full h-1.5 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#00ff88]"
+                          className="w-full h-1.5 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[hsl(var(--secondary))]"
                         />
                       </div>
                     ))}
@@ -415,7 +415,7 @@ export default function NewAnalysisPage() {
                   </Button>
                   <Button 
                     onClick={handleNext}
-                    className="h-14 px-8 bg-[#00ff88] hover:bg-[#00cc6a] text-black font-black uppercase italic rounded-2xl transition-all hover:scale-105"
+                    className="h-14 px-8 bg-[hsl(var(--secondary))] hover:bg-[#00cc6a] text-black font-black uppercase italic rounded-2xl transition-all hover:scale-105"
                   >
                     Next Step <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -433,7 +433,7 @@ export default function NewAnalysisPage() {
                 className="space-y-8"
               >
                 <div className="space-y-2">
-                  <h2 className="text-3xl font-black uppercase italic tracking-tighter text-[#00ff88]">
+                  <h2 className="text-3xl font-black uppercase italic tracking-tighter text-[hsl(var(--secondary))]">
                     Play Style & Tactical DNA
                   </h2>
                   <p className="text-gray-400 text-sm">Refine physical and tactical tendencies.</p>
@@ -493,7 +493,7 @@ export default function NewAnalysisPage() {
                   </Button>
                   <Button 
                     onClick={handleNext}
-                    className="h-14 px-8 bg-[#00ff88] hover:bg-[#00cc6a] text-black font-black uppercase italic rounded-2xl transition-all hover:scale-105"
+                    className="h-14 px-8 bg-[hsl(var(--secondary))] hover:bg-[#00cc6a] text-black font-black uppercase italic rounded-2xl transition-all hover:scale-105"
                   >
                     Review Profile <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -510,8 +510,8 @@ export default function NewAnalysisPage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 className="space-y-8 text-center"
               >
-                <div className="w-24 h-24 bg-[#00ff88]/10 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-[#00ff88]/30">
-                  <Activity className="h-12 w-12 text-[#00ff88] animate-pulse" />
+                <div className="w-24 h-24 bg-[hsl(var(--secondary))]/10 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-[hsl(var(--secondary))]/30">
+                  <Activity className="h-12 w-12 text-[hsl(var(--secondary))] animate-pulse" />
                 </div>
 
                 <div className="space-y-4">
@@ -519,7 +519,7 @@ export default function NewAnalysisPage() {
                     Ready to Deploy
                   </h2>
                   <p className="text-gray-400 max-w-md mx-auto">
-                    The engine will now calculate the compatibility score for <span className="text-[#00ff88] font-bold">{formData.name}</span> across all 96 clubs in the Top 5 European leagues.
+                    The engine will now calculate the compatibility score for <span className="text-[hsl(var(--secondary))] font-bold">{formData.name}</span> across all 96 clubs in the Top 5 European leagues.
                   </p>
                 </div>
 
@@ -534,7 +534,7 @@ export default function NewAnalysisPage() {
                   </div>
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-gray-500 uppercase font-bold tracking-widest text-[10px]">Benchmark</span>
-                    <span className="font-bold text-[#00ff88]">Top 5 Euro Leagues</span>
+                    <span className="font-bold text-[hsl(var(--secondary))]">Top 5 Euro Leagues</span>
                   </div>
                 </div>
 
@@ -542,7 +542,7 @@ export default function NewAnalysisPage() {
                   <Button 
                     onClick={handleSubmit}
                     disabled={loading}
-                    className="h-16 w-full bg-[#00ff88] hover:bg-[#00cc6a] text-black font-black uppercase italic rounded-2xl transition-all shadow-[0_0_30px_rgba(0,255,136,0.3)]"
+                    className="h-16 w-full bg-[hsl(var(--secondary))] hover:bg-[#00cc6a] text-black font-black uppercase italic rounded-2xl transition-all shadow-[0_0_30px_rgba(0,255,136,0.3)]"
                   >
                     {loading ? 'Processing Neural Link...' : 'Execute Full Analysis'}
                   </Button>

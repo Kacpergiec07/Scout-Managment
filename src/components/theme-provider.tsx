@@ -3,10 +3,19 @@
 import * as React from "react"
 import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
 
+import { getCustomColors, applyCustomColors } from "@/lib/custom-theme"
+
 function ThemeProvider({
   children,
   ...props
 }: React.ComponentProps<typeof NextThemesProvider>) {
+  React.useEffect(() => {
+    const colors = getCustomColors();
+    if (colors) {
+      applyCustomColors(colors);
+    }
+  }, []);
+
   return (
     <NextThemesProvider
       attribute="class"
@@ -20,6 +29,7 @@ function ThemeProvider({
     </NextThemesProvider>
   )
 }
+
 
 function isTypingTarget(target: EventTarget | null) {
   if (!(target instanceof HTMLElement)) {

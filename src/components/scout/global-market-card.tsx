@@ -29,7 +29,7 @@ interface GlobalMarketCardProps {
 }
 
 const TransferRow = React.memo(({ t, onSelectTransfer, onRemoveTransfer }: { t: any, onSelectTransfer?: (t: any) => void, onRemoveTransfer?: (id: string) => void }) => (
-  <tr className="hover:bg-primary/5 transition-all group/row">
+  <tr className="hover:bg-secondary/5 transition-all group/row">
     <td className="px-4 py-4">
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-xl bg-muted border border-border p-0.5 overflow-hidden group-hover/row:scale-110 transition-transform flex-shrink-0 relative">
@@ -43,9 +43,9 @@ const TransferRow = React.memo(({ t, onSelectTransfer, onRemoveTransfer }: { t: 
         </div>
           <div className="flex-1 flex flex-col">
           <div className="flex items-center gap-2">
-            <div className="text-sm font-black text-foreground group-hover/row:text-primary transition-colors uppercase italic pr-2 whitespace-nowrap">{t.playerName}</div>
+            <div className="text-sm font-black text-foreground group-hover/row:text-secondary transition-colors uppercase italic pr-2 whitespace-nowrap">{t.playerName}</div>
             {t.position && (
-              <Badge variant="outline" className="text-[8px] h-4 bg-primary/10 border-primary text-primary uppercase font-bold px-1.5 shrink-0">
+              <Badge variant="outline" className="text-[8px] h-4 bg-secondary/10 border-primary text-secondary uppercase font-bold px-1.5 shrink-0">
                 {t.position}
               </Badge>
             )}
@@ -53,7 +53,7 @@ const TransferRow = React.memo(({ t, onSelectTransfer, onRemoveTransfer }: { t: 
           <div className="flex items-center gap-2 mt-0.5 whitespace-nowrap">
             <span className="text-[10px] font-black text-muted-foreground uppercase tracking-tighter">{t.fromTeamName}</span>
             <ArrowRightLeft className="w-2.5 h-2.5 text-muted-foreground/30" />
-            <span className="text-[10px] font-black text-primary uppercase tracking-tighter">{t.toTeamName}</span>
+            <span className="text-[10px] font-black text-secondary uppercase tracking-tighter">{t.toTeamName}</span>
           </div>
         </div>
       </div>
@@ -63,15 +63,15 @@ const TransferRow = React.memo(({ t, onSelectTransfer, onRemoveTransfer }: { t: 
         onClick={() => onSelectTransfer?.(t)}
         variant="outline"
         size="sm"
-        className="bg-accent border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-xl text-[10px] font-black uppercase tracking-widest px-4 h-8"
+        className="bg-accent border-primary text-secondary hover:bg-secondary hover:text-secondary-foreground rounded-xl text-[10px] font-black uppercase tracking-widest px-4 h-8"
       >
         Analyze Impact
       </Button>
     </td>
     <td className="px-4 py-4 text-center">
-      <div className="text-sm font-black text-primary tabular-nums font-mono">{t.fee}</div>
+      <div className="text-sm font-black text-secondary tabular-nums font-mono">{t.fee}</div>
       <div className="flex justify-center mt-1">
-        <MarketValue playerName={t.playerName} showIcon={false} className="scale-90 bg-emerald-500/10 border-emerald-500/20 text-emerald-600 dark:text-emerald-400" />
+        <MarketValue playerName={t.playerName} showIcon={false} className="scale-90 bg-secondary-500/10 border-secondary-500/20 text-secondary-600 dark:text-secondary-400" />
       </div>
     </td>
     <td className="px-4 py-4 text-right">
@@ -105,7 +105,7 @@ export const GlobalMarketCard = React.memo(function GlobalMarketCard({ transfers
         <div className="flex items-center justify-between">
           <div className="space-y-1">
             <h3 className="text-2xl font-black flex items-center gap-3 text-foreground uppercase tracking-tighter">
-              <Activity className="w-6 h-6 text-primary animate-pulse" />
+              <Activity className="w-6 h-6 text-secondary animate-pulse" />
               Global Market Intelligence
             </h3>
             <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.4em]">Neural Network Analysis • Real-time Flow</p>
@@ -114,7 +114,7 @@ export const GlobalMarketCard = React.memo(function GlobalMarketCard({ transfers
             <Button
               variant="ghost"
               size="icon"
-              className="w-12 h-12 bg-accent border border-border text-foreground rounded-2xl hover:bg-accent/80 hover:text-primary transition-all"
+              className="w-12 h-12 bg-accent border border-border text-foreground rounded-2xl hover:bg-accent/80 hover:text-secondary transition-all"
               onClick={onClose}
             >
               <ChevronDown className="w-8 h-8" />
@@ -122,7 +122,7 @@ export const GlobalMarketCard = React.memo(function GlobalMarketCard({ transfers
             {onAddTransfer && (
               <Button
                 variant="ghost"
-                className="h-12 px-6 bg-emerald-500 border-emerald-500 text-white rounded-xl hover:bg-emerald-600 transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] dark:shadow-[0_0_20px_rgba(0,255,136,0.3)] flex items-center gap-3 group/add"
+                className="h-12 px-6 bg-secondary-500 border-secondary-500 text-white rounded-xl hover:bg-secondary-600 transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] dark:shadow-[0_0_20px_rgba(0,255,136,0.3)] flex items-center gap-3 group/add"
                 onClick={onAddTransfer}
               >
                 <Plus className="w-5 h-5 group-hover/add:scale-110 transition-transform" />

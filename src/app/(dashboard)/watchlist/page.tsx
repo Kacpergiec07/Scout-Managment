@@ -194,9 +194,9 @@ export default function WatchlistPage() {
                 ...p,
                 clubLogo: (details as any).teamLogo || p.clubLogo,
                 playerPhoto: detailedPhoto || p.playerPhoto,
-                weight: details.weight || p.weight,
-                height: details.height || p.height,
-                age: (details.age ||
+                weight: (details as any).weight || p.weight,
+                height: (details as any).height || p.height,
+                age: ((details as any).age ||
                   (p.birthdate
                     ? String(
                         Math.floor(
@@ -388,7 +388,7 @@ export default function WatchlistPage() {
 
   return (
     <div className="relative flex h-full w-full overflow-hidden bg-background text-foreground transition-colors duration-300">
-      {/* Left Panel: Green Zone - Watched List */}
+      {/* Left Panel: Theme Zone - Watched List */}
       <div className="relative z-10 flex h-full w-[320px] flex-col border-r border-border bg-card/40 backdrop-blur-3xl lg:w-[380px]">
         <div className="flex items-center justify-between border-b border-border p-6">
           <h2 className="text-xl font-black tracking-widest text-foreground uppercase italic">
@@ -396,7 +396,7 @@ export default function WatchlistPage() {
           </h2>
           <button
             onClick={() => setShowSearch(true)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-green-500/20 bg-green-500/10 text-green-400 transition-all hover:bg-green-500 hover:text-black"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-secondary/20 bg-secondary/10 text-secondary transition-all hover:bg-secondary hover:text-black"
           >
             <Plus className="h-5 w-5" />
           </button>
@@ -405,7 +405,7 @@ export default function WatchlistPage() {
         <div className="custom-scrollbar flex-1 space-y-3 overflow-y-auto p-4">
           {loadingWatchlist ? (
             <div className="flex h-full items-center justify-center">
-              <Loader2 className="h-8 w-8 animate-spin text-green-500" />
+              <Loader2 className="h-8 w-8 animate-spin text-secondary" />
               <p className="ml-3 text-sm text-muted-foreground">
                 Loading watchlist...
               </p>
@@ -425,7 +425,7 @@ export default function WatchlistPage() {
                   onClick={() => setSelectedPlayerId(player.id)}
                   className={`group relative cursor-pointer overflow-hidden rounded-xl border p-3 transition-all ${
                     selectedPlayerId === player.id
-                      ? "border-green-500/30 bg-green-500/10"
+                      ? "border-secondary/30 bg-secondary/10"
                       : "border-border bg-accent/40 hover:border-foreground/20"
                   }`}
                 >
@@ -449,7 +449,7 @@ export default function WatchlistPage() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] font-black tracking-widest text-green-400 uppercase">
+                        <span className="text-[10px] font-black tracking-widest text-secondary uppercase">
                           {player.position}
                         </span>
                         <button
@@ -457,7 +457,7 @@ export default function WatchlistPage() {
                             e.stopPropagation()
                             removePlayer(player.id)
                           }}
-                          className="p-1 text-zinc-500 opacity-0 transition-all group-hover:opacity-100 hover:text-red-400"
+                          className="p-1 text-muted-foreground opacity-0 transition-all group-hover:opacity-100 hover:text-red-400"
                         >
                           <UserMinus className="h-4 w-4" />
                         </button>
@@ -528,7 +528,7 @@ export default function WatchlistPage() {
                       </AnimatePresence>
                     </div>
 
-                    <div className="relative z-10 flex h-48 w-48 items-center justify-center overflow-hidden rounded-full bg-gradient-to-tr from-green-500 to-emerald-300 p-2 shadow-[0_0_50px_rgba(34,197,94,0.3)] md:h-56 md:w-56">
+                    <div className="relative z-10 flex h-48 w-48 items-center justify-center overflow-hidden rounded-full bg-gradient-to-tr from-secondary to-secondary/80 p-2 shadow-[0_0_50px_hsl(var(--secondary)/0.3)] md:h-56 md:w-56">
                       <img
                         src={activePlayer.playerPhoto}
                         alt={activePlayer.name}
@@ -561,7 +561,7 @@ export default function WatchlistPage() {
                         </span>
                       </div>
                       <div className="flex items-center gap-4">
-                        <MapPin className="h-5 w-5 text-green-500" />
+                        <MapPin className="h-5 w-5 text-secondary" />
                         <span className="text-[10px] font-black tracking-widest uppercase">
                           {activePlayer.league}
                         </span>
@@ -655,14 +655,14 @@ export default function WatchlistPage() {
                             <div className="space-y-4">
                               <div className="group flex items-center justify-between rounded-2xl border border-border bg-accent/10 p-4 transition-all hover:border-blue-500/20">
                                 <div className="flex items-center gap-4">
-                                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500/10">
-                                    <TrendingUp className="h-5 w-5 text-green-400" />
+                                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary/10">
+                                    <TrendingUp className="h-5 w-5 text-secondary" />
                                   </div>
                                   <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
                                     XG Rating
                                   </span>
                                 </div>
-                                <div className="text-lg font-black text-foreground transition-colors group-hover:text-green-400">
+                                <div className="text-lg font-black text-foreground transition-colors group-hover:text-secondary">
                                   8.42
                                 </div>
                               </div>
@@ -804,12 +804,12 @@ export default function WatchlistPage() {
                             className="absolute z-20 -translate-x-1/2 -translate-y-1/2"
                           >
                             <div className="group/marker relative">
-                              <div className="absolute -inset-6 animate-pulse rounded-full bg-green-500/20 blur-2xl" />
-                              <div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-green-500 shadow-[0_0_30px_rgba(34,197,94,1)]">
-                                <div className="h-2 w-2 rounded-full bg-zinc-950" />
+                              <div className="absolute -inset-6 animate-pulse rounded-full bg-secondary/20 blur-2xl" />
+                              <div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 border-background bg-secondary shadow-[0_0_30px_hsl(var(--secondary) / 1)]">
+                                <div className="h-2 w-2 rounded-full bg-background" />
                               </div>
                               <div className="absolute top-full left-1/2 mt-3 -translate-x-1/2 whitespace-nowrap">
-                                <span className="rounded-full bg-green-500 px-3 py-1 text-[11px] font-black tracking-[0.2em] text-white uppercase shadow-lg">
+                                <span className="rounded-full bg-secondary px-3 py-1 text-[11px] font-black tracking-[0.2em] text-secondary-foreground uppercase shadow-lg">
                                   {activePlayer.name}
                                 </span>
                               </div>
@@ -912,7 +912,7 @@ export default function WatchlistPage() {
                             ? "66%"
                             : "100%",
                     }}
-                    className="absolute inset-0 bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"
+                    className="absolute inset-0 bg-secondary shadow-[0_0_10px_hsl(var(--secondary)/0.5)]"
                   />
                 </div>
 
@@ -921,8 +921,8 @@ export default function WatchlistPage() {
                   {loadingSearch ? (
                     <div className="flex h-64 flex-col items-center justify-center gap-6">
                       <div className="relative">
-                        <Loader2 className="h-12 w-12 animate-spin text-green-500" />
-                        <div className="absolute inset-0 animate-pulse bg-green-500/20 blur-xl" />
+                        <Loader2 className="h-12 w-12 animate-spin text-secondary" />
+                        <div className="absolute inset-0 animate-pulse bg-secondary/20 blur-xl" />
                       </div>
                       <span className="animate-pulse text-xs font-black tracking-[0.3em] text-muted-foreground uppercase">
                         Syncing Scout Data...
@@ -944,7 +944,7 @@ export default function WatchlistPage() {
                               className="group flex items-center justify-between rounded-2xl border border-border bg-card p-5 transition-all"
                             >
                               <div className="flex items-center gap-5">
-                                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-zinc-950 p-2">
+                                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-background p-2">
                                   <img
                                     src={LEAGUE_LOGOS[name]}
                                     alt={name}
@@ -955,7 +955,7 @@ export default function WatchlistPage() {
                                   {name}
                                 </span>
                               </div>
-                              <Plus className="h-6 w-6 font-black text-muted-foreground transition-all group-hover:text-green-500" />
+                              <Plus className="h-6 w-6 font-black text-muted-foreground transition-all group-hover:text-secondary" />
                             </motion.button>
                           )
                         )}
@@ -970,7 +970,7 @@ export default function WatchlistPage() {
                             className="group flex items-center justify-between rounded-2xl border border-l-2 border-border border-l-transparent bg-card p-4 transition-all"
                           >
                             <div className="flex items-center gap-5">
-                              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-zinc-950/80 p-2 dark:bg-black/40">
+                              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-border bg-background/80 p-2">
                                 <img
                                   src={club.logo}
                                   alt={club.name}
@@ -986,7 +986,7 @@ export default function WatchlistPage() {
                                 </span>
                               </div>
                             </div>
-                            <Plus className="h-6 w-5 font-black text-muted-foreground transition-all group-hover:text-green-500" />
+                            <Plus className="h-6 w-5 font-black text-muted-foreground transition-all group-hover:text-secondary" />
                           </motion.button>
                         ))}
 
@@ -1003,7 +1003,7 @@ export default function WatchlistPage() {
                             className="group flex items-center justify-between rounded-2xl border border-border bg-card p-4 transition-all"
                           >
                             <div className="flex items-center gap-5">
-                              <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/20 p-2 dark:bg-black/60">
+                              <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border border-border bg-background/20 p-2">
                                 <img
                                   src={player.photoUrl}
                                   alt={player.name}
@@ -1018,11 +1018,11 @@ export default function WatchlistPage() {
                                 </div>
                               </div>
                               <div className="text-left">
-                                <span className="block text-lg font-black tracking-wider text-foreground uppercase transition-colors group-hover:text-green-500">
+                                <span className="block text-lg font-black tracking-wider text-foreground uppercase transition-colors group-hover:text-secondary">
                                   {player.name}
                                 </span>
                                 <div className="flex items-center gap-3">
-                                  <span className="text-xs font-black tracking-widest text-green-500 uppercase dark:text-green-500/70">
+                                  <span className="text-xs font-black tracking-widest text-secondary uppercase dark:text-secondary/70">
                                     {player.position}
                                   </span>
                                   <MarketValue 
@@ -1033,7 +1033,7 @@ export default function WatchlistPage() {
                                 </div>
                               </div>
                             </div>
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-green-500/20 bg-green-500/0 text-green-500 transition-all group-hover:bg-green-500 group-hover:text-white">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-secondary/20 bg-secondary/0 text-secondary transition-all group-hover:bg-secondary group-hover:text-white">
                               <Plus className="h-6 w-6" />
                             </div>
                           </motion.button>
@@ -1055,11 +1055,11 @@ export default function WatchlistPage() {
           background: transparent;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(255, 255, 255, 0.05);
+          background: rgba(128, 128, 128, 0.1);
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 255, 255, 0.1);
+          background: rgba(128, 128, 128, 0.2);
         }
       `}</style>
     </div>

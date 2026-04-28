@@ -33,16 +33,16 @@ export function PlayerRadarChart({ player }: { player: ScoutProPlayer }) {
       <RadarChart data={chartData}>
         <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
         <PolarAngleAxis dataKey="category" />
-        <PolarGrid stroke="rgba(0, 255, 136, 0.3)" />
+        <PolarGrid stroke="hsl(var(--secondary) / 0.3)" />
         <Radar
           dataKey="value"
-          fill="#00ff88"
+          fill="hsl(var(--secondary))"
           fillOpacity={0.2}
-          stroke="#00ff88"
+          stroke="hsl(var(--secondary))"
           strokeWidth={2}
           dot={{
             r: 4,
-            fill: '#00ff88',
+            fill: 'hsl(var(--secondary))',
             fillOpacity: 1,
           }}
         />

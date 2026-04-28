@@ -10,7 +10,7 @@ import Image from "next/image";
 
 const FootballGlobe = dynamic(() => import("@/components/ui/football-globe").then(mod => mod.FootballGlobe), { 
     ssr: false,
-    loading: () => <div className="w-full h-full bg-emerald-500/5 animate-pulse rounded-full" />
+    loading: () => <div className="w-full h-full bg-secondary/5 animate-pulse rounded-full" />
 });
 
 interface Club {
@@ -182,7 +182,7 @@ export function LeagueGalaxy() {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center h-full">
-        <Loader2 className="w-10 h-10 animate-spin text-emerald-500 mb-4" />
+        <Loader2 className="w-10 h-10 animate-spin text-secondary mb-4" />
         <span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">Calibrating Galactic Sector...</span>
       </div>
     );
@@ -302,7 +302,7 @@ export function LeagueGalaxy() {
                                     <span className="text-[10px] font-black uppercase text-muted-foreground tracking-widest opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-card/90 px-2 py-0.5 rounded">
                                         {league.name}
                                     </span>
-                                    <span className="text-[8px] font-bold text-emerald-500 uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity delay-75">
+                                    <span className="text-[8px] font-bold text-secondary uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity delay-75">
                                         Click to explore
                                     </span>
                                 </div>
@@ -338,14 +338,14 @@ export function LeagueGalaxy() {
 
       {/* Overlays */}
       <div className="absolute bottom-12 left-12 z-30 pointer-events-none select-none">
-        <h2 className="text-4xl font-black tracking-tighter text-foreground">LEAGUE<span className="text-emerald-500">GALAXY</span></h2>
+        <h2 className="text-4xl font-black tracking-tighter text-foreground">LEAGUE<span className="text-secondary">GALAXY</span></h2>
         <p className="text-[10px] text-muted-foreground uppercase tracking-[0.5em] font-bold">Navigating the Football Multiverse</p>
       </div>
 
       <div className="absolute top-12 right-12 z-30 text-right pointer-events-none select-none">
         <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-black mb-1">Active Sector</p>
         <h3 className="text-xl font-bold text-foreground">{hoveredLeague?.name || "All European Sectors"}</h3>
-        <p className="text-[9px] text-emerald-500 uppercase font-black tracking-widest mt-1">{hoveredLeague?.country || "Synchronizing..."}</p>
+        <p className="text-[9px] text-secondary uppercase font-black tracking-widest mt-1">{hoveredLeague?.country || "Synchronizing..."}</p>
       </div>
 
     </div>

@@ -14,6 +14,17 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { getProfileData, updateProfile, updateNotificationPreferences } from '@/app/actions/profile'
 import { fixUserProfile } from '@/app/actions/fix-profile'
+import { getCustomColors, applyCustomColors, CustomColors } from '@/lib/custom-theme'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Palette, RotateCcw } from 'lucide-react'
+import { CustomThemeDialog } from '@/components/custom-theme-dialog'
 
 interface UserProfile {
   id: string
@@ -54,6 +65,40 @@ export default function SettingsPage() {
   const [playersWatchedCount, setPlayersWatchedCount] = useState(0)
   const [activeScoutingCount, setActiveScoutingCount] = useState(0)
   const [reportsCreatedCount, setReportsCreatedCount] = useState(0)
+
+  // Custom theme state
+  const [isCustomThemeOpen, setIsCustomThemeOpen] = useState(false)
+  const [customColors, setCustomColors] = useState<CustomColors>({
+    primary: '#18181b',
+    secondary: '#00ff88',
+    foreground: '#ffffff',
+    background: '#09090b'
+  })
+
+  useEffect(() => {
+    const savedColors = getCustomColors()
+    if (savedColors) {
+      setCustomColors(savedColors)
+    }
+  }, [])
+
+  const handleColorChange = (key: keyof CustomColors, value: string) => {
+    const newColors = { ...customColors, [key]: value }
+    setCustomColors(newColors)
+    applyCustomColors(newColors)
+  }
+
+  const resetTheme = () => {
+    const defaultColors = {
+      primary: '#18181b',
+      secondary: '#00ff88',
+      foreground: '#ffffff',
+      background: '#09090b'
+    }
+    setCustomColors(defaultColors)
+    applyCustomColors(null) // This will remove properties and localStorage
+    window.location.reload() // Reload to get back to CSS defaults properly
+  }
 
   useEffect(() => {
     async function loadUserData(autoFix = true) {
@@ -184,7 +229,7 @@ export default function SettingsPage() {
       <div className="relative w-full h-full bg-background text-foreground overflow-hidden flex transition-colors duration-300">
         <div className="flex-1 w-full h-full flex items-center justify-center">
           <div className="text-center space-y-4">
-            <Loader2 className="w-12 h-12 animate-spin text-emerald-500 mx-auto" />
+            <Loader2 className="w-12 h-12 animate-spin text-secondary mx-auto" />
             <p className="text-muted-foreground text-lg font-medium tracking-wide">Loading settings...</p>
           </div>
         </div>
@@ -207,7 +252,7 @@ export default function SettingsPage() {
             <Button 
               onClick={() => window.location.reload()} 
               variant="outline" 
-              className="border-emerald-500/50 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10"
+              className="border-secondary/50 text-secondary dark:text-secondary hover:bg-secondary/10"
             >
               <RefreshCw className="w-4 h-4 mr-2" />
               Retry Connection
@@ -268,7 +313,7 @@ export default function SettingsPage() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
-                  className="px-8 py-3 rounded-lg bg-emerald-500 text-black text-sm font-black uppercase tracking-widest flex items-center gap-2"
+                  className="px-8 py-3 rounded-lg bg-secondary text-black text-sm font-black uppercase tracking-widest flex items-center gap-2"
                 >
                   <Check className="w-5 h-5" />
                   Saved Successfully
@@ -486,8 +531,8 @@ export default function SettingsPage() {
           <Card>
             <CardHeader>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-                  <Bell className="w-5 h-5 text-emerald-500" />
+                <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center">
+                  <Bell className="w-5 h-5 text-secondary" />
                 </div>
                 <div>
                   <CardTitle>Notification Preferences</CardTitle>
@@ -544,8 +589,8 @@ export default function SettingsPage() {
                 <div className="p-4 rounded-xl bg-accent/10 border-border">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
-                        <Shield className="w-5 h-5 text-green-500" />
+                      <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+                        <Shield className="w-5 h-5 text-secondary" />
                       </div>
                       <div>
                         <p className="font-semibold text-foreground">Player Updates</p>
@@ -642,9 +687,20 @@ export default function SettingsPage() {
                       <p className="text-sm text-muted-foreground">Toggle application theme</p>
                     </div>
                   </div>
-                  <Button variant="outline" size="sm" onClick={toggleTheme}>
-                    Switch to {resolvedTheme === 'dark' ? 'Light' : 'Dark'} Mode
-                  </Button>
+                  <div className="flex flex-col gap-2">
+                    <Button variant="outline" size="sm" onClick={toggleTheme} className="w-full">
+                      Switch to {resolvedTheme === 'dark' ? 'Light' : 'Dark'} Mode
+                    </Button>
+                    <Dialog open={isCustomThemeOpen} onOpenChange={setIsCustomThemeOpen}>
+                      <DialogTrigger asChild>
+                        <Button variant="outline" size="sm" className="w-full border-dashed">
+                          <Palette className="w-4 h-4 mr-2 text-purple-500" />
+                          Custom Theme
+                        </Button>
+                      </DialogTrigger>
+                      <CustomThemeDialog />
+                    </Dialog>
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -667,10 +723,10 @@ export default function SettingsPage() {
               <div className="p-4 rounded-xl bg-accent/10 border-border">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-emerald-500" />
+                    <div className="w-3 h-3 rounded-full bg-secondary" />
                     <p className="font-semibold text-foreground">Statorium API</p>
                   </div>
-                  <Badge variant="outline" className="text-emerald-500 border-emerald-500/30">
+                  <Badge variant="outline" className="text-secondary border-secondary/30">
                     Connected
                   </Badge>
                 </div>
@@ -680,10 +736,10 @@ export default function SettingsPage() {
               <div className="p-4 rounded-xl bg-accent/10 border-border">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-emerald-500" />
+                    <div className="w-3 h-3 rounded-full bg-secondary" />
                     <p className="font-semibold text-foreground">Neon Database</p>
                   </div>
-                  <Badge variant="outline" className="text-emerald-500 border-emerald-500/30">
+                  <Badge variant="outline" className="text-secondary border-secondary/30">
                     Connected
                   </Badge>
                 </div>
@@ -693,10 +749,10 @@ export default function SettingsPage() {
               <div className="p-4 rounded-xl bg-accent/10 border-border">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-emerald-500" />
+                    <div className="w-3 h-3 rounded-full bg-secondary" />
                     <p className="font-semibold text-foreground">OpenAI API</p>
                   </div>
-                  <Badge variant="outline" className="text-emerald-500 border-emerald-500/30">
+                  <Badge variant="outline" className="text-secondary border-secondary/30">
                     Connected
                   </Badge>
                 </div>

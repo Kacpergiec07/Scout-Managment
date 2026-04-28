@@ -48,7 +48,7 @@ export function LeagueTacticalHub() {
     async function loadTeamData() {
       setTeamLoading(true)
       try {
-        const data = await getTeamDetailsAction(selectedTeamId, selectedLeague.seasonId)
+        const data = await getTeamDetailsAction(selectedTeamId as string, selectedLeague.seasonId)
         setTeamData(data)
       } catch (e) {
         console.error(e)
@@ -60,12 +60,12 @@ export function LeagueTacticalHub() {
   }, [selectedTeamId, selectedLeague.seasonId])
 
   return (
-    <div className="min-h-screen bg-[#050505] text-zinc-100 p-6 lg:p-10 space-y-8 font-sans">
+    <div className="min-h-screen bg-background text-foreground p-6 lg:p-10 space-y-8 font-sans transition-colors duration-300">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div className="flex items-center gap-4">
-          <div className="w-14 h-14 bg-zinc-900 rounded-2xl flex items-center justify-center border border-zinc-800 shadow-2xl">
-            <Trophy className="w-7 h-7 text-primary" />
+          <div className="w-14 h-14 bg-card rounded-2xl flex items-center justify-center border border-border shadow-2xl">
+            <Trophy className="w-7 h-7 text-secondary" />
           </div>
           <div>
             <h1 className="text-3xl font-black uppercase tracking-tight">League Intelligence</h1>
@@ -73,18 +73,18 @@ export function LeagueTacticalHub() {
           </div>
         </div>
 
-        <div className="flex bg-zinc-900/50 p-1 rounded-xl border border-zinc-800/50 backdrop-blur-sm overflow-x-auto max-w-full">
+        <div className="flex bg-card/50 p-1 rounded-xl border border-border/50 backdrop-blur-sm overflow-x-auto max-w-full">
           {LEAGUES.map((league) => (
             <button
               key={league.id}
               onClick={() => setSelectedLeague(league)}
               className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 whitespace-nowrap ${
                 selectedLeague.id === league.id 
-                ? "bg-zinc-100 text-black shadow-lg" 
-                : "text-zinc-500 hover:text-zinc-300"
+                ? "bg-secondary text-secondary-foreground shadow-lg" 
+                : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              <div className="relative w-5 h-3.5 shrink-0 overflow-hidden rounded-sm border border-zinc-800/20">
+              <div className="relative w-5 h-3.5 shrink-0 overflow-hidden rounded-sm border border-border/20">
                 <Image src={league.flag} alt="" fill className="object-cover" unoptimized />
               </div>
               {league.name}
@@ -96,19 +96,19 @@ export function LeagueTacticalHub() {
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
         {/* Standings Table */}
         <div className="xl:col-span-7 space-y-6">
-          <div className="bg-zinc-900/30 border border-zinc-800/50 rounded-3xl overflow-hidden backdrop-blur-md shadow-2xl">
-            <div className="p-6 border-b border-zinc-800/50 flex items-center justify-between">
+          <div className="bg-card/30 border border-border/50 rounded-3xl overflow-hidden backdrop-blur-md shadow-2xl">
+            <div className="p-6 border-b border-border/50 flex items-center justify-between">
               <h2 className="text-lg font-black uppercase tracking-tighter flex items-center gap-2">
-                <Trophy className="w-5 h-5 text-primary" />
+                <Trophy className="w-5 h-5 text-secondary" />
                 {selectedLeague.name} Standings
               </h2>
-              <Badge variant="outline" className="text-[10px] uppercase font-bold border-zinc-800 text-zinc-400">Season 2024/25</Badge>
+              <Badge variant="outline" className="text-[10px] uppercase font-bold border-border text-muted-foreground">Season 2024/25</Badge>
             </div>
             
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="text-[10px] text-zinc-500 font-black uppercase tracking-[0.2em] border-b border-zinc-800/30">
+                  <tr className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.2em] border-b border-border/30">
                     <th className="px-6 py-4 w-12">#</th>
                     <th className="px-4 py-4">Team</th>
                     <th className="px-4 py-4 text-center">P</th>
@@ -119,11 +119,11 @@ export function LeagueTacticalHub() {
                     <th className="px-6 py-4 text-right">PTS</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-zinc-800/20">
+                <tbody className="divide-y divide-border/20">
                   {loading ? (
                     Array.from({ length: 10 }).map((_, i) => (
                       <tr key={i} className="animate-pulse">
-                        <td colSpan={8} className="px-6 py-4 h-14 bg-zinc-900/10" />
+                        <td colSpan={8} className="px-6 py-4 h-14 bg-accent/10" />
                       </tr>
                     ))
                   ) : standings.map((team, idx) => (
@@ -131,12 +131,12 @@ export function LeagueTacticalHub() {
                       key={team.teamID} 
                       onClick={() => setSelectedTeamId(team.teamID)}
                       className={`group cursor-pointer transition-colors ${
-                        selectedTeamId === team.teamID ? "bg-primary/5" : "hover:bg-zinc-800/20"
+                        selectedTeamId === team.teamID ? "bg-secondary/5" : "hover:bg-accent/20"
                       }`}
                     >
                       <td className="px-6 py-5">
                         <span className={`text-xs font-black ${
-                          idx < 4 ? "text-primary" : idx > 16 ? "text-red-500" : "text-zinc-500"
+                          idx < 4 ? "text-secondary" : idx > 16 ? "text-red-500" : "text-zinc-500"
                         }`}>
                           {idx + 1}.
                         </span>
@@ -152,18 +152,18 @@ export function LeagueTacticalHub() {
                               unoptimized
                             />
                           </div>
-                          <span className="text-sm font-bold tracking-tight group-hover:text-primary transition-colors">
+                          <span className="text-sm font-bold tracking-tight group-hover:text-secondary transition-colors">
                             {team.teamName}
                           </span>
                         </div>
                       </td>
-                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.played}</td>
-                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.won}</td>
-                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.drawn}</td>
-                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.lost}</td>
-                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.goalsFor - team.goalsAgainst}</td>
+                      <td className="px-4 py-5 text-center text-xs font-medium text-muted-foreground">{team.played}</td>
+                      <td className="px-4 py-5 text-center text-xs font-medium text-muted-foreground">{team.won}</td>
+                      <td className="px-4 py-5 text-center text-xs font-medium text-muted-foreground">{team.drawn}</td>
+                      <td className="px-4 py-5 text-center text-xs font-medium text-muted-foreground">{team.lost}</td>
+                      <td className="px-4 py-5 text-center text-xs font-medium text-muted-foreground">{team.goalsFor - team.goalsAgainst}</td>
                       <td className="px-6 py-5 text-right">
-                        <span className="text-sm font-black text-white">{team.points}</span>
+                        <span className="text-sm font-black text-foreground">{team.points}</span>
                       </td>
                     </tr>
                   ))}
@@ -176,10 +176,10 @@ export function LeagueTacticalHub() {
         {/* Right Sidebar */}
         <div className="xl:col-span-5 space-y-8">
           {/* Next Fixtures */}
-          <div className="bg-zinc-900/30 border border-zinc-800/50 rounded-3xl overflow-hidden backdrop-blur-md">
-            <div className="p-6 border-b border-zinc-800/50 flex items-center justify-between">
+          <div className="bg-card/30 border border-border/50 rounded-3xl overflow-hidden backdrop-blur-md">
+            <div className="p-6 border-b border-border/50 flex items-center justify-between">
               <h2 className="text-sm font-black uppercase tracking-widest flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-primary" />
+                <Calendar className="w-4 h-4 text-secondary" />
                 Next Fixtures
               </h2>
             </div>
@@ -189,7 +189,7 @@ export function LeagueTacticalHub() {
                   <div key={i} className="h-20 bg-zinc-800/20 rounded-2xl animate-pulse" />
                 ))
               ) : fixtures.length > 0 ? fixtures.map((match) => (
-                <div key={match.matchID} className="p-4 rounded-2xl bg-zinc-800/20 border border-zinc-800/30 flex items-center justify-between hover:border-zinc-700 transition-colors">
+                <div key={match.matchID} className="p-4 rounded-2xl bg-accent/20 border border-border/30 flex items-center justify-between hover:border-accent transition-colors">
                   <div className="flex flex-col items-center gap-1 w-20">
                     <div className="w-10 h-10 relative">
                       <Image 
@@ -200,17 +200,17 @@ export function LeagueTacticalHub() {
                         unoptimized
                       />
                     </div>
-                    <span className="text-[9px] font-black uppercase tracking-tighter text-center truncate w-full text-zinc-400">
+                    <span className="text-[9px] font-black uppercase tracking-tighter text-center truncate w-full text-muted-foreground">
                       {match.homeParticipant?.participantName}
                     </span>
                   </div>
                   
                   <div className="flex flex-col items-center">
-                    <span className="text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded uppercase tracking-tighter mb-1">
+                    <span className="text-[10px] font-bold text-secondary bg-secondary/10 px-2 py-0.5 rounded uppercase tracking-tighter mb-1">
                       {match.matchTime || 'TBD'}
                     </span>
-                    <span className="text-[9px] font-black text-zinc-600 uppercase">vs</span>
-                    <span className="text-[8px] text-zinc-500 mt-1 font-bold">{match.matchDate}</span>
+                    <span className="text-[9px] font-black text-muted-foreground uppercase">vs</span>
+                    <span className="text-[8px] text-muted-foreground mt-1 font-bold">{match.matchDate}</span>
                   </div>
 
                   <div className="flex flex-col items-center gap-1 w-20">
@@ -223,35 +223,35 @@ export function LeagueTacticalHub() {
                         unoptimized
                       />
                     </div>
-                    <span className="text-[9px] font-black uppercase tracking-tighter text-center truncate w-full text-zinc-400">
+                    <span className="text-[9px] font-black uppercase tracking-tighter text-center truncate w-full text-muted-foreground">
                       {match.awayParticipant?.participantName}
                     </span>
                   </div>
                 </div>
               )) : (
-                <div className="p-8 text-center text-zinc-600 text-xs font-bold uppercase tracking-widest italic">No upcoming matches</div>
+                <div className="p-8 text-center text-muted-foreground text-xs font-bold uppercase tracking-widest italic">No upcoming matches</div>
               )}
             </div>
           </div>
 
           {/* Squad Intelligence */}
-          <div className="bg-zinc-900/30 border border-zinc-800/50 rounded-3xl overflow-hidden backdrop-blur-md h-fit">
-            <div className="p-6 border-b border-zinc-800/50">
+          <div className="bg-card/30 border border-border/50 rounded-3xl overflow-hidden backdrop-blur-md h-fit">
+            <div className="p-6 border-b border-border/50">
               <h2 className="text-sm font-black uppercase tracking-widest flex items-center gap-2">
-                <Users className="w-4 h-4 text-primary" />
+                <Users className="w-4 h-4 text-secondary" />
                 Squad Intelligence
               </h2>
               {teamData && (
-                <p className="text-[10px] font-bold text-zinc-500 uppercase mt-1 tracking-widest">
-                  Analyzing <span className="text-primary">{teamData.teamName}</span> • Formation: {teamData.formation}
+                <p className="text-[10px] font-bold text-muted-foreground uppercase mt-1 tracking-widest">
+                  Analyzing <span className="text-secondary">{teamData.teamName}</span> • Formation: {teamData.formation}
                 </p>
               )}
             </div>
             <div className="p-8">
               {teamLoading ? (
                 <div className="flex flex-col items-center justify-center py-20 gap-4">
-                  <Activity className="w-8 h-8 text-primary animate-pulse" />
-                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">Decrypting Formation...</p>
+                  <Activity className="w-8 h-8 text-secondary animate-pulse" />
+                   <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Decrypting Formation...</p>
                 </div>
               ) : teamData ? (
                 <div className="space-y-6">
@@ -264,21 +264,21 @@ export function LeagueTacticalHub() {
                       f: parseInt(teamData.formation.split('-')[2]) || 2
                     }}
                   />
-                  <div className="flex items-center justify-between p-4 bg-zinc-900/50 rounded-2xl border border-zinc-800/50">
+                   <div className="flex items-center justify-between p-4 bg-card/50 rounded-2xl border border-border/50">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
-                        <Shield className="w-4 h-4 text-primary" />
+                      <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/20">
+                        <Shield className="w-4 h-4 text-secondary" />
                       </div>
                       <div>
-                        <p className="text-[10px] font-black uppercase text-zinc-500 leading-none">Team Manager</p>
-                        <p className="text-xs font-bold text-white mt-1">{teamData.coach || 'Unassigned'}</p>
+                         <p className="text-[10px] font-black uppercase text-muted-foreground leading-none">Team Manager</p>
+                        <p className="text-xs font-bold text-foreground mt-1">{teamData.coach || 'Unassigned'}</p>
                       </div>
                     </div>
                     <Button 
                       onClick={() => router.push(`/teams/${selectedTeamId}`)}
                       variant="ghost" 
                       size="sm" 
-                      className="text-primary hover:bg-primary/5 text-[10px] font-black uppercase tracking-tighter"
+                      className="text-secondary hover:bg-secondary/5 text-[10px] font-black uppercase tracking-tighter"
                     >
                       Full Squad <ChevronRight className="w-3 h-3 ml-1" />
                     </Button>
@@ -286,12 +286,12 @@ export function LeagueTacticalHub() {
                 </div>
               ) : (
                 <div className="flex flex-col items-center justify-center py-20 text-center space-y-4">
-                  <div className="w-16 h-16 rounded-3xl bg-zinc-900 flex items-center justify-center border border-zinc-800 shadow-inner">
-                    <Search className="w-8 h-8 text-zinc-700" />
+                   <div className="w-16 h-16 rounded-3xl bg-card flex items-center justify-center border border-border shadow-inner">
+                    <Search className="w-8 h-8 text-muted-foreground/30" />
                   </div>
                   <div>
-                    <p className="text-xs font-black uppercase tracking-widest text-zinc-400">Sector Selection Required</p>
-                    <p className="text-[10px] font-bold text-zinc-600 uppercase mt-1 tracking-widest">Select a team from standings to view roster.</p>
+                     <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">Sector Selection Required</p>
+                    <p className="text-[10px] font-bold text-muted-foreground/50 uppercase mt-1 tracking-widest">Select a team from standings to view roster.</p>
                   </div>
                 </div>
               )}

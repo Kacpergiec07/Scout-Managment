@@ -120,7 +120,7 @@ export const MovingDot = ({ points, color, logoUrl, centerMap }: { points: [numb
     iconUrl: logoUrl || '/globe.svg',
     iconSize: [24, 24],
     iconAnchor: [12, 12],
-    className: 'rounded-full border border-white/20 shadow-lg bg-black/40 backdrop-blur-sm'
+    className: 'rounded-full border border-border shadow-lg bg-card/40 backdrop-blur-sm'
   });
 
   return (
@@ -297,9 +297,9 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
 
   if (loadingClubs) {
     return (
-      <div className="flex flex-col items-center justify-center h-[600px] bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl">
-        <Loader2 className="w-10 h-10 animate-spin text-primary mb-4" />
-        <span className="text-white/60 uppercase tracking-widest text-sm font-bold">Syncing Market Data...</span>
+      <div className="flex flex-col items-center justify-center h-[600px] bg-card/40 backdrop-blur-xl border border-border rounded-2xl">
+        <Loader2 className="w-10 h-10 animate-spin text-secondary mb-4" />
+        <span className="text-muted-foreground uppercase tracking-widest text-sm font-bold">Syncing Market Data...</span>
       </div>
     );
   }
@@ -309,7 +309,7 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-3xl font-black text-foreground flex items-center gap-3">
-            <ArrowRightLeft className="w-8 h-8 text-primary" />
+            <ArrowRightLeft className="w-8 h-8 text-secondary" />
             Transfer Flow Map
           </h2>
           <p className="text-muted-foreground text-sm mt-1 uppercase tracking-widest font-bold font-mono">Real-time global player movement</p>
@@ -317,19 +317,19 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
         
         <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
           <DialogTrigger asChild>
-            <Button className="bg-primary hover:bg-primary/80 font-bold h-12 px-6 rounded-xl">
+            <Button className="bg-secondary hover:bg-secondary/80 font-bold h-12 px-6 rounded-xl">
               <Plus className="w-5 h-5 mr-2" />
               Add Custom Flow
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-zinc-950 border-zinc-800 text-white sm:max-w-[425px]">
+          <DialogContent className="bg-card border-border text-foreground sm:max-w-[425px]">
             <DialogHeader>
               <DialogTitle className="font-black uppercase tracking-tighter">New Transfer</DialogTitle>
               <DialogDescription className="sr-only">Register a new player movement</DialogDescription>
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div>
-                <label className="text-[10px] font-black uppercase text-white/30 block mb-2">1. Select League</label>
+                <label className="text-[10px] font-black uppercase text-muted-foreground block mb-2">1. Select League</label>
                 <div className="grid grid-cols-2 gap-2">
                   {TOP_LEAGUES_DATA.map(l => (
                     <Button 
@@ -337,7 +337,7 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
                       variant="outline" 
                       size="sm" 
                       onClick={() => { setSelectedLeague(l.id); setSelectedClubId(""); }}
-                      className={cn(selectedLeague === l.id && "bg-primary border-primary")}
+                      className={cn(selectedLeague === l.id && "bg-secondary border-secondary")}
                     >
                       {l.name}
                     </Button>
@@ -347,7 +347,7 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
               
               {selectedLeague && (
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase text-white/30 block">2. Select Club</label>
+                  <label className="text-[10px] font-black uppercase text-muted-foreground block">2. Select Club</label>
                   <div className="grid grid-cols-2 gap-2 max-h-[120px] overflow-y-auto pr-1">
                     {/* Simplified for demo: only showing clubs if geocoded or from leagues */}
                     {allClubs.map(c => (
@@ -361,7 +361,7 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
 
               {selectedClubId && (
                 <div className="space-y-2">
-                   <label className="text-[10px] font-black uppercase text-white/30 block">3. Select Player</label>
+                   <label className="text-[10px] font-black uppercase text-muted-foreground block">3. Select Player</label>
                    <div className="max-h-[150px] overflow-y-auto space-y-1">
                       {loadingPlayersInModal ? <Loader2 className="animate-spin mx-auto w-4 h-4" /> : 
                         modalPlayers.map(p => (
@@ -390,14 +390,14 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
                    <th className="px-8 py-6 cursor-pointer hover:text-foreground transition-colors" onClick={() => toggleSort('playerName')}>
                      <div className="flex items-center gap-2">
                         Player Details
-                        {sortConfig.field === 'playerName' && <ChevronDown className={cn("w-3 h-3 text-primary", sortConfig.direction === 'asc' && "rotate-180")} />}
+                        {sortConfig.field === 'playerName' && <ChevronDown className={cn("w-3 h-3 text-secondary", sortConfig.direction === 'asc' && "rotate-180")} />}
                      </div>
                    </th>
                    <th className="px-8 py-6 text-muted-foreground">Transfer Vector</th>
                    <th className="px-8 py-6 cursor-pointer hover:text-foreground transition-colors" onClick={() => toggleSort('fee')}>
                      <div className="flex items-center gap-2">
                         Financials
-                        {sortConfig.field === 'fee' && <ChevronDown className={cn("w-3 h-3 text-primary", sortConfig.direction === 'asc' && "rotate-180")} />}
+                        {sortConfig.field === 'fee' && <ChevronDown className={cn("w-3 h-3 text-secondary", sortConfig.direction === 'asc' && "rotate-180")} />}
                      </div>
                    </th>
                    <th className="px-8 py-6 text-muted-foreground">Intelligence / Valuation</th>
@@ -418,24 +418,22 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                     onError={(e) => {
                                       e.currentTarget.style.display = 'none';
-                                      const placeholder = e.currentTarget.parentElement?.querySelector('.placeholder-icon');
-                                      if (placeholder) {
-                                        (placeholder as HTMLElement).style.display = 'flex';
-                                      }
+                                      const placeholder = e.currentTarget.nextElementSibling;
+                                      if (placeholder) (placeholder as HTMLElement).style.display = 'flex';
                                     }}
                                   />
-                                  <div className="placeholder-icon hidden absolute inset-0 flex items-center justify-center bg-zinc-900/90">
+                                  <div className="hidden absolute inset-0 flex items-center justify-center bg-background/80">
                                     <UserCircle className="w-6 h-6 text-muted-foreground/40" />
                                   </div>
                                 </>
                               ) : (
-                                <div className="absolute inset-0 flex items-center justify-center bg-zinc-900/90">
+                                <div className="absolute inset-0 flex items-center justify-center bg-background/80">
                                   <UserCircle className="w-6 h-6 text-muted-foreground/40" />
                                 </div>
                               )}
                            </div>
                            <div>
-                             <div className="font-bold text-foreground group-hover:text-primary transition-colors">{t.playerName}</div>
+                             <div className="font-bold text-foreground group-hover:text-secondary transition-colors">{t.playerName}</div>
                              <div className="text-[10px] text-muted-foreground uppercase tracking-widest font-black mt-0.5 font-mono">ID: {t.playerID}</div>
                            </div>
                         </div>
@@ -448,11 +446,11 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
                                  <div className="absolute right-0 top-1/2 -translate-y-1/2 border-y-4 border-y-transparent border-l-4 border-l-border" />
                               </div>
                            </div>
-                           <span className="text-xs font-bold px-3 py-1 bg-primary/10 border border-primary/20 rounded-full text-primary">{t.toTeamName}</span>
+                           <span className="text-xs font-bold px-3 py-1 bg-secondary/10 border border-secondary/20 rounded-full text-secondary">{t.toTeamName}</span>
                         </div>
                       </td>
                       <td className="px-8 py-6">
-                        <div className="font-mono text-primary font-black text-lg">{t.fee}</div>
+                        <div className="font-mono text-secondary font-black text-lg">{t.fee}</div>
                         <div className="text-[9px] text-muted-foreground uppercase font-bold tracking-widest font-mono">EST. {t.marketValue || "Analyzing"}</div>
                       </td>
                       <td className="px-8 py-6">
@@ -460,14 +458,14 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
                           <div className="space-y-1.5">
                             <Badge variant="outline" className={cn(
                               "text-[10px] font-black uppercase tracking-widest px-2 py-0.5",
-                              t.valuation === "Fair" ? "border-emerald-500/50 text-emerald-600 dark:text-emerald-500 bg-emerald-500/5" : "border-primary/50 text-primary bg-primary/5"
+                              t.valuation === "Fair" ? "border-secondary-500/50 text-secondary-600 dark:text-secondary-500 bg-secondary-500/5" : "border-secondary/50 text-secondary bg-secondary/5"
                             )}>
                               {t.valuation}
                             </Badge>
                             <p className="text-[10px] text-muted-foreground max-w-[180px] leading-tight font-medium uppercase tracking-tight">{t.justification}</p>
                           </div>
                         ) : (
-                          <Button size="sm" variant="outline" className="h-8 text-[9px] uppercase font-black tracking-widest border-border hover:border-primary hover:text-primary" onClick={() => evaluateTransfer(t)}>
+                          <Button size="sm" variant="outline" className="h-8 text-[9px] uppercase font-black tracking-widest border-border hover:border-secondary hover:text-secondary" onClick={() => evaluateTransfer(t)}>
                             Run Intelligence
                           </Button>
                         )}
@@ -488,7 +486,7 @@ export function TransferFlow({ teamId = "1" }: { teamId?: string }) {
       </div>
 
       <Dialog open={!!focusedTransfer} onOpenChange={v => !v && setFocusedTransfer(null)}>
-        <DialogContent className="bg-black/95 border-white/10 text-white sm:max-w-[800px] p-0">
+        <DialogContent className="bg-background/95 backdrop-blur-xl border-border/50 text-foreground sm:max-w-[800px] p-0">
            {focusedTransfer && (
              <TransferDetailsModal 
                transfer={focusedTransfer} 

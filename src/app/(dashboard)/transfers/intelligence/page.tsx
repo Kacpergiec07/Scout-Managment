@@ -483,7 +483,7 @@ export default function TransferIntelligencePage() {
               {/* Transfer Metrics Grid */}
               <div className="grid grid-cols-2 gap-4 mb-12">
                  <div className="bg-accent/40 border border-border rounded-2xl p-6 relative overflow-hidden group">
-                    <DollarSign className="absolute -right-4 -bottom-4 w-16 h-16 text-emerald-500/10 group-hover:scale-125 transition-transform" />
+                    <DollarSign className="absolute -right-4 -bottom-4 w-16 h-16 text-secondary-500/10 group-hover:scale-125 transition-transform" />
                     <span className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.2em]">Agreed Fee</span>
                     <div className="text-3xl font-black text-foreground italic mt-1">{focusedTransfer.fee}</div>
                  </div>
@@ -558,9 +558,9 @@ export default function TransferIntelligencePage() {
 
                       {/* Statistical Aggregates */}
                       {focusedStats.stat && focusedStats.stat.length > 0 && (
-                        <div className="bg-accent/40 border border-border rounded-3xl p-8 hover:border-emerald-500/20 transition-all group">
+                        <div className="bg-accent/40 border border-border rounded-3xl p-8 hover:border-secondary-500/20 transition-all group">
                            <div className="flex items-center gap-4 mb-8">
-                              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:scale-110 transition-transform">
+                              <div className="w-12 h-12 rounded-2xl bg-secondary-500/10 flex items-center justify-center text-secondary-500 group-hover:scale-110 transition-transform">
                                  <Activity className="w-6 h-6" />
                               </div>
                               <div>
@@ -577,8 +577,8 @@ export default function TransferIntelligencePage() {
                                  </span>
                               </div>
                               <div className="bg-background border border-border rounded-2xl p-4 flex flex-col items-center text-center">
-                                 <span className="text-[8px] font-black text-emerald-600/50 uppercase tracking-widest mb-1">Goals</span>
-                                 <span className="text-2xl font-black text-emerald-600 dark:text-emerald-400 italic">
+                                 <span className="text-[8px] font-black text-secondary-600/50 uppercase tracking-widest mb-1">Goals</span>
+                                 <span className="text-2xl font-black text-secondary-600 dark:text-secondary-400 italic">
                                     {focusedStats.stat[0]?.statGoals || focusedStats.stat[0]?.goals || 0}
                                  </span>
                               </div>
@@ -602,13 +602,13 @@ export default function TransferIntelligencePage() {
                            <div className="mt-8 pt-6 border-t border-border">
                               <div className="flex items-center justify-between mb-3">
                                  <span className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">Market Efficiency Rating</span>
-                                 <span className="text-[9px] font-black text-emerald-600 dark:text-emerald-400 uppercase">94% Optimal</span>
+                                 <span className="text-[9px] font-black text-secondary-600 dark:text-secondary-400 uppercase">94% Optimal</span>
                               </div>
                               <div className="h-1.5 w-full bg-accent rounded-full overflow-hidden">
                                  <motion.div 
                                     initial={{ width: 0 }}
                                     animate={{ width: "94%" }}
-                                    className="h-full bg-gradient-to-r from-primary to-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]"
+                                    className="h-full bg-gradient-to-r from-primary to-secondary-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]"
                                  />
                               </div>
                            </div>
@@ -675,7 +675,7 @@ export default function TransferIntelligencePage() {
              <div className="w-px h-8 bg-border" />
              <div className="flex flex-col">
                 <span className="text-[8px] text-muted-foreground uppercase font-black tracking-widest">Live Vectors</span>
-                <span className="text-xl font-black text-emerald-500 italic leading-none mt-1">{globeArcs.length}</span>
+                <span className="text-xl font-black text-secondary-500 italic leading-none mt-1">{globeArcs.length}</span>
              </div>
           </div>
 
@@ -715,7 +715,7 @@ export default function TransferIntelligencePage() {
         <DialogContent className="sm:max-w-[500px] bg-[#0a1a0f]/95 backdrop-blur-2xl border-[#1a2e1f] text-white rounded-3xl overflow-hidden shadow-2xl">
           <DialogHeader className="p-6 border-b border-[#1a2e1f]">
             <DialogTitle className="text-xl font-black italic tracking-tighter flex items-center gap-3 uppercase">
-              <ScanEye className="w-6 h-6 text-[#00ff88]" />
+              <ScanEye className="w-6 h-6 text-[hsl(var(--secondary))]" />
               Intelligence Discovery Hub
             </DialogTitle>
           </DialogHeader>
@@ -724,12 +724,12 @@ export default function TransferIntelligencePage() {
             <div className="space-y-3">
               <label className="text-[10px] font-black uppercase tracking-widest text-[#6b7a6e] ml-1">1. Intelligence Source (League)</label>
               <Select value={selectedLeague} onValueChange={handleLeagueChange}>
-                <SelectTrigger className="bg-[#111c14] border-[#1a2e1f] rounded-xl h-14 text-white focus:ring-[#00ff88] h-14 font-bold">
+                <SelectTrigger className="bg-[#111c14] border-[#1a2e1f] rounded-xl h-14 text-white focus:ring-[hsl(var(--secondary))] h-14 font-bold">
                   <SelectValue placeholder="Select competitive region..." />
                 </SelectTrigger>
                 <SelectContent className="bg-[#0a1a0f] border-[#1a2e1f] text-white rounded-xl">
                   {LEAGUES.map(league => (
-                    <SelectItem key={league.id} value={league.id} className="focus:bg-[#00ff88]/20 focus:text-[#00ff88] font-bold">
+                    <SelectItem key={league.id} value={league.id} className="focus:bg-[hsl(var(--secondary))]/20 focus:text-[hsl(var(--secondary))] font-bold">
                       <div className="flex items-center gap-2">
                         <img src={league.flag} alt="" className="w-5 h-3.5 object-cover rounded-sm border border-white/10" />
                         <span className="font-bold">{league.name}</span>
@@ -743,12 +743,12 @@ export default function TransferIntelligencePage() {
             <div className={cn("space-y-3 transition-all duration-500", !selectedLeague && "opacity-20 pointer-events-none blur-[2px]")}>
               <label className="text-[10px] font-black uppercase tracking-widest text-[#6b7a6e] ml-1">2. Target Cluster (Team)</label>
               <Select value={selectedTeam} onValueChange={handleTeamChange}>
-                <SelectTrigger className="bg-[#111c14] border-[#1a2e1f] rounded-xl h-14 text-white focus:ring-[#00ff88] font-bold">
+                <SelectTrigger className="bg-[#111c14] border-[#1a2e1f] rounded-xl h-14 text-white focus:ring-[hsl(var(--secondary))] font-bold">
                   <SelectValue placeholder={isLoadingDiscovery ? "Initializing node scan..." : "Identify tactical unit..."} />
                 </SelectTrigger>
                 <SelectContent className="bg-[#0a1a0f] border-[#1a2e1f] text-white rounded-xl max-h-[300px]">
                   {leagueTeams.map(team => (
-                    <SelectItem key={team.teamID} value={team.teamID} className="focus:bg-[#00ff88]/20 focus:text-[#00ff88] font-bold">
+                    <SelectItem key={team.teamID} value={team.teamID} className="focus:bg-[hsl(var(--secondary))]/20 focus:text-[hsl(var(--secondary))] font-bold">
                       <div className="flex items-center gap-2">
                         {team.teamLogo && <img src={team.teamLogo} className="w-5 h-5 object-contain" />}
                         <span className="font-bold">{team.teamName}</span>
@@ -762,12 +762,12 @@ export default function TransferIntelligencePage() {
             <div className={cn("space-y-3 transition-all duration-500", !selectedTeam && "opacity-20 pointer-events-none blur-[2px]")}>
               <label className="text-[10px] font-black uppercase tracking-widest text-[#6b7a6e] ml-1">3. Subject Identification (Player)</label>
               <Select value={selectedPlayer} onValueChange={handlePlayerChange}>
-                <SelectTrigger className="bg-[#111c14] border-[#1a2e1f] rounded-xl h-14 text-white focus:ring-[#00ff88] font-bold">
+                <SelectTrigger className="bg-[#111c14] border-[#1a2e1f] rounded-xl h-14 text-white focus:ring-[hsl(var(--secondary))] font-bold">
                   <SelectValue placeholder="Select asset signature..." />
                 </SelectTrigger>
                 <SelectContent className="bg-[#0a1a0f] border-[#1a2e1f] text-white rounded-xl max-h-[300px]">
                   {teamPlayers.map(player => (
-                    <SelectItem key={player.id} value={player.id} className="focus:bg-[#00ff88]/20 focus:text-[#00ff88] font-bold">
+                    <SelectItem key={player.id} value={player.id} className="focus:bg-[hsl(var(--secondary))]/20 focus:text-[hsl(var(--secondary))] font-bold">
                       <div className="flex items-center gap-2">
                         {player.photoUrl ? (
                           <>
@@ -793,7 +793,7 @@ export default function TransferIntelligencePage() {
                           </div>
                         )}
                         <span className="font-bold text-white">{player.name}</span>
-                        <Badge variant="outline" className="text-[8px] border-[#00ff88] bg-[#00ff88]/10 text-[#00ff88]">{player.position}</Badge>
+                        <Badge variant="outline" className="text-[8px] border-[hsl(var(--secondary))] bg-[hsl(var(--secondary))]/10 text-[hsl(var(--secondary))]">{player.position}</Badge>
                       </div>
                     </SelectItem>
                   ))}
@@ -826,11 +826,11 @@ export default function TransferIntelligencePage() {
                 <div className="flex items-center gap-2 mt-1">
                    <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">{hoveredArc.fromTeamName}</span>
                    <div className="w-1.5 h-px bg-white/20" />
-                   <span className="text-[10px] font-bold text-[#00ff88] uppercase tracking-widest">{hoveredArc.toTeamName}</span>
+                   <span className="text-[10px] font-bold text-[hsl(var(--secondary))] uppercase tracking-widest">{hoveredArc.toTeamName}</span>
                 </div>
                 <div className="mt-2 flex items-center justify-between">
-                   <div className="text-xs font-black text-[#00ff88] font-mono tracking-tighter">{hoveredArc.fee}</div>
-                   <div className="px-2 py-0.5 bg-[#00ff88]/10 rounded-full text-[8px] font-black text-[#00ff88] uppercase">Market Link</div>
+                   <div className="text-xs font-black text-[hsl(var(--secondary))] font-mono tracking-tighter">{hoveredArc.fee}</div>
+                   <div className="px-2 py-0.5 bg-[hsl(var(--secondary))]/10 rounded-full text-[8px] font-black text-[hsl(var(--secondary))] uppercase">Market Link</div>
                 </div>
              </div>
           </div>

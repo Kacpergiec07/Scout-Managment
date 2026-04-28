@@ -119,11 +119,11 @@ export default function ProfilePage() {
   const userName = user?.full_name || user?.email?.split('@')[0] || 'Scout'
   const userRole = user?.role || 'Scout'
   const userRegion = user?.assigned_region || 'Global'
-  const userAvatar = user?.avatar_url || `https://ui-avatars.com/api/?name=${userName.replace(/\s+/g, '+')}&background=22c55e&color=fff`
+  const userAvatar = user?.avatar_url || `https://ui-avatars.com/api/?name=${userName.replace(/\s+/g, '+')}&background=00ff88&color=fff`
   const joinDate = user?.join_date || new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' })
 
   const dynamicStats = [
-    { label: 'Players Watched', value: String(user?.players_watched_count || 0), icon: Target, color: 'text-green-500' },
+    { label: 'Players Watched', value: String(user?.players_watched_count || 0), icon: Target, color: 'text-secondary' },
     { label: 'Years Experience', value: String(user?.years_experience || 0), icon: Award, color: 'text-purple-500' },
     { label: 'Reports Created', value: String(user?.reports_created_count || 0), icon: Trophy, color: 'text-blue-500' },
     { label: 'Active Jobs', value: String(recentJobs.filter(j => j.status === 'Active').length), icon: Briefcase, color: 'text-orange-500' },
@@ -144,7 +144,7 @@ export default function ProfilePage() {
       <div className="relative w-full h-full bg-background text-foreground overflow-hidden flex transition-colors duration-300">
         <div className="flex-1 w-full h-full flex items-center justify-center">
           <div className="text-center space-y-4">
-            <Loader2 className="w-12 h-12 animate-spin text-green-500 mx-auto" />
+            <Loader2 className="w-12 h-12 animate-spin text-secondary mx-auto" />
             <p className="text-muted-foreground text-lg">Loading profile...</p>
           </div>
         </div>
@@ -192,7 +192,7 @@ export default function ProfilePage() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', damping: 15 }}
-                    className="w-32 h-32 rounded-full bg-gradient-to-tr from-green-500 to-emerald-300 p-1 relative z-10 flex items-center justify-center overflow-hidden"
+                    className="w-32 h-32 rounded-full bg-gradient-to-tr from-secondary to-secondary/60 p-1 relative z-10 flex items-center justify-center overflow-hidden"
                   >
                     <img
                       src={userAvatar}
@@ -200,7 +200,7 @@ export default function ProfilePage() {
                       className="w-full h-full rounded-full object-cover bg-background"
                     />
                   </motion.div>
-                  <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-green-500 rounded-full border-4 border-background flex items-center justify-center">
+                  <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-secondary rounded-full border-4 border-background flex items-center justify-center">
                     <Shield className="w-6 h-6 text-white" />
                   </div>
                 </div>
@@ -228,7 +228,7 @@ export default function ProfilePage() {
                       </div>
                     </div>
                     <div className="flex items-center gap-3 p-4 rounded-xl bg-accent/20 border border-border">
-                      <MapPin className="w-5 h-5 text-green-500" />
+                      <MapPin className="w-5 h-5 text-secondary" />
                       <div>
                         <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">
                           Assigned Region
@@ -251,7 +251,7 @@ export default function ProfilePage() {
                         <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">
                           Status
                         </p>
-                        <Badge variant="outline" className="text-green-500 border-green-500/30">
+                        <Badge variant="outline" className="text-secondary border-secondary/30">
                           Active Scout
                         </Badge>
                       </div>
@@ -271,7 +271,7 @@ export default function ProfilePage() {
           {/* Statistics Section */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-1 h-6 bg-green-500 rounded-full" />
+              <div className="w-1 h-6 bg-secondary rounded-full" />
               <h3 className="text-lg font-black uppercase tracking-[0.2em] text-foreground">
                 Performance Statistics
               </h3>
@@ -318,7 +318,7 @@ export default function ProfilePage() {
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.1 }}
-                          className="flex items-center justify-between p-4 rounded-xl bg-accent/10 border border-border hover:border-green-500/30 transition-all cursor-pointer group"
+                          className="flex items-center justify-between p-4 rounded-xl bg-accent/10 border border-border hover:border-secondary/30 transition-all cursor-pointer group"
                         >
                           <div className="flex items-center gap-4">
                             <div className="w-10 h-10 rounded-full bg-orange-500/10 flex items-center justify-center">
