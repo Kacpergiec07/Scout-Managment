@@ -1,5 +1,5 @@
 
-import { StatoriumClient } from '../lib/statorium/client.js';
+import { StatoriumClient } from '../src/lib/statorium/client';
 import dotenv from 'dotenv';
 dotenv.config({ path: '.env.local' });
 

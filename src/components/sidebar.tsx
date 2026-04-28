@@ -7,6 +7,8 @@ import { useTheme } from 'next-themes'
 import { signOut } from '@/app/auth/actions'
 import { useEffect, useState } from 'react'
 import { NotificationsBell } from './notifications-bell-new'
+import { ThemeToggle } from './theme-toggle'
+import { CustomThemeDialog } from './custom-theme-dialog'
 
 export function Sidebar() {
   const pathname = usePathname()
@@ -37,22 +39,12 @@ export function Sidebar() {
       {/* Top Header Logo */}
       <div className="flex h-[88px] items-center justify-between px-6">
         <Link href="/dashboard" className="flex items-center gap-3 font-black text-foreground text-lg tracking-widest mt-2">
-          <div className="h-6 w-1 bg-emerald-500 rounded-sm shadow-[0_0_10px_rgba(16,185,129,0.8)]" />
+          <div className="h-6 w-1 bg-secondary rounded-sm shadow-[0_0_10px_hsl(var(--secondary)/0.8)]" />
           SCOUT PRO
         </Link>
-        <div className="flex items-center gap-4 text-muted-foreground mt-2">
-          {mounted && (
-            <div
-              onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-              className="cursor-pointer hover:text-foreground transition-all duration-300 p-2 hover:bg-accent rounded-lg"
-            >
-              {resolvedTheme === 'dark' ? (
-                <Sun className="w-4 h-4" />
-              ) : (
-                <Moon className="w-4 h-4" />
-              )}
-            </div>
-          )}
+        <div className="flex items-center gap-1.5">
+          <CustomThemeDialog />
+          <ThemeToggle />
           <NotificationsBell />
         </div>
       </div>
@@ -67,11 +59,11 @@ export function Sidebar() {
               href={item.href}
               className={`group flex items-center gap-4 rounded-xl px-3 py-2.5 text-[15px] font-semibold transition-all duration-300 ${
                 isActive 
-                 ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 shadow-sm border border-emerald-500/20' 
+                 ? 'text-secondary bg-secondary/10 shadow-sm border border-secondary/20' 
                  : 'text-muted-foreground hover:bg-accent hover:text-foreground'
               }`}
             >
-              <item.icon className={`h-5 w-5 transition-colors ${isActive ? 'text-emerald-600 dark:text-emerald-400' : 'text-muted-foreground group-hover:text-foreground'}`} />
+              <item.icon className={`h-5 w-5 transition-colors ${isActive ? 'text-secondary' : 'text-muted-foreground group-hover:text-foreground'}`} />
               <span className="tracking-[0.05em]">{item.label}</span>
             </Link>
           )

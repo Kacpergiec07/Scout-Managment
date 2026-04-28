@@ -14,43 +14,18 @@ export function NotificationsBell() {
   const isDashboard = pathname === '/dashboard'
 
   return (
-    <div style={{ position: 'relative', width: '56px', height: '56px' }}>
+    <div className="relative w-10 h-10">
       <div
-        style={{
-          position: 'relative',
-          cursor: 'pointer',
-          padding: '8px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '100%',
-          height: '100%'
-        }}
+        className="relative cursor-pointer flex items-center justify-center w-full h-full rounded-xl hover:bg-muted transition-all duration-300 group"
         onClick={() => setIsPanelOpen(prev => !prev)}
         aria-label="Notifications"
       >
-        <Bell className="h-5 w-5 text-zinc-400 hover:text-foreground transition-colors pointer-events-none" />
+        <Bell className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors pointer-events-none" />
 
         {/* Notification Badge */}
         {hasUnread && unreadCount > 0 && (
-          <span style={{
-            position: 'absolute',
-            top: '-6px',
-            right: '-6px',
-            background: '#00ff88',
-            color: '#000',
-            borderRadius: '50%',
-            width: '18px',
-            height: '18px',
-            fontSize: '11px',
-            fontWeight: 'bold',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            pointerEvents: 'none',
-            boxShadow: '0 0 10px rgba(0, 255, 136, 0.3)'
-          }}>
-            {Math.min(unreadCount, 99)}
+          <span className="absolute -top-1 -right-1 bg-secondary text-secondary-foreground rounded-full w-4 h-4 text-[10px] font-black flex items-center justify-center pointer-events-none shadow-[0_0_10px_hsl(var(--secondary)/0.5)]">
+            {Math.min(unreadCount, 9)}
           </span>
         )}
       </div>

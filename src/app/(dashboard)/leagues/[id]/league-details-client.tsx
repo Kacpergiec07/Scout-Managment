@@ -25,7 +25,7 @@ const MemoizedStandingRow = memo(({ team, idx, id, onFormClick, initialStandings
     >
       <td className="px-8 py-5">
         <div className={`w-8 h-8 rounded flex items-center justify-center font-black text-xs
-          ${isTop ? 'bg-emerald-500 text-black shadow-[0_0_15px_rgba(16,185,129,0.3)]' : isBottom ? 'bg-red-500 text-black' : 'bg-muted text-foreground'}
+          ${isTop ? 'bg-secondary text-black shadow-[0_0_15px_hsl(var(--secondary) / 0.3)]' : isBottom ? 'bg-red-500 text-black' : 'bg-muted text-foreground'}
         `}>
           {team.rank}
         </div>
@@ -35,7 +35,7 @@ const MemoizedStandingRow = memo(({ team, idx, id, onFormClick, initialStandings
           href={`/teams/${team.teamID}?seasonId=${id}`}
           className="flex items-center gap-4 cursor-pointer group/link"
         >
-          <div className="w-10 h-10 p-1.5 bg-card rounded-lg border border-border group-hover/link:border-emerald-500 transition-all group-hover/link:scale-110 group-hover/link:shadow-[0_0_15px_rgba(16,185,129,0.2)] relative">
+          <div className="w-10 h-10 p-1.5 bg-card rounded-lg border border-border group-hover/link:border-secondary transition-all group-hover/link:scale-110 group-hover/link:shadow-[0_0_15px_hsl(var(--secondary) / 0.2)] relative">
             <SafeImage 
               src={team.teamLogo} 
               alt={team.teamName} 
@@ -45,7 +45,7 @@ const MemoizedStandingRow = memo(({ team, idx, id, onFormClick, initialStandings
               className="p-1.5 object-contain" 
             />
           </div>
-          <span className="font-bold text-lg group-hover/link:text-emerald-400 transition-colors">{team.teamName}</span>
+          <span className="font-bold text-lg group-hover/link:text-secondary transition-colors">{team.teamName}</span>
         </Link>
       </td>
       <td className="px-8 py-5">
@@ -59,7 +59,7 @@ const MemoizedStandingRow = memo(({ team, idx, id, onFormClick, initialStandings
                 whileTap={{ scale: 0.9 }}
                 onClick={() => onFormClick(formItem.matchId, team.teamID, team.teamName, i)}
                 className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black cursor-pointer hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-shadow
-                  ${r === 'W' ? 'bg-emerald-500 text-black' :
+                  ${r === 'W' ? 'bg-secondary text-black' :
                     r === 'L' ? 'bg-red-500 text-black' :
                     'bg-white/20 text-white/60'}
                 `}
@@ -211,7 +211,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none bg-gradient-to-b from-foreground to-foreground/40 bg-clip-text text-transparent">
               {initialLeagueInfo?.name || "Competition"}
             </h1>
-            <p className="text-emerald-500 font-bold tracking-[0.4em] text-[12px] uppercase mt-4">
+            <p className="text-secondary font-bold tracking-[0.4em] text-[12px] uppercase mt-4">
               Official 2025/26 Season Standings
             </p>
           </div>
@@ -281,7 +281,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                 <Link 
                   key={league.id}
                   href={`/leagues/${league.seasonId}`}
-                  className="group relative h-32 bg-white/5 rounded-3xl border border-white/10 transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 hover:border-emerald-500/50 flex flex-col items-center justify-center gap-4 overflow-hidden px-5 backdrop-blur-xl shadow-2xl"
+                  className="group relative h-32 bg-white/5 rounded-3xl border border-white/10 transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 hover:border-secondary/50 flex flex-col items-center justify-center gap-4 overflow-hidden px-5 backdrop-blur-xl shadow-2xl"
                 >
                   <div className="relative w-12 h-12">
                     <Image 
@@ -292,10 +292,10 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                       className="object-contain transition-all duration-300 opacity-60 group-hover:opacity-100"
                     />
                   </div>
-                  <div className="text-[12px] font-black uppercase tracking-[0.3em] text-white/40 group-hover:text-emerald-400 transition-colors truncate">
+                  <div className="text-[12px] font-black uppercase tracking-[0.3em] text-white/40 group-hover:text-secondary transition-colors truncate">
                     {league.name}
                   </div>
-                  <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/5 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/5 transition-colors duration-500" />
                 </Link>
               ))}
             </div>
@@ -306,13 +306,13 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
               className="p-8 bg-card/50 border border-border rounded-3xl backdrop-blur-xl"
             >
               <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-8 flex items-center gap-2">
-                <div className="w-1 h-1 bg-emerald-500 rounded-full animate-ping" />
+                <div className="w-1 h-1 bg-secondary rounded-full animate-ping" />
                 Competition Stats
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between p-5 bg-black/40 rounded-2xl border border-white/5">
                   <div className="flex items-center gap-4">
-                    <div className="p-2 bg-emerald-500/10 rounded-lg"><Users className="w-6 h-6 text-emerald-500" /></div>
+                    <div className="p-2 bg-secondary/10 rounded-lg"><Users className="w-6 h-6 text-secondary" /></div>
                     <span className="text-sm font-bold text-muted-foreground">Total Teams</span>
                   </div>
                   <span className="font-black text-3xl">{initialStandings.length}</span>
@@ -322,7 +322,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                     <div className="p-2 bg-blue-500/10 rounded-lg"><Calendar className="w-6 h-6 text-blue-500" /></div>
                     <span className="text-sm font-bold text-muted-foreground">Status</span>
                   </div>
-                  <span className="text-xs uppercase font-black px-3 py-1.5 bg-emerald-500/20 text-emerald-400 rounded-full border border-emerald-500/20">Active Season</span>
+                  <span className="text-xs uppercase font-black px-3 py-1.5 bg-secondary/20 text-secondary rounded-full border border-secondary/20">Active Season</span>
                 </div>
               </div>
             </motion.div>
@@ -345,7 +345,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
               </div>
               <p className="text-xs text-white/40 leading-relaxed italic">
                 Current PPG: <span className="text-white font-bold">{((initialStandings[0]?.points || 0) / (initialStandings[0]?.played || 1)).toFixed(2)}</span>.
-                Our model predicts {initialStandings[0]?.teamName} has an <span className="text-emerald-400 font-bold">84% probability</span> to secure the title.
+                Our model predicts {initialStandings[0]?.teamName} has an <span className="text-secondary font-bold">84% probability</span> to secure the title.
               </p>
             </motion.div>
 
@@ -383,7 +383,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                  <Target className="w-24 h-24 text-primary" />
               </div>
 
-              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-emerald-500 mb-8 flex items-center gap-2">
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-secondary mb-8 flex items-center gap-2">
                 <Target className="w-4 h-4" />
                 Elite Forwards (2025/26)
               </h3>
@@ -403,7 +403,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                   topScorers.slice(0, 5).map((player, i) => (
                     <div key={player.playerID} className="flex items-center justify-between group">
                       <div className="flex items-center gap-4">
-                        <div className="relative w-12 h-12 bg-black rounded-xl border border-white/5 overflow-hidden group-hover:border-emerald-500/50 transition-colors">
+                        <div className="relative w-12 h-12 bg-black rounded-xl border border-white/5 overflow-hidden group-hover:border-secondary/50 transition-colors">
                           <SafeImage 
                             src={player.photo} 
                             alt={player.fullName}
@@ -413,12 +413,12 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                           />
                         </div>
                         <div>
-                          <p className="text-sm font-black text-white group-hover:text-emerald-400 transition-colors">{player.fullName}</p>
+                          <p className="text-sm font-black text-white group-hover:text-secondary transition-colors">{player.fullName}</p>
                           <p className="text-[10px] font-bold text-white/40 uppercase tracking-tight">{player.teamName}</p>
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="text-xl font-black italic text-emerald-500 tabular-nums">{player.goals}</p>
+                        <p className="text-xl font-black italic text-secondary tabular-nums">{player.goals}</p>
                         <p className="text-[8px] font-black text-white/20 uppercase tracking-widest">GOALS</p>
                       </div>
                     </div>
@@ -432,7 +432,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
               </div>
 
               {topScorers.length > 5 && (
-                <button className="w-full mt-8 py-3 border-t border-white/5 text-[10px] font-black uppercase tracking-widest text-white/40 hover:text-emerald-400 transition-colors">
+                <button className="w-full mt-8 py-3 border-t border-white/5 text-[10px] font-black uppercase tracking-widest text-white/40 hover:text-secondary transition-colors">
                   View Full Scoring Index
                 </button>
               )}
@@ -461,7 +461,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
             >
               {isMatchLoading ? (
                 <div className="p-20 flex flex-col items-center justify-center gap-4">
-                  <div className="w-12 h-12 border-4 border-emerald-500/20 border-t-emerald-500 rounded-full animate-spin" />
+                  <div className="w-12 h-12 border-4 border-secondary/20 border-t-secondary rounded-full animate-spin" />
                   <p className="text-sm font-bold uppercase tracking-[0.2em] text-white/40">Fetching Real Match Data...</p>
                 </div>
               ) : selectedMatch?.error ? (
@@ -488,7 +488,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                            <div className="relative w-6 h-6">
                               <Image src={m.homeLogo} fill sizes="24px" className="object-contain" alt="" />
                            </div>
-                           <span className="text-xs font-bold group-hover/hist:text-emerald-400 transition-colors">{m.homeName} {m.homeScore}:{m.awayScore} {m.awayName}</span>
+                           <span className="text-xs font-bold group-hover/hist:text-secondary transition-colors">{m.homeName} {m.homeScore}:{m.awayScore} {m.awayName}</span>
                            <div className="relative w-6 h-6">
                               <Image src={m.awayLogo} fill sizes="24px" className="object-contain" alt="" />
                            </div>
@@ -498,13 +498,13 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                     ))}
                   </div>
                   <div className="mt-8 flex justify-center">
-                    <button onClick={() => setSelectedMatch(null)} className="px-8 py-2 bg-emerald-500 text-black rounded-full text-xs font-black uppercase tracking-widest shadow-lg shadow-emerald-500/20">Close Panel</button>
+                    <button onClick={() => setSelectedMatch(null)} className="px-8 py-2 bg-secondary text-black rounded-full text-xs font-black uppercase tracking-widest shadow-lg shadow-secondary/20">Close Panel</button>
                   </div>
                 </div>
               ) : (
                 <>
                   {/* Modal Header */}
-                  <div className="h-2 bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)]" />
+                  <div className="h-2 bg-secondary shadow-[0_0_15px_hsl(var(--secondary) / 0.5)]" />
                   
                   <div className="flex flex-col lg:grid lg:grid-cols-4 gap-8 p-8 pt-6">
                     {/* Left: Home Lineup */}
@@ -516,7 +516,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                     <div className="lg:col-span-2 space-y-12 order-1 lg:order-2">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-500 mb-2">Match Intelligence</h4>
+                          <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-secondary mb-2">Match Intelligence</h4>
                           <p className="text-white/40 text-xs font-medium flex items-center gap-2">
                             <MapPin className="w-3 h-3" /> {selectedMatch.matchVenue?.venueName || selectedMatch.venueName || selectedMatch.venue || "Stadium details unavailable"}
                           </p>
@@ -559,8 +559,8 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                                 <span className="text-white/10 text-4xl">:</span>
                                 <span>{selectedMatch.awayScore ?? selectedMatch.awayParticipant?.score ?? "0"}</span>
                              </div>
-                             <div className="px-4 py-1 bg-emerald-500/10 rounded-full border border-emerald-500/20 mt-4">
-                                <span className="text-[10px] font-black tracking-widest text-emerald-400 uppercase font-mono">{selectedMatch.status || "Full Time"}</span>
+                             <div className="px-4 py-1 bg-secondary/10 rounded-full border border-secondary/20 mt-4">
+                                <span className="text-[10px] font-black tracking-widest text-secondary uppercase font-mono">{selectedMatch.status || "Full Time"}</span>
                              </div>
                           </div>
 
@@ -604,7 +604,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                                    return (
                                       <div key={idx} className="text-xs flex items-center gap-2">
                                          <span className="text-white/90 font-black tracking-tight">{name}</span>
-                                         <span className="text-emerald-400 font-black tabular-nums">{time}'</span>
+                                         <span className="text-secondary font-black tabular-nums">{time}'</span>
                                          {isPenalty && <span className="text-yellow-500 text-[8px] font-black">PEN</span>}
                                          {isOwnGoal && <span className="text-red-500 text-[8px] font-black">OG</span>}
                                       </div>
@@ -636,7 +636,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
 
                                    return (
                                       <div key={idx} className="text-xs flex items-center gap-2">
-                                         <span className="text-emerald-400 font-black tabular-nums">{time}'</span>
+                                         <span className="text-secondary font-black tabular-nums">{time}'</span>
                                          <span className="text-white/90 font-black tracking-tight">{name}</span>
                                          {isPenalty && <span className="text-yellow-500 text-[8px] font-black">PEN</span>}
                                          {isOwnGoal && <span className="text-red-500 text-[8px] font-black">OG</span>}
@@ -691,7 +691,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                         <div className="mb-12 bg-linear-to-br from-card to-background/40 border border-border rounded-3xl overflow-hidden">
                           <div className="p-6 border-b border-white/10">
                             <h4 className="text-[10px] font-black uppercase tracking-widest text-white/40 flex items-center gap-2">
-                              <Activity className="w-4 h-4 text-emerald-500" />
+                              <Activity className="w-4 h-4 text-secondary" />
                               Detailed Match Statistics
                             </h4>
                           </div>
@@ -706,7 +706,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                                 <p className="text-[10px] font-bold uppercase tracking-wider text-white/40">Total Shots</p>
                               </div>
                               <div className="flex items-center justify-center">
-                                <Crosshair className="w-5 h-5 text-emerald-500/60" />
+                                <Crosshair className="w-5 h-5 text-secondary/60" />
                               </div>
                               <div className="text-center">
                                 <p className="text-2xl font-black text-white mb-1">
@@ -719,16 +719,16 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                             {/* Shots on Target */}
                             <div className="grid grid-cols-3 gap-4 items-center">
                               <div className="text-center">
-                                <p className="text-2xl font-black text-emerald-400 mb-1">
+                                <p className="text-2xl font-black text-secondary mb-1">
                                   {stats.home.shotsOnTarget}
                                 </p>
                                 <p className="text-[10px] font-bold uppercase tracking-wider text-white/40">On Target</p>
                               </div>
                               <div className="flex items-center justify-center">
-                                <Target className="w-5 h-5 text-emerald-500/60" />
+                                <Target className="w-5 h-5 text-secondary/60" />
                               </div>
                               <div className="text-center">
-                                <p className="text-2xl font-black text-emerald-400 mb-1">
+                                <p className="text-2xl font-black text-secondary mb-1">
                                   {stats.away.shotsOnTarget}
                                 </p>
                                 <p className="text-[10px] font-bold uppercase tracking-wider text-white/40">On Target</p>
@@ -757,7 +757,7 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                             {/* Possession Bar */}
                             <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden flex">
                               <div
-                                className="h-full bg-emerald-500"
+                                className="h-full bg-secondary"
                                 style={{ width: `${stats.home.possession}%` }}
                               />
                               <div
@@ -788,16 +788,16 @@ export default function LeagueDetailsClient({ id, initialStandings, initialLeagu
                             {/* Pass Accuracy */}
                             <div className="grid grid-cols-3 gap-4 items-center">
                               <div className="text-center">
-                                <p className="text-2xl font-black text-emerald-400 mb-1">
+                                <p className="text-2xl font-black text-secondary mb-1">
                                   {stats.home.passAccuracy}%
                                 </p>
                                 <p className="text-[10px] font-bold uppercase tracking-wider text-white/40">Accuracy</p>
                               </div>
                               <div className="flex items-center justify-center">
-                                <TrendingUp className="w-5 h-5 text-emerald-500/60" />
+                                <TrendingUp className="w-5 h-5 text-secondary/60" />
                               </div>
                               <div className="text-center">
-                                <p className="text-2xl font-black text-emerald-400 mb-1">
+                                <p className="text-2xl font-black text-secondary mb-1">
                                   {stats.away.passAccuracy}%
                                 </p>
                                 <p className="text-[10px] font-bold uppercase tracking-wider text-white/40">Accuracy</p>
@@ -955,19 +955,19 @@ const TeamLineupView = memo(({ participant, side }: { participant: any, side: 'h
    return (
       <div className="flex flex-col gap-6">
          <div className="flex items-center justify-between">
-            <h3 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-500 flex items-center gap-2">
+            <h3 className="text-sm font-black uppercase tracking-[0.2em] text-secondary flex items-center gap-2">
                <Shield className="w-4 h-4" />
                Tactical Formation
             </h3>
             <div className="flex items-center gap-2">
                <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">Formation</span>
-               <span className="px-2 py-0.5 bg-emerald-500/20 border border-emerald-500/40 rounded text-[10px] font-black text-emerald-400 tabular-nums">
+               <span className="px-2 py-0.5 bg-secondary/20 border border-secondary/40 rounded text-[10px] font-black text-secondary tabular-nums">
                   {formation}
                </span>
             </div>
          </div>
          
-         <div className="relative aspect-[3/4] bg-emerald-950/20 border border-emerald-500/20 rounded-2xl overflow-hidden p-8 shadow-[inset_0_0_60px_rgba(16,185,129,0.1)] group/pitch">
+         <div className="relative aspect-[3/4] bg-emerald-950/20 border border-secondary/20 rounded-2xl overflow-hidden p-8 shadow-[inset_0_0_60px_hsl(var(--secondary) / 0.1)] group/pitch">
             {/* Pitch Markings */}
             <div className="absolute inset-0 opacity-10" style={{ 
                backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 19%, rgba(16, 185, 129, 0.4) 20%)',
@@ -1010,13 +1010,13 @@ const TeamLineupView = memo(({ participant, side }: { participant: any, side: 'h
                      className="p-3 bg-white/5 rounded-xl border border-white/5 flex flex-col gap-1 hover:bg-white/10 transition-colors group/sub"
                   >
                      <div className="flex items-center justify-between">
-                        <span className="text-[10px] font-black text-emerald-500 tabular-nums bg-emerald-500/10 px-1.5 rounded">{s.minute}'</span>
+                        <span className="text-[10px] font-black text-secondary tabular-nums bg-secondary/10 px-1.5 rounded">{s.minute}'</span>
                         <ArrowRightLeft className="w-3 h-3 text-white/20 group-hover/sub:text-yellow-500 transition-colors" />
                      </div>
                      <div className="flex flex-col">
                         <span className="text-[10px] font-black text-white uppercase tracking-tight truncate flex items-center gap-2">
-                           <div className="w-1 h-1 bg-emerald-500 rounded-full" />
-                           <span className="text-emerald-500/60 font-bold">IN:</span> {s.playerINFullName || s.playerIN}
+                           <div className="w-1 h-1 bg-secondary rounded-full" />
+                           <span className="text-secondary/60 font-bold">IN:</span> {s.playerINFullName || s.playerIN}
                         </span>
                         <span className="text-[10px] font-bold text-white/40 uppercase tracking-tight truncate flex items-center gap-2">
                            <div className="w-1 h-1 bg-red-500/40 rounded-full" />
@@ -1065,7 +1065,7 @@ const PlayerDot = memo(({ player, subs }: { player: any, subs: any[] }) => {
             </div>
          )}
 
-         <div className={`w-10 h-10 rounded-full bg-black border-2 ${sub ? 'border-yellow-500/50 ring-yellow-500/20' : 'border-emerald-500/50 ring-emerald-500/20'} flex items-center justify-center overflow-hidden shadow-lg group-hover/player:scale-110 transition-transform cursor-help ring-2 relative`}>
+         <div className={`w-10 h-10 rounded-full bg-black border-2 ${sub ? 'border-yellow-500/50 ring-yellow-500/20' : 'border-secondary/50 ring-secondary/20'} flex items-center justify-center overflow-hidden shadow-lg group-hover/player:scale-110 transition-transform cursor-help ring-2 relative`}>
             <SafeImage 
               src={player.playerPhoto} 
               alt={player.playerFullName || "Player"}
@@ -1077,7 +1077,7 @@ const PlayerDot = memo(({ player, subs }: { player: any, subs: any[] }) => {
          <span className="text-[8px] font-black text-white/80 uppercase tracking-tight text-center max-w-[60px] leading-tight truncate px-1 bg-black/40 rounded">
             {player.playerFullName?.split(' ').pop()}
          </span>
-         <span className={`text-[7px] font-bold ${sub ? 'text-yellow-500 bg-yellow-500/10' : 'text-emerald-500 bg-emerald-500/10'} px-1 rounded tabular-nums`}>#{player.playerNumber || "??"}</span>
+         <span className={`text-[7px] font-bold ${sub ? 'text-yellow-500 bg-yellow-500/10' : 'text-secondary bg-secondary/10'} px-1 rounded tabular-nums`}>#{player.playerNumber || "??"}</span>
       </div>
    );
 });

@@ -119,7 +119,7 @@ function generateNewsItem(id: string, type: NewsItem["type"], playerName: string
 const getTypeColor = (type: NewsItem["type"]) => {
   switch (type) {
     case "transfer":
-      return "var(--primary)"
+      return "var(--secondary)"
     case "injury":
       return "var(--destructive)"
     case "rumor":
@@ -127,14 +127,14 @@ const getTypeColor = (type: NewsItem["type"]) => {
     case "official":
       return "#00aaff"
     default:
-      return "var(--primary)"
+      return "var(--secondary)"
   }
 }
 
 const getTypeBadgeColor = (type: NewsItem["type"]) => {
   switch (type) {
     case "transfer":
-      return "bg-primary text-primary-foreground"
+      return "bg-secondary text-secondary-foreground"
     case "injury":
       return "bg-destructive text-destructive-foreground"
     case "rumor":
@@ -142,7 +142,7 @@ const getTypeBadgeColor = (type: NewsItem["type"]) => {
     case "official":
       return "bg-blue-500 text-white"
     default:
-      return "bg-primary text-primary-foreground"
+      return "bg-secondary text-secondary-foreground"
   }
 }
 
@@ -315,11 +315,11 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
     <div
       ref={panelRef}
       className={cn(
-        `absolute top-full mt-2 w-[380px] max-w-[calc(100vw-16px)] max-h-[480px] overflow-y-auto custom-scrollbar bg-card border border-border rounded-xl z-[9999] shadow-2xl transition-all duration-200`,
-        isDashboard ? "right-0" : "left-0",
+        `absolute top-full mt-3 w-[380px] max-w-[calc(100vw-32px)] max-h-[520px] overflow-y-auto custom-scrollbar bg-card border border-border rounded-2xl z-[9999] shadow-2xl transition-all duration-300`,
+        isDashboard ? "right-0" : "left-auto -right-16 md:right-auto md:left-0",
         isOpen
           ? "opacity-100 translate-y-0"
-          : "opacity-0 -translate-y-2 pointer-events-none"
+          : "opacity-0 -translate-y-4 pointer-events-none"
       )}
     >
       {/* Header */}
@@ -330,8 +330,8 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
               Football Intelligence Feed
             </h2>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-[10px] font-bold text-primary uppercase tracking-widest">
+              <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
+              <span className="text-[10px] font-bold text-secondary uppercase tracking-widest">
                 LIVE
               </span>
             </div>
@@ -344,11 +344,11 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
                 "p-1.5 rounded-full transition-all duration-200",
                 loading
                   ? "opacity-50 cursor-not-allowed"
-                  : "hover:bg-primary/10 cursor-pointer"
+                  : "hover:bg-secondary/10 cursor-pointer"
               )}
             >
               <RefreshCw className={cn(
-                "w-4 h-4 text-primary",
+                "w-4 h-4 text-secondary",
                 loading && "animate-spin"
               )} />
             </button>
@@ -390,7 +390,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
               key={item.id}
               onClick={() => handleNewsClick(item)}
               className={cn(
-                "group relative bg-accent/40 border border-border rounded-xl p-4 cursor-pointer transition-all duration-200 hover:border-primary/20",
+                "group relative bg-accent/40 border border-border rounded-xl p-4 cursor-pointer transition-all duration-200 hover:border-secondary/20",
                 item.read ? "opacity-70" : ""
               )}
             >
@@ -432,7 +432,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
                 {/* Meta Info */}
                 <div className="flex items-center gap-2 mt-2 flex-wrap">
                   {item.player && (
-                    <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">
+                    <span className="text-[10px] text-secondary dark:text-secondary font-medium">
                       {item.player}
                     </span>
                   )}
@@ -447,7 +447,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
                   <span className="text-[10px] text-muted-foreground">•</span>
                   <button
                     onClick={(e) => handleSourceClick(e, item)}
-                    className="text-[10px] text-primary font-medium hover:text-primary/80 transition-colors underline"
+                    className="text-[10px] text-secondary font-medium hover:text-secondary/80 transition-colors underline"
                   >
                     {item.source}
                   </button>

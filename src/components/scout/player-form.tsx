@@ -161,7 +161,7 @@ export function PlayerForm({ initialData }: { initialData?: Partial<ScoutProPlay
         </Tabs>
 
         <div className="flex justify-end pt-4">
-          <Button type="submit" className="bg-emerald-600 hover:bg-emerald-500">
+          <Button type="submit" className="bg-secondary-600 hover:bg-secondary-500">
             Generate Compatibility Analysis
           </Button>
         </div>

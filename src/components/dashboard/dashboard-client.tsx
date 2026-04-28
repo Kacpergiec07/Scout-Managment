@@ -5,9 +5,13 @@ import Link from 'next/link'
 import { Bell, Briefcase, Target, Clock, ArrowRight, CheckCircle, Trash2, User, Settings } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import { Button } from '@/components/ui/button'
 import { CardStack, CardStackItem } from '@/components/ui/card-stack'
 import { NotificationsBell } from '@/components/notifications-bell-new'
 import { generateJobOffer, getLatestJob, deleteJob, getRecentJobs } from '@/app/actions/job-generation'
+import { ThemeToggle } from '@/components/theme-toggle'
+import { CustomThemeDialog } from '@/components/custom-theme-dialog'
+import { Palette } from 'lucide-react'
 
 interface JobOffer {
   id: string
@@ -100,7 +104,7 @@ const DynamicLeagueCard = React.memo(function DynamicLeagueCard({ league, isActi
          <motion.div 
            animate={{ scale: isActive ? 1.2 : 1.0, y: isActive ? -10 : 0 }}
            transition={{ duration: 0.4 }}
-           className="w-16 h-16 md:w-22 md:h-22 bg-white/5 backdrop-blur-md rounded-full shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center justify-center p-3.5 mt-[35%]"
+           className="w-16 h-16 md:w-22 md:h-22 bg-background/5 backdrop-blur-md rounded-full shadow-[0_0_30px_rgba(0,0,0,0.2)] flex items-center justify-center p-3.5 mt-[35%]"
          >
             <Image 
               src={league.logo} 
@@ -143,7 +147,7 @@ function DynamicLeagueTable({ leagues, activeIndex, onSelect }: { leagues: Leagu
               >
                 <td className="px-6 py-5">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 relative bg-white rounded-xl p-1.5 shadow-sm border border-border group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 relative bg-background rounded-xl p-1.5 shadow-sm border border-border group-hover:scale-110 transition-transform">
                       <Image src={league.logo} alt={league.name} fill className="object-contain" />
                     </div>
                     <span className="font-bold text-sm text-foreground">{league.name}</span>
@@ -155,7 +159,7 @@ function DynamicLeagueTable({ leagues, activeIndex, onSelect }: { leagues: Leagu
                 <td className="px-6 py-5">
                   <div className="flex -space-x-2">
                     {league.clubs.slice(0, 3).map((club) => (
-                      <div key={club.teamID} className="w-8 h-8 rounded-full border-2 border-background bg-white p-1 relative overflow-hidden shadow-sm" title={club.teamName}>
+                      <div key={club.teamID} className="w-8 h-8 rounded-full border-2 border-background bg-background p-1 relative overflow-hidden shadow-sm" title={club.teamName}>
                         <Image src={club.teamLogo} alt={club.teamName} fill className="object-contain p-0.5" />
                       </div>
                     ))}
@@ -193,7 +197,7 @@ function JobOfferPanel({ job, onClose, onDelete, onCycleJob, currentIndex, total
   const priorityColors = {
     high: 'bg-red-500/20 border-red-500/30 text-red-400',
     medium: 'bg-amber-500/20 border-amber-500/30 text-amber-400',
-    low: 'bg-emerald-500/20 border-emerald-500/30 text-emerald-400'
+    low: 'bg-secondary/20 border-secondary/30 text-secondary'
   }
 
   return (
@@ -255,7 +259,7 @@ function JobOfferPanel({ job, onClose, onDelete, onCycleJob, currentIndex, total
         <div className="bg-muted/50 rounded-2xl p-6 mb-6 border border-border">
           <div className="flex items-center gap-6">
             {job.club.logo && (
-              <div className="w-20 h-20 relative bg-white rounded-2xl p-2 shadow-lg border border-border">
+              <div className="w-20 h-20 relative bg-background rounded-2xl p-2 shadow-lg border border-border">
                 <Image src={job.club.logo} alt={job.club.name} fill className="object-contain" />
               </div>
             )}
@@ -439,7 +443,7 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
       <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3 cursor-pointer group">
           <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-xl border border-primary/30 group-hover:scale-110 transition-transform">
-            <span className="filter drop-shadow-[0_0_8px_rgba(0,255,136,0.5)]">⚽</span>
+            <span className="filter drop-shadow-[0_0_8px_hsl(var(--secondary)/0.5)]">⚽</span>
           </div>
           <span className="text-2xl font-black tracking-tighter text-foreground uppercase italic">SCOUT <span className="text-primary font-light">PRO</span></span>
         </div>
@@ -462,18 +466,21 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
           ))}
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-2">
           <Link href="/profile">
-            <button className="p-2 rounded-xl hover:bg-muted transition-colors" title="Profile">
+            <button className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-muted transition-colors" title="Profile">
               <User className="w-5 h-5" />
             </button>
           </Link>
           <Link href="/settings">
-            <button className="p-2 rounded-xl hover:bg-muted transition-colors" title="Settings">
+            <button className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-muted transition-colors" title="Settings">
               <Settings className="w-5 h-5" />
             </button>
           </Link>
-          <div className="h-6 w-px bg-border" />
+          <div className="h-4 w-px bg-border mx-1" />
+          <CustomThemeDialog />
+          <ThemeToggle />
+          <div className="h-4 w-px bg-border mx-1" />
           <NotificationsBell />
         </div>
       </nav>
@@ -487,7 +494,7 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase text-foreground leading-[0.9] mb-6">
-              PROFESSIONAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">SCOUTING</span>
+              PROFESSIONAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">SCOUTING</span>
             </h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
@@ -582,7 +589,7 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
                 className="group"
               >
                 <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/50 transition-all hover:scale-105">
-                  <div className="w-16 h-16 relative bg-white rounded-xl p-2 mx-auto mb-4 shadow-sm border border-border group-hover:shadow-lg transition-shadow">
+                  <div className="w-16 h-16 relative bg-background rounded-xl p-2 mx-auto mb-4 shadow-sm border border-border group-hover:shadow-lg transition-shadow">
                     <Image src={league.logo} alt={league.name} fill className="object-contain" />
                   </div>
                   <p className="text-xs font-bold text-center uppercase tracking-wider text-foreground/70 group-hover:text-primary transition-colors">

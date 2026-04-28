@@ -36,7 +36,7 @@ import Image from 'next/image'
 
 const COLUMNS = [
   { id: 'potential', title: 'Discovery', color: 'text-blue-400' },
-  { id: 'monitoring', title: 'Monitoring', color: 'text-[#00ff88]' },
+  { id: 'monitoring', title: 'Monitoring', color: 'text-[hsl(var(--secondary))]' },
   { id: 'negotiation', title: 'Negotiation', color: 'text-orange-400' },
   { id: 'closed', title: 'Closed/History', color: 'text-purple-400' },
 ]
@@ -190,7 +190,7 @@ function PlayerCard({ player, isOverlay }: { player: KanbanPlayer, isOverlay?: b
   return (
     <motion.div
       whileHover={{ y: -4 }}
-      className={`group relative bg-black/40 backdrop-blur-3xl border border-white/10 rounded-2xl p-4 cursor-grab active:cursor-grabbing hover:border-[#00ff88]/30 transition-all ${isOverlay ? 'shadow-2xl shadow-[#00ff88]/20' : ''}`}
+      className={`group relative bg-black/40 backdrop-blur-3xl border border-white/10 rounded-2xl p-4 cursor-grab active:cursor-grabbing hover:border-[hsl(var(--secondary))]/30 transition-all ${isOverlay ? 'shadow-2xl shadow-[hsl(var(--secondary))]/20' : ''}`}
     >
       <div className="flex items-start gap-4">
         <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-white/10 shrink-0">
@@ -203,10 +203,10 @@ function PlayerCard({ player, isOverlay }: { player: KanbanPlayer, isOverlay?: b
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-center justify-between gap-2">
-            <span className="text-[9px] font-bold text-[#00ff88] uppercase tracking-widest truncate">{player.position}</span>
+            <span className="text-[9px] font-bold text-[hsl(var(--secondary))] uppercase tracking-widest truncate">{player.position}</span>
             <MoreVertical className="w-3 h-3 text-gray-600" />
           </div>
-          <h4 className="text-sm font-black text-white uppercase italic tracking-tighter truncate group-hover:text-[#00ff88] transition-colors">
+          <h4 className="text-sm font-black text-white uppercase italic tracking-tighter truncate group-hover:text-[hsl(var(--secondary))] transition-colors">
             {player.player_name}
           </h4>
           <div className="flex items-center gap-2 mt-1">

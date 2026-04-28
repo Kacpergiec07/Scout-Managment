@@ -20,9 +20,9 @@ function NewPlayerContent() {
         if (player) {
           // Simple mapping for Phase 1
           setInitialData({
-            name: `${player.firstName} ${player.lastName}`,
-            nationality: player.country || '',
-            position: 'ST', // Fallback, mapping needed
+            name: (player as any).fullName || `${(player as any).firstName} ${(player as any).lastName}`,
+            nationality: (player as any).country || '',
+            position: (player as any).position || 'ST', 
             club: '',
             league: '',
           })

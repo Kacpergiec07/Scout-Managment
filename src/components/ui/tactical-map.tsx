@@ -95,7 +95,7 @@ export const TacticalMap = memo(({ markers = [], arcs = [], className }: Tactica
                         return `${k === 0 ? 'M' : 'L'} ${px} ${py}`;
                       }).join(' ')}
                       fill="currentColor"
-                      className="text-emerald-500/10 dark:text-emerald-950/40"
+                      className="text-secondary/10 dark:text-secondary/40"
                       stroke="currentColor"
                       strokeWidth="0.2"
                       style={{ color: 'inherit' }}
