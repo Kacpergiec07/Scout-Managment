@@ -472,12 +472,17 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
       });
 
       let d = 4, m = 4, f = 2;
-      if (formation !== 'N/A') {
-        const parts = formation.split('-');
+      if (formation && formation !== 'N/A') {
+        const parts = formation.split('-').map(p => parseInt(p) || 0);
         if (parts.length === 3) {
-          d = parseInt(parts[0]) || 4;
-          m = parseInt(parts[1]) || 4;
-          f = parseInt(parts[2]) || 2;
+          d = parts[0] || 4;
+          m = parts[1] || 4;
+          f = parts[2] || 2;
+        } else if (parts.length === 4) {
+          // Handle 4-row formations like 4-2-3-1
+          d = parts[0] || 4;
+          m = (parts[1] + parts[2]) || 5;
+          f = parts[3] || 1;
         }
       }
 
@@ -503,6 +508,31 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
 
     players = sortedPlayers;
 
+    // Fetch full player data including stats for all players in parallel
+    // We do this to ensure "correct statistics" as requested, since squad API often lacks them
+    const enrichedPlayers = await Promise.all(
+      players.map(async (p: any) => {
+        try {
+          // If player already has stats, skip fetching
+          if (p.stat && p.stat.length > 0) return p;
+          
+          // Fetch detailed data which includes stats
+          const details = await getPlayerDetailsAction(p.playerID.toString());
+          if (details) {
+            return {
+              ...p,
+              ...details,
+              stat: details.stat || []
+            };
+          }
+          return p;
+        } catch (e) {
+          console.warn(`[Action] Failed to enrich player ${p.playerID}:`, e);
+          return p;
+        }
+      })
+    );
+
     const result = {
       ...(apiTeam || {}),
       teamID: teamId,
@@ -512,7 +542,7 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
       venueName: apiTeam?.venueName || apiTeam?.homeVenue?.name || "",
       coach: COACH_MAP[teamId] || apiTeam?.additionalInfo?.coach,
       formation: formation,
-      players: players.map((p: any) => ({
+      players: enrichedPlayers.map((p: any) => ({
         ...p,
         playerPhoto: resolvePlayerPhoto(p),
         position: resolvePosition(p.position || p.additionalInfo?.position, p.playerID)
@@ -817,17 +847,30 @@ export async function getAllTop5PlayersAction() {
           const tid = team.teamID?.toString();
           if (tid) {
             try {
-              const players = await client.getPlayersByTeam(tid, league.id);
-              if (players && players.length > 0) {
-                players.forEach((p: any) => {
-                  console.log(`[Action] Player data for ${p.fullName}:`, JSON.stringify(p));
-                  console.log(`[Action] Player stat array:`, p.stat);
-                  allPlayers.push({
-                    ...p,
-                    teamName: team.teamName || team.teamMiddleName || "Elite Club",
-                    playerPhoto: p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`
-                  });
-                });
+              const squadPlayers = await client.getPlayersByTeam(tid, league.id);
+              if (squadPlayers && squadPlayers.length > 0) {
+                // Enrich each top player with stats in parallel
+                const enriched = await Promise.all(
+                  squadPlayers.slice(0, 5).map(async (p: any) => {
+                    try {
+                      const details = await getPlayerDetailsAction(p.playerID.toString());
+                      return {
+                        ...p,
+                        ...(details || {}),
+                        teamName: team.teamName || team.teamMiddleName || "Elite Club",
+                        playerPhoto: resolvePlayerPhoto(p),
+                        stat: details?.stat || []
+                      };
+                    } catch (e) {
+                      return {
+                        ...p,
+                        teamName: team.teamName || team.teamMiddleName || "Elite Club",
+                        playerPhoto: resolvePlayerPhoto(p)
+                      };
+                    }
+                  })
+                );
+                allPlayers.push(...enriched);
               }
             } catch (e) {
               console.warn(`Could not fetch players for team ${tid} in season ${league.id}`);
@@ -839,7 +882,6 @@ export async function getAllTop5PlayersAction() {
 
     // Remove duplicates based on playerID
     const uniquePlayers = Array.from(new Map(allPlayers.map(p => [p.playerID, p])).values());
-    console.log(`[Action] Fetched ${uniquePlayers.length} unique top players`);
     return uniquePlayers.sort((a, b) => (a.fullName || "").localeCompare(b.fullName || ""));
   } catch (error) {
     console.error('Get All Top 5 Players Error:', error);
@@ -875,8 +917,23 @@ export async function getPlayerDetailsAction(playerId: string) {
 
     const playerDetails = await client.getPlayerDetails(playerId);
 
-    console.log(`[Action] Player details received:`, JSON.stringify(playerDetails, null, 2));
-    console.log(`[Action] Player stat array:`, playerDetails.stat);
+    if (playerDetails) {
+      console.log(`[Action] Player details received for ${playerId}, caching...`);
+      // Update cache in background or wait
+      try {
+        await supabase.from('cached_players').upsert({
+          id: playerId,
+          full_name: playerDetails.fullName,
+          position: resolvePosition(playerDetails.position || playerDetails.additionalInfo?.position, playerId),
+          photo_url: resolvePlayerPhoto(playerDetails),
+          birthdate: playerDetails.additionalInfo?.birthdate || '',
+          stats: playerDetails.stat || [],
+          last_synced: new Date().toISOString()
+        });
+      } catch (e) {
+        console.warn(`[Action] Failed to cache player ${playerId}:`, e);
+      }
+    }
 
     return playerDetails;
   } catch (error) {
