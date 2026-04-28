@@ -138,7 +138,22 @@ export default function ClubDetailsClient({
   const fws = allPlayers.filter((p: any) => p.position === 'FW' || p.position === 'ST' || p.position === 'RW' || p.position === 'LW');
 
   const getPVal = useCallback((arr: any[], keys: string[]) => {
-    return (arr || []).reduce((acc, s) => {
+    // Filter for current season 25/26
+    const currentSeasonStats = (arr || []).filter((s: any) => 
+      (s.season_name && (
+        s.season_name.includes('2025-26') || 
+        s.season_name.includes('2025/26') ||
+        s.season_name.includes('25-26') || 
+        s.season_name.includes('25/26') ||
+        s.season_name.includes('2025-2026') ||
+        s.season_name.includes('2025/2026')
+      )) ||
+      (arr.length === 1)
+    );
+
+    const targetStats = currentSeasonStats.length > 0 ? currentSeasonStats : [];
+
+    return targetStats.reduce((acc, s) => {
       let val = 0;
       for (const k of keys) {
         const actualKey = Object.keys(s).find(sk => sk.toLowerCase() === k.toLowerCase());
@@ -589,7 +604,22 @@ function PlayerBubble({ player, position, isSelected }: { player: any, position?
    const rawStats = Array.isArray(player.stat) ? player.stat : [];
    
    const getSum = (arr: any[], keys: string[]) => {
-      return arr.reduce((acc, s) => {
+      // Filter for current season 25/26
+      const currentSeasonStats = arr.filter((s: any) => 
+         (s.season_name && (
+            s.season_name.includes('2025-26') || 
+            s.season_name.includes('2025/26') ||
+            s.season_name.includes('25-26') || 
+            s.season_name.includes('25/26') ||
+            s.season_name.includes('2025-2026') ||
+            s.season_name.includes('2025/2026')
+         )) ||
+         (arr.length === 1)
+      );
+
+      const targetStats = currentSeasonStats.length > 0 ? currentSeasonStats : [];
+
+      return targetStats.reduce((acc, s) => {
          let val = 0;
          for (const k of keys) {
             const actualKey = Object.keys(s).find(sk => sk.toLowerCase() === k.toLowerCase());

@@ -13,7 +13,7 @@ import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 import { Badge } from '@/components/ui/badge'
 import Image from 'next/image'
-import { Hexagon, ArrowLeft, Download, Share2, TrendingUp, BarChart3 } from 'lucide-react'
+import { Hexagon, ArrowLeft, Download, Share2, TrendingUp, BarChart3, Trophy, Target, Users, Star } from 'lucide-react'
 import Link from 'next/link'
 
 function AnalysisContent() {
@@ -226,7 +226,7 @@ function AnalysisContent() {
       }
     }
     load()
-  }, [playerId, playerName])
+  }, [playerId, playerName, position])
 
   if (loading) return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] animate-in fade-in duration-700">
@@ -388,30 +388,35 @@ function AnalysisContent() {
             )}
 
             {/* Key Stats Grid */}
-            <div className="flex-1 rounded-2xl border-2 border-gray-800/50 bg-black/60 backdrop-blur-xl p-6 shadow-2xl">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-xl bg-[#00ff88]/10 border border-[#00ff88]/20 text-[#00ff88]">
-                  <BarChart3 className="h-6 w-6" />
+            <div className="flex-1 rounded-3xl border-2 border-gray-800/50 bg-black/60 backdrop-blur-xl p-8 shadow-2xl">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="p-3.5 rounded-2xl bg-[#00ff88]/10 border border-[#00ff88]/20 text-[#00ff88] shadow-[0_0_15px_rgba(0,255,136,0.2)]">
+                  <BarChart3 className="h-7 w-7" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-white text-lg">Key Statistics</h3>
-                  <p className="text-xs text-gray-600">Performance metrics</p>
+                  <h3 className="font-bold text-white text-xl tracking-tight">Key Statistics</h3>
+                  <p className="text-sm text-gray-500 font-medium">Performance metrics</p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-4">
                 {[
-                  { label: 'Goals', value: playerData.stats.offensive.goals, icon: '⚽' },
-                  { label: 'Assists', value: playerData.stats.offensive.assists, icon: '🎯' },
-                  { label: 'Matches', value: playerData.matches || 0, icon: '🎮' },
-                  { label: 'Rating', value: (playerData as any).rating || 82, icon: '⭐' },
+                  { label: 'Goals', value: playerData.stats.offensive.goals, icon: Trophy, color: 'text-blue-400', bg: 'bg-blue-400/10' },
+                  { label: 'Assists', value: playerData.stats.offensive.assists, icon: Target, color: 'text-rose-400', bg: 'bg-rose-400/10' },
+                  { label: 'Matches', value: playerData.matches || 0, icon: Users, color: 'text-purple-400', bg: 'bg-purple-400/10' },
+                  { label: 'Rating', value: (playerData as any).rating || 82, icon: Star, color: 'text-amber-400', bg: 'bg-amber-400/10' },
                 ].map((stat, i) => (
-                  <div key={i} className="bg-black/40 border-2 border-[#00ff88]/20 rounded-xl p-4 hover:border-[#00ff88]/50 hover:bg-[#00ff88]/10 transition-all duration-300">
-                    <div className="text-2xl font-black text-[#00ff88] tabular-nums mb-2" style={{ textShadow: '0 0 10px rgba(0, 255, 136, 0.3)' }}>
-                      {stat.value}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">{stat.icon}</span>
-                      <span className="text-xs text-gray-500 font-semibold uppercase tracking-wider">{stat.label}</span>
+                  <div key={i} className="group relative bg-black/40 border border-gray-800/50 rounded-2xl p-5 hover:border-[#00ff88]/30 hover:bg-black/60 transition-all duration-500 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
+                    <div className="relative z-10">
+                      <div className="text-4xl font-black text-[#00ff88] tabular-nums tracking-tighter mb-4" style={{ textShadow: '0 0 20px rgba(0, 255, 136, 0.2)' }}>
+                        {stat.value}
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className={`p-2 rounded-lg ${stat.bg} ${stat.color}`}>
+                          <stat.icon className="h-4 w-4" fill="currentColor" fillOpacity={0.2} />
+                        </div>
+                        <span className="text-[10px] text-gray-500 font-black uppercase tracking-[0.2em]">{stat.label}</span>
+                      </div>
                     </div>
                   </div>
                 ))}

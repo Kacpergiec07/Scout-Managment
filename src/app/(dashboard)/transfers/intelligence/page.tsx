@@ -557,46 +557,62 @@ export default function TransferIntelligencePage() {
                       </div>
 
                       {/* Statistical Aggregates */}
-                      {focusedStats.stat && focusedStats.stat.length > 0 && (
-                        <div className="bg-accent/40 border border-border rounded-3xl p-8 hover:border-emerald-500/20 transition-all group">
-                           <div className="flex items-center gap-4 mb-8">
-                              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:scale-110 transition-transform">
-                                 <Activity className="w-6 h-6" />
-                              </div>
-                              <div>
-                                 <div className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em]">Live Performance Data</div>
-                                 <div className="text-lg font-black text-foreground italic uppercase tracking-tight">Season 2024–25 Matrix</div>
-                              </div>
-                           </div>
-                           
-                           <div className="grid grid-cols-2 gap-4 font-mono">
-                              <div className="bg-background border border-border rounded-2xl p-4 flex flex-col items-center text-center">
-                                 <span className="text-[8px] font-black text-muted-foreground uppercase tracking-widest mb-1">Appearances</span>
-                                 <span className="text-2xl font-black text-foreground italic">
-                                    {focusedStats.stat[0]?.statPlayed || focusedStats.stat[0]?.played || 0}
-                                 </span>
-                              </div>
-                              <div className="bg-background border border-border rounded-2xl p-4 flex flex-col items-center text-center">
-                                 <span className="text-[8px] font-black text-emerald-600/50 uppercase tracking-widest mb-1">Goals</span>
-                                 <span className="text-2xl font-black text-emerald-600 dark:text-emerald-400 italic">
-                                    {focusedStats.stat[0]?.statGoals || focusedStats.stat[0]?.goals || 0}
-                                 </span>
-                              </div>
-                              <div className="bg-background border border-border rounded-2xl p-4 flex flex-col items-center text-center">
-                                 <span className="text-[8px] font-black text-primary/50 uppercase tracking-widest mb-1">Assists</span>
-                                 <span className="text-2xl font-black text-primary italic">
-                                    {focusedStats.stat[0]?.statAssists || focusedStats.stat[0]?.assists || 0}
-                                 </span>
-                              </div>
-                              <div className="bg-background border border-border rounded-2xl p-4 flex flex-col items-center text-center">
-                                 <span className="text-[8px] font-black text-rose-500/50 uppercase tracking-widest mb-1">Yel/Red Cards</span>
-                                 <div className="flex items-center gap-2">
-                                    <span className="text-xl font-black text-amber-600 dark:text-amber-400 italic">{focusedStats.stat[0]?.statYellowCards || 0}</span>
-                                    <div className="w-px h-4 bg-border" />
-                                    <span className="text-xl font-black text-rose-600 dark:text-rose-500 italic">{focusedStats.stat[0]?.statRedCards || 0}</span>
-                                 </div>
-                              </div>
-                           </div>
+                      {focusedStats.stat && focusedStats.stat.length > 0 && (() => {
+                          const currentSeason = focusedStats.stat.find((s: any) => 
+                             (s.season_name && (
+                                s.season_name.includes('2025-26') || 
+                                s.season_name.includes('2025/26') ||
+                                s.season_name.includes('25-26') || 
+                                s.season_name.includes('25/26') ||
+                                s.season_name.includes('2025-2026') ||
+                                s.season_name.includes('2025/2026')
+                             )) ||
+                             (focusedStats.stat.length === 1)
+                          ) || focusedStats.stat[0];
+
+                          return (
+                            <div className="bg-accent/40 border border-border rounded-3xl p-8 hover:border-emerald-500/20 transition-all group">
+                               <div className="flex items-center gap-4 mb-8">
+                                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:scale-110 transition-transform">
+                                     <Activity className="w-6 h-6" />
+                                  </div>
+                                  <div>
+                                     <div className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em]">Live Performance Data</div>
+                                     <div className="text-lg font-black text-foreground italic uppercase tracking-tight">Season 2025–26 Matrix</div>
+                                  </div>
+                               </div>
+                               
+                               <div className="grid grid-cols-2 gap-4 font-mono">
+                                  <div className="bg-background border border-border rounded-2xl p-4 flex flex-col items-center text-center">
+                                     <span className="text-[8px] font-black text-muted-foreground uppercase tracking-widest mb-1">Appearances</span>
+                                     <span className="text-2xl font-black text-foreground italic">
+                                        {currentSeason?.statPlayed || currentSeason?.played || 0}
+                                     </span>
+                                  </div>
+                                  <div className="bg-background border border-border rounded-2xl p-4 flex flex-col items-center text-center">
+                                     <span className="text-[8px] font-black text-emerald-600/50 uppercase tracking-widest mb-1">Goals</span>
+                                     <span className="text-2xl font-black text-emerald-600 dark:text-emerald-400 italic">
+                                        {currentSeason?.statGoals || currentSeason?.Goals || currentSeason?.Goal || 0}
+                                     </span>
+                                  </div>
+                                  <div className="bg-background border border-border rounded-2xl p-4 flex flex-col items-center text-center">
+                                     <span className="text-[8px] font-black text-primary/50 uppercase tracking-widest mb-1">Assists</span>
+                                     <span className="text-2xl font-black text-primary italic">
+                                        {currentSeason?.statAssists || currentSeason?.Assist || currentSeason?.Assists || 0}
+                                     </span>
+                                  </div>
+                                  <div className="bg-background border border-border rounded-2xl p-4 flex flex-col items-center text-center">
+                                     <span className="text-[8px] font-black text-rose-500/50 uppercase tracking-widest mb-1">Yel/Red Cards</span>
+                                     <div className="flex items-center gap-2">
+                                        <span className="text-xl font-black text-amber-600 dark:text-amber-400 italic">{currentSeason?.statYellowCards || currentSeason?.['Yellow card'] || 0}</span>
+                                        <div className="w-px h-4 bg-border" />
+                                        <span className="text-xl font-black text-rose-600 dark:text-rose-500 italic">{currentSeason?.statRedCards || currentSeason?.['Red card'] || 0}</span>
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                          );
+                       })()}
 
                            {/* Market Potential Bar */}
                            <div className="mt-8 pt-6 border-t border-border">
