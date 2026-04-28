@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select"
 import { getWatchHistory, updateWatchlistStatus } from '@/app/actions/watchlist'
 
+
 export default function HistoryPage() {
   const [searchQuery, setSearchQuery] = React.useState('')
   const [sortBy, setSortBy] = React.useState('date-desc')
@@ -22,6 +23,7 @@ export default function HistoryPage() {
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState<string | null>(null)
   const [restoringId, setRestoringId] = React.useState<string | null>(null)
+
 
   // Prevent hydration error by only rendering particles after mount
   React.useEffect(() => {
@@ -49,7 +51,8 @@ export default function HistoryPage() {
           }, [])
 
           const transformedData = uniqueData.map((item: any) => ({
-            id: item.id, // Use the database record id as unique key
+            id: item.player_id || item.id, // Use actual player_id for analysis
+            dbId: item.id, // Keep database id for restore operations
             player: item.player_name,
             club: item.club || 'Unknown Club',
             league: item.league || 'Unknown League',
@@ -62,6 +65,8 @@ export default function HistoryPage() {
             pos: item.position || 'Unknown Position'
           }))
           setHistory(transformedData)
+
+
         }
       } catch (err) {
         console.error('Failed to load history:', err)
@@ -113,13 +118,13 @@ export default function HistoryPage() {
       })
   }, [searchQuery, sortBy, history])
 
-  const handleRestore = async (recordId: string, playerName: string) => {
-    setRestoringId(recordId)
+  const handleRestore = async (dbId: string, playerName: string) => {
+    setRestoringId(dbId)
     try {
-      const result = await updateWatchlistStatus(recordId, 'following')
+      const result = await updateWatchlistStatus(dbId, 'following')
       if (result.success) {
         // Remove the player from history list
-        setHistory(prev => prev.filter(item => item.id !== recordId))
+        setHistory(prev => prev.filter(item => item.dbId !== dbId))
       } else {
         console.error('Failed to restore player:', result.error)
         alert(`Failed to restore ${playerName}: ${result.error}`)
@@ -143,7 +148,7 @@ export default function HistoryPage() {
             position: absolute;
             inset: -2px;
             border-radius: 12px;
-            background: linear-gradient(135deg, hsl(var(--secondary)), transparent);
+            background: linear-gradient(135deg, #00ff88, transparent);
             z-index: -1;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -168,9 +173,9 @@ export default function HistoryPage() {
 
           /* Hover state - neon green glow only */
           .racing-border-card:hover::after {
-            box-shadow: 0 0 30px hsl(var(--secondary) / 0.4),
-                        0 0 60px hsl(var(--secondary) / 0.2),
-                        inset 0 0 30px hsl(var(--secondary) / 0.1);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.4),
+                        0 0 60px rgba(0, 255, 136, 0.2),
+                        inset 0 0 30px rgba(0, 255, 136, 0.1);
           }
         `
       }} />
@@ -178,7 +183,7 @@ export default function HistoryPage() {
       <div
         className="min-h-screen relative overflow-hidden"
         style={{
-          backgroundColor: 'var(--primary)'
+          backgroundColor: '#0a0f0a'
         }}
       >
       {/* Particle background effect */}
@@ -187,7 +192,7 @@ export default function HistoryPage() {
           {particles.map((particle) => (
             <div
               key={particle.id}
-              className="absolute rounded-full bg-secondary/10"
+              className="absolute rounded-full bg-emerald-500/10"
               style={{
                 width: particle.width,
                 height: particle.height,
@@ -207,17 +212,17 @@ export default function HistoryPage() {
         <div className="space-y-3 animate-in fade-in slide-in-from-top-4 duration-700">
           <div className="flex items-center gap-4">
             <div className="relative">
-              <div className="absolute inset-0 bg-[hsl(var(--secondary))]/20 blur-xl rounded-lg" />
-              <div className="relative h-14 w-14 rounded-xl bg-[hsl(var(--secondary))]/10 border border-[hsl(var(--secondary))]/30 flex items-center justify-center shadow-2xl shadow-[hsl(var(--secondary))]/20">
-                <Hexagon className="h-7 w-7 text-[hsl(var(--secondary))]" fill="currentColor" />
+              <div className="absolute inset-0 bg-[#00ff88]/20 blur-xl rounded-lg" />
+              <div className="relative h-14 w-14 rounded-xl bg-[#00ff88]/10 border border-[#00ff88]/30 flex items-center justify-center shadow-2xl shadow-[#00ff88]/20">
+                <Hexagon className="h-7 w-7 text-[#00ff88]" fill="currentColor" />
               </div>
             </div>
             <div>
               <h1
                 className="text-4xl sm:text-5xl font-bold tracking-tight"
                 style={{
-                  color: 'hsl(var(--secondary))',
-                  textShadow: '0 0 20px hsl(var(--secondary) / 0.5)'
+                  color: '#00ff88',
+                  textShadow: '0 0 20px rgba(0, 255, 136, 0.5)'
                 }}
               >
                 Scouting History
@@ -233,20 +238,20 @@ export default function HistoryPage() {
         <div className="flex flex-col sm:flex-row gap-4 items-stretch animate-in fade-in slide-in-from-top-4 duration-700 delay-100">
           {/* Search Input */}
           <div className="flex-1 relative group">
-            <div className="absolute inset-0 bg-[hsl(var(--secondary))]/5 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-[#00ff88]/5 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500 group-hover:text-[hsl(var(--secondary))] transition-colors duration-300" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500 group-hover:text-[#00ff88] transition-colors duration-300" />
               <Input
                 placeholder="Search by player or club..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-11 pr-4 py-3 h-12 bg-black/60 backdrop-blur-xl border-2 border-gray-800 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-[hsl(var(--secondary))] focus:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-300 hover:border-gray-700"
+                className="pl-11 pr-4 py-3 h-12 bg-black/60 backdrop-blur-xl border-2 border-gray-800 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-[#00ff88] focus:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-300 hover:border-gray-700"
               />
             </div>
           </div>
 
           {/* Sort Dropdown */}
-          <div className="flex items-center gap-3 bg-black/60 backdrop-blur-xl border-2 border-gray-800 rounded-xl px-4 py-2 focus-within:border-[hsl(var(--secondary))] focus-within:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-300">
+          <div className="flex items-center gap-3 bg-black/60 backdrop-blur-xl border-2 border-gray-800 rounded-xl px-4 py-2 focus-within:border-[#00ff88] focus-within:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-300">
             <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider whitespace-nowrap">
               SORT
             </span>
@@ -271,7 +276,7 @@ export default function HistoryPage() {
         <div className="space-y-3">
           {loading ? (
             <div className="py-20 text-center">
-              <Loader2 className="h-12 w-12 animate-spin text-[hsl(var(--secondary))] mx-auto mb-4" />
+              <Loader2 className="h-12 w-12 animate-spin text-[#00ff88] mx-auto mb-4" />
               <p className="text-gray-400">Loading watch history...</p>
             </div>
           ) : error ? (
@@ -290,8 +295,8 @@ export default function HistoryPage() {
                   racing-border-card relative bg-black/80 backdrop-blur-xl border-2 border-gray-800
                   rounded-xl p-5 shadow-xl
                   transition-all duration-300 ease-out
-                  hover:scale-[1.02] hover:shadow-2xl hover:shadow-[hsl(var(--secondary))]/20
-                  hover:border-[hsl(var(--secondary))]/50 hover:bg-black/90
+                  hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#00ff88]/20
+                  hover:border-[#00ff88]/50 hover:bg-black/90
                   animate-in fade-in slide-in-from-bottom-4
                 `}
                 style={{
@@ -307,7 +312,7 @@ export default function HistoryPage() {
                   >
                     {/* Avatar */}
                     <div className="relative">
-                      <div className="relative h-14 w-14 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-[hsl(var(--secondary))] transition-all duration-300 shadow-lg">
+                      <div className="relative h-14 w-14 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-[#00ff88] transition-all duration-300 shadow-lg">
                         <img
                           src={record.photo}
                           alt={record.player}
@@ -319,7 +324,7 @@ export default function HistoryPage() {
 
                     {/* Player Details */}
                     <div className="space-y-1">
-                      <h3 className="text-xl font-bold text-white group-hover:text-[hsl(var(--secondary))] transition-colors duration-300 tracking-tight">
+                      <h3 className="text-xl font-bold text-white group-hover:text-[#00ff88] transition-colors duration-300 tracking-tight">
                         {record.player}
                       </h3>
                       <div className="flex items-center gap-2 text-sm">
@@ -332,6 +337,8 @@ export default function HistoryPage() {
                         <span className="text-gray-700 mx-1">•</span>
                         <MarketValue playerName={record.player} showIcon={false} className="scale-75 origin-left h-4" />
                       </div>
+
+
                     </div>
                   </Link>
 
@@ -348,21 +355,21 @@ export default function HistoryPage() {
 
                     {/* Restore Button */}
                     <button
-                      onClick={() => handleRestore(record.id, record.player)}
-                      disabled={restoringId === record.id}
+                      onClick={() => handleRestore(record.dbId, record.player)}
+                      disabled={restoringId === record.dbId}
                       className="relative group"
                       title="Restore to watchlist"
                     >
-                      <div className="absolute inset-0 bg-[hsl(var(--secondary))]/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300" />
+                      <div className="absolute inset-0 bg-[#00ff88]/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300" />
                       <div
                         className={`
-                          relative h-10 w-10 rounded-full bg-[hsl(var(--secondary))] flex items-center justify-center
-                          shadow-lg shadow-[hsl(var(--secondary))]/20 hover:shadow-[hsl(var(--secondary))]/40
+                          relative h-10 w-10 rounded-full bg-[#00ff88] flex items-center justify-center
+                          shadow-lg shadow-[#00ff88]/20 hover:shadow-[#00ff88]/40
                           transition-all duration-300
-                          ${restoringId === record.id ? 'opacity-70 cursor-not-allowed' : 'hover:scale-110 active:scale-95'}
+                          ${restoringId === record.dbId ? 'opacity-70 cursor-not-allowed' : 'hover:scale-110 active:scale-95'}
                         `}
                       >
-                        {restoringId === record.id ? (
+                        {restoringId === record.dbId ? (
                           <Loader2 className="h-5 w-5 text-black animate-spin" />
                         ) : (
                           <RefreshCw className="h-5 w-5 text-black" />
@@ -375,8 +382,8 @@ export default function HistoryPage() {
             ))
           ) : (
             <div className="py-20 text-center border-2 border-dashed border-gray-800 rounded-xl bg-black/40 backdrop-blur-xl">
-              <div className="w-16 h-16 rounded-full bg-[hsl(var(--secondary))]/10 flex items-center justify-center mx-auto mb-4 border border-[hsl(var(--secondary))]/30">
-                <Search className="h-8 w-8 text-[hsl(var(--secondary))]/50" />
+              <div className="w-16 h-16 rounded-full bg-[#00ff88]/10 flex items-center justify-center mx-auto mb-4 border border-[#00ff88]/30">
+                <Search className="h-8 w-8 text-[#00ff88]/50" />
               </div>
               <h3 className="text-lg font-bold text-gray-400">No watch history yet</h3>
               <p className="text-gray-600 text-sm mt-1">Players you remove from your watchlist will appear here.</p>
@@ -385,23 +392,6 @@ export default function HistoryPage() {
         </div>
       </div>
 
-      {/* FAB - Floating Action Button */}
-      <Link
-        href="/scouting"
-        className="fixed bottom-8 right-8 z-50 group"
-      >
-        <div className="relative">
-          <div className="absolute inset-0 bg-[hsl(var(--secondary))]/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300" />
-          <div
-            className="relative h-16 w-16 rounded-full bg-[hsl(var(--secondary))] flex items-center justify-center shadow-2xl shadow-[hsl(var(--secondary))]/30 hover:shadow-[hsl(var(--secondary))]/50 transition-all duration-300 group-hover:scale-110 group-active:scale-95"
-            style={{
-              boxShadow: '0 0 30px hsl(var(--secondary) / 0.3)'
-            }}
-          >
-            <Plus className="h-8 w-8 text-black" />
-          </div>
-        </div>
-      </Link>
       </div>
     </>
   )

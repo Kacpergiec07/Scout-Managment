@@ -258,11 +258,17 @@ export function LeagueTacticalHub() {
                   <TacticalPitch 
                     startingXI={teamData.players.slice(0, 11)} 
                     allPlayers={teamData.players}
-                    formationLayout={{
-                      d: parseInt(teamData.formation.split('-')[0]) || 4,
-                      m: parseInt(teamData.formation.split('-')[1]) || 4,
-                      f: parseInt(teamData.formation.split('-')[2]) || 2
-                    }}
+                    formationLayout={(() => {
+                      const parts = (teamData.formation || "4-4-2").split('-').map(n => parseInt(n) || 0);
+                      if (parts.length === 4) {
+                        return { d: parts[0] || 4, m: (parts[1] + parts[2]) || 5, f: parts[3] || 1 };
+                      }
+                      return {
+                        d: parts[0] || 4,
+                        m: parts[1] || 4,
+                        f: parts[2] || 2
+                      };
+                    })()}
                   />
                    <div className="flex items-center justify-between p-4 bg-card/50 rounded-2xl border border-border/50">
                     <div className="flex items-center gap-3">

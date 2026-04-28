@@ -1,0 +1,6215 @@
+{
+  "playerID": 11736,
+  "firstName": "Brenden Russell",
+  "lastName": "Aaronson",
+  "shortName": "B. Aaronson",
+  "fullName": "Brenden Aaronson",
+  "homeName": "Brenden Russell Aaronson",
+  "country": {
+    "name": "United States",
+    "id": 233
+  },
+  "currentTeam": {
+    "name": null,
+    "id": 0
+  },
+  "photo": "https://api.statorium.com/media/bearleague/bl15848264431806.webp",
+  "additionalInfo": {
+    "height": "178 cm",
+    "weight": "65 kg",
+    "position": 4,
+    "Fantasy Value": null,
+    "birthdate": "22-10-2000  (25)"
+  },
+  "teams": [],
+  "stat": [
+    {
+      "season_name": "ENGLAND: FA Cup 2025-26",
+      "season_id": 602,
+      "team_name": "Leeds United FC",
+      "played": 4,
+      "career_lineup": 1,
+      "career_minutes": 221,
+      "career_subsin": 3,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 2,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: Premier League 2025-26",
+      "season_id": 515,
+      "team_name": "Leeds United FC",
+      "played": 33,
+      "career_lineup": 27,
+      "career_minutes": 2239,
+      "career_subsin": 6,
+      "career_subsout": 25,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 4,
+      "Assist": 5,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 4,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: FA Cup 2024-25",
+      "season_id": 420,
+      "team_name": "Leeds United FC",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: EFL Championship 2024-25",
+      "season_id": 364,
+      "team_name": "Leeds United FC",
+      "played": 46,
+      "career_lineup": 43,
+      "career_minutes": 3573,
+      "career_subsin": 3,
+      "career_subsout": 25,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 9,
+      "Assist": 2,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 9,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "CONMEBOL Copa America 2024",
+      "season_id": 322,
+      "team_name": "United States of America",
+      "played": 1,
+      "career_lineup": 0,
+      "career_minutes": 4,
+      "career_subsin": 1,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Champions League 2023-24",
+      "season_id": 306,
+      "team_name": "1. FC Union Berlin",
+      "played": 6,
+      "career_lineup": 1,
+      "career_minutes": 134,
+      "career_subsin": 5,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "GERMANY: Bundesliga 2023-24",
+      "season_id": 274,
+      "team_name": "1. FC Union Berlin",
+      "played": 30,
+      "career_lineup": 14,
+      "career_minutes": 1264,
+      "career_subsin": 16,
+      "career_subsout": 11,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 2,
+      "Assist": 2,
+      "Yellow card": 2,
+      "Second yellow": 1,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 2,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: FA Cup 2022-23",
+      "season_id": 191,
+      "team_name": "Leeds United FC",
+      "played": 4,
+      "career_lineup": 1,
+      "career_minutes": 159,
+      "career_subsin": 3,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FIFA World Cup 2022",
+      "season_id": 121,
+      "team_name": "United States of America",
+      "played": 4,
+      "career_lineup": 0,
+      "career_minutes": 104,
+      "career_subsin": 4,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: EFL Cup 2022-23",
+      "season_id": 186,
+      "team_name": "Leeds United FC",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: Premier League 2022-23",
+      "season_id": 165,
+      "team_name": "Leeds United FC",
+      "played": 36,
+      "career_lineup": 28,
+      "career_minutes": 2382,
+      "career_subsin": 8,
+      "career_subsout": 20,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 3,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Champions League 2021-22",
+      "season_id": 131,
+      "team_name": "FC Red Bull Salzburg",
+      "played": 8,
+      "career_lineup": 8,
+      "career_minutes": 715,
+      "career_subsin": 0,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 2,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "AUSTRIA: Austrian Football Bundesliga  2021-22",
+      "season_id": 98,
+      "team_name": "FC Red Bull Salzburg",
+      "played": 26,
+      "career_lineup": 21,
+      "career_minutes": 1893,
+      "career_subsin": 5,
+      "career_subsout": 9,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 4,
+      "Assist": 3,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 1,
+      "Missed penalty": 0,
+      "Goal": 3,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "USA: Major League Soccer 2021",
+      "season_id": 94,
+      "team_name": "Philadelphia Union",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Europa League 2020-21",
+      "season_id": 82,
+      "team_name": "FC Red Bull Salzburg",
+      "played": 2,
+      "career_lineup": 2,
+      "career_minutes": 121,
+      "career_subsin": 0,
+      "career_subsout": 2,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "USA: Major League Soccer 2020 Group stage",
+      "season_id": 52,
+      "team_name": "Philadelphia Union",
+      "played": 6,
+      "career_lineup": 6,
+      "career_minutes": 522,
+      "career_subsin": 0,
+      "career_subsout": 5,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 2,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "USA: Major League Soccer 2020",
+      "season_id": 45,
+      "team_name": "Philadelphia Union",
+      "played": 21,
+      "career_lineup": 21,
+      "career_minutes": 1717,
+      "career_subsin": 0,
+      "career_subsout": 13,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 4,
+      "Assist": 3,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 4,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    }
+  ],
+  "matches": [
+    {
+      "matchID": 147708,
+      "matchDate": "2026-04-26",
+      "matchTime": "14:00",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 8,
+        "score": 1,
+        "participantName": "Chelsea FC",
+        "teamShortName": "CHE",
+        "teamMiddleName": "Chelsea",
+        "logo": "https://api.statorium.com/media/bearleague/bl1756795498585.png"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121468,
+      "matchDate": "2026-04-22",
+      "matchTime": "19:00",
+      "minutes_played": 84,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 16,
+        "score": 2,
+        "participantName": "AFC Bournemouth",
+        "teamShortName": "BOU",
+        "teamMiddleName": "Bournemouth",
+        "logo": "https://api.statorium.com/media/bearleague/bl171510179519.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121462,
+      "matchDate": "2026-04-18",
+      "matchTime": "14:00",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 13,
+        "score": 0,
+        "participantName": "Wolverhampton Wanderers",
+        "teamShortName": "WLV",
+        "teamMiddleName": "Wolverhampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190131172980.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "20"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "73"
+        }
+      ]
+    },
+    {
+      "matchID": 121453,
+      "matchDate": "2026-04-13",
+      "matchTime": "19:00",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 7,
+        "score": 1,
+        "participantName": "Manchester United",
+        "teamShortName": "MUN",
+        "teamMiddleName": "Man Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "29"
+        }
+      ]
+    },
+    {
+      "matchID": 146860,
+      "matchDate": "2026-04-05",
+      "matchTime": "15:30",
+      "minutes_played": 82,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1,
+        "score": 2,
+        "participantName": "West Ham United",
+        "teamShortName": "WHU",
+        "teamMiddleName": "West Ham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151028161933.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 21,
+          "eventName": "Penalty shootout scored",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "matchID": 121442,
+      "matchDate": "2026-03-21",
+      "matchTime": "20:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 186,
+        "score": 0,
+        "participantName": "Brentford FC",
+        "teamShortName": "BRE",
+        "teamMiddleName": "Brentford",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151020531622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121431,
+      "matchDate": "2026-03-15",
+      "matchTime": "14:00",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121422,
+      "matchDate": "2026-03-03",
+      "matchTime": "19:30",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 253,
+        "score": 1,
+        "participantName": "Sunderland AFC",
+        "teamShortName": "SUN",
+        "teamMiddleName": "Sunderland",
+        "logo": "https://api.statorium.com/media/bearleague/bl15718396531982.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121412,
+      "matchDate": "2026-02-28",
+      "matchTime": "17:30",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 4,
+        "score": 1,
+        "participantName": "Manchester City",
+        "teamShortName": "MCI",
+        "teamMiddleName": "Man City",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151024711246.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121397,
+      "matchDate": "2026-02-21",
+      "matchTime": "15:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 112,
+        "score": 1,
+        "participantName": "Aston Villa",
+        "teamShortName": "AVL",
+        "teamMiddleName": "Aston Villa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 141912,
+      "matchDate": "2026-02-15",
+      "matchTime": "12:00",
+      "minutes_played": 52,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 182,
+        "score": 1,
+        "participantName": "Birmingham City FC",
+        "teamShortName": "BIR",
+        "teamMiddleName": "Birmingham City",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719617690743.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 21,
+          "eventName": "Penalty shootout scored",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "matchID": 121389,
+      "matchDate": "2026-02-10",
+      "matchTime": "19:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 8,
+        "score": 2,
+        "participantName": "Chelsea FC",
+        "teamShortName": "CHE",
+        "teamMiddleName": "Chelsea",
+        "logo": "https://api.statorium.com/media/bearleague/bl1756795498585.png"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121382,
+      "matchDate": "2026-02-06",
+      "matchTime": "20:00",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 183,
+        "score": 1,
+        "participantName": "Nottingham Forest FC",
+        "teamShortName": "NTF",
+        "teamMiddleName": "Nottingham Forest",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151025621698.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121370,
+      "matchDate": "2026-01-31",
+      "matchTime": "15:00",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 9,
+        "score": 4,
+        "participantName": "Arsenal FC",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715101847747.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121362,
+      "matchDate": "2026-01-26",
+      "matchTime": "20:00",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 6,
+        "score": 1,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121350,
+      "matchDate": "2026-01-17",
+      "matchTime": "15:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 5,
+        "score": 0,
+        "participantName": "Fulham FC",
+        "teamShortName": "FUL",
+        "teamMiddleName": "Fulham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023581920.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 139781,
+      "matchDate": "2026-01-11",
+      "matchTime": "12:00",
+      "minutes_played": 1,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 191,
+        "score": 1,
+        "participantName": "Derby County FC",
+        "teamShortName": "DER",
+        "teamMiddleName": "Derby",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681871741253.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121345,
+      "matchDate": "2026-01-07",
+      "matchTime": "20:15",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 10,
+        "score": 4,
+        "participantName": "Newcastle United FC",
+        "teamShortName": "NEW",
+        "teamMiddleName": "Newcastle",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102537848.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "32"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "79"
+        }
+      ]
+    },
+    {
+      "matchID": 121332,
+      "matchDate": "2026-01-04",
+      "matchTime": "12:30",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 7,
+        "score": 1,
+        "participantName": "Manchester United",
+        "teamShortName": "MUN",
+        "teamMiddleName": "Man Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "62"
+        }
+      ]
+    },
+    {
+      "matchID": 121322,
+      "matchDate": "2026-01-01",
+      "matchTime": "17:30",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 0,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121315,
+      "matchDate": "2025-12-28",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 253,
+        "score": 1,
+        "participantName": "Sunderland AFC",
+        "teamShortName": "SUN",
+        "teamMiddleName": "Sunderland",
+        "logo": "https://api.statorium.com/media/bearleague/bl15718396531982.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "47"
+        }
+      ]
+    },
+    {
+      "matchID": 121302,
+      "matchDate": "2025-12-20",
+      "matchTime": "20:00",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 4,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121288,
+      "matchDate": "2025-12-14",
+      "matchTime": "16:30",
+      "minutes_played": 17,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 186,
+        "score": 1,
+        "participantName": "Brentford FC",
+        "teamShortName": "BRE",
+        "teamMiddleName": "Brentford",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151020531622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121282,
+      "matchDate": "2025-12-06",
+      "matchTime": "17:30",
+      "minutes_played": 25,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 3,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "75"
+        }
+      ]
+    },
+    {
+      "matchID": 121252,
+      "matchDate": "2025-11-23",
+      "matchTime": "14:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 112,
+        "score": 2,
+        "participantName": "Aston Villa",
+        "teamShortName": "AVL",
+        "teamMiddleName": "Aston Villa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121243,
+      "matchDate": "2025-11-09",
+      "matchTime": "14:00",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 183,
+        "score": 3,
+        "participantName": "Nottingham Forest FC",
+        "teamShortName": "NTF",
+        "teamMiddleName": "Nottingham Forest",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151025621698.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "13"
+        }
+      ]
+    },
+    {
+      "matchID": 121227,
+      "matchDate": "2025-11-01",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 19,
+        "score": 3,
+        "participantName": "Brighton & Hove Albion",
+        "teamShortName": "BRH",
+        "teamMiddleName": "Brighton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190134962515.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121223,
+      "matchDate": "2025-10-24",
+      "matchTime": "19:00",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1,
+        "score": 1,
+        "participantName": "West Ham United",
+        "teamShortName": "WHU",
+        "teamMiddleName": "West Ham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151028161933.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "3"
+        }
+      ]
+    },
+    {
+      "matchID": 121208,
+      "matchDate": "2025-10-18",
+      "matchTime": "14:00",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 12,
+        "score": 2,
+        "participantName": "Burnley FC",
+        "teamShortName": "BUR",
+        "teamMiddleName": "Burnley",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102124426.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121203,
+      "matchDate": "2025-10-04",
+      "matchTime": "11:30",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 2,
+        "score": 2,
+        "participantName": "Tottenham Hotspur FC",
+        "teamShortName": "TOT",
+        "teamMiddleName": "Tottenham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121192,
+      "matchDate": "2025-09-27",
+      "matchTime": "14:00",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 16,
+        "score": 2,
+        "participantName": "AFC Bournemouth",
+        "teamShortName": "BOU",
+        "teamMiddleName": "Bournemouth",
+        "logo": "https://api.statorium.com/media/bearleague/bl171510179519.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "70"
+        }
+      ]
+    },
+    {
+      "matchID": 121186,
+      "matchDate": "2025-09-20",
+      "matchTime": "14:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 13,
+        "score": 1,
+        "participantName": "Wolverhampton Wanderers",
+        "teamShortName": "WLV",
+        "teamMiddleName": "Wolverhampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190131172980.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121173,
+      "matchDate": "2025-09-13",
+      "matchTime": "14:00",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 5,
+        "score": 1,
+        "participantName": "Fulham FC",
+        "teamShortName": "FUL",
+        "teamMiddleName": "Fulham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023581920.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121160,
+      "matchDate": "2025-08-30",
+      "matchTime": "16:30",
+      "minutes_played": 30,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 10,
+        "score": 0,
+        "participantName": "Newcastle United FC",
+        "teamShortName": "NEW",
+        "teamMiddleName": "Newcastle",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102537848.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121147,
+      "matchDate": "2025-08-23",
+      "matchTime": "16:30",
+      "minutes_played": 24,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 9,
+        "score": 5,
+        "participantName": "Arsenal FC",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715101847747.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121146,
+      "matchDate": "2025-08-18",
+      "matchTime": "19:00",
+      "minutes_played": 23,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 6,
+        "score": 0,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84292,
+      "matchDate": "2025-05-03",
+      "matchTime": "11:30",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 258,
+        "score": 1,
+        "participantName": "Plymouth Argyle FC",
+        "teamShortName": "PLY",
+        "teamMiddleName": "Plymouth Argyle",
+        "logo": "https://api.statorium.com/media/bearleague/bl15718402362822.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84278,
+      "matchDate": "2025-04-28",
+      "matchTime": "19:00",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 4,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 179,
+        "score": 0,
+        "participantName": "Bristol City FC",
+        "teamShortName": "BRC",
+        "teamMiddleName": "Bristol City",
+        "logo": "https://api.statorium.com/media/bearleague/bl156818412035.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84270,
+      "matchDate": "2025-04-21",
+      "matchTime": "14:00",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 6,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 195,
+        "score": 0,
+        "participantName": "Stoke City FC",
+        "teamShortName": "STO",
+        "teamMiddleName": "Stoke City",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719613449676.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84261,
+      "matchDate": "2025-04-18",
+      "matchTime": "19:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 292,
+        "score": 0,
+        "participantName": "Oxford United FC",
+        "teamShortName": "OXF",
+        "teamMiddleName": "Oxford United",
+        "logo": "https://api.statorium.com/media/bearleague/bl15719005261690.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84246,
+      "matchDate": "2025-04-12",
+      "matchTime": "11:30",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 180,
+        "score": 1,
+        "participantName": "Preston North End FC",
+        "teamShortName": "PNE",
+        "teamMiddleName": "Preston North End",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568186462854.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84235,
+      "matchDate": "2025-04-08",
+      "matchTime": "19:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 190,
+        "score": 0,
+        "participantName": "Middlesbrough FC",
+        "teamShortName": "MID",
+        "teamMiddleName": "Middlesbrough",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681871252300.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84222,
+      "matchDate": "2025-04-05",
+      "matchTime": "11:30",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 187,
+        "score": 1,
+        "participantName": "Luton Town FC",
+        "teamShortName": "LUT",
+        "teamMiddleName": "Luton",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102426239.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84211,
+      "matchDate": "2025-03-29",
+      "matchTime": "15:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 174,
+        "score": 2,
+        "participantName": "Swansea City AFC",
+        "teamShortName": "SWA",
+        "teamMiddleName": "Swansea",
+        "logo": "https://api.statorium.com/media/bearleague/bl16879785952787.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "1"
+        }
+      ]
+    },
+    {
+      "matchID": 84203,
+      "matchDate": "2025-03-15",
+      "matchTime": "12:30",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 181,
+        "score": 2,
+        "participantName": "Queens Park Rangers FC",
+        "teamShortName": "QPR",
+        "teamMiddleName": "QPR",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681865391915.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84191,
+      "matchDate": "2025-03-12",
+      "matchTime": "19:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 185,
+        "score": 0,
+        "participantName": "Millwall FC",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Millwall",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568186829939.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84177,
+      "matchDate": "2025-03-09",
+      "matchTime": "12:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 249,
+        "score": 1,
+        "participantName": "Portsmouth FC",
+        "teamShortName": "POR",
+        "teamMiddleName": "Portsmouth",
+        "logo": "https://api.statorium.com/media/bearleague/bl16572342721170.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84162,
+      "matchDate": "2025-03-01",
+      "matchTime": "12:30",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 177,
+        "score": 1,
+        "participantName": "West Bromwich Albion FC",
+        "teamShortName": "WBA",
+        "teamMiddleName": "West Bromwich Albion",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183822340.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84154,
+      "matchDate": "2025-02-24",
+      "matchTime": "20:00",
+      "minutes_played": 58,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 113,
+        "score": 1,
+        "participantName": "Sheffield United",
+        "teamShortName": "SHU",
+        "teamMiddleName": "Sheffield Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151027041768.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84138,
+      "matchDate": "2025-02-17",
+      "matchTime": "20:00",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 253,
+        "score": 1,
+        "participantName": "Sunderland AFC",
+        "teamShortName": "SUN",
+        "teamMiddleName": "Sunderland",
+        "logo": "https://api.statorium.com/media/bearleague/bl15718396531982.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84130,
+      "matchDate": "2025-02-11",
+      "matchTime": "19:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 11,
+        "score": 0,
+        "participantName": "Watford FC",
+        "teamShortName": "WAT",
+        "teamMiddleName": "Watford",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552486729625.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 4,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84114,
+      "matchDate": "2025-02-05",
+      "matchTime": "19:45",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 251,
+        "score": 0,
+        "participantName": "Coventry City FC",
+        "teamShortName": "COV",
+        "teamMiddleName": "Coventry City",
+        "logo": "https://api.statorium.com/media/bearleague/bl15718387092444.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84102,
+      "matchDate": "2025-02-01",
+      "matchTime": "15:00",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 7,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 18,
+        "score": 0,
+        "participantName": "Cardiff City FC",
+        "teamShortName": "CAR",
+        "teamMiddleName": "Cardiff",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248278212.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "6"
+        }
+      ]
+    },
+    {
+      "matchID": 84088,
+      "matchDate": "2025-01-27",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 12,
+        "score": 0,
+        "participantName": "Burnley FC",
+        "teamShortName": "BUR",
+        "teamMiddleName": "Burnley",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102124426.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84083,
+      "matchDate": "2025-01-22",
+      "matchTime": "19:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 111,
+        "score": 0,
+        "participantName": "Norwich City",
+        "teamShortName": "NOR",
+        "teamMiddleName": "Norwich",
+        "logo": "https://api.statorium.com/media/bearleague/bl1655827847717.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84067,
+      "matchDate": "2025-01-19",
+      "matchTime": "12:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 184,
+        "score": 0,
+        "participantName": "Sheffield Wednesday FC",
+        "teamShortName": "WED",
+        "teamMiddleName": "Sheffield Wednesday",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681867142568.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84053,
+      "matchDate": "2025-01-04",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 192,
+        "score": 3,
+        "participantName": "Hull City AFC",
+        "teamShortName": "HUL",
+        "teamMiddleName": "Hull City",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681903641982.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84042,
+      "matchDate": "2025-01-01",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 189,
+        "score": 1,
+        "participantName": "Blackburn Rovers FC",
+        "teamShortName": "BLA",
+        "teamMiddleName": "Blackburn Rovers",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681870751083.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "90+7"
+        }
+      ]
+    },
+    {
+      "matchID": 84030,
+      "matchDate": "2024-12-29",
+      "matchTime": "17:45",
+      "minutes_played": 89,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 191,
+        "score": 0,
+        "participantName": "Derby County FC",
+        "teamShortName": "DER",
+        "teamMiddleName": "Derby",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681871741253.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "79"
+        }
+      ]
+    },
+    {
+      "matchID": 84024,
+      "matchDate": "2024-12-26",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 195,
+        "score": 0,
+        "participantName": "Stoke City FC",
+        "teamShortName": "STO",
+        "teamMiddleName": "Stoke City",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719613449676.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 84006,
+      "matchDate": "2024-12-21",
+      "matchTime": "15:00",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 4,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 292,
+        "score": 0,
+        "participantName": "Oxford United FC",
+        "teamShortName": "OXF",
+        "teamMiddleName": "Oxford United",
+        "logo": "https://api.statorium.com/media/bearleague/bl15719005261690.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "57"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "67"
+        }
+      ]
+    },
+    {
+      "matchID": 83998,
+      "matchDate": "2024-12-14",
+      "matchTime": "12:30",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 180,
+        "score": 1,
+        "participantName": "Preston North End FC",
+        "teamShortName": "PNE",
+        "teamMiddleName": "Preston North End",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568186462854.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83980,
+      "matchDate": "2024-12-10",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 190,
+        "score": 1,
+        "participantName": "Middlesbrough FC",
+        "teamShortName": "MID",
+        "teamMiddleName": "Middlesbrough",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681871252300.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+2"
+        }
+      ]
+    },
+    {
+      "matchID": 83970,
+      "matchDate": "2024-12-07",
+      "matchTime": "12:30",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 191,
+        "score": 0,
+        "participantName": "Derby County FC",
+        "teamShortName": "DER",
+        "teamMiddleName": "Derby",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681871741253.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83955,
+      "matchDate": "2024-11-30",
+      "matchTime": "13:30",
+      "minutes_played": 69,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 189,
+        "score": 1,
+        "participantName": "Blackburn Rovers FC",
+        "teamShortName": "BLA",
+        "teamMiddleName": "Blackburn Rovers",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681870751083.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83945,
+      "matchDate": "2024-11-27",
+      "matchTime": "19:45",
+      "minutes_played": 84,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 187,
+        "score": 0,
+        "participantName": "Luton Town FC",
+        "teamShortName": "LUT",
+        "teamMiddleName": "Luton",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102426239.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83941,
+      "matchDate": "2024-11-24",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 174,
+        "score": 3,
+        "participantName": "Swansea City AFC",
+        "teamShortName": "SWA",
+        "teamMiddleName": "Swansea",
+        "logo": "https://api.statorium.com/media/bearleague/bl16879785952787.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 4,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83923,
+      "matchDate": "2024-11-09",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 181,
+        "score": 0,
+        "participantName": "Queens Park Rangers FC",
+        "teamShortName": "QPR",
+        "teamMiddleName": "QPR",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681865391915.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83908,
+      "matchDate": "2024-11-06",
+      "matchTime": "19:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 185,
+        "score": 1,
+        "participantName": "Millwall FC",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Millwall",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568186829939.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83898,
+      "matchDate": "2024-11-02",
+      "matchTime": "15:00",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 258,
+        "score": 0,
+        "participantName": "Plymouth Argyle FC",
+        "teamShortName": "PLY",
+        "teamMiddleName": "Plymouth Argyle",
+        "logo": "https://api.statorium.com/media/bearleague/bl15718402362822.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "38"
+        }
+      ]
+    },
+    {
+      "matchID": 83883,
+      "matchDate": "2024-10-26",
+      "matchTime": "11:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 179,
+        "score": 0,
+        "participantName": "Bristol City FC",
+        "teamShortName": "BRC",
+        "teamMiddleName": "Bristol City",
+        "logo": "https://api.statorium.com/media/bearleague/bl156818412035.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83873,
+      "matchDate": "2024-10-22",
+      "matchTime": "18:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 11,
+        "score": 1,
+        "participantName": "Watford FC",
+        "teamShortName": "WAT",
+        "teamMiddleName": "Watford",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552486729625.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "7"
+        }
+      ]
+    },
+    {
+      "matchID": 83862,
+      "matchDate": "2024-10-18",
+      "matchTime": "19:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 113,
+        "score": 0,
+        "participantName": "Sheffield United",
+        "teamShortName": "SHU",
+        "teamMiddleName": "Sheffield Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151027041768.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83855,
+      "matchDate": "2024-10-04",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 253,
+        "score": 2,
+        "participantName": "Sunderland AFC",
+        "teamShortName": "SUN",
+        "teamMiddleName": "Sunderland",
+        "logo": "https://api.statorium.com/media/bearleague/bl15718396531982.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83844,
+      "matchDate": "2024-10-01",
+      "matchTime": "18:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 111,
+        "score": 1,
+        "participantName": "Norwich City",
+        "teamShortName": "NOR",
+        "teamMiddleName": "Norwich",
+        "logo": "https://api.statorium.com/media/bearleague/bl1655827847717.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83826,
+      "matchDate": "2024-09-28",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 251,
+        "score": 0,
+        "participantName": "Coventry City FC",
+        "teamShortName": "COV",
+        "teamMiddleName": "Coventry City",
+        "logo": "https://api.statorium.com/media/bearleague/bl15718387092444.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83813,
+      "matchDate": "2024-09-21",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 18,
+        "score": 0,
+        "participantName": "Cardiff City FC",
+        "teamShortName": "CAR",
+        "teamMiddleName": "Cardiff",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248278212.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "87"
+        }
+      ]
+    },
+    {
+      "matchID": 83802,
+      "matchDate": "2024-09-14",
+      "matchTime": "11:30",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 12,
+        "score": 1,
+        "participantName": "Burnley FC",
+        "teamShortName": "BUR",
+        "teamMiddleName": "Burnley",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102124426.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83791,
+      "matchDate": "2024-08-31",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 192,
+        "score": 0,
+        "participantName": "Hull City AFC",
+        "teamShortName": "HUL",
+        "teamMiddleName": "Hull City",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681903641982.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83782,
+      "matchDate": "2024-08-23",
+      "matchTime": "19:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 184,
+        "score": 0,
+        "participantName": "Sheffield Wednesday FC",
+        "teamShortName": "WED",
+        "teamMiddleName": "Sheffield Wednesday",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681867142568.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "24"
+        }
+      ]
+    },
+    {
+      "matchID": 83774,
+      "matchDate": "2024-08-17",
+      "matchTime": "11:30",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 177,
+        "score": 0,
+        "participantName": "West Bromwich Albion FC",
+        "teamShortName": "WBA",
+        "teamMiddleName": "West Bromwich Albion",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183822340.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 83755,
+      "matchDate": "2024-08-10",
+      "matchTime": "11:30",
+      "minutes_played": 18,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 249,
+        "score": 3,
+        "participantName": "Portsmouth FC",
+        "teamShortName": "POR",
+        "teamMiddleName": "Portsmouth",
+        "logo": "https://api.statorium.com/media/bearleague/bl16572342721170.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+5"
+        }
+      ]
+    },
+    {
+      "matchID": 73628,
+      "matchDate": "2024-06-23",
+      "matchTime": "22:00",
+      "minutes_played": 4,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1243,
+        "score": 2,
+        "participantName": "United States of America",
+        "teamShortName": "USA",
+        "teamMiddleName": "USA",
+        "logo": "https://api.statorium.com/media/bearleague/bl1648719010303.webp"
+      },
+      "awayParticipant": {
+        "participantID": 429,
+        "score": 0,
+        "participantName": "Bolivia",
+        "teamShortName": "BOL",
+        "teamMiddleName": "Bolivia",
+        "logo": "https://api.statorium.com/media/bearleague/bl15791625802440.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63225,
+      "matchDate": "2024-05-18",
+      "matchTime": "13:30",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 2,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 58,
+        "score": 1,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "68"
+        }
+      ]
+    },
+    {
+      "matchID": 63215,
+      "matchDate": "2024-05-11",
+      "matchTime": "13:30",
+      "minutes_played": 54,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 117,
+        "score": 3,
+        "participantName": "1. FC Köln",
+        "teamShortName": "KOE",
+        "teamMiddleName": "Köln",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296756304.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 2,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63207,
+      "matchDate": "2024-05-05",
+      "matchTime": "13:30",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 3,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 905,
+        "score": 4,
+        "participantName": "VfL Bochum",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Bochum",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162964901569.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "74"
+        }
+      ]
+    },
+    {
+      "matchID": 63193,
+      "matchDate": "2024-04-28",
+      "matchTime": "13:30",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 49,
+        "score": 0,
+        "participantName": "Borussia Mönchengladbach",
+        "teamShortName": "BMG",
+        "teamMiddleName": "Borussia M'gladbach",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968492930.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63189,
+      "matchDate": "2024-04-20",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 1,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 47,
+        "score": 5,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63174,
+      "matchDate": "2024-04-12",
+      "matchTime": "18:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 44,
+        "score": 2,
+        "participantName": "FC Augsburg",
+        "teamShortName": "AUG",
+        "teamMiddleName": "Augsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296441461.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63172,
+      "matchDate": "2024-04-06",
+      "matchTime": "13:30",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 57,
+        "score": 1,
+        "participantName": "Bayer 04 Leverkusen",
+        "teamShortName": "B04",
+        "teamMiddleName": "Leverkusen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716291195914.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63161,
+      "matchDate": "2024-03-30",
+      "matchTime": "14:30",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 0,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63154,
+      "matchDate": "2024-03-16",
+      "matchTime": "14:30",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 2,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "52"
+        }
+      ]
+    },
+    {
+      "matchID": 63145,
+      "matchDate": "2024-03-08",
+      "matchTime": "19:30",
+      "minutes_played": 18,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 56,
+        "score": 2,
+        "participantName": "VfB Stuttgart",
+        "teamShortName": "STU",
+        "teamMiddleName": "Stuttgart",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716295960587.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63136,
+      "matchDate": "2024-03-02",
+      "matchTime": "14:30",
+      "minutes_played": 21,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 42,
+        "score": 2,
+        "participantName": "Borussia Dortmund",
+        "teamShortName": "BVB",
+        "teamMiddleName": "Dortmund",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567958801272.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63127,
+      "matchDate": "2024-02-24",
+      "matchTime": "14:30",
+      "minutes_played": 81,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 2,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 910,
+        "score": 2,
+        "participantName": "1. FC Heidenheim 1846",
+        "teamShortName": "FCH",
+        "teamMiddleName": "Heidenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl171629679138.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63116,
+      "matchDate": "2024-02-17",
+      "matchTime": "14:30",
+      "minutes_played": 24,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 54,
+        "score": 0,
+        "participantName": "TSG 1899 Hoffenheim",
+        "teamShortName": "TSG",
+        "teamMiddleName": "Hoffenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162961331369.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 1,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "84"
+        }
+      ]
+    },
+    {
+      "matchID": 63109,
+      "matchDate": "2024-02-10",
+      "matchTime": "14:30",
+      "minutes_played": 31,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 1,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 48,
+        "score": 0,
+        "participantName": "VfL Wolfsburg",
+        "teamShortName": "WOB",
+        "teamMiddleName": "Wolfsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296213736.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63082,
+      "matchDate": "2024-02-07",
+      "matchTime": "17:30",
+      "minutes_played": 8,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 50,
+        "score": 1,
+        "participantName": "1. FSV Mainz 05",
+        "teamShortName": "MAI",
+        "teamMiddleName": "Mainz 05",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968832533.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 1,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63100,
+      "matchDate": "2024-02-04",
+      "matchTime": "16:30",
+      "minutes_played": 15,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 45,
+        "score": 2,
+        "participantName": "RB Leipzig",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Leipzig",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960002046.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63090,
+      "matchDate": "2024-01-28",
+      "matchTime": "14:30",
+      "minutes_played": 7,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 1,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 918,
+        "score": 0,
+        "participantName": "SV Darmstadt 98",
+        "teamShortName": "DRM",
+        "teamMiddleName": "Darmstadt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296929206.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63033,
+      "matchDate": "2024-01-24",
+      "matchTime": "19:30",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 47,
+        "score": 1,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63072,
+      "matchDate": "2024-01-13",
+      "matchTime": "14:30",
+      "minutes_played": 69,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 58,
+        "score": 0,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "50"
+        }
+      ]
+    },
+    {
+      "matchID": 63063,
+      "matchDate": "2023-12-20",
+      "matchTime": "17:30",
+      "minutes_played": 5,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 2,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 117,
+        "score": 0,
+        "participantName": "1. FC Köln",
+        "teamShortName": "KOE",
+        "teamMiddleName": "Köln",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296756304.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63052,
+      "matchDate": "2023-12-16",
+      "matchTime": "14:30",
+      "minutes_played": 15,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 905,
+        "score": 3,
+        "participantName": "VfL Bochum",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Bochum",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162964901569.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 70209,
+      "matchDate": "2023-12-12",
+      "matchTime": "20:00",
+      "minutes_played": 8,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 2,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 37,
+        "score": 3,
+        "participantName": "Real Madrid",
+        "teamShortName": "RMA",
+        "teamMiddleName": "Real Madrid",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567955971871.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63045,
+      "matchDate": "2023-12-09",
+      "matchTime": "14:30",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 3,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 49,
+        "score": 1,
+        "participantName": "Borussia Mönchengladbach",
+        "teamShortName": "BMG",
+        "teamMiddleName": "Borussia M'gladbach",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968492930.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 70199,
+      "matchDate": "2023-11-29",
+      "matchTime": "20:00",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 169,
+        "score": 1,
+        "participantName": "SC Braga",
+        "teamShortName": "SCB",
+        "teamMiddleName": "Braga",
+        "logo": "https://api.statorium.com/media/bearleague/bl16572108271819.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 1,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63014,
+      "matchDate": "2023-11-12",
+      "matchTime": "14:30",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 57,
+        "score": 4,
+        "participantName": "Bayer 04 Leverkusen",
+        "teamShortName": "B04",
+        "teamMiddleName": "Leverkusen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716291195914.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 70178,
+      "matchDate": "2023-11-08",
+      "matchTime": "17:45",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 103,
+        "score": 1,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 1,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63010,
+      "matchDate": "2023-11-04",
+      "matchTime": "14:30",
+      "minutes_played": 7,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 3,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63002,
+      "matchDate": "2023-10-28",
+      "matchTime": "13:30",
+      "minutes_played": 60,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 70161,
+      "matchDate": "2023-10-24",
+      "matchTime": "19:00",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 103,
+        "score": 1,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 62980,
+      "matchDate": "2023-10-07",
+      "matchTime": "13:30",
+      "minutes_played": 35,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 42,
+        "score": 4,
+        "participantName": "Borussia Dortmund",
+        "teamShortName": "BVB",
+        "teamMiddleName": "Dortmund",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567958801272.png"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 2,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 70139,
+      "matchDate": "2023-10-03",
+      "matchTime": "16:45",
+      "minutes_played": 9,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 2,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 169,
+        "score": 3,
+        "participantName": "SC Braga",
+        "teamShortName": "SCB",
+        "teamMiddleName": "Braga",
+        "logo": "https://api.statorium.com/media/bearleague/bl16572108271819.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 62965,
+      "matchDate": "2023-09-23",
+      "matchTime": "13:30",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 54,
+        "score": 2,
+        "participantName": "TSG 1899 Hoffenheim",
+        "teamShortName": "TSG",
+        "teamMiddleName": "Hoffenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162961331369.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 70131,
+      "matchDate": "2023-09-20",
+      "matchTime": "16:45",
+      "minutes_played": 24,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 37,
+        "score": 1,
+        "participantName": "Real Madrid",
+        "teamShortName": "RMA",
+        "teamMiddleName": "Real Madrid",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567955971871.png"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 62957,
+      "matchDate": "2023-09-16",
+      "matchTime": "13:30",
+      "minutes_played": 17,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 48,
+        "score": 2,
+        "participantName": "VfL Wolfsburg",
+        "teamShortName": "WOB",
+        "teamMiddleName": "Wolfsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296213736.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 1,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 62934,
+      "matchDate": "2023-08-26",
+      "matchTime": "13:30",
+      "minutes_played": 21,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 918,
+        "score": 1,
+        "participantName": "SV Darmstadt 98",
+        "teamShortName": "DRM",
+        "teamMiddleName": "Darmstadt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296929206.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 4,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "5"
+        },
+        {
+          "eventID": 6,
+          "eventName": "Second yellow",
+          "minutes": "21"
+        }
+      ]
+    },
+    {
+      "matchID": 62929,
+      "matchDate": "2023-08-20",
+      "matchTime": "13:30",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 4,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 50,
+        "score": 1,
+        "participantName": "1. FSV Mainz 05",
+        "teamShortName": "MAI",
+        "teamMiddleName": "Mainz 05",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968832533.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39567,
+      "matchDate": "2023-05-28",
+      "matchTime": "15:30",
+      "minutes_played": 31,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 2,
+        "score": 4,
+        "participantName": "Tottenham Hotspur FC",
+        "teamShortName": "TOT",
+        "teamMiddleName": "Tottenham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39559,
+      "matchDate": "2023-05-21",
+      "matchTime": "12:30",
+      "minutes_played": 28,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1,
+        "score": 3,
+        "participantName": "West Ham United",
+        "teamShortName": "WHU",
+        "teamMiddleName": "West Ham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151028161933.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39547,
+      "matchDate": "2023-05-13",
+      "matchTime": "11:30",
+      "minutes_played": 3,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 10,
+        "score": 2,
+        "participantName": "Newcastle United FC",
+        "teamShortName": "NEW",
+        "teamMiddleName": "Newcastle",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102537848.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39535,
+      "matchDate": "2023-05-06",
+      "matchTime": "14:00",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 4,
+        "score": 2,
+        "participantName": "Manchester City",
+        "teamShortName": "MCI",
+        "teamMiddleName": "Man City",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151024711246.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39512,
+      "matchDate": "2023-04-25",
+      "matchTime": "19:00",
+      "minutes_played": 21,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 14,
+        "score": 1,
+        "participantName": "Leicester City",
+        "teamShortName": "LEI",
+        "teamMiddleName": "Leicester",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248319886.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39506,
+      "matchDate": "2023-04-22",
+      "matchTime": "11:30",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 5,
+        "score": 2,
+        "participantName": "Fulham FC",
+        "teamShortName": "FUL",
+        "teamMiddleName": "Fulham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023581920.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39494,
+      "matchDate": "2023-04-17",
+      "matchTime": "19:00",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 6,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39484,
+      "matchDate": "2023-04-09",
+      "matchTime": "13:00",
+      "minutes_played": 60,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 5,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "21"
+        }
+      ]
+    },
+    {
+      "matchID": 39255,
+      "matchDate": "2023-04-04",
+      "matchTime": "18:45",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 183,
+        "score": 1,
+        "participantName": "Nottingham Forest FC",
+        "teamShortName": "NTF",
+        "teamMiddleName": "Nottingham Forest",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151025621698.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39471,
+      "matchDate": "2023-04-01",
+      "matchTime": "14:00",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 9,
+        "score": 4,
+        "participantName": "Arsenal FC",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715101847747.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39470,
+      "matchDate": "2023-03-18",
+      "matchTime": "15:00",
+      "minutes_played": 81,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 13,
+        "score": 2,
+        "participantName": "Wolverhampton Wanderers",
+        "teamShortName": "WLV",
+        "teamMiddleName": "Wolverhampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190131172980.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 4,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39455,
+      "matchDate": "2023-03-11",
+      "matchTime": "15:00",
+      "minutes_played": 84,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 19,
+        "score": 2,
+        "participantName": "Brighton & Hove Albion",
+        "teamShortName": "BRH",
+        "teamMiddleName": "Brighton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190134962515.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39445,
+      "matchDate": "2023-03-04",
+      "matchTime": "15:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 8,
+        "score": 1,
+        "participantName": "Chelsea FC",
+        "teamShortName": "CHE",
+        "teamMiddleName": "Chelsea",
+        "logo": "https://api.statorium.com/media/bearleague/bl1756795498585.png"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 54394,
+      "matchDate": "2023-02-28",
+      "matchTime": "19:45",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 5,
+        "score": 2,
+        "participantName": "Fulham FC",
+        "teamShortName": "FUL",
+        "teamMiddleName": "Fulham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023581920.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39435,
+      "matchDate": "2023-02-25",
+      "matchTime": "15:00",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 17,
+        "score": 0,
+        "participantName": "Southampton FC",
+        "teamShortName": "SOU",
+        "teamMiddleName": "Southampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552486916606.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39425,
+      "matchDate": "2023-02-18",
+      "matchTime": "15:00",
+      "minutes_played": 29,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 6,
+        "score": 1,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39415,
+      "matchDate": "2023-02-12",
+      "matchTime": "14:00",
+      "minutes_played": 17,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 7,
+        "score": 2,
+        "participantName": "Manchester United",
+        "teamShortName": "MUN",
+        "teamMiddleName": "Man Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39266,
+      "matchDate": "2023-02-08",
+      "matchTime": "20:00",
+      "minutes_played": 27,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 7,
+        "score": 2,
+        "participantName": "Manchester United",
+        "teamShortName": "MUN",
+        "teamMiddleName": "Man Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 53714,
+      "matchDate": "2023-01-28",
+      "matchTime": "12:30",
+      "minutes_played": 13,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 320,
+        "score": 1,
+        "participantName": "Accrington Stanley FC",
+        "teamShortName": "ACC",
+        "teamMiddleName": "Accrington Stanley",
+        "logo": "https://api.statorium.com/media/bearleague/bl16351691782141.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39395,
+      "matchDate": "2023-01-22",
+      "matchTime": "14:00",
+      "minutes_played": 69,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 186,
+        "score": 0,
+        "participantName": "Brentford FC",
+        "teamShortName": "BRE",
+        "teamMiddleName": "Brentford",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151020531622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 53400,
+      "matchDate": "2023-01-18",
+      "matchTime": "19:45",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 5,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 18,
+        "score": 2,
+        "participantName": "Cardiff City FC",
+        "teamShortName": "CAR",
+        "teamMiddleName": "Cardiff",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248278212.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39381,
+      "matchDate": "2023-01-13",
+      "matchTime": "20:00",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 112,
+        "score": 2,
+        "participantName": "Aston Villa",
+        "teamShortName": "AVL",
+        "teamMiddleName": "Aston Villa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 51705,
+      "matchDate": "2023-01-08",
+      "matchTime": "14:00",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 18,
+        "score": 2,
+        "participantName": "Cardiff City FC",
+        "teamShortName": "CAR",
+        "teamMiddleName": "Cardiff",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248278212.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39377,
+      "matchDate": "2023-01-04",
+      "matchTime": "19:45",
+      "minutes_played": 63,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1,
+        "score": 2,
+        "participantName": "West Ham United",
+        "teamShortName": "WHU",
+        "teamMiddleName": "West Ham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151028161933.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39366,
+      "matchDate": "2022-12-31",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 10,
+        "score": 0,
+        "participantName": "Newcastle United FC",
+        "teamShortName": "NEW",
+        "teamMiddleName": "Newcastle",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102537848.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39357,
+      "matchDate": "2022-12-28",
+      "matchTime": "20:00",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 4,
+        "score": 3,
+        "participantName": "Manchester City",
+        "teamShortName": "MCI",
+        "teamMiddleName": "Man City",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151024711246.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 50973,
+      "matchDate": "2022-12-03",
+      "matchTime": "15:00",
+      "minutes_played": 23,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 385,
+        "score": 3,
+        "participantName": "Netherlands",
+        "teamShortName": "NED",
+        "teamMiddleName": "Netherlands",
+        "logo": "https://api.statorium.com/media/bearleague/bl17153630382842.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1243,
+        "score": 1,
+        "participantName": "United States of America",
+        "teamShortName": "USA",
+        "teamMiddleName": "USA",
+        "logo": "https://api.statorium.com/media/bearleague/bl1648719010303.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 37688,
+      "matchDate": "2022-11-29",
+      "matchTime": "19:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1227,
+        "score": 0,
+        "participantName": "Iran",
+        "teamShortName": "IRN",
+        "teamMiddleName": "Iran",
+        "logo": "https://api.statorium.com/media/bearleague/bl1643370435894.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1243,
+        "score": 1,
+        "participantName": "United States of America",
+        "teamShortName": "USA",
+        "teamMiddleName": "USA",
+        "logo": "https://api.statorium.com/media/bearleague/bl1648719010303.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 37662,
+      "matchDate": "2022-11-25",
+      "matchTime": "19:00",
+      "minutes_played": 13,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 381,
+        "score": 0,
+        "participantName": "England",
+        "teamShortName": "ENG",
+        "teamMiddleName": "England",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715362059746.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1243,
+        "score": 0,
+        "participantName": "United States of America",
+        "teamShortName": "USA",
+        "teamMiddleName": "USA",
+        "logo": "https://api.statorium.com/media/bearleague/bl1648719010303.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 38567,
+      "matchDate": "2022-11-21",
+      "matchTime": "19:00",
+      "minutes_played": 24,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1243,
+        "score": 1,
+        "participantName": "United States of America",
+        "teamShortName": "USA",
+        "teamMiddleName": "USA",
+        "logo": "https://api.statorium.com/media/bearleague/bl1648719010303.webp"
+      },
+      "awayParticipant": {
+        "participantID": 394,
+        "score": 1,
+        "participantName": "Wales",
+        "teamShortName": "WAL",
+        "teamMiddleName": "Wales",
+        "logo": "https://api.statorium.com/media/bearleague/bl15773726101395.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39348,
+      "matchDate": "2022-11-12",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 2,
+        "score": 4,
+        "participantName": "Tottenham Hotspur FC",
+        "teamShortName": "TOT",
+        "teamMiddleName": "Tottenham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "10"
+        }
+      ]
+    },
+    {
+      "matchID": 39334,
+      "matchDate": "2022-11-05",
+      "matchTime": "15:00",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 4,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 16,
+        "score": 3,
+        "participantName": "AFC Bournemouth",
+        "teamShortName": "BOU",
+        "teamMiddleName": "Bournemouth",
+        "logo": "https://api.statorium.com/media/bearleague/bl171510179519.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39328,
+      "matchDate": "2022-10-29",
+      "matchTime": "18:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39314,
+      "matchDate": "2022-10-23",
+      "matchTime": "13:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 5,
+        "score": 3,
+        "participantName": "Fulham FC",
+        "teamShortName": "FUL",
+        "teamMiddleName": "Fulham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023581920.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39306,
+      "matchDate": "2022-10-20",
+      "matchTime": "19:15",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 14,
+        "score": 2,
+        "participantName": "Leicester City",
+        "teamShortName": "LEI",
+        "teamMiddleName": "Leicester",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248319886.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39294,
+      "matchDate": "2022-10-16",
+      "matchTime": "13:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 9,
+        "score": 1,
+        "participantName": "Arsenal FC",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715101847747.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39285,
+      "matchDate": "2022-10-09",
+      "matchTime": "13:00",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39275,
+      "matchDate": "2022-10-02",
+      "matchTime": "15:30",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 112,
+        "score": 0,
+        "participantName": "Aston Villa",
+        "teamShortName": "AVL",
+        "teamMiddleName": "Aston Villa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39242,
+      "matchDate": "2022-09-03",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 186,
+        "score": 5,
+        "participantName": "Brentford FC",
+        "teamShortName": "BRE",
+        "teamMiddleName": "Brentford",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151020531622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39234,
+      "matchDate": "2022-08-30",
+      "matchTime": "19:00",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 6,
+        "score": 1,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "56"
+        }
+      ]
+    },
+    {
+      "matchID": 39224,
+      "matchDate": "2022-08-27",
+      "matchTime": "14:00",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 19,
+        "score": 1,
+        "participantName": "Brighton & Hove Albion",
+        "teamShortName": "BRH",
+        "teamMiddleName": "Brighton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190134962515.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "37"
+        }
+      ]
+    },
+    {
+      "matchID": 39215,
+      "matchDate": "2022-08-21",
+      "matchTime": "13:00",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 8,
+        "score": 0,
+        "participantName": "Chelsea FC",
+        "teamShortName": "CHE",
+        "teamMiddleName": "Chelsea",
+        "logo": "https://api.statorium.com/media/bearleague/bl1756795498585.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "33"
+        }
+      ]
+    },
+    {
+      "matchID": 39209,
+      "matchDate": "2022-08-13",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 17,
+        "score": 2,
+        "participantName": "Southampton FC",
+        "teamShortName": "SOU",
+        "teamMiddleName": "Southampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552486916606.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "90+3"
+        }
+      ]
+    },
+    {
+      "matchID": 39194,
+      "matchDate": "2022-08-06",
+      "matchTime": "14:00",
+      "minutes_played": 84,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 2,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 13,
+        "score": 1,
+        "participantName": "Wolverhampton Wanderers",
+        "teamShortName": "WLV",
+        "teamMiddleName": "Wolverhampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190131172980.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 37058,
+      "matchDate": "2022-05-21",
+      "matchTime": "15:00",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 951,
+        "score": 1,
+        "participantName": "SK Austria Klagenfurt",
+        "teamShortName": "SKA",
+        "teamMiddleName": "Austria Klagenfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1622963001678.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 37052,
+      "matchDate": "2022-05-15",
+      "matchTime": "15:00",
+      "minutes_played": 21,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 716,
+        "score": 0,
+        "participantName": "SK Rapid Wien",
+        "teamShortName": "SCR",
+        "teamMiddleName": "Rapid Wien",
+        "logo": "https://api.statorium.com/media/bearleague/bl16021405441433.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "89"
+        }
+      ]
+    },
+    {
+      "matchID": 37046,
+      "matchDate": "2022-05-08",
+      "matchTime": "12:30",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 4,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 167,
+        "score": 0,
+        "participantName": "Wolfsberger AC",
+        "teamShortName": "WAC",
+        "teamMiddleName": "Wolfsberger",
+        "logo": "https://api.statorium.com/media/bearleague/bl16027723411658.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 37040,
+      "matchDate": "2022-04-27",
+      "matchTime": "16:30",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 952,
+        "score": 2,
+        "participantName": "SK Sturm Graz",
+        "teamShortName": "STU",
+        "teamMiddleName": "Sturm Graz",
+        "logo": "https://api.statorium.com/media/bearleague/bl16229635122663.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 37034,
+      "matchDate": "2022-04-24",
+      "matchTime": "12:30",
+      "minutes_played": 64,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 5,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 956,
+        "score": 0,
+        "participantName": "FK Austria Wien",
+        "teamShortName": "FAK",
+        "teamMiddleName": "Austria Wien",
+        "logo": "https://api.statorium.com/media/bearleague/bl16229643522636.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "54"
+        }
+      ]
+    },
+    {
+      "matchID": 37005,
+      "matchDate": "2022-03-13",
+      "matchTime": "16:00",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 952,
+        "score": 0,
+        "participantName": "SK Sturm Graz",
+        "teamShortName": "STU",
+        "teamMiddleName": "Sturm Graz",
+        "logo": "https://api.statorium.com/media/bearleague/bl16229635122663.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 34568,
+      "matchDate": "2022-03-08",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 47,
+        "score": 7,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "71"
+        }
+      ]
+    },
+    {
+      "matchID": 31072,
+      "matchDate": "2022-03-05",
+      "matchTime": "16:00",
+      "minutes_played": 29,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 4,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 953,
+        "score": 0,
+        "participantName": "SC Rheindorf Altach",
+        "teamShortName": "ALT",
+        "teamMiddleName": "SCR Altach",
+        "logo": "https://api.statorium.com/media/bearleague/bl17513635591997.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 31065,
+      "matchDate": "2022-03-02",
+      "matchTime": "19:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 152,
+        "score": 0,
+        "participantName": "LASK Linz",
+        "teamShortName": "ASK",
+        "teamMiddleName": "LASK",
+        "logo": "https://api.statorium.com/media/bearleague/bl16886902372576.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 0,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 31060,
+      "matchDate": "2022-02-20",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 2,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 167,
+        "score": 0,
+        "participantName": "Wolfsberger AC",
+        "teamShortName": "WAC",
+        "teamMiddleName": "Wolfsberger",
+        "logo": "https://api.statorium.com/media/bearleague/bl16027723411658.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+5"
+        }
+      ]
+    },
+    {
+      "matchID": 34564,
+      "matchDate": "2022-02-16",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 47,
+        "score": 1,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "21"
+        }
+      ]
+    },
+    {
+      "matchID": 31053,
+      "matchDate": "2022-02-11",
+      "matchTime": "18:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 716,
+        "score": 1,
+        "participantName": "SK Rapid Wien",
+        "teamShortName": "SCR",
+        "teamMiddleName": "Rapid Wien",
+        "logo": "https://api.statorium.com/media/bearleague/bl16021405441433.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 2,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "64"
+        }
+      ]
+    },
+    {
+      "matchID": 31049,
+      "matchDate": "2021-12-11",
+      "matchTime": "16:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 5,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 958,
+        "score": 0,
+        "participantName": "WSG Tirol",
+        "teamShortName": "WSG",
+        "teamMiddleName": "Tirol",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566243271317.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "83"
+        }
+      ]
+    },
+    {
+      "matchID": 33040,
+      "matchDate": "2021-12-08",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 33,
+        "score": 0,
+        "participantName": "Sevilla FC",
+        "teamShortName": "SEV",
+        "teamMiddleName": "Sevilla",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162991262386.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 31040,
+      "matchDate": "2021-12-04",
+      "matchTime": "16:00",
+      "minutes_played": 27,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 2,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 957,
+        "score": 1,
+        "participantName": "TSV Hartberg",
+        "teamShortName": "HTB",
+        "teamMiddleName": "Hartberg",
+        "logo": "https://api.statorium.com/media/bearleague/bl16229643932728.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 31032,
+      "matchDate": "2021-11-27",
+      "matchTime": "16:00",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 951,
+        "score": 2,
+        "participantName": "SK Austria Klagenfurt",
+        "teamShortName": "SKA",
+        "teamMiddleName": "Austria Klagenfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1622963001678.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 33016,
+      "matchDate": "2021-11-23",
+      "matchTime": "20:00",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 69,
+        "score": 1,
+        "participantName": "LOSC Lille",
+        "teamShortName": "LIL",
+        "teamMiddleName": "Lille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766862077.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 0,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 31029,
+      "matchDate": "2021-11-20",
+      "matchTime": "16:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 0,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 955,
+        "score": 0,
+        "participantName": "FC Admira Wacker Mödling",
+        "teamShortName": "ADM",
+        "teamMiddleName": "Admira Wacker",
+        "logo": "https://api.statorium.com/media/bearleague/bl16229642782107.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 31022,
+      "matchDate": "2021-11-06",
+      "matchTime": "16:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 956,
+        "score": 0,
+        "participantName": "FK Austria Wien",
+        "teamShortName": "FAK",
+        "teamMiddleName": "Austria Wien",
+        "logo": "https://api.statorium.com/media/bearleague/bl16229643522636.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32997,
+      "matchDate": "2021-11-02",
+      "matchTime": "17:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 48,
+        "score": 2,
+        "participantName": "VfL Wolfsburg",
+        "teamShortName": "WOB",
+        "teamMiddleName": "Wolfsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296213736.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 31017,
+      "matchDate": "2021-10-30",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 954,
+        "score": 2,
+        "participantName": "SV Ried",
+        "teamShortName": "SVR",
+        "teamMiddleName": "Ried",
+        "logo": "https://api.statorium.com/media/bearleague/bl1622964101960.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 2,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 31012,
+      "matchDate": "2021-10-24",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 4,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 952,
+        "score": 1,
+        "participantName": "SK Sturm Graz",
+        "teamShortName": "STU",
+        "teamMiddleName": "Sturm Graz",
+        "logo": "https://api.statorium.com/media/bearleague/bl16229635122663.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32991,
+      "matchDate": "2021-10-20",
+      "matchTime": "16:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 3,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 48,
+        "score": 1,
+        "participantName": "VfL Wolfsburg",
+        "teamShortName": "WOB",
+        "teamMiddleName": "Wolfsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296213736.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 31000,
+      "matchDate": "2021-10-03",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 3,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 152,
+        "score": 1,
+        "participantName": "LASK Linz",
+        "teamShortName": "ASK",
+        "teamMiddleName": "LASK",
+        "logo": "https://api.statorium.com/media/bearleague/bl16886902372576.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 33054,
+      "matchDate": "2021-09-29",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 2,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 69,
+        "score": 1,
+        "participantName": "LOSC Lille",
+        "teamShortName": "LIL",
+        "teamMiddleName": "Lille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766862077.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 30995,
+      "matchDate": "2021-09-25",
+      "matchTime": "15:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 167,
+        "score": 0,
+        "participantName": "Wolfsberger AC",
+        "teamShortName": "WAC",
+        "teamMiddleName": "Wolfsberger",
+        "logo": "https://api.statorium.com/media/bearleague/bl16027723411658.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 2,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 30988,
+      "matchDate": "2021-09-19",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 2,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 716,
+        "score": 0,
+        "participantName": "SK Rapid Wien",
+        "teamShortName": "SCR",
+        "teamMiddleName": "Rapid Wien",
+        "logo": "https://api.statorium.com/media/bearleague/bl16021405441433.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+4"
+        }
+      ]
+    },
+    {
+      "matchID": 32966,
+      "matchDate": "2021-09-14",
+      "matchTime": "16:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 33,
+        "score": 1,
+        "participantName": "Sevilla FC",
+        "teamShortName": "SEV",
+        "teamMiddleName": "Sevilla",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162991262386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 30974,
+      "matchDate": "2021-08-28",
+      "matchTime": "15:00",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 957,
+        "score": 0,
+        "participantName": "TSV Hartberg",
+        "teamShortName": "HTB",
+        "teamMiddleName": "Hartberg",
+        "logo": "https://api.statorium.com/media/bearleague/bl16229643932728.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 30967,
+      "matchDate": "2021-08-21",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 3,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 951,
+        "score": 1,
+        "participantName": "SK Austria Klagenfurt",
+        "teamShortName": "SKA",
+        "teamMiddleName": "Austria Klagenfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1622963001678.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 30960,
+      "matchDate": "2021-08-14",
+      "matchTime": "15:00",
+      "minutes_played": 62,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 955,
+        "score": 0,
+        "participantName": "FC Admira Wacker Mödling",
+        "teamShortName": "ADM",
+        "teamMiddleName": "Admira Wacker",
+        "logo": "https://api.statorium.com/media/bearleague/bl16229642782107.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 30958,
+      "matchDate": "2021-08-08",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 956,
+        "score": 0,
+        "participantName": "FK Austria Wien",
+        "teamShortName": "FAK",
+        "teamMiddleName": "Austria Wien",
+        "logo": "https://api.statorium.com/media/bearleague/bl16229643522636.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 30952,
+      "matchDate": "2021-08-01",
+      "matchTime": "15:00",
+      "minutes_played": 64,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 7,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 954,
+        "score": 1,
+        "participantName": "SV Ried",
+        "teamShortName": "SVR",
+        "teamMiddleName": "Ried",
+        "logo": "https://api.statorium.com/media/bearleague/bl1622964101960.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "41"
+        },
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "52"
+        }
+      ]
+    },
+    {
+      "matchID": 30942,
+      "matchDate": "2021-07-23",
+      "matchTime": "18:30",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 952,
+        "score": 1,
+        "participantName": "SK Sturm Graz",
+        "teamShortName": "STU",
+        "teamMiddleName": "Sturm Graz",
+        "logo": "https://api.statorium.com/media/bearleague/bl16229635122663.webp"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 3,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 20273,
+      "matchDate": "2021-02-25",
+      "matchTime": "17:55",
+      "minutes_played": 60,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 38,
+        "score": 2,
+        "participantName": "Villarreal CF",
+        "teamShortName": "VIL",
+        "teamMiddleName": "Villarreal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1756795682865.png"
+      },
+      "awayParticipant": {
+        "participantID": 133,
+        "score": 1,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 20272,
+      "matchDate": "2021-02-18",
+      "matchTime": "20:00",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 133,
+        "score": 0,
+        "participantName": "FC Red Bull Salzburg",
+        "teamShortName": "RBS",
+        "teamMiddleName": "RB Salzburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1656624361923.webp"
+      },
+      "awayParticipant": {
+        "participantID": 38,
+        "score": 2,
+        "participantName": "Villarreal CF",
+        "teamShortName": "VIL",
+        "teamMiddleName": "Villarreal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1756795682865.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 19989,
+      "matchDate": "2020-11-25",
+      "matchTime": "01:00",
+      "minutes_played": 62,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 0,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 463,
+        "score": 2,
+        "participantName": "New England Revolution",
+        "teamShortName": "NER",
+        "teamMiddleName": "New England Revolution",
+        "logo": "https://api.statorium.com/media/bearleague/bl16400187892648.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 19166,
+      "matchDate": "2020-11-08",
+      "matchTime": "20:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 2,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 463,
+        "score": 0,
+        "participantName": "New England Revolution",
+        "teamShortName": "NER",
+        "teamMiddleName": "New England Revolution",
+        "logo": "https://api.statorium.com/media/bearleague/bl16400187892648.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 19149,
+      "matchDate": "2020-11-01",
+      "matchTime": "20:30",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 472,
+        "score": 2,
+        "participantName": "Columbus Crew SC",
+        "teamShortName": "CLB",
+        "teamMiddleName": "Columbus Crew",
+        "logo": "https://api.statorium.com/media/bearleague/bl16400188522685.webp"
+      },
+      "awayParticipant": {
+        "participantID": 467,
+        "score": 1,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 19139,
+      "matchDate": "2020-10-28",
+      "matchTime": "23:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 2,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 470,
+        "score": 1,
+        "participantName": "Chicago Fire FC",
+        "teamShortName": "CHI",
+        "teamMiddleName": "Chicago Fire",
+        "logo": "https://api.statorium.com/media/bearleague/bl16400191401550.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 19126,
+      "matchDate": "2020-10-24",
+      "matchTime": "23:30",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 5,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 468,
+        "score": 0,
+        "participantName": "Toronto FC",
+        "teamShortName": "TOR",
+        "teamMiddleName": "Toronto",
+        "logo": "https://api.statorium.com/media/bearleague/bl1580722007750.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "68"
+        }
+      ]
+    },
+    {
+      "matchID": 19113,
+      "matchDate": "2020-10-19",
+      "matchTime": "23:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 463,
+        "score": 1,
+        "participantName": "New England Revolution",
+        "teamShortName": "NER",
+        "teamMiddleName": "New England Revolution",
+        "logo": "https://api.statorium.com/media/bearleague/bl16400187892648.webp"
+      },
+      "awayParticipant": {
+        "participantID": 467,
+        "score": 2,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 19099,
+      "matchDate": "2020-10-15",
+      "matchTime": "00:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 473,
+        "score": 2,
+        "participantName": "D.C. United",
+        "teamShortName": "DCU",
+        "teamMiddleName": "DC United",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807222062094.webp"
+      },
+      "awayParticipant": {
+        "participantID": 467,
+        "score": 2,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 19091,
+      "matchDate": "2020-10-11",
+      "matchTime": "23:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 2,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 462,
+        "score": 1,
+        "participantName": "CF Montréal",
+        "teamShortName": "MTL",
+        "teamMiddleName": "Montréal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1672147792482.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 19075,
+      "matchDate": "2020-10-07",
+      "matchTime": "23:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 3,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 471,
+        "score": 0,
+        "participantName": "FC Cincinnati",
+        "teamShortName": "FCC",
+        "teamMiddleName": "Cincinnati",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807221122023.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "73"
+        }
+      ]
+    },
+    {
+      "matchID": 19060,
+      "matchDate": "2020-10-03",
+      "matchTime": "23:30",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 468,
+        "score": 2,
+        "participantName": "Toronto FC",
+        "teamShortName": "TOR",
+        "teamMiddleName": "Toronto",
+        "logo": "https://api.statorium.com/media/bearleague/bl1580722007750.webp"
+      },
+      "awayParticipant": {
+        "participantID": 467,
+        "score": 1,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 18455,
+      "matchDate": "2020-09-27",
+      "matchTime": "23:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 3,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 474,
+        "score": 0,
+        "participantName": "Inter Miami CF",
+        "teamShortName": "MIA",
+        "teamMiddleName": "Inter Miami",
+        "logo": "https://api.statorium.com/media/bearleague/bl1580722234178.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+6"
+        }
+      ]
+    },
+    {
+      "matchID": 18441,
+      "matchDate": "2020-09-23",
+      "matchTime": "23:30",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 471,
+        "score": 0,
+        "participantName": "FC Cincinnati",
+        "teamShortName": "FCC",
+        "teamMiddleName": "Cincinnati",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807221122023.webp"
+      },
+      "awayParticipant": {
+        "participantID": 467,
+        "score": 0,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 18435,
+      "matchDate": "2020-09-20",
+      "matchTime": "23:00",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 462,
+        "score": 1,
+        "participantName": "CF Montréal",
+        "teamShortName": "MTL",
+        "teamMiddleName": "Montréal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1672147792482.webp"
+      },
+      "awayParticipant": {
+        "participantID": 467,
+        "score": 4,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "47"
+        }
+      ]
+    },
+    {
+      "matchID": 14575,
+      "matchDate": "2020-09-12",
+      "matchTime": "23:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 2,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 463,
+        "score": 1,
+        "participantName": "New England Revolution",
+        "teamShortName": "NER",
+        "teamMiddleName": "New England Revolution",
+        "logo": "https://api.statorium.com/media/bearleague/bl16400187892648.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 14561,
+      "matchDate": "2020-09-06",
+      "matchTime": "23:00",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 465,
+        "score": 0,
+        "participantName": "New York Red Bulls",
+        "teamShortName": "NYR",
+        "teamMiddleName": "New York RB",
+        "logo": "https://api.statorium.com/media/bearleague/bl1580721909717.webp"
+      },
+      "awayParticipant": {
+        "participantID": 467,
+        "score": 3,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "36"
+        }
+      ]
+    },
+    {
+      "matchID": 14548,
+      "matchDate": "2020-09-02",
+      "matchTime": "23:30",
+      "minutes_played": 62,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 472,
+        "score": 1,
+        "participantName": "Columbus Crew SC",
+        "teamShortName": "CLB",
+        "teamMiddleName": "Columbus Crew",
+        "logo": "https://api.statorium.com/media/bearleague/bl16400188522685.webp"
+      },
+      "awayParticipant": {
+        "participantID": 467,
+        "score": 0,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 14539,
+      "matchDate": "2020-08-29",
+      "matchTime": "23:30",
+      "minutes_played": 88,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 4,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 473,
+        "score": 1,
+        "participantName": "D.C. United",
+        "teamShortName": "DCU",
+        "teamMiddleName": "DC United",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807222062094.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "61"
+        }
+      ]
+    },
+    {
+      "matchID": 14528,
+      "matchDate": "2020-08-25",
+      "matchTime": "23:30",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 1,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 465,
+        "score": 0,
+        "participantName": "New York Red Bulls",
+        "teamShortName": "NYR",
+        "teamMiddleName": "New York RB",
+        "logo": "https://api.statorium.com/media/bearleague/bl1580721909717.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 14518,
+      "matchDate": "2020-08-20",
+      "matchTime": "23:30",
+      "minutes_played": 89,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 463,
+        "score": 0,
+        "participantName": "New England Revolution",
+        "teamShortName": "NER",
+        "teamMiddleName": "New England Revolution",
+        "logo": "https://api.statorium.com/media/bearleague/bl16400187892648.webp"
+      },
+      "awayParticipant": {
+        "participantID": 467,
+        "score": 0,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 13020,
+      "matchDate": "2020-08-06",
+      "matchTime": "00:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 1,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 455,
+        "score": 2,
+        "participantName": "Portland Timbers",
+        "teamShortName": "POR",
+        "teamMiddleName": "Portland Timbers",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807214771632.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 12621,
+      "matchDate": "2020-07-31",
+      "matchTime": "00:00",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 3,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 460,
+        "score": 1,
+        "participantName": "Sporting Kansas City",
+        "teamShortName": "SKC",
+        "teamMiddleName": "Sporting Kansas City",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807217212017.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "39"
+        }
+      ]
+    },
+    {
+      "matchID": 11952,
+      "matchDate": "2020-07-26",
+      "matchTime": "02:30",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 1,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 463,
+        "score": 0,
+        "participantName": "New England Revolution",
+        "teamShortName": "NER",
+        "teamMiddleName": "New England Revolution",
+        "logo": "https://api.statorium.com/media/bearleague/bl16400187892648.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 11258,
+      "matchDate": "2020-07-21",
+      "matchTime": "00:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 1,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 466,
+        "score": 1,
+        "participantName": "Orlando City SC",
+        "teamShortName": "ORL",
+        "teamMiddleName": "Orlando City",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219372899.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 11251,
+      "matchDate": "2020-07-15",
+      "matchTime": "02:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 467,
+        "score": 2,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 474,
+        "score": 1,
+        "participantName": "Inter Miami CF",
+        "teamShortName": "MIA",
+        "teamMiddleName": "Inter Miami",
+        "logo": "https://api.statorium.com/media/bearleague/bl1580722234178.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "63"
+        }
+      ]
+    },
+    {
+      "matchID": 11189,
+      "matchDate": "2020-07-09",
+      "matchTime": "13:00",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 464,
+        "score": 0,
+        "participantName": "New York City FC",
+        "teamShortName": "NYC",
+        "teamMiddleName": "New York City",
+        "logo": "https://api.statorium.com/media/bearleague/bl16721495911715.webp"
+      },
+      "awayParticipant": {
+        "participantID": 467,
+        "score": 1,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 9022,
+      "matchDate": "2020-03-09",
+      "matchTime": "02:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 452,
+        "score": 3,
+        "participantName": "Los Angeles FC",
+        "teamShortName": "LAFC",
+        "teamMiddleName": "Los Angeles",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807212872696.webp"
+      },
+      "awayParticipant": {
+        "participantID": 467,
+        "score": 3,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "69"
+        }
+      ]
+    },
+    {
+      "matchID": 9001,
+      "matchDate": "2020-02-29",
+      "matchTime": "23:00",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 449,
+        "score": 2,
+        "participantName": "FC Dallas",
+        "teamShortName": "DAL",
+        "teamMiddleName": "Dallas",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807210951479.webp"
+      },
+      "awayParticipant": {
+        "participantID": 467,
+        "score": 0,
+        "participantName": "Philadelphia Union",
+        "teamShortName": "PHI",
+        "teamMiddleName": "Philadelphia Union",
+        "logo": "https://api.statorium.com/media/bearleague/bl15807219791504.webp"
+      },
+      "playerEvents": []
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "gmtUpdated": 1777392962,
+  "team": {
+    "teamID": 1,
+    "seasonID": 0,
+    "teamName": "West Ham United",
+    "shortName": "WHU",
+    "middleName": "West Ham",
+    "city": "London",
+    "logo": "https://api.statorium.com/media/bearleague/bl17151028161933.webp",
+    "homeVenue": {
+      "name": "London Stadium",
+      "id": 13
+    },
+    "bonusPoint": null,
+    "additionalInfo": {
+      "coach": "",
+      "founded": "29-06-1895  (130)"
+    },
+    "players": [],
+    "translations": {
+      "ar": {
+        "name": "وست هام يونايتد"
+      },
+      "zh": {
+        "name": "韋斯咸",
+        "middle_name": "韋斯咸"
+      },
+      "gr": {
+        "name": "Γουέστ Χαμ",
+        "middle_name": "Γουέστ Χαμ"
+      },
+      "th": {
+        "name": "เวสต์แฮมยูไนเต็ด"
+      }
+    }
+  }
+}

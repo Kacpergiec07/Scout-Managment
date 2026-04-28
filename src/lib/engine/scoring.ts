@@ -3,6 +3,7 @@ import { ScoutProPlayer } from '../types/player';
 export interface ClubContext {
   id: string;
   name: string;
+  league?: string;
   dna: {
     possession: number; // 0-100
     pressing: number;   // 0-100
@@ -13,6 +14,7 @@ export interface ClubContext {
   };
   form: number; // 0-100 (points percentage last 5)
   historyMatch: number; // 0-100 (past pattern similarity)
+  rank?: number; // League rank
 }
 
 export interface CompatibilityResult {

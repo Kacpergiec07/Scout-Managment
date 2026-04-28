@@ -1,0 +1,4592 @@
+{
+  "playerID": 5116,
+  "firstName": "Jens Dalsgaard",
+  "lastName": "Stage",
+  "shortName": "J. Stage",
+  "fullName": "Jens Stage",
+  "homeName": "Jens Dalsgaard Stage",
+  "country": {
+    "name": "Denmark",
+    "id": 59
+  },
+  "currentTeam": {
+    "name": null,
+    "id": 0
+  },
+  "photo": "https://api.statorium.com/media/bearleague/bl1568033808754.webp",
+  "additionalInfo": {
+    "height": "187 cm",
+    "weight": "81 kg",
+    "position": 3,
+    "Fantasy Value": null,
+    "birthdate": "08-11-1996  (29)"
+  },
+  "teams": [],
+  "stat": [
+    {
+      "season_name": "GERMANY: Bundesliga 2025-26",
+      "season_id": 521,
+      "team_name": "SV Werder Bremen",
+      "played": 26,
+      "career_lineup": 26,
+      "career_minutes": 2217,
+      "career_subsin": 0,
+      "career_subsout": 7,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 10,
+      "Assist": 2,
+      "Yellow card": 5,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 10,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "GERMANY: DFB-Pokal 2024-25",
+      "season_id": 349,
+      "team_name": "SV Werder Bremen",
+      "played": 2,
+      "career_lineup": 2,
+      "career_minutes": 160,
+      "career_subsin": 0,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Nations League 2024-25",
+      "season_id": 338,
+      "team_name": "Denmark",
+      "played": 1,
+      "career_lineup": 0,
+      "career_minutes": 33,
+      "career_subsin": 1,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "GERMANY: Bundesliga 2024-25",
+      "season_id": 385,
+      "team_name": "SV Werder Bremen",
+      "played": 28,
+      "career_lineup": 26,
+      "career_minutes": 2211,
+      "career_subsin": 2,
+      "career_subsout": 9,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 10,
+      "Assist": 6,
+      "Yellow card": 10,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 10,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "GERMANY: Bundesliga 2023-24",
+      "season_id": 274,
+      "team_name": "SV Werder Bremen",
+      "played": 30,
+      "career_lineup": 26,
+      "career_minutes": 2332,
+      "career_subsin": 4,
+      "career_subsout": 10,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 3,
+      "Assist": 1,
+      "Yellow card": 5,
+      "Second yellow": 0,
+      "Red card": 1,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 3,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Champions League 2022-23",
+      "season_id": 203,
+      "team_name": "FC Copenhagen",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "GERMANY: Bundesliga 2022-23",
+      "season_id": 166,
+      "team_name": "SV Werder Bremen",
+      "played": 32,
+      "career_lineup": 21,
+      "career_minutes": 1855,
+      "career_subsin": 11,
+      "career_subsout": 14,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 3,
+      "Assist": 3,
+      "Yellow card": 5,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 3,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "DENMARK: Danish Superliga 2022-23",
+      "season_id": 180,
+      "team_name": "FC Copenhagen",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Nations League 2022-23",
+      "season_id": 142,
+      "team_name": "Denmark",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "DENMARK: Danish Superliga 2021-22",
+      "season_id": 149,
+      "team_name": "FC Copenhagen",
+      "played": 22,
+      "career_lineup": 19,
+      "career_minutes": 1717,
+      "career_subsin": 3,
+      "career_subsout": 6,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 5,
+      "Assist": 1,
+      "Yellow card": 4,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 1,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 5,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FIFA World Cup Qualification 2022 UEFA",
+      "season_id": 95,
+      "team_name": "Denmark",
+      "played": 1,
+      "career_lineup": 0,
+      "career_minutes": 34,
+      "career_subsin": 1,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Europa Conference League 2021-22",
+      "season_id": 133,
+      "team_name": "FC Copenhagen",
+      "played": 6,
+      "career_lineup": 6,
+      "career_minutes": 529,
+      "career_subsin": 0,
+      "career_subsout": 2,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 2,
+      "Assist": 1,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 2,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Europa League 2019-20",
+      "season_id": 28,
+      "team_name": "FC Copenhagen",
+      "played": 9,
+      "career_lineup": 8,
+      "career_minutes": 771,
+      "career_subsin": 1,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 1,
+      "Yellow card": 3,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 1,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    }
+  ],
+  "matches": [
+    {
+      "matchID": 123689,
+      "matchDate": "2026-04-26",
+      "matchTime": "13:30",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 56,
+        "score": 1,
+        "participantName": "VfB Stuttgart",
+        "teamShortName": "STU",
+        "teamMiddleName": "Stuttgart",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716295960587.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "18"
+        }
+      ]
+    },
+    {
+      "matchID": 123681,
+      "matchDate": "2026-04-18",
+      "matchTime": "13:30",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 3,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 907,
+        "score": 1,
+        "participantName": "Hamburger SV",
+        "teamShortName": "HSV",
+        "teamMiddleName": "Hamburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154604221295.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "37"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "57"
+        }
+      ]
+    },
+    {
+      "matchID": 123645,
+      "matchDate": "2026-03-15",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 50,
+        "score": 2,
+        "participantName": "1. FSV Mainz 05",
+        "teamShortName": "MAI",
+        "teamMiddleName": "Mainz 05",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968832533.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "63"
+        }
+      ]
+    },
+    {
+      "matchID": 123635,
+      "matchDate": "2026-03-08",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 1,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 4,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "31"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "35"
+        }
+      ]
+    },
+    {
+      "matchID": 123627,
+      "matchDate": "2026-02-28",
+      "matchTime": "14:30",
+      "minutes_played": 89,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 910,
+        "score": 0,
+        "participantName": "1. FC Heidenheim 1846",
+        "teamShortName": "FCH",
+        "teamMiddleName": "Heidenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl171629679138.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 123616,
+      "matchDate": "2026-02-22",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 912,
+        "score": 2,
+        "participantName": "FC St. Pauli",
+        "teamShortName": "STP",
+        "teamMiddleName": "St. Pauli",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154603742135.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 123609,
+      "matchDate": "2026-02-14",
+      "matchTime": "14:30",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 47,
+        "score": 3,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 123595,
+      "matchDate": "2026-02-07",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 58,
+        "score": 1,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 123591,
+      "matchDate": "2026-01-31",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 49,
+        "score": 1,
+        "participantName": "Borussia Mönchengladbach",
+        "teamShortName": "BMG",
+        "teamMiddleName": "Borussia M'gladbach",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968492930.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 123555,
+      "matchDate": "2026-01-27",
+      "matchTime": "19:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 54,
+        "score": 2,
+        "participantName": "TSG 1899 Hoffenheim",
+        "teamShortName": "TSG",
+        "teamMiddleName": "Hoffenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162961331369.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "73"
+        }
+      ]
+    },
+    {
+      "matchID": 123575,
+      "matchDate": "2026-01-24",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 57,
+        "score": 1,
+        "participantName": "Bayer 04 Leverkusen",
+        "teamShortName": "B04",
+        "teamMiddleName": "Leverkusen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716291195914.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 123572,
+      "matchDate": "2026-01-16",
+      "matchTime": "19:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 3,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 3,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "78"
+        }
+      ]
+    },
+    {
+      "matchID": 123557,
+      "matchDate": "2026-01-13",
+      "matchTime": "19:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 42,
+        "score": 3,
+        "participantName": "Borussia Dortmund",
+        "teamShortName": "BVB",
+        "teamMiddleName": "Dortmund",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567958801272.png"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 123538,
+      "matchDate": "2025-12-20",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 44,
+        "score": 0,
+        "participantName": "FC Augsburg",
+        "teamShortName": "AUG",
+        "teamMiddleName": "Augsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296441461.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 123537,
+      "matchDate": "2025-12-14",
+      "matchTime": "18:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 56,
+        "score": 4,
+        "participantName": "VfB Stuttgart",
+        "teamShortName": "STU",
+        "teamMiddleName": "Stuttgart",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716295960587.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 123523,
+      "matchDate": "2025-12-07",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 907,
+        "score": 3,
+        "participantName": "Hamburger SV",
+        "teamShortName": "HSV",
+        "teamMiddleName": "Hamburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154604221295.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "32"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "45"
+        }
+      ]
+    },
+    {
+      "matchID": 123519,
+      "matchDate": "2025-11-29",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 117,
+        "score": 1,
+        "participantName": "1. FC Köln",
+        "teamShortName": "KOE",
+        "teamMiddleName": "Köln",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296756304.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "22"
+        }
+      ]
+    },
+    {
+      "matchID": 123508,
+      "matchDate": "2025-11-23",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 45,
+        "score": 2,
+        "participantName": "RB Leipzig",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Leipzig",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960002046.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 123501,
+      "matchDate": "2025-11-07",
+      "matchTime": "19:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 48,
+        "score": 1,
+        "participantName": "VfL Wolfsburg",
+        "teamShortName": "WOB",
+        "teamMiddleName": "Wolfsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296213736.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "83"
+        }
+      ]
+    },
+    {
+      "matchID": 123488,
+      "matchDate": "2025-11-01",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 50,
+        "score": 1,
+        "participantName": "1. FSV Mainz 05",
+        "teamShortName": "MAI",
+        "teamMiddleName": "Mainz 05",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968832533.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "86"
+        }
+      ]
+    },
+    {
+      "matchID": 123483,
+      "matchDate": "2025-10-24",
+      "matchTime": "18:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 123469,
+      "matchDate": "2025-10-18",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 910,
+        "score": 2,
+        "participantName": "1. FC Heidenheim 1846",
+        "teamShortName": "FCH",
+        "teamMiddleName": "Heidenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl171629679138.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "69"
+        }
+      ]
+    },
+    {
+      "matchID": 123465,
+      "matchDate": "2025-10-04",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 912,
+        "score": 0,
+        "participantName": "FC St. Pauli",
+        "teamShortName": "STP",
+        "teamMiddleName": "St. Pauli",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154603742135.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "72"
+        }
+      ]
+    },
+    {
+      "matchID": 123449,
+      "matchDate": "2025-09-26",
+      "matchTime": "18:30",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 47,
+        "score": 4,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 123447,
+      "matchDate": "2025-09-20",
+      "matchTime": "13:30",
+      "minutes_played": 60,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 58,
+        "score": 3,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "48"
+        }
+      ]
+    },
+    {
+      "matchID": 123430,
+      "matchDate": "2025-09-14",
+      "matchTime": "15:30",
+      "minutes_played": 63,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 49,
+        "score": 0,
+        "participantName": "Borussia Mönchengladbach",
+        "teamShortName": "BMG",
+        "teamMiddleName": "Borussia M'gladbach",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968492930.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 4,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "26"
+        }
+      ]
+    },
+    {
+      "matchID": 86664,
+      "matchDate": "2025-05-17",
+      "matchTime": "13:30",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 910,
+        "score": 1,
+        "participantName": "1. FC Heidenheim 1846",
+        "teamShortName": "FCH",
+        "teamMiddleName": "Heidenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl171629679138.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 4,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "33"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "55"
+        }
+      ]
+    },
+    {
+      "matchID": 86658,
+      "matchDate": "2025-05-10",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 45,
+        "score": 0,
+        "participantName": "RB Leipzig",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Leipzig",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960002046.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86650,
+      "matchDate": "2025-05-03",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 2,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "2"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "15"
+        }
+      ]
+    },
+    {
+      "matchID": 86640,
+      "matchDate": "2025-04-27",
+      "matchTime": "15:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 912,
+        "score": 0,
+        "participantName": "FC St. Pauli",
+        "teamShortName": "STP",
+        "teamMiddleName": "St. Pauli",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154603742135.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86632,
+      "matchDate": "2025-04-19",
+      "matchTime": "13:30",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 905,
+        "score": 0,
+        "participantName": "VfL Bochum",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Bochum",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162964901569.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "55"
+        }
+      ]
+    },
+    {
+      "matchID": 86622,
+      "matchDate": "2025-04-13",
+      "matchTime": "13:30",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 56,
+        "score": 1,
+        "participantName": "VfB Stuttgart",
+        "teamShortName": "STU",
+        "teamMiddleName": "Stuttgart",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716295960587.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "44"
+        }
+      ]
+    },
+    {
+      "matchID": 86614,
+      "matchDate": "2025-04-05",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 0,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "60"
+        }
+      ]
+    },
+    {
+      "matchID": 86604,
+      "matchDate": "2025-03-29",
+      "matchTime": "14:30",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 906,
+        "score": 0,
+        "participantName": "Holstein Kiel",
+        "teamShortName": "HOL",
+        "teamMiddleName": "Holstein Kiel",
+        "logo": "https://api.statorium.com/media/bearleague/bl16558251361774.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 3,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "82"
+        }
+      ]
+    },
+    {
+      "matchID": 86596,
+      "matchDate": "2025-03-15",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 49,
+        "score": 4,
+        "participantName": "Borussia Mönchengladbach",
+        "teamShortName": "BMG",
+        "teamMiddleName": "Borussia M'gladbach",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968492930.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86580,
+      "matchDate": "2025-03-08",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 57,
+        "score": 0,
+        "participantName": "Bayer 04 Leverkusen",
+        "teamShortName": "B04",
+        "teamMiddleName": "Leverkusen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716291195914.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "7"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "72"
+        }
+      ]
+    },
+    {
+      "matchID": 86578,
+      "matchDate": "2025-03-01",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 48,
+        "score": 2,
+        "participantName": "VfL Wolfsburg",
+        "teamShortName": "WOB",
+        "teamMiddleName": "Wolfsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296213736.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "90"
+        }
+      ]
+    },
+    {
+      "matchID": 107490,
+      "matchDate": "2025-02-25",
+      "matchTime": "19:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 596,
+        "score": 2,
+        "participantName": "DSC Arminia Bielefeld",
+        "teamShortName": "ARM",
+        "teamMiddleName": "Arminia Bielefeld",
+        "logo": "https://api.statorium.com/media/bearleague/bl15968699821559.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86564,
+      "matchDate": "2025-02-21",
+      "matchTime": "19:30",
+      "minutes_played": 29,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 58,
+        "score": 5,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86544,
+      "matchDate": "2025-02-07",
+      "matchTime": "19:30",
+      "minutes_played": 43,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 47,
+        "score": 3,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86527,
+      "matchDate": "2025-01-25",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 42,
+        "score": 2,
+        "participantName": "Borussia Dortmund",
+        "teamShortName": "BVB",
+        "teamMiddleName": "Dortmund",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567958801272.png"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "72"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "87"
+        }
+      ]
+    },
+    {
+      "matchID": 86524,
+      "matchDate": "2025-01-19",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 44,
+        "score": 2,
+        "participantName": "FC Augsburg",
+        "teamShortName": "AUG",
+        "teamMiddleName": "Augsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296441461.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86514,
+      "matchDate": "2025-01-15",
+      "matchTime": "19:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 3,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 910,
+        "score": 3,
+        "participantName": "1. FC Heidenheim 1846",
+        "teamShortName": "FCH",
+        "teamMiddleName": "Heidenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl171629679138.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "79"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "90+4"
+        }
+      ]
+    },
+    {
+      "matchID": 86505,
+      "matchDate": "2025-01-12",
+      "matchTime": "14:30",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 45,
+        "score": 4,
+        "participantName": "RB Leipzig",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Leipzig",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960002046.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86496,
+      "matchDate": "2024-12-21",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 4,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 1,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "87"
+        }
+      ]
+    },
+    {
+      "matchID": 86487,
+      "matchDate": "2024-12-14",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 912,
+        "score": 0,
+        "participantName": "FC St. Pauli",
+        "teamShortName": "STP",
+        "teamMiddleName": "St. Pauli",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154603742135.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "24"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "43"
+        }
+      ]
+    },
+    {
+      "matchID": 86474,
+      "matchDate": "2024-12-07",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 905,
+        "score": 0,
+        "participantName": "VfL Bochum",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Bochum",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162964901569.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "56"
+        }
+      ]
+    },
+    {
+      "matchID": 103601,
+      "matchDate": "2024-12-03",
+      "matchTime": "19:45",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 918,
+        "score": 0,
+        "participantName": "SV Darmstadt 98",
+        "teamShortName": "DRM",
+        "teamMiddleName": "Darmstadt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296929206.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86470,
+      "matchDate": "2024-11-30",
+      "matchTime": "14:30",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 56,
+        "score": 2,
+        "participantName": "VfB Stuttgart",
+        "teamShortName": "STU",
+        "teamMiddleName": "Stuttgart",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716295960587.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "77"
+        }
+      ]
+    },
+    {
+      "matchID": 86452,
+      "matchDate": "2024-11-09",
+      "matchTime": "14:30",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 906,
+        "score": 1,
+        "participantName": "Holstein Kiel",
+        "teamShortName": "HOL",
+        "teamMiddleName": "Holstein Kiel",
+        "logo": "https://api.statorium.com/media/bearleague/bl16558251361774.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "30"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "36"
+        }
+      ]
+    },
+    {
+      "matchID": 79395,
+      "matchDate": "2024-10-15",
+      "matchTime": "18:45",
+      "minutes_played": 33,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 391,
+        "score": 2,
+        "participantName": "Switzerland",
+        "teamShortName": "SUI",
+        "teamMiddleName": "Switzerland",
+        "logo": "https://api.statorium.com/media/bearleague/bl17733330411232.webp"
+      },
+      "awayParticipant": {
+        "participantID": 380,
+        "score": 2,
+        "participantName": "Denmark",
+        "teamShortName": "DEN",
+        "teamMiddleName": "Denmark",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715361953208.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86416,
+      "matchDate": "2024-10-05",
+      "matchTime": "13:30",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 58,
+        "score": 1,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86403,
+      "matchDate": "2024-09-29",
+      "matchTime": "15:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 54,
+        "score": 3,
+        "participantName": "TSG 1899 Hoffenheim",
+        "teamShortName": "TSG",
+        "teamMiddleName": "Hoffenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162961331369.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 4,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "26"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "39"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "49"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "73"
+        }
+      ]
+    },
+    {
+      "matchID": 86398,
+      "matchDate": "2024-09-21",
+      "matchTime": "13:30",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 47,
+        "score": 5,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86387,
+      "matchDate": "2024-09-15",
+      "matchTime": "15:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 50,
+        "score": 1,
+        "participantName": "1. FSV Mainz 05",
+        "teamShortName": "MAI",
+        "teamMiddleName": "Mainz 05",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968832533.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86380,
+      "matchDate": "2024-08-31",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 42,
+        "score": 0,
+        "participantName": "Borussia Dortmund",
+        "teamShortName": "BVB",
+        "teamMiddleName": "Dortmund",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567958801272.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86364,
+      "matchDate": "2024-08-24",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 44,
+        "score": 2,
+        "participantName": "FC Augsburg",
+        "teamShortName": "AUG",
+        "teamMiddleName": "Augsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296441461.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63226,
+      "matchDate": "2024-05-18",
+      "matchTime": "13:30",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 4,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 905,
+        "score": 1,
+        "participantName": "VfL Bochum",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Bochum",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162964901569.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "80"
+        }
+      ]
+    },
+    {
+      "matchID": 63218,
+      "matchDate": "2024-05-11",
+      "matchTime": "13:30",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 45,
+        "score": 1,
+        "participantName": "RB Leipzig",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Leipzig",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960002046.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63208,
+      "matchDate": "2024-05-04",
+      "matchTime": "13:30",
+      "minutes_played": 14,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 49,
+        "score": 2,
+        "participantName": "Borussia Mönchengladbach",
+        "teamShortName": "BMG",
+        "teamMiddleName": "Borussia M'gladbach",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968492930.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63166,
+      "matchDate": "2024-04-05",
+      "matchTime": "18:30",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 7,
+          "eventName": "Red card",
+          "minutes": "73"
+        }
+      ]
+    },
+    {
+      "matchID": 63154,
+      "matchDate": "2024-03-16",
+      "matchTime": "14:30",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 2,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "72"
+        }
+      ]
+    },
+    {
+      "matchID": 63146,
+      "matchDate": "2024-03-09",
+      "matchTime": "17:30",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 42,
+        "score": 2,
+        "participantName": "Borussia Dortmund",
+        "teamShortName": "BVB",
+        "teamMiddleName": "Dortmund",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567958801272.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63134,
+      "matchDate": "2024-03-03",
+      "matchTime": "16:30",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 54,
+        "score": 2,
+        "participantName": "TSG 1899 Hoffenheim",
+        "teamShortName": "TSG",
+        "teamMiddleName": "Hoffenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162961331369.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63128,
+      "matchDate": "2024-02-24",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 918,
+        "score": 1,
+        "participantName": "SV Darmstadt 98",
+        "teamShortName": "DRM",
+        "teamMiddleName": "Darmstadt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296929206.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63113,
+      "matchDate": "2024-02-16",
+      "matchTime": "19:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 117,
+        "score": 0,
+        "participantName": "1. FC Köln",
+        "teamShortName": "KOE",
+        "teamMiddleName": "Köln",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296756304.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63110,
+      "matchDate": "2024-02-10",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 910,
+        "score": 2,
+        "participantName": "1. FC Heidenheim 1846",
+        "teamShortName": "FCH",
+        "teamMiddleName": "Heidenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl171629679138.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63099,
+      "matchDate": "2024-02-03",
+      "matchTime": "14:30",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 50,
+        "score": 0,
+        "participantName": "1. FSV Mainz 05",
+        "teamShortName": "MAI",
+        "teamMiddleName": "Mainz 05",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968832533.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63091,
+      "matchDate": "2024-01-27",
+      "matchTime": "14:30",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 3,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 58,
+        "score": 1,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63076,
+      "matchDate": "2024-01-21",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 47,
+        "score": 0,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63069,
+      "matchDate": "2024-01-14",
+      "matchTime": "14:30",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 905,
+        "score": 1,
+        "participantName": "VfL Bochum",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Bochum",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162964901569.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "35"
+        }
+      ]
+    },
+    {
+      "matchID": 63064,
+      "matchDate": "2023-12-19",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 45,
+        "score": 1,
+        "participantName": "RB Leipzig",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Leipzig",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960002046.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "75"
+        }
+      ]
+    },
+    {
+      "matchID": 63049,
+      "matchDate": "2023-12-15",
+      "matchTime": "19:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 49,
+        "score": 2,
+        "participantName": "Borussia Mönchengladbach",
+        "teamShortName": "BMG",
+        "teamMiddleName": "Borussia M'gladbach",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968492930.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63046,
+      "matchDate": "2023-12-09",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 44,
+        "score": 0,
+        "participantName": "FC Augsburg",
+        "teamShortName": "AUG",
+        "teamMiddleName": "Augsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296441461.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63038,
+      "matchDate": "2023-12-02",
+      "matchTime": "17:30",
+      "minutes_played": 89,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 56,
+        "score": 2,
+        "participantName": "VfB Stuttgart",
+        "teamShortName": "STU",
+        "teamMiddleName": "Stuttgart",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716295960587.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63028,
+      "matchDate": "2023-11-25",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 57,
+        "score": 3,
+        "participantName": "Bayer 04 Leverkusen",
+        "teamShortName": "B04",
+        "teamMiddleName": "Leverkusen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716291195914.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63020,
+      "matchDate": "2023-11-12",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63011,
+      "matchDate": "2023-11-05",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 48,
+        "score": 2,
+        "participantName": "VfL Wolfsburg",
+        "teamShortName": "WOB",
+        "teamMiddleName": "Wolfsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296213736.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63002,
+      "matchDate": "2023-10-28",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "73"
+        }
+      ]
+    },
+    {
+      "matchID": 62986,
+      "matchDate": "2023-10-20",
+      "matchTime": "18:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 42,
+        "score": 1,
+        "participantName": "Borussia Dortmund",
+        "teamShortName": "BVB",
+        "teamMiddleName": "Dortmund",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567958801272.png"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "76"
+        }
+      ]
+    },
+    {
+      "matchID": 62984,
+      "matchDate": "2023-10-07",
+      "matchTime": "16:30",
+      "minutes_played": 31,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 54,
+        "score": 3,
+        "participantName": "TSG 1899 Hoffenheim",
+        "teamShortName": "TSG",
+        "teamMiddleName": "Hoffenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162961331369.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+1"
+        }
+      ]
+    },
+    {
+      "matchID": 62968,
+      "matchDate": "2023-10-01",
+      "matchTime": "13:30",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 918,
+        "score": 4,
+        "participantName": "SV Darmstadt 98",
+        "teamShortName": "DRM",
+        "teamMiddleName": "Darmstadt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296929206.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 62966,
+      "matchDate": "2023-09-23",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 117,
+        "score": 1,
+        "participantName": "1. FC Köln",
+        "teamShortName": "KOE",
+        "teamMiddleName": "Köln",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296756304.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 62954,
+      "matchDate": "2023-09-17",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 910,
+        "score": 4,
+        "participantName": "1. FC Heidenheim 1846",
+        "teamShortName": "FCH",
+        "teamMiddleName": "Heidenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl171629679138.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 62948,
+      "matchDate": "2023-09-02",
+      "matchTime": "13:30",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 4,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 50,
+        "score": 0,
+        "participantName": "1. FSV Mainz 05",
+        "teamShortName": "MAI",
+        "teamMiddleName": "Mainz 05",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968832533.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "10"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "53"
+        }
+      ]
+    },
+    {
+      "matchID": 62936,
+      "matchDate": "2023-08-26",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 58,
+        "score": 1,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 62922,
+      "matchDate": "2023-08-18",
+      "matchTime": "18:30",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 47,
+        "score": 4,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39868,
+      "matchDate": "2023-05-20",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 117,
+        "score": 1,
+        "participantName": "1. FC Köln",
+        "teamShortName": "KOE",
+        "teamMiddleName": "Köln",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296756304.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "79"
+        }
+      ]
+    },
+    {
+      "matchID": 39856,
+      "matchDate": "2023-05-14",
+      "matchTime": "15:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 45,
+        "score": 2,
+        "participantName": "RB Leipzig",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Leipzig",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960002046.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "70"
+        }
+      ]
+    },
+    {
+      "matchID": 39850,
+      "matchDate": "2023-05-06",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 47,
+        "score": 2,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39838,
+      "matchDate": "2023-04-29",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 41,
+        "score": 2,
+        "participantName": "FC Schalke 04",
+        "teamShortName": "S04",
+        "teamMiddleName": "Schalke",
+        "logo": "https://api.statorium.com/media/bearleague/bl15529087481504.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "28"
+        }
+      ]
+    },
+    {
+      "matchID": 39830,
+      "matchDate": "2023-04-22",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 55,
+        "score": 2,
+        "participantName": "Hertha BSC",
+        "teamShortName": "BCS",
+        "teamMiddleName": "Hertha",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552907318643.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 4,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "6"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "36"
+        }
+      ]
+    },
+    {
+      "matchID": 39822,
+      "matchDate": "2023-04-16",
+      "matchTime": "13:30",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 58,
+        "score": 2,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39814,
+      "matchDate": "2023-04-08",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 50,
+        "score": 2,
+        "participantName": "1. FSV Mainz 05",
+        "teamShortName": "MAI",
+        "teamMiddleName": "Mainz 05",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968832533.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "42"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "87"
+        }
+      ]
+    },
+    {
+      "matchID": 39804,
+      "matchDate": "2023-04-02",
+      "matchTime": "15:30",
+      "minutes_played": 30,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 54,
+        "score": 2,
+        "participantName": "TSG 1899 Hoffenheim",
+        "teamShortName": "TSG",
+        "teamMiddleName": "Hoffenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162961331369.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39789,
+      "matchDate": "2023-03-17",
+      "matchTime": "19:30",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 49,
+        "score": 2,
+        "participantName": "Borussia Mönchengladbach",
+        "teamShortName": "BMG",
+        "teamMiddleName": "Borussia M'gladbach",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968492930.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39786,
+      "matchDate": "2023-03-12",
+      "matchTime": "16:30",
+      "minutes_played": 69,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 57,
+        "score": 3,
+        "participantName": "Bayer 04 Leverkusen",
+        "teamShortName": "B04",
+        "teamMiddleName": "Leverkusen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716291195914.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39770,
+      "matchDate": "2023-03-04",
+      "matchTime": "14:30",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 44,
+        "score": 2,
+        "participantName": "FC Augsburg",
+        "teamShortName": "AUG",
+        "teamMiddleName": "Augsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296441461.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "16"
+        }
+      ]
+    },
+    {
+      "matchID": 39769,
+      "matchDate": "2023-02-25",
+      "matchTime": "14:30",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 3,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 905,
+        "score": 0,
+        "participantName": "VfL Bochum",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Bochum",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162964901569.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39757,
+      "matchDate": "2023-02-18",
+      "matchTime": "17:30",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39751,
+      "matchDate": "2023-02-11",
+      "matchTime": "14:30",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 42,
+        "score": 2,
+        "participantName": "Borussia Dortmund",
+        "teamShortName": "BVB",
+        "teamMiddleName": "Dortmund",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567958801272.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39740,
+      "matchDate": "2023-02-05",
+      "matchTime": "14:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 56,
+        "score": 0,
+        "participantName": "VfB Stuttgart",
+        "teamShortName": "STU",
+        "teamMiddleName": "Stuttgart",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716295960587.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "59"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "90+4"
+        }
+      ]
+    },
+    {
+      "matchID": 39733,
+      "matchDate": "2023-01-28",
+      "matchTime": "14:30",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 48,
+        "score": 1,
+        "participantName": "VfL Wolfsburg",
+        "teamShortName": "WOB",
+        "teamMiddleName": "Wolfsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296213736.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39724,
+      "matchDate": "2023-01-25",
+      "matchTime": "19:30",
+      "minutes_played": 13,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 2,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39711,
+      "matchDate": "2023-01-21",
+      "matchTime": "17:30",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 117,
+        "score": 7,
+        "participantName": "1. FC Köln",
+        "teamShortName": "KOE",
+        "teamMiddleName": "Köln",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296756304.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39706,
+      "matchDate": "2022-11-12",
+      "matchTime": "14:30",
+      "minutes_played": 18,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 45,
+        "score": 2,
+        "participantName": "RB Leipzig",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Leipzig",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960002046.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39689,
+      "matchDate": "2022-11-08",
+      "matchTime": "19:30",
+      "minutes_played": 31,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 47,
+        "score": 6,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39688,
+      "matchDate": "2022-11-05",
+      "matchTime": "17:30",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 41,
+        "score": 1,
+        "participantName": "FC Schalke 04",
+        "teamShortName": "S04",
+        "teamMiddleName": "Schalke",
+        "logo": "https://api.statorium.com/media/bearleague/bl15529087481504.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39678,
+      "matchDate": "2022-10-28",
+      "matchTime": "18:30",
+      "minutes_played": 7,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 1,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 55,
+        "score": 0,
+        "participantName": "Hertha BSC",
+        "teamShortName": "BCS",
+        "teamMiddleName": "Hertha",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552907318643.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39667,
+      "matchDate": "2022-10-22",
+      "matchTime": "13:30",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 58,
+        "score": 2,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39660,
+      "matchDate": "2022-10-15",
+      "matchTime": "13:30",
+      "minutes_played": 17,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 50,
+        "score": 2,
+        "participantName": "1. FSV Mainz 05",
+        "teamShortName": "MAI",
+        "teamMiddleName": "Mainz 05",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968832533.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39642,
+      "matchDate": "2022-10-01",
+      "matchTime": "16:30",
+      "minutes_played": 18,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 5,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 49,
+        "score": 1,
+        "participantName": "Borussia Mönchengladbach",
+        "teamShortName": "BMG",
+        "teamMiddleName": "Borussia M'gladbach",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968492930.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39625,
+      "matchDate": "2022-09-09",
+      "matchTime": "18:30",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 44,
+        "score": 1,
+        "participantName": "FC Augsburg",
+        "teamShortName": "AUG",
+        "teamMiddleName": "Augsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296441461.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39611,
+      "matchDate": "2022-09-03",
+      "matchTime": "13:30",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 905,
+        "score": 0,
+        "participantName": "VfL Bochum",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Bochum",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162964901569.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39607,
+      "matchDate": "2022-08-28",
+      "matchTime": "15:30",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 3,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 4,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39594,
+      "matchDate": "2022-08-20",
+      "matchTime": "13:30",
+      "minutes_played": 62,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 42,
+        "score": 2,
+        "participantName": "Borussia Dortmund",
+        "teamShortName": "BVB",
+        "teamMiddleName": "Dortmund",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567958801272.png"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 3,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39589,
+      "matchDate": "2022-08-13",
+      "matchTime": "13:30",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 56,
+        "score": 2,
+        "participantName": "VfB Stuttgart",
+        "teamShortName": "STU",
+        "teamMiddleName": "Stuttgart",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716295960587.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39580,
+      "matchDate": "2022-08-06",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 48,
+        "score": 2,
+        "participantName": "VfL Wolfsburg",
+        "teamShortName": "WOB",
+        "teamMiddleName": "Wolfsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296213736.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "21"
+        }
+      ]
+    },
+    {
+      "matchID": 37370,
+      "matchDate": "2022-04-10",
+      "matchTime": "16:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 1,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 714,
+        "score": 0,
+        "participantName": "FC Midtjylland",
+        "teamShortName": "FCM",
+        "teamMiddleName": "Midtjylland",
+        "logo": "https://api.statorium.com/media/bearleague/bl16021396631960.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35872,
+      "matchDate": "2022-03-20",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 1,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1209,
+        "score": 0,
+        "participantName": "FC Nordsjælland",
+        "teamShortName": "FCN",
+        "teamMiddleName": "Nordsjælland",
+        "logo": "https://api.statorium.com/media/bearleague/bl16432257401097.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "31"
+        }
+      ]
+    },
+    {
+      "matchID": 36919,
+      "matchDate": "2022-03-17",
+      "matchTime": "17:45",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 0,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 150,
+        "score": 4,
+        "participantName": "PSV Eindhoven",
+        "teamShortName": "PSV",
+        "teamMiddleName": "PSV",
+        "logo": "https://api.statorium.com/media/bearleague/bl17188302791426.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35868,
+      "matchDate": "2022-03-13",
+      "matchTime": "17:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 714,
+        "score": 0,
+        "participantName": "FC Midtjylland",
+        "teamShortName": "FCM",
+        "teamMiddleName": "Midtjylland",
+        "logo": "https://api.statorium.com/media/bearleague/bl16021396631960.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 1,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 36912,
+      "matchDate": "2022-03-10",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 150,
+        "score": 4,
+        "participantName": "PSV Eindhoven",
+        "teamShortName": "PSV",
+        "teamMiddleName": "PSV",
+        "logo": "https://api.statorium.com/media/bearleague/bl17188302791426.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 4,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35859,
+      "matchDate": "2022-03-04",
+      "matchTime": "19:00",
+      "minutes_played": 88,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 3,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1028,
+        "score": 0,
+        "participantName": "Randers FC",
+        "teamShortName": "RFC",
+        "teamMiddleName": "Randers",
+        "logo": "https://api.statorium.com/media/bearleague/bl16303477091878.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35855,
+      "matchDate": "2022-02-27",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1204,
+        "score": 0,
+        "participantName": "Viborg Fodsports Forening",
+        "teamShortName": "VFF",
+        "teamMiddleName": "Viborg FF",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730467261.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 2,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35850,
+      "matchDate": "2022-02-20",
+      "matchTime": "17:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 2,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1208,
+        "score": 0,
+        "participantName": "Odense Boldklub",
+        "teamShortName": "OB",
+        "teamMiddleName": "Odense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16432256872416.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35745,
+      "matchDate": "2021-11-28",
+      "matchTime": "17:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1211,
+        "score": 1,
+        "participantName": "AaB Fodbold",
+        "teamShortName": "AaB",
+        "teamMiddleName": "Aalborg BK",
+        "logo": "https://api.statorium.com/media/bearleague/bl16432258841546.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 3,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 33223,
+      "matchDate": "2021-11-25",
+      "matchTime": "17:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1032,
+        "score": 0,
+        "participantName": "Lincoln Red Imps FC",
+        "teamShortName": "LRI",
+        "teamMiddleName": "Lincoln Red Imps",
+        "logo": "https://api.statorium.com/media/bearleague/bl1630348140361.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 4,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35752,
+      "matchDate": "2021-11-21",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 1,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1206,
+        "score": 1,
+        "participantName": "Aarhus Gymnastikforening",
+        "teamShortName": "AGF",
+        "teamMiddleName": "Aarhus",
+        "logo": "https://api.statorium.com/media/bearleague/bl1643225579343.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "45+1"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "6"
+        }
+      ]
+    },
+    {
+      "matchID": 23037,
+      "matchDate": "2021-11-15",
+      "matchTime": "19:45",
+      "minutes_played": 34,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 674,
+        "score": 2,
+        "participantName": "Scotland",
+        "teamShortName": "SCO",
+        "teamMiddleName": "Scotland",
+        "logo": "https://api.statorium.com/media/bearleague/bl17153632011468.webp"
+      },
+      "awayParticipant": {
+        "participantID": 380,
+        "score": 0,
+        "participantName": "Denmark",
+        "teamShortName": "DEN",
+        "teamMiddleName": "Denmark",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715361953208.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35756,
+      "matchDate": "2021-11-07",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1210,
+        "score": 0,
+        "participantName": "Silkeborg Idrætsforening",
+        "teamShortName": "SIF",
+        "teamMiddleName": "Silkeborg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1643225778588.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 0,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 33217,
+      "matchDate": "2021-11-04",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 240,
+        "score": 1,
+        "participantName": "PAOK FC",
+        "teamShortName": "PAK",
+        "teamMiddleName": "PAOK",
+        "logo": "https://api.statorium.com/media/bearleague/bl16274702242714.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 2,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "77"
+        }
+      ]
+    },
+    {
+      "matchID": 35765,
+      "matchDate": "2021-10-31",
+      "matchTime": "15:00",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 3,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1205,
+        "score": 0,
+        "participantName": "Vejle Boldklub",
+        "teamShortName": "VB",
+        "teamMiddleName": "Vejle",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730595522.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "16"
+        }
+      ]
+    },
+    {
+      "matchID": 35771,
+      "matchDate": "2021-10-24",
+      "matchTime": "12:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1023,
+        "score": 2,
+        "participantName": "Brøndbyernes Idrætsforening",
+        "teamShortName": "BRO",
+        "teamMiddleName": "Brøndby IF",
+        "logo": "https://api.statorium.com/media/bearleague/bl16303431171598.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 1,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35780,
+      "matchDate": "2021-10-03",
+      "matchTime": "18:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 1,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1204,
+        "score": 1,
+        "participantName": "Viborg Fodsports Forening",
+        "teamShortName": "VFF",
+        "teamMiddleName": "Viborg FF",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730467261.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "77"
+        },
+        {
+          "eventID": 3,
+          "eventName": "Own goal",
+          "minutes": "90+5"
+        }
+      ]
+    },
+    {
+      "matchID": 33184,
+      "matchDate": "2021-09-30",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 3,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1032,
+        "score": 1,
+        "participantName": "Lincoln Red Imps FC",
+        "teamShortName": "LRI",
+        "teamMiddleName": "Lincoln Red Imps",
+        "logo": "https://api.statorium.com/media/bearleague/bl1630348140361.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "4"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "52"
+        }
+      ]
+    },
+    {
+      "matchID": 35789,
+      "matchDate": "2021-09-26",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1209,
+        "score": 1,
+        "participantName": "FC Nordsjælland",
+        "teamShortName": "FCN",
+        "teamMiddleName": "Nordsjælland",
+        "logo": "https://api.statorium.com/media/bearleague/bl16432257401097.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 5,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "19"
+        }
+      ]
+    },
+    {
+      "matchID": 35793,
+      "matchDate": "2021-09-19",
+      "matchTime": "16:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 0,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 714,
+        "score": 1,
+        "participantName": "FC Midtjylland",
+        "teamShortName": "FCM",
+        "teamMiddleName": "Midtjylland",
+        "logo": "https://api.statorium.com/media/bearleague/bl16021396631960.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "61"
+        }
+      ]
+    },
+    {
+      "matchID": 33167,
+      "matchDate": "2021-09-16",
+      "matchTime": "16:45",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 170,
+        "score": 1,
+        "participantName": "ŠK Slovan Bratislava",
+        "teamShortName": "SLO",
+        "teamMiddleName": "Slovan Bratislava",
+        "logo": "https://api.statorium.com/media/bearleague/bl15680293791553.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 3,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "41"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "72"
+        }
+      ]
+    },
+    {
+      "matchID": 35800,
+      "matchDate": "2021-09-12",
+      "matchTime": "14:00",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1028,
+        "score": 0,
+        "participantName": "Randers FC",
+        "teamShortName": "RFC",
+        "teamMiddleName": "Randers",
+        "logo": "https://api.statorium.com/media/bearleague/bl16303477091878.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 2,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "46"
+        }
+      ]
+    },
+    {
+      "matchID": 35806,
+      "matchDate": "2021-08-29",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1205,
+        "score": 0,
+        "participantName": "Vejle Boldklub",
+        "teamShortName": "VB",
+        "teamMiddleName": "Vejle",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730595522.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 4,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "77"
+        }
+      ]
+    },
+    {
+      "matchID": 35812,
+      "matchDate": "2021-08-22",
+      "matchTime": "14:00",
+      "minutes_played": 28,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 2,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1207,
+        "score": 0,
+        "participantName": "SønderjyskE Fodbold",
+        "teamShortName": "SE",
+        "teamMiddleName": "SønderjyskE",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719361327646.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35817,
+      "matchDate": "2021-08-15",
+      "matchTime": "16:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1206,
+        "score": 1,
+        "participantName": "Aarhus Gymnastikforening",
+        "teamShortName": "AGF",
+        "teamMiddleName": "Aarhus",
+        "logo": "https://api.statorium.com/media/bearleague/bl1643225579343.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 3,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "90+4"
+        }
+      ]
+    },
+    {
+      "matchID": 35824,
+      "matchDate": "2021-08-08",
+      "matchTime": "14:00",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 4,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1023,
+        "score": 2,
+        "participantName": "Brøndbyernes Idrætsforening",
+        "teamShortName": "BRO",
+        "teamMiddleName": "Brøndby IF",
+        "logo": "https://api.statorium.com/media/bearleague/bl16303431171598.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35829,
+      "matchDate": "2021-08-01",
+      "matchTime": "16:00",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1208,
+        "score": 0,
+        "participantName": "Odense Boldklub",
+        "teamShortName": "OB",
+        "teamMiddleName": "Odense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16432256872416.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 2,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35836,
+      "matchDate": "2021-07-25",
+      "matchTime": "14:00",
+      "minutes_played": 35,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 0,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1210,
+        "score": 0,
+        "participantName": "Silkeborg Idrætsforening",
+        "teamShortName": "SIF",
+        "teamMiddleName": "Silkeborg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1643225778588.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35842,
+      "matchDate": "2021-07-18",
+      "matchTime": "14:00",
+      "minutes_played": 25,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 2,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1211,
+        "score": 2,
+        "participantName": "AaB Fodbold",
+        "teamShortName": "AaB",
+        "teamMiddleName": "Aalborg BK",
+        "logo": "https://api.statorium.com/media/bearleague/bl16432258841546.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 14199,
+      "matchDate": "2020-08-10",
+      "matchTime": "19:00",
+      "minutes_played": 105,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 7,
+        "score": 1,
+        "participantName": "Manchester United",
+        "teamShortName": "MUN",
+        "teamMiddleName": "Man Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 0,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "77"
+        }
+      ]
+    },
+    {
+      "matchID": 9526,
+      "matchDate": "2020-08-05",
+      "matchTime": "16:55",
+      "minutes_played": 36,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 3,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 166,
+        "score": 0,
+        "participantName": "İstanbul Başakşehir FK",
+        "teamShortName": "BAS",
+        "teamMiddleName": "İstanbul Başakşehir",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568030569355.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 9528,
+      "matchDate": "2020-03-12",
+      "matchTime": "17:55",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 166,
+        "score": 1,
+        "participantName": "İstanbul Başakşehir FK",
+        "teamShortName": "BAS",
+        "teamMiddleName": "İstanbul Başakşehir",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568030569355.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 0,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 8087,
+      "matchDate": "2020-02-27",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 3,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 8066,
+      "matchDate": "2020-02-20",
+      "matchTime": "17:55",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 1,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 8,
+          "eventName": "Missed penalty",
+          "minutes": "79"
+        }
+      ]
+    },
+    {
+      "matchID": 4004,
+      "matchDate": "2019-11-07",
+      "matchTime": "17:55",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 1,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 142,
+        "score": 1,
+        "participantName": "FC Dynamo Kyiv",
+        "teamShortName": "DYN",
+        "teamMiddleName": "Dynamo Kyiv",
+        "logo": "https://api.statorium.com/media/bearleague/bl17509487271394.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "4"
+        }
+      ]
+    },
+    {
+      "matchID": 3999,
+      "matchDate": "2019-10-24",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 142,
+        "score": 1,
+        "participantName": "FC Dynamo Kyiv",
+        "teamShortName": "DYN",
+        "teamMiddleName": "Dynamo Kyiv",
+        "logo": "https://api.statorium.com/media/bearleague/bl17509487271394.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 1,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "2"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "51"
+        }
+      ]
+    },
+    {
+      "matchID": 3990,
+      "matchDate": "2019-10-03",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 144,
+        "score": 1,
+        "participantName": "Malmö FF",
+        "teamShortName": "MFF",
+        "teamMiddleName": "Malmö",
+        "logo": "https://api.statorium.com/media/bearleague/bl15680315122358.webp"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 1,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "87"
+        }
+      ]
+    },
+    {
+      "matchID": 3902,
+      "matchDate": "2019-09-19",
+      "matchTime": "16:55",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 1,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 145,
+        "score": 0,
+        "participantName": "FC Lugano",
+        "teamShortName": "LUG",
+        "teamMiddleName": "Lugano",
+        "logo": "https://api.statorium.com/media/bearleague/bl15680314181795.webp"
+      },
+      "playerEvents": []
+    }
+  ]
+}

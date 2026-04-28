@@ -1,0 +1,5084 @@
+{
+  "playerID": 20865,
+  "firstName": "Hugo",
+  "lastName": "Ekitike",
+  "shortName": "H. Ekitike",
+  "fullName": "Hugo Ekitike",
+  "homeName": "",
+  "country": {
+    "name": "France",
+    "id": 74
+  },
+  "currentTeam": {
+    "name": null,
+    "id": 0
+  },
+  "photo": "",
+  "additionalInfo": {
+    "height": "189 cm",
+    "weight": "66 kg",
+    "position": 4,
+    "Fantasy Value": null,
+    "birthdate": "20-06-2002  (23)"
+  },
+  "teams": [],
+  "stat": [
+    {
+      "season_name": "ENGLAND: FA Cup 2025-26",
+      "season_id": 602,
+      "team_name": "Liverpool FC",
+      "played": 3,
+      "career_lineup": 1,
+      "career_minutes": 111,
+      "career_subsin": 2,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 1,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: EFL Cup 2025-26",
+      "season_id": 568,
+      "team_name": "Liverpool FC",
+      "played": 1,
+      "career_lineup": 0,
+      "career_minutes": 40,
+      "career_subsin": 1,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 0,
+      "Yellow card": 1,
+      "Second yellow": 1,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FIFA World Cup Qualification 2026 UEFA",
+      "season_id": 230,
+      "team_name": "France",
+      "played": 6,
+      "career_lineup": 2,
+      "career_minutes": 202,
+      "career_subsin": 4,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 1,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Champions League 2025-26",
+      "season_id": 591,
+      "team_name": "Liverpool FC",
+      "played": 12,
+      "career_lineup": 11,
+      "career_minutes": 838,
+      "career_subsin": 1,
+      "career_subsout": 9,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 3,
+      "Assist": 1,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 3,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: Premier League 2025-26",
+      "season_id": 515,
+      "team_name": "Liverpool FC",
+      "played": 28,
+      "career_lineup": 21,
+      "career_minutes": 1811,
+      "career_subsin": 7,
+      "career_subsout": 15,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 11,
+      "Assist": 4,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 11,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "GERMANY: DFB-Pokal 2024-25",
+      "season_id": 349,
+      "team_name": "Eintracht Frankfurt",
+      "played": 1,
+      "career_lineup": 1,
+      "career_minutes": 90,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Europa League 2024-25",
+      "season_id": 422,
+      "team_name": "Eintracht Frankfurt",
+      "played": 12,
+      "career_lineup": 9,
+      "career_minutes": 813,
+      "career_subsin": 3,
+      "career_subsout": 7,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 4,
+      "Assist": 3,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 4,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "GERMANY: Bundesliga 2024-25",
+      "season_id": 385,
+      "team_name": "Eintracht Frankfurt",
+      "played": 33,
+      "career_lineup": 31,
+      "career_minutes": 2582,
+      "career_subsin": 2,
+      "career_subsout": 22,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 15,
+      "Assist": 8,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 1,
+      "Missed penalty": 2,
+      "Goal": 14,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Europa Conference League 2023-24",
+      "season_id": 308,
+      "team_name": "Eintracht Frankfurt",
+      "played": 2,
+      "career_lineup": 0,
+      "career_minutes": 53,
+      "career_subsin": 2,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "GERMANY: Bundesliga 2023-24",
+      "season_id": 274,
+      "team_name": "Eintracht Frankfurt",
+      "played": 14,
+      "career_lineup": 7,
+      "career_minutes": 718,
+      "career_subsin": 7,
+      "career_subsout": 7,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 4,
+      "Assist": 2,
+      "Yellow card": 3,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 4,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FRANCE: Coupe de France 2023-24",
+      "season_id": 317,
+      "team_name": "Paris Saint-Germain",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Champions League 2023-24",
+      "season_id": 306,
+      "team_name": "Paris Saint-Germain",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FRANCE: Ligue 1 2023-24",
+      "season_id": 269,
+      "team_name": "Paris Saint-Germain",
+      "played": 1,
+      "career_lineup": 0,
+      "career_minutes": 8,
+      "career_subsin": 1,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FRANCE: Coupe de France 2022-23",
+      "season_id": 218,
+      "team_name": "Paris Saint-Germain",
+      "played": 2,
+      "career_lineup": 1,
+      "career_minutes": 94,
+      "career_subsin": 1,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Champions League 2022-23",
+      "season_id": 203,
+      "team_name": "Paris Saint-Germain",
+      "played": 4,
+      "career_lineup": 0,
+      "career_minutes": 58,
+      "career_subsin": 4,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FRANCE: Ligue 1 2022-23",
+      "season_id": 167,
+      "team_name": "Paris Saint-Germain",
+      "played": 25,
+      "career_lineup": 12,
+      "career_minutes": 1154,
+      "career_subsin": 13,
+      "career_subsout": 12,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 3,
+      "Assist": 4,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 3,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FRANCE: Ligue 1 2022-23",
+      "season_id": 167,
+      "team_name": "Stade de Reims",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FRANCE: Ligue 1 2021-22",
+      "season_id": 110,
+      "team_name": "Stade Rennais FC",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FRANCE: Ligue 1 2021-22",
+      "season_id": 110,
+      "team_name": "Stade de Reims",
+      "played": 24,
+      "career_lineup": 15,
+      "career_minutes": 1276,
+      "career_subsin": 9,
+      "career_subsout": 10,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 10,
+      "Assist": 3,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 1,
+      "Own goal": 0,
+      "Penalty goal": 1,
+      "Missed penalty": 1,
+      "Goal": 9,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FRANCE: Ligue 1 2020-21",
+      "season_id": 55,
+      "team_name": "Stade de Reims",
+      "played": 2,
+      "career_lineup": 0,
+      "career_minutes": 87,
+      "career_subsin": 2,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    }
+  ],
+  "matches": [
+    {
+      "matchID": 147013,
+      "matchDate": "2026-04-14",
+      "matchTime": "19:00",
+      "minutes_played": 31,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 0,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 2,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 147007,
+      "matchDate": "2026-04-08",
+      "matchTime": "19:00",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 2,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 0,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 146858,
+      "matchDate": "2026-04-04",
+      "matchTime": "11:45",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 4,
+        "score": 4,
+        "participantName": "Manchester City",
+        "teamShortName": "MCI",
+        "teamMiddleName": "Man City",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151024711246.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 0,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121439,
+      "matchDate": "2026-03-21",
+      "matchTime": "12:45",
+      "minutes_played": 8,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 19,
+        "score": 2,
+        "participantName": "Brighton & Hove Albion",
+        "teamShortName": "BRH",
+        "teamMiddleName": "Brighton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190134962515.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 146306,
+      "matchDate": "2026-03-18",
+      "matchTime": "20:00",
+      "minutes_played": 89,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 4,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 125,
+        "score": 0,
+        "participantName": "Galatasaray SK",
+        "teamShortName": "GSK",
+        "teamMiddleName": "Galatasaray",
+        "logo": "https://api.statorium.com/media/bearleague/bl1751882729606.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "51"
+        }
+      ]
+    },
+    {
+      "matchID": 121432,
+      "matchDate": "2026-03-15",
+      "matchTime": "16:30",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 2,
+        "score": 1,
+        "participantName": "Tottenham Hotspur FC",
+        "teamShortName": "TOT",
+        "teamMiddleName": "Tottenham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 146298,
+      "matchDate": "2026-03-10",
+      "matchTime": "17:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 125,
+        "score": 1,
+        "participantName": "Galatasaray SK",
+        "teamShortName": "GSK",
+        "teamMiddleName": "Galatasaray",
+        "logo": "https://api.statorium.com/media/bearleague/bl1751882729606.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 0,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121426,
+      "matchDate": "2026-03-03",
+      "matchTime": "20:15",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 13,
+        "score": 2,
+        "participantName": "Wolverhampton Wanderers",
+        "teamShortName": "WLV",
+        "teamMiddleName": "Wolverhampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190131172980.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121413,
+      "matchDate": "2026-02-28",
+      "matchTime": "15:00",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 5,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1,
+        "score": 2,
+        "participantName": "West Ham United",
+        "teamShortName": "WHU",
+        "teamMiddleName": "West Ham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151028161933.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "43"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "5"
+        },
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "70"
+        }
+      ]
+    },
+    {
+      "matchID": 121403,
+      "matchDate": "2026-02-22",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 183,
+        "score": 0,
+        "participantName": "Nottingham Forest FC",
+        "teamShortName": "NTF",
+        "teamMiddleName": "Nottingham Forest",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151025621698.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 141917,
+      "matchDate": "2026-02-14",
+      "matchTime": "20:00",
+      "minutes_played": 13,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 3,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 19,
+        "score": 0,
+        "participantName": "Brighton & Hove Albion",
+        "teamShortName": "BRH",
+        "teamMiddleName": "Brighton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190134962515.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121394,
+      "matchDate": "2026-02-11",
+      "matchTime": "20:15",
+      "minutes_played": 88,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 253,
+        "score": 0,
+        "participantName": "Sunderland AFC",
+        "teamShortName": "SUN",
+        "teamMiddleName": "Sunderland",
+        "logo": "https://api.statorium.com/media/bearleague/bl15718396531982.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121383,
+      "matchDate": "2026-02-08",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 4,
+        "score": 2,
+        "participantName": "Manchester City",
+        "teamShortName": "MCI",
+        "teamMiddleName": "Man City",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151024711246.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121371,
+      "matchDate": "2026-01-31",
+      "matchTime": "20:00",
+      "minutes_played": 84,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 4,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 10,
+        "score": 1,
+        "participantName": "Newcastle United FC",
+        "teamShortName": "NEW",
+        "teamMiddleName": "Newcastle",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102537848.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "41"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "43"
+        }
+      ]
+    },
+    {
+      "matchID": 134344,
+      "matchDate": "2026-01-28",
+      "matchTime": "20:00",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 6,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 140,
+        "score": 0,
+        "participantName": "Qarabağ FK",
+        "teamShortName": "QAR",
+        "teamMiddleName": "Qarabağ",
+        "logo": "https://api.statorium.com/media/bearleague/bl1690931201659.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "21"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "57"
+        }
+      ]
+    },
+    {
+      "matchID": 121358,
+      "matchDate": "2026-01-24",
+      "matchTime": "17:30",
+      "minutes_played": 31,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 16,
+        "score": 3,
+        "participantName": "AFC Bournemouth",
+        "teamShortName": "BOU",
+        "teamMiddleName": "Bournemouth",
+        "logo": "https://api.statorium.com/media/bearleague/bl171510179519.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 2,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 134352,
+      "matchDate": "2026-01-21",
+      "matchTime": "20:00",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 59,
+        "score": 0,
+        "participantName": "Olympique de Marseille",
+        "teamShortName": "OLM",
+        "teamMiddleName": "Marseille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766362986.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 3,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121351,
+      "matchDate": "2026-01-17",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 12,
+        "score": 1,
+        "participantName": "Burnley FC",
+        "teamShortName": "BUR",
+        "teamMiddleName": "Burnley",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102124426.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 139787,
+      "matchDate": "2026-01-12",
+      "matchTime": "19:45",
+      "minutes_played": 30,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 4,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 194,
+        "score": 1,
+        "participantName": "Barnsley FC",
+        "teamShortName": "BAR",
+        "teamMiddleName": "Barnsley",
+        "logo": "https://api.statorium.com/media/bearleague/bl15681887182266.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "84"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+4"
+        }
+      ]
+    },
+    {
+      "matchID": 121322,
+      "matchDate": "2026-01-01",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 0,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 0,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121312,
+      "matchDate": "2025-12-27",
+      "matchTime": "15:00",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 2,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 13,
+        "score": 1,
+        "participantName": "Wolverhampton Wanderers",
+        "teamShortName": "WLV",
+        "teamMiddleName": "Wolverhampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190131172980.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "42"
+        }
+      ]
+    },
+    {
+      "matchID": 121305,
+      "matchDate": "2025-12-20",
+      "matchTime": "17:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 2,
+        "score": 1,
+        "participantName": "Tottenham Hotspur FC",
+        "teamShortName": "TOT",
+        "teamMiddleName": "Tottenham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 2,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "66"
+        }
+      ]
+    },
+    {
+      "matchID": 121292,
+      "matchDate": "2025-12-13",
+      "matchTime": "15:00",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 2,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 19,
+        "score": 0,
+        "participantName": "Brighton & Hove Albion",
+        "teamShortName": "BRH",
+        "teamMiddleName": "Brighton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190134962515.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "1"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "60"
+        }
+      ]
+    },
+    {
+      "matchID": 134332,
+      "matchDate": "2025-12-09",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 108,
+        "score": 0,
+        "participantName": "Inter Milan",
+        "teamShortName": "INT",
+        "teamMiddleName": "Inter",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163783271113.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "39"
+        }
+      ]
+    },
+    {
+      "matchID": 121282,
+      "matchDate": "2025-12-06",
+      "matchTime": "17:30",
+      "minutes_played": 84,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 3,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 3,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "48"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "50"
+        }
+      ]
+    },
+    {
+      "matchID": 121273,
+      "matchDate": "2025-12-03",
+      "matchTime": "20:15",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 253,
+        "score": 1,
+        "participantName": "Sunderland AFC",
+        "teamShortName": "SUN",
+        "teamMiddleName": "Sunderland",
+        "logo": "https://api.statorium.com/media/bearleague/bl15718396531982.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121266,
+      "matchDate": "2025-11-30",
+      "matchTime": "14:05",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1,
+        "score": 0,
+        "participantName": "West Ham United",
+        "teamShortName": "WHU",
+        "teamMiddleName": "West Ham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151028161933.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 2,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 134343,
+      "matchDate": "2025-11-26",
+      "matchTime": "20:00",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 150,
+        "score": 4,
+        "participantName": "PSV Eindhoven",
+        "teamShortName": "PSV",
+        "teamMiddleName": "PSV",
+        "logo": "https://api.statorium.com/media/bearleague/bl17188302791426.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121253,
+      "matchDate": "2025-11-22",
+      "matchTime": "15:00",
+      "minutes_played": 35,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 0,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 183,
+        "score": 3,
+        "participantName": "Nottingham Forest FC",
+        "teamShortName": "NTF",
+        "teamMiddleName": "Nottingham Forest",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151025621698.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 114208,
+      "matchDate": "2025-11-16",
+      "matchTime": "17:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 664,
+        "score": 1,
+        "participantName": "Azerbaijan",
+        "teamShortName": "AZE",
+        "teamMiddleName": "Azerbaijan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1600415830135.webp"
+      },
+      "awayParticipant": {
+        "participantID": 383,
+        "score": 3,
+        "participantName": "France",
+        "teamShortName": "FRA",
+        "teamMiddleName": "France",
+        "logo": "https://api.statorium.com/media/bearleague/bl17153621012849.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 114200,
+      "matchDate": "2025-11-13",
+      "matchTime": "19:45",
+      "minutes_played": 23,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 383,
+        "score": 4,
+        "participantName": "France",
+        "teamShortName": "FRA",
+        "teamMiddleName": "France",
+        "logo": "https://api.statorium.com/media/bearleague/bl17153621012849.webp"
+      },
+      "awayParticipant": {
+        "participantID": 393,
+        "score": 0,
+        "participantName": "Ukraine",
+        "teamShortName": "UKR",
+        "teamMiddleName": "Ukraine",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715363488356.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "88"
+        }
+      ]
+    },
+    {
+      "matchID": 121242,
+      "matchDate": "2025-11-09",
+      "matchTime": "16:30",
+      "minutes_played": 56,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 4,
+        "score": 3,
+        "participantName": "Manchester City",
+        "teamShortName": "MCI",
+        "teamMiddleName": "Man City",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151024711246.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 0,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 134345,
+      "matchDate": "2025-11-04",
+      "matchTime": "20:00",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 37,
+        "score": 0,
+        "participantName": "Real Madrid",
+        "teamShortName": "RMA",
+        "teamMiddleName": "Real Madrid",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567955971871.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121231,
+      "matchDate": "2025-11-01",
+      "matchTime": "20:00",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 2,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 112,
+        "score": 0,
+        "participantName": "Aston Villa",
+        "teamShortName": "AVL",
+        "teamMiddleName": "Aston Villa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121220,
+      "matchDate": "2025-10-25",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 186,
+        "score": 3,
+        "participantName": "Brentford FC",
+        "teamShortName": "BRE",
+        "teamMiddleName": "Brentford",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151020531622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 2,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 134322,
+      "matchDate": "2025-10-22",
+      "matchTime": "19:00",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 5,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "35"
+        }
+      ]
+    },
+    {
+      "matchID": 121211,
+      "matchDate": "2025-10-19",
+      "matchTime": "15:30",
+      "minutes_played": 28,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 7,
+        "score": 2,
+        "participantName": "Manchester United",
+        "teamShortName": "MUN",
+        "teamMiddleName": "Man Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 114195,
+      "matchDate": "2025-10-13",
+      "matchTime": "18:45",
+      "minutes_played": 1,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 678,
+        "score": 2,
+        "participantName": "Iceland",
+        "teamShortName": "ISL",
+        "teamMiddleName": "Iceland",
+        "logo": "https://api.statorium.com/media/bearleague/bl16004162681449.webp"
+      },
+      "awayParticipant": {
+        "participantID": 383,
+        "score": 2,
+        "participantName": "France",
+        "teamShortName": "FRA",
+        "teamMiddleName": "France",
+        "logo": "https://api.statorium.com/media/bearleague/bl17153621012849.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 114187,
+      "matchDate": "2025-10-10",
+      "matchTime": "18:45",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 383,
+        "score": 3,
+        "participantName": "France",
+        "teamShortName": "FRA",
+        "teamMiddleName": "France",
+        "logo": "https://api.statorium.com/media/bearleague/bl17153621012849.webp"
+      },
+      "awayParticipant": {
+        "participantID": 664,
+        "score": 0,
+        "participantName": "Azerbaijan",
+        "teamShortName": "AZE",
+        "teamMiddleName": "Azerbaijan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1600415830135.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "45"
+        }
+      ]
+    },
+    {
+      "matchID": 121201,
+      "matchDate": "2025-10-04",
+      "matchTime": "16:30",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 8,
+        "score": 2,
+        "participantName": "Chelsea FC",
+        "teamShortName": "CHE",
+        "teamMiddleName": "Chelsea",
+        "logo": "https://api.statorium.com/media/bearleague/bl1756795498585.png"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 134329,
+      "matchDate": "2025-09-30",
+      "matchTime": "19:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 125,
+        "score": 1,
+        "participantName": "Galatasaray SK",
+        "teamShortName": "GSK",
+        "teamMiddleName": "Galatasaray",
+        "logo": "https://api.statorium.com/media/bearleague/bl1751882729606.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 0,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 134257,
+      "matchDate": "2025-09-23",
+      "matchTime": "19:00",
+      "minutes_played": 40,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 2,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 17,
+        "score": 1,
+        "participantName": "Southampton FC",
+        "teamShortName": "SOU",
+        "teamMiddleName": "Southampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552486916606.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "53"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "85"
+        },
+        {
+          "eventID": 6,
+          "eventName": "Second yellow",
+          "minutes": "86"
+        }
+      ]
+    },
+    {
+      "matchID": 121182,
+      "matchDate": "2025-09-20",
+      "matchTime": "11:30",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 2,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 6,
+        "score": 1,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "29"
+        }
+      ]
+    },
+    {
+      "matchID": 134342,
+      "matchDate": "2025-09-17",
+      "matchTime": "19:00",
+      "minutes_played": 32,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 3,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 39,
+        "score": 2,
+        "participantName": "Atlético Madrid",
+        "teamShortName": "ATM",
+        "teamMiddleName": "Atl. Madrid",
+        "logo": "https://api.statorium.com/media/bearleague/bl1751458818463.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121170,
+      "matchDate": "2025-09-14",
+      "matchTime": "13:00",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 12,
+        "score": 0,
+        "participantName": "Burnley FC",
+        "teamShortName": "BUR",
+        "teamMiddleName": "Burnley",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102124426.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 114174,
+      "matchDate": "2025-09-05",
+      "matchTime": "18:45",
+      "minutes_played": 9,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 393,
+        "score": 0,
+        "participantName": "Ukraine",
+        "teamShortName": "UKR",
+        "teamMiddleName": "Ukraine",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715363488356.webp"
+      },
+      "awayParticipant": {
+        "participantID": 383,
+        "score": 2,
+        "participantName": "France",
+        "teamShortName": "FRA",
+        "teamMiddleName": "France",
+        "logo": "https://api.statorium.com/media/bearleague/bl17153621012849.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121161,
+      "matchDate": "2025-08-31",
+      "matchTime": "15:30",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 9,
+        "score": 0,
+        "participantName": "Arsenal FC",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715101847747.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 121155,
+      "matchDate": "2025-08-25",
+      "matchTime": "19:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 10,
+        "score": 2,
+        "participantName": "Newcastle United FC",
+        "teamShortName": "NEW",
+        "teamMiddleName": "Newcastle",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102537848.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 3,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "46"
+        }
+      ]
+    },
+    {
+      "matchID": 121137,
+      "matchDate": "2025-08-15",
+      "matchTime": "19:00",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 4,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 16,
+        "score": 2,
+        "participantName": "AFC Bournemouth",
+        "teamShortName": "BOU",
+        "teamMiddleName": "Bournemouth",
+        "logo": "https://api.statorium.com/media/bearleague/bl171510179519.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "49"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "37"
+        }
+      ]
+    },
+    {
+      "matchID": 86663,
+      "matchDate": "2025-05-17",
+      "matchTime": "13:30",
+      "minutes_played": 89,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 58,
+        "score": 1,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 3,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "61"
+        }
+      ]
+    },
+    {
+      "matchID": 86654,
+      "matchDate": "2025-05-11",
+      "matchTime": "15:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 912,
+        "score": 2,
+        "participantName": "FC St. Pauli",
+        "teamShortName": "STP",
+        "teamMiddleName": "St. Pauli",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154603742135.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86647,
+      "matchDate": "2025-05-04",
+      "matchTime": "17:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 50,
+        "score": 1,
+        "participantName": "1. FSV Mainz 05",
+        "teamShortName": "MAI",
+        "teamMiddleName": "Mainz 05",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968832533.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "16"
+        }
+      ]
+    },
+    {
+      "matchID": 86636,
+      "matchDate": "2025-04-26",
+      "matchTime": "16:30",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 4,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 45,
+        "score": 0,
+        "participantName": "RB Leipzig",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Leipzig",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960002046.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "21"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "67"
+        }
+      ]
+    },
+    {
+      "matchID": 86624,
+      "matchDate": "2025-04-20",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 44,
+        "score": 0,
+        "participantName": "FC Augsburg",
+        "teamShortName": "AUG",
+        "teamMiddleName": "Augsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296441461.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 0,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 113617,
+      "matchDate": "2025-04-17",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 0,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 2,
+        "score": 1,
+        "participantName": "Tottenham Hotspur FC",
+        "teamShortName": "TOT",
+        "teamMiddleName": "Tottenham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86619,
+      "matchDate": "2025-04-13",
+      "matchTime": "15:30",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 3,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 910,
+        "score": 0,
+        "participantName": "1. FC Heidenheim 1846",
+        "teamShortName": "FCH",
+        "teamMiddleName": "Heidenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl171629679138.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "42"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "30"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "71"
+        }
+      ]
+    },
+    {
+      "matchID": 113615,
+      "matchDate": "2025-04-10",
+      "matchTime": "19:00",
+      "minutes_played": 89,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 2,
+        "score": 1,
+        "participantName": "Tottenham Hotspur FC",
+        "teamShortName": "TOT",
+        "teamMiddleName": "Tottenham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "6"
+        }
+      ]
+    },
+    {
+      "matchID": 86614,
+      "matchDate": "2025-04-05",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 43,
+        "score": 2,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 0,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86601,
+      "matchDate": "2025-03-29",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 56,
+        "score": 0,
+        "participantName": "VfB Stuttgart",
+        "teamShortName": "STU",
+        "teamMiddleName": "Stuttgart",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716295960587.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86589,
+      "matchDate": "2025-03-16",
+      "matchTime": "14:30",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 905,
+        "score": 1,
+        "participantName": "VfL Bochum",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Bochum",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162964901569.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 3,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "32"
+        }
+      ]
+    },
+    {
+      "matchID": 112738,
+      "matchDate": "2025-03-13",
+      "matchTime": "17:45",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 4,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 137,
+        "score": 1,
+        "participantName": "AFC Ajax",
+        "teamShortName": "AJA",
+        "teamMiddleName": "Ajax",
+        "logo": "https://api.statorium.com/media/bearleague/bl17514785302220.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "7"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "67"
+        }
+      ]
+    },
+    {
+      "matchID": 86583,
+      "matchDate": "2025-03-09",
+      "matchTime": "14:30",
+      "minutes_played": 30,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 2,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 8,
+          "eventName": "Missed penalty",
+          "minutes": "90+5"
+        }
+      ]
+    },
+    {
+      "matchID": 112729,
+      "matchDate": "2025-03-06",
+      "matchTime": "20:00",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 137,
+        "score": 1,
+        "participantName": "AFC Ajax",
+        "teamShortName": "AJA",
+        "teamMiddleName": "Ajax",
+        "logo": "https://api.statorium.com/media/bearleague/bl17514785302220.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86572,
+      "matchDate": "2025-03-01",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 57,
+        "score": 4,
+        "participantName": "Bayer 04 Leverkusen",
+        "teamShortName": "B04",
+        "teamMiddleName": "Leverkusen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716291195914.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "37"
+        }
+      ]
+    },
+    {
+      "matchID": 86562,
+      "matchDate": "2025-02-23",
+      "matchTime": "16:30",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 47,
+        "score": 4,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 0,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86555,
+      "matchDate": "2025-02-16",
+      "matchTime": "16:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 3,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 906,
+        "score": 1,
+        "participantName": "Holstein Kiel",
+        "teamShortName": "HOL",
+        "teamMiddleName": "Holstein Kiel",
+        "logo": "https://api.statorium.com/media/bearleague/bl16558251361774.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 8,
+          "eventName": "Missed penalty",
+          "minutes": "45"
+        }
+      ]
+    },
+    {
+      "matchID": 86543,
+      "matchDate": "2025-02-08",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 49,
+        "score": 1,
+        "participantName": "Borussia Mönchengladbach",
+        "teamShortName": "BMG",
+        "teamMiddleName": "Borussia M'gladbach",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968492930.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "31"
+        }
+      ]
+    },
+    {
+      "matchID": 86537,
+      "matchDate": "2025-02-02",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 48,
+        "score": 1,
+        "participantName": "VfL Wolfsburg",
+        "teamShortName": "WOB",
+        "teamMiddleName": "Wolfsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296213736.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 97513,
+      "matchDate": "2025-01-30",
+      "matchTime": "20:00",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 91,
+        "score": 2,
+        "participantName": "AS Roma",
+        "teamShortName": "ROM",
+        "teamMiddleName": "Roma",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567965862643.png"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 0,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86529,
+      "matchDate": "2025-01-26",
+      "matchTime": "14:30",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 54,
+        "score": 2,
+        "participantName": "TSG 1899 Hoffenheim",
+        "teamShortName": "TSG",
+        "teamMiddleName": "Hoffenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162961331369.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "26"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "71"
+        }
+      ]
+    },
+    {
+      "matchID": 97545,
+      "matchDate": "2025-01-23",
+      "matchTime": "20:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 163,
+        "score": 0,
+        "participantName": "Ferencvárosi TC",
+        "teamShortName": "FTC",
+        "teamMiddleName": "Ferencvárosi",
+        "logo": "https://api.statorium.com/media/bearleague/bl16909311191628.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "59"
+        }
+      ]
+    },
+    {
+      "matchID": 86519,
+      "matchDate": "2025-01-17",
+      "matchTime": "19:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 42,
+        "score": 0,
+        "participantName": "Borussia Dortmund",
+        "teamShortName": "BVB",
+        "teamMiddleName": "Dortmund",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567958801272.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "18"
+        }
+      ]
+    },
+    {
+      "matchID": 86510,
+      "matchDate": "2025-01-14",
+      "matchTime": "19:30",
+      "minutes_played": 81,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 4,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 58,
+        "score": 1,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "71"
+        }
+      ]
+    },
+    {
+      "matchID": 86506,
+      "matchDate": "2025-01-11",
+      "matchTime": "14:30",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 912,
+        "score": 0,
+        "participantName": "FC St. Pauli",
+        "teamShortName": "STP",
+        "teamMiddleName": "St. Pauli",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154603742135.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86492,
+      "matchDate": "2024-12-21",
+      "matchTime": "14:30",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 50,
+        "score": 3,
+        "participantName": "1. FSV Mainz 05",
+        "teamShortName": "MAI",
+        "teamMiddleName": "Mainz 05",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968832533.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86486,
+      "matchDate": "2024-12-15",
+      "matchTime": "18:30",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 45,
+        "score": 2,
+        "participantName": "RB Leipzig",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Leipzig",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960002046.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 97491,
+      "matchDate": "2024-12-12",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 61,
+        "score": 3,
+        "participantName": "Olympique Lyonnais",
+        "teamShortName": "LYO",
+        "teamMiddleName": "Lyon",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719350250782.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "18"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "74"
+        }
+      ]
+    },
+    {
+      "matchID": 86475,
+      "matchDate": "2024-12-07",
+      "matchTime": "14:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 44,
+        "score": 2,
+        "participantName": "FC Augsburg",
+        "teamShortName": "AUG",
+        "teamMiddleName": "Augsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296441461.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "55"
+        }
+      ]
+    },
+    {
+      "matchID": 103599,
+      "matchDate": "2024-12-04",
+      "matchTime": "19:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 45,
+        "score": 3,
+        "participantName": "RB Leipzig",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Leipzig",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960002046.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 0,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86465,
+      "matchDate": "2024-12-01",
+      "matchTime": "16:30",
+      "minutes_played": 17,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 910,
+        "score": 0,
+        "participantName": "1. FC Heidenheim 1846",
+        "teamShortName": "FCH",
+        "teamMiddleName": "Heidenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl171629679138.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 4,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+4"
+        }
+      ]
+    },
+    {
+      "matchID": 97475,
+      "matchDate": "2024-11-28",
+      "matchTime": "20:00",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 714,
+        "score": 1,
+        "participantName": "FC Midtjylland",
+        "teamShortName": "FCM",
+        "teamMiddleName": "Midtjylland",
+        "logo": "https://api.statorium.com/media/bearleague/bl16021396631960.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86457,
+      "matchDate": "2024-11-23",
+      "matchTime": "17:30",
+      "minutes_played": 89,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 43,
+        "score": 0,
+        "participantName": "SV Werder Bremen",
+        "teamShortName": "SVW",
+        "teamMiddleName": "Bremen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296399622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "45"
+        }
+      ]
+    },
+    {
+      "matchID": 86450,
+      "matchDate": "2024-11-10",
+      "matchTime": "16:30",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 56,
+        "score": 2,
+        "participantName": "VfB Stuttgart",
+        "teamShortName": "STU",
+        "teamMiddleName": "Stuttgart",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716295960587.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 3,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "45"
+        }
+      ]
+    },
+    {
+      "matchID": 97451,
+      "matchDate": "2024-11-07",
+      "matchTime": "17:45",
+      "minutes_played": 21,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 127,
+        "score": 0,
+        "participantName": "SK Slavia Praha",
+        "teamShortName": "SLA",
+        "teamMiddleName": "Slavia Praha",
+        "logo": "https://api.statorium.com/media/bearleague/bl1657896607868.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86439,
+      "matchDate": "2024-11-02",
+      "matchTime": "14:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 7,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 905,
+        "score": 2,
+        "participantName": "VfL Bochum",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Bochum",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162964901569.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "9"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "69"
+        }
+      ]
+    },
+    {
+      "matchID": 86433,
+      "matchDate": "2024-10-27",
+      "matchTime": "16:30",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 118,
+        "score": 1,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 97437,
+      "matchDate": "2024-10-24",
+      "matchTime": "16:45",
+      "minutes_played": 32,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1457,
+        "score": 0,
+        "participantName": "FK RFS",
+        "teamShortName": "RFS",
+        "teamMiddleName": "RFS",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719701789112.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86418,
+      "matchDate": "2024-10-19",
+      "matchTime": "13:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 57,
+        "score": 2,
+        "participantName": "Bayer 04 Leverkusen",
+        "teamShortName": "B04",
+        "teamMiddleName": "Leverkusen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716291195914.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86411,
+      "matchDate": "2024-10-06",
+      "matchTime": "15:30",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 3,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 47,
+        "score": 3,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "35"
+        }
+      ]
+    },
+    {
+      "matchID": 97428,
+      "matchDate": "2024-10-03",
+      "matchTime": "19:00",
+      "minutes_played": 27,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 168,
+        "score": 1,
+        "participantName": "Beşiktaş JK",
+        "teamShortName": "BJK",
+        "teamMiddleName": "Beşiktaş",
+        "logo": "https://api.statorium.com/media/bearleague/bl1599745030725.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 3,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "90+1"
+        }
+      ]
+    },
+    {
+      "matchID": 97417,
+      "matchDate": "2024-09-26",
+      "matchTime": "19:00",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 3,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 687,
+        "score": 3,
+        "participantName": "FC Viktoria Plzeň",
+        "teamShortName": "VIK",
+        "teamMiddleName": "Viktoria Plzeň",
+        "logo": "https://api.statorium.com/media/bearleague/bl16004187702148.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "38"
+        },
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "62"
+        }
+      ]
+    },
+    {
+      "matchID": 86393,
+      "matchDate": "2024-09-21",
+      "matchTime": "16:30",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 49,
+        "score": 0,
+        "participantName": "Borussia Mönchengladbach",
+        "teamShortName": "BMG",
+        "teamMiddleName": "Borussia M'gladbach",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968492930.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86389,
+      "matchDate": "2024-09-14",
+      "matchTime": "13:30",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 48,
+        "score": 1,
+        "participantName": "VfL Wolfsburg",
+        "teamShortName": "WOB",
+        "teamMiddleName": "Wolfsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296213736.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "30"
+        }
+      ]
+    },
+    {
+      "matchID": 86375,
+      "matchDate": "2024-08-31",
+      "matchTime": "13:30",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 3,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 54,
+        "score": 1,
+        "participantName": "TSG 1899 Hoffenheim",
+        "teamShortName": "TSG",
+        "teamMiddleName": "Hoffenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162961331369.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "33"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "24"
+        }
+      ]
+    },
+    {
+      "matchID": 86365,
+      "matchDate": "2024-08-24",
+      "matchTime": "16:30",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 42,
+        "score": 2,
+        "participantName": "Borussia Dortmund",
+        "teamShortName": "BVB",
+        "teamMiddleName": "Dortmund",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567958801272.png"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 0,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63221,
+      "matchDate": "2024-05-18",
+      "matchTime": "13:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 45,
+        "score": 2,
+        "participantName": "RB Leipzig",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Leipzig",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960002046.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "60"
+        }
+      ]
+    },
+    {
+      "matchID": 63211,
+      "matchDate": "2024-05-11",
+      "matchTime": "13:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 49,
+        "score": 1,
+        "participantName": "Borussia Mönchengladbach",
+        "teamShortName": "BMG",
+        "teamMiddleName": "Borussia M'gladbach",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162968492930.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "35"
+        }
+      ]
+    },
+    {
+      "matchID": 63202,
+      "matchDate": "2024-05-05",
+      "matchTime": "15:30",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 57,
+        "score": 5,
+        "participantName": "Bayer 04 Leverkusen",
+        "teamShortName": "B04",
+        "teamMiddleName": "Leverkusen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716291195914.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "32"
+        }
+      ]
+    },
+    {
+      "matchID": 63195,
+      "matchDate": "2024-04-27",
+      "matchTime": "13:30",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 47,
+        "score": 2,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "23"
+        }
+      ]
+    },
+    {
+      "matchID": 63184,
+      "matchDate": "2024-04-19",
+      "matchTime": "18:30",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 3,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 44,
+        "score": 1,
+        "participantName": "FC Augsburg",
+        "teamShortName": "AUG",
+        "teamMiddleName": "Augsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296441461.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "61"
+        }
+      ]
+    },
+    {
+      "matchID": 63182,
+      "matchDate": "2024-04-13",
+      "matchTime": "16:30",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 56,
+        "score": 3,
+        "participantName": "VfB Stuttgart",
+        "teamShortName": "STU",
+        "teamMiddleName": "Stuttgart",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716295960587.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 0,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63161,
+      "matchDate": "2024-03-30",
+      "matchTime": "14:30",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 0,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 118,
+        "score": 0,
+        "participantName": "1. FC Union Berlin",
+        "teamShortName": "FCU",
+        "teamMiddleName": "Union Berlin",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162960312259.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "24"
+        }
+      ]
+    },
+    {
+      "matchID": 63148,
+      "matchDate": "2024-03-17",
+      "matchTime": "16:30",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 42,
+        "score": 3,
+        "participantName": "Borussia Dortmund",
+        "teamShortName": "BVB",
+        "teamMiddleName": "Dortmund",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567958801272.png"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63143,
+      "matchDate": "2024-03-10",
+      "matchTime": "16:30",
+      "minutes_played": 18,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 3,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 54,
+        "score": 1,
+        "participantName": "TSG 1899 Hoffenheim",
+        "teamShortName": "TSG",
+        "teamMiddleName": "Hoffenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162961331369.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63133,
+      "matchDate": "2024-03-02",
+      "matchTime": "14:30",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 910,
+        "score": 1,
+        "participantName": "1. FC Heidenheim 1846",
+        "teamShortName": "FCH",
+        "teamMiddleName": "Heidenheim",
+        "logo": "https://api.statorium.com/media/bearleague/bl171629679138.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "77"
+        }
+      ]
+    },
+    {
+      "matchID": 63125,
+      "matchDate": "2024-02-25",
+      "matchTime": "14:30",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 48,
+        "score": 2,
+        "participantName": "VfL Wolfsburg",
+        "teamShortName": "WOB",
+        "teamMiddleName": "Wolfsburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296213736.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "14"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "41"
+        }
+      ]
+    },
+    {
+      "matchID": 73790,
+      "matchDate": "2024-02-22",
+      "matchTime": "20:00",
+      "minutes_played": 28,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 970,
+        "score": 2,
+        "participantName": "Royale Union Saint-Gilloise",
+        "teamShortName": "USG",
+        "teamMiddleName": "Union SG",
+        "logo": "https://api.statorium.com/media/bearleague/bl1750070283899.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 73785,
+      "matchDate": "2024-02-15",
+      "matchTime": "17:45",
+      "minutes_played": 25,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 970,
+        "score": 2,
+        "participantName": "Royale Union Saint-Gilloise",
+        "teamShortName": "USG",
+        "teamMiddleName": "Union SG",
+        "logo": "https://api.statorium.com/media/bearleague/bl1750070283899.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 2,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63106,
+      "matchDate": "2024-02-10",
+      "matchTime": "14:30",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 46,
+        "score": 1,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "awayParticipant": {
+        "participantID": 905,
+        "score": 1,
+        "participantName": "VfL Bochum",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Bochum",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162964901569.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 63096,
+      "matchDate": "2024-02-03",
+      "matchTime": "17:30",
+      "minutes_played": 13,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 117,
+        "score": 2,
+        "participantName": "1. FC Köln",
+        "teamShortName": "KOE",
+        "teamMiddleName": "Köln",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296756304.webp"
+      },
+      "awayParticipant": {
+        "participantID": 46,
+        "score": 0,
+        "participantName": "Eintracht Frankfurt",
+        "teamShortName": "SGE",
+        "teamMiddleName": "Frankfurt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716296340413.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 60689,
+      "matchDate": "2023-08-12",
+      "matchTime": "19:00",
+      "minutes_played": 8,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 0,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 545,
+        "score": 0,
+        "participantName": "FC Lorient",
+        "teamShortName": "FCL",
+        "teamMiddleName": "Lorient",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376354282.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40144,
+      "matchDate": "2023-06-03",
+      "matchTime": "19:00",
+      "minutes_played": 57,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 2,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 622,
+        "score": 3,
+        "participantName": "Clermont Foot 63",
+        "teamShortName": "CFA",
+        "teamMiddleName": "Clermont",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376312976.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40270,
+      "matchDate": "2023-05-21",
+      "matchTime": "18:45",
+      "minutes_played": 55,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 619,
+        "score": 1,
+        "participantName": "AJ Auxerre",
+        "teamShortName": "AJA",
+        "teamMiddleName": "Auxerre",
+        "logo": "https://api.statorium.com/media/bearleague/bl15979273992750.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 2,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40268,
+      "matchDate": "2023-05-13",
+      "matchTime": "19:00",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 5,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 618,
+        "score": 0,
+        "participantName": "AC Ajaccio",
+        "teamShortName": "ACA",
+        "teamMiddleName": "Ajaccio",
+        "logo": "https://api.statorium.com/media/bearleague/bl15979273442218.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "47"
+        }
+      ]
+    },
+    {
+      "matchID": 40117,
+      "matchDate": "2023-05-07",
+      "matchTime": "18:45",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 632,
+        "score": 1,
+        "participantName": "Troyes AC",
+        "teamShortName": "EST",
+        "teamMiddleName": "Troyes",
+        "logo": "https://api.statorium.com/media/bearleague/bl15979297741683.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 3,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40107,
+      "matchDate": "2023-04-30",
+      "matchTime": "15:05",
+      "minutes_played": 25,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 1,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 545,
+        "score": 3,
+        "participantName": "FC Lorient",
+        "teamShortName": "FCL",
+        "teamMiddleName": "Lorient",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376354282.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40080,
+      "matchDate": "2023-04-02",
+      "matchTime": "18:45",
+      "minutes_played": 30,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 0,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 61,
+        "score": 1,
+        "participantName": "Olympique Lyonnais",
+        "teamShortName": "LYO",
+        "teamMiddleName": "Lyon",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719350250782.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40072,
+      "matchDate": "2023-03-19",
+      "matchTime": "16:05",
+      "minutes_played": 34,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 0,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 67,
+        "score": 2,
+        "participantName": "Stade Rennais FC",
+        "teamShortName": "REN",
+        "teamMiddleName": "Rennes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764402365.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40061,
+      "matchDate": "2023-03-11",
+      "matchTime": "20:00",
+      "minutes_played": 9,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 121,
+        "score": 1,
+        "participantName": "Stade Brestois 29",
+        "teamShortName": "STB",
+        "teamMiddleName": "Brest",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376492975.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 2,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 51240,
+      "matchDate": "2023-03-08",
+      "matchTime": "20:00",
+      "minutes_played": 9,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 47,
+        "score": 2,
+        "participantName": "FC Bayern München",
+        "teamShortName": "BAY",
+        "teamMiddleName": "Bayern",
+        "logo": "https://api.statorium.com/media/bearleague/bl17295151342331.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 0,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40043,
+      "matchDate": "2023-02-19",
+      "matchTime": "12:00",
+      "minutes_played": 39,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 4,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 69,
+        "score": 3,
+        "participantName": "LOSC Lille",
+        "teamShortName": "LIL",
+        "teamMiddleName": "Lille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766862077.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40036,
+      "matchDate": "2023-02-11",
+      "matchTime": "16:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 76,
+        "score": 3,
+        "participantName": "AS Monaco",
+        "teamShortName": "ASM",
+        "teamMiddleName": "Monaco",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163762842259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 1,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 53711,
+      "matchDate": "2023-02-08",
+      "matchTime": "20:10",
+      "minutes_played": 27,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 59,
+        "score": 2,
+        "participantName": "Olympique de Marseille",
+        "teamShortName": "OLM",
+        "teamMiddleName": "Marseille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766362986.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 1,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40168,
+      "matchDate": "2023-02-04",
+      "matchTime": "16:00",
+      "minutes_played": 89,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 2,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 1,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40022,
+      "matchDate": "2023-02-01",
+      "matchTime": "20:00",
+      "minutes_played": 69,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 65,
+        "score": 1,
+        "participantName": "HSC Montpellier",
+        "teamShortName": "MPL",
+        "teamMiddleName": "Montpellier",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163767271425.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 3,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "55"
+        }
+      ]
+    },
+    {
+      "matchID": 53647,
+      "matchDate": "2023-01-23",
+      "matchTime": "19:45",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1685,
+        "score": 0,
+        "participantName": "US Pays de Cassel",
+        "teamShortName": "PDC",
+        "teamMiddleName": "Pays de Cassel",
+        "logo": "https://api.statorium.com/media/bearleague/bl16670055082232.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 7,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40011,
+      "matchDate": "2023-01-15",
+      "matchTime": "19:45",
+      "minutes_played": 55,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 67,
+        "score": 1,
+        "participantName": "Stade Rennais FC",
+        "teamShortName": "REN",
+        "teamMiddleName": "Rennes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764402365.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 0,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40002,
+      "matchDate": "2023-01-11",
+      "matchTime": "20:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 2,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 70,
+        "score": 0,
+        "participantName": "Angers SCO",
+        "teamShortName": "ANG",
+        "teamMiddleName": "Angers",
+        "logo": "https://api.statorium.com/media/bearleague/bl17193504121110.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "5"
+        }
+      ]
+    },
+    {
+      "matchID": 40233,
+      "matchDate": "2023-01-01",
+      "matchTime": "19:45",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 3,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 1,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "8"
+        }
+      ]
+    },
+    {
+      "matchID": 39987,
+      "matchDate": "2022-12-28",
+      "matchTime": "20:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 2,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 68,
+        "score": 1,
+        "participantName": "RC Strasbourg Alsace",
+        "teamShortName": "STR",
+        "teamMiddleName": "Strasbourg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765141904.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40230,
+      "matchDate": "2022-11-13",
+      "matchTime": "12:00",
+      "minutes_played": 15,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 5,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 619,
+        "score": 0,
+        "participantName": "AJ Auxerre",
+        "teamShortName": "AJA",
+        "teamMiddleName": "Auxerre",
+        "logo": "https://api.statorium.com/media/bearleague/bl15979273992750.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "81"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "84"
+        }
+      ]
+    },
+    {
+      "matchID": 39972,
+      "matchDate": "2022-11-06",
+      "matchTime": "12:00",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 545,
+        "score": 1,
+        "participantName": "FC Lorient",
+        "teamShortName": "FCL",
+        "teamMiddleName": "Lorient",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376354282.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 2,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "9"
+        }
+      ]
+    },
+    {
+      "matchID": 49200,
+      "matchDate": "2022-11-02",
+      "matchTime": "20:00",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 105,
+        "score": 1,
+        "participantName": "Juventus FC",
+        "teamShortName": "JUV",
+        "teamMiddleName": "Juventus",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716378301636.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 2,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 49161,
+      "matchDate": "2022-10-25",
+      "matchTime": "19:00",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 7,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1024,
+        "score": 2,
+        "participantName": "Maccabi Haifa FC",
+        "teamShortName": "MAC",
+        "teamMiddleName": "Maccabi Haifa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719440146383.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40224,
+      "matchDate": "2022-10-21",
+      "matchTime": "19:00",
+      "minutes_played": 7,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 618,
+        "score": 0,
+        "participantName": "AC Ajaccio",
+        "teamShortName": "ACA",
+        "teamMiddleName": "Ajaccio",
+        "logo": "https://api.statorium.com/media/bearleague/bl15979273442218.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 3,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 49129,
+      "matchDate": "2022-10-11",
+      "matchTime": "19:00",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 1,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 131,
+        "score": 1,
+        "participantName": "SL Benfica",
+        "teamShortName": "SLB",
+        "teamMiddleName": "Benfica",
+        "logo": "https://api.statorium.com/media/bearleague/bl1657210856628.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39937,
+      "matchDate": "2022-10-01",
+      "matchTime": "19:00",
+      "minutes_played": 59,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 2,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 64,
+        "score": 1,
+        "participantName": "OGC Nice",
+        "teamShortName": "NCE",
+        "teamMiddleName": "Nice",
+        "logo": "https://api.statorium.com/media/bearleague/bl171637666030.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39924,
+      "matchDate": "2022-09-10",
+      "matchTime": "15:00",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 1,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 121,
+        "score": 0,
+        "participantName": "Stade Brestois 29",
+        "teamShortName": "STB",
+        "teamMiddleName": "Brest",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376492975.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39916,
+      "matchDate": "2022-09-03",
+      "matchTime": "19:00",
+      "minutes_played": 20,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 60,
+        "score": 0,
+        "participantName": "FC Nantes",
+        "teamShortName": "NAN",
+        "teamMiddleName": "Nantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376414855.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 3,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40152,
+      "matchDate": "2022-08-31",
+      "matchTime": "19:00",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 0,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 3,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 40186,
+      "matchDate": "2022-08-06",
+      "matchTime": "19:00",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 622,
+        "score": 0,
+        "participantName": "Clermont Foot 63",
+        "teamShortName": "CFA",
+        "teamMiddleName": "Clermont",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376312976.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 5,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 28280,
+      "matchDate": "2022-05-21",
+      "matchTime": "19:00",
+      "minutes_played": 62,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 72,
+        "score": 2,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 64,
+        "score": 3,
+        "participantName": "OGC Nice",
+        "teamShortName": "NCE",
+        "teamMiddleName": "Nice",
+        "logo": "https://api.statorium.com/media/bearleague/bl171637666030.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "9"
+        }
+      ]
+    },
+    {
+      "matchID": 28268,
+      "matchDate": "2022-05-14",
+      "matchTime": "19:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 62,
+        "score": 1,
+        "participantName": "AS Saint-Étienne",
+        "teamShortName": "STE",
+        "teamMiddleName": "Saint-Étienne",
+        "logo": "https://api.statorium.com/media/bearleague/bl16667519592442.webp"
+      },
+      "awayParticipant": {
+        "participantID": 72,
+        "score": 2,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "61"
+        }
+      ]
+    },
+    {
+      "matchID": 28260,
+      "matchDate": "2022-05-08",
+      "matchTime": "13:00",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 72,
+        "score": 1,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 2,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 28148,
+      "matchDate": "2022-02-20",
+      "matchTime": "14:00",
+      "minutes_played": 16,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 72,
+        "score": 1,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 121,
+        "score": 1,
+        "participantName": "Stade Brestois 29",
+        "teamShortName": "STB",
+        "teamMiddleName": "Brest",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376492975.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 28139,
+      "matchDate": "2022-02-13",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 60,
+        "score": 1,
+        "participantName": "FC Nantes",
+        "teamShortName": "NAN",
+        "teamMiddleName": "Nantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376414855.webp"
+      },
+      "awayParticipant": {
+        "participantID": 72,
+        "score": 0,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 28126,
+      "matchDate": "2022-02-06",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 72,
+        "score": 5,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 75,
+        "score": 0,
+        "participantName": "FC Girondins Bordeaux",
+        "teamShortName": "BOR",
+        "teamMiddleName": "Bordeaux",
+        "logo": "https://api.statorium.com/media/bearleague/bl1659002397233.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 8,
+          "eventName": "Missed penalty",
+          "minutes": "40"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "40"
+        }
+      ]
+    },
+    {
+      "matchID": 28120,
+      "matchDate": "2022-01-23",
+      "matchTime": "19:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 4,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 72,
+        "score": 0,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 28085,
+      "matchDate": "2021-12-22",
+      "matchTime": "20:00",
+      "minutes_played": 29,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 59,
+        "score": 1,
+        "participantName": "Olympique de Marseille",
+        "teamShortName": "OLM",
+        "teamMiddleName": "Marseille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766362986.webp"
+      },
+      "awayParticipant": {
+        "participantID": 72,
+        "score": 1,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "75"
+        }
+      ]
+    },
+    {
+      "matchID": 28077,
+      "matchDate": "2021-12-11",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 72,
+        "score": 2,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 62,
+        "score": 0,
+        "participantName": "AS Saint-Étienne",
+        "teamShortName": "STE",
+        "teamMiddleName": "Saint-Étienne",
+        "logo": "https://api.statorium.com/media/bearleague/bl16667519592442.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "89"
+        }
+      ]
+    },
+    {
+      "matchID": 28069,
+      "matchDate": "2021-12-05",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 72,
+        "score": 1,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 70,
+        "score": 2,
+        "participantName": "Angers SCO",
+        "teamShortName": "ANG",
+        "teamMiddleName": "Angers",
+        "logo": "https://api.statorium.com/media/bearleague/bl17193504121110.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "59"
+        }
+      ]
+    },
+    {
+      "matchID": 28054,
+      "matchDate": "2021-12-01",
+      "matchTime": "20:00",
+      "minutes_played": 19,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 61,
+        "score": 1,
+        "participantName": "Olympique Lyonnais",
+        "teamShortName": "LYO",
+        "teamMiddleName": "Lyon",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719350250782.webp"
+      },
+      "awayParticipant": {
+        "participantID": 72,
+        "score": 2,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+4"
+        }
+      ]
+    },
+    {
+      "matchID": 28049,
+      "matchDate": "2021-11-28",
+      "matchTime": "14:00",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 72,
+        "score": 1,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 622,
+        "score": 0,
+        "participantName": "Clermont Foot 63",
+        "teamShortName": "CFA",
+        "teamMiddleName": "Clermont",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376312976.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 28039,
+      "matchDate": "2021-11-21",
+      "matchTime": "14:00",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 68,
+        "score": 1,
+        "participantName": "RC Strasbourg Alsace",
+        "teamShortName": "STR",
+        "teamMiddleName": "Strasbourg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765141904.webp"
+      },
+      "awayParticipant": {
+        "participantID": 72,
+        "score": 1,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "22"
+        }
+      ]
+    },
+    {
+      "matchID": 28028,
+      "matchDate": "2021-11-07",
+      "matchTime": "14:00",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 72,
+        "score": 0,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 76,
+        "score": 0,
+        "participantName": "AS Monaco",
+        "teamShortName": "ASM",
+        "teamMiddleName": "Monaco",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163762842259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 28012,
+      "matchDate": "2021-10-31",
+      "matchTime": "14:00",
+      "minutes_played": 59,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 75,
+        "score": 3,
+        "participantName": "FC Girondins Bordeaux",
+        "teamShortName": "BOR",
+        "teamMiddleName": "Bordeaux",
+        "logo": "https://api.statorium.com/media/bearleague/bl1659002397233.webp"
+      },
+      "awayParticipant": {
+        "participantID": 72,
+        "score": 2,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "37"
+        }
+      ]
+    },
+    {
+      "matchID": 27982,
+      "matchDate": "2021-10-01",
+      "matchTime": "19:00",
+      "minutes_played": 45,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 2,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 72,
+        "score": 0,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 7,
+          "eventName": "Red card",
+          "minutes": "45"
+        }
+      ]
+    },
+    {
+      "matchID": 27977,
+      "matchDate": "2021-09-26",
+      "matchTime": "13:00",
+      "minutes_played": 20,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 72,
+        "score": 3,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 60,
+        "score": 1,
+        "participantName": "FC Nantes",
+        "teamShortName": "NAN",
+        "teamMiddleName": "Nantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376414855.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "72"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "78"
+        }
+      ]
+    },
+    {
+      "matchID": 27963,
+      "matchDate": "2021-09-22",
+      "matchTime": "17:00",
+      "minutes_played": 59,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 69,
+        "score": 2,
+        "participantName": "LOSC Lille",
+        "teamShortName": "LIL",
+        "teamMiddleName": "Lille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766862077.webp"
+      },
+      "awayParticipant": {
+        "participantID": 72,
+        "score": 1,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27957,
+      "matchDate": "2021-09-19",
+      "matchTime": "13:00",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 72,
+        "score": 0,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 545,
+        "score": 0,
+        "participantName": "FC Lorient",
+        "teamShortName": "FCL",
+        "teamMiddleName": "Lorient",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376354282.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27950,
+      "matchDate": "2021-09-12",
+      "matchTime": "13:00",
+      "minutes_played": 59,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 67,
+        "score": 0,
+        "participantName": "Stade Rennais FC",
+        "teamShortName": "REN",
+        "teamMiddleName": "Rennes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764402365.webp"
+      },
+      "awayParticipant": {
+        "participantID": 72,
+        "score": 2,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "26"
+        }
+      ]
+    },
+    {
+      "matchID": 27938,
+      "matchDate": "2021-08-29",
+      "matchTime": "18:45",
+      "minutes_played": 9,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 72,
+        "score": 0,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 2,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "84"
+        }
+      ]
+    },
+    {
+      "matchID": 27924,
+      "matchDate": "2021-08-22",
+      "matchTime": "13:00",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 120,
+        "score": 1,
+        "participantName": "FC Metz",
+        "teamShortName": "FCM",
+        "teamMiddleName": "Metz",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163763902785.webp"
+      },
+      "awayParticipant": {
+        "participantID": 72,
+        "score": 1,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27920,
+      "matchDate": "2021-08-15",
+      "matchTime": "13:00",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 72,
+        "score": 3,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 65,
+        "score": 3,
+        "participantName": "HSC Montpellier",
+        "teamShortName": "MPL",
+        "teamMiddleName": "Montpellier",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163767271425.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "7"
+        }
+      ]
+    },
+    {
+      "matchID": 27907,
+      "matchDate": "2021-08-08",
+      "matchTime": "13:00",
+      "minutes_played": 30,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 64,
+        "score": 0,
+        "participantName": "OGC Nice",
+        "teamShortName": "NCE",
+        "teamMiddleName": "Nice",
+        "logo": "https://api.statorium.com/media/bearleague/bl171637666030.webp"
+      },
+      "awayParticipant": {
+        "participantID": 72,
+        "score": 0,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 11334,
+      "matchDate": "2020-10-25",
+      "matchTime": "14:00",
+      "minutes_played": 32,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 65,
+        "score": 0,
+        "participantName": "HSC Montpellier",
+        "teamShortName": "MPL",
+        "teamMiddleName": "Montpellier",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163767271425.webp"
+      },
+      "awayParticipant": {
+        "participantID": 72,
+        "score": 4,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 11326,
+      "matchDate": "2020-10-17",
+      "matchTime": "15:00",
+      "minutes_played": 55,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 72,
+        "score": 1,
+        "participantName": "Stade de Reims",
+        "teamShortName": "SDR",
+        "teamMiddleName": "Reims",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764701386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 545,
+        "score": 3,
+        "participantName": "FC Lorient",
+        "teamShortName": "FCL",
+        "teamMiddleName": "Lorient",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376354282.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "45+2"
+        }
+      ]
+    }
+  ]
+}

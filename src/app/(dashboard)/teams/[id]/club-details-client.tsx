@@ -138,7 +138,22 @@ export default function ClubDetailsClient({
   const fws = allPlayers.filter((p: any) => p.position === 'FW' || p.position === 'ST' || p.position === 'RW' || p.position === 'LW');
 
   const getPVal = useCallback((arr: any[], keys: string[]) => {
-    return (arr || []).reduce((acc, s) => {
+    // Filter for current season 25/26
+    const currentSeasonStats = (arr || []).filter((s: any) => 
+      (s.season_name && (
+        s.season_name.includes('2025-26') || 
+        s.season_name.includes('2025/26') ||
+        s.season_name.includes('25-26') || 
+        s.season_name.includes('25/26') ||
+        s.season_name.includes('2025-2026') ||
+        s.season_name.includes('2025/2026')
+      )) ||
+      (arr.length === 1)
+    );
+
+    const targetStats = currentSeasonStats.length > 0 ? currentSeasonStats : [];
+
+    return targetStats.reduce((acc, s) => {
       let val = 0;
       for (const k of keys) {
         const actualKey = Object.keys(s).find(sk => sk.toLowerCase() === k.toLowerCase());
@@ -182,17 +197,17 @@ export default function ClubDetailsClient({
          <div className="lg:col-span-3 space-y-8">
             <div className="flex items-center justify-between">
                <div className="flex items-center gap-6">
-                  <h2 className="text-xl font-black italic tracking-tighter uppercase text-secondary-500 flex items-center gap-4">
-                     <div className="w-12 h-1 bg-secondary-500" />
+                  <h2 className="text-xl font-black italic tracking-tighter uppercase text-emerald-500 flex items-center gap-4">
+                     <div className="w-12 h-1 bg-emerald-500" />
                      Squad Management Engine
                   </h2>
                   <div className="h-10 w-px bg-border hidden md:block" />
                   <div className="hidden lg:flex items-center gap-3">
-                     <div className="w-8 h-8 rounded-lg bg-secondary-500/10 flex items-center justify-center">
-                        <Users className="w-4 h-4 text-secondary-500" />
+                     <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                        <Users className="w-4 h-4 text-emerald-500" />
                      </div>
                      <div>
-                        <p className="text-[7px] font-black text-secondary-500 uppercase tracking-widest leading-none mb-1">Head Coach</p>
+                        <p className="text-[7px] font-black text-emerald-500 uppercase tracking-widest leading-none mb-1">Head Coach</p>
                         <p className="text-sm font-black italic tracking-tight leading-none text-foreground">{teamDetails.coach || "Unassigned"}</p>
                      </div>
                   </div>
@@ -200,13 +215,13 @@ export default function ClubDetailsClient({
                <div className="flex gap-2">
                   <button 
                      onClick={() => setActiveTab('lineup')}
-                     className={`px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'lineup' ? 'bg-secondary-500 text-black shadow-lg shadow-secondary-500/20' : 'bg-muted text-muted-foreground hover:bg-accent hover:text-foreground'}`}
+                     className={`px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'lineup' ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20' : 'bg-muted text-muted-foreground hover:bg-accent hover:text-foreground'}`}
                   >
                      Tactical View
                   </button>
                   <button 
                      onClick={() => setActiveTab('squad')}
-                     className={`px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'squad' ? 'bg-secondary-500 text-black shadow-lg shadow-secondary-500/20' : 'bg-muted text-muted-foreground hover:bg-accent hover:text-foreground'}`}
+                     className={`px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'squad' ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20' : 'bg-muted text-muted-foreground hover:bg-accent hover:text-foreground'}`}
                   >
                      Full Squad
                   </button>
@@ -227,7 +242,7 @@ export default function ClubDetailsClient({
                         <button
                            key={f.id}
                            onClick={() => setFilterPos(f.id as any)}
-                           className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${filterPos === f.id ? 'bg-secondary-500 text-black shadow-lg shadow-secondary-500/20' : 'text-muted-foreground hover:text-foreground hover:bg-muted'}`}
+                           className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${filterPos === f.id ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20' : 'text-muted-foreground hover:text-foreground hover:bg-muted'}`}
                         >
                            {f.label}
                         </button>
@@ -238,20 +253,38 @@ export default function ClubDetailsClient({
 
             {activeTab === 'lineup' ? (
                <div className="space-y-12">
-                  <div className="relative aspect-[16/9] bg-secondary-950/20 dark:bg-[#0a1a12] rounded-[4rem] border-[12px] border-muted dark:border-white/5 overflow-hidden shadow-2xl group/pitch">
-                     {/* Premium Pitch Surface */}
-                     <div className="absolute inset-0 opacity-30" style={{ 
-                        backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 9.9%, currentColor 10%)',
+                  <div className="relative aspect-[4/5] max-w-4xl mx-auto bg-[#1a472a] rounded-[2rem] border-[8px] border-white/10 overflow-hidden shadow-2xl group/pitch">
+                     {/* Professional Pitch Surface - Grass Pattern */}
+                     <div className="absolute inset-0 opacity-20" style={{ 
+                        backgroundImage: 'repeating-linear-gradient(0deg, #1d5c36, #1d5c36 10%, #1a472a 10%, #1a472a 20%)',
                         backgroundSize: '100% 100%' 
                      }} />
                      
-                     {/* Pitch Markings */}
-                     <div className="absolute inset-12 border-2 border-primary/5 dark:border-white/10 rounded-2xl" />
-                     <div className="absolute top-1/2 left-12 right-12 h-px bg-primary/5 dark:bg-white/10" />
-                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full border-2 border-primary/5 dark:border-white/10" />
+                     {/* Pitch Lighting Effect */}
+                     <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+ 
+                     {/* Pitch Markings SVG */}
+                     <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="15" y="15" width="270" height="370" stroke="white" strokeWidth="1.5" />
+                        <line x1="15" y1="200" x2="285" y2="200" stroke="white" strokeWidth="1.5" />
+                        <circle cx="150" cy="200" r="40" stroke="white" strokeWidth="1.5" />
+                        <circle cx="150" cy="200" r="1.5" fill="white" />
+                        <rect x="60" y="15" width="180" height="60" stroke="white" strokeWidth="1.5" />
+                        <rect x="110" y="15" width="80" height="20" stroke="white" strokeWidth="1.5" />
+                        <circle cx="150" cy="55" r="1" fill="white" />
+                        <path d="M 110 75 A 40 40 0 0 0 190 75" stroke="white" strokeWidth="1.5" />
+                        <rect x="60" y="325" width="180" height="60" stroke="white" strokeWidth="1.5" />
+                        <rect x="110" y="365" width="80" height="20" stroke="white" strokeWidth="1.5" />
+                        <circle cx="150" cy="345" r="1" fill="white" />
+                        <path d="M 110 325 A 40 40 0 0 1 190 325" stroke="white" strokeWidth="1.5" />
+                        <path d="M 15 30 A 15 15 0 0 0 30 15" stroke="white" strokeWidth="1.5" opacity="0.5" />
+                        <path d="M 270 15 A 15 15 0 0 0 285 30" stroke="white" strokeWidth="1.5" opacity="0.5" />
+                        <path d="M 15 370 A 15 15 0 0 1 30 385" stroke="white" strokeWidth="1.5" opacity="0.5" />
+                        <path d="M 270 385 A 15 15 0 0 1 285 370" stroke="white" strokeWidth="1.5" opacity="0.5" />
+                     </svg>
                      
                      {/* Tactical Lineup Visualization */}
-                     <div className="absolute inset-0 p-16">
+                     <div className="absolute inset-0 p-10">
                         <TacticalField 
                            players={pitchPlayers} 
                            formation={teamDetails.formation} 
@@ -265,7 +298,7 @@ export default function ClubDetailsClient({
                   <div className="p-8 bg-card border border-border backdrop-blur-xl rounded-[3rem]">
                      <div className="flex items-center justify-between mb-6">
                         <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground">Substitutes Bench</h3>
-                        <p className="text-[10px] font-bold text-secondary-500 uppercase tracking-widest animate-pulse">Select player to swap</p>
+                        <p className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest animate-pulse">Select player to swap</p>
                      </div>
                      <div className="flex flex-wrap justify-center gap-6">
                         {benchPlayers.map((p: any) => (
@@ -318,7 +351,7 @@ export default function ClubDetailsClient({
                                          e.stopPropagation();
                                          handleAddToWatchlist(p);
                                       }}
-                                      className={`transition-all ${watchlistStatus[String(p.playerID)] ? 'text-secondary-500 scale-125' : 'text-muted-foreground hover:text-yellow-500'}`}
+                                      className={`transition-all ${watchlistStatus[String(p.playerID)] ? 'text-emerald-500 scale-125' : 'text-muted-foreground hover:text-yellow-500'}`}
                                    >
                                       {watchlistStatus[String(p.playerID)] ? <CheckCircle2 className="w-3.5 h-3.5" /> : <Star className="w-3.5 h-3.5" />}
                                    </button>
@@ -337,7 +370,7 @@ export default function ClubDetailsClient({
                           <div className="flex gap-4 text-right">
                              <div>
                                 <p className="text-[8px] font-black text-muted-foreground uppercase">Goals</p>
-                                <p className="text-sm font-black text-secondary-500">{getPVal(pStats, ['Goals', 'Goal'])}</p>
+                                <p className="text-sm font-black text-emerald-500">{getPVal(pStats, ['Goals', 'Goal'])}</p>
                              </div>
                              <div>
                                 <p className="text-[8px] font-black text-muted-foreground uppercase">Ast</p>
@@ -364,7 +397,7 @@ export default function ClubDetailsClient({
                animate={{ opacity: 1, scale: 1 }}
                className="relative p-8 bg-card border border-border flex items-center justify-center group overflow-hidden shadow-2xl rounded-[3rem]"
             >
-               <div className="absolute inset-0 bg-secondary-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+               <div className="absolute inset-0 bg-emerald-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
                <img 
                   src={teamDetails.teamLogo} 
                   alt={teamDetails.teamName}
@@ -379,11 +412,11 @@ export default function ClubDetailsClient({
                </h1>
                <div className="flex flex-col gap-3">
                   <div className="flex items-center gap-2">
-                     <span className="px-3 py-1 bg-secondary-500 text-black text-[8px] font-black uppercase tracking-widest rounded">PROFESSIONAL</span>
+                     <span className="px-3 py-1 bg-emerald-500 text-black text-[8px] font-black uppercase tracking-widest rounded">PROFESSIONAL</span>
                      <span className="px-3 py-1 bg-muted text-muted-foreground text-[8px] font-black uppercase tracking-widest rounded border border-border">CLUB</span>
                   </div>
                   <p className="text-sm font-bold text-muted-foreground flex items-center gap-2">
-                     <MapPin className="w-4 h-4 text-secondary-500" />
+                     <MapPin className="w-4 h-4 text-emerald-500" />
                      {teamDetails.venueName || "Santiago Bernabéu Stadium"}
                   </p>
                </div>
@@ -402,7 +435,7 @@ export default function ClubDetailsClient({
                   value={teamDetails.formation || "4-4-2"}
                />
                <StatCard 
-                  icon={<TrendingUp className="w-4 h-4 text-secondary-500" />}
+                  icon={<TrendingUp className="w-4 h-4 text-emerald-500" />}
                   label="Points"
                   value={standing?.points || "73"}
                />
@@ -422,7 +455,7 @@ export default function ClubDetailsClient({
                   </div>
                   <div>
                      <p className="text-lg font-black uppercase tracking-tight leading-none mb-1">{leagueInfo?.name || "La Liga"}</p>
-                     <p className="text-[10px] text-secondary-500 font-black uppercase tracking-widest">Active Season</p>
+                     <p className="text-[10px] text-emerald-500 font-black uppercase tracking-widest">Active Season</p>
                   </div>
                </div>
                
@@ -433,8 +466,8 @@ export default function ClubDetailsClient({
                         <p className="text-2xl font-black italic">{standing?.played || 0}</p>
                      </div>
                      <div className="text-right">
-                        <p className="text-[10px] font-black text-secondary-500 uppercase mb-1">Perf. Score</p>
-                        <p className="text-2xl font-black italic text-secondary-400">
+                        <p className="text-[10px] font-black text-emerald-500 uppercase mb-1">Perf. Score</p>
+                        <p className="text-2xl font-black italic text-emerald-400">
                            {standing?.played ? ((standing.points / (standing.played * 3)) * 100).toFixed(1) : "0"}%
                         </p>
                      </div>
@@ -443,7 +476,7 @@ export default function ClubDetailsClient({
                      <motion.div 
                         initial={{ width: 0 }}
                         animate={{ width: `${standing?.played ? (standing.points / (standing.played * 3)) * 100 : 0}%` }}
-                        className="h-full bg-gradient-to-r from-secondary-600 to-secondary-400"
+                        className="h-full bg-gradient-to-r from-emerald-600 to-emerald-400"
                      />
                   </div>
                </div>
@@ -451,7 +484,7 @@ export default function ClubDetailsClient({
 
             {/* Squad Depth Analysis */}
             <div className="p-8 bg-card border border-border rounded-3xl space-y-6">
-               <h3 className="text-xs font-black uppercase tracking-widest text-secondary-500 flex items-center gap-2">
+               <h3 className="text-xs font-black uppercase tracking-widest text-emerald-500 flex items-center gap-2">
                   <Activity className="w-4 h-4" />
                   Squad Composition
                </h3>
@@ -459,7 +492,7 @@ export default function ClubDetailsClient({
                <div className="space-y-4">
                   <DepthRow label="Goalkeepers" count={gks.length} color="bg-yellow-500" />
                   <DepthRow label="Defenders" count={dfs.length} color="bg-blue-500" />
-                  <DepthRow label="Midfielders" count={mfs.length} color="bg-secondary-500" />
+                  <DepthRow label="Midfielders" count={mfs.length} color="bg-emerald-500" />
                   <DepthRow label="Forwards" count={fws.length} color="bg-red-500" />
                </div>
             </div>
@@ -524,9 +557,9 @@ function TacticalField({ players, formation, onPlayerClick, selectedId }: {
    const sortedPlayers = [...players].sort((a, b) => getPosPriority(a.position) - getPosPriority(b.position));
    
    return (
-      <div className="h-full flex flex-col justify-between py-6">
+      <div className="h-full flex flex-col justify-between py-10 px-4 relative z-10">
          {/* Top Row (Forwards) */}
-         <div className="flex justify-center gap-12">
+         <div className="flex justify-around items-center h-20">
             {sortedPlayers.slice(0, rows[2] || 2).map((p) => (
                <div key={p.playerID} onClick={() => onPlayerClick(p)}>
                   <PlayerBubble player={p} position="top" isSelected={selectedId === p.playerID} />
@@ -535,7 +568,7 @@ function TacticalField({ players, formation, onPlayerClick, selectedId }: {
          </div>
 
          {/* Middle Row (Midfielders) */}
-         <div className="flex justify-center gap-16">
+         <div className="flex justify-around items-center h-20">
             {sortedPlayers.slice(rows[2], (rows[2] || 2) + (rows[1] || 4)).map((p) => (
                <div key={p.playerID} onClick={() => onPlayerClick(p)}>
                   <PlayerBubble player={p} isSelected={selectedId === p.playerID} />
@@ -544,7 +577,7 @@ function TacticalField({ players, formation, onPlayerClick, selectedId }: {
          </div>
 
          {/* Defensive Row (Defenders) */}
-         <div className="flex justify-center gap-12">
+         <div className="flex justify-around items-center h-20">
             {sortedPlayers.slice((rows[2] || 2) + (rows[1] || 4), 10).map((p) => (
                <div key={p.playerID} onClick={() => onPlayerClick(p)}>
                   <PlayerBubble player={p} isSelected={selectedId === p.playerID} />
@@ -553,7 +586,7 @@ function TacticalField({ players, formation, onPlayerClick, selectedId }: {
          </div>
 
          {/* Goal Row (GK) */}
-         <div className="flex justify-center">
+         <div className="flex justify-center items-center h-20">
             {sortedPlayers.slice(10, 11).map((p) => (
                <div key={p.playerID} onClick={() => onPlayerClick(p)}>
                   <PlayerBubble player={p} isSelected={selectedId === p.playerID} />
@@ -571,7 +604,22 @@ function PlayerBubble({ player, position, isSelected }: { player: any, position?
    const rawStats = Array.isArray(player.stat) ? player.stat : [];
    
    const getSum = (arr: any[], keys: string[]) => {
-      return arr.reduce((acc, s) => {
+      // Filter for current season 25/26
+      const currentSeasonStats = arr.filter((s: any) => 
+         (s.season_name && (
+            s.season_name.includes('2025-26') || 
+            s.season_name.includes('2025/26') ||
+            s.season_name.includes('25-26') || 
+            s.season_name.includes('25/26') ||
+            s.season_name.includes('2025-2026') ||
+            s.season_name.includes('2025/2026')
+         )) ||
+         (arr.length === 1)
+      );
+
+      const targetStats = currentSeasonStats.length > 0 ? currentSeasonStats : [];
+
+      return targetStats.reduce((acc, s) => {
          let val = 0;
          for (const k of keys) {
             const actualKey = Object.keys(s).find(sk => sk.toLowerCase() === k.toLowerCase());
@@ -597,10 +645,10 @@ function PlayerBubble({ player, position, isSelected }: { player: any, position?
          >
             {/* Selection Glow */}
             {isSelected && (
-               <div className="absolute inset-[-8px] bg-secondary-500/20 blur-2xl rounded-full animate-pulse" />
+               <div className="absolute inset-[-8px] bg-emerald-500/20 blur-2xl rounded-full animate-pulse" />
             )}
             <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover/bubble:opacity-100 transition-opacity" />
-            <div className={`w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-card border-2 transition-colors overflow-hidden shadow-xl relative z-10 ${isSelected ? 'border-secondary-500 shadow-[0_0_20px_rgba(16,185,129,0.4)]' : 'border-border'}`}>
+            <div className={`w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-card border-2 transition-all duration-300 overflow-hidden shadow-xl relative z-10 ${isSelected ? 'border-emerald-500 shadow-[0_0_30px_rgba(16,185,129,0.6)] scale-110' : 'border-border group-hover/bubble:border-white/80 group-hover/bubble:shadow-[0_0_20px_rgba(255,255,255,0.3)]'}`}>
                <SafeImage 
                   src={player.playerPhoto} 
                   alt={player.playerFullName || player.fullName} 
@@ -611,7 +659,7 @@ function PlayerBubble({ player, position, isSelected }: { player: any, position?
             </div>
             
             {/* Number Badge */}
-            <div className={`absolute -bottom-1 -right-1 z-20 text-background text-[8px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-background transition-colors ${isSelected ? 'bg-foreground text-background' : 'bg-secondary-500'}`}>
+            <div className={`absolute -bottom-1 -right-1 z-20 text-background text-[8px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-background transition-all duration-300 ${isSelected ? 'bg-foreground text-background scale-110' : 'bg-emerald-500 group-hover/bubble:scale-110 group-hover/bubble:bg-white group-hover/bubble:text-emerald-900'}`}>
                {player.playerNumber || "??"}
             </div>
 
@@ -623,30 +671,32 @@ function PlayerBubble({ player, position, isSelected }: { player: any, position?
                      initial={{ opacity: 0, y: showBelow ? -10 : 10, scale: 0.95 }}
                      animate={{ opacity: 1, y: 0, scale: 1 }}
                      exit={{ opacity: 0, y: showBelow ? -10 : 10, scale: 0.95 }}
-                     className={`absolute ${showBelow ? 'top-full mt-4' : 'bottom-full mb-4'} left-1/2 -translate-x-1/2 w-48 p-4 bg-card border border-border rounded-2xl z-[200] shadow-2xl pointer-events-none`}
+                     className={`absolute ${showBelow ? 'top-full mt-4' : 'bottom-full mb-4'} left-1/2 -translate-x-1/2 w-48 p-4 bg-zinc-950/95 backdrop-blur-xl border border-white/20 rounded-2xl z-[200] shadow-[0_30px_60px_-12px_rgba(0,0,0,0.9)] pointer-events-none`}
                   >
-                     <div className="space-y-3">
-                        <div>
-                           <p className="text-[10px] font-black text-secondary-500 uppercase tracking-widest mb-0.5">Player Profile</p>
-                           <p className="text-sm font-black italic uppercase leading-tight text-foreground">{player.playerFullName || player.fullName}</p>
+                     <div className="text-center space-y-3">
+                        <div className="pb-2 border-b border-white/10">
+                           <p className="text-[8px] font-black text-emerald-500 uppercase tracking-[0.2em] mb-1">Technical Profile</p>
+                           <p className="text-sm font-black italic uppercase leading-tight text-white">{player.playerFullName || player.fullName}</p>
                         </div>
                         
-                        <div className="grid grid-cols-3 gap-2 border-t border-border pt-3">
+                        <div className="grid grid-cols-3 gap-1">
                            <div className="text-center">
-                              <p className="text-[8px] font-black text-muted-foreground uppercase">Apps</p>
-                              <p className="text-xs font-black text-foreground">{apps}</p>
+                              <p className="text-[7px] font-bold text-zinc-500 uppercase">Matches</p>
+                              <p className="text-xs font-black text-white">{apps}</p>
                            </div>
                            <div className="text-center">
-                              <p className="text-[8px] font-black text-secondary-500 uppercase">Goals</p>
-                              <p className="text-xs font-black text-secondary-600">{goals}</p>
+                              <p className="text-[7px] font-bold text-emerald-500 uppercase">Goals</p>
+                              <p className="text-xs font-black text-emerald-400">{goals}</p>
                            </div>
                            <div className="text-center">
-                              <p className="text-[8px] font-black text-blue-500 uppercase">Ast</p>
-                              <p className="text-xs font-black text-blue-600">{assists}</p>
+                              <p className="text-[7px] font-bold text-blue-500 uppercase">Assists</p>
+                              <p className="text-xs font-black text-blue-400">{assists}</p>
                            </div>
                         </div>
                      </div>
-                     <div className={`absolute left-1/2 -translate-x-1/2 border-8 border-transparent ${showBelow ? 'bottom-full border-b-card' : 'top-full border-t-card'}`} />
+                     
+                     {/* Triangle Arrow */}
+                     <div className={`absolute left-1/2 -translate-x-1/2 w-0 h-0 border-8 border-transparent ${showBelow ? 'bottom-full border-b-zinc-950/95' : 'top-full border-t-zinc-950/95'}`} />
                   </motion.div>
                )}
             </AnimatePresence>

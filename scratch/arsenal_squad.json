@@ -1,0 +1,38 @@
+{
+  "gmtUpdated": 1777283145,
+  "team": {
+    "teamID": 9,
+    "seasonID": 0,
+    "teamName": "Arsenal FC",
+    "shortName": "ARS",
+    "middleName": "Arsenal",
+    "city": "London",
+    "logo": "https://api.statorium.com/media/bearleague/bl1715101847747.webp",
+    "homeVenue": {
+      "name": "Emirates Stadium",
+      "id": 10
+    },
+    "bonusPoint": null,
+    "additionalInfo": {
+      "coach": "",
+      "founded": "01-10-1886  (139)"
+    },
+    "players": [],
+    "translations": {
+      "ar": {
+        "name": "أرسنال"
+      },
+      "zh": {
+        "name": "阿森纳",
+        "middle_name": "阿森纳"
+      },
+      "gr": {
+        "name": "Άρσεναλ",
+        "middle_name": "Άρσεναλ"
+      },
+      "th": {
+        "name": "อาร์เซนอล"
+      }
+    }
+  }
+}

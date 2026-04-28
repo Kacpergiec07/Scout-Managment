@@ -1,0 +1,5349 @@
+{
+  "playerID": 5389,
+  "firstName": "Odsonne",
+  "lastName": "Edouard",
+  "shortName": "O. Edouard",
+  "fullName": "Odsonne Edouard",
+  "homeName": "",
+  "country": {
+    "name": "French Guiana",
+    "id": 75
+  },
+  "currentTeam": {
+    "name": null,
+    "id": 0
+  },
+  "photo": "https://api.statorium.com/media/bearleague/bl17342979881207.webp",
+  "additionalInfo": {
+    "height": "187 cm",
+    "weight": "83 kg",
+    "position": 4,
+    "Fantasy Value": null,
+    "birthdate": "16-01-1998  (28)"
+  },
+  "teams": [],
+  "stat": [
+    {
+      "season_name": "FRANCE: Coupe de France 2025-26",
+      "season_id": 603,
+      "team_name": "Racing Club de Lens",
+      "played": 3,
+      "career_lineup": 3,
+      "career_minutes": 226,
+      "career_subsin": 0,
+      "career_subsout": 3,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 0,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FRANCE: Ligue 1 2025-26",
+      "season_id": 519,
+      "team_name": "Racing Club de Lens",
+      "played": 26,
+      "career_lineup": 23,
+      "career_minutes": 1624,
+      "career_subsin": 3,
+      "career_subsout": 23,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 12,
+      "Assist": 3,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 1,
+      "Missed penalty": 0,
+      "Goal": 11,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: Premier League 2025-26",
+      "season_id": 515,
+      "team_name": "Crystal Palace",
+      "played": 1,
+      "career_lineup": 0,
+      "career_minutes": 2,
+      "career_subsin": 1,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: FA Cup 2024-25",
+      "season_id": 420,
+      "team_name": "Leicester City",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: Premier League 2024-25",
+      "season_id": 343,
+      "team_name": "Leicester City",
+      "played": 4,
+      "career_lineup": 0,
+      "career_minutes": 25,
+      "career_subsin": 4,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: EFL Cup 2024-25",
+      "season_id": 367,
+      "team_name": "Leicester City",
+      "played": 2,
+      "career_lineup": 1,
+      "career_minutes": 87,
+      "career_subsin": 1,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: Premier League 2024-25",
+      "season_id": 343,
+      "team_name": "Crystal Palace",
+      "played": 2,
+      "career_lineup": 1,
+      "career_minutes": 115,
+      "career_subsin": 1,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: FA Cup 2023-24",
+      "season_id": 300,
+      "team_name": "Crystal Palace",
+      "played": 2,
+      "career_lineup": 1,
+      "career_minutes": 77,
+      "career_subsin": 1,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: EFL Cup 2023-24",
+      "season_id": 270,
+      "team_name": "Crystal Palace",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: Premier League 2023-24",
+      "season_id": 252,
+      "team_name": "Crystal Palace",
+      "played": 30,
+      "career_lineup": 17,
+      "career_minutes": 1554,
+      "career_subsin": 13,
+      "career_subsout": 12,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 7,
+      "Assist": 0,
+      "Yellow card": 4,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 7,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: FA Cup 2022-23",
+      "season_id": 191,
+      "team_name": "Crystal Palace",
+      "played": 1,
+      "career_lineup": 1,
+      "career_minutes": 65,
+      "career_subsin": 0,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: EFL Cup 2022-23",
+      "season_id": 186,
+      "team_name": "Crystal Palace",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: Premier League 2022-23",
+      "season_id": 165,
+      "team_name": "Crystal Palace",
+      "played": 35,
+      "career_lineup": 20,
+      "career_minutes": 1807,
+      "career_subsin": 15,
+      "career_subsout": 18,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 5,
+      "Assist": 2,
+      "Yellow card": 3,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 5,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Europa Conference League 2021-22",
+      "season_id": 133,
+      "team_name": "Celtic FC",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: FA Cup 2021-22",
+      "season_id": 139,
+      "team_name": "Crystal Palace",
+      "played": 3,
+      "career_lineup": 0,
+      "career_minutes": 63,
+      "career_subsin": 3,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ENGLAND: Premier League 2021-22",
+      "season_id": 112,
+      "team_name": "Crystal Palace",
+      "played": 28,
+      "career_lineup": 18,
+      "career_minutes": 1563,
+      "career_subsin": 10,
+      "career_subsout": 12,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 6,
+      "Assist": 3,
+      "Yellow card": 4,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 1,
+      "Missed penalty": 0,
+      "Goal": 5,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Europa League 2021-22",
+      "season_id": 132,
+      "team_name": "Celtic FC",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "SCOTLAND: Scottish Premiership 2021-22",
+      "season_id": 115,
+      "team_name": "Celtic FC",
+      "played": 4,
+      "career_lineup": 3,
+      "career_minutes": 262,
+      "career_subsin": 1,
+      "career_subsout": 2,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 2,
+      "Assist": 1,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 1,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Europa League 2020-21",
+      "season_id": 82,
+      "team_name": "Celtic FC",
+      "played": 4,
+      "career_lineup": 3,
+      "career_minutes": 278,
+      "career_subsin": 1,
+      "career_subsout": 2,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 2,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 2,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "SCOTLAND: Scottish Premiership 2020-21",
+      "season_id": 66,
+      "team_name": "Celtic FC",
+      "played": 31,
+      "career_lineup": 28,
+      "career_minutes": 2340,
+      "career_subsin": 3,
+      "career_subsout": 19,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 18,
+      "Assist": 4,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 5,
+      "Missed penalty": 1,
+      "Goal": 13,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Europa League 2019-20",
+      "season_id": 28,
+      "team_name": "Celtic FC",
+      "played": 6,
+      "career_lineup": 6,
+      "career_minutes": 534,
+      "career_subsin": 0,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 3,
+      "Assist": 2,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 1,
+      "Missed penalty": 0,
+      "Goal": 2,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    }
+  ],
+  "matches": [
+    {
+      "matchID": 124295,
+      "matchDate": "2026-04-24",
+      "matchTime": "18:45",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 121,
+        "score": 3,
+        "participantName": "Stade Brestois 29",
+        "teamShortName": "STB",
+        "teamMiddleName": "Brest",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376492975.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 3,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 146451,
+      "matchDate": "2026-04-21",
+      "matchTime": "19:10",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 4,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 1,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124286,
+      "matchDate": "2026-04-17",
+      "matchTime": "18:45",
+      "minutes_played": 35,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 3,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 2,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124270,
+      "matchDate": "2026-04-04",
+      "matchTime": "19:05",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 69,
+        "score": 3,
+        "participantName": "LOSC Lille",
+        "teamShortName": "LIL",
+        "teamMiddleName": "Lille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766862077.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 0,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124259,
+      "matchDate": "2026-03-20",
+      "matchTime": "19:45",
+      "minutes_played": 69,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 5,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 70,
+        "score": 1,
+        "participantName": "Angers SCO",
+        "teamShortName": "ANG",
+        "teamMiddleName": "Angers",
+        "logo": "https://api.statorium.com/media/bearleague/bl17193504121110.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "25"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "48"
+        }
+      ]
+    },
+    {
+      "matchID": 124251,
+      "matchDate": "2026-03-14",
+      "matchTime": "16:00",
+      "minutes_played": 84,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 545,
+        "score": 2,
+        "participantName": "FC Lorient",
+        "teamShortName": "FCL",
+        "teamMiddleName": "Lorient",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376354282.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 1,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "49"
+        }
+      ]
+    },
+    {
+      "matchID": 124242,
+      "matchDate": "2026-03-08",
+      "matchTime": "14:00",
+      "minutes_played": 63,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 3,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 120,
+        "score": 0,
+        "participantName": "FC Metz",
+        "teamShortName": "FCM",
+        "teamMiddleName": "Metz",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163763902785.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 145208,
+      "matchDate": "2026-03-05",
+      "matchTime": "20:10",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 61,
+        "score": 2,
+        "participantName": "Olympique Lyonnais",
+        "teamShortName": "LYO",
+        "teamMiddleName": "Lyon",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719350250782.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 2,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "45+3"
+        }
+      ]
+    },
+    {
+      "matchID": 124239,
+      "matchDate": "2026-02-27",
+      "matchTime": "19:45",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 68,
+        "score": 1,
+        "participantName": "RC Strasbourg Alsace",
+        "teamShortName": "STR",
+        "teamMiddleName": "Strasbourg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765141904.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 1,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124225,
+      "matchDate": "2026-02-21",
+      "matchTime": "16:00",
+      "minutes_played": 63,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 2,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 76,
+        "score": 3,
+        "participantName": "AS Monaco",
+        "teamShortName": "ASM",
+        "teamMiddleName": "Monaco",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163762842259.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "3"
+        }
+      ]
+    },
+    {
+      "matchID": 124220,
+      "matchDate": "2026-02-14",
+      "matchTime": "20:05",
+      "minutes_played": 69,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 628,
+        "score": 0,
+        "participantName": "Paris FC",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Paris",
+        "logo": "https://api.statorium.com/media/bearleague/bl15979293751734.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 5,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "24"
+        }
+      ]
+    },
+    {
+      "matchID": 124208,
+      "matchDate": "2026-02-07",
+      "matchTime": "16:00",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 3,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 67,
+        "score": 1,
+        "participantName": "Stade Rennais FC",
+        "teamShortName": "REN",
+        "teamMiddleName": "Rennes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764402365.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "41"
+        }
+      ]
+    },
+    {
+      "matchID": 124196,
+      "matchDate": "2026-01-30",
+      "matchTime": "19:45",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 1,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 625,
+        "score": 0,
+        "participantName": "Le Havre AC",
+        "teamShortName": "HAC",
+        "teamMiddleName": "Le Havre",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376708665.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124190,
+      "matchDate": "2026-01-24",
+      "matchTime": "20:05",
+      "minutes_played": 59,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 59,
+        "score": 3,
+        "participantName": "Olympique de Marseille",
+        "teamShortName": "OLM",
+        "teamMiddleName": "Marseille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766362986.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 1,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 140164,
+      "matchDate": "2026-01-11",
+      "matchTime": "13:00",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 631,
+        "score": 0,
+        "participantName": "FC Sochaux-Montbéliard",
+        "teamShortName": "FCS",
+        "teamMiddleName": "Sochaux",
+        "logo": "https://api.statorium.com/media/bearleague/bl1597929696147.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 3,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "22"
+        }
+      ]
+    },
+    {
+      "matchID": 124176,
+      "matchDate": "2026-01-02",
+      "matchTime": "19:45",
+      "minutes_played": 38,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 0,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 3,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124161,
+      "matchDate": "2025-12-14",
+      "matchTime": "16:15",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 2,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 64,
+        "score": 0,
+        "participantName": "OGC Nice",
+        "teamShortName": "NCE",
+        "teamMiddleName": "Nice",
+        "logo": "https://api.statorium.com/media/bearleague/bl171637666030.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "15"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "57"
+        }
+      ]
+    },
+    {
+      "matchID": 124155,
+      "matchDate": "2025-12-06",
+      "matchTime": "16:00",
+      "minutes_played": 69,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 60,
+        "score": 1,
+        "participantName": "FC Nantes",
+        "teamShortName": "NAN",
+        "teamMiddleName": "Nantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376414855.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 2,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124141,
+      "matchDate": "2025-11-30",
+      "matchTime": "16:15",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 70,
+        "score": 1,
+        "participantName": "Angers SCO",
+        "teamShortName": "ANG",
+        "teamMiddleName": "Angers",
+        "logo": "https://api.statorium.com/media/bearleague/bl17193504121110.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 2,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "45"
+        }
+      ]
+    },
+    {
+      "matchID": 124134,
+      "matchDate": "2025-11-22",
+      "matchTime": "16:00",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 1,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 68,
+        "score": 0,
+        "participantName": "RC Strasbourg Alsace",
+        "teamShortName": "STR",
+        "teamMiddleName": "Strasbourg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765141904.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124129,
+      "matchDate": "2025-11-08",
+      "matchTime": "20:05",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 76,
+        "score": 1,
+        "participantName": "AS Monaco",
+        "teamShortName": "ASM",
+        "teamMiddleName": "Monaco",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163762842259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 4,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "21"
+        },
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "40"
+        }
+      ]
+    },
+    {
+      "matchID": 124116,
+      "matchDate": "2025-11-02",
+      "matchTime": "16:15",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 3,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 545,
+        "score": 0,
+        "participantName": "FC Lorient",
+        "teamShortName": "FCL",
+        "teamMiddleName": "Lorient",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376354282.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "6"
+        }
+      ]
+    },
+    {
+      "matchID": 124108,
+      "matchDate": "2025-10-29",
+      "matchTime": "18:00",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 120,
+        "score": 2,
+        "participantName": "FC Metz",
+        "teamShortName": "FCM",
+        "teamMiddleName": "Metz",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163763902785.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 0,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124099,
+      "matchDate": "2025-10-25",
+      "matchTime": "19:05",
+      "minutes_played": 81,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 2,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 59,
+        "score": 1,
+        "participantName": "Olympique de Marseille",
+        "teamShortName": "OLM",
+        "teamMiddleName": "Marseille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766362986.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "23"
+        }
+      ]
+    },
+    {
+      "matchID": 124088,
+      "matchDate": "2025-10-19",
+      "matchTime": "13:00",
+      "minutes_played": 59,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 2,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 628,
+        "score": 1,
+        "participantName": "Paris FC",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Paris",
+        "logo": "https://api.statorium.com/media/bearleague/bl15979293751734.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "17"
+        }
+      ]
+    },
+    {
+      "matchID": 124078,
+      "matchDate": "2025-10-04",
+      "matchTime": "19:05",
+      "minutes_played": 41,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 619,
+        "score": 1,
+        "participantName": "AJ Auxerre",
+        "teamShortName": "AJA",
+        "teamMiddleName": "Auxerre",
+        "logo": "https://api.statorium.com/media/bearleague/bl15979273992750.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 2,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "14"
+        }
+      ]
+    },
+    {
+      "matchID": 124075,
+      "matchDate": "2025-09-28",
+      "matchTime": "18:45",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 67,
+        "score": 0,
+        "participantName": "Stade Rennais FC",
+        "teamShortName": "REN",
+        "teamMiddleName": "Rennes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764402365.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 0,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124063,
+      "matchDate": "2025-09-20",
+      "matchTime": "19:05",
+      "minutes_played": 21,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 3,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 69,
+        "score": 0,
+        "participantName": "LOSC Lille",
+        "teamShortName": "LIL",
+        "teamMiddleName": "Lille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766862077.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124057,
+      "matchDate": "2025-09-14",
+      "matchTime": "15:15",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 66,
+        "score": 2,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 0,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "5"
+        }
+      ]
+    },
+    {
+      "matchID": 121151,
+      "matchDate": "2025-08-24",
+      "matchTime": "13:00",
+      "minutes_played": 2,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 183,
+        "score": 1,
+        "participantName": "Nottingham Forest FC",
+        "teamShortName": "NTF",
+        "teamMiddleName": "Nottingham Forest",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151025621698.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 80613,
+      "matchDate": "2024-11-10",
+      "matchTime": "14:00",
+      "minutes_played": 2,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 7,
+        "score": 3,
+        "participantName": "Manchester United",
+        "teamShortName": "MUN",
+        "teamMiddleName": "Man Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp"
+      },
+      "awayParticipant": {
+        "participantID": 14,
+        "score": 0,
+        "participantName": "Leicester City",
+        "teamShortName": "LEI",
+        "teamMiddleName": "Leicester",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248319886.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 101002,
+      "matchDate": "2024-10-30",
+      "matchTime": "19:45",
+      "minutes_played": 18,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 7,
+        "score": 5,
+        "participantName": "Manchester United",
+        "teamShortName": "MUN",
+        "teamMiddleName": "Man Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp"
+      },
+      "awayParticipant": {
+        "participantID": 14,
+        "score": 2,
+        "participantName": "Leicester City",
+        "teamShortName": "LEI",
+        "teamMiddleName": "Leicester",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248319886.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 80575,
+      "matchDate": "2024-10-05",
+      "matchTime": "14:00",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 14,
+        "score": 1,
+        "participantName": "Leicester City",
+        "teamShortName": "LEI",
+        "teamMiddleName": "Leicester",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248319886.webp"
+      },
+      "awayParticipant": {
+        "participantID": 16,
+        "score": 0,
+        "participantName": "AFC Bournemouth",
+        "teamShortName": "BOU",
+        "teamMiddleName": "Bournemouth",
+        "logo": "https://api.statorium.com/media/bearleague/bl171510179519.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 97258,
+      "matchDate": "2024-09-24",
+      "matchTime": "18:45",
+      "minutes_played": 69,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 299,
+        "score": 0,
+        "participantName": "Walsall FC",
+        "teamShortName": "WAL",
+        "teamMiddleName": "Walsall",
+        "logo": "https://api.statorium.com/media/bearleague/bl1571900884237.webp"
+      },
+      "awayParticipant": {
+        "participantID": 14,
+        "score": 0,
+        "participantName": "Leicester City",
+        "teamShortName": "LEI",
+        "teamMiddleName": "Leicester",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248319886.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 80552,
+      "matchDate": "2024-09-21",
+      "matchTime": "14:00",
+      "minutes_played": 7,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 14,
+        "score": 1,
+        "participantName": "Leicester City",
+        "teamShortName": "LEI",
+        "teamMiddleName": "Leicester",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248319886.webp"
+      },
+      "awayParticipant": {
+        "participantID": 6,
+        "score": 1,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 80521,
+      "matchDate": "2024-08-24",
+      "matchTime": "14:00",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1,
+        "score": 2,
+        "participantName": "West Ham United",
+        "teamShortName": "WHU",
+        "teamMiddleName": "West Ham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151028161933.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 80515,
+      "matchDate": "2024-08-18",
+      "matchTime": "13:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 186,
+        "score": 2,
+        "participantName": "Brentford FC",
+        "teamShortName": "BRE",
+        "teamMiddleName": "Brentford",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151020531622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58707,
+      "matchDate": "2024-05-19",
+      "matchTime": "15:00",
+      "minutes_played": 14,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 5,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 112,
+        "score": 0,
+        "participantName": "Aston Villa",
+        "teamShortName": "AVL",
+        "teamMiddleName": "Aston Villa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58701,
+      "matchDate": "2024-05-11",
+      "matchTime": "14:00",
+      "minutes_played": 21,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 13,
+        "score": 1,
+        "participantName": "Wolverhampton Wanderers",
+        "teamShortName": "WLV",
+        "teamMiddleName": "Wolverhampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190131172980.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 3,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58687,
+      "matchDate": "2024-05-06",
+      "matchTime": "19:00",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 4,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 7,
+        "score": 0,
+        "participantName": "Manchester United",
+        "teamShortName": "MUN",
+        "teamMiddleName": "Man Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "88"
+        }
+      ]
+    },
+    {
+      "matchID": 58675,
+      "matchDate": "2024-04-27",
+      "matchTime": "14:00",
+      "minutes_played": 21,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 5,
+        "score": 1,
+        "participantName": "Fulham FC",
+        "teamShortName": "FUL",
+        "teamMiddleName": "Fulham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023581920.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58664,
+      "matchDate": "2024-04-21",
+      "matchTime": "14:00",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 5,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1,
+        "score": 2,
+        "participantName": "West Ham United",
+        "teamShortName": "WHU",
+        "teamMiddleName": "West Ham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151028161933.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58644,
+      "matchDate": "2024-04-06",
+      "matchTime": "11:30",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 4,
+        "score": 4,
+        "participantName": "Manchester City",
+        "teamShortName": "MCI",
+        "teamMiddleName": "Man City",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151024711246.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "86"
+        }
+      ]
+    },
+    {
+      "matchID": 58633,
+      "matchDate": "2024-04-02",
+      "matchTime": "18:45",
+      "minutes_played": 4,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 16,
+        "score": 1,
+        "participantName": "AFC Bournemouth",
+        "teamShortName": "BOU",
+        "teamMiddleName": "Bournemouth",
+        "logo": "https://api.statorium.com/media/bearleague/bl171510179519.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58607,
+      "matchDate": "2024-03-09",
+      "matchTime": "15:00",
+      "minutes_played": 9,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 187,
+        "score": 1,
+        "participantName": "Luton Town FC",
+        "teamShortName": "LUT",
+        "teamMiddleName": "Luton",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102426239.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58601,
+      "matchDate": "2024-03-02",
+      "matchTime": "15:00",
+      "minutes_played": 19,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 2,
+        "score": 3,
+        "participantName": "Tottenham Hotspur FC",
+        "teamShortName": "TOT",
+        "teamMiddleName": "Tottenham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58587,
+      "matchDate": "2024-02-24",
+      "matchTime": "15:00",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 3,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 12,
+        "score": 0,
+        "participantName": "Burnley FC",
+        "teamShortName": "BUR",
+        "teamMiddleName": "Burnley",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102124426.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58574,
+      "matchDate": "2024-02-19",
+      "matchTime": "20:00",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 6,
+        "score": 1,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58563,
+      "matchDate": "2024-02-12",
+      "matchTime": "20:00",
+      "minutes_played": 6,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 8,
+        "score": 3,
+        "participantName": "Chelsea FC",
+        "teamShortName": "CHE",
+        "teamMiddleName": "Chelsea",
+        "logo": "https://api.statorium.com/media/bearleague/bl1756795498585.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58555,
+      "matchDate": "2024-02-03",
+      "matchTime": "15:00",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 19,
+        "score": 4,
+        "participantName": "Brighton & Hove Albion",
+        "teamShortName": "BRH",
+        "teamMiddleName": "Brighton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190134962515.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 75689,
+      "matchDate": "2024-01-17",
+      "matchTime": "19:45",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 6,
+        "score": 1,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 73546,
+      "matchDate": "2024-01-04",
+      "matchTime": "20:00",
+      "minutes_played": 6,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 6,
+        "score": 0,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58484,
+      "matchDate": "2023-12-09",
+      "matchTime": "12:30",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 2,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58480,
+      "matchDate": "2023-12-06",
+      "matchTime": "19:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 16,
+        "score": 2,
+        "participantName": "AFC Bournemouth",
+        "teamShortName": "BOU",
+        "teamMiddleName": "Bournemouth",
+        "logo": "https://api.statorium.com/media/bearleague/bl171510179519.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "45"
+        }
+      ]
+    },
+    {
+      "matchID": 58471,
+      "matchDate": "2023-12-03",
+      "matchTime": "14:00",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1,
+        "score": 1,
+        "participantName": "West Ham United",
+        "teamShortName": "WHU",
+        "teamMiddleName": "West Ham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151028161933.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "53"
+        }
+      ]
+    },
+    {
+      "matchID": 58456,
+      "matchDate": "2023-11-25",
+      "matchTime": "15:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 187,
+        "score": 2,
+        "participantName": "Luton Town FC",
+        "teamShortName": "LUT",
+        "teamMiddleName": "Luton",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102426239.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58447,
+      "matchDate": "2023-11-11",
+      "matchTime": "15:00",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 6,
+        "score": 3,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "73"
+        }
+      ]
+    },
+    {
+      "matchID": 58433,
+      "matchDate": "2023-11-04",
+      "matchTime": "15:00",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 12,
+        "score": 0,
+        "participantName": "Burnley FC",
+        "teamShortName": "BUR",
+        "teamMiddleName": "Burnley",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102124426.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "16"
+        }
+      ]
+    },
+    {
+      "matchID": 58427,
+      "matchDate": "2023-10-27",
+      "matchTime": "19:00",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 2,
+        "score": 2,
+        "participantName": "Tottenham Hotspur FC",
+        "teamShortName": "TOT",
+        "teamMiddleName": "Tottenham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58418,
+      "matchDate": "2023-10-21",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 10,
+        "score": 4,
+        "participantName": "Newcastle United FC",
+        "teamShortName": "NEW",
+        "teamMiddleName": "Newcastle",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102537848.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "45+5"
+        }
+      ]
+    },
+    {
+      "matchID": 58405,
+      "matchDate": "2023-10-07",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 183,
+        "score": 0,
+        "participantName": "Nottingham Forest FC",
+        "teamShortName": "NTF",
+        "teamMiddleName": "Nottingham Forest",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151025621698.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58387,
+      "matchDate": "2023-09-23",
+      "matchTime": "14:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 5,
+        "score": 0,
+        "participantName": "Fulham FC",
+        "teamShortName": "FUL",
+        "teamMiddleName": "Fulham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023581920.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58372,
+      "matchDate": "2023-09-16",
+      "matchTime": "14:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 112,
+        "score": 3,
+        "participantName": "Aston Villa",
+        "teamShortName": "AVL",
+        "teamMiddleName": "Aston Villa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "47"
+        }
+      ]
+    },
+    {
+      "matchID": 58367,
+      "matchDate": "2023-09-03",
+      "matchTime": "13:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 3,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 13,
+        "score": 2,
+        "participantName": "Wolverhampton Wanderers",
+        "teamShortName": "WLV",
+        "teamMiddleName": "Wolverhampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190131172980.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "57"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "84"
+        }
+      ]
+    },
+    {
+      "matchID": 58354,
+      "matchDate": "2023-08-26",
+      "matchTime": "14:00",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 186,
+        "score": 1,
+        "participantName": "Brentford FC",
+        "teamShortName": "BRE",
+        "teamMiddleName": "Brentford",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151020531622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58343,
+      "matchDate": "2023-08-21",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 9,
+        "score": 1,
+        "participantName": "Arsenal FC",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715101847747.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 58337,
+      "matchDate": "2023-08-12",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 113,
+        "score": 0,
+        "participantName": "Sheffield United",
+        "teamShortName": "SHU",
+        "teamMiddleName": "Sheffield Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151027041768.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "49"
+        }
+      ]
+    },
+    {
+      "matchID": 39565,
+      "matchDate": "2023-05-28",
+      "matchTime": "15:30",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 183,
+        "score": 1,
+        "participantName": "Nottingham Forest FC",
+        "teamShortName": "NTF",
+        "teamMiddleName": "Nottingham Forest",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151025621698.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39553,
+      "matchDate": "2023-05-20",
+      "matchTime": "14:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 5,
+        "score": 2,
+        "participantName": "Fulham FC",
+        "teamShortName": "FUL",
+        "teamMiddleName": "Fulham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023581920.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "35"
+        }
+      ]
+    },
+    {
+      "matchID": 39545,
+      "matchDate": "2023-05-13",
+      "matchTime": "14:00",
+      "minutes_played": 39,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 16,
+        "score": 0,
+        "participantName": "AFC Bournemouth",
+        "teamShortName": "BOU",
+        "teamMiddleName": "Bournemouth",
+        "logo": "https://api.statorium.com/media/bearleague/bl171510179519.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39538,
+      "matchDate": "2023-05-06",
+      "matchTime": "14:00",
+      "minutes_played": 6,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 2,
+        "score": 1,
+        "participantName": "Tottenham Hotspur FC",
+        "teamShortName": "TOT",
+        "teamMiddleName": "Tottenham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39525,
+      "matchDate": "2023-04-29",
+      "matchTime": "11:30",
+      "minutes_played": 6,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 4,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1,
+        "score": 3,
+        "participantName": "West Ham United",
+        "teamShortName": "WHU",
+        "teamMiddleName": "West Ham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151028161933.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39516,
+      "matchDate": "2023-04-25",
+      "matchTime": "18:30",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 13,
+        "score": 2,
+        "participantName": "Wolverhampton Wanderers",
+        "teamShortName": "WLV",
+        "teamMiddleName": "Wolverhampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190131172980.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39505,
+      "matchDate": "2023-04-22",
+      "matchTime": "14:00",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 6,
+        "score": 0,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39497,
+      "matchDate": "2023-04-15",
+      "matchTime": "14:00",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 17,
+        "score": 0,
+        "participantName": "Southampton FC",
+        "teamShortName": "SOU",
+        "teamMiddleName": "Southampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552486916606.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39484,
+      "matchDate": "2023-04-09",
+      "matchTime": "13:00",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 5,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "69"
+        }
+      ]
+    },
+    {
+      "matchID": 39475,
+      "matchDate": "2023-04-01",
+      "matchTime": "14:00",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 14,
+        "score": 1,
+        "participantName": "Leicester City",
+        "teamShortName": "LEI",
+        "teamMiddleName": "Leicester",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248319886.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39461,
+      "matchDate": "2023-03-19",
+      "matchTime": "14:00",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 9,
+        "score": 4,
+        "participantName": "Arsenal FC",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715101847747.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39263,
+      "matchDate": "2023-03-15",
+      "matchTime": "19:30",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 19,
+        "score": 1,
+        "participantName": "Brighton & Hove Albion",
+        "teamShortName": "BRH",
+        "teamMiddleName": "Brighton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190134962515.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39452,
+      "matchDate": "2023-03-11",
+      "matchTime": "17:30",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 4,
+        "score": 1,
+        "participantName": "Manchester City",
+        "teamShortName": "MCI",
+        "teamMiddleName": "Man City",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151024711246.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39432,
+      "matchDate": "2023-02-25",
+      "matchTime": "19:45",
+      "minutes_played": 19,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 0,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39422,
+      "matchDate": "2023-02-18",
+      "matchTime": "15:00",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 186,
+        "score": 1,
+        "participantName": "Brentford FC",
+        "teamShortName": "BRE",
+        "teamMiddleName": "Brentford",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151020531622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39413,
+      "matchDate": "2023-02-11",
+      "matchTime": "15:00",
+      "minutes_played": 19,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 19,
+        "score": 1,
+        "participantName": "Brighton & Hove Albion",
+        "teamShortName": "BRH",
+        "teamMiddleName": "Brighton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190134962515.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39406,
+      "matchDate": "2023-02-04",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 7,
+        "score": 2,
+        "participantName": "Manchester United",
+        "teamShortName": "MUN",
+        "teamMiddleName": "Man Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39393,
+      "matchDate": "2023-01-21",
+      "matchTime": "17:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 10,
+        "score": 0,
+        "participantName": "Newcastle United FC",
+        "teamShortName": "NEW",
+        "teamMiddleName": "Newcastle",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102537848.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39253,
+      "matchDate": "2023-01-18",
+      "matchTime": "20:00",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 7,
+        "score": 1,
+        "participantName": "Manchester United",
+        "teamShortName": "MUN",
+        "teamMiddleName": "Man Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39384,
+      "matchDate": "2023-01-15",
+      "matchTime": "14:00",
+      "minutes_played": 21,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 8,
+        "score": 1,
+        "participantName": "Chelsea FC",
+        "teamShortName": "CHE",
+        "teamMiddleName": "Chelsea",
+        "logo": "https://api.statorium.com/media/bearleague/bl1756795498585.png"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 51708,
+      "matchDate": "2023-01-07",
+      "matchTime": "12:30",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 17,
+        "score": 2,
+        "participantName": "Southampton FC",
+        "teamShortName": "SOU",
+        "teamMiddleName": "Southampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552486916606.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "14"
+        }
+      ]
+    },
+    {
+      "matchID": 39375,
+      "matchDate": "2023-01-04",
+      "matchTime": "20:00",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 2,
+        "score": 4,
+        "participantName": "Tottenham Hotspur FC",
+        "teamShortName": "TOT",
+        "teamMiddleName": "Tottenham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39361,
+      "matchDate": "2022-12-31",
+      "matchTime": "15:00",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 16,
+        "score": 0,
+        "participantName": "AFC Bournemouth",
+        "teamShortName": "BOU",
+        "teamMiddleName": "Bournemouth",
+        "logo": "https://api.statorium.com/media/bearleague/bl171510179519.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39347,
+      "matchDate": "2022-11-12",
+      "matchTime": "15:00",
+      "minutes_played": 5,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 183,
+        "score": 1,
+        "participantName": "Nottingham Forest FC",
+        "teamShortName": "NTF",
+        "teamMiddleName": "Nottingham Forest",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151025621698.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39325,
+      "matchDate": "2022-10-29",
+      "matchTime": "14:00",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 17,
+        "score": 0,
+        "participantName": "Southampton FC",
+        "teamShortName": "SOU",
+        "teamMiddleName": "Southampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552486916606.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "38"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "61"
+        }
+      ]
+    },
+    {
+      "matchID": 39313,
+      "matchDate": "2022-10-22",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 6,
+        "score": 3,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39307,
+      "matchDate": "2022-10-18",
+      "matchTime": "19:15",
+      "minutes_played": 81,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 13,
+        "score": 1,
+        "participantName": "Wolverhampton Wanderers",
+        "teamShortName": "WLV",
+        "teamMiddleName": "Wolverhampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190131172980.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "71"
+        }
+      ]
+    },
+    {
+      "matchID": 39295,
+      "matchDate": "2022-10-15",
+      "matchTime": "11:30",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 14,
+        "score": 0,
+        "participantName": "Leicester City",
+        "teamShortName": "LEI",
+        "teamMiddleName": "Leicester",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248319886.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39285,
+      "matchDate": "2022-10-09",
+      "matchTime": "13:00",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "24"
+        }
+      ]
+    },
+    {
+      "matchID": 39273,
+      "matchDate": "2022-10-01",
+      "matchTime": "14:00",
+      "minutes_played": 84,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 8,
+        "score": 2,
+        "participantName": "Chelsea FC",
+        "teamShortName": "CHE",
+        "teamMiddleName": "Chelsea",
+        "logo": "https://api.statorium.com/media/bearleague/bl1756795498585.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "7"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "22"
+        }
+      ]
+    },
+    {
+      "matchID": 39247,
+      "matchDate": "2022-09-03",
+      "matchTime": "14:00",
+      "minutes_played": 27,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 10,
+        "score": 0,
+        "participantName": "Newcastle United FC",
+        "teamShortName": "NEW",
+        "teamMiddleName": "Newcastle",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102537848.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39237,
+      "matchDate": "2022-08-30",
+      "matchTime": "18:30",
+      "minutes_played": 36,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 186,
+        "score": 1,
+        "participantName": "Brentford FC",
+        "teamShortName": "BRE",
+        "teamMiddleName": "Brentford",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151020531622.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39227,
+      "matchDate": "2022-08-27",
+      "matchTime": "14:00",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 4,
+        "score": 4,
+        "participantName": "Manchester City",
+        "teamShortName": "MCI",
+        "teamMiddleName": "Man City",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151024711246.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 39212,
+      "matchDate": "2022-08-20",
+      "matchTime": "14:00",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 3,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 112,
+        "score": 1,
+        "participantName": "Aston Villa",
+        "teamShortName": "AVL",
+        "teamMiddleName": "Aston Villa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "7"
+        }
+      ]
+    },
+    {
+      "matchID": 39206,
+      "matchDate": "2022-08-15",
+      "matchTime": "19:00",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 1,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "88"
+        }
+      ]
+    },
+    {
+      "matchID": 39191,
+      "matchDate": "2022-08-05",
+      "matchTime": "19:00",
+      "minutes_played": 58,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 9,
+        "score": 2,
+        "participantName": "Arsenal FC",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715101847747.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27895,
+      "matchDate": "2022-05-22",
+      "matchTime": "15:00",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 7,
+        "score": 0,
+        "participantName": "Manchester United",
+        "teamShortName": "MUN",
+        "teamMiddleName": "Man Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "63"
+        }
+      ]
+    },
+    {
+      "matchID": 27880,
+      "matchDate": "2022-05-15",
+      "matchTime": "13:00",
+      "minutes_played": 19,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 112,
+        "score": 1,
+        "participantName": "Aston Villa",
+        "teamShortName": "AVL",
+        "teamMiddleName": "Aston Villa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "76"
+        }
+      ]
+    },
+    {
+      "matchID": 27875,
+      "matchDate": "2022-05-07",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 11,
+        "score": 0,
+        "participantName": "Watford FC",
+        "teamShortName": "WAT",
+        "teamMiddleName": "Watford",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552486729625.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27815,
+      "matchDate": "2022-04-20",
+      "matchTime": "18:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 10,
+        "score": 1,
+        "participantName": "Newcastle United FC",
+        "teamShortName": "NEW",
+        "teamMiddleName": "Newcastle",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102537848.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27823,
+      "matchDate": "2022-04-04",
+      "matchTime": "19:00",
+      "minutes_played": 14,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 3,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 9,
+        "score": 0,
+        "participantName": "Arsenal FC",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715101847747.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 37061,
+      "matchDate": "2022-03-20",
+      "matchTime": "12:30",
+      "minutes_played": 19,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 4,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 6,
+        "score": 0,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27804,
+      "matchDate": "2022-03-14",
+      "matchTime": "20:00",
+      "minutes_played": 25,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 4,
+        "score": 0,
+        "participantName": "Manchester City",
+        "teamShortName": "MCI",
+        "teamMiddleName": "Man City",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151024711246.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "90"
+        }
+      ]
+    },
+    {
+      "matchID": 27760,
+      "matchDate": "2022-02-12",
+      "matchTime": "15:00",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 186,
+        "score": 0,
+        "participantName": "Brentford FC",
+        "teamShortName": "BRE",
+        "teamMiddleName": "Brentford",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151020531622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27753,
+      "matchDate": "2022-02-09",
+      "matchTime": "19:45",
+      "minutes_played": 9,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 111,
+        "score": 1,
+        "participantName": "Norwich City",
+        "teamShortName": "NOR",
+        "teamMiddleName": "Norwich",
+        "logo": "https://api.statorium.com/media/bearleague/bl1655827847717.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35433,
+      "matchDate": "2022-02-05",
+      "matchTime": "15:00",
+      "minutes_played": 19,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 269,
+        "score": 0,
+        "participantName": "Hartlepool United FC",
+        "teamShortName": "HAR",
+        "teamMiddleName": "Hartlepool United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1571899128496.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27743,
+      "matchDate": "2022-01-23",
+      "matchTime": "14:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3,
+        "score": 3,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "55"
+        }
+      ]
+    },
+    {
+      "matchID": 27731,
+      "matchDate": "2022-01-14",
+      "matchTime": "20:00",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 19,
+        "score": 1,
+        "participantName": "Brighton & Hove Albion",
+        "teamShortName": "BRH",
+        "teamMiddleName": "Brighton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190134962515.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 34502,
+      "matchDate": "2022-01-08",
+      "matchTime": "12:45",
+      "minutes_played": 25,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 185,
+        "score": 1,
+        "participantName": "Millwall FC",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Millwall",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568186829939.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27723,
+      "matchDate": "2022-01-01",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1,
+        "score": 3,
+        "participantName": "West Ham United",
+        "teamShortName": "WHU",
+        "teamMiddleName": "West Ham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151028161933.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "83"
+        }
+      ]
+    },
+    {
+      "matchID": 27713,
+      "matchDate": "2021-12-28",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 3,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 111,
+        "score": 0,
+        "participantName": "Norwich City",
+        "teamShortName": "NOR",
+        "teamMiddleName": "Norwich",
+        "logo": "https://api.statorium.com/media/bearleague/bl1655827847717.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "22"
+        },
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "38"
+        },
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "42"
+        },
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "8"
+        }
+      ]
+    },
+    {
+      "matchID": 27707,
+      "matchDate": "2021-12-26",
+      "matchTime": "15:00",
+      "minutes_played": 63,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 2,
+        "score": 3,
+        "participantName": "Tottenham Hotspur FC",
+        "teamShortName": "TOT",
+        "teamMiddleName": "Tottenham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27686,
+      "matchDate": "2021-12-15",
+      "matchTime": "19:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 17,
+        "score": 2,
+        "participantName": "Southampton FC",
+        "teamShortName": "SOU",
+        "teamMiddleName": "Southampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552486916606.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "2"
+        }
+      ]
+    },
+    {
+      "matchID": 27675,
+      "matchDate": "2021-12-12",
+      "matchTime": "16:30",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 3,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 6,
+        "score": 1,
+        "participantName": "Everton FC",
+        "teamShortName": "EVE",
+        "teamMiddleName": "Everton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151023291397.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27663,
+      "matchDate": "2021-12-05",
+      "matchTime": "14:00",
+      "minutes_played": 23,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 7,
+        "score": 1,
+        "participantName": "Manchester United",
+        "teamShortName": "MUN",
+        "teamMiddleName": "Man Utd",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102499972.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27652,
+      "matchDate": "2021-11-30",
+      "matchTime": "20:15",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 176,
+        "score": 1,
+        "participantName": "Leeds United FC",
+        "teamShortName": "LEE",
+        "teamMiddleName": "Leeds United",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568183667499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27645,
+      "matchDate": "2021-11-27",
+      "matchTime": "15:00",
+      "minutes_played": 18,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 112,
+        "score": 2,
+        "participantName": "Aston Villa",
+        "teamShortName": "AVL",
+        "teamMiddleName": "Aston Villa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27631,
+      "matchDate": "2021-11-20",
+      "matchTime": "15:00",
+      "minutes_played": 3,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 12,
+        "score": 3,
+        "participantName": "Burnley FC",
+        "teamShortName": "BUR",
+        "teamMiddleName": "Burnley",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102124426.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 3,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27624,
+      "matchDate": "2021-11-06",
+      "matchTime": "15:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 13,
+        "score": 0,
+        "participantName": "Wolverhampton Wanderers",
+        "teamShortName": "WLV",
+        "teamMiddleName": "Wolverhampton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190131172980.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27614,
+      "matchDate": "2021-10-30",
+      "matchTime": "14:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 4,
+        "score": 0,
+        "participantName": "Manchester City",
+        "teamShortName": "MCI",
+        "teamMiddleName": "Man City",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151024711246.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27604,
+      "matchDate": "2021-10-23",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 10,
+        "score": 1,
+        "participantName": "Newcastle United FC",
+        "teamShortName": "NEW",
+        "teamMiddleName": "Newcastle",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715102537848.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27590,
+      "matchDate": "2021-10-18",
+      "matchTime": "19:00",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 9,
+        "score": 2,
+        "participantName": "Arsenal FC",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715101847747.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "73"
+        }
+      ]
+    },
+    {
+      "matchID": 27583,
+      "matchDate": "2021-10-03",
+      "matchTime": "13:00",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 2,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 14,
+        "score": 2,
+        "participantName": "Leicester City",
+        "teamShortName": "LEI",
+        "teamMiddleName": "Leicester",
+        "logo": "https://api.statorium.com/media/bearleague/bl155248319886.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27579,
+      "matchDate": "2021-09-27",
+      "matchTime": "19:00",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 1,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 19,
+        "score": 1,
+        "participantName": "Brighton & Hove Albion",
+        "teamShortName": "BRH",
+        "teamMiddleName": "Brighton",
+        "logo": "https://api.statorium.com/media/bearleague/bl17190134962515.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27563,
+      "matchDate": "2021-09-18",
+      "matchTime": "14:00",
+      "minutes_played": 25,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 3,
+        "score": 3,
+        "participantName": "Liverpool FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Liverpool",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250632262228.webp"
+      },
+      "awayParticipant": {
+        "participantID": 15,
+        "score": 0,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 27550,
+      "matchDate": "2021-09-11",
+      "matchTime": "11:30",
+      "minutes_played": 7,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 15,
+        "score": 3,
+        "participantName": "Crystal Palace",
+        "teamShortName": "CRY",
+        "teamMiddleName": "Crystal Palace",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013395807.webp"
+      },
+      "awayParticipant": {
+        "participantID": 2,
+        "score": 0,
+        "participantName": "Tottenham Hotspur FC",
+        "teamShortName": "TOT",
+        "teamMiddleName": "Tottenham",
+        "logo": "https://api.statorium.com/media/bearleague/bl17496830752632.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "84"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+3"
+        }
+      ]
+    },
+    {
+      "matchID": 29456,
+      "matchDate": "2021-08-29",
+      "matchTime": "11:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 160,
+        "score": 1,
+        "participantName": "Rangers FC",
+        "teamShortName": "RFC",
+        "teamMiddleName": "Rangers",
+        "logo": "https://api.statorium.com/media/bearleague/bl16558475532564.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 0,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "65"
+        }
+      ]
+    },
+    {
+      "matchID": 29445,
+      "matchDate": "2021-08-21",
+      "matchTime": "14:00",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 6,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 585,
+        "score": 0,
+        "participantName": "St. Mirren FC",
+        "teamShortName": "STM",
+        "teamMiddleName": "St. Mirren",
+        "logo": "https://api.statorium.com/media/bearleague/bl17196170052784.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "62"
+        }
+      ]
+    },
+    {
+      "matchID": 29440,
+      "matchDate": "2021-08-08",
+      "matchTime": "14:00",
+      "minutes_played": 21,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 6,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 962,
+        "score": 0,
+        "participantName": "Dundee FC",
+        "teamShortName": "DUN",
+        "teamMiddleName": "Dundee",
+        "logo": "https://api.statorium.com/media/bearleague/bl17489708822635.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "90"
+        }
+      ]
+    },
+    {
+      "matchID": 29436,
+      "matchDate": "2021-07-31",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 963,
+        "score": 2,
+        "participantName": "Heart of Midlothian FC",
+        "teamShortName": "HEA",
+        "teamMiddleName": "Hearts",
+        "logo": "https://api.statorium.com/media/bearleague/bl16240154481537.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "54"
+        }
+      ]
+    },
+    {
+      "matchID": 22799,
+      "matchDate": "2021-05-15",
+      "matchTime": "11:30",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 583,
+        "score": 0,
+        "participantName": "Hibernian FC",
+        "teamShortName": "HIB",
+        "teamMiddleName": "Hibernian",
+        "logo": "https://api.statorium.com/media/bearleague/bl15967010341018.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 0,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 22797,
+      "matchDate": "2021-05-12",
+      "matchTime": "17:30",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 4,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 587,
+        "score": 0,
+        "participantName": "St. Johnstone FC",
+        "teamShortName": "SJO",
+        "teamMiddleName": "St. Johnstone",
+        "logo": "https://api.statorium.com/media/bearleague/bl17196162592624.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "24"
+        }
+      ]
+    },
+    {
+      "matchID": 22792,
+      "matchDate": "2021-05-02",
+      "matchTime": "11:00",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 160,
+        "score": 4,
+        "participantName": "Rangers FC",
+        "teamShortName": "RFC",
+        "teamMiddleName": "Rangers",
+        "logo": "https://api.statorium.com/media/bearleague/bl16558475532564.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "30"
+        }
+      ]
+    },
+    {
+      "matchID": 22784,
+      "matchDate": "2021-04-21",
+      "matchTime": "18:45",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 589,
+        "score": 1,
+        "participantName": "Aberdeen FC",
+        "teamShortName": "ABE",
+        "teamMiddleName": "Aberdeen",
+        "logo": "https://api.statorium.com/media/bearleague/bl17416320082499.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 22778,
+      "matchDate": "2021-04-10",
+      "matchTime": "14:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 6,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 590,
+        "score": 0,
+        "participantName": "Livingston FC",
+        "teamShortName": "LIV",
+        "teamMiddleName": "Livingston",
+        "logo": "https://api.statorium.com/media/bearleague/bl15967017371939.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "30"
+        }
+      ]
+    },
+    {
+      "matchID": 14160,
+      "matchDate": "2021-03-21",
+      "matchTime": "12:00",
+      "minutes_played": 89,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 160,
+        "score": 1,
+        "participantName": "Rangers FC",
+        "teamShortName": "RFC",
+        "teamMiddleName": "Rangers",
+        "logo": "https://api.statorium.com/media/bearleague/bl16558475532564.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "23"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "27"
+        }
+      ]
+    },
+    {
+      "matchID": 14155,
+      "matchDate": "2021-03-07",
+      "matchTime": "12:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 586,
+        "score": 0,
+        "participantName": "Dundee United FC",
+        "teamShortName": "DUN",
+        "teamMiddleName": "Dundee United",
+        "logo": "https://api.statorium.com/media/bearleague/bl16258471181564.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 0,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 14148,
+      "matchDate": "2021-02-27",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 589,
+        "score": 0,
+        "participantName": "Aberdeen FC",
+        "teamShortName": "ABE",
+        "teamMiddleName": "Aberdeen",
+        "logo": "https://api.statorium.com/media/bearleague/bl17416320082499.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "8"
+        }
+      ]
+    },
+    {
+      "matchID": 14170,
+      "matchDate": "2021-02-21",
+      "matchTime": "19:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 584,
+        "score": 1,
+        "participantName": "Ross County FC",
+        "teamShortName": "ROS",
+        "teamMiddleName": "Ross County",
+        "logo": "https://api.statorium.com/media/bearleague/bl15967010781165.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 0,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 13995,
+      "matchDate": "2021-02-17",
+      "matchTime": "18:00",
+      "minutes_played": 81,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 589,
+        "score": 0,
+        "participantName": "Aberdeen FC",
+        "teamShortName": "ABE",
+        "teamMiddleName": "Aberdeen",
+        "logo": "https://api.statorium.com/media/bearleague/bl17416320082499.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 14147,
+      "matchDate": "2021-02-14",
+      "matchTime": "12:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 587,
+        "score": 1,
+        "participantName": "St. Johnstone FC",
+        "teamShortName": "SJO",
+        "teamMiddleName": "St. Johnstone",
+        "logo": "https://api.statorium.com/media/bearleague/bl17196162592624.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 2,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "60"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "62"
+        }
+      ]
+    },
+    {
+      "matchID": 14123,
+      "matchDate": "2021-02-10",
+      "matchTime": "20:00",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 585,
+        "score": 0,
+        "participantName": "St. Mirren FC",
+        "teamShortName": "STM",
+        "teamMiddleName": "St. Mirren",
+        "logo": "https://api.statorium.com/media/bearleague/bl17196170052784.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 4,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "79"
+        }
+      ]
+    },
+    {
+      "matchID": 14136,
+      "matchDate": "2021-02-06",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 2,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 591,
+        "score": 1,
+        "participantName": "Motherwell FC",
+        "teamShortName": "MOT",
+        "teamMiddleName": "Motherwell",
+        "logo": "https://api.statorium.com/media/bearleague/bl1596701766123.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "50"
+        }
+      ]
+    },
+    {
+      "matchID": 14132,
+      "matchDate": "2021-02-02",
+      "matchTime": "19:45",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 588,
+        "score": 0,
+        "participantName": "Kilmarnock FC",
+        "teamShortName": "KIL",
+        "teamMiddleName": "Kilmarnock",
+        "logo": "https://api.statorium.com/media/bearleague/bl17196161272253.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 4,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "53"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "62"
+        }
+      ]
+    },
+    {
+      "matchID": 14591,
+      "matchDate": "2021-01-30",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 585,
+        "score": 2,
+        "participantName": "St. Mirren FC",
+        "teamShortName": "STM",
+        "teamMiddleName": "St. Mirren",
+        "logo": "https://api.statorium.com/media/bearleague/bl17196170052784.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "32"
+        }
+      ]
+    },
+    {
+      "matchID": 14124,
+      "matchDate": "2021-01-27",
+      "matchTime": "19:45",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 2,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 592,
+        "score": 0,
+        "participantName": "Hamilton Academical FC",
+        "teamShortName": "HAM",
+        "teamMiddleName": "Hamilton Academical",
+        "logo": "https://api.statorium.com/media/bearleague/bl1596701799580.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "48"
+        }
+      ]
+    },
+    {
+      "matchID": 14104,
+      "matchDate": "2021-01-02",
+      "matchTime": "12:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 160,
+        "score": 1,
+        "participantName": "Rangers FC",
+        "teamShortName": "RFC",
+        "teamMiddleName": "Rangers",
+        "logo": "https://api.statorium.com/media/bearleague/bl16558475532564.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 0,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 14094,
+      "matchDate": "2020-12-30",
+      "matchTime": "15:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 3,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 586,
+        "score": 0,
+        "participantName": "Dundee United FC",
+        "teamShortName": "DUN",
+        "teamMiddleName": "Dundee United",
+        "logo": "https://api.statorium.com/media/bearleague/bl16258471181564.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "76"
+        }
+      ]
+    },
+    {
+      "matchID": 14090,
+      "matchDate": "2020-12-26",
+      "matchTime": "15:00",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 592,
+        "score": 0,
+        "participantName": "Hamilton Academical FC",
+        "teamShortName": "HAM",
+        "teamMiddleName": "Hamilton Academical",
+        "logo": "https://api.statorium.com/media/bearleague/bl1596701799580.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 3,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "54"
+        },
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "49"
+        }
+      ]
+    },
+    {
+      "matchID": 14082,
+      "matchDate": "2020-12-23",
+      "matchTime": "18:00",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 2,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 584,
+        "score": 0,
+        "participantName": "Ross County FC",
+        "teamShortName": "ROS",
+        "teamMiddleName": "Ross County",
+        "logo": "https://api.statorium.com/media/bearleague/bl15967010781165.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 14071,
+      "matchDate": "2020-12-13",
+      "matchTime": "15:00",
+      "minutes_played": 69,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 2,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 588,
+        "score": 0,
+        "participantName": "Kilmarnock FC",
+        "teamShortName": "KIL",
+        "teamMiddleName": "Kilmarnock",
+        "logo": "https://api.statorium.com/media/bearleague/bl17196161272253.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 14064,
+      "matchDate": "2020-12-06",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 587,
+        "score": 1,
+        "participantName": "St. Johnstone FC",
+        "teamShortName": "SJO",
+        "teamMiddleName": "St. Johnstone",
+        "logo": "https://api.statorium.com/media/bearleague/bl17196162592624.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 19372,
+      "matchDate": "2020-12-03",
+      "matchTime": "17:55",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 96,
+        "score": 4,
+        "participantName": "AC Milan",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Milan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377363579.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 2,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "14"
+        }
+      ]
+    },
+    {
+      "matchID": 19360,
+      "matchDate": "2020-11-26",
+      "matchTime": "17:55",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 682,
+        "score": 4,
+        "participantName": "AC Sparta Praha",
+        "teamShortName": "SPA",
+        "teamMiddleName": "Sparta Praha",
+        "logo": "https://api.statorium.com/media/bearleague/bl1688068242953.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "15"
+        }
+      ]
+    },
+    {
+      "matchID": 14059,
+      "matchDate": "2020-11-21",
+      "matchTime": "15:00",
+      "minutes_played": 32,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 583,
+        "score": 2,
+        "participantName": "Hibernian FC",
+        "teamShortName": "HIB",
+        "teamMiddleName": "Hibernian",
+        "logo": "https://api.statorium.com/media/bearleague/bl15967010341018.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 2,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "79"
+        }
+      ]
+    },
+    {
+      "matchID": 14053,
+      "matchDate": "2020-11-08",
+      "matchTime": "12:00",
+      "minutes_played": 19,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 591,
+        "score": 1,
+        "participantName": "Motherwell FC",
+        "teamShortName": "MOT",
+        "teamMiddleName": "Motherwell",
+        "logo": "https://api.statorium.com/media/bearleague/bl1596701766123.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 4,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "86"
+        }
+      ]
+    },
+    {
+      "matchID": 19341,
+      "matchDate": "2020-11-05",
+      "matchTime": "20:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 682,
+        "score": 4,
+        "participantName": "AC Sparta Praha",
+        "teamShortName": "SPA",
+        "teamMiddleName": "Sparta Praha",
+        "logo": "https://api.statorium.com/media/bearleague/bl1688068242953.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 19311,
+      "matchDate": "2020-10-29",
+      "matchTime": "17:55",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 69,
+        "score": 2,
+        "participantName": "LOSC Lille",
+        "teamShortName": "LIL",
+        "teamMiddleName": "Lille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766862077.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 2,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 14036,
+      "matchDate": "2020-10-04",
+      "matchTime": "11:00",
+      "minutes_played": 59,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 587,
+        "score": 0,
+        "participantName": "St. Johnstone FC",
+        "teamShortName": "SJO",
+        "teamMiddleName": "St. Johnstone",
+        "logo": "https://api.statorium.com/media/bearleague/bl17196162592624.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 2,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 14025,
+      "matchDate": "2020-09-27",
+      "matchTime": "14:00",
+      "minutes_played": 53,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 3,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 583,
+        "score": 0,
+        "participantName": "Hibernian FC",
+        "teamShortName": "HIB",
+        "teamMiddleName": "Hibernian",
+        "logo": "https://api.statorium.com/media/bearleague/bl15967010341018.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 13990,
+      "matchDate": "2020-09-16",
+      "matchTime": "18:45",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 585,
+        "score": 1,
+        "participantName": "St. Mirren FC",
+        "teamShortName": "STM",
+        "teamMiddleName": "St. Mirren",
+        "logo": "https://api.statorium.com/media/bearleague/bl17196170052784.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 2,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 8,
+          "eventName": "Missed penalty",
+          "minutes": "75"
+        }
+      ]
+    },
+    {
+      "matchID": 14017,
+      "matchDate": "2020-09-12",
+      "matchTime": "14:00",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 584,
+        "score": 0,
+        "participantName": "Ross County FC",
+        "teamShortName": "ROS",
+        "teamMiddleName": "Ross County",
+        "logo": "https://api.statorium.com/media/bearleague/bl15967010781165.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 5,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "4"
+        }
+      ]
+    },
+    {
+      "matchID": 14005,
+      "matchDate": "2020-08-22",
+      "matchTime": "16:30",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 586,
+        "score": 0,
+        "participantName": "Dundee United FC",
+        "teamShortName": "DUN",
+        "teamMiddleName": "Dundee United",
+        "logo": "https://api.statorium.com/media/bearleague/bl16258471181564.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 13988,
+      "matchDate": "2020-08-09",
+      "matchTime": "15:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 588,
+        "score": 1,
+        "participantName": "Kilmarnock FC",
+        "teamShortName": "KIL",
+        "teamMiddleName": "Kilmarnock",
+        "logo": "https://api.statorium.com/media/bearleague/bl17196161272253.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 14185,
+      "matchDate": "2020-08-02",
+      "matchTime": "15:30",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 5,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 592,
+        "score": 1,
+        "participantName": "Hamilton Academical FC",
+        "teamShortName": "HAM",
+        "teamMiddleName": "Hamilton Academical",
+        "logo": "https://api.statorium.com/media/bearleague/bl1596701799580.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "20"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "49"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "53"
+        }
+      ]
+    },
+    {
+      "matchID": 8087,
+      "matchDate": "2020-02-27",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 143,
+        "score": 3,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "83"
+        }
+      ]
+    },
+    {
+      "matchID": 8066,
+      "matchDate": "2020-02-20",
+      "matchTime": "17:55",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 143,
+        "score": 1,
+        "participantName": "FC Copenhagen",
+        "teamShortName": "FCK",
+        "teamMiddleName": "København",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749730308273.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "14"
+        }
+      ]
+    },
+    {
+      "matchID": 3941,
+      "matchDate": "2019-11-07",
+      "matchTime": "17:55",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 92,
+        "score": 1,
+        "participantName": "SS Lazio",
+        "teamShortName": "LAZ",
+        "teamMiddleName": "Lazio",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782801749.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 2,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "90+5"
+        }
+      ]
+    },
+    {
+      "matchID": 3928,
+      "matchDate": "2019-10-24",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 2,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 92,
+        "score": 1,
+        "participantName": "SS Lazio",
+        "teamShortName": "LAZ",
+        "teamMiddleName": "Lazio",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782801749.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "67"
+        }
+      ]
+    },
+    {
+      "matchID": 3917,
+      "matchDate": "2019-10-03",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 2,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 154,
+        "score": 0,
+        "participantName": "CFR Cluj",
+        "teamShortName": "CFR",
+        "teamMiddleName": "CFR Cluj",
+        "logo": "https://api.statorium.com/media/bearleague/bl15680297221692.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "20"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "88"
+        }
+      ]
+    },
+    {
+      "matchID": 3906,
+      "matchDate": "2019-09-19",
+      "matchTime": "16:55",
+      "minutes_played": 84,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 67,
+        "score": 1,
+        "participantName": "Stade Rennais FC",
+        "teamShortName": "REN",
+        "teamMiddleName": "Rennes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764402365.webp"
+      },
+      "awayParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "21"
+        }
+      ]
+    }
+  ]
+}

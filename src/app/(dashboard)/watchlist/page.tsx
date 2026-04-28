@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Search,
@@ -22,6 +23,7 @@ import {
   getTeamLogoAction,
   getTopLeaguesClubsAction,
   getPlayersByClubAction,
+  getAllTop5PlayersAction,
 } from "@/app/actions/statorium"
 import {
   getWatchlist,
@@ -93,6 +95,7 @@ interface Player {
 }
 
 export default function WatchlistPage() {
+  const router = useRouter()
   const [watchedPlayers, setWatchedPlayers] = useState<Player[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
   const [loadingWatchlist, setLoadingWatchlist] = useState(false)
@@ -148,6 +151,30 @@ export default function WatchlistPage() {
   const [clubPlayers, setClubPlayers] = useState<any[]>([])
   const [loadingSearch, setLoadingSearch] = useState(false)
 
+  // New search functionality state
+  const [filters, setFilters] = useState<{
+    league: string | null
+    club: string | null
+    position: string | null
+    ageMin: number | null
+    ageMax: number | null
+    valueMin: number | null
+    valueMax: number | null
+  }>({
+    league: null,
+    club: null,
+    position: null,
+    ageMin: null,
+    ageMax: null,
+    valueMin: null,
+    valueMax: null,
+  })
+  const [searchResults, setSearchResults] = useState<any[]>([])
+  const [searchComplete, setSearchComplete] = useState(false)
+  const [isSearching, setIsSearching] = useState(false)
+  const [availableClubs, setAvailableClubs] = useState<any[]>([])
+  const [showClubDropdown, setShowClubDropdown] = useState(false)
+
   const activePlayer =
     watchedPlayers.find((p) => p.id === selectedPlayerId) ||
     watchedPlayers[0] ||
@@ -158,6 +185,23 @@ export default function WatchlistPage() {
       loadPlayerDetails(selectedPlayerId)
     }
   }, [selectedPlayerId])
+
+  // Fetch available clubs when a league is selected
+  useEffect(() => {
+    async function fetchClubsForLeague() {
+      if (filters.league) {
+        const leagueId = LEAGUE_ID_MAP[filters.league]
+        if (leagueId) {
+          const allClubs = await getTopLeaguesClubsAction()
+          const clubsInLeague = allClubs.filter((c: any) => c.seasonId === leagueId)
+          setAvailableClubs(clubsInLeague)
+        }
+      } else {
+        setAvailableClubs([])
+      }
+    }
+    fetchClubsForLeague()
+  }, [filters.league])
 
   async function loadPlayerDetails(recordId: string) {
     setLoadingDetails(true)
@@ -194,9 +238,9 @@ export default function WatchlistPage() {
                 ...p,
                 clubLogo: (details as any).teamLogo || p.clubLogo,
                 playerPhoto: detailedPhoto || p.playerPhoto,
-                weight: (details as any).weight || p.weight,
-                height: (details as any).height || p.height,
-                age: ((details as any).age ||
+                weight: details.weight || p.weight,
+                height: details.height || p.height,
+                age: (details.age ||
                   (p.birthdate
                     ? String(
                         Math.floor(
@@ -384,28 +428,159 @@ export default function WatchlistPage() {
     }
   }
 
+  // New search functions
+  async function handleSearch() {
+    setIsSearching(true)
+    setSearchComplete(false)
+    setSearchResults([])
+
+    try {
+      const leagueId = filters.league ? LEAGUE_ID_MAP[filters.league] : null
+
+      // If we have a specific club filter, search that club's players (only within selected league)
+      if (filters.club) {
+        // Find clubs matching the filter, but only within selected league
+        const allClubs = await getTopLeaguesClubsAction()
+        const matchingClubs = allClubs.filter((c: any) => {
+          const matchesLeague = leagueId ? c.seasonId === leagueId : true
+          const matchesName = !filters.club || c.name?.toLowerCase().includes(filters.club.toLowerCase())
+          return matchesLeague && matchesName
+        })
+
+        if (matchingClubs.length > 0) {
+          const allPlayers = await Promise.all(
+            matchingClubs.map((club: any) => getPlayersByClubAction(club.id, leagueId, true))
+          )
+          const flattenedPlayers = allPlayers.flat()
+          setSearchResults(filterPlayers(flattenedPlayers))
+        } else {
+          setSearchResults([])
+        }
+      } else if (leagueId) {
+        // If we only have a league filter, get all clubs in that league and their players
+        const leagueClubs = await getTopLeaguesClubsAction()
+        const clubsInLeague = leagueClubs.filter((c: any) => c.seasonId === leagueId)
+
+        const allPlayers = await Promise.all(
+          clubsInLeague.slice(0, 10).map((club: any) => getPlayersByClubAction(club.id, club.seasonId, true))
+        )
+        const flattenedPlayers = allPlayers.flat()
+        setSearchResults(filterPlayers(flattenedPlayers))
+      } else {
+        // If no specific filters, get some sample players from all leagues
+        const allPlayers = await getAllTop5PlayersAction()
+        setSearchResults(filterPlayers(allPlayers))
+      }
+    } catch (error) {
+      console.error('Search error:', error)
+      setSearchResults([])
+    } finally {
+      setIsSearching(false)
+      setSearchComplete(true)
+    }
+  }
+
+  function filterPlayers(players: any[]) {
+    return players.filter((player) => {
+      // Age filter
+      const playerAge = parseInt(player.age) || 0
+      if (filters.ageMin && playerAge < filters.ageMin) return false
+      if (filters.ageMax && playerAge > filters.ageMax) return false
+
+      // Position filter
+      if (filters.position) {
+        const playerPos = (player.position || '').toUpperCase()
+        if (filters.position === 'GK' && !playerPos.includes('GK')) return false
+        if (filters.position === 'DF' && !['DF', 'CB', 'LB', 'RB', 'LCB', 'RCB'].includes(playerPos)) return false
+        if (filters.position === 'MF' && !['MF', 'CM', 'CDM', 'LM', 'RM', 'CAM', 'LCM', 'RCM'].includes(playerPos)) return false
+        if (filters.position === 'FW' && !['FW', 'ST', 'RW', 'LW', 'CF'].includes(playerPos)) return false
+      }
+
+      // Value filter (parse from marketValue string like "€45M" or "€45.5M")
+      if (filters.valueMin || filters.valueMax) {
+        const valueStr = player.marketValue || "€0M"
+        const valueMatch = valueStr.match(/€?([\d.]+)M?/i)
+        const value = valueMatch ? parseFloat(valueMatch[1]) : 0
+        if (filters.valueMin && value < filters.valueMin) return false
+        if (filters.valueMax && value > filters.valueMax) return false
+      }
+
+      return true
+    })
+  }
+
+  async function addPlayerFromSearch(player: any) {
+    const playerData = {
+      player_id: player.playerID || player.id,
+      player_name: player.fullName || player.name,
+      club: player.teamName || "Unknown Club",
+      club_logo: null,
+      position: player.position || "N/A",
+      league: filters.league || "Global League",
+      player_photo: player.playerPhoto || player.photo || `https://api.statorium.com/media/bearleague/bl${player.playerID}.webp`,
+      market_value: player.marketValue || "€" + (Math.floor(Math.random() * 80) + 5) + "M",
+      weight: player.additionalInfo?.weight || player.weight || "---",
+      height: player.additionalInfo?.height || player.height || "---",
+      age: player.age || player.additionalInfo?.age || "---",
+    }
+
+    const result = await addToWatchlist(playerData)
+
+    if (result.error) {
+      alert(`Failed to add player: ${result.error}`)
+      return
+    }
+
+    if (result.success) {
+      const updatedData = await getWatchlist()
+      const transformedData = updatedData.map((item: any) => ({
+        id: item.id,
+        playerId: item.player_id,
+        name: item.player_name,
+        club: item.club,
+        clubLogo: item.club_logo,
+        position: item.position,
+        league: item.league,
+        playerPhoto: item.player_photo,
+        marketValue: item.market_value,
+        weight: item.weight,
+        height: item.height,
+        age: item.age,
+      }))
+      setWatchedPlayers(transformedData)
+    }
+  }
+
   const clubLogo = activePlayer?.clubLogo || selectedDetails?.teamLogo || null
+
+  // Function to navigate to analysis page with player data
+  function navigateToAnalysis(player: any) {
+    const params = new URLSearchParams()
+    params.set('id', player.playerId || player.id)
+    params.set('name', player.name || player.fullName)
+    params.set('club', player.club || 'Unknown Club')
+    params.set('league', player.league || 'Unknown League')
+    params.set('nation', player.nation || 'Unknown')
+    params.set('pos', player.position || 'Unknown Position')
+    params.set('photo', player.playerPhoto || '')
+
+    router.push(`/analysis?${params.toString()}`)
+  }
 
   return (
     <div className="relative flex h-full w-full overflow-hidden bg-background text-foreground transition-colors duration-300">
-      {/* Left Panel: Theme Zone - Watched List */}
+      {/* Left Panel: Green Zone - Watched List */}
       <div className="relative z-10 flex h-full w-[320px] flex-col border-r border-border bg-card/40 backdrop-blur-3xl lg:w-[380px]">
         <div className="flex items-center justify-between border-b border-border p-6">
           <h2 className="text-xl font-black tracking-widest text-foreground uppercase italic">
             Watchlist
           </h2>
-          <button
-            onClick={() => setShowSearch(true)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-secondary/20 bg-secondary/10 text-secondary transition-all hover:bg-secondary hover:text-black"
-          >
-            <Plus className="h-5 w-5" />
-          </button>
         </div>
 
         <div className="custom-scrollbar flex-1 space-y-3 overflow-y-auto p-4">
           {loadingWatchlist ? (
             <div className="flex h-full items-center justify-center">
-              <Loader2 className="h-8 w-8 animate-spin text-secondary" />
+              <Loader2 className="h-8 w-8 animate-spin text-green-500" />
               <p className="ml-3 text-sm text-muted-foreground">
                 Loading watchlist...
               </p>
@@ -422,10 +597,10 @@ export default function WatchlistPage() {
                 <motion.div
                   layout
                   key={player.id}
-                  onClick={() => setSelectedPlayerId(player.id)}
+                  onClick={() => navigateToAnalysis(player)}
                   className={`group relative cursor-pointer overflow-hidden rounded-xl border p-3 transition-all ${
                     selectedPlayerId === player.id
-                      ? "border-secondary/30 bg-secondary/10"
+                      ? "border-green-500/30 bg-green-500/10"
                       : "border-border bg-accent/40 hover:border-foreground/20"
                   }`}
                 >
@@ -449,7 +624,7 @@ export default function WatchlistPage() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] font-black tracking-widest text-secondary uppercase">
+                        <span className="text-[10px] font-black tracking-widest text-green-400 uppercase">
                           {player.position}
                         </span>
                         <button
@@ -457,7 +632,7 @@ export default function WatchlistPage() {
                             e.stopPropagation()
                             removePlayer(player.id)
                           }}
-                          className="p-1 text-muted-foreground opacity-0 transition-all group-hover:opacity-100 hover:text-red-400"
+                          className="p-1 text-zinc-500 opacity-0 transition-all group-hover:opacity-100 hover:text-red-400"
                         >
                           <UserMinus className="h-4 w-4" />
                         </button>
@@ -484,367 +659,291 @@ export default function WatchlistPage() {
         </div>
       </div>
 
-      {/* Right-side Content Area (Scrolling Player Info) */}
+      {/* Right-side Content Area - Search Interface */}
       <div className="relative h-full flex-1 overflow-hidden">
-        {/* Scrolling Player Details Layer */}
-        <div className="custom-scrollbar absolute inset-0 z-10 overflow-y-auto pt-12 pb-20">
-          <div className="flex min-h-full flex-col items-center p-8 lg:p-16">
-            <AnimatePresence mode="wait">
-              {activePlayer && (
-                <motion.div
-                  key={activePlayer.id}
-                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: -20 }}
-                  className="flex w-full max-w-4xl flex-col items-center gap-12"
-                >
-                  {/* Profile Image Circle */}
-                  <div className="relative flex flex-col items-center">
-                    <div className="pointer-events-none absolute top-[120%] left-1/2 z-0 flex h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/2 items-center justify-center">
-                      <AnimatePresence mode="wait">
-                        {clubLogo && (
-                          <motion.img
-                            key={clubLogo}
-                            src={clubLogo}
-                            alt=""
-                            initial={{
-                              opacity: 0,
-                              scale: 0.9,
-                              filter: "blur(20px)",
-                            }}
-                            animate={{
-                              opacity: 0.4,
-                              scale: 1,
-                              filter: "blur(12px) brightness(1.2)",
-                            }}
-                            exit={{ opacity: 0 }}
-                            className="h-full w-full object-contain"
-                            onError={(e) => {
-                              ;(e.target as HTMLImageElement).style.display =
-                                "none"
-                            }}
-                          />
-                        )}
-                      </AnimatePresence>
-                    </div>
+        <div className="custom-scrollbar absolute inset-0 z-10 overflow-y-auto pt-8 pb-12">
+          <div className="flex min-h-full flex-col p-8 lg:p-12">
+            {/* Header */}
+            <div className="mb-8">
+              <h1 className="text-4xl font-black tracking-tighter text-foreground uppercase italic">
+                Talent Scout
+              </h1>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Find and add players to your watchlist using advanced filters
+              </p>
+            </div>
 
-                    <div className="relative z-10 flex h-48 w-48 items-center justify-center overflow-hidden rounded-full bg-gradient-to-tr from-secondary to-secondary/80 p-2 shadow-[0_0_50px_hsl(var(--secondary)/0.3)] md:h-56 md:w-56">
-                      <img
-                        src={activePlayer.playerPhoto}
-                        alt={activePlayer.name}
-                        className="relative z-10 h-full w-full translate-y-2 scale-110 object-cover"
-                        onError={(e) => {
-                          ;(e.target as HTMLImageElement).style.opacity = "0"
-                        }}
-                      />
-                      <span className="absolute inset-0 flex items-center justify-center bg-secondary font-mono text-4xl font-black tracking-tighter text-foreground/10 uppercase md:text-5xl">
-                        {activePlayer.name
-                          .split(" ")
-                          .map((n: string) => n[0])
-                          .join("")
-                          .slice(0, 2)}
+            {/* Search Filters Section */}
+            <div className="space-y-6 rounded-[40px] border border-border bg-card/60 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.1)] backdrop-blur-[40px]">
+              {/* League Filter (Required) */}
+              <div className="space-y-3">
+                <label className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
+                  League <span className="text-red-500">*</span>
+                </label>
+                <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
+                  {Object.entries(LEAGUE_ID_MAP).map(([name, id]) => (
+                    <button
+                      key={id}
+                      onClick={() => {
+                        setFilters(prev => ({ ...prev, league: prev.league === name ? null : name }))
+                      }}
+                      className={`group flex items-center justify-center gap-2 rounded-2xl border p-4 transition-all ${
+                        filters?.league === name
+                          ? "border-green-500/30 bg-green-500/10"
+                          : "border-border bg-accent/20 hover:border-foreground/20"
+                      }`}
+                    >
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-zinc-950/80 p-1">
+                        <img
+                          src={LEAGUE_LOGOS[name]}
+                          alt={name}
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                      <span className="text-xs font-black tracking-wider text-foreground uppercase transition-colors">
+                        {name}
                       </span>
-                    </div>
-                  </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-                  <div className="mt-8 text-center">
-                    <h1 className="text-4xl font-black tracking-tighter text-foreground uppercase italic drop-shadow-2xl md:text-6xl">
-                      {activePlayer.name}
-                    </h1>
-                    <div className="mt-4 flex items-center justify-center gap-6">
-                      <div className="flex items-center gap-4">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10">
-                          <Shield className="h-5 w-5 text-blue-500" />
+              {/* Club Filter */}
+              <div className="space-y-3">
+                <label className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
+                  Club {filters?.league && <span className="text-red-500">*</span>}
+                </label>
+                <div className="relative">
+                  <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground z-10" />
+                  <input
+                    type="text"
+                    disabled={!filters?.league}
+                    placeholder={filters?.league ? "Search clubs in selected league..." : "Select a league first to search clubs"}
+                    value={filters?.club || ""}
+                    onChange={(e) => {
+                      setFilters(prev => ({ ...prev, club: e.target.value }))
+                      setShowClubDropdown(true)
+                    }}
+                    onFocus={() => setShowClubDropdown(true)}
+                    onBlur={() => setTimeout(() => setShowClubDropdown(false), 200)}
+                    className="w-full rounded-2xl border border-border bg-accent/20 py-4 pl-12 pr-4 text-sm font-black text-foreground placeholder:text-muted-foreground focus:border-green-500/50 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+                  />
+                  {showClubDropdown && filters?.league && (
+                    <div className="absolute z-20 mt-2 w-full max-h-60 overflow-y-auto rounded-2xl border border-border bg-zinc-900 shadow-2xl">
+                      {availableClubs
+                        .filter((club: any) =>
+                          !filters?.club || club.name?.toLowerCase().includes(filters.club.toLowerCase())
+                        )
+                        .slice(0, 10)
+                        .map((club: any) => (
+                          <button
+                            key={club.id}
+                            onClick={() => {
+                              setFilters(prev => ({ ...prev, club: club.name }))
+                              setShowClubDropdown(false)
+                            }}
+                            className="flex w-full items-center gap-3 px-4 py-3 transition-colors hover:bg-accent/40 first:rounded-t-2xl last:rounded-b-2xl"
+                          >
+                            <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-zinc-950/80 p-1">
+                              <img
+                                src={club.logo}
+                                alt={club.name}
+                                className="h-full w-full object-contain"
+                              />
+                            </div>
+                            <span className="text-xs font-black tracking-wider text-foreground uppercase">
+                              {club.name}
+                            </span>
+                          </button>
+                        ))}
+                      {availableClubs.filter((club: any) =>
+                        !filters?.club || club.name?.toLowerCase().includes(filters.club.toLowerCase())
+                      ).length === 0 && (
+                        <div className="px-4 py-3 text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                          No clubs found
                         </div>
-                        <span className="text-[10px] font-black tracking-widest uppercase">
-                          {activePlayer.club}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-4">
-                        <MapPin className="h-5 w-5 text-secondary" />
-                        <span className="text-[10px] font-black tracking-widest uppercase">
-                          {activePlayer.league}
-                        </span>
-                      </div>
-                      <MarketValue playerName={activePlayer.name} className="px-4 py-1.5 text-base" />
+                      )}
                     </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Position Filter (Required) */}
+              <div className="space-y-3">
+                <label className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
+                  Position <span className="text-red-500">*</span>
+                </label>
+                <div className="grid grid-cols-4 gap-2">
+                  {["GK", "DF", "MF", "FW"].map((pos) => (
+                    <button
+                      key={pos}
+                      onClick={() => {
+                        setFilters(prev => ({ ...prev, position: prev.position === pos ? null : pos }))
+                      }}
+                      className={`rounded-xl border py-3 text-xs font-black uppercase transition-all ${
+                        filters?.position === pos
+                          ? "border-green-500/30 bg-green-500/10 text-green-400"
+                          : "border-border bg-accent/20 hover:border-foreground/20"
+                      }`}
+                    >
+                      {pos}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Age Range Filter */}
+              <div className="space-y-3">
+                <label className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
+                  Age Range
+                </label>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <span className="text-[10px] text-muted-foreground">Min Age</span>
+                    <input
+                      type="number"
+                      min="16"
+                      max="45"
+                      placeholder="16"
+                      value={filters?.ageMin || ""}
+                      onChange={(e) => setFilters(prev => ({ ...prev, ageMin: e.target.value ? parseInt(e.target.value) : null }))}
+                      className="w-full rounded-xl border border-border bg-accent/20 py-3 px-4 text-center text-sm font-black text-foreground focus:border-green-500/50 focus:outline-none"
+                    />
                   </div>
+                  <div className="space-y-1">
+                    <span className="text-[10px] text-muted-foreground">Max Age</span>
+                    <input
+                      type="number"
+                      min="16"
+                      max="45"
+                      placeholder="45"
+                      value={filters?.ageMax || ""}
+                      onChange={(e) => setFilters(prev => ({ ...prev, ageMax: e.target.value ? parseInt(e.target.value) : null }))}
+                      className="w-full rounded-xl border border-border bg-accent/20 py-3 px-4 text-center text-sm font-black text-foreground focus:border-green-500/50 focus:outline-none"
+                    />
+                  </div>
+                </div>
+              </div>
 
-                  {/* Blue Zone: Statistics Area */}
-                  <div className="relative min-h-[420px] w-full overflow-hidden rounded-[40px] border border-blue-500/20 bg-card/60 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.1)] backdrop-blur-[40px] lg:p-12">
-                    <div className="pointer-events-none absolute top-0 right-0 h-80 w-80 bg-blue-500/5 blur-[120px]" />
+              {/* Market Value Range Filter */}
+              <div className="space-y-3">
+                <label className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
+                  Market Value Range (€M)
+                </label>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <span className="text-[10px] text-muted-foreground">Min Value</span>
+                    <input
+                      type="number"
+                      min="0"
+                      max="200"
+                      placeholder="0"
+                      value={filters?.valueMin || ""}
+                      onChange={(e) => setFilters(prev => ({ ...prev, valueMin: e.target.value ? parseInt(e.target.value) : null }))}
+                      className="w-full rounded-xl border border-border bg-accent/20 py-3 px-4 text-center text-sm font-black text-foreground focus:border-green-500/50 focus:outline-none"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-[10px] text-muted-foreground">Max Value</span>
+                    <input
+                      type="number"
+                      min="0"
+                      max="200"
+                      placeholder="200"
+                      value={filters?.valueMax || ""}
+                      onChange={(e) => setFilters(prev => ({ ...prev, valueMax: e.target.value ? parseInt(e.target.value) : null }))}
+                      className="w-full rounded-xl border border-border bg-accent/20 py-3 px-4 text-center text-sm font-black text-foreground focus:border-green-500/50 focus:outline-none"
+                    />
+                  </div>
+                </div>
+              </div>
 
-                    <div className="mb-10 flex items-center gap-3">
-                      <div className="h-6 w-1 rounded-full bg-blue-500" />
-                      <Activity className="h-5 w-5 text-blue-400" />
-                      <h3 className="text-sm font-black tracking-[0.4em] text-blue-400 uppercase">
-                        Tactical Intel & Statistics
-                      </h3>
-                    </div>
+              {/* Search Button */}
+              <button
+                onClick={handleSearch}
+                disabled={isSearching}
+                className="group flex w-full items-center justify-center gap-3 rounded-2xl border border-green-500/20 bg-green-500/10 py-4 font-black text-green-400 uppercase tracking-widest transition-all hover:bg-green-500 hover:text-black disabled:opacity-50"
+              >
+                {isSearching ? (
+                  <>
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    <span>Searching...</span>
+                  </>
+                ) : (
+                  <>
+                    <Search className="h-5 w-5" />
+                    <span>Search Players</span>
+                  </>
+                )}
+              </button>
+            </div>
 
-                    <div className="flex flex-col gap-10 lg:flex-row">
-                      {/* Left: Stats Column */}
-                      <div className="w-full space-y-6 lg:w-1/3">
-                        {loadingDetails ? (
-                          <div className="flex h-64 items-center justify-center">
-                            <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
-                          </div>
-                        ) : selectedDetails ? (
-                          <>
-                            {/* PHYSICAL PROFILE */}
-                            <div className="space-y-4">
-                              <div className="mb-2 flex items-center gap-2">
-                                <div className="h-3 w-1 rounded-full bg-muted" />
-                                <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
-                                  Physical Profile
-                                </span>
-                              </div>
-                              <div className="grid grid-cols-2 gap-3">
-                                <div className="space-y-1 rounded-2xl border border-border bg-accent/20 p-4">
-                                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
-                                    Weight
-                                  </span>
-                                  <div className="text-xl font-black text-foreground">
-                                    {selectedDetails.weight &&
-                                    selectedDetails.weight !== "---"
-                                      ? selectedDetails.weight
-                                      : activePlayer.weight !== "---"
-                                        ? activePlayer.weight
-                                        : "75kg"}
-                                  </div>
-                                </div>
-                                <div className="space-y-1 rounded-2xl border border-border bg-accent/20 p-4">
-                                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
-                                    Height
-                                  </span>
-                                  <div className="text-xl font-black text-foreground">
-                                    {selectedDetails.height &&
-                                    selectedDetails.height !== "---"
-                                      ? selectedDetails.height
-                                      : activePlayer.height !== "---"
-                                        ? activePlayer.height
-                                        : "180cm"}
-                                  </div>
-                                </div>
-                                <div className="space-y-1 rounded-2xl border border-border bg-accent/20 p-4">
-                                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
-                                    Age
-                                  </span>
-                                  <div className="text-xl font-black text-foreground">
-                                    {selectedDetails.age &&
-                                    selectedDetails.age !== "---"
-                                      ? selectedDetails.age
-                                      : activePlayer.age !== "---"
-                                        ? activePlayer.age
-                                        : "22"}
-                                  </div>
-                                </div>
-                                <div className="space-y-1 rounded-2xl border border-border bg-accent/20 p-4">
-                                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
-                                    Position
-                                  </span>
-                                  <div className="text-xl leading-none font-black text-blue-400 italic">
-                                    {selectedDetails.position ||
-                                      activePlayer.position}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* TECHNICAL INTELLIGENCE */}
-                            <div className="space-y-4">
-                              <div className="group flex items-center justify-between rounded-2xl border border-border bg-accent/10 p-4 transition-all hover:border-blue-500/20">
-                                <div className="flex items-center gap-4">
-                                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary/10">
-                                    <TrendingUp className="h-5 w-5 text-secondary" />
-                                  </div>
-                                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
-                                    XG Rating
-                                  </span>
-                                </div>
-                                <div className="text-lg font-black text-foreground transition-colors group-hover:text-secondary">
-                                  8.42
-                                </div>
-                              </div>
-                              <div className="group flex items-center justify-between rounded-2xl border border-border bg-accent/10 p-4 transition-all hover:border-blue-500/20">
-                                <div className="flex items-center gap-4">
-                                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10">
-                                    <Activity className="h-5 w-5 text-blue-400" />
-                                  </div>
-                                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
-                                    Pass Accuracy
-                                  </span>
-                                </div>
-                                <div className="text-lg font-black text-foreground transition-colors group-hover:text-blue-400">
-                                  89%
-                                </div>
-                              </div>
-                              <div className="group flex items-center justify-between rounded-2xl border border-border bg-accent/10 p-4 transition-all hover:border-blue-500/20">
-                                <div className="flex items-center gap-4">
-                                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-yellow-500/10">
-                                    <Award className="h-5 w-5 text-yellow-500" />
-                                  </div>
-                                  <span className="text-[10px] font-black tracking-widest text-muted-foreground uppercase">
-                                    Scouting Score
-                                  </span>
-                                </div>
-                                <div className="text-lg font-black text-yellow-500">
-                                  94/100
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="pt-4">
-                              <p className="border-l border-border py-1 pl-4 text-[10px] leading-relaxed text-muted-foreground italic">
-                                {selectedDetails.additionalInfo?.description ||
-                                  "High tactical intelligence with exceptional ability to exploit half-spaces. Key asset in high-intensity pressing systems."}
-                              </p>
-                            </div>
-                          </>
-                        ) : null}
-                      </div>
-
-                      {/* Right: Football Pitch Visualization */}
-                      <div className="group relative h-[540px] flex-1 overflow-hidden rounded-[40px] border border-border bg-card p-4 shadow-2xl transition-colors duration-300">
-                        {/* Pitch markings */}
-                        <div className="absolute inset-0 m-4 rounded-[40px] border-[1px] border-foreground/10">
-                          {/* Halfway line (HORIZONTAL) */}
-                          <div className="absolute inset-x-4 top-1/2 h-[1px] -translate-y-1/2 bg-foreground/10" />
-
-                          {/* Center circle */}
-                          <div className="absolute top-1/2 left-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border-[1px] border-foreground/10">
-                            <div className="absolute top-1/2 left-1/2 h-2 w-2 rounded-full bg-foreground/20" />
-                          </div>
-
-                          {/* Goal areas (Top & Bottom) */}
-                          <div className="absolute top-4 left-1/2 h-24 w-48 -translate-x-1/2 border-[1px] border-t-0 border-foreground/10" />
-                          <div className="absolute bottom-4 left-1/2 h-24 w-48 -translate-x-1/2 border-[1px] border-b-0 border-foreground/10" />
-
-                          {/* Inner pitch decor */}
-                          <div className="pointer-events-none absolute inset-4 overflow-hidden rounded-[28px] opacity-10">
-                            <div
-                              className="absolute inset-0 text-foreground/10"
-                              style={{
-                                backgroundImage:
-                                  "linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)",
-                                backgroundSize: "40px 40px",
-                              }}
+            {/* Search Results */}
+            {searchResults.length > 0 && (
+              <div className="mt-8 space-y-4">
+                <h3 className="text-lg font-black tracking-widest text-foreground uppercase">
+                  Results ({searchResults.length})
+                </h3>
+                <div className="grid gap-4">
+                  {searchResults.map((player, index) => (
+                    <motion.div
+                      key={`${player.playerID || player.id}-${index}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      onClick={() => navigateToAnalysis(player)}
+                      className="group relative overflow-hidden rounded-2xl border border-border bg-card/60 p-4 transition-all hover:border-green-500/30 hover:cursor-pointer"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-zinc-950/20">
+                          <img
+                            src={player.playerPhoto}
+                            alt={player.fullName}
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center gap-3">
+                            <span className="text-xs font-black tracking-widest text-green-400 uppercase">
+                              {player.position}
+                            </span>
+                            <span className="text-xs font-bold text-muted-foreground uppercase">
+                              {player.age || "N/A"} yrs
+                            </span>
+                            <MarketValue
+                              playerName={player.fullName}
+                              showIcon={false}
+                              className="scale-75 origin-left h-5"
                             />
                           </div>
-
-                          <div className="absolute inset-0 p-8 pt-12 pb-16">
-                            {(() => {
-                              const formation =
-                                selectedDetails?.formation || "4-3-3"
-                              const [d, m, a] = formation
-                                .split("-")
-                                .map((n: string) => parseInt(n) || 0)
-                              return (
-                                <>
-                                  {/* Defensive line */}
-                                  <div className="absolute bottom-[20%] left-1/2 flex w-full -translate-x-1/2 justify-around px-12">
-                                    {Array.from({ length: Math.min(d, 5) }).map(
-                                      (_, i: number) => (
-                                        <div
-                                          key={`d-${i}`}
-                                          className="h-1.5 w-1.5 rounded-full border border-foreground/5 bg-foreground/10 shadow-sm"
-                                        />
-                                      )
-                                    )}
-                                  </div>
-
-                                  {/* Midfield line */}
-                                  <div className="absolute top-[45%] left-1/2 flex w-full -translate-x-1/2 justify-around px-20">
-                                    {Array.from({ length: Math.min(m, 5) }).map(
-                                      (_, i: number) => (
-                                        <div
-                                          key={`m-${i}`}
-                                          className="h-1.5 w-1.5 rounded-full border border-foreground/5 bg-foreground/10 shadow-sm"
-                                        />
-                                      )
-                                    )}
-                                  </div>
-
-                                  {/* Attack line */}
-                                  <div className="absolute top-[20%] left-1/2 flex w-full -translate-x-1/2 justify-around px-24">
-                                    {Array.from({ length: Math.min(a, 5) }).map(
-                                      (_, i: number) => (
-                                        <div
-                                          key={`a-${i}`}
-                                          className="h-1.5 w-1.5 rounded-full border border-foreground/5 bg-foreground/10 shadow-sm"
-                                        />
-                                      )
-                                    )}
-                                  </div>
-                                </>
-                              )
-                            })()}
-                          </div>
-
-                          {/* ACTIVE PLAYER MARKER */}
-                          <motion.div
-                            key={selectedPlayerId}
-                            initial={{ scale: 0, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ type: "spring", damping: 15 }}
-                            style={{
-                              top:
-                                POSITION_COORDINATES[
-                                  selectedDetails?.position ||
-                                    activePlayer.position ||
-                                    "CM"
-                                ]?.top || "45%",
-                              left:
-                                POSITION_COORDINATES[
-                                  selectedDetails?.position ||
-                                    activePlayer.position ||
-                                    "CM"
-                                ]?.left || "50%",
-                            }}
-                            className="absolute z-20 -translate-x-1/2 -translate-y-1/2"
-                          >
-                            <div className="group/marker relative">
-                              <div className="absolute -inset-6 animate-pulse rounded-full bg-secondary/20 blur-2xl" />
-                              <div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 border-background bg-secondary shadow-[0_0_30px_hsl(var(--secondary) / 1)]">
-                                <div className="h-2 w-2 rounded-full bg-background" />
-                              </div>
-                              <div className="absolute top-full left-1/2 mt-3 -translate-x-1/2 whitespace-nowrap">
-                                <span className="rounded-full bg-secondary px-3 py-1 text-[11px] font-black tracking-[0.2em] text-secondary-foreground uppercase shadow-lg">
-                                  {activePlayer.name}
-                                </span>
-                              </div>
-                            </div>
-                          </motion.div>
-
-                          <div className="absolute top-8 right-10 z-10 text-right">
-                            <span className="mb-1 block text-[10px] font-black tracking-[0.4em] text-muted-foreground uppercase">
-                              Live Tactics
-                            </span>
-                            <span className="block text-2xl font-black tracking-tighter text-blue-500 uppercase italic dark:text-blue-400">
-                              {selectedDetails?.formation ||
-                                "Dynamic Formation"}
+                          <h4 className="mt-1 truncate text-base font-bold tracking-tighter uppercase text-foreground">
+                            {player.fullName}
+                          </h4>
+                          <div className="mt-1 flex items-center gap-2">
+                            <span className="text-[10px] font-medium text-muted-foreground uppercase">
+                              {player.teamName || "Unknown Club"}
                             </span>
                           </div>
                         </div>
+                        <button
+                          onClick={() => addPlayerFromSearch(player)}
+                          className="flex h-10 w-10 items-center justify-center rounded-full border border-green-500/20 bg-green-500/0 text-green-500 transition-all hover:bg-green-500 hover:text-black"
+                        >
+                          <Plus className="h-5 w-5" />
+                        </button>
                       </div>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-              {!activePlayer &&
-                !loadingWatchlist &&
-                watchedPlayers.length === 0 && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="flex h-full items-center justify-center"
-                  >
-                    <p className="text-muted-foreground">
-                      Select a player to view details
-                    </p>
-                  </motion.div>
-                )}
-            </AnimatePresence>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {searchComplete && searchResults.length === 0 && (
+              <div className="mt-8 rounded-2xl border border-border bg-accent/20 p-8 text-center">
+                <p className="text-muted-foreground">
+                  No players found matching your criteria. Try adjusting your filters.
+                </p>
+              </div>
+            )}
           </div>
         </div>
 
@@ -912,7 +1011,7 @@ export default function WatchlistPage() {
                             ? "66%"
                             : "100%",
                     }}
-                    className="absolute inset-0 bg-secondary shadow-[0_0_10px_hsl(var(--secondary)/0.5)]"
+                    className="absolute inset-0 bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"
                   />
                 </div>
 
@@ -921,8 +1020,8 @@ export default function WatchlistPage() {
                   {loadingSearch ? (
                     <div className="flex h-64 flex-col items-center justify-center gap-6">
                       <div className="relative">
-                        <Loader2 className="h-12 w-12 animate-spin text-secondary" />
-                        <div className="absolute inset-0 animate-pulse bg-secondary/20 blur-xl" />
+                        <Loader2 className="h-12 w-12 animate-spin text-green-500" />
+                        <div className="absolute inset-0 animate-pulse bg-green-500/20 blur-xl" />
                       </div>
                       <span className="animate-pulse text-xs font-black tracking-[0.3em] text-muted-foreground uppercase">
                         Syncing Scout Data...
@@ -944,7 +1043,7 @@ export default function WatchlistPage() {
                               className="group flex items-center justify-between rounded-2xl border border-border bg-card p-5 transition-all"
                             >
                               <div className="flex items-center gap-5">
-                                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-background p-2">
+                                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-zinc-950 p-2">
                                   <img
                                     src={LEAGUE_LOGOS[name]}
                                     alt={name}
@@ -955,7 +1054,7 @@ export default function WatchlistPage() {
                                   {name}
                                 </span>
                               </div>
-                              <Plus className="h-6 w-6 font-black text-muted-foreground transition-all group-hover:text-secondary" />
+                              <Plus className="h-6 w-6 font-black text-muted-foreground transition-all group-hover:text-green-500" />
                             </motion.button>
                           )
                         )}
@@ -970,7 +1069,7 @@ export default function WatchlistPage() {
                             className="group flex items-center justify-between rounded-2xl border border-l-2 border-border border-l-transparent bg-card p-4 transition-all"
                           >
                             <div className="flex items-center gap-5">
-                              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-border bg-background/80 p-2">
+                              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-zinc-950/80 p-2 dark:bg-black/40">
                                 <img
                                   src={club.logo}
                                   alt={club.name}
@@ -986,7 +1085,7 @@ export default function WatchlistPage() {
                                 </span>
                               </div>
                             </div>
-                            <Plus className="h-6 w-5 font-black text-muted-foreground transition-all group-hover:text-secondary" />
+                            <Plus className="h-6 w-5 font-black text-muted-foreground transition-all group-hover:text-green-500" />
                           </motion.button>
                         ))}
 
@@ -1003,7 +1102,7 @@ export default function WatchlistPage() {
                             className="group flex items-center justify-between rounded-2xl border border-border bg-card p-4 transition-all"
                           >
                             <div className="flex items-center gap-5">
-                              <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border border-border bg-background/20 p-2">
+                              <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/20 p-2 dark:bg-black/60">
                                 <img
                                   src={player.photoUrl}
                                   alt={player.name}
@@ -1018,11 +1117,11 @@ export default function WatchlistPage() {
                                 </div>
                               </div>
                               <div className="text-left">
-                                <span className="block text-lg font-black tracking-wider text-foreground uppercase transition-colors group-hover:text-secondary">
+                                <span className="block text-lg font-black tracking-wider text-foreground uppercase transition-colors group-hover:text-green-500">
                                   {player.name}
                                 </span>
                                 <div className="flex items-center gap-3">
-                                  <span className="text-xs font-black tracking-widest text-secondary uppercase dark:text-secondary/70">
+                                  <span className="text-xs font-black tracking-widest text-green-500 uppercase dark:text-green-500/70">
                                     {player.position}
                                   </span>
                                   <MarketValue 
@@ -1033,7 +1132,7 @@ export default function WatchlistPage() {
                                 </div>
                               </div>
                             </div>
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-secondary/20 bg-secondary/0 text-secondary transition-all group-hover:bg-secondary group-hover:text-white">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-green-500/20 bg-green-500/0 text-green-500 transition-all group-hover:bg-green-500 group-hover:text-white">
                               <Plus className="h-6 w-6" />
                             </div>
                           </motion.button>
@@ -1055,11 +1154,11 @@ export default function WatchlistPage() {
           background: transparent;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(128, 128, 128, 0.1);
+          background: rgba(255, 255, 255, 0.05);
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(128, 128, 128, 0.2);
+          background: rgba(255, 255, 255, 0.1);
         }
       `}</style>
     </div>

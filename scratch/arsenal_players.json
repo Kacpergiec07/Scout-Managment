@@ -1,0 +1,893 @@
+[
+  {
+    "playerID": 12,
+    "teamID": 9,
+    "firstName": "Declan",
+    "lastName": "Rice",
+    "shortName": "D. Rice",
+    "fullName": "Declan Rice",
+    "homeName": "",
+    "country": {
+      "name": "England",
+      "id": 251
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl17314097271237.webp",
+    "additionalInfo": {
+      "height": "188 cm",
+      "weight": "76 kg",
+      "position": "Midfielder",
+      "Fantasy Value": null,
+      "birthdate": "14-01-1999  (27)"
+    },
+    "playerNumber": "41",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 101,
+    "teamID": 9,
+    "firstName": "Gabriel Fernando",
+    "lastName": "de Jesus",
+    "shortName": "G. Jesus",
+    "fullName": "Gabriel Jesus",
+    "homeName": "Gabriel Fernando de Jesus",
+    "country": {
+      "name": "Brazil",
+      "id": 31
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl1731412222969.webp",
+    "additionalInfo": {
+      "height": "175 cm",
+      "weight": "73 kg",
+      "position": "Atacker",
+      "Fantasy Value": null,
+      "birthdate": "03-04-1997  (29)"
+    },
+    "playerNumber": "9",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 105,
+    "teamID": 9,
+    "firstName": "Oleksandr",
+    "lastName": "Zinchenko",
+    "shortName": "O. Zinchenko",
+    "fullName": "Oleksandr Zinchenko",
+    "homeName": "Зінченко Олександр Володимирович",
+    "country": {
+      "name": "Ukraine",
+      "id": 230
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl17314819312221.webp",
+    "additionalInfo": {
+      "height": "175 cm",
+      "weight": "64 kg",
+      "position": "Midfielder",
+      "Fantasy Value": null,
+      "birthdate": "15-12-1996  (29)"
+    },
+    "playerNumber": "17",
+    "playerDeparted": "1"
+  },
+  {
+    "playerID": 213,
+    "teamID": 9,
+    "firstName": "Kepa",
+    "lastName": "Arrizabalaga Revuelta",
+    "shortName": "K. Arrizabalaga",
+    "fullName": "Kepa Arrizabalaga",
+    "homeName": "Kepa Arrizabalaga Revuelta",
+    "country": {
+      "name": "Spain",
+      "id": 206
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl17339093812192.webp",
+    "additionalInfo": {
+      "height": "186 cm",
+      "weight": "84 kg",
+      "position": "Goalkeeper",
+      "Fantasy Value": null,
+      "birthdate": "03-10-1994  (31)"
+    },
+    "playerNumber": "13",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 255,
+    "teamID": 9,
+    "firstName": "Bukayo",
+    "lastName": "Saka",
+    "shortName": "B. Saka",
+    "fullName": "Bukayo Saka",
+    "homeName": "",
+    "country": {
+      "name": "England",
+      "id": 251
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl1731409249710.webp",
+    "additionalInfo": {
+      "height": "178 cm",
+      "weight": "70 kg",
+      "position": "Atacker",
+      "Fantasy Value": null,
+      "birthdate": "05-09-2001  (24)"
+    },
+    "playerNumber": "7",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 527,
+    "teamID": 9,
+    "firstName": "Viktor Einar",
+    "lastName": "Gyökeres",
+    "shortName": "V. Gyökeres",
+    "fullName": "Viktor Gyökeres",
+    "homeName": "Viktor Einar Gyökeres",
+    "country": {
+      "name": "Sweden",
+      "id": 212
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl17770229802441.webp",
+    "additionalInfo": {
+      "height": "187 cm",
+      "weight": "86 kg",
+      "position": "Atacker",
+      "Fantasy Value": null,
+      "birthdate": "04-06-1998  (27)"
+    },
+    "playerNumber": "14",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 604,
+    "teamID": 9,
+    "firstName": "Benjamin William",
+    "lastName": "White",
+    "shortName": "B. White",
+    "fullName": "Ben White",
+    "homeName": "Benjamin William WhiteBen White",
+    "country": {
+      "name": "England",
+      "id": 251
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl1731405812826.webp",
+    "additionalInfo": {
+      "height": "185 cm",
+      "weight": "78 kg",
+      "position": "Defender",
+      "Fantasy Value": null,
+      "birthdate": "08-10-1997  (28)"
+    },
+    "playerNumber": "4",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 922,
+    "teamID": 9,
+    "firstName": "Mikel",
+    "lastName": "Merino Zazón",
+    "shortName": "M. Merino",
+    "fullName": "Mikel Merino",
+    "homeName": "Mikel Merino Zazón",
+    "country": {
+      "name": "Spain",
+      "id": 206
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl17314811801887.webp",
+    "additionalInfo": {
+      "height": "189 cm",
+      "weight": "79 kg",
+      "position": "Midfielder",
+      "Fantasy Value": null,
+      "birthdate": "22-06-1996  (29)"
+    },
+    "playerNumber": "23",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 1616,
+    "teamID": 9,
+    "firstName": "Reiss Luke",
+    "lastName": "Nelson",
+    "shortName": "R. Nelson",
+    "fullName": "Reiss Nelson",
+    "homeName": "Reiss Luke Nelson",
+    "country": {
+      "name": "England",
+      "id": 251
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl17339987561269.webp",
+    "additionalInfo": {
+      "height": "175 cm",
+      "weight": "71 kg",
+      "position": "Atacker",
+      "Fantasy Value": null,
+      "birthdate": "10-12-1999  (26)"
+    },
+    "playerNumber": "24",
+    "playerDeparted": "1"
+  },
+  {
+    "playerID": 1695,
+    "teamID": 9,
+    "firstName": "Kai Lukas",
+    "lastName": "Havertz",
+    "shortName": "K. Havertz",
+    "fullName": "Kai Havertz",
+    "homeName": "Kai Lukas Havertz",
+    "country": {
+      "name": "Germany",
+      "id": 81
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl1731433323375.webp",
+    "additionalInfo": {
+      "height": "188 cm",
+      "weight": "83 kg",
+      "position": "Atacker",
+      "Fantasy Value": null,
+      "birthdate": "11-06-1999  (26)"
+    },
+    "playerNumber": "29",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 1867,
+    "teamID": 9,
+    "firstName": "William Alain André Gabriel",
+    "lastName": "Saliba",
+    "shortName": "W. Saliba",
+    "fullName": "William Saliba",
+    "homeName": "William Alain André Gabriel Saliba",
+    "country": {
+      "name": "France",
+      "id": 74
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl17314853342861.webp",
+    "additionalInfo": {
+      "height": "192 cm",
+      "weight": "85 kg",
+      "position": "Defender",
+      "Fantasy Value": null,
+      "birthdate": "24-03-2001  (25)"
+    },
+    "playerNumber": "2",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 2070,
+    "teamID": 9,
+    "firstName": "Gabriel dos Santos",
+    "lastName": "Magalhães",
+    "shortName": "G. Magalhães",
+    "fullName": "Gabriel Magalhães",
+    "homeName": "",
+    "country": {
+      "name": "Brazil",
+      "id": 31
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl1731411885776.webp",
+    "additionalInfo": {
+      "height": "190 cm",
+      "weight": "78 kg",
+      "position": "Defender",
+      "Fantasy Value": null,
+      "birthdate": "19-12-1997  (28)"
+    },
+    "playerNumber": "6",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 3096,
+    "teamID": 9,
+    "firstName": "Christian Thers",
+    "lastName": "Nørgaard",
+    "shortName": "C. Nörgaard",
+    "fullName": "Christian Nörgaard",
+    "homeName": "Christian Thers Nørgaard",
+    "country": {
+      "name": "Denmark",
+      "id": 59
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl1733918017185.webp",
+    "additionalInfo": {
+      "height": "187 cm",
+      "weight": "70 kg",
+      "position": "Midfielder",
+      "Fantasy Value": null,
+      "birthdate": "10-03-1994  (32)"
+    },
+    "playerNumber": "16",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 3620,
+    "teamID": 9,
+    "firstName": "Martín",
+    "lastName": "Zubimendi Ibáñez",
+    "shortName": "M. Zubimendi",
+    "fullName": "Martín Zubimendi",
+    "homeName": "Martín Zubimendi Ibáñez",
+    "country": {
+      "name": "Spain",
+      "id": 206
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl1558342677833.webp",
+    "additionalInfo": {
+      "height": "181 cm",
+      "weight": "74 kg",
+      "position": "Midfielder",
+      "Fantasy Value": null,
+      "birthdate": "02-02-1999  (27)"
+    },
+    "playerNumber": "36",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 3761,
+    "teamID": 9,
+    "firstName": "Gabriel Teodoro",
+    "lastName": "Martinelli Silva",
+    "shortName": "G. Martinelli",
+    "fullName": "Gabriel Martinelli",
+    "homeName": "Gabriel Teodoro Martinelli Silva",
+    "country": {
+      "name": "Brazil",
+      "id": 31
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl173141244695.webp",
+    "additionalInfo": {
+      "height": "176 cm",
+      "weight": "75 kg",
+      "position": "Atacker",
+      "Fantasy Value": null,
+      "birthdate": "18-06-2001  (24)"
+    },
+    "playerNumber": "11",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 3888,
+    "teamID": 9,
+    "firstName": "Leandro",
+    "lastName": "Trossard",
+    "shortName": "L. Trossard",
+    "fullName": "Leandro Trossard",
+    "homeName": "",
+    "country": {
+      "name": "Belgium",
+      "id": 22
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl17314338481165.webp",
+    "additionalInfo": {
+      "height": "172 cm",
+      "weight": "61 kg",
+      "position": "Atacker",
+      "Fantasy Value": null,
+      "birthdate": "04-12-1994  (31)"
+    },
+    "playerNumber": "19",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 4356,
+    "teamID": 9,
+    "firstName": "Martin",
+    "lastName": "Ødegaard",
+    "shortName": "M. Ødegaard",
+    "fullName": "Martin Ødegaard",
+    "homeName": "",
+    "country": {
+      "name": "Norway",
+      "id": 165
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl17314341782392.webp",
+    "additionalInfo": {
+      "height": "178 cm",
+      "weight": "68 kg",
+      "position": "Midfielder",
+      "Fantasy Value": "",
+      "birthdate": "17-12-1998  (27)"
+    },
+    "playerNumber": "8",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 6084,
+    "teamID": 9,
+    "firstName": "David",
+    "lastName": "Raya Martin",
+    "shortName": "D. Raya",
+    "fullName": "David Raya",
+    "homeName": "David Raya Martin",
+    "country": {
+      "name": "Spain",
+      "id": 206
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl17314094482455.webp",
+    "additionalInfo": {
+      "height": "183 cm",
+      "weight": "80 kg",
+      "position": "Goalkeeper",
+      "Fantasy Value": null,
+      "birthdate": "15-09-1995  (30)"
+    },
+    "playerNumber": "1",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 6251,
+    "teamID": 9,
+    "firstName": "Eberechi Oluchi",
+    "lastName": "Eze",
+    "shortName": "E. Eze",
+    "fullName": "Eberechi Eze",
+    "homeName": "Eberechi Oluchi Eze",
+    "country": {
+      "name": "England",
+      "id": 251
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl17343496111496.webp",
+    "additionalInfo": {
+      "height": "173 cm",
+      "weight": "67 kg",
+      "position": "Atacker",
+      "Fantasy Value": null,
+      "birthdate": "29-06-1998  (27)"
+    },
+    "playerNumber": "10",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 7714,
+    "teamID": 9,
+    "firstName": "Riccardo",
+    "lastName": "Calafiori",
+    "shortName": "R. Calafiori",
+    "fullName": "Riccardo Calafiori",
+    "homeName": "",
+    "country": {
+      "name": "Italy",
+      "id": 108
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl1731483407803.webp",
+    "additionalInfo": {
+      "height": "185 cm",
+      "weight": "75 kg",
+      "position": "Defender",
+      "Fantasy Value": null,
+      "birthdate": "19-05-2002  (23)"
+    },
+    "playerNumber": "33",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 9044,
+    "teamID": 9,
+    "firstName": "Jurriën David Norman",
+    "lastName": "Timber",
+    "shortName": "J. Timber",
+    "fullName": "Jurrien Timber",
+    "homeName": "Jurriën David Norman Timber",
+    "country": {
+      "name": "Netherlands",
+      "id": 155
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl17314327821738.webp",
+    "additionalInfo": {
+      "height": "179 cm",
+      "weight": "75 kg",
+      "position": "Defender",
+      "Fantasy Value": null,
+      "birthdate": "17-06-2001  (24)"
+    },
+    "playerNumber": "12",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 10261,
+    "teamID": 9,
+    "firstName": "Chukwunonso Tristan",
+    "lastName": "Madueke",
+    "shortName": "N. Madueke",
+    "fullName": "Noni Madueke",
+    "homeName": "Chukwunonso Tristan Madueke",
+    "country": {
+      "name": "England",
+      "id": 251
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl1731349535988.webp",
+    "additionalInfo": {
+      "height": "176 cm",
+      "weight": "65 kg",
+      "position": "Atacker",
+      "Fantasy Value": null,
+      "birthdate": "10-03-2002  (24)"
+    },
+    "playerNumber": "20",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 12719,
+    "teamID": 9,
+    "firstName": "Piero Martín",
+    "lastName": "Hincapié Reyna",
+    "shortName": "P. Hincapié",
+    "fullName": "Piero Hincapié",
+    "homeName": "Piero Martín Hincapié Reyna",
+    "country": {
+      "name": "Ecuador",
+      "id": 63
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl1624038474719.webp",
+    "additionalInfo": {
+      "height": "183 cm",
+      "weight": "66 kg",
+      "position": "Defender",
+      "Fantasy Value": null,
+      "birthdate": "09-01-2002  (24)"
+    },
+    "playerNumber": "5",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 13300,
+    "teamID": 9,
+    "firstName": "Albert Mboyo Sambi",
+    "lastName": "Lokonga",
+    "shortName": "A. Lokonga",
+    "fullName": "Albert Sambi Lokonga",
+    "homeName": "Albert Mboyo Sambi Lokonga",
+    "country": {
+      "name": "Belgium",
+      "id": 22
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl1586936248271.webp",
+    "additionalInfo": {
+      "height": "183 cm",
+      "weight": "67 kg",
+      "position": "Midfielder",
+      "Fantasy Value": null,
+      "birthdate": "22-10-1999  (26)"
+    },
+    "playerNumber": "28",
+    "playerDeparted": "1"
+  },
+  {
+    "playerID": 14841,
+    "teamID": 9,
+    "firstName": "Jakub Piotr",
+    "lastName": "Kiwior",
+    "shortName": "J. Kiwior",
+    "fullName": "Jakub Kiwior",
+    "homeName": "Jakub Piotr Kiwior",
+    "country": {
+      "name": "Poland",
+      "id": 176
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl1731431753351.webp",
+    "additionalInfo": {
+      "height": "189 cm",
+      "weight": "75 kg",
+      "position": "Defender",
+      "Fantasy Value": null,
+      "birthdate": "15-02-2000  (26)"
+    },
+    "playerNumber": "14",
+    "playerDeparted": "1"
+  },
+  {
+    "playerID": 15050,
+    "teamID": 9,
+    "firstName": "Fábio Daniel",
+    "lastName": "Ferreira Vieira",
+    "shortName": "F. Vieira",
+    "fullName": "Fábio Vieira",
+    "homeName": "Fábio Daniel Ferreira Vieira",
+    "country": {
+      "name": "Portugal",
+      "id": 177
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "",
+    "additionalInfo": {
+      "height": "170 cm",
+      "weight": "60 kg",
+      "position": "Midfielder",
+      "Fantasy Value": null,
+      "birthdate": "30-05-2000  (25)"
+    },
+    "playerNumber": "21",
+    "playerDeparted": "1"
+  },
+  {
+    "playerID": 19602,
+    "teamID": 9,
+    "firstName": "Karl Jakob",
+    "lastName": "Hein",
+    "shortName": "K. Hein",
+    "fullName": "Karl Hein",
+    "homeName": "Karl Jakob Hein",
+    "country": {
+      "name": "Estonia",
+      "id": 68
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl16291380682743.webp",
+    "additionalInfo": {
+      "height": "193 cm",
+      "weight": "75 kg",
+      "position": "Goalkeeper",
+      "Fantasy Value": null,
+      "birthdate": "13-04-2002  (24)"
+    },
+    "playerNumber": "31",
+    "playerDeparted": "1"
+  },
+  {
+    "playerID": 32224,
+    "teamID": 9,
+    "firstName": "Cristhian Andrey",
+    "lastName": "Mosquera Ibarguen",
+    "shortName": "C. Mosquera",
+    "fullName": "Cristhian Mosquera",
+    "homeName": "Cristhian Andrey Mosquera Ibarguen",
+    "country": {
+      "name": "Spain",
+      "id": 206
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "",
+    "additionalInfo": {
+      "height": "191 cm",
+      "weight": "79 kg",
+      "position": "Defender",
+      "Fantasy Value": null,
+      "birthdate": "27-06-2004  (21)"
+    },
+    "playerNumber": "3",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 45128,
+    "teamID": 9,
+    "firstName": "Ethan Chidiebere",
+    "lastName": "Nwaneri",
+    "shortName": "E. Nwaneri",
+    "fullName": "Ethan Nwaneri",
+    "homeName": "Ethan Chidiebere Nwaneri",
+    "country": {
+      "name": "England",
+      "id": 251
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl17314113622637.webp",
+    "additionalInfo": {
+      "height": "176 cm",
+      "weight": "60 kg",
+      "position": "Midfielder",
+      "Fantasy Value": null,
+      "birthdate": "21-03-2007  (19)"
+    },
+    "playerNumber": "22",
+    "playerDeparted": "1"
+  },
+  {
+    "playerID": 62366,
+    "teamID": 9,
+    "firstName": "Myles Anthony",
+    "lastName": "Lewis-Skelly",
+    "shortName": "M. Lewis-Skelly",
+    "fullName": "Myles Lewis-Skelly",
+    "homeName": "Myles Anthony Lewis-Skelly",
+    "country": {
+      "name": "England",
+      "id": 251
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "https://api.statorium.com/media/bearleague/bl1731481518139.webp",
+    "additionalInfo": {
+      "height": "178 cm",
+      "weight": "72 kg",
+      "position": "Midfielder",
+      "Fantasy Value": null,
+      "birthdate": "26-09-2006  (19)"
+    },
+    "playerNumber": "49",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 89668,
+    "teamID": 9,
+    "firstName": "Max Robert",
+    "lastName": "Dowman",
+    "shortName": "M. Dowman",
+    "fullName": "Max Dowman",
+    "homeName": "Max Robert Dowman",
+    "country": {
+      "name": "England",
+      "id": 251
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "",
+    "additionalInfo": {
+      "height": "183 cm",
+      "weight": "70 kg",
+      "position": "Midfielder",
+      "Fantasy Value": null,
+      "birthdate": "31-12-2009  (16)"
+    },
+    "playerNumber": "56",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 90164,
+    "teamID": 9,
+    "firstName": "Andre Ryan",
+    "lastName": "Harriman-Annous",
+    "shortName": "A. Harriman-Annous",
+    "fullName": "Andre Harriman-Annous",
+    "homeName": "Andre Ryan Harriman-Annous",
+    "country": {
+      "name": "England",
+      "id": 251
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "",
+    "additionalInfo": {
+      "height": "181 cm",
+      "weight": "",
+      "position": "Atacker",
+      "Fantasy Value": null,
+      "birthdate": "27-12-2007  (18)"
+    },
+    "playerNumber": "71",
+    "playerDeparted": "0"
+  },
+  {
+    "playerID": 93566,
+    "teamID": 9,
+    "firstName": "Marli",
+    "lastName": "Salmon",
+    "shortName": "M. Salmon",
+    "fullName": "Marli Salmon",
+    "homeName": "",
+    "country": {
+      "name": "England",
+      "id": 251
+    },
+    "currentTeam": {
+      "name": null,
+      "id": 0
+    },
+    "photo": "",
+    "additionalInfo": {
+      "height": "186 cm",
+      "weight": "",
+      "position": "Defender",
+      "Fantasy Value": null,
+      "birthdate": "29-08-2009  (16)"
+    },
+    "playerNumber": "89",
+    "playerDeparted": "0"
+  }
+]

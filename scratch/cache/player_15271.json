@@ -1,0 +1,6284 @@
+{
+  "playerID": 15271,
+  "firstName": "Ferrán",
+  "lastName": "Jutglà Blanch",
+  "shortName": "F. Jutglà",
+  "fullName": "Ferrán Jutglà",
+  "homeName": "Ferrán Jutglà Blanch",
+  "country": {
+    "name": "Spain",
+    "id": 206
+  },
+  "currentTeam": {
+    "name": null,
+    "id": 0
+  },
+  "photo": "https://api.statorium.com/media/bearleague/bl17618381331083.webp",
+  "additionalInfo": {
+    "height": "175 cm",
+    "weight": "75 kg",
+    "position": 4,
+    "Fantasy Value": null,
+    "birthdate": "01-02-1999  (27)"
+  },
+  "teams": [],
+  "stat": [
+    {
+      "season_name": "SPAIN: Copa del Rey 2025-26",
+      "season_id": 600,
+      "team_name": "Celta de Vigo",
+      "played": 2,
+      "career_lineup": 1,
+      "career_minutes": 126,
+      "career_subsin": 1,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Europa League 2025-26",
+      "season_id": 592,
+      "team_name": "Celta de Vigo",
+      "played": 12,
+      "career_lineup": 4,
+      "career_minutes": 491,
+      "career_subsin": 8,
+      "career_subsout": 3,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "SPAIN: La Liga 2025-26",
+      "season_id": 558,
+      "team_name": "Celta de Vigo",
+      "played": 25,
+      "career_lineup": 18,
+      "career_minutes": 1411,
+      "career_subsin": 7,
+      "career_subsout": 16,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 7,
+      "Assist": 2,
+      "Yellow card": 4,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 7,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "BELGIUM: Belgian Pro League 2024-25 Play-offs",
+      "season_id": 500,
+      "team_name": "Club Brugge KV",
+      "played": 9,
+      "career_lineup": 7,
+      "career_minutes": 601,
+      "career_subsin": 2,
+      "career_subsout": 6,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 2,
+      "Assist": 1,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 2,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Champions League 2024-25",
+      "season_id": 421,
+      "team_name": "Club Brugge KV",
+      "played": 12,
+      "career_lineup": 11,
+      "career_minutes": 858,
+      "career_subsin": 1,
+      "career_subsout": 11,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 2,
+      "Assist": 1,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 2,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "BELGIUM: Belgian Pro League 2024-25",
+      "season_id": 346,
+      "team_name": "Club Brugge KV",
+      "played": 27,
+      "career_lineup": 9,
+      "career_minutes": 1104,
+      "career_subsin": 18,
+      "career_subsout": 5,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 8,
+      "Assist": 2,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 8,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "BELGIUM: Belgian Pro League 2023-24 Play-offs",
+      "season_id": 335,
+      "team_name": "Club Brugge KV",
+      "played": 9,
+      "career_lineup": 4,
+      "career_minutes": 534,
+      "career_subsin": 5,
+      "career_subsout": 2,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 5,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Europa Conference League 2023-24",
+      "season_id": 308,
+      "team_name": "Club Brugge KV",
+      "played": 12,
+      "career_lineup": 6,
+      "career_minutes": 687,
+      "career_subsin": 6,
+      "career_subsout": 4,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 2,
+      "Assist": 2,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 1,
+      "Goal": 2,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "BELGIUM: Belgian Pro League 2023-24",
+      "season_id": 259,
+      "team_name": "Club Brugge KV",
+      "played": 26,
+      "career_lineup": 13,
+      "career_minutes": 1230,
+      "career_subsin": 13,
+      "career_subsout": 9,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 7,
+      "Assist": 1,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 7,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Champions League 2022-23",
+      "season_id": 203,
+      "team_name": "Club Brugge KV",
+      "played": 8,
+      "career_lineup": 6,
+      "career_minutes": 514,
+      "career_subsin": 2,
+      "career_subsout": 5,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 2,
+      "Assist": 2,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 1,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "BELGIUM: Belgian Pro League 2022-23",
+      "season_id": 183,
+      "team_name": "Club Brugge KV",
+      "played": 34,
+      "career_lineup": 28,
+      "career_minutes": 2159,
+      "career_subsin": 6,
+      "career_subsout": 23,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 13,
+      "Assist": 5,
+      "Yellow card": 3,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 1,
+      "Missed penalty": 1,
+      "Goal": 12,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "UEFA Europa League 2021-22",
+      "season_id": 132,
+      "team_name": "FC Barcelona",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "SPAIN: Copa del Rey 2021-22",
+      "season_id": 140,
+      "team_name": "FC Barcelona",
+      "played": 2,
+      "career_lineup": 2,
+      "career_minutes": 151,
+      "career_subsin": 0,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "SPAIN: La Liga 2021-22",
+      "season_id": 113,
+      "team_name": "FC Barcelona",
+      "played": 6,
+      "career_lineup": 4,
+      "career_minutes": 302,
+      "career_subsin": 2,
+      "career_subsout": 3,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 0,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "SPAIN: Primera División RFEF 2021-22 Group 2",
+      "season_id": 129,
+      "team_name": "FC Barcelona B",
+      "played": 32,
+      "career_lineup": 32,
+      "career_minutes": 2711,
+      "career_subsin": 0,
+      "career_subsout": 14,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 18,
+      "Assist": 1,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 18,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "SPAIN: La Liga 2021-22",
+      "season_id": 113,
+      "team_name": "RCD Espanyol",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "SPAIN: Copa del Rey 2020-21",
+      "season_id": 86,
+      "team_name": "RCD Espanyol",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "SPAIN: Segunda División 2020-21",
+      "season_id": 72,
+      "team_name": "RCD Espanyol",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "SPAIN: La Liga 2019-20",
+      "season_id": 21,
+      "team_name": "RCD Espanyol",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "SPAIN: La Liga 2019-20",
+      "season_id": 21,
+      "team_name": "Villarreal CF",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    }
+  ],
+  "matches": [
+    {
+      "matchID": 126875,
+      "matchDate": "2026-04-26",
+      "matchTime": "19:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 38,
+        "score": 2,
+        "participantName": "Villarreal CF",
+        "teamShortName": "VIL",
+        "teamMiddleName": "Villarreal",
+        "logo": "https://api.statorium.com/media/bearleague/bl1756795682865.png"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126877,
+      "matchDate": "2026-04-22",
+      "matchTime": "19:30",
+      "minutes_played": 81,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 23,
+        "score": 1,
+        "participantName": "FC Barcelona",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 0,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 147050,
+      "matchDate": "2026-04-16",
+      "matchTime": "16:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 58,
+        "score": 3,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126858,
+      "matchDate": "2026-04-12",
+      "matchTime": "16:30",
+      "minutes_played": 30,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 0,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 364,
+        "score": 3,
+        "participantName": "Real Oviedo",
+        "teamShortName": "RO",
+        "teamMiddleName": "Real Oviedo",
+        "logo": "https://api.statorium.com/media/bearleague/bl17196147401543.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 147047,
+      "matchDate": "2026-04-09",
+      "matchTime": "19:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 58,
+        "score": 3,
+        "participantName": "SC Freiburg",
+        "teamShortName": "SCF",
+        "teamMiddleName": "Freiburg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162962891874.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 0,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126855,
+      "matchDate": "2026-04-05",
+      "matchTime": "14:15",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 25,
+        "score": 2,
+        "participantName": "Valencia CF",
+        "teamShortName": "VAL",
+        "teamMiddleName": "Valencia",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162991661044.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 3,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126838,
+      "matchDate": "2026-03-22",
+      "matchTime": "15:15",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 3,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 35,
+        "score": 4,
+        "participantName": "Deportivo Alavés",
+        "teamShortName": "ALV",
+        "teamMiddleName": "Alavés",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162992012175.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "19"
+        },
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "27"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "37"
+        }
+      ]
+    },
+    {
+      "matchID": 146321,
+      "matchDate": "2026-03-19",
+      "matchTime": "17:45",
+      "minutes_played": 33,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 61,
+        "score": 0,
+        "participantName": "Olympique Lyonnais",
+        "teamShortName": "LYO",
+        "teamMiddleName": "Lyon",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719350250782.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 2,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+2"
+        }
+      ]
+    },
+    {
+      "matchID": 126829,
+      "matchDate": "2026-03-15",
+      "matchTime": "17:30",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 30,
+        "score": 1,
+        "participantName": "Real Betis",
+        "teamShortName": "BET",
+        "teamMiddleName": "Betis",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162990481688.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "4"
+        }
+      ]
+    },
+    {
+      "matchID": 146311,
+      "matchDate": "2026-03-12",
+      "matchTime": "20:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 61,
+        "score": 1,
+        "participantName": "Olympique Lyonnais",
+        "teamShortName": "LYO",
+        "teamMiddleName": "Lyon",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719350250782.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126818,
+      "matchDate": "2026-03-06",
+      "matchTime": "20:00",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 37,
+        "score": 2,
+        "participantName": "Real Madrid",
+        "teamShortName": "RMA",
+        "teamMiddleName": "Real Madrid",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567955971871.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126809,
+      "matchDate": "2026-03-01",
+      "matchTime": "20:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 26,
+        "score": 1,
+        "participantName": "Girona FC",
+        "teamShortName": "GIR",
+        "teamMiddleName": "Girona",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719347851908.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 2,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "42"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "58"
+        }
+      ]
+    },
+    {
+      "matchID": 142609,
+      "matchDate": "2026-02-26",
+      "matchTime": "20:00",
+      "minutes_played": 23,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 240,
+        "score": 0,
+        "participantName": "PAOK FC",
+        "teamShortName": "PAK",
+        "teamMiddleName": "PAOK",
+        "logo": "https://api.statorium.com/media/bearleague/bl16274702242714.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126801,
+      "matchDate": "2026-02-22",
+      "matchTime": "17:30",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 2,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 115,
+        "score": 0,
+        "participantName": "RCD Mallorca",
+        "teamShortName": "MLL",
+        "teamMiddleName": "Mallorca",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162990082234.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 142601,
+      "matchDate": "2026-02-19",
+      "matchTime": "17:45",
+      "minutes_played": 29,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 240,
+        "score": 1,
+        "participantName": "PAOK FC",
+        "teamShortName": "PAK",
+        "teamMiddleName": "PAOK",
+        "logo": "https://api.statorium.com/media/bearleague/bl16274702242714.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 2,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126787,
+      "matchDate": "2026-02-14",
+      "matchTime": "13:00",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 31,
+        "score": 2,
+        "participantName": "RCD Espanyol",
+        "teamShortName": "ESY",
+        "teamMiddleName": "Espanyol",
+        "logo": "https://api.statorium.com/media/bearleague/bl15529036851486.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 2,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "38"
+        }
+      ]
+    },
+    {
+      "matchID": 126780,
+      "matchDate": "2026-02-06",
+      "matchTime": "20:00",
+      "minutes_played": 15,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 114,
+        "score": 2,
+        "participantName": "CA Osasuna",
+        "teamShortName": "OSA",
+        "teamMiddleName": "Osasuna",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716298920188.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 136454,
+      "matchDate": "2026-01-29",
+      "matchTime": "20:00",
+      "minutes_played": 28,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 135,
+        "score": 1,
+        "participantName": "FK Crvena zvezda",
+        "teamShortName": "CZV",
+        "teamMiddleName": "Crvena zvezda",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671625342352.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126722,
+      "matchDate": "2025-12-20",
+      "matchTime": "13:00",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 364,
+        "score": 0,
+        "participantName": "Real Oviedo",
+        "teamShortName": "RO",
+        "teamMiddleName": "Real Oviedo",
+        "logo": "https://api.statorium.com/media/bearleague/bl17196147401543.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 0,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 139841,
+      "matchDate": "2025-12-17",
+      "matchTime": "18:00",
+      "minutes_played": 29,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 356,
+        "score": 2,
+        "participantName": "Albacete Balompié",
+        "teamShortName": "ALB",
+        "teamMiddleName": "Albacete",
+        "logo": "https://api.statorium.com/media/bearleague/bl15782155932389.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 2,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126709,
+      "matchDate": "2025-12-14",
+      "matchTime": "15:15",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 2,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 40,
+        "score": 0,
+        "participantName": "Athletic Bilbao",
+        "teamShortName": "ATH",
+        "teamMiddleName": "Athletic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567957852193.png"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "44"
+        }
+      ]
+    },
+    {
+      "matchID": 134439,
+      "matchDate": "2025-12-11",
+      "matchTime": "20:00",
+      "minutes_played": 23,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 110,
+        "score": 2,
+        "participantName": "Bologna FC 1909",
+        "teamShortName": "BGN",
+        "teamMiddleName": "Bologna",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777411468.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126703,
+      "matchDate": "2025-12-07",
+      "matchTime": "20:00",
+      "minutes_played": 19,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 37,
+        "score": 0,
+        "participantName": "Real Madrid",
+        "teamShortName": "RMA",
+        "teamMiddleName": "Real Madrid",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567955971871.png"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 2,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 139341,
+      "matchDate": "2025-12-04",
+      "matchTime": "20:00",
+      "minutes_played": 97,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 2943,
+        "score": 1,
+        "participantName": "UE Sant Andreu",
+        "teamShortName": "UES",
+        "teamMiddleName": "Sant Andreu",
+        "logo": "https://api.statorium.com/media/bearleague/bl17272967902282.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126688,
+      "matchDate": "2025-11-30",
+      "matchTime": "17:30",
+      "minutes_played": 3,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 0,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 31,
+        "score": 1,
+        "participantName": "RCD Espanyol",
+        "teamShortName": "ESY",
+        "teamMiddleName": "Espanyol",
+        "logo": "https://api.statorium.com/media/bearleague/bl15529036851486.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "90+5"
+        }
+      ]
+    },
+    {
+      "matchID": 134492,
+      "matchDate": "2025-11-27",
+      "matchTime": "17:45",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 162,
+        "score": 3,
+        "participantName": "PFC Ludogorets Razgrad",
+        "teamShortName": "LUD",
+        "teamMiddleName": "Ludogorets",
+        "logo": "https://api.statorium.com/media/bearleague/bl16617806941055.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 2,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126668,
+      "matchDate": "2025-11-09",
+      "matchTime": "20:00",
+      "minutes_played": 58,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 2,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 23,
+        "score": 4,
+        "participantName": "FC Barcelona",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "43"
+        }
+      ]
+    },
+    {
+      "matchID": 134452,
+      "matchDate": "2025-11-06",
+      "matchTime": "17:45",
+      "minutes_played": 27,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 130,
+        "score": 0,
+        "participantName": "GNK Dinamo Zagreb",
+        "teamShortName": "DIN",
+        "teamMiddleName": "Dinamo Zagreb",
+        "logo": "https://api.statorium.com/media/bearleague/bl1567164911213.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 3,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126661,
+      "matchDate": "2025-11-02",
+      "matchTime": "13:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 36,
+        "score": 1,
+        "participantName": "Levante UD",
+        "teamShortName": "LVT",
+        "teamMiddleName": "Levante",
+        "logo": "https://api.statorium.com/media/bearleague/bl15529042852263.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 2,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126651,
+      "matchDate": "2025-10-26",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 114,
+        "score": 2,
+        "participantName": "CA Osasuna",
+        "teamShortName": "OSA",
+        "teamMiddleName": "Osasuna",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716298920188.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 3,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "13"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "26"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "69"
+        }
+      ]
+    },
+    {
+      "matchID": 126639,
+      "matchDate": "2025-10-19",
+      "matchTime": "14:15",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 32,
+        "score": 1,
+        "participantName": "Real Sociedad",
+        "teamShortName": "SOC",
+        "teamMiddleName": "Real Sociedad",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162990902796.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126628,
+      "matchDate": "2025-10-05",
+      "matchTime": "19:00",
+      "minutes_played": 63,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 39,
+        "score": 1,
+        "participantName": "Atlético Madrid",
+        "teamShortName": "ATM",
+        "teamMiddleName": "Atl. Madrid",
+        "logo": "https://api.statorium.com/media/bearleague/bl1751458818463.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 134442,
+      "matchDate": "2025-10-02",
+      "matchTime": "19:00",
+      "minutes_played": 23,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 3,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 240,
+        "score": 1,
+        "participantName": "PAOK FC",
+        "teamShortName": "PAK",
+        "teamMiddleName": "PAOK",
+        "logo": "https://api.statorium.com/media/bearleague/bl16274702242714.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 134543,
+      "matchDate": "2025-09-25",
+      "matchTime": "19:00",
+      "minutes_played": 52,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 56,
+        "score": 2,
+        "participantName": "VfB Stuttgart",
+        "teamShortName": "STU",
+        "teamMiddleName": "Stuttgart",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716295960587.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126602,
+      "matchDate": "2025-09-21",
+      "matchTime": "12:00",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 29,
+        "score": 1,
+        "participantName": "Rayo Vallecano",
+        "teamShortName": "RAY",
+        "teamMiddleName": "Rayo Vallecano",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162992601520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126589,
+      "matchDate": "2025-09-14",
+      "matchTime": "12:00",
+      "minutes_played": 59,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 26,
+        "score": 1,
+        "participantName": "Girona FC",
+        "teamShortName": "GIR",
+        "teamMiddleName": "Girona",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719347851908.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126608,
+      "matchDate": "2025-08-27",
+      "matchTime": "19:00",
+      "minutes_played": 23,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 30,
+        "score": 1,
+        "participantName": "Real Betis",
+        "teamShortName": "BET",
+        "teamMiddleName": "Betis",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162990481688.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126570,
+      "matchDate": "2025-08-23",
+      "matchTime": "15:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 115,
+        "score": 1,
+        "participantName": "RCD Mallorca",
+        "teamShortName": "MLL",
+        "teamMiddleName": "Mallorca",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162990082234.webp"
+      },
+      "awayParticipant": {
+        "participantID": 21,
+        "score": 1,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 126558,
+      "matchDate": "2025-08-17",
+      "matchTime": "15:00",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 21,
+        "score": 0,
+        "participantName": "Celta de Vigo",
+        "teamShortName": "CLV",
+        "teamMiddleName": "Celta",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989402516.webp"
+      },
+      "awayParticipant": {
+        "participantID": 24,
+        "score": 2,
+        "participantName": "Getafe CF",
+        "teamShortName": "GET",
+        "teamMiddleName": "Getafe",
+        "logo": "https://api.statorium.com/media/bearleague/bl171629896896.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 115891,
+      "matchDate": "2025-05-25",
+      "matchTime": "16:30",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 501,
+        "score": 1,
+        "participantName": "Royal Antwerp FC",
+        "teamShortName": "ROY",
+        "teamMiddleName": "Antwerp",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862807822448.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "43"
+        }
+      ]
+    },
+    {
+      "matchID": 115880,
+      "matchDate": "2025-05-11",
+      "matchTime": "16:30",
+      "minutes_played": 29,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 132,
+        "score": 0,
+        "participantName": "KRC Genk",
+        "teamShortName": "GNK",
+        "teamMiddleName": "Genk",
+        "logo": "https://api.statorium.com/media/bearleague/bl1567168730768.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "66"
+        }
+      ]
+    },
+    {
+      "matchID": 115867,
+      "matchDate": "2025-05-01",
+      "matchTime": "14:00",
+      "minutes_played": 25,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 4,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 164,
+        "score": 1,
+        "participantName": "KAA Gent",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Gent",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250643782784.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 115865,
+      "matchDate": "2025-04-27",
+      "matchTime": "16:30",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 970,
+        "score": 0,
+        "participantName": "Royale Union Saint-Gilloise",
+        "teamShortName": "USG",
+        "teamMiddleName": "Union SG",
+        "logo": "https://api.statorium.com/media/bearleague/bl1750070283899.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 115857,
+      "matchDate": "2025-04-24",
+      "matchTime": "18:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 970,
+        "score": 1,
+        "participantName": "Royale Union Saint-Gilloise",
+        "teamShortName": "USG",
+        "teamMiddleName": "Union SG",
+        "logo": "https://api.statorium.com/media/bearleague/bl1750070283899.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 115851,
+      "matchDate": "2025-04-20",
+      "matchTime": "16:30",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 164,
+        "score": 0,
+        "participantName": "KAA Gent",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Gent",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250643782784.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 5,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 115844,
+      "matchDate": "2025-04-13",
+      "matchTime": "16:30",
+      "minutes_played": 84,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 132,
+        "score": 0,
+        "participantName": "KRC Genk",
+        "teamShortName": "GNK",
+        "teamMiddleName": "Genk",
+        "logo": "https://api.statorium.com/media/bearleague/bl1567168730768.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 115834,
+      "matchDate": "2025-04-06",
+      "matchTime": "11:30",
+      "minutes_played": 64,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 501,
+        "score": 2,
+        "participantName": "Royal Antwerp FC",
+        "teamShortName": "ROY",
+        "teamMiddleName": "Antwerp",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862807822448.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "9"
+        }
+      ]
+    },
+    {
+      "matchID": 115826,
+      "matchDate": "2025-03-30",
+      "matchTime": "11:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 499,
+        "score": 0,
+        "participantName": "RSC Anderlecht",
+        "teamShortName": "AND",
+        "teamMiddleName": "Anderlecht",
+        "logo": "https://api.statorium.com/media/bearleague/bl1586280679110.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82399,
+      "matchDate": "2025-03-16",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 4,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 500,
+        "score": 2,
+        "participantName": "RC Sporting Charleroi",
+        "teamShortName": "CHA",
+        "teamMiddleName": "Charleroi",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566258851808.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "3"
+        },
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "63"
+        },
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "80"
+        }
+      ]
+    },
+    {
+      "matchID": 112722,
+      "matchDate": "2025-03-12",
+      "matchTime": "20:00",
+      "minutes_played": 58,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 112,
+        "score": 3,
+        "participantName": "Aston Villa",
+        "teamShortName": "AVL",
+        "teamMiddleName": "Aston Villa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82390,
+      "matchDate": "2025-03-09",
+      "matchTime": "12:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 493,
+        "score": 1,
+        "participantName": "Cercle Brugge KSV",
+        "teamShortName": "CER",
+        "teamMiddleName": "Cercle Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566257982205.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "34"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "36"
+        }
+      ]
+    },
+    {
+      "matchID": 112715,
+      "matchDate": "2025-03-04",
+      "matchTime": "17:45",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 112,
+        "score": 3,
+        "participantName": "Aston Villa",
+        "teamShortName": "AVL",
+        "teamMiddleName": "Aston Villa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82384,
+      "matchDate": "2025-03-01",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 164,
+        "score": 1,
+        "participantName": "KAA Gent",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Gent",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250643782784.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "29"
+        }
+      ]
+    },
+    {
+      "matchID": 82375,
+      "matchDate": "2025-02-23",
+      "matchTime": "12:30",
+      "minutes_played": 89,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 155,
+        "score": 2,
+        "participantName": "R Standard Liège",
+        "teamShortName": "STA",
+        "teamMiddleName": "Standard Liège",
+        "logo": "https://api.statorium.com/media/bearleague/bl16879856831232.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "51"
+        }
+      ]
+    },
+    {
+      "matchID": 111570,
+      "matchDate": "2025-02-18",
+      "matchTime": "20:00",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 106,
+        "score": 1,
+        "participantName": "Atalanta BC",
+        "teamShortName": "ATT",
+        "teamMiddleName": "Atalanta",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377146485.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "3"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "45+3"
+        }
+      ]
+    },
+    {
+      "matchID": 82372,
+      "matchDate": "2025-02-15",
+      "matchTime": "19:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 491,
+        "score": 2,
+        "participantName": "Sint-Truidense VV",
+        "teamShortName": "STV",
+        "teamMiddleName": "Sint-Truidense",
+        "logo": "https://api.statorium.com/media/bearleague/bl1687985639900.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 111563,
+      "matchDate": "2025-02-12",
+      "matchTime": "17:45",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 106,
+        "score": 1,
+        "participantName": "Atalanta BC",
+        "teamShortName": "ATT",
+        "teamMiddleName": "Atalanta",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377146485.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "15"
+        }
+      ]
+    },
+    {
+      "matchID": 82359,
+      "matchDate": "2025-02-08",
+      "matchTime": "15:00",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 594,
+        "score": 0,
+        "participantName": "Oud-Heverlee Leuven",
+        "teamShortName": "OHL",
+        "teamMiddleName": "OH Leuven",
+        "logo": "https://api.statorium.com/media/bearleague/bl1687985582118.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82349,
+      "matchDate": "2025-02-02",
+      "matchTime": "12:30",
+      "minutes_played": 64,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 501,
+        "score": 2,
+        "participantName": "Royal Antwerp FC",
+        "teamShortName": "ROY",
+        "teamMiddleName": "Antwerp",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862807822448.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 97398,
+      "matchDate": "2025-01-29",
+      "matchTime": "20:00",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 4,
+        "score": 3,
+        "participantName": "Manchester City",
+        "teamShortName": "MCI",
+        "teamMiddleName": "Man City",
+        "logo": "https://api.statorium.com/media/bearleague/bl17151024711246.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82344,
+      "matchDate": "2025-01-25",
+      "matchTime": "19:45",
+      "minutes_played": 21,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 490,
+        "score": 1,
+        "participantName": "KV Kortrijk",
+        "teamShortName": "KVK",
+        "teamMiddleName": "Kortrijk",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862797082486.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 97374,
+      "matchDate": "2025-01-21",
+      "matchTime": "20:00",
+      "minutes_played": 69,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 105,
+        "score": 0,
+        "participantName": "Juventus FC",
+        "teamShortName": "JUV",
+        "teamMiddleName": "Juventus",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716378301636.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82334,
+      "matchDate": "2025-01-18",
+      "matchTime": "19:45",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 4,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 593,
+        "score": 2,
+        "participantName": "K Beerschot VA",
+        "teamShortName": "BEE",
+        "teamMiddleName": "Beerschot",
+        "logo": "https://api.statorium.com/media/bearleague/bl1596708774574.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82325,
+      "matchDate": "2025-01-12",
+      "matchTime": "17:30",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 499,
+        "score": 0,
+        "participantName": "RSC Anderlecht",
+        "teamShortName": "AND",
+        "teamMiddleName": "Anderlecht",
+        "logo": "https://api.statorium.com/media/bearleague/bl1586280679110.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "10"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "41"
+        }
+      ]
+    },
+    {
+      "matchID": 82319,
+      "matchDate": "2024-12-26",
+      "matchTime": "15:00",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 4,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1312,
+        "score": 3,
+        "participantName": "KVC Westerlo",
+        "teamShortName": "WES",
+        "teamMiddleName": "Westerlo",
+        "logo": "https://api.statorium.com/media/bearleague/bl16879855391226.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82314,
+      "matchDate": "2024-12-22",
+      "matchTime": "17:30",
+      "minutes_played": 25,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 970,
+        "score": 2,
+        "participantName": "Royale Union Saint-Gilloise",
+        "teamShortName": "USG",
+        "teamMiddleName": "Union SG",
+        "logo": "https://api.statorium.com/media/bearleague/bl1750070283899.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "68"
+        }
+      ]
+    },
+    {
+      "matchID": 97356,
+      "matchDate": "2024-12-10",
+      "matchTime": "20:00",
+      "minutes_played": 64,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 149,
+        "score": 1,
+        "participantName": "Sporting CP",
+        "teamShortName": "SCP",
+        "teamMiddleName": "Sporting",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568031267934.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82299,
+      "matchDate": "2024-12-07",
+      "matchTime": "17:15",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 498,
+        "score": 1,
+        "participantName": "KV Mechelen",
+        "teamShortName": "KVM",
+        "teamMiddleName": "Mechelen",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862806442751.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82287,
+      "matchDate": "2024-11-30",
+      "matchTime": "17:15",
+      "minutes_played": 88,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 4,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 2629,
+        "score": 1,
+        "participantName": "FCV Dender EH",
+        "teamShortName": "DEN",
+        "teamMiddleName": "Dender",
+        "logo": "https://api.statorium.com/media/bearleague/bl17193575191773.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "24"
+        }
+      ]
+    },
+    {
+      "matchID": 97346,
+      "matchDate": "2024-11-27",
+      "matchTime": "20:00",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 153,
+        "score": 1,
+        "participantName": "Celtic FC",
+        "teamShortName": "CEL",
+        "teamMiddleName": "Celtic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567967782611.png"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82279,
+      "matchDate": "2024-11-23",
+      "matchTime": "15:00",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 7,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 491,
+        "score": 0,
+        "participantName": "Sint-Truidense VV",
+        "teamShortName": "STV",
+        "teamMiddleName": "Sint-Truidense",
+        "logo": "https://api.statorium.com/media/bearleague/bl1687985639900.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82269,
+      "matchDate": "2024-11-10",
+      "matchTime": "18:15",
+      "minutes_played": 15,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 593,
+        "score": 2,
+        "participantName": "K Beerschot VA",
+        "teamShortName": "BEE",
+        "teamMiddleName": "Beerschot",
+        "logo": "https://api.statorium.com/media/bearleague/bl1596708774574.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 97324,
+      "matchDate": "2024-11-06",
+      "matchTime": "17:45",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 112,
+        "score": 0,
+        "participantName": "Aston Villa",
+        "teamShortName": "AVL",
+        "teamMiddleName": "Aston Villa",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719013732580.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82266,
+      "matchDate": "2024-11-02",
+      "matchTime": "17:15",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 594,
+        "score": 0,
+        "participantName": "Oud-Heverlee Leuven",
+        "teamShortName": "OHL",
+        "teamMiddleName": "OH Leuven",
+        "logo": "https://api.statorium.com/media/bearleague/bl1687985582118.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82255,
+      "matchDate": "2024-10-27",
+      "matchTime": "12:30",
+      "minutes_played": 9,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 499,
+        "score": 1,
+        "participantName": "RSC Anderlecht",
+        "teamShortName": "AND",
+        "teamMiddleName": "Anderlecht",
+        "logo": "https://api.statorium.com/media/bearleague/bl1586280679110.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 97297,
+      "matchDate": "2024-10-22",
+      "matchTime": "16:45",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 96,
+        "score": 3,
+        "participantName": "AC Milan",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Milan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377363579.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82252,
+      "matchDate": "2024-10-19",
+      "matchTime": "14:00",
+      "minutes_played": 24,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1312,
+        "score": 1,
+        "participantName": "KVC Westerlo",
+        "teamShortName": "WES",
+        "teamMiddleName": "Westerlo",
+        "logo": "https://api.statorium.com/media/bearleague/bl16879855391226.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82239,
+      "matchDate": "2024-10-06",
+      "matchTime": "16:30",
+      "minutes_played": 62,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 970,
+        "score": 1,
+        "participantName": "Royale Union Saint-Gilloise",
+        "teamShortName": "USG",
+        "teamMiddleName": "Union SG",
+        "logo": "https://api.statorium.com/media/bearleague/bl1750070283899.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 97296,
+      "matchDate": "2024-10-02",
+      "matchTime": "19:00",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 952,
+        "score": 0,
+        "participantName": "SK Sturm Graz",
+        "teamShortName": "STU",
+        "teamMiddleName": "Sturm Graz",
+        "logo": "https://api.statorium.com/media/bearleague/bl16229635122663.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82223,
+      "matchDate": "2024-09-22",
+      "matchTime": "11:30",
+      "minutes_played": 32,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 164,
+        "score": 4,
+        "participantName": "KAA Gent",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Gent",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250643782784.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 97270,
+      "matchDate": "2024-09-18",
+      "matchTime": "19:00",
+      "minutes_played": 25,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 42,
+        "score": 3,
+        "participantName": "Borussia Dortmund",
+        "teamShortName": "BVB",
+        "teamMiddleName": "Dortmund",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567958801272.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82209,
+      "matchDate": "2024-09-01",
+      "matchTime": "11:30",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 493,
+        "score": 0,
+        "participantName": "Cercle Brugge KSV",
+        "teamShortName": "CER",
+        "teamMiddleName": "Cercle Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566257982205.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82201,
+      "matchDate": "2024-08-25",
+      "matchTime": "11:30",
+      "minutes_played": 13,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 2629,
+        "score": 1,
+        "participantName": "FCV Dender EH",
+        "teamShortName": "DEN",
+        "teamMiddleName": "Dender",
+        "logo": "https://api.statorium.com/media/bearleague/bl17193575191773.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82193,
+      "matchDate": "2024-08-18",
+      "matchTime": "11:30",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 501,
+        "score": 0,
+        "participantName": "Royal Antwerp FC",
+        "teamShortName": "ROY",
+        "teamMiddleName": "Antwerp",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862807822448.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82185,
+      "matchDate": "2024-08-11",
+      "matchTime": "11:30",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 132,
+        "score": 3,
+        "participantName": "KRC Genk",
+        "teamShortName": "GNK",
+        "teamMiddleName": "Genk",
+        "logo": "https://api.statorium.com/media/bearleague/bl1567168730768.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 82179,
+      "matchDate": "2024-08-04",
+      "matchTime": "16:30",
+      "minutes_played": 17,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 155,
+        "score": 1,
+        "participantName": "R Standard Liège",
+        "teamShortName": "STA",
+        "teamMiddleName": "Standard Liège",
+        "logo": "https://api.statorium.com/media/bearleague/bl16879856831232.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "89"
+        }
+      ]
+    },
+    {
+      "matchID": 82165,
+      "matchDate": "2024-07-26",
+      "matchTime": "18:45",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 498,
+        "score": 1,
+        "participantName": "KV Mechelen",
+        "teamShortName": "KVM",
+        "teamMiddleName": "Mechelen",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862806442751.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 78751,
+      "matchDate": "2024-05-26",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 493,
+        "score": 0,
+        "participantName": "Cercle Brugge KSV",
+        "teamShortName": "CER",
+        "teamMiddleName": "Cercle Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566257982205.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 78745,
+      "matchDate": "2024-05-19",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 499,
+        "score": 0,
+        "participantName": "RSC Anderlecht",
+        "teamShortName": "AND",
+        "teamMiddleName": "Anderlecht",
+        "logo": "https://api.statorium.com/media/bearleague/bl1586280679110.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 78740,
+      "matchDate": "2024-05-13",
+      "matchTime": "18:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 970,
+        "score": 2,
+        "participantName": "Royale Union Saint-Gilloise",
+        "teamShortName": "USG",
+        "teamMiddleName": "Union SG",
+        "logo": "https://api.statorium.com/media/bearleague/bl1750070283899.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "57"
+        }
+      ]
+    },
+    {
+      "matchID": 79228,
+      "matchDate": "2024-05-08",
+      "matchTime": "16:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 95,
+        "score": 1,
+        "participantName": "ACF Fiorentina",
+        "teamShortName": "FIO",
+        "teamMiddleName": "Fiorentina",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773081536.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 79227,
+      "matchDate": "2024-05-02",
+      "matchTime": "19:00",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 95,
+        "score": 3,
+        "participantName": "ACF Fiorentina",
+        "teamShortName": "FIO",
+        "teamMiddleName": "Fiorentina",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773081536.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 78726,
+      "matchDate": "2024-04-28",
+      "matchTime": "11:30",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 132,
+        "score": 0,
+        "participantName": "KRC Genk",
+        "teamShortName": "GNK",
+        "teamMiddleName": "Genk",
+        "logo": "https://api.statorium.com/media/bearleague/bl1567168730768.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 78721,
+      "matchDate": "2024-04-24",
+      "matchTime": "18:30",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 4,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 132,
+        "score": 0,
+        "participantName": "KRC Genk",
+        "teamShortName": "GNK",
+        "teamMiddleName": "Genk",
+        "logo": "https://api.statorium.com/media/bearleague/bl1567168730768.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "6"
+        },
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "67"
+        }
+      ]
+    },
+    {
+      "matchID": 78716,
+      "matchDate": "2024-04-21",
+      "matchTime": "16:30",
+      "minutes_played": 29,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 970,
+        "score": 1,
+        "participantName": "Royale Union Saint-Gilloise",
+        "teamShortName": "USG",
+        "teamMiddleName": "Union SG",
+        "logo": "https://api.statorium.com/media/bearleague/bl1750070283899.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 78297,
+      "matchDate": "2024-04-18",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 240,
+        "score": 0,
+        "participantName": "PAOK FC",
+        "teamShortName": "PAK",
+        "teamMiddleName": "PAOK",
+        "logo": "https://api.statorium.com/media/bearleague/bl16274702242714.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "33"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "45"
+        }
+      ]
+    },
+    {
+      "matchID": 78708,
+      "matchDate": "2024-04-14",
+      "matchTime": "11:30",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 501,
+        "score": 0,
+        "participantName": "Royal Antwerp FC",
+        "teamShortName": "ROY",
+        "teamMiddleName": "Antwerp",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862807822448.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "90+6"
+        }
+      ]
+    },
+    {
+      "matchID": 78291,
+      "matchDate": "2024-04-11",
+      "matchTime": "19:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 240,
+        "score": 0,
+        "participantName": "PAOK FC",
+        "teamShortName": "PAK",
+        "teamMiddleName": "PAOK",
+        "logo": "https://api.statorium.com/media/bearleague/bl16274702242714.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "6"
+        }
+      ]
+    },
+    {
+      "matchID": 78703,
+      "matchDate": "2024-04-07",
+      "matchTime": "16:30",
+      "minutes_played": 64,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 499,
+        "score": 1,
+        "participantName": "RSC Anderlecht",
+        "teamShortName": "AND",
+        "teamMiddleName": "Anderlecht",
+        "logo": "https://api.statorium.com/media/bearleague/bl1586280679110.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "90"
+        }
+      ]
+    },
+    {
+      "matchID": 78697,
+      "matchDate": "2024-04-01",
+      "matchTime": "11:30",
+      "minutes_played": 34,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 493,
+        "score": 1,
+        "participantName": "Cercle Brugge KSV",
+        "teamShortName": "CER",
+        "teamMiddleName": "Cercle Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566257982205.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "83"
+        }
+      ]
+    },
+    {
+      "matchID": 59702,
+      "matchDate": "2024-03-17",
+      "matchTime": "12:30",
+      "minutes_played": 60,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 491,
+        "score": 2,
+        "participantName": "Sint-Truidense VV",
+        "teamShortName": "STV",
+        "teamMiddleName": "Sint-Truidense",
+        "logo": "https://api.statorium.com/media/bearleague/bl1687985639900.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "6"
+        }
+      ]
+    },
+    {
+      "matchID": 77716,
+      "matchDate": "2024-03-14",
+      "matchTime": "20:00",
+      "minutes_played": 84,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 717,
+        "score": 0,
+        "participantName": "Molde FK",
+        "teamShortName": "MFK",
+        "teamMiddleName": "Molde",
+        "logo": "https://api.statorium.com/media/bearleague/bl16021405692518.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "48"
+        }
+      ]
+    },
+    {
+      "matchID": 59689,
+      "matchDate": "2024-03-10",
+      "matchTime": "15:00",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 594,
+        "score": 1,
+        "participantName": "Oud-Heverlee Leuven",
+        "teamShortName": "OHL",
+        "teamMiddleName": "OH Leuven",
+        "logo": "https://api.statorium.com/media/bearleague/bl1687985582118.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 77710,
+      "matchDate": "2024-03-07",
+      "matchTime": "17:45",
+      "minutes_played": 89,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 717,
+        "score": 2,
+        "participantName": "Molde FK",
+        "teamShortName": "MFK",
+        "teamMiddleName": "Molde",
+        "logo": "https://api.statorium.com/media/bearleague/bl16021405692518.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59683,
+      "matchDate": "2024-03-03",
+      "matchTime": "12:30",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 132,
+        "score": 0,
+        "participantName": "KRC Genk",
+        "teamShortName": "GNK",
+        "teamMiddleName": "Genk",
+        "logo": "https://api.statorium.com/media/bearleague/bl1567168730768.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "27"
+        }
+      ]
+    },
+    {
+      "matchID": 59673,
+      "matchDate": "2024-02-25",
+      "matchTime": "12:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 499,
+        "score": 2,
+        "participantName": "RSC Anderlecht",
+        "teamShortName": "AND",
+        "teamMiddleName": "Anderlecht",
+        "logo": "https://api.statorium.com/media/bearleague/bl1586280679110.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "18"
+        }
+      ]
+    },
+    {
+      "matchID": 59666,
+      "matchDate": "2024-02-18",
+      "matchTime": "12:30",
+      "minutes_played": 18,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 493,
+        "score": 1,
+        "participantName": "Cercle Brugge KSV",
+        "teamShortName": "CER",
+        "teamMiddleName": "Cercle Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566257982205.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "81"
+        }
+      ]
+    },
+    {
+      "matchID": 59657,
+      "matchDate": "2024-02-10",
+      "matchTime": "19:45",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 4,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 492,
+        "score": 0,
+        "participantName": "KAS Eupen",
+        "teamShortName": "EUP",
+        "teamMiddleName": "Eupen",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862804442900.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "30"
+        }
+      ]
+    },
+    {
+      "matchID": 59649,
+      "matchDate": "2024-02-04",
+      "matchTime": "12:30",
+      "minutes_played": 2,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 501,
+        "score": 2,
+        "participantName": "Royal Antwerp FC",
+        "teamShortName": "ROY",
+        "teamMiddleName": "Antwerp",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862807822448.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59641,
+      "matchDate": "2024-01-30",
+      "matchTime": "19:30",
+      "minutes_played": 21,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 490,
+        "score": 3,
+        "participantName": "KV Kortrijk",
+        "teamShortName": "KVK",
+        "teamMiddleName": "Kortrijk",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862797082486.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59634,
+      "matchDate": "2024-01-27",
+      "matchTime": "19:45",
+      "minutes_played": 28,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 500,
+        "score": 1,
+        "participantName": "RC Sporting Charleroi",
+        "teamShortName": "CHA",
+        "teamMiddleName": "Charleroi",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566258851808.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 4,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59625,
+      "matchDate": "2024-01-20",
+      "matchTime": "19:45",
+      "minutes_played": 7,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1312,
+        "score": 0,
+        "participantName": "KVC Westerlo",
+        "teamShortName": "WES",
+        "teamMiddleName": "Westerlo",
+        "logo": "https://api.statorium.com/media/bearleague/bl16879855391226.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59618,
+      "matchDate": "2023-12-26",
+      "matchTime": "19:45",
+      "minutes_played": 14,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 970,
+        "score": 1,
+        "participantName": "Royale Union Saint-Gilloise",
+        "teamShortName": "USG",
+        "teamMiddleName": "Union SG",
+        "logo": "https://api.statorium.com/media/bearleague/bl1750070283899.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59614,
+      "matchDate": "2023-12-22",
+      "matchTime": "19:45",
+      "minutes_played": 24,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1980,
+        "score": 1,
+        "participantName": "RWD Molenbeek",
+        "teamShortName": "RWD",
+        "teamMiddleName": "RWDM",
+        "logo": "https://api.statorium.com/media/bearleague/bl16879840931678.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 6,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59601,
+      "matchDate": "2023-12-17",
+      "matchTime": "12:30",
+      "minutes_played": 4,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 164,
+        "score": 0,
+        "participantName": "KAA Gent",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Gent",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250643782784.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 70397,
+      "matchDate": "2023-12-14",
+      "matchTime": "20:00",
+      "minutes_played": 18,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1027,
+        "score": 1,
+        "participantName": "FK Bodø/Glimt",
+        "teamShortName": "B/G",
+        "teamMiddleName": "Bodø/Glimt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1630347674853.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59598,
+      "matchDate": "2023-12-10",
+      "matchTime": "12:30",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 498,
+        "score": 0,
+        "participantName": "KV Mechelen",
+        "teamShortName": "KVM",
+        "teamMiddleName": "Mechelen",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862806442751.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59585,
+      "matchDate": "2023-12-03",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 155,
+        "score": 0,
+        "participantName": "R Standard Liège",
+        "teamShortName": "STA",
+        "teamMiddleName": "Standard Liège",
+        "logo": "https://api.statorium.com/media/bearleague/bl16879856831232.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 70376,
+      "matchDate": "2023-11-30",
+      "matchTime": "17:45",
+      "minutes_played": 30,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 168,
+        "score": 0,
+        "participantName": "Beşiktaş JK",
+        "teamShortName": "BJK",
+        "teamMiddleName": "Beşiktaş",
+        "logo": "https://api.statorium.com/media/bearleague/bl1599745030725.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 5,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59581,
+      "matchDate": "2023-11-26",
+      "matchTime": "15:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 594,
+        "score": 0,
+        "participantName": "Oud-Heverlee Leuven",
+        "teamShortName": "OHL",
+        "teamMiddleName": "OH Leuven",
+        "logo": "https://api.statorium.com/media/bearleague/bl1687985582118.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "45+2"
+        }
+      ]
+    },
+    {
+      "matchID": 59569,
+      "matchDate": "2023-11-12",
+      "matchTime": "12:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 493,
+        "score": 0,
+        "participantName": "Cercle Brugge KSV",
+        "teamShortName": "CER",
+        "teamMiddleName": "Cercle Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566257982205.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 70370,
+      "matchDate": "2023-11-09",
+      "matchTime": "20:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 145,
+        "score": 0,
+        "participantName": "FC Lugano",
+        "teamShortName": "LUG",
+        "teamMiddleName": "Lugano",
+        "logo": "https://api.statorium.com/media/bearleague/bl15680314181795.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 8,
+          "eventName": "Missed penalty",
+          "minutes": "85"
+        }
+      ]
+    },
+    {
+      "matchID": 59564,
+      "matchDate": "2023-11-05",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 970,
+        "score": 2,
+        "participantName": "Royale Union Saint-Gilloise",
+        "teamShortName": "USG",
+        "teamMiddleName": "Union SG",
+        "logo": "https://api.statorium.com/media/bearleague/bl1750070283899.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59553,
+      "matchDate": "2023-10-29",
+      "matchTime": "12:30",
+      "minutes_played": 62,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 501,
+        "score": 1,
+        "participantName": "Royal Antwerp FC",
+        "teamShortName": "ROY",
+        "teamMiddleName": "Antwerp",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862807822448.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "45"
+        }
+      ]
+    },
+    {
+      "matchID": 70349,
+      "matchDate": "2023-10-26",
+      "matchTime": "16:45",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 145,
+        "score": 1,
+        "participantName": "FC Lugano",
+        "teamShortName": "LUG",
+        "teamMiddleName": "Lugano",
+        "logo": "https://api.statorium.com/media/bearleague/bl15680314181795.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59547,
+      "matchDate": "2023-10-21",
+      "matchTime": "14:00",
+      "minutes_played": 27,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 490,
+        "score": 1,
+        "participantName": "KV Kortrijk",
+        "teamShortName": "KVK",
+        "teamMiddleName": "Kortrijk",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862797082486.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59541,
+      "matchDate": "2023-10-08",
+      "matchTime": "11:30",
+      "minutes_played": 60,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 155,
+        "score": 2,
+        "participantName": "R Standard Liège",
+        "teamShortName": "STA",
+        "teamMiddleName": "Standard Liège",
+        "logo": "https://api.statorium.com/media/bearleague/bl16879856831232.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 70331,
+      "matchDate": "2023-10-05",
+      "matchTime": "16:45",
+      "minutes_played": 35,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1027,
+        "score": 0,
+        "participantName": "FK Bodø/Glimt",
+        "teamShortName": "B/G",
+        "teamMiddleName": "Bodø/Glimt",
+        "logo": "https://api.statorium.com/media/bearleague/bl1630347674853.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "90+1"
+        }
+      ]
+    },
+    {
+      "matchID": 59528,
+      "matchDate": "2023-10-01",
+      "matchTime": "16:30",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 491,
+        "score": 1,
+        "participantName": "Sint-Truidense VV",
+        "teamShortName": "STV",
+        "teamMiddleName": "Sint-Truidense",
+        "logo": "https://api.statorium.com/media/bearleague/bl1687985639900.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "52"
+        }
+      ]
+    },
+    {
+      "matchID": 59500,
+      "matchDate": "2023-09-28",
+      "matchTime": "18:45",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 132,
+        "score": 1,
+        "participantName": "KRC Genk",
+        "teamShortName": "GNK",
+        "teamMiddleName": "Genk",
+        "logo": "https://api.statorium.com/media/bearleague/bl1567168730768.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59520,
+      "matchDate": "2023-09-24",
+      "matchTime": "16:30",
+      "minutes_played": 22,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 499,
+        "score": 1,
+        "participantName": "RSC Anderlecht",
+        "teamShortName": "AND",
+        "teamMiddleName": "Anderlecht",
+        "logo": "https://api.statorium.com/media/bearleague/bl1586280679110.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 70323,
+      "matchDate": "2023-09-21",
+      "matchTime": "19:00",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 168,
+        "score": 1,
+        "participantName": "Beşiktaş JK",
+        "teamShortName": "BJK",
+        "teamMiddleName": "Beşiktaş",
+        "logo": "https://api.statorium.com/media/bearleague/bl1599745030725.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 59515,
+      "matchDate": "2023-09-16",
+      "matchTime": "18:45",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 4,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 500,
+        "score": 2,
+        "participantName": "RC Sporting Charleroi",
+        "teamShortName": "CHA",
+        "teamMiddleName": "Charleroi",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566258851808.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+5"
+        }
+      ]
+    },
+    {
+      "matchID": 59508,
+      "matchDate": "2023-09-03",
+      "matchTime": "11:30",
+      "minutes_played": 23,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 164,
+        "score": 2,
+        "participantName": "KAA Gent",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Gent",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250643782784.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 56235,
+      "matchDate": "2023-05-14",
+      "matchTime": "11:30",
+      "minutes_played": 52,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 501,
+        "score": 3,
+        "participantName": "Royal Antwerp FC",
+        "teamShortName": "ROY",
+        "teamMiddleName": "Antwerp",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862807822448.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 56229,
+      "matchDate": "2023-05-06",
+      "matchTime": "16:15",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 970,
+        "score": 2,
+        "participantName": "Royale Union Saint-Gilloise",
+        "teamShortName": "USG",
+        "teamMiddleName": "Union SG",
+        "logo": "https://api.statorium.com/media/bearleague/bl1750070283899.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 56227,
+      "matchDate": "2023-04-30",
+      "matchTime": "16:30",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 132,
+        "score": 3,
+        "participantName": "KRC Genk",
+        "teamShortName": "GNK",
+        "teamMiddleName": "Genk",
+        "logo": "https://api.statorium.com/media/bearleague/bl1567168730768.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44959,
+      "matchDate": "2023-04-23",
+      "matchTime": "16:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 7,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 492,
+        "score": 0,
+        "participantName": "KAS Eupen",
+        "teamShortName": "EUP",
+        "teamMiddleName": "Eupen",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862804442900.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "30"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "65"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+1"
+        }
+      ]
+    },
+    {
+      "matchID": 44956,
+      "matchDate": "2023-04-15",
+      "matchTime": "18:45",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1312,
+        "score": 0,
+        "participantName": "KVC Westerlo",
+        "teamShortName": "WES",
+        "teamMiddleName": "Westerlo",
+        "logo": "https://api.statorium.com/media/bearleague/bl16879855391226.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "70"
+        }
+      ]
+    },
+    {
+      "matchID": 44942,
+      "matchDate": "2023-04-07",
+      "matchTime": "18:45",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 969,
+        "score": 0,
+        "participantName": "RFC Seraing",
+        "teamShortName": "SER",
+        "teamMiddleName": "Seraing",
+        "logo": "https://api.statorium.com/media/bearleague/bl16240182181930.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "56"
+        }
+      ]
+    },
+    {
+      "matchID": 44933,
+      "matchDate": "2023-04-02",
+      "matchTime": "16:30",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 498,
+        "score": 0,
+        "participantName": "KV Mechelen",
+        "teamShortName": "KVM",
+        "teamMiddleName": "Mechelen",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862806442751.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44924,
+      "matchDate": "2023-03-18",
+      "matchTime": "15:00",
+      "minutes_played": 64,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 490,
+        "score": 1,
+        "participantName": "KV Kortrijk",
+        "teamShortName": "KVK",
+        "teamMiddleName": "Kortrijk",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862797082486.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44914,
+      "matchDate": "2023-03-12",
+      "matchTime": "12:30",
+      "minutes_played": 88,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 155,
+        "score": 0,
+        "participantName": "R Standard Liège",
+        "teamShortName": "STA",
+        "teamMiddleName": "Standard Liège",
+        "logo": "https://api.statorium.com/media/bearleague/bl16879856831232.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "61"
+        }
+      ]
+    },
+    {
+      "matchID": 51238,
+      "matchDate": "2023-03-07",
+      "matchTime": "20:00",
+      "minutes_played": 28,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 131,
+        "score": 5,
+        "participantName": "SL Benfica",
+        "teamShortName": "SLB",
+        "teamMiddleName": "Benfica",
+        "logo": "https://api.statorium.com/media/bearleague/bl1657210856628.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44908,
+      "matchDate": "2023-03-03",
+      "matchTime": "19:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 494,
+        "score": 3,
+        "participantName": "KV Oostende",
+        "teamShortName": "KVO",
+        "teamMiddleName": "Oostende",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566258602112.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "76"
+        }
+      ]
+    },
+    {
+      "matchID": 44896,
+      "matchDate": "2023-02-26",
+      "matchTime": "12:30",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 164,
+        "score": 0,
+        "participantName": "KAA Gent",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Gent",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250643782784.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44886,
+      "matchDate": "2023-02-19",
+      "matchTime": "12:30",
+      "minutes_played": 81,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 493,
+        "score": 2,
+        "participantName": "Cercle Brugge KSV",
+        "teamShortName": "CER",
+        "teamMiddleName": "Cercle Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566257982205.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "18"
+        }
+      ]
+    },
+    {
+      "matchID": 51232,
+      "matchDate": "2023-02-15",
+      "matchTime": "20:00",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 131,
+        "score": 2,
+        "participantName": "SL Benfica",
+        "teamShortName": "SLB",
+        "teamMiddleName": "Benfica",
+        "logo": "https://api.statorium.com/media/bearleague/bl1657210856628.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44865,
+      "matchDate": "2023-01-29",
+      "matchTime": "17:30",
+      "minutes_played": 17,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 496,
+        "score": 1,
+        "participantName": "SV Zulte Waregem",
+        "teamShortName": "ZW",
+        "teamMiddleName": "Zulte Waregem",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862805631784.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44850,
+      "matchDate": "2023-01-22",
+      "matchTime": "17:30",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 500,
+        "score": 2,
+        "participantName": "RC Sporting Charleroi",
+        "teamShortName": "CHA",
+        "teamMiddleName": "Charleroi",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566258851808.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44847,
+      "matchDate": "2023-01-19",
+      "matchTime": "19:45",
+      "minutes_played": 9,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 491,
+        "score": 1,
+        "participantName": "Sint-Truidense VV",
+        "teamShortName": "STV",
+        "teamMiddleName": "Sint-Truidense",
+        "logo": "https://api.statorium.com/media/bearleague/bl1687985639900.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44832,
+      "matchDate": "2023-01-15",
+      "matchTime": "12:30",
+      "minutes_played": 28,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 499,
+        "score": 1,
+        "participantName": "RSC Anderlecht",
+        "teamShortName": "AND",
+        "teamMiddleName": "Anderlecht",
+        "logo": "https://api.statorium.com/media/bearleague/bl1586280679110.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44826,
+      "matchDate": "2023-01-08",
+      "matchTime": "12:30",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 132,
+        "score": 3,
+        "participantName": "KRC Genk",
+        "teamShortName": "GNK",
+        "teamMiddleName": "Genk",
+        "logo": "https://api.statorium.com/media/bearleague/bl1567168730768.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44814,
+      "matchDate": "2022-12-26",
+      "matchTime": "12:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 594,
+        "score": 1,
+        "participantName": "Oud-Heverlee Leuven",
+        "teamShortName": "OHL",
+        "teamMiddleName": "OH Leuven",
+        "logo": "https://api.statorium.com/media/bearleague/bl1687985582118.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "43"
+        }
+      ]
+    },
+    {
+      "matchID": 44806,
+      "matchDate": "2022-11-13",
+      "matchTime": "12:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 501,
+        "score": 2,
+        "participantName": "Royal Antwerp FC",
+        "teamShortName": "ROY",
+        "teamMiddleName": "Antwerp",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862807822448.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "62"
+        }
+      ]
+    },
+    {
+      "matchID": 44799,
+      "matchDate": "2022-11-06",
+      "matchTime": "12:30",
+      "minutes_played": 60,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 164,
+        "score": 2,
+        "participantName": "KAA Gent",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Gent",
+        "logo": "https://api.statorium.com/media/bearleague/bl17250643782784.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 49187,
+      "matchDate": "2022-11-01",
+      "matchTime": "17:45",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 57,
+        "score": 0,
+        "participantName": "Bayer 04 Leverkusen",
+        "teamShortName": "B04",
+        "teamMiddleName": "Leverkusen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716291195914.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44788,
+      "matchDate": "2022-10-29",
+      "matchTime": "18:45",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 4,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 494,
+        "score": 2,
+        "participantName": "KV Oostende",
+        "teamShortName": "KVO",
+        "teamMiddleName": "Oostende",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566258602112.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "39"
+        },
+        {
+          "eventID": 8,
+          "eventName": "Missed penalty",
+          "minutes": "53"
+        }
+      ]
+    },
+    {
+      "matchID": 49163,
+      "matchDate": "2022-10-26",
+      "matchTime": "16:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 138,
+        "score": 4,
+        "participantName": "FC Porto",
+        "teamShortName": "FCP",
+        "teamMiddleName": "Porto",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568031999126.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44783,
+      "matchDate": "2022-10-22",
+      "matchTime": "18:45",
+      "minutes_played": 64,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 970,
+        "score": 2,
+        "participantName": "Royale Union Saint-Gilloise",
+        "teamShortName": "USG",
+        "teamMiddleName": "Union SG",
+        "logo": "https://api.statorium.com/media/bearleague/bl1750070283899.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44770,
+      "matchDate": "2022-10-19",
+      "matchTime": "18:45",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 491,
+        "score": 0,
+        "participantName": "Sint-Truidense VV",
+        "teamShortName": "STV",
+        "teamMiddleName": "Sint-Truidense",
+        "logo": "https://api.statorium.com/media/bearleague/bl1687985639900.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44759,
+      "matchDate": "2022-10-16",
+      "matchTime": "16:30",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 499,
+        "score": 0,
+        "participantName": "RSC Anderlecht",
+        "teamShortName": "AND",
+        "teamMiddleName": "Anderlecht",
+        "logo": "https://api.statorium.com/media/bearleague/bl1586280679110.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 49132,
+      "matchDate": "2022-10-12",
+      "matchTime": "16:45",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 39,
+        "score": 0,
+        "participantName": "Atlético Madrid",
+        "teamShortName": "ATM",
+        "teamMiddleName": "Atl. Madrid",
+        "logo": "https://api.statorium.com/media/bearleague/bl1751458818463.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 49094,
+      "matchDate": "2022-10-04",
+      "matchTime": "19:00",
+      "minutes_played": 86,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 39,
+        "score": 0,
+        "participantName": "Atlético Madrid",
+        "teamShortName": "ATM",
+        "teamMiddleName": "Atl. Madrid",
+        "logo": "https://api.statorium.com/media/bearleague/bl1751458818463.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "38"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "62"
+        }
+      ]
+    },
+    {
+      "matchID": 44742,
+      "matchDate": "2022-10-01",
+      "matchTime": "18:45",
+      "minutes_played": 58,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 498,
+        "score": 0,
+        "participantName": "KV Mechelen",
+        "teamShortName": "KVM",
+        "teamMiddleName": "Mechelen",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862806442751.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "37"
+        }
+      ]
+    },
+    {
+      "matchID": 44739,
+      "matchDate": "2022-09-18",
+      "matchTime": "16:30",
+      "minutes_played": 30,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 155,
+        "score": 3,
+        "participantName": "R Standard Liège",
+        "teamShortName": "STA",
+        "teamMiddleName": "Standard Liège",
+        "logo": "https://api.statorium.com/media/bearleague/bl16879856831232.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 0,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 49055,
+      "matchDate": "2022-09-13",
+      "matchTime": "19:00",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 138,
+        "score": 0,
+        "participantName": "FC Porto",
+        "teamShortName": "FCP",
+        "teamMiddleName": "Porto",
+        "logo": "https://api.statorium.com/media/bearleague/bl1568031999126.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 4,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "47"
+        },
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "15"
+        }
+      ]
+    },
+    {
+      "matchID": 44729,
+      "matchDate": "2022-09-10",
+      "matchTime": "16:15",
+      "minutes_played": 16,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 969,
+        "score": 0,
+        "participantName": "RFC Seraing",
+        "teamShortName": "SER",
+        "teamMiddleName": "Seraing",
+        "logo": "https://api.statorium.com/media/bearleague/bl16240182181930.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 49039,
+      "matchDate": "2022-09-07",
+      "matchTime": "19:00",
+      "minutes_played": 64,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 57,
+        "score": 0,
+        "participantName": "Bayer 04 Leverkusen",
+        "teamShortName": "B04",
+        "teamMiddleName": "Leverkusen",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716291195914.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44717,
+      "matchDate": "2022-09-02",
+      "matchTime": "18:45",
+      "minutes_played": 62,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 4,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 493,
+        "score": 0,
+        "participantName": "Cercle Brugge KSV",
+        "teamShortName": "CER",
+        "teamMiddleName": "Cercle Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566257982205.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "43"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "46"
+        }
+      ]
+    },
+    {
+      "matchID": 44705,
+      "matchDate": "2022-08-26",
+      "matchTime": "18:45",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 500,
+        "score": 1,
+        "participantName": "RC Sporting Charleroi",
+        "teamShortName": "CHA",
+        "teamMiddleName": "Charleroi",
+        "logo": "https://api.statorium.com/media/bearleague/bl16566258851808.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "32"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "36"
+        }
+      ]
+    },
+    {
+      "matchID": 44700,
+      "matchDate": "2022-08-21",
+      "matchTime": "11:30",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 2,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 490,
+        "score": 1,
+        "participantName": "KV Kortrijk",
+        "teamShortName": "KVK",
+        "teamMiddleName": "Kortrijk",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862797082486.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "4"
+        }
+      ]
+    },
+    {
+      "matchID": 44694,
+      "matchDate": "2022-08-14",
+      "matchTime": "16:30",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 594,
+        "score": 0,
+        "participantName": "Oud-Heverlee Leuven",
+        "teamShortName": "OHL",
+        "teamMiddleName": "OH Leuven",
+        "logo": "https://api.statorium.com/media/bearleague/bl1687985582118.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "42"
+        }
+      ]
+    },
+    {
+      "matchID": 44678,
+      "matchDate": "2022-08-05",
+      "matchTime": "18:45",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 496,
+        "score": 1,
+        "participantName": "SV Zulte Waregem",
+        "teamShortName": "ZW",
+        "teamMiddleName": "Zulte Waregem",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862805631784.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 44675,
+      "matchDate": "2022-07-31",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 492,
+        "score": 2,
+        "participantName": "KAS Eupen",
+        "teamShortName": "EUP",
+        "teamMiddleName": "Eupen",
+        "logo": "https://api.statorium.com/media/bearleague/bl15862804442900.webp"
+      },
+      "awayParticipant": {
+        "participantID": 126,
+        "score": 1,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "7"
+        }
+      ]
+    },
+    {
+      "matchID": 44665,
+      "matchDate": "2022-07-24",
+      "matchTime": "11:30",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 126,
+        "score": 3,
+        "participantName": "Club Brugge KV",
+        "teamShortName": "CB",
+        "teamMiddleName": "Club Brugge",
+        "logo": "https://api.statorium.com/media/bearleague/bl15671526181210.webp"
+      },
+      "awayParticipant": {
+        "participantID": 132,
+        "score": 2,
+        "participantName": "KRC Genk",
+        "teamShortName": "GNK",
+        "teamMiddleName": "Genk",
+        "logo": "https://api.statorium.com/media/bearleague/bl1567168730768.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "22"
+        },
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "60"
+        }
+      ]
+    },
+    {
+      "matchID": 32929,
+      "matchDate": "2022-05-21",
+      "matchTime": "18:30",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 5,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 635,
+        "score": 0,
+        "participantName": "CD Castellón",
+        "teamShortName": "CDC",
+        "teamMiddleName": "Castellón",
+        "logo": "https://api.statorium.com/media/bearleague/bl15996524171308.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "21"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "63"
+        }
+      ]
+    },
+    {
+      "matchID": 32924,
+      "matchDate": "2022-05-15",
+      "matchTime": "10:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1015,
+        "score": 2,
+        "participantName": "Sevilla Atlético",
+        "teamShortName": "SEV",
+        "teamMiddleName": "Sevilla Atlético",
+        "logo": "https://api.statorium.com/media/bearleague/bl1629282284627.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 1,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32909,
+      "matchDate": "2022-05-07",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 0,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 636,
+        "score": 2,
+        "participantName": "CE Sabadell FC",
+        "teamShortName": "SAB",
+        "teamMiddleName": "Sabadell",
+        "logo": "https://api.statorium.com/media/bearleague/bl1599652706590.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32902,
+      "matchDate": "2022-04-30",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 836,
+        "score": 0,
+        "participantName": "San Fernando CD",
+        "teamShortName": "CSF",
+        "teamMiddleName": "San Fernando",
+        "logo": "https://api.statorium.com/media/bearleague/bl160642137255.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 2,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "63"
+        }
+      ]
+    },
+    {
+      "matchID": 32890,
+      "matchDate": "2022-04-23",
+      "matchTime": "17:30",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 5,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1018,
+        "score": 0,
+        "participantName": "Atlético Sanluqueño CF",
+        "teamShortName": "ATS",
+        "teamMiddleName": "Atlético Sanluqueño",
+        "logo": "https://api.statorium.com/media/bearleague/bl16292825861447.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "30"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "37"
+        }
+      ]
+    },
+    {
+      "matchID": 32876,
+      "matchDate": "2022-04-17",
+      "matchTime": "10:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 833,
+        "score": 6,
+        "participantName": "CD Atlético Baleares",
+        "teamShortName": "BAL",
+        "teamMiddleName": "Atlético Baleares",
+        "logo": "https://api.statorium.com/media/bearleague/bl16064205761937.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 2,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "85"
+        }
+      ]
+    },
+    {
+      "matchID": 32870,
+      "matchDate": "2022-04-09",
+      "matchTime": "17:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 2,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1011,
+        "score": 1,
+        "participantName": "Villarreal CF B",
+        "teamShortName": "VIL",
+        "teamMiddleName": "Villarreal B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715799068175.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "47"
+        }
+      ]
+    },
+    {
+      "matchID": 32860,
+      "matchDate": "2022-04-03",
+      "matchTime": "10:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 856,
+        "score": 1,
+        "participantName": "Real Balompédica Linense",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Linense",
+        "logo": "https://api.statorium.com/media/bearleague/bl1659997854461.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 2,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+7"
+        }
+      ]
+    },
+    {
+      "matchID": 32850,
+      "matchDate": "2022-03-27",
+      "matchTime": "16:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1013,
+        "score": 1,
+        "participantName": "Betis Deportivo Balompié",
+        "teamShortName": "BDB",
+        "teamMiddleName": "Betis Deportivo",
+        "logo": "https://api.statorium.com/media/bearleague/bl17157981702522.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 2,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "16"
+        }
+      ]
+    },
+    {
+      "matchID": 32838,
+      "matchDate": "2022-03-19",
+      "matchTime": "16:00",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 2,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 855,
+        "score": 1,
+        "participantName": "UE Cornellà",
+        "teamShortName": "UEC",
+        "teamMiddleName": "Cornellà",
+        "logo": "https://api.statorium.com/media/bearleague/bl16909354021101.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32828,
+      "matchDate": "2022-03-12",
+      "matchTime": "16:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 852,
+        "score": 2,
+        "participantName": "FC Andorra",
+        "teamShortName": "AND",
+        "teamMiddleName": "Andorra",
+        "logo": "https://api.statorium.com/media/bearleague/bl1631599060531.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 1,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "75"
+        }
+      ]
+    },
+    {
+      "matchID": 32818,
+      "matchDate": "2022-03-05",
+      "matchTime": "18:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 0,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1019,
+        "score": 2,
+        "participantName": "Gimnàstic de Tarragona",
+        "teamShortName": "GDT",
+        "teamMiddleName": "Gimnàstic Tarragona",
+        "logo": "https://api.statorium.com/media/bearleague/bl16292828812346.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32807,
+      "matchDate": "2022-02-26",
+      "matchTime": "18:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 799,
+        "score": 2,
+        "participantName": "CD Alcoyano",
+        "teamShortName": "ALC",
+        "teamMiddleName": "Alcoyano",
+        "logo": "https://api.statorium.com/media/bearleague/bl16064126041530.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 3,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "88"
+        }
+      ]
+    },
+    {
+      "matchID": 32798,
+      "matchDate": "2022-02-20",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 2,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 356,
+        "score": 2,
+        "participantName": "Albacete Balompié",
+        "teamShortName": "ALB",
+        "teamMiddleName": "Albacete",
+        "logo": "https://api.statorium.com/media/bearleague/bl15782155932389.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "8"
+        }
+      ]
+    },
+    {
+      "matchID": 32789,
+      "matchDate": "2022-02-12",
+      "matchTime": "16:00",
+      "minutes_played": 88,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 1,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 846,
+        "score": 1,
+        "participantName": "Linares Deportivo",
+        "teamShortName": "LIN",
+        "teamMiddleName": "Linares",
+        "logo": "https://api.statorium.com/media/bearleague/bl1606423817532.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "71"
+        }
+      ]
+    },
+    {
+      "matchID": 32770,
+      "matchDate": "2022-01-29",
+      "matchTime": "18:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 2,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1012,
+        "score": 2,
+        "participantName": "Real Madrid Castilla",
+        "teamShortName": "RMC",
+        "teamMiddleName": "Real Madrid Castilla",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797664991.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32757,
+      "matchDate": "2022-01-25",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1017,
+        "score": 2,
+        "participantName": "UE Costa Brava",
+        "teamShortName": "COB",
+        "teamMiddleName": "Costa Brava",
+        "logo": "https://api.statorium.com/media/bearleague/bl16292824462449.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 2,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "78"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+1"
+        }
+      ]
+    },
+    {
+      "matchID": 28799,
+      "matchDate": "2022-01-23",
+      "matchTime": "20:00",
+      "minutes_played": 6,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 35,
+        "score": 0,
+        "participantName": "Deportivo Alavés",
+        "teamShortName": "ALV",
+        "teamMiddleName": "Alavés",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162992012175.webp"
+      },
+      "awayParticipant": {
+        "participantID": 23,
+        "score": 1,
+        "participantName": "FC Barcelona",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 35427,
+      "matchDate": "2022-01-20",
+      "matchTime": "20:30",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 40,
+        "score": 3,
+        "participantName": "Athletic Bilbao",
+        "teamShortName": "ATH",
+        "teamMiddleName": "Athletic",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567957852193.png"
+      },
+      "awayParticipant": {
+        "participantID": 23,
+        "score": 2,
+        "participantName": "FC Barcelona",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 28781,
+      "matchDate": "2022-01-08",
+      "matchTime": "17:30",
+      "minutes_played": 61,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 116,
+        "score": 1,
+        "participantName": "Granada CF",
+        "teamShortName": "GRA",
+        "teamMiddleName": "Granada",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989821502.webp"
+      },
+      "awayParticipant": {
+        "participantID": 23,
+        "score": 1,
+        "participantName": "FC Barcelona",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 34892,
+      "matchDate": "2022-01-05",
+      "matchTime": "18:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 846,
+        "score": 1,
+        "participantName": "Linares Deportivo",
+        "teamShortName": "LIN",
+        "teamMiddleName": "Linares",
+        "logo": "https://api.statorium.com/media/bearleague/bl1606423817532.webp"
+      },
+      "awayParticipant": {
+        "participantID": 23,
+        "score": 2,
+        "participantName": "FC Barcelona",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "69"
+        }
+      ]
+    },
+    {
+      "matchID": 28775,
+      "matchDate": "2022-01-02",
+      "matchTime": "20:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 115,
+        "score": 0,
+        "participantName": "RCD Mallorca",
+        "teamShortName": "MLL",
+        "teamMiddleName": "Mallorca",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162990082234.webp"
+      },
+      "awayParticipant": {
+        "participantID": 23,
+        "score": 1,
+        "participantName": "FC Barcelona",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "79"
+        }
+      ]
+    },
+    {
+      "matchID": 28627,
+      "matchDate": "2021-12-21",
+      "matchTime": "20:30",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 33,
+        "score": 1,
+        "participantName": "Sevilla FC",
+        "teamShortName": "SEV",
+        "teamMiddleName": "Sevilla",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162991262386.webp"
+      },
+      "awayParticipant": {
+        "participantID": 23,
+        "score": 1,
+        "participantName": "FC Barcelona",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 28760,
+      "matchDate": "2021-12-18",
+      "matchTime": "17:30",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 23,
+        "score": 3,
+        "participantName": "FC Barcelona",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17162989602486.webp"
+      },
+      "awayParticipant": {
+        "participantID": 355,
+        "score": 2,
+        "participantName": "Elche CF",
+        "teamShortName": "ELC",
+        "teamMiddleName": "Elche",
+        "logo": "https://api.statorium.com/media/bearleague/bl15737472842633.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "16"
+        }
+      ]
+    },
+    {
+      "matchID": 32715,
+      "matchDate": "2021-12-05",
+      "matchTime": "16:00",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1011,
+        "score": 3,
+        "participantName": "Villarreal CF B",
+        "teamShortName": "VIL",
+        "teamMiddleName": "Villarreal B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715799068175.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 0,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32697,
+      "matchDate": "2021-11-27",
+      "matchTime": "16:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 0,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 836,
+        "score": 2,
+        "participantName": "San Fernando CD",
+        "teamShortName": "CSF",
+        "teamMiddleName": "San Fernando",
+        "logo": "https://api.statorium.com/media/bearleague/bl160642137255.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32686,
+      "matchDate": "2021-11-21",
+      "matchTime": "16:00",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 356,
+        "score": 2,
+        "participantName": "Albacete Balompié",
+        "teamShortName": "ALB",
+        "teamMiddleName": "Albacete",
+        "logo": "https://api.statorium.com/media/bearleague/bl15782155932389.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 0,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32684,
+      "matchDate": "2021-11-13",
+      "matchTime": "18:00",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1018,
+        "score": 0,
+        "participantName": "Atlético Sanluqueño CF",
+        "teamShortName": "ATS",
+        "teamMiddleName": "Atlético Sanluqueño",
+        "logo": "https://api.statorium.com/media/bearleague/bl16292825861447.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 2,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "53"
+        }
+      ]
+    },
+    {
+      "matchID": 32670,
+      "matchDate": "2021-11-06",
+      "matchTime": "18:00",
+      "minutes_played": 73,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 4,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1015,
+        "score": 0,
+        "participantName": "Sevilla Atlético",
+        "teamShortName": "SEV",
+        "teamMiddleName": "Sevilla Atlético",
+        "logo": "https://api.statorium.com/media/bearleague/bl1629282284627.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "38"
+        }
+      ]
+    },
+    {
+      "matchID": 32661,
+      "matchDate": "2021-10-29",
+      "matchTime": "19:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 846,
+        "score": 1,
+        "participantName": "Linares Deportivo",
+        "teamShortName": "LIN",
+        "teamMiddleName": "Linares",
+        "logo": "https://api.statorium.com/media/bearleague/bl1606423817532.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 2,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32648,
+      "matchDate": "2021-10-23",
+      "matchTime": "15:00",
+      "minutes_played": 70,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 0,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 799,
+        "score": 0,
+        "participantName": "CD Alcoyano",
+        "teamShortName": "ALC",
+        "teamMiddleName": "Alcoyano",
+        "logo": "https://api.statorium.com/media/bearleague/bl16064126041530.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32643,
+      "matchDate": "2021-10-16",
+      "matchTime": "19:00",
+      "minutes_played": 83,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1012,
+        "score": 0,
+        "participantName": "Real Madrid Castilla",
+        "teamShortName": "RMC",
+        "teamMiddleName": "Real Madrid Castilla",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797664991.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 0,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32629,
+      "matchDate": "2021-10-10",
+      "matchTime": "15:00",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 2,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 852,
+        "score": 1,
+        "participantName": "FC Andorra",
+        "teamShortName": "AND",
+        "teamMiddleName": "Andorra",
+        "logo": "https://api.statorium.com/media/bearleague/bl1631599060531.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "40"
+        }
+      ]
+    },
+    {
+      "matchID": 32619,
+      "matchDate": "2021-10-02",
+      "matchTime": "15:00",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 635,
+        "score": 2,
+        "participantName": "CD Castellón",
+        "teamShortName": "CDC",
+        "teamMiddleName": "Castellón",
+        "logo": "https://api.statorium.com/media/bearleague/bl15996524171308.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 0,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "12"
+        }
+      ]
+    },
+    {
+      "matchID": 32609,
+      "matchDate": "2021-09-24",
+      "matchTime": "19:00",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 2,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 856,
+        "score": 1,
+        "participantName": "Real Balompédica Linense",
+        "teamShortName": "RBL",
+        "teamMiddleName": "Linense",
+        "logo": "https://api.statorium.com/media/bearleague/bl1659997854461.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "21"
+        }
+      ]
+    },
+    {
+      "matchID": 32603,
+      "matchDate": "2021-09-19",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 636,
+        "score": 1,
+        "participantName": "CE Sabadell FC",
+        "teamShortName": "SAB",
+        "teamMiddleName": "Sabadell",
+        "logo": "https://api.statorium.com/media/bearleague/bl1599652706590.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 3,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32589,
+      "matchDate": "2021-09-12",
+      "matchTime": "15:00",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 0,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1017,
+        "score": 0,
+        "participantName": "UE Costa Brava",
+        "teamShortName": "COB",
+        "teamMiddleName": "Costa Brava",
+        "logo": "https://api.statorium.com/media/bearleague/bl16292824462449.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "78"
+        }
+      ]
+    },
+    {
+      "matchID": 32581,
+      "matchDate": "2021-09-05",
+      "matchTime": "15:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1019,
+        "score": 1,
+        "participantName": "Gimnàstic de Tarragona",
+        "teamShortName": "GDT",
+        "teamMiddleName": "Gimnàstic Tarragona",
+        "logo": "https://api.statorium.com/media/bearleague/bl16292828812346.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1014,
+        "score": 0,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 32569,
+      "matchDate": "2021-08-28",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1014,
+        "score": 1,
+        "participantName": "FC Barcelona B",
+        "teamShortName": "FCB",
+        "teamMiddleName": "Barcelona B",
+        "logo": "https://api.statorium.com/media/bearleague/bl1715797955520.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1016,
+        "score": 1,
+        "participantName": "Algeciras CF",
+        "teamShortName": "ALG",
+        "teamMiddleName": "Algeciras",
+        "logo": "https://api.statorium.com/media/bearleague/bl16292823601070.webp"
+      },
+      "playerEvents": []
+    }
+  ]
+}

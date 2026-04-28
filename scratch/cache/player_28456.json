@@ -1,0 +1,2646 @@
+{
+  "playerID": 28456,
+  "firstName": "Mateo",
+  "lastName": "Pellegrino Casalanguila",
+  "shortName": "M. Pellegrino",
+  "fullName": "Mateo Pellegrino",
+  "homeName": "Mateo Pellegrino Casalanguila",
+  "country": {
+    "name": "Argentina",
+    "id": 11
+  },
+  "currentTeam": {
+    "name": null,
+    "id": 0
+  },
+  "photo": "https://api.statorium.com/media/bearleague/bl17605488413000.webp",
+  "additionalInfo": {
+    "height": "193 cm",
+    "weight": "85 kg",
+    "position": 4,
+    "Fantasy Value": null,
+    "birthdate": "22-10-2001  (24)"
+  },
+  "teams": [],
+  "stat": [
+    {
+      "season_name": "ITALY: Serie A 2025-26",
+      "season_id": 511,
+      "team_name": "Parma Calcio 1913",
+      "played": 33,
+      "career_lineup": 31,
+      "career_minutes": 2701,
+      "career_subsin": 2,
+      "career_subsout": 13,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 8,
+      "Assist": 1,
+      "Yellow card": 5,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 1,
+      "Missed penalty": 0,
+      "Goal": 7,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ITALY: Coppa Italia 2025-26",
+      "season_id": 565,
+      "team_name": "Parma Calcio 1913",
+      "played": 2,
+      "career_lineup": 2,
+      "career_minutes": 170,
+      "career_subsin": 0,
+      "career_subsout": 2,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 3,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 3,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ITALY: Serie A 2024-25",
+      "season_id": 387,
+      "team_name": "Parma Calcio 1913",
+      "played": 13,
+      "career_lineup": 8,
+      "career_minutes": 738,
+      "career_subsin": 5,
+      "career_subsout": 6,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 3,
+      "Assist": 1,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 3,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ITALY: Coppa Italia 2024-25",
+      "season_id": 390,
+      "team_name": "Parma Calcio 1913",
+      "played": 0,
+      "career_lineup": 0,
+      "career_minutes": 0,
+      "career_subsin": 0,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ARGENTINA: Liga Profesional Apertura 2025",
+      "season_id": 472,
+      "team_name": "Club Atlético Vélez Sarsfield",
+      "played": 1,
+      "career_lineup": 0,
+      "career_minutes": 33,
+      "career_subsin": 1,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ARGENTINA: Liga Profesional 2024",
+      "season_id": 328,
+      "team_name": "Club Atlético Platense",
+      "played": 25,
+      "career_lineup": 24,
+      "career_minutes": 1978,
+      "career_subsin": 1,
+      "career_subsout": 17,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 10,
+      "Assist": 0,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 4,
+      "Missed penalty": 1,
+      "Goal": 6,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "CONMEBOL Copa Sudamericana 2023",
+      "season_id": 241,
+      "team_name": "Estudiantes de La Plata",
+      "played": 2,
+      "career_lineup": 0,
+      "career_minutes": 25,
+      "career_subsin": 2,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ARGENTINA: Liga Profesional 2023",
+      "season_id": 239,
+      "team_name": "Estudiantes de La Plata",
+      "played": 9,
+      "career_lineup": 1,
+      "career_minutes": 211,
+      "career_subsin": 8,
+      "career_subsout": 1,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "CONMEBOL Copa Libertadores 2022",
+      "season_id": 153,
+      "team_name": "Estudiantes de La Plata",
+      "played": 2,
+      "career_lineup": 0,
+      "career_minutes": 9,
+      "career_subsin": 2,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "CONMEBOL Copa Libertadores 2022",
+      "season_id": 153,
+      "team_name": "Club Atlético Vélez Sarsfield",
+      "played": 2,
+      "career_lineup": 0,
+      "career_minutes": 6,
+      "career_subsin": 2,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "CONMEBOL Copa Libertadores 2021",
+      "season_id": 97,
+      "team_name": "Club Atlético Vélez Sarsfield",
+      "played": 1,
+      "career_lineup": 0,
+      "career_minutes": 3,
+      "career_subsin": 1,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    }
+  ],
+  "matches": [
+    {
+      "matchID": 119473,
+      "matchDate": "2026-04-25",
+      "matchTime": "13:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 923,
+        "score": 0,
+        "participantName": "AC Pisa 1909",
+        "teamShortName": "PIS",
+        "teamMiddleName": "Pisa",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154625241078.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119464,
+      "matchDate": "2026-04-18",
+      "matchTime": "13:00",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 97,
+        "score": 0,
+        "participantName": "Udinese Calcio",
+        "teamShortName": "UDI",
+        "teamMiddleName": "Udinese",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377997384.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119439,
+      "matchDate": "2026-04-04",
+      "matchTime": "18:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 92,
+        "score": 1,
+        "participantName": "SS Lazio",
+        "teamShortName": "LAZ",
+        "teamMiddleName": "Lazio",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782801749.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "32"
+        }
+      ]
+    },
+    {
+      "matchID": 119435,
+      "matchDate": "2026-03-21",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 927,
+        "score": 2,
+        "participantName": "US Cremonese",
+        "teamShortName": "USC",
+        "teamMiddleName": "Cremonese",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154627162904.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119423,
+      "matchDate": "2026-03-13",
+      "matchTime": "19:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 104,
+        "score": 4,
+        "participantName": "Torino FC",
+        "teamShortName": "TOR",
+        "teamMiddleName": "Torino",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782381717.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "20"
+        }
+      ]
+    },
+    {
+      "matchID": 119410,
+      "matchDate": "2026-03-08",
+      "matchTime": "14:00",
+      "minutes_played": 72,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 95,
+        "score": 0,
+        "participantName": "ACF Fiorentina",
+        "teamShortName": "FIO",
+        "teamMiddleName": "Fiorentina",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773081536.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119400,
+      "matchDate": "2026-02-27",
+      "matchTime": "19:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 102,
+        "score": 1,
+        "participantName": "Cagliari Calcio",
+        "teamShortName": "CAG",
+        "teamMiddleName": "Cagliari",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777181301.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "56"
+        }
+      ]
+    },
+    {
+      "matchID": 119386,
+      "matchDate": "2026-02-22",
+      "matchTime": "17:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 96,
+        "score": 0,
+        "participantName": "AC Milan",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Milan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377363579.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119382,
+      "matchDate": "2026-02-15",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 124,
+        "score": 1,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+3"
+        }
+      ]
+    },
+    {
+      "matchID": 119369,
+      "matchDate": "2026-02-08",
+      "matchTime": "11:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 110,
+        "score": 0,
+        "participantName": "Bologna FC 1909",
+        "teamShortName": "BGN",
+        "teamMiddleName": "Bologna",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777411468.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119362,
+      "matchDate": "2026-02-01",
+      "matchTime": "19:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 105,
+        "score": 4,
+        "participantName": "Juventus FC",
+        "teamShortName": "JUV",
+        "teamMiddleName": "Juventus",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716378301636.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119347,
+      "matchDate": "2026-01-25",
+      "matchTime": "14:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 106,
+        "score": 4,
+        "participantName": "Atalanta BC",
+        "teamShortName": "ATT",
+        "teamMiddleName": "Atalanta",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377146485.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119342,
+      "matchDate": "2026-01-18",
+      "matchTime": "11:30",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 94,
+        "score": 0,
+        "participantName": "Genoa CFC",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Genoa",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201872692357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119293,
+      "matchDate": "2026-01-14",
+      "matchTime": "17:30",
+      "minutes_played": 31,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 103,
+        "score": 0,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119333,
+      "matchDate": "2026-01-11",
+      "matchTime": "11:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "72"
+        }
+      ]
+    },
+    {
+      "matchID": 119322,
+      "matchDate": "2026-01-07",
+      "matchTime": "19:45",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 108,
+        "score": 2,
+        "participantName": "Inter Milan",
+        "teamShortName": "INT",
+        "teamMiddleName": "Inter",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163783271113.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119314,
+      "matchDate": "2026-01-03",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 107,
+        "score": 1,
+        "participantName": "US Sassuolo",
+        "teamShortName": "SAS",
+        "teamMiddleName": "Sassuolo",
+        "logo": "https://api.statorium.com/media/bearleague/bl17494658581338.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "24"
+        }
+      ]
+    },
+    {
+      "matchID": 119302,
+      "matchDate": "2025-12-27",
+      "matchTime": "11:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 95,
+        "score": 0,
+        "participantName": "ACF Fiorentina",
+        "teamShortName": "FIO",
+        "teamMiddleName": "Fiorentina",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773081536.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "48"
+        }
+      ]
+    },
+    {
+      "matchID": 119283,
+      "matchDate": "2025-12-13",
+      "matchTime": "17:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 92,
+        "score": 1,
+        "participantName": "SS Lazio",
+        "teamShortName": "LAZ",
+        "teamMiddleName": "Lazio",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782801749.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119271,
+      "matchDate": "2025-12-08",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 923,
+        "score": 0,
+        "participantName": "AC Pisa 1909",
+        "teamShortName": "PIS",
+        "teamMiddleName": "Pisa",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154625241078.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119264,
+      "matchDate": "2025-11-29",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 97,
+        "score": 2,
+        "participantName": "Udinese Calcio",
+        "teamShortName": "UDI",
+        "teamMiddleName": "Udinese",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377997384.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119255,
+      "matchDate": "2025-11-23",
+      "matchTime": "11:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 1,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "18"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "39"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "80"
+        }
+      ]
+    },
+    {
+      "matchID": 119244,
+      "matchDate": "2025-11-08",
+      "matchTime": "19:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 96,
+        "score": 2,
+        "participantName": "AC Milan",
+        "teamShortName": "MIL",
+        "teamMiddleName": "Milan",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377363579.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119231,
+      "matchDate": "2025-11-02",
+      "matchTime": "17:00",
+      "minutes_played": 78,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 110,
+        "score": 3,
+        "participantName": "Bologna FC 1909",
+        "teamShortName": "BGN",
+        "teamMiddleName": "Bologna",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777411468.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119216,
+      "matchDate": "2025-10-29",
+      "matchTime": "17:30",
+      "minutes_played": 77,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 91,
+        "score": 2,
+        "participantName": "AS Roma",
+        "teamShortName": "ROM",
+        "teamMiddleName": "Roma",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567965862643.png"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "38"
+        }
+      ]
+    },
+    {
+      "matchID": 119211,
+      "matchDate": "2025-10-25",
+      "matchTime": "13:00",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1003,
+        "score": 0,
+        "participantName": "Como 1907",
+        "teamShortName": "COM",
+        "teamMiddleName": "Como",
+        "logo": "https://api.statorium.com/media/bearleague/bl16272907302607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119202,
+      "matchDate": "2025-10-19",
+      "matchTime": "13:00",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 94,
+        "score": 0,
+        "participantName": "Genoa CFC",
+        "teamShortName": "GEN",
+        "teamMiddleName": "Genoa",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201872692357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119193,
+      "matchDate": "2025-10-04",
+      "matchTime": "13:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 123,
+        "score": 1,
+        "participantName": "US Lecce",
+        "teamShortName": "LEC",
+        "teamMiddleName": "Lecce",
+        "logo": "https://api.statorium.com/media/bearleague/bl1749465803368.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119183,
+      "matchDate": "2025-09-29",
+      "matchTime": "16:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 104,
+        "score": 1,
+        "participantName": "Torino FC",
+        "teamShortName": "TOR",
+        "teamMiddleName": "Torino",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782381717.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "36"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "60"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "72"
+        }
+      ]
+    },
+    {
+      "matchID": 133881,
+      "matchDate": "2025-09-24",
+      "matchTime": "15:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 645,
+        "score": 2,
+        "participantName": "Spezia Calcio",
+        "teamShortName": "SPE",
+        "teamMiddleName": "Spezia",
+        "logo": "https://api.statorium.com/media/bearleague/bl17527584381451.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "45+1"
+        }
+      ]
+    },
+    {
+      "matchID": 119167,
+      "matchDate": "2025-09-21",
+      "matchTime": "13:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 927,
+        "score": 0,
+        "participantName": "US Cremonese",
+        "teamShortName": "USC",
+        "teamMiddleName": "Cremonese",
+        "logo": "https://api.statorium.com/media/bearleague/bl16154627162904.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119159,
+      "matchDate": "2025-09-13",
+      "matchTime": "13:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 102,
+        "score": 2,
+        "participantName": "Cagliari Calcio",
+        "teamShortName": "CAG",
+        "teamMiddleName": "Cagliari",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777181301.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119153,
+      "matchDate": "2025-08-30",
+      "matchTime": "16:30",
+      "minutes_played": 81,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 106,
+        "score": 1,
+        "participantName": "Atalanta BC",
+        "teamShortName": "ATT",
+        "teamMiddleName": "Atalanta",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377146485.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 119143,
+      "matchDate": "2025-08-24",
+      "matchTime": "18:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 105,
+        "score": 2,
+        "participantName": "Juventus FC",
+        "teamShortName": "JUV",
+        "teamMiddleName": "Juventus",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716378301636.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 132441,
+      "matchDate": "2025-08-17",
+      "matchTime": "16:30",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 931,
+        "score": 0,
+        "participantName": "Delfino Pescara 1936",
+        "teamShortName": "PES",
+        "teamMiddleName": "Pescara",
+        "logo": "https://api.statorium.com/media/bearleague/bl1615462634341.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "47"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "65"
+        }
+      ]
+    },
+    {
+      "matchID": 86354,
+      "matchDate": "2025-05-25",
+      "matchTime": "18:45",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 106,
+        "score": 2,
+        "participantName": "Atalanta BC",
+        "teamShortName": "ATT",
+        "teamMiddleName": "Atalanta",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377146485.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 3,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86351,
+      "matchDate": "2025-05-18",
+      "matchTime": "18:45",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 103,
+        "score": 0,
+        "participantName": "SSC Napoli",
+        "teamShortName": "NAP",
+        "teamMiddleName": "Napoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl17567960472242.png"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86336,
+      "matchDate": "2025-05-10",
+      "matchTime": "18:45",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 99,
+        "score": 2,
+        "participantName": "Empoli FC",
+        "teamShortName": "EMP",
+        "teamMiddleName": "Empoli",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377693431.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86331,
+      "matchDate": "2025-05-03",
+      "matchTime": "13:00",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1003,
+        "score": 1,
+        "participantName": "Como 1907",
+        "teamShortName": "COM",
+        "teamMiddleName": "Como",
+        "logo": "https://api.statorium.com/media/bearleague/bl16272907302607.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86318,
+      "matchDate": "2025-04-28",
+      "matchTime": "18:45",
+      "minutes_played": 60,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 92,
+        "score": 2,
+        "participantName": "SS Lazio",
+        "teamShortName": "LAZ",
+        "teamMiddleName": "Lazio",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782801749.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86311,
+      "matchDate": "2025-04-23",
+      "matchTime": "16:30",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 105,
+        "score": 0,
+        "participantName": "Juventus FC",
+        "teamShortName": "JUV",
+        "teamMiddleName": "Juventus",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716378301636.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "45+1"
+        }
+      ]
+    },
+    {
+      "matchID": 86295,
+      "matchDate": "2025-04-13",
+      "matchTime": "13:00",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 95,
+        "score": 0,
+        "participantName": "ACF Fiorentina",
+        "teamShortName": "FIO",
+        "teamMiddleName": "Fiorentina",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773081536.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "12"
+        }
+      ]
+    },
+    {
+      "matchID": 86291,
+      "matchDate": "2025-04-05",
+      "matchTime": "16:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 108,
+        "score": 2,
+        "participantName": "Inter Milan",
+        "teamShortName": "INT",
+        "teamMiddleName": "Inter",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163783271113.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "69"
+        }
+      ]
+    },
+    {
+      "matchID": 86282,
+      "matchDate": "2025-03-31",
+      "matchTime": "16:30",
+      "minutes_played": 21,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 124,
+        "score": 0,
+        "participantName": "Hellas Verona",
+        "teamShortName": "VER",
+        "teamMiddleName": "Verona",
+        "logo": "https://api.statorium.com/media/bearleague/bl17201882522622.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86269,
+      "matchDate": "2025-03-15",
+      "matchTime": "14:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 919,
+        "score": 1,
+        "participantName": "AC Monza",
+        "teamShortName": "MON",
+        "teamMiddleName": "Monza",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163773411397.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 1,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86261,
+      "matchDate": "2025-03-08",
+      "matchTime": "14:00",
+      "minutes_played": 35,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 104,
+        "score": 2,
+        "participantName": "Torino FC",
+        "teamShortName": "TOR",
+        "teamMiddleName": "Torino",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163782381717.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "60"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "71"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "82"
+        }
+      ]
+    },
+    {
+      "matchID": 86252,
+      "matchDate": "2025-03-01",
+      "matchTime": "19:45",
+      "minutes_played": 7,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 97,
+        "score": 1,
+        "participantName": "Udinese Calcio",
+        "teamShortName": "UDI",
+        "teamMiddleName": "Udinese",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716377997384.webp"
+      },
+      "awayParticipant": {
+        "participantID": 100,
+        "score": 0,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 86239,
+      "matchDate": "2025-02-22",
+      "matchTime": "14:00",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 100,
+        "score": 2,
+        "participantName": "Parma Calcio 1913",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Parma",
+        "logo": "https://api.statorium.com/media/bearleague/bl1552915355457.webp"
+      },
+      "awayParticipant": {
+        "participantID": 110,
+        "score": 0,
+        "participantName": "Bologna FC 1909",
+        "teamShortName": "BGN",
+        "teamMiddleName": "Bologna",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163777411468.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 108394,
+      "matchDate": "2025-01-23",
+      "matchTime": "22:00",
+      "minutes_played": 33,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 397,
+        "score": 3,
+        "participantName": "Club Atlético Tigre",
+        "teamShortName": "TIG",
+        "teamMiddleName": "Tigre",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775568341587.webp"
+      },
+      "awayParticipant": {
+        "participantID": 937,
+        "score": 0,
+        "participantName": "Club Atlético Vélez Sarsfield",
+        "teamShortName": "VÉL",
+        "teamMiddleName": "Vélez Sarsfield",
+        "logo": "https://api.statorium.com/media/bearleague/bl1748889864970.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 77116,
+      "matchDate": "2024-12-15",
+      "matchTime": "20:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 1,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1854,
+        "score": 0,
+        "participantName": "Club de Gimnasia y Esgrima La Plata",
+        "teamShortName": "GLP",
+        "teamMiddleName": "Gimnasia LP",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775584672519.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "1"
+        }
+      ]
+    },
+    {
+      "matchID": 77100,
+      "matchDate": "2024-12-10",
+      "matchTime": "00:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1844,
+        "score": 1,
+        "participantName": "Club Atlético Huracán",
+        "teamShortName": "HUR",
+        "teamMiddleName": "Huracán",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775572592945.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1853,
+        "score": 0,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 77089,
+      "matchDate": "2024-12-02",
+      "matchTime": "22:15",
+      "minutes_played": 84,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 1,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1857,
+        "score": 0,
+        "participantName": "Unión de Santa Fe",
+        "teamShortName": "UNI",
+        "teamMiddleName": "Unión",
+        "logo": "https://api.statorium.com/media/bearleague/bl17364307791884.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "81"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "82"
+        }
+      ]
+    },
+    {
+      "matchID": 77077,
+      "matchDate": "2024-11-27",
+      "matchTime": "00:15",
+      "minutes_played": 58,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1851,
+        "score": 1,
+        "participantName": "Club Atlético Sarmiento",
+        "teamShortName": "CAS",
+        "teamMiddleName": "Sarmiento",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775581551572.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1853,
+        "score": 0,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 77062,
+      "matchDate": "2024-11-18",
+      "matchTime": "22:15",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 1,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1850,
+        "score": 0,
+        "participantName": "Club Deportivo Godoy Cruz Antonio Tomba",
+        "teamShortName": "GOD",
+        "teamMiddleName": "Godoy Cruz",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775579692600.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 8,
+          "eventName": "Missed penalty",
+          "minutes": "45+3"
+        }
+      ]
+    },
+    {
+      "matchID": 77045,
+      "matchDate": "2024-11-11",
+      "matchTime": "21:45",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1842,
+        "score": 0,
+        "participantName": "Club Atlético Lanús",
+        "teamShortName": "LAN",
+        "teamMiddleName": "Lanús",
+        "logo": "https://api.statorium.com/media/bearleague/bl1677557048270.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1853,
+        "score": 0,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 77034,
+      "matchDate": "2024-11-08",
+      "matchTime": "00:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 0,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 2560,
+        "score": 0,
+        "participantName": "Club Deportivo Riestra",
+        "teamShortName": "CDR",
+        "teamMiddleName": "Deportivo Riestra",
+        "logo": "https://api.statorium.com/media/bearleague/bl17053285821115.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 77022,
+      "matchDate": "2024-11-03",
+      "matchTime": "20:00",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 397,
+        "score": 0,
+        "participantName": "Club Atlético Tigre",
+        "teamShortName": "TIG",
+        "teamMiddleName": "Tigre",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775568341587.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1853,
+        "score": 0,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 77007,
+      "matchDate": "2024-10-27",
+      "matchTime": "18:00",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 2,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 945,
+        "score": 1,
+        "participantName": "Asociación Atlética Argentinos Juniors",
+        "teamShortName": "ARG",
+        "teamMiddleName": "Argentinos Juniors",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775568612633.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "27"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "52"
+        }
+      ]
+    },
+    {
+      "matchID": 76983,
+      "matchDate": "2024-10-19",
+      "matchTime": "20:00",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1849,
+        "score": 0,
+        "participantName": "Club Atlético Belgrano",
+        "teamShortName": "BEL",
+        "teamMiddleName": "Belgrano",
+        "logo": "https://api.statorium.com/media/bearleague/bl1677557884978.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1853,
+        "score": 1,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76978,
+      "matchDate": "2024-10-06",
+      "matchTime": "22:00",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 0,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 401,
+        "score": 0,
+        "participantName": "Club Atlético River Plate",
+        "teamShortName": "RIV",
+        "teamMiddleName": "River Plate",
+        "logo": "https://api.statorium.com/media/bearleague/bl1648722889632.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76962,
+      "matchDate": "2024-10-01",
+      "matchTime": "00:00",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 407,
+        "score": 1,
+        "participantName": "Racing Club de Avellaneda",
+        "teamShortName": "RAC",
+        "teamMiddleName": "Racing Club",
+        "logo": "https://api.statorium.com/media/bearleague/bl15786509972943.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1853,
+        "score": 1,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76949,
+      "matchDate": "2024-09-22",
+      "matchTime": "22:30",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 1,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1845,
+        "score": 0,
+        "participantName": "Club Atlético Rosario Central",
+        "teamShortName": "ROS",
+        "teamMiddleName": "Rosario Central",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775573272315.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76931,
+      "matchDate": "2024-09-15",
+      "matchTime": "18:00",
+      "minutes_played": 90,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1239,
+        "score": 1,
+        "participantName": "Estudiantes de La Plata",
+        "teamShortName": "ELP",
+        "teamMiddleName": "Estudiantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675211352625.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1853,
+        "score": 1,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "3"
+        }
+      ]
+    },
+    {
+      "matchID": 76921,
+      "matchDate": "2024-09-01",
+      "matchTime": "17:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 1,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1843,
+        "score": 2,
+        "participantName": "Club Atlético San Lorenzo de Almagro",
+        "teamShortName": "SLA",
+        "teamMiddleName": "San Lorenzo",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775571812654.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "38"
+        }
+      ]
+    },
+    {
+      "matchID": 76904,
+      "matchDate": "2024-08-23",
+      "matchTime": "21:00",
+      "minutes_played": 87,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 2561,
+        "score": 0,
+        "participantName": "Club Sportivo Independiente Rivadavia",
+        "teamShortName": "IND",
+        "teamMiddleName": "Independiente Rivadavia",
+        "logo": "https://api.statorium.com/media/bearleague/bl17053290791795.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1853,
+        "score": 2,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "9"
+        }
+      ]
+    },
+    {
+      "matchID": 76893,
+      "matchDate": "2024-08-16",
+      "matchTime": "22:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 0,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1847,
+        "score": 0,
+        "participantName": "Club Atlético Barracas Central",
+        "teamShortName": "BAR",
+        "teamMiddleName": "Barracas Central",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775577571527.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76878,
+      "matchDate": "2024-08-11",
+      "matchTime": "18:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1846,
+        "score": 2,
+        "participantName": "Instituto Atlético Central Córdoba",
+        "teamShortName": "IACC",
+        "teamMiddleName": "Instituto ACC",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775575202184.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1853,
+        "score": 0,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76865,
+      "matchDate": "2024-08-05",
+      "matchTime": "23:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 0,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1856,
+        "score": 1,
+        "participantName": "Club Atlético Banfield",
+        "teamShortName": "BAN",
+        "teamMiddleName": "Banfield",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775586272244.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76847,
+      "matchDate": "2024-07-29",
+      "matchTime": "19:30",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 412,
+        "score": 1,
+        "participantName": "Club Social y Deportivo Defensa y Justicia",
+        "teamShortName": "DyJ",
+        "teamMiddleName": "Defensa y Justicia",
+        "logo": "https://api.statorium.com/media/bearleague/bl1677556801863.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1853,
+        "score": 3,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "35"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "53"
+        }
+      ]
+    },
+    {
+      "matchID": 76837,
+      "matchDate": "2024-07-25",
+      "matchTime": "21:45",
+      "minutes_played": 31,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 0,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 937,
+        "score": 2,
+        "participantName": "Club Atlético Vélez Sarsfield",
+        "teamShortName": "VÉL",
+        "teamMiddleName": "Vélez Sarsfield",
+        "logo": "https://api.statorium.com/media/bearleague/bl1748889864970.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76794,
+      "matchDate": "2024-06-02",
+      "matchTime": "17:30",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 1,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 413,
+        "score": 0,
+        "participantName": "Club Atlético Boca Juniors",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Boca Juniors",
+        "logo": "https://api.statorium.com/media/bearleague/bl15786518502272.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "67"
+        }
+      ]
+    },
+    {
+      "matchID": 76773,
+      "matchDate": "2024-05-28",
+      "matchTime": "00:00",
+      "minutes_played": 67,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1858,
+        "score": 1,
+        "participantName": "Club Atlético Tucumán",
+        "teamShortName": "CAT",
+        "teamMiddleName": "Atlético Tucumán",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775589481804.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1853,
+        "score": 1,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 4,
+          "eventName": "Penalty goal",
+          "minutes": "53"
+        }
+      ]
+    },
+    {
+      "matchID": 76765,
+      "matchDate": "2024-05-19",
+      "matchTime": "18:30",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 0,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76753,
+      "matchDate": "2024-05-11",
+      "matchTime": "00:15",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1848,
+        "score": 2,
+        "participantName": "Club Atlético Newell's Old Boys",
+        "teamShortName": "NOB",
+        "teamMiddleName": "Newells Old Boys",
+        "logo": "https://api.statorium.com/media/bearleague/bl17053297942426.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1853,
+        "score": 0,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 62907,
+      "matchDate": "2023-07-12",
+      "matchTime": "00:00",
+      "minutes_played": 15,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 475,
+        "score": 2,
+        "participantName": "Barcelona Sporting Club",
+        "teamShortName": "BSC",
+        "teamMiddleName": "Barcelona SC",
+        "logo": "https://api.statorium.com/media/bearleague/bl17381589291900.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1239,
+        "score": 1,
+        "participantName": "Estudiantes de La Plata",
+        "teamShortName": "ELP",
+        "teamMiddleName": "Estudiantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675211352625.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55087,
+      "matchDate": "2023-05-14",
+      "matchTime": "17:00",
+      "minutes_played": 6,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 412,
+        "score": 1,
+        "participantName": "Club Social y Deportivo Defensa y Justicia",
+        "teamShortName": "DyJ",
+        "teamMiddleName": "Defensa y Justicia",
+        "logo": "https://api.statorium.com/media/bearleague/bl1677556801863.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1239,
+        "score": 1,
+        "participantName": "Estudiantes de La Plata",
+        "teamShortName": "ELP",
+        "teamMiddleName": "Estudiantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675211352625.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55075,
+      "matchDate": "2023-05-08",
+      "matchTime": "00:00",
+      "minutes_played": 62,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1239,
+        "score": 2,
+        "participantName": "Estudiantes de La Plata",
+        "teamShortName": "ELP",
+        "teamMiddleName": "Estudiantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675211352625.webp"
+      },
+      "awayParticipant": {
+        "participantID": 937,
+        "score": 0,
+        "participantName": "Club Atlético Vélez Sarsfield",
+        "teamShortName": "VÉL",
+        "teamMiddleName": "Vélez Sarsfield",
+        "logo": "https://api.statorium.com/media/bearleague/bl1748889864970.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55064,
+      "matchDate": "2023-04-27",
+      "matchTime": "23:00",
+      "minutes_played": 23,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1853,
+        "score": 1,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1239,
+        "score": 2,
+        "participantName": "Estudiantes de La Plata",
+        "teamShortName": "ELP",
+        "teamMiddleName": "Estudiantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675211352625.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55020,
+      "matchDate": "2023-04-13",
+      "matchTime": "00:30",
+      "minutes_played": 17,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1239,
+        "score": 0,
+        "participantName": "Estudiantes de La Plata",
+        "teamShortName": "ELP",
+        "teamMiddleName": "Estudiantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675211352625.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1858,
+        "score": 0,
+        "participantName": "Club Atlético Tucumán",
+        "teamShortName": "CAT",
+        "teamMiddleName": "Atlético Tucumán",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775589481804.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55962,
+      "matchDate": "2023-04-05",
+      "matchTime": "22:00",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1863,
+        "score": 0,
+        "participantName": "Club Deportivo Oriente Petrolero",
+        "teamShortName": "ORI",
+        "teamMiddleName": "Oriente Petrolero",
+        "logo": "https://api.statorium.com/media/bearleague/bl16800192351227.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1239,
+        "score": 1,
+        "participantName": "Estudiantes de La Plata",
+        "teamShortName": "ELP",
+        "teamMiddleName": "Estudiantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675211352625.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 54944,
+      "matchDate": "2023-03-03",
+      "matchTime": "23:00",
+      "minutes_played": 32,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1857,
+        "score": 2,
+        "participantName": "Unión de Santa Fe",
+        "teamShortName": "UNI",
+        "teamMiddleName": "Unión",
+        "logo": "https://api.statorium.com/media/bearleague/bl17364307791884.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1239,
+        "score": 0,
+        "participantName": "Estudiantes de La Plata",
+        "teamShortName": "ELP",
+        "teamMiddleName": "Estudiantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675211352625.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55280,
+      "matchDate": "2023-02-13",
+      "matchTime": "23:00",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1239,
+        "score": 0,
+        "participantName": "Estudiantes de La Plata",
+        "teamShortName": "ELP",
+        "teamMiddleName": "Estudiantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675211352625.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1842,
+        "score": 2,
+        "participantName": "Club Atlético Lanús",
+        "teamShortName": "LAN",
+        "teamMiddleName": "Lanús",
+        "logo": "https://api.statorium.com/media/bearleague/bl1677557048270.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55304,
+      "matchDate": "2023-02-04",
+      "matchTime": "20:00",
+      "minutes_played": 23,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1855,
+        "score": 1,
+        "participantName": "Arsenal de Sarandí",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal Sarandí",
+        "logo": "https://api.statorium.com/media/bearleague/bl1677558572944.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1239,
+        "score": 1,
+        "participantName": "Estudiantes de La Plata",
+        "teamShortName": "ELP",
+        "teamMiddleName": "Estudiantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675211352625.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55317,
+      "matchDate": "2023-01-28",
+      "matchTime": "22:15",
+      "minutes_played": 37,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1239,
+        "score": 1,
+        "participantName": "Estudiantes de La Plata",
+        "teamShortName": "ELP",
+        "teamMiddleName": "Estudiantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675211352625.webp"
+      },
+      "awayParticipant": {
+        "participantID": 397,
+        "score": 2,
+        "participantName": "Club Atlético Tigre",
+        "teamShortName": "TIG",
+        "teamMiddleName": "Tigre",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775568341587.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 47565,
+      "matchDate": "2022-08-05",
+      "matchTime": "00:30",
+      "minutes_played": 3,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 196,
+        "score": 0,
+        "participantName": "Club Athletico Paranaense",
+        "teamShortName": "CAP",
+        "teamMiddleName": "Athletico Paranaense",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698369192786.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1239,
+        "score": 0,
+        "participantName": "Estudiantes de La Plata",
+        "teamShortName": "ELP",
+        "teamMiddleName": "Estudiantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675211352625.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 38550,
+      "matchDate": "2022-07-08",
+      "matchTime": "00:30",
+      "minutes_played": 6,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1239,
+        "score": 3,
+        "participantName": "Estudiantes de La Plata",
+        "teamShortName": "ELP",
+        "teamMiddleName": "Estudiantes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17675211352625.webp"
+      },
+      "awayParticipant": {
+        "participantID": 204,
+        "score": 0,
+        "participantName": "Fortaleza Esporte Clube",
+        "teamShortName": "FOR",
+        "teamMiddleName": "Fortaleza",
+        "logo": "https://api.statorium.com/media/bearleague/bl16444906052490.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 37598,
+      "matchDate": "2022-05-18",
+      "matchTime": "22:00",
+      "minutes_played": 3,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 406,
+        "score": 2,
+        "participantName": "Club Nacional de Football",
+        "teamShortName": "CNF",
+        "teamMiddleName": "Nacional",
+        "logo": "https://api.statorium.com/media/bearleague/bl1578650955178.webp"
+      },
+      "awayParticipant": {
+        "participantID": 937,
+        "score": 3,
+        "participantName": "Club Atlético Vélez Sarsfield",
+        "teamShortName": "VÉL",
+        "teamMiddleName": "Vélez Sarsfield",
+        "logo": "https://api.statorium.com/media/bearleague/bl1748889864970.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 37585,
+      "matchDate": "2022-05-06",
+      "matchTime": "00:00",
+      "minutes_played": 3,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 566,
+        "score": 1,
+        "participantName": "Red Bull Bragantino",
+        "teamShortName": "RBB",
+        "teamMiddleName": "Bragantino",
+        "logo": "https://api.statorium.com/media/bearleague/bl15955125491333.webp"
+      },
+      "awayParticipant": {
+        "participantID": 937,
+        "score": 1,
+        "participantName": "Club Atlético Vélez Sarsfield",
+        "teamShortName": "VÉL",
+        "teamMiddleName": "Vélez Sarsfield",
+        "logo": "https://api.statorium.com/media/bearleague/bl1748889864970.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 24049,
+      "matchDate": "2021-05-28",
+      "matchTime": "00:00",
+      "minutes_played": 3,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 202,
+        "score": 0,
+        "participantName": "Clube de Regatas do Flamengo",
+        "teamShortName": "FLA",
+        "teamMiddleName": "Flamengo",
+        "logo": "https://api.statorium.com/media/bearleague/bl15698377582794.webp"
+      },
+      "awayParticipant": {
+        "participantID": 937,
+        "score": 0,
+        "participantName": "Club Atlético Vélez Sarsfield",
+        "teamShortName": "VÉL",
+        "teamMiddleName": "Vélez Sarsfield",
+        "logo": "https://api.statorium.com/media/bearleague/bl1748889864970.webp"
+      },
+      "playerEvents": []
+    }
+  ]
+}
