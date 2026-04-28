@@ -12,8 +12,9 @@ import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 import { Badge } from '@/components/ui/badge'
 import Image from 'next/image'
-import { Hexagon, ArrowLeft, Download, Share2, TrendingUp, BarChart3 } from 'lucide-react'
+import { Hexagon, ArrowLeft, Download, Share2, TrendingUp, BarChart3, Trophy, Target, Users, Star } from 'lucide-react'
 import Link from 'next/link'
+import { getPlayerDataAction } from '@/app/actions/statorium'
 
 function AnalysisContent() {
   const searchParams = useSearchParams()
@@ -48,15 +49,74 @@ function AnalysisContent() {
 
   const [results, setResults] = React.useState<any[]>([])
   const [loading, setLoading] = React.useState(true)
+  const [playerData, setPlayerData] = React.useState<any>(null)
 
   React.useEffect(() => {
     async function load() {
-      const data = await getCompatibilityAnalysis(mockPlayer)
-      setResults(data)
+      const [compatibilityData, detailedData] = await Promise.all([
+        getCompatibilityAnalysis(mockPlayer),
+        getPlayerDataAction(playerId)
+      ])
+      setResults(compatibilityData)
+      setPlayerData(detailedData)
       setLoading(false)
     }
     load()
-  }, [])
+  }, [playerId])
+
+  // Extract real stats for the Key Statistics section
+  const stats = React.useMemo(() => {
+    if (!playerData || !playerData.stat) {
+      return {
+        goals: mockPlayer.stats.offensive.goals,
+        assists: mockPlayer.stats.offensive.assists,
+        matches: Math.round(mockPlayer.stats.defensive.clearances * 1.5),
+        rating: 85
+      };
+    }
+
+    const allStats = Array.isArray(playerData.stat) ? playerData.stat : [];
+    
+    // Filter for 25/26 season only
+    const currentSeasonStats = allStats.filter((s: any) => 
+      s.season_name && (
+        s.season_name.includes('2025-26') || 
+        s.season_name.includes('2025/26') ||
+        s.season_name.includes('25-26') || 
+        s.season_name.includes('25/26') ||
+        s.season_name.includes('2025-2026') ||
+        s.season_name.includes('2025/2026')
+      )
+    );
+
+    const targetStats = currentSeasonStats.length > 0 ? currentSeasonStats : [];
+
+    const getSum = (keys: string[]) => {
+      return targetStats.reduce((acc: number, s: any) => {
+        let val = 0;
+        for (const k of keys) {
+          const actualKey = Object.keys(s).find(sk => sk.toLowerCase() === k.toLowerCase());
+          if (actualKey) { 
+            val = parseInt(s[actualKey]) || 0; 
+            break; 
+          }
+        }
+        return acc + val;
+      }, 0);
+    };
+
+    const goals = getSum(['goals', 'goal', 'statGoals']);
+    const assists = getSum(['assist', 'assists', 'statAssists']);
+    const matches = getSum(['played', 'statPlayed', 'matches']);
+    
+    // Simple Rating Calculation: (Goals * 10 + Assists * 5 + Apps) / 2 + 65
+    // Default to a reasonable score if no matches played
+    const rating = matches > 0 
+      ? Math.min(99, Math.round((goals * 10 + assists * 5 + matches) / 2 + 65))
+      : 70;
+
+    return { goals, assists, matches, rating };
+  }, [playerData, mockPlayer]);
 
   if (loading) return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] animate-in fade-in duration-700">
@@ -146,7 +206,7 @@ function AnalysisContent() {
                 </div>
                 {/* Rating Badge */}
                 <div className="absolute -bottom-2 -right-2 h-10 w-10 rounded-full bg-gradient-to-br from-[#00ff88] to-[#00cc6a] border-2 border-[#00ff88]/30 flex items-center justify-center shadow-lg shadow-[#00ff88]/50">
-                  <span className="text-xl font-black tabular-nums">95</span>
+                  <span className="text-xl font-black tabular-nums">{stats.rating}</span>
                 </div>
               </div>
 
@@ -218,30 +278,35 @@ function AnalysisContent() {
             )}
 
             {/* Key Stats Grid */}
-            <div className="flex-1 rounded-2xl border-2 border-gray-800/50 bg-black/60 backdrop-blur-xl p-6 shadow-2xl">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-xl bg-[#00ff88]/10 border border-[#00ff88]/20 text-[#00ff88]">
-                  <BarChart3 className="h-6 w-6" />
+            <div className="flex-1 rounded-3xl border-2 border-gray-800/50 bg-black/60 backdrop-blur-xl p-8 shadow-2xl">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="p-3.5 rounded-2xl bg-[#00ff88]/10 border border-[#00ff88]/20 text-[#00ff88] shadow-[0_0_15px_rgba(0,255,136,0.2)]">
+                  <BarChart3 className="h-7 w-7" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-white text-lg">Key Statistics</h3>
-                  <p className="text-xs text-gray-600">Performance metrics</p>
+                  <h3 className="font-bold text-white text-xl tracking-tight">Key Statistics</h3>
+                  <p className="text-sm text-gray-500 font-medium">Performance metrics</p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-4">
                 {[
-                  { label: 'Goals', value: mockPlayer.stats.offensive.goals, icon: '⚽' },
-                  { label: 'Assists', value: mockPlayer.stats.offensive.assists, icon: '🎯' },
-                  { label: 'Matches', value: Math.round(mockPlayer.stats.defensive.clearances * 1.5), icon: '🎮' },
-                  { label: 'Rating', value: 95, icon: '⭐' },
+                  { label: 'Goals', value: stats.goals, icon: Trophy, color: 'text-blue-400', bg: 'bg-blue-400/10' },
+                  { label: 'Assists', value: stats.assists, icon: Target, color: 'text-rose-400', bg: 'bg-rose-400/10' },
+                  { label: 'Matches', value: stats.matches, icon: Users, color: 'text-purple-400', bg: 'bg-purple-400/10' },
+                  { label: 'Rating', value: stats.rating, icon: Star, color: 'text-amber-400', bg: 'bg-amber-400/10' },
                 ].map((stat, i) => (
-                  <div key={i} className="bg-black/40 border-2 border-[#00ff88]/20 rounded-xl p-4 hover:border-[#00ff88]/50 hover:bg-[#00ff88]/10 transition-all duration-300">
-                    <div className="text-2xl font-black text-[#00ff88] tabular-nums mb-2" style={{ textShadow: '0 0 10px rgba(0, 255, 136, 0.3)' }}>
-                      {stat.value}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">{stat.icon}</span>
-                      <span className="text-xs text-gray-500 font-semibold uppercase tracking-wider">{stat.label}</span>
+                  <div key={i} className="group relative bg-black/40 border border-gray-800/50 rounded-2xl p-5 hover:border-[#00ff88]/30 hover:bg-black/60 transition-all duration-500 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
+                    <div className="relative z-10">
+                      <div className="text-4xl font-black text-[#00ff88] tabular-nums tracking-tighter mb-4" style={{ textShadow: '0 0 20px rgba(0, 255, 136, 0.2)' }}>
+                        {stat.value}
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className={`p-2 rounded-lg ${stat.bg} ${stat.color}`}>
+                          <stat.icon className="h-4 w-4" fill="currentColor" fillOpacity={0.2} />
+                        </div>
+                        <span className="text-[10px] text-gray-500 font-black uppercase tracking-[0.2em]">{stat.label}</span>
+                      </div>
                     </div>
                   </div>
                 ))}
