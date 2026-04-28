@@ -10,13 +10,15 @@ import {
 import { ScoutProPlayer } from '@/lib/types/player'
 
 export function PlayerRadarChart({ player }: { player: ScoutProPlayer }) {
+  if (!player) return null;
+
   const stats = (player as any).normalizedStats || {
-    offensive: Math.min(100, (player.stats.offensive.goals * 10) + (player.stats.offensive.assists * 5) + 55),
-    defensive: player.stats.defensive.tackles,
-    tactical: player.stats.tactical.progressivePasses,
-    physical: player.stats.physical.stamina,
-    dribbling: player.stats.tactical.dribbles,
-    passing: player.stats.tactical.passAccuracy
+    offensive: Math.min(100, (player.stats?.offensive?.goals * 10 || 0) + (player.stats?.offensive?.assists * 5 || 0) + 55),
+    defensive: player.stats?.defensive?.tackles || 0,
+    tactical: player.stats?.tactical?.progressivePasses || 0,
+    physical: player.stats?.physical?.stamina || 0,
+    dribbling: player.stats?.tactical?.dribbles || 0,
+    passing: player.stats?.tactical?.passAccuracy || 0
   };
 
   const chartData = [
