@@ -162,48 +162,7 @@ export function TransferWarRoom() {
                   </thead>
                   <tbody className="divide-y divide-border/50">
                     {OFFICIAL_TRANSFERS.map((t, idx) => (
-                      <tr key={idx} className="group hover:bg-primary/5 transition-all cursor-pointer">
-                        <td className="px-8 py-6">
-                          <div className="flex items-center gap-5">
-                            <div className="w-14 h-14 relative bg-muted rounded-2xl p-1 shrink-0 overflow-hidden border border-border group-hover:scale-105 transition-transform">
-                              <Image src={t.photoUrl} alt={t.playerName} fill className="object-cover" />
-                            </div>
-                            <div className="space-y-1">
-                              <p className="font-bold text-foreground text-sm uppercase">{t.playerName}</p>
-                              <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">{t.nationality}</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td className="px-8 py-6">
-                          <div className="flex items-center gap-4">
-                            {t.fromTeamLogo ? (
-                              <Image src={t.fromTeamLogo} alt="" width={24} height={24} className="grayscale group-hover:grayscale-0 transition-all opacity-50 group-hover:opacity-100" />
-                            ) : (
-                              <div className="w-6 h-6 rounded-md bg-muted border border-border" />
-                            )}
-                            <span className="text-xs font-bold text-muted-foreground uppercase">{t.fromTeamName}</span>
-                          </div>
-                        </td>
-                        <td className="text-center">
-                          <ArrowRightLeft className="w-4 h-4 mx-auto text-muted-foreground/20" />
-                        </td>
-                        <td className="px-8 py-6">
-                          <div className="flex items-center gap-4">
-                            {t.toTeamLogo ? (
-                              <Image src={t.toTeamLogo} alt="" width={28} height={28} className="group-hover:scale-110 transition-transform" />
-                            ) : (
-                              <div className="w-7 h-7 rounded-md bg-muted border border-border" />
-                            )}
-                            <span className="text-xs font-bold text-primary uppercase">{t.toTeamName}</span>
-                          </div>
-                        </td>
-                        <td className="px-8 py-6 text-right font-bold text-lg italic tracking-tight">{t.fee}</td>
-                        <td className="px-8 py-6 text-center">
-                          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 rounded-lg text-primary text-[10px] font-bold border border-primary/20">
-                            {Math.floor(Math.random() * 20) + 80}%
-                          </div>
-                        </td>
-                      </tr>
+                      <LedgerRow key={idx} t={t} />
                     ))}
                   </tbody>
                 </table>
@@ -215,3 +174,50 @@ export function TransferWarRoom() {
     </div>
   )
 }
+
+const LedgerRow = React.memo(({ t }: { t: any }) => (
+  <tr className="group hover:bg-primary/5 transition-all cursor-pointer">
+    <td className="px-8 py-6">
+      <div className="flex items-center gap-5">
+        <div className="w-14 h-14 relative bg-muted rounded-2xl p-1 shrink-0 overflow-hidden border border-border group-hover:scale-105 transition-transform">
+          <Image src={t.photoUrl} alt={t.playerName} fill className="object-cover" />
+        </div>
+        <div className="space-y-1">
+          <p className="font-bold text-foreground text-sm uppercase">{t.playerName}</p>
+          <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">{t.nationality}</p>
+        </div>
+      </div>
+    </td>
+    <td className="px-8 py-6">
+      <div className="flex items-center gap-4">
+        {t.fromTeamLogo ? (
+          <Image src={t.fromTeamLogo} alt="" width={24} height={24} className="grayscale group-hover:grayscale-0 transition-all opacity-50 group-hover:opacity-100" />
+        ) : (
+          <div className="w-6 h-6 rounded-md bg-muted border border-border" />
+        )}
+        <span className="text-xs font-bold text-muted-foreground uppercase">{t.fromTeamName}</span>
+      </div>
+    </td>
+    <td className="text-center">
+      <ArrowRightLeft className="w-4 h-4 mx-auto text-muted-foreground/20" />
+    </td>
+    <td className="px-8 py-6">
+      <div className="flex items-center gap-4">
+        {t.toTeamLogo ? (
+          <Image src={t.toTeamLogo} alt="" width={28} height={28} className="group-hover:scale-110 transition-transform" />
+        ) : (
+          <div className="w-7 h-7 rounded-md bg-muted border border-border" />
+        )}
+        <span className="text-xs font-bold text-primary uppercase">{t.toTeamName}</span>
+      </div>
+    </td>
+    <td className="px-8 py-6 text-right font-bold text-lg italic tracking-tight">{t.fee}</td>
+    <td className="px-8 py-6 text-center">
+      <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 rounded-lg text-primary text-[10px] font-bold border border-primary/20">
+        {Math.floor(Math.random() * 20) + 80}%
+      </div>
+    </td>
+  </tr>
+))
+
+LedgerRow.displayName = "LedgerRow"

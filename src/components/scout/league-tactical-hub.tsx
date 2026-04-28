@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { LEAGUES } from '@/lib/statorium-data'
-import { getStandingsAction, getUpcomingMatchesAction, getTeamDetailsAction } from '@/app/actions/statorium'
+import { getLeagueHubDataAction, getTeamDetailsAction } from '@/app/actions/statorium'
 import { TacticalPitch } from './tactical-pitch'
 import { useRouter } from 'next/navigation'
 
@@ -26,12 +26,9 @@ export function LeagueTacticalHub() {
     async function loadLeagueData() {
       setLoading(true)
       try {
-        const [standingsData, fixturesData] = await Promise.all([
-          getStandingsAction(selectedLeague.seasonId),
-          getUpcomingMatchesAction(selectedLeague.seasonId, 4)
-        ])
-        setStandings(standingsData || [])
-        setFixtures(fixturesData || [])
+        const data = await getLeagueHubDataAction(selectedLeague.seasonId)
+        setStandings(data.standings)
+        setFixtures(data.fixtures)
         setSelectedTeamId(null)
         setTeamData(null)
       } catch (e) {
@@ -127,45 +124,13 @@ export function LeagueTacticalHub() {
                       </tr>
                     ))
                   ) : standings.map((team, idx) => (
-                    <tr 
-                      key={team.teamID} 
-                      onClick={() => setSelectedTeamId(team.teamID)}
-                      className={`group cursor-pointer transition-colors ${
-                        selectedTeamId === team.teamID ? "bg-primary/5" : "hover:bg-zinc-800/20"
-                      }`}
-                    >
-                      <td className="px-6 py-5">
-                        <span className={`text-xs font-black ${
-                          idx < 4 ? "text-primary" : idx > 16 ? "text-red-500" : "text-zinc-500"
-                        }`}>
-                          {idx + 1}.
-                        </span>
-                      </td>
-                      <td className="px-4 py-5">
-                        <div className="flex items-center gap-4">
-                          <div className="relative w-8 h-8">
-                            <Image 
-                              src={team.teamLogo} 
-                              alt={team.teamName} 
-                              fill 
-                              className="object-contain"
-                              unoptimized
-                            />
-                          </div>
-                          <span className="text-sm font-bold tracking-tight group-hover:text-primary transition-colors">
-                            {team.teamName}
-                          </span>
-                        </div>
-                      </td>
-                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.played}</td>
-                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.won}</td>
-                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.drawn}</td>
-                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.lost}</td>
-                      <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.goalsFor - team.goalsAgainst}</td>
-                      <td className="px-6 py-5 text-right">
-                        <span className="text-sm font-black text-white">{team.points}</span>
-                      </td>
-                    </tr>
+                    <StandingRow
+                      key={team.teamID}
+                      team={team}
+                      idx={idx}
+                      isSelected={selectedTeamId === team.teamID}
+                      onSelect={() => setSelectedTeamId(team.teamID)}
+                    />
                   ))}
                 </tbody>
               </table>
@@ -308,3 +273,46 @@ export function LeagueTacticalHub() {
     </div>
   )
 }
+
+const StandingRow = React.memo(({ team, idx, isSelected, onSelect }: any) => (
+  <tr 
+    onClick={onSelect}
+    className={`group cursor-pointer transition-colors ${
+      isSelected ? "bg-primary/5" : "hover:bg-zinc-800/20"
+    }`}
+  >
+    <td className="px-6 py-5">
+      <span className={`text-xs font-black ${
+        idx < 4 ? "text-primary" : idx > 16 ? "text-red-500" : "text-zinc-500"
+      }`}>
+        {idx + 1}.
+      </span>
+    </td>
+    <td className="px-4 py-5">
+      <div className="flex items-center gap-4">
+        <div className="relative w-8 h-8">
+          <Image 
+            src={team.teamLogo} 
+            alt={team.teamName} 
+            fill 
+            className="object-contain"
+            unoptimized
+          />
+        </div>
+        <span className="text-sm font-bold tracking-tight group-hover:text-primary transition-colors">
+          {team.teamName}
+        </span>
+      </div>
+    </td>
+    <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.played}</td>
+    <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.won}</td>
+    <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.drawn}</td>
+    <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.lost}</td>
+    <td className="px-4 py-5 text-center text-xs font-medium text-zinc-400">{team.goalsFor - team.goalsAgainst}</td>
+    <td className="px-6 py-5 text-right">
+      <span className="text-sm font-black text-white">{team.points}</span>
+    </td>
+  </tr>
+))
+
+StandingRow.displayName = "StandingRow"

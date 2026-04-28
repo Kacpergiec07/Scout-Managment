@@ -3,9 +3,11 @@
 import * as React from "react"
 import { Suspense } from "react"
 import { useSearchParams } from "next/navigation"
-import {
-  getAllTop5PlayersAction,
-  getPlayerDataAction,
+import { 
+  getAllTop5PlayersAction, 
+  getPlayerDataAction, 
+  getComparisonDataAction,
+  getEnrichedPlayerDataAction
 } from "@/app/actions/statorium"
 import {
   StatoriumPlayerBasic,
@@ -70,7 +72,6 @@ function CompareContent() {
   React.useEffect(() => {
     async function loadPlayers() {
       setLoading(true)
-
       try {
         const players = await getAllTop5PlayersAction()
         setAllPlayers(players)
@@ -79,61 +80,9 @@ function CompareContent() {
         const p2Id = searchParams.get("p2")
 
         if (p1Id || p2Id) {
-          const detailedPromises = []
-
-          if (p1Id) {
-            const foundP1 = players.find(
-              (p: StatoriumPlayerBasic) => String(p.playerID) === p1Id
-            )
-            if (foundP1) {
-              detailedPromises.push(
-                getPlayerDataAction(foundP1.playerID, 8000)
-                  .then((data: any) => ({
-                    player: 1,
-                    data,
-                    name: foundP1.fullName,
-                  }))
-                  .catch((error: any) => ({
-                    player: 1,
-                    data: null,
-                    name: foundP1.fullName,
-                    error: error.message,
-                  }))
-              )
-            }
-          }
-
-          if (p2Id) {
-            const foundP2 = players.find(
-              (p: StatoriumPlayerBasic) => String(p.playerID) === p2Id
-            )
-            if (foundP2) {
-              detailedPromises.push(
-                getPlayerDataAction(foundP2.playerID, 8000)
-                  .then((data: any) => ({
-                    player: 2,
-                    data,
-                    name: foundP2.fullName,
-                  }))
-                  .catch((error: any) => ({
-                    player: 2,
-                    data: null,
-                    name: foundP2.fullName,
-                    error: error.message,
-                  }))
-              )
-            }
-          }
-
-          if (detailedPromises.length > 0) {
-            const results = await Promise.all(detailedPromises)
-            results.forEach((result: any) => {
-              if (result.data) {
-                if (result.player === 1) setPlayer1(result.data)
-                else setPlayer2(result.data)
-              }
-            })
-          }
+          const compData = await getComparisonDataAction(p1Id, p2Id)
+          if (compData.player1) setPlayer1(compData.player1)
+          if (compData.player2) setPlayer2(compData.player2)
         }
       } catch (error) {
         console.error("[Compare] Error loading players:", error)
@@ -143,6 +92,16 @@ function CompareContent() {
     }
     loadPlayers()
   }, [searchParams])
+
+  const handlePlayerSelect = async (playerId: string, slot: 1 | 2) => {
+    try {
+      const data = await getEnrichedPlayerDataAction(playerId)
+      if (slot === 1) setPlayer1(data)
+      else setPlayer2(data)
+    } catch (e) {
+      console.error('Failed to select player', e)
+    }
+  }
 
   const p1Param = searchParams.get('p1')
   const p2Param = searchParams.get('p2')
@@ -161,13 +120,11 @@ function CompareContent() {
   }, [allPlayers, p1Param, p2Param, player1, player2])
 
   const handleSelectPlayer1 = (player: StatoriumPlayerBasic) => {
-    setPlayer1(player)
-    if (player2?.playerID === player.playerID) setPlayer2(null)
+    handlePlayerSelect(player.playerID, 1)
   }
 
   const handleSelectPlayer2 = (player: StatoriumPlayerBasic) => {
-    setPlayer2(player)
-    if (player1?.playerID === player.playerID) setPlayer1(null)
+    handlePlayerSelect(player.playerID, 2)
   }
 
   return (
@@ -518,7 +475,7 @@ function calculateScore(player: StatoriumPlayerBasic, type: string): number {
   return Math.min(100, Math.max(35, Math.round(score)))
 }
 
-function ComparisonRow({
+const ComparisonRow = React.memo(({
   icon,
   label,
   description,
@@ -530,7 +487,7 @@ function ComparisonRow({
   description: string
   p1: number
   p2: number
-}) {
+}) => {
   const [animatedP1, setAnimatedP1] = React.useState(0)
   const [animatedP2, setAnimatedP2] = React.useState(0)
   const [isVisible, setIsVisible] = React.useState(false)
@@ -635,7 +592,9 @@ function ComparisonRow({
       </div>
     </div>
   )
-}
+})
+
+ComparisonRow.displayName = "ComparisonRow"
 
 function PlayerSelector({
   players,

@@ -1,5 +1,6 @@
 "use server";
 
+import { cache } from 'react';
 import { StatoriumClient } from '@/lib/statorium/client';
 import { StatoriumTeamDetail, StatoriumPlayerBasic, StatoriumMatch } from '@/lib/statorium/types';
 import { geocodeCity, getCachedGeocode } from '@/lib/utils/geocoding';
@@ -12,13 +13,24 @@ import { getCachedPlayersByTeam } from './sync';
 import * as fs from 'fs';
 import * as path from 'path';
 
-let clientInstance: StatoriumClient | null = null;
+const getStatoriumClient = cache(() => {
+  return new StatoriumClient(process.env.STATORIUM_API_KEY as string);
+});
 
-function getStatoriumClient() {
-  if (!clientInstance) {
-    clientInstance = new StatoriumClient(process.env.STATORIUM_API_KEY as string);
+// Global in-memory cache for high-frequency server-side requests
+const GLOBAL_CACHE = new Map<string, { data: any, timestamp: number }>();
+const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
+
+function getCached<T>(key: string): T | null {
+  const cached = GLOBAL_CACHE.get(key);
+  if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+    return cached.data;
   }
-  return clientInstance;
+  return null;
+}
+
+function setCache(key: string, data: any) {
+  GLOBAL_CACHE.set(key, { data, timestamp: Date.now() });
 }
 
 function normalizeName(name: string): string {
@@ -108,6 +120,10 @@ function formatToWarsaw(dateStr: string, timeStr: string) {
 }
 
 export async function getStandingsAction(seasonId: string) {
+  const cacheKey = `standings_${seasonId}`;
+  const cached = getCached<any[]>(cacheKey);
+  if (cached) return cached;
+
   try {
     const client = getStatoriumClient();
     const standings = await client.getStandings(seasonId);
@@ -222,6 +238,7 @@ export async function getStandingsAction(seasonId: string) {
         };
       }).sort((a: any, b: any) => parseInt(b.points) - parseInt(a.points) || parseInt(a.position) - parseInt(b.position));
       
+      setCache(cacheKey, processedStandings);
       return processedStandings;
     }
     return [];
@@ -659,6 +676,10 @@ export async function getMatchesAction(seasonId: string) {
 }
 
 export async function getUpcomingMatchesAction(seasonId: string, limit: number = 10) {
+  const cacheKey = `upcoming_${seasonId}_${limit}`;
+  const cached = getCached<any[]>(cacheKey);
+  if (cached) return cached;
+
   try {
     const client = getStatoriumClient();
     const allMatches = await client.getMatches(seasonId);
@@ -697,7 +718,7 @@ export async function getUpcomingMatchesAction(seasonId: string, limit: number =
     });
 
     // Limit and map to include resolved logos and adjusted timezone
-    return upcomingMatches.slice(0, limit).map((m: any) => {
+    const processed = upcomingMatches.slice(0, limit).map((m: any) => {
       const homeId = (m.homeParticipant?.participantID || m.homeID || m.home_id || "").toString();
       const awayId = (m.awayParticipant?.participantID || m.awayID || m.away_id || "").toString();
       
@@ -711,6 +732,9 @@ export async function getUpcomingMatchesAction(seasonId: string, limit: number =
         awayLogo: resolveTeamLogo(m.awayParticipant?.logo || m.awayLogo || m.away_logo || awayId),
       };
     });
+
+    setCache(cacheKey, processed);
+    return processed;
   } catch (error) {
     console.error('Get Upcoming Matches Action Error:', error);
     return [];
@@ -1281,5 +1305,158 @@ export async function getTopScorersAction(seasonId: string) {
   } catch (error) {
     console.error('Get Top Scorers Action Error:', error);
     return [];
+  }
+}
+/**
+ * HIGH-PERFORMANCE SERVER ACTION
+ * Offloads all complex parsing, seasonal prioritization and rating logic to the server.
+ * This prevents main-thread blocking on the client and ensures a snappy UI.
+ */
+export async function getEnrichedPlayerDataAction(playerId: string, initialData: any) {
+  const startTime = Date.now();
+  console.log(`[getEnrichedPlayerDataAction] Starting for player ${playerId}`);
+
+  try {
+    if (!playerId || playerId === '1') {
+      console.log(`[getEnrichedPlayerDataAction] Invalid ID ${playerId}, returning initial data`);
+      return initialData;
+    }
+
+    const client = getStatoriumClient();
+    const realData = await client.getPlayerData(playerId);
+
+    if (!realData || !realData.stat || realData.stat.length === 0) {
+      console.log(`[getEnrichedPlayerDataAction] No real data found for ${playerId}`);
+      return initialData;
+    }
+
+    // Helper to parse stats that might be strings like "7 (0)"
+    const parseStat = (val: any) => {
+      if (typeof val === 'string') {
+        const match = val.match(/\d+/);
+        return match ? parseInt(match[0]) : 0;
+      }
+      return typeof val === 'number' ? val : parseInt(val || '0');
+    };
+
+    // Advanced helper to extract goals/assists from various potential formats
+    const extractStat = (obj: any, primaryKey: string, secondaryKeys: string[] = []) => {
+      if (!obj) return 0;
+      const allKeys = [primaryKey, ...secondaryKeys];
+      for (const key of allKeys) {
+        const val = parseStat(obj[key]);
+        if (val > 0) return val;
+      }
+      if (primaryKey === 'goals' || primaryKey === 'goalscore') {
+        const home = parseStat(obj.goals_home || obj.goalscore_home);
+        const away = parseStat(obj.goals_away || obj.goalscore_away);
+        if (home + away > 0) return home + away;
+      }
+      return 0;
+    };
+
+    // Sort seasons to find the most relevant (current/recent)
+    const sortedStats = [...realData.stat].sort((a: any, b: any) => {
+      const yearA = parseInt(a.seasonName?.split('/')[0]) || 0;
+      const yearB = parseInt(b.seasonName?.split('/')[0]) || 0;
+      if (yearA !== yearB) return yearB - yearA;
+      return (b.statID || 0) - (a.statID || 0);
+    });
+
+    const currentSeason = sortedStats[0];
+    const goals = extractStat(currentSeason, 'goals', ['goalscore', 'goals_total']);
+    const assists = extractStat(currentSeason, 'assists', ['assists_total']);
+    const matches = parseStat(currentSeason.played || currentSeason.appearances || 0);
+
+    // Calculate dynamic rating based on goals and position
+    let rating = 70; // Base
+    const pos = (initialData.position || '').toUpperCase();
+    
+    if (pos === 'ST' || pos === 'FW') {
+      rating += (goals * 2) + (assists * 1.5);
+    } else if (pos === 'MF' || pos === 'CAM') {
+      rating += (goals * 1.5) + (assists * 2.5);
+    } else {
+      rating += (goals * 3) + (assists * 2);
+    }
+    
+    // Normalize rating to 65-98 range
+    rating = Math.min(98, Math.max(65, Math.round(rating)));
+
+    const enriched = {
+      ...initialData,
+      id: playerId,
+      stats: {
+        ...initialData.stats,
+        offensive: {
+          ...initialData.stats.offensive,
+          goals: goals || initialData.stats.offensive.goals,
+          assists: assists || initialData.stats.offensive.assists,
+        }
+      },
+      rating: rating,
+      matches: matches,
+      normalizedStats: {
+        offensive: Math.min(100, (goals * 10) + (assists * 5) + 60),
+        defensive: initialData.stats.defensive.tackles,
+        tactical: initialData.stats.tactical.progressivePasses,
+        physical: initialData.stats.physical.stamina,
+        dribbling: initialData.stats.tactical.dribbles,
+        passing: initialData.stats.tactical.passAccuracy
+      }
+    };
+
+    const elapsed = Date.now() - startTime;
+    console.log(`[getEnrichedPlayerDataAction] Successfully enriched player ${playerId} in ${elapsed}ms`);
+    return enriched;
+
+  } catch (error) {
+    const elapsed = Date.now() - startTime;
+    console.error(`[getEnrichedPlayerDataAction] Error for player ${playerId} after ${elapsed}ms:`, error);
+    return initialData;
+  }
+}
+
+/**
+ * Optimized action to fetch both standings and upcoming matches for the League Hub in one request.
+ */
+export async function getLeagueHubDataAction(seasonId: string) {
+  try {
+    const [standings, fixtures] = await Promise.all([
+      getStandingsAction(seasonId),
+      getUpcomingMatchesAction(seasonId, 4)
+    ]);
+    
+    return {
+      standings: standings || [],
+      fixtures: fixtures || []
+    };
+  } catch (error) {
+    console.error(`[Action] getLeagueHubDataAction error for ${seasonId}:`, error);
+    return { standings: [], fixtures: [] };
+  }
+}
+
+/**
+ * Optimized action to fetch enriched data for two players at once for the Comparison module.
+ */
+export async function getComparisonDataAction(p1Id: string | null, p2Id: string | null) {
+  try {
+    const promises = [];
+    if (p1Id) promises.push(getEnrichedPlayerDataAction(p1Id));
+    else promises.push(Promise.resolve(null));
+    
+    if (p2Id) promises.push(getEnrichedPlayerDataAction(p2Id));
+    else promises.push(Promise.resolve(null));
+    
+    const [p1Data, p2Data] = await Promise.all(promises);
+    
+    return {
+      player1: p1Data,
+      player2: p2Data
+    };
+  } catch (error) {
+    console.error(`[Action] getComparisonDataAction error:`, error);
+    return { player1: null, player2: null };
   }
 }

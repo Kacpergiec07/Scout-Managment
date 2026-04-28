@@ -1,7 +1,8 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, memo } from "react"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Search,
@@ -93,6 +94,68 @@ interface Player {
   age: string
   birthdate?: string
 }
+
+const WatchlistCard = memo(({ player, selected, onClick, onRemove }: any) => (
+  <motion.div
+    layout
+    onClick={onClick}
+    className={`group relative cursor-pointer overflow-hidden rounded-xl border p-3 transition-all ${
+      selected
+        ? "border-green-500/30 bg-green-500/10"
+        : "border-border bg-accent/40 hover:border-foreground/20"
+    }`}
+  >
+    <div className="relative z-10 flex items-center gap-4">
+      <div className="relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-secondary">
+        <Image
+          src={player.playerPhoto}
+          alt={player.name}
+          fill
+          sizes="56px"
+          className="object-cover"
+        />
+        <span className="absolute inset-0 -z-10 flex items-center justify-center bg-secondary text-[10px] font-black tracking-tighter text-foreground/20 uppercase">
+          {player.name
+            .split(" ")
+            .map((n: string) => n[0])
+            .join("")
+            .slice(0, 2)}
+        </span>
+      </div>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center justify-between">
+          <span className="text-[10px] font-black tracking-widest text-green-400 uppercase">
+            {player.position}
+          </span>
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              onRemove()
+            }}
+            className="p-1 text-zinc-500 opacity-0 transition-all group-hover:opacity-100 hover:text-red-400"
+          >
+            <UserMinus className="h-4 w-4" />
+          </button>
+        </div>
+        <h3 className="truncate text-sm font-bold tracking-tighter uppercase">
+          {player.name}
+        </h3>
+        <div className="mt-1 flex items-center gap-2">
+          <span className="text-[10px] font-medium text-muted-foreground uppercase">
+            {player.club}
+          </span>
+        </div>
+      </div>
+    </div>
+    <MarketValue 
+      playerName={player.name} 
+      showIcon={false} 
+      className="absolute bottom-3 right-3 origin-right" 
+    />
+  </motion.div>
+))
+
+WatchlistCard.displayName = "WatchlistCard"
 
 export default function WatchlistPage() {
   const router = useRouter()
@@ -594,65 +657,13 @@ export default function WatchlistPage() {
           ) : (
             <>
               {watchedPlayers.map((player: any) => (
-                <motion.div
-                  layout
+                <WatchlistCard
                   key={player.id}
+                  player={player}
+                  selected={selectedPlayerId === player.id}
                   onClick={() => navigateToAnalysis(player)}
-                  className={`group relative cursor-pointer overflow-hidden rounded-xl border p-3 transition-all ${
-                    selectedPlayerId === player.id
-                      ? "border-green-500/30 bg-green-500/10"
-                      : "border-border bg-accent/40 hover:border-foreground/20"
-                  }`}
-                >
-                  <div className="relative z-10 flex items-center gap-4">
-                    <div className="relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-secondary">
-                      <img
-                        src={player.playerPhoto}
-                        alt={player.name}
-                        className="h-full w-full object-cover"
-                        onError={(e) => {
-                          ;(e.target as HTMLImageElement).style.display = "none"
-                        }}
-                      />
-                      <span className="absolute inset-0 -z-10 flex items-center justify-center bg-secondary text-[10px] font-black tracking-tighter text-foreground/20 uppercase">
-                        {player.name
-                          .split(" ")
-                          .map((n: string) => n[0])
-                          .join("")
-                          .slice(0, 2)}
-                      </span>
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[10px] font-black tracking-widest text-green-400 uppercase">
-                          {player.position}
-                        </span>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            removePlayer(player.id)
-                          }}
-                          className="p-1 text-zinc-500 opacity-0 transition-all group-hover:opacity-100 hover:text-red-400"
-                        >
-                          <UserMinus className="h-4 w-4" />
-                        </button>
-                      </div>
-                      <h3 className="truncate text-sm font-bold tracking-tighter uppercase">
-                        {player.name}
-                      </h3>
-                      <div className="mt-1 flex items-center gap-2">
-                        <span className="text-[10px] font-medium text-muted-foreground uppercase">
-                          {player.club}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <MarketValue 
-                    playerName={player.name} 
-                    showIcon={false} 
-                    className="absolute bottom-3 right-3 origin-right" 
-                  />
-                </motion.div>
+                  onRemove={() => removePlayer(player.id)}
+                />
               ))}
             </>
           )}
