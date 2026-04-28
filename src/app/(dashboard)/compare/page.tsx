@@ -187,18 +187,6 @@ function CompareContent() {
               </p>
             </div>
           </div>
-          
-          {homeTeam && (
-            <div className="flex items-center gap-4 px-6 py-3 border border-primary/20 bg-primary/5 rounded-2xl">
-              <div className="relative w-10 h-10 shrink-0">
-                <Image src={homeTeam.logo} alt={homeTeam.name} fill className="object-contain" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Home Context</p>
-                <p className="text-sm font-black uppercase truncate text-white">{homeTeam.name}</p>
-              </div>
-            </div>
-          )}
         </div>
       </div>
 

@@ -943,11 +943,11 @@ export async function getPlayerDetailsAction(playerId: string) {
 }
 
 
-export async function getPlayersByClubAction(teamId: string, seasonId?: string) {
+export async function getPlayersByClubAction(teamId: string, seasonId?: string, includeFullDetails: boolean = false) {
   if (!teamId) return [];
   try {
     const client = getStatoriumClient();
-    
+
     // First figure out the seasonId if not provided by testing the top 5 leagues
     let reliableSeasonId = seasonId;
     if (!reliableSeasonId) {
@@ -966,20 +966,71 @@ export async function getPlayersByClubAction(teamId: string, seasonId?: string) 
 
     const teamDetails = await getTeamDetailsAction(teamId, reliableSeasonId);
     if (!teamDetails || !teamDetails.players) return [];
-    
-    return teamDetails.players.map(p => {
-      const fullName = p.fullName || `${p.firstName} ${p.lastName}`;
-      return {
-        id: p.playerID,
-        name: fullName,
-        position: resolvePosition(p.position || p.additionalInfo?.position, p.playerID),
-        marketValue: "€" + (Math.floor(Math.random() * 80) + 5) + "M",
-        photoUrl: resolvePlayerPhoto(p)
-      };
-    });
+
+    const teamName = teamDetails.teamName || "Unknown Club";
+
+    if (includeFullDetails) {
+      // Return full enriched player data for search functionality
+      return teamDetails.players.map(p => {
+        const fullName = p.fullName || `${p.firstName} ${p.lastName}`;
+        const birthdate = p.additionalInfo?.birthdate || "";
+        const age = birthdate ? calculateAgeFromBirthdate(birthdate) : "N/A";
+
+        return {
+          playerID: p.playerID,
+          id: p.playerID,
+          fullName: fullName,
+          name: fullName,
+          position: resolvePosition(p.position || p.additionalInfo?.position, p.playerID),
+          age: age,
+          teamName: teamName,
+          teamID: teamId,
+          playerPhoto: resolvePlayerPhoto(p),
+          photoUrl: resolvePlayerPhoto(p),
+          photo: resolvePlayerPhoto(p),
+          marketValue: "€" + (Math.floor(Math.random() * 80) + 5) + "M",
+          height: p.additionalInfo?.height || "N/A",
+          weight: p.additionalInfo?.weight || "N/A",
+          additionalInfo: p.additionalInfo || {}
+        };
+      });
+    } else {
+      // Return simplified data for existing functionality
+      return teamDetails.players.map(p => {
+        const fullName = p.fullName || `${p.firstName} ${p.lastName}`;
+        return {
+          id: p.playerID,
+          name: fullName,
+          position: resolvePosition(p.position || p.additionalInfo?.position, p.playerID),
+          marketValue: "€" + (Math.floor(Math.random() * 80) + 5) + "M",
+          photoUrl: resolvePlayerPhoto(p)
+        };
+      });
+    }
   } catch (error) {
     console.error('Get Players By Club Action Error:', error);
     return [];
+  }
+}
+
+// Helper function to calculate age from birthdate
+function calculateAgeFromBirthdate(birthdate: string): string {
+  if (!birthdate) return "N/A";
+  try {
+    // Birthdate format: "DD-MM-YYYY (Age)" or similar
+    const match = birthdate.match(/(\d{2})-(\d{2})-(\d{4})/);
+    if (!match) return "N/A";
+    const [, day, month, year] = match;
+    const birthDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age.toString();
+  } catch (e) {
+    return "N/A";
   }
 }
 
