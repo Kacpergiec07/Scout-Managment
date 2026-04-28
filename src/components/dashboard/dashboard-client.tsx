@@ -6,7 +6,6 @@ import { Bell, Briefcase, Target, Clock, ArrowRight, CheckCircle, Trash2, User, 
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { CardStack, CardStackItem } from '@/components/ui/card-stack'
-import { NotificationsBell } from '@/components/notifications-bell-new'
 import { generateJobOffer, getLatestJob, deleteJob, getRecentJobs } from '@/app/actions/job-generation'
 
 interface JobOffer {
@@ -191,109 +190,202 @@ function JobOfferPanel({ job, onClose, onDelete, onCycleJob, currentIndex, total
   totalJobs: number
 }) {
   const priorityColors = {
-    high: 'bg-red-500/20 border-red-500/30 text-red-400',
-    medium: 'bg-amber-500/20 border-amber-500/30 text-amber-400',
-    low: 'bg-emerald-500/20 border-emerald-500/30 text-emerald-400'
+    high: 'from-red-500/20 to-red-500/10 border-red-500/30 text-red-400',
+    medium: 'from-amber-500/20 to-amber-500/10 border-amber-500/30 text-amber-400',
+    low: 'from-emerald-500/20 to-emerald-500/10 border-emerald-500/30 text-emerald-400'
   }
 
   return (
     <motion.div
       key={job.id}
-      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: -20, scale: 0.95 }}
-      transition={{ duration: 0.3 }}
-      className="w-full max-w-4xl mx-auto"
+      exit={{ opacity: 0, y: -30, scale: 0.95 }}
+      transition={{ duration: 0.4, type: "spring", stiffness: 200, damping: 20 }}
+      className="w-full max-w-4xl mx-auto relative"
     >
-      <div className="premium-card bg-gradient-to-br from-card to-card/80 backdrop-blur-xl border border-border rounded-3xl p-8 shadow-2xl">
+      {/* Glow effect behind card */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-emerald-500/20 blur-3xl rounded-3xl -z-10" />
+
+      <div className="premium-card bg-gradient-to-br from-card/95 via-card/90 to-card/80 backdrop-blur-2xl border border-border/50 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+        {/* Animated shine effect */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none"
+          animate={{
+            x: ['-100%', '100%']
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "linear",
+            repeatDelay: 3
+          }}
+        />
+
+        {/* Background gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-emerald-500/5 opacity-50 pointer-events-none" />
+
         {/* Header */}
-        <div className="flex items-start justify-between mb-8">
-          <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center border border-primary/30">
-              <Briefcase className="w-8 h-8 text-primary" />
-            </div>
+        <div className="relative z-10 flex items-start justify-between mb-10">
+          <div className="flex items-center gap-5">
+            <motion.div
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              className="w-16 h-16 bg-gradient-to-br from-primary/20 to-emerald-500/20 rounded-2xl flex items-center justify-center border-2 border-primary/30 shadow-lg relative overflow-hidden group"
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"
+                whileHover={{
+                  x: ['-100%', '100%']
+                }}
+                transition={{ duration: 0.7 }}
+              />
+              <Briefcase className="w-8 h-8 text-primary relative z-10" />
+            </motion.div>
             <div>
-              <div className="flex items-center gap-3">
-                <h3 className="text-2xl font-black uppercase tracking-tight">Scouting Mission</h3>
-                <span className="px-3 py-1 bg-muted rounded-full text-xs font-bold text-muted-foreground">
+              <div className="flex items-center gap-3 mb-1">
+                <h3 className="text-2xl font-black uppercase tracking-tight bg-gradient-to-r from-primary to-emerald-400 bg-clip-text text-transparent">
+                  Scouting Mission
+                </h3>
+                <motion.span
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                  className="px-3 py-1 bg-gradient-to-r from-primary/10 to-emerald-500/10 rounded-full text-xs font-bold text-primary border border-primary/20"
+                >
                   {currentIndex + 1}/{totalJobs}
-                </span>
+                </motion.span>
               </div>
-              <p className="text-sm text-muted-foreground font-medium tracking-wide">
+              <div className="text-sm text-muted-foreground font-medium tracking-wide flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 AI-Generated Assignment
-              </p>
+              </div>
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1, rotate: -5 }}
+              whileTap={{ scale: 0.9 }}
               onClick={onDelete}
-              className="p-2 rounded-xl hover:bg-red-500/10 text-muted-foreground hover:text-red-500 transition-colors"
+              className="p-2.5 rounded-xl hover:bg-red-500/10 text-muted-foreground hover:text-red-500 transition-all border border-transparent hover:border-red-500/20"
               title="Delete Assignment"
             >
               <Trash2 className="w-5 h-5" />
-            </button>
+            </motion.button>
             {totalJobs > 1 && (
-              <button
+              <motion.button
+                whileHover={{ scale: 1.1, x: 2 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={onCycleJob}
-                className="p-2 rounded-xl hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors"
+                className="p-2.5 rounded-xl hover:bg-primary/10 text-muted-foreground hover:text-primary transition-all border border-transparent hover:border-primary/20"
                 title="Next Assignment"
               >
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </motion.button>
             )}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1, rotate: 45 }}
+              whileTap={{ scale: 0.9 }}
               onClick={onClose}
-              className="p-2 rounded-xl hover:bg-muted transition-colors"
+              className="p-2.5 rounded-xl hover:bg-muted text-muted-foreground transition-all border border-transparent hover:border-border"
               title="Close"
             >
               <ArrowRight className="w-5 h-5 rotate-45" />
-            </button>
+            </motion.button>
           </div>
         </div>
 
         {/* Club Information */}
-        <div className="bg-muted/50 rounded-2xl p-6 mb-6 border border-border">
-          <div className="flex items-center gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="relative z-10 bg-gradient-to-br from-muted/40 to-muted/20 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-border/50 hover:border-primary/30 transition-all group"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="flex items-center gap-6 relative z-10">
             {job.club.logo && (
-              <div className="w-20 h-20 relative bg-white rounded-2xl p-2 shadow-lg border border-border">
-                <Image src={job.club.logo} alt={job.club.name} fill className="object-contain" />
-              </div>
+              <motion.div
+                whileHover={{ scale: 1.05, rotate: 2 }}
+                className="w-20 h-20 relative bg-gradient-to-br from-white to-gray-100 rounded-2xl p-2 shadow-xl border-2 border-border/50 hover:border-primary/30 transition-all overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity" />
+                <Image src={job.club.logo} alt={job.club.name} fill className="object-contain p-0.5" />
+              </motion.div>
             )}
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h4 className="text-3xl font-black uppercase tracking-tight">{job.club.name}</h4>
-                <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${priorityColors[job.priority]}`}>
+                <h4 className="text-3xl font-black uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">
+                  {job.club.name}
+                </h4>
+                <motion.span
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                  className={`px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider border bg-gradient-to-r ${priorityColors[job.priority]}`}
+                >
                   {job.priority} Priority
-                </span>
+                </motion.span>
               </div>
-              <p className="text-sm text-muted-foreground font-medium">{job.club.league}</p>
+              <p className="text-sm text-muted-foreground font-medium flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary/50" />
+                {job.club.league}
+              </p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Position and Requirements */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-primary/5 rounded-2xl p-6 border border-primary/20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-6 border border-primary/20 hover:border-primary/40 transition-all group hover:scale-[1.02]"
+          >
             <div className="flex items-center gap-3 mb-4">
-              <Target className="w-5 h-5 text-primary" />
-              <h5 className="font-bold uppercase tracking-wider text-sm">Target Position</h5>
+              <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                <Target className="w-5 h-5 text-primary" />
+              </div>
+              <h5 className="font-bold uppercase tracking-wider text-sm text-primary">Target Position</h5>
             </div>
-            <p className="text-2xl font-black uppercase tracking-tight text-primary">{job.position}</p>
-          </div>
+            <p className="text-2xl font-black uppercase tracking-tight text-primary group-hover:scale-105 transition-transform origin-left">
+              {job.position}
+            </p>
+            <div className="h-0.5 w-0 bg-primary/50 mt-3 group-hover:w-full transition-all duration-300" />
+          </motion.div>
 
-          <div className="bg-muted/30 rounded-2xl p-6 border border-border">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+            className="bg-gradient-to-br from-muted/40 to-muted/20 rounded-2xl p-6 border border-border/50 hover:border-border transition-all group hover:scale-[1.02]"
+          >
             <div className="flex items-center gap-3 mb-4">
-              <Clock className="w-5 h-5 text-muted-foreground" />
+              <div className="w-10 h-10 rounded-xl bg-muted/50 flex items-center justify-center">
+                <Clock className="w-5 h-5 text-muted-foreground" />
+              </div>
               <h5 className="font-bold uppercase tracking-wider text-sm">Deadline</h5>
             </div>
-            <p className="text-2xl font-black uppercase tracking-tight">{job.deadline}</p>
-          </div>
+            <p className="text-2xl font-black uppercase tracking-tight text-foreground/90 group-hover:scale-105 transition-transform origin-left">
+              {job.deadline}
+            </p>
+            <div className="h-0.5 w-0 bg-muted-foreground/50 mt-3 group-hover:w-full transition-all duration-300" />
+          </motion.div>
         </div>
 
         {/* Requirements */}
-        <div className="mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="mb-8 relative z-10"
+        >
           <h5 className="font-bold uppercase tracking-wider text-sm mb-4 flex items-center gap-3">
-            <CheckCircle className="w-5 h-5 text-primary" />
+            <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+              <CheckCircle className="w-4 h-4 text-primary" />
+            </div>
             Requirements
           </h5>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -302,46 +394,89 @@ function JobOfferPanel({ job, onClose, onDelete, onCycleJob, currentIndex, total
                 key={idx}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                className="flex items-center gap-3 bg-muted/30 rounded-xl p-4 border border-border"
+                transition={{ delay: 0.5 + idx * 0.1 }}
+                className="flex items-center gap-3 bg-gradient-to-r from-muted/40 to-muted/20 rounded-xl p-4 border border-border/50 hover:border-primary/30 transition-all group hover:scale-[1.02]"
               >
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <span className="text-sm font-medium">{req}</span>
+                <motion.div
+                  className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_10px_rgba(0,255,136,0.5)]"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.7, 1, 0.7]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: idx * 0.2
+                  }}
+                />
+                <span className="text-sm font-medium text-foreground/90">{req}</span>
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Description */}
-        <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-2xl p-6 mb-8 border-l-4 border-primary">
-          <p className="text-sm font-medium leading-relaxed text-foreground/90">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="bg-gradient-to-r from-primary/10 via-emerald-500/5 to-transparent rounded-2xl p-6 mb-8 border-l-4 border-primary relative overflow-hidden group relative z-10"
+        >
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none"
+            whileHover={{
+              x: ['-100%', '100%']
+            }}
+            transition={{ duration: 1 }}
+          />
+          <p className="text-sm font-medium leading-relaxed text-foreground/90 relative z-10">
             {job.description}
           </p>
-        </div>
+        </motion.div>
 
         {/* Navigation Links */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative z-10"
+        >
           <Link href="/watchlist">
-            <button className="w-full h-14 bg-muted/50 hover:bg-muted border border-border rounded-2xl flex items-center justify-center gap-3 transition-all group">
-              <span className="text-sm font-bold uppercase tracking-wider">Watchlist</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <motion.button
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full h-14 bg-gradient-to-br from-muted/50 to-muted/30 hover:from-muted hover:to-muted/70 border border-border/50 hover:border-primary/30 rounded-2xl flex items-center justify-center gap-3 transition-all group relative overflow-hidden"
+            >
+              <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-300" />
+              <span className="text-sm font-bold uppercase tracking-wider text-foreground/90 group-hover:text-primary transition-colors">Watchlist</span>
+              <ArrowRight className="w-4 h-4 text-foreground/70 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+            </motion.button>
           </Link>
 
           <Link href="/leagues">
-            <button className="w-full h-14 bg-muted/50 hover:bg-muted border border-border rounded-2xl flex items-center justify-center gap-3 transition-all group">
-              <span className="text-sm font-bold uppercase tracking-wider">Leagues</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <motion.button
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full h-14 bg-gradient-to-br from-muted/50 to-muted/30 hover:from-muted hover:to-muted/70 border border-border/50 hover:border-primary/30 rounded-2xl flex items-center justify-center gap-3 transition-all group relative overflow-hidden"
+            >
+              <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-300" />
+              <span className="text-sm font-bold uppercase tracking-wider text-foreground/90 group-hover:text-primary transition-colors">Leagues</span>
+              <ArrowRight className="w-4 h-4 text-foreground/70 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+            </motion.button>
           </Link>
 
           <Link href={`/teams/${job.club.id}`}>
-            <button className="w-full h-14 premium-btn flex items-center justify-center gap-3 transition-all group">
+            <motion.button
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full h-14 premium-btn flex items-center justify-center gap-3 transition-all group relative overflow-hidden"
+            >
+              <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-white/50 group-hover:w-full transition-all duration-300" />
               <span className="text-sm font-bold uppercase tracking-wider">Team Details</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </motion.button>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   )
@@ -473,21 +608,61 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
               <Settings className="w-5 h-5" />
             </button>
           </Link>
-          <div className="h-6 w-px bg-border" />
-          <NotificationsBell />
         </div>
       </nav>
 
       <main className="w-full max-w-[1400px] mt-32 px-6 space-y-16 relative z-10">
         {/* Application Description */}
-        <div className="text-center space-y-6 py-12">
+        <div className="text-center space-y-6 py-12 relative">
+          {/* Animated background elements */}
+          <motion.div
+            className="absolute -top-20 -left-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div
+            className="absolute -top-10 -right-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.2, 0.4, 0.2],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+          />
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="relative z-10"
           >
-            <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase text-foreground leading-[0.9] mb-6">
-              PROFESSIONAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">SCOUTING</span>
+            <div className="mb-8">
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+                className="inline-block mb-6"
+              >
+                <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-primary">AI-Powered Platform</span>
+                </div>
+              </motion.div>
+            </div>
+
+            <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase text-foreground leading-[0.85] mb-6">
+              PROFESSIONAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 via-emerald-500 to-emerald-900 animate-gradient bg-[length:200%_auto]">SCOUTING</span>
             </h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
@@ -496,33 +671,63 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
                 track transfers, and receive AI-generated scouting assignments tailored to club needs.
               </p>
               <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
-                <span className="px-4 py-2 bg-primary/10 rounded-full border border-primary/20 text-primary">
-                  Player Search & Analysis
-                </span>
-                <span className="px-4 py-2 bg-primary/10 rounded-full border border-primary/20 text-primary">
-                  Performance Comparison
-                </span>
-                <span className="px-4 py-2 bg-primary/10 rounded-full border border-primary/20 text-primary">
-                  Transfer Intelligence
-                </span>
-                <span className="px-4 py-2 bg-primary/10 rounded-full border border-primary/20 text-primary">
-                  AI-Powered Insights
-                </span>
+                {[
+                  { text: "Player Search & Analysis", icon: "🔍" },
+                  { text: "Performance Comparison", icon: "📊" },
+                  { text: "Transfer Intelligence", icon: "💰" },
+                  { text: "AI-Powered Insights", icon: "🤖" }
+                ].map((item, idx) => (
+                  <motion.span
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 + idx * 0.1 }}
+                    className="px-4 py-2 bg-primary/10 rounded-full border border-primary/20 text-primary hover:bg-primary/20 hover:scale-105 transition-all cursor-default"
+                  >
+                    {item.icon} {item.text}
+                  </motion.span>
+                ))}
               </div>
             </div>
           </motion.div>
         </div>
 
         {/* Job Generation Section */}
-        <div className="w-full space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground uppercase italic">
-              Receive New Assignment
-            </h2>
-            <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-              Click below to generate a new scouting mission. Our AI will analyze club needs from top 5 European leagues and create a tailored assignment for you.
-            </p>
-          </div>
+        <div className="w-full space-y-8 relative">
+          {/* Background glow */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-emerald-500/5 rounded-3xl blur-2xl" />
+
+          <div className="relative z-10">
+            <div className="text-center space-y-4 mb-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-primary/10 to-emerald-500/10 rounded-2xl border border-primary/20">
+                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <Briefcase className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="text-left">
+                    <h2 className="text-xl font-bold text-foreground uppercase tracking-tight">
+                      Receive New Assignment
+                    </h2>
+                    <p className="text-xs text-muted-foreground">
+                      AI-Powered Scouting Missions
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="text-sm text-muted-foreground max-w-xl mx-auto leading-relaxed"
+              >
+                Click below to generate a new scouting mission. Our AI will analyze club needs from top 5 European leagues and create a tailored assignment for you.
+              </motion.p>
+            </div>
 
           <div className="flex justify-center">
             <motion.button
@@ -530,8 +735,12 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
               disabled={isLoading}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="premium-btn h-16 px-12 text-base font-bold tracking-wider rounded-2xl flex items-center gap-4 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="premium-btn h-16 px-12 text-base font-bold tracking-wider rounded-2xl flex items-center gap-4 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
             >
+              {/* Animated underline on hover */}
+              <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-white/50 group-hover:w-full transition-all duration-300" />
+              <div className="absolute bottom-0 left-0 h-0.5 w-full bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+
               {isLoading ? (
                 <>
                   <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
@@ -549,7 +758,12 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
           {/* Job Offer Panel */}
           <AnimatePresence>
             {showJob && currentJob && (
-              <div className="w-full">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="w-full"
+              >
                 <JobOfferPanel
                   job={currentJob}
                   onClose={handleCloseJob}
@@ -558,37 +772,147 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
                   currentIndex={currentJobIndex}
                   totalJobs={allJobs.length}
                 />
-              </div>
+              </motion.div>
             )}
           </AnimatePresence>
+          </div>
         </div>
 
         {/* Available Leagues Quick Access */}
-        <div className="w-full space-y-6 pt-8 border-t border-border">
+        <div className="w-full space-y-6 pt-8 border-t border-border relative">
+          {/* Section decoration */}
+          <div className="absolute left-1/2 -translate-x-1/2 -top-3 w-16 h-1 bg-gradient-to-r from-primary to-emerald-500 rounded-full" />
+
           <div className="text-center space-y-2">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground uppercase">
-              Available Leagues
-            </h2>
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="inline-flex items-center gap-2 mb-2">
+                <div className="w-2 h-2 rounded-full bg-primary" />
+                <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                <div className="w-2 h-2 rounded-full bg-blue-500" />
+              </div>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground uppercase">
+                Available Leagues
+              </h2>
+            </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-xs text-muted-foreground uppercase tracking-wider"
+            >
               Top 5 European Football Leagues
-            </p>
+            </motion.p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {initialLeagues.map((league) => (
+            {initialLeagues.map((league, idx) => (
               <Link
                 key={league.id}
                 href={`/leagues?sId=${league.id}`}
                 className="group"
               >
-                <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/50 transition-all hover:scale-105">
-                  <div className="w-16 h-16 relative bg-white rounded-xl p-2 mx-auto mb-4 shadow-sm border border-border group-hover:shadow-lg transition-shadow">
-                    <Image src={league.logo} alt={league.name} fill className="object-contain" />
+                <motion.div
+                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: idx * 0.1,
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 15
+                  }}
+                  className="relative bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border border-border/50 rounded-3xl p-6 overflow-hidden hover:border-primary/50 transition-all duration-300"
+                  whileHover={{ y: -8, scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {/* Background gradient overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${league.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+
+                  {/* Glow effect on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-r ${league.color} opacity-0 blur-2xl group-hover:opacity-20 transition-opacity duration-500`} />
+
+                  {/* Animated shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+
+                  {/* Logo container with enhanced effects */}
+                  <div className="relative z-10">
+                    <motion.div
+                      className="w-16 h-16 relative mx-auto mb-4"
+                      animate={{
+                        rotate: [0, 5, -5, 0],
+                        scale: [1, 1.05, 1.05, 1]
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        ease: "easeInOut"
+                      }}
+                    >
+                      {/* Glow ring */}
+                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${league.color} blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300`} />
+
+                      {/* Logo background */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border-2 border-border/50 group-hover:shadow-2xl group-hover:shadow-primary/20 transition-all duration-300 overflow-hidden">
+                        {/* Subtle pattern */}
+                        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '8px 8px' }} />
+
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/80 to-transparent" />
+
+                        {/* Logo image */}
+                        <div className="absolute inset-2 rounded-xl overflow-hidden">
+                          <Image
+                            src={league.logo}
+                            alt={league.name}
+                            fill
+                            className="object-contain p-1 drop-shadow-md"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Corner accents */}
+                      <div className={`absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300`} />
+                      <div className={`absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300`} />
+                      <div className={`absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300`} />
+                      <div className={`absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300`} />
+                    </motion.div>
+
+                    {/* League name with enhanced typography */}
+                    <motion.div
+                      className="text-center space-y-2"
+                      whileHover={{ y: -2 }}
+                    >
+                      <p className="text-[10px] font-black text-center uppercase tracking-[0.15em] text-foreground/60 group-hover:text-primary transition-colors duration-300 leading-tight">
+                        {league.name.replace(/ /g, ' ')}
+                      </p>
+
+                      {/* Animated underline */}
+                      <div className="h-0.5 w-0 mx-auto bg-gradient-to-r from-primary to-emerald-400 group-hover:w-full transition-all duration-300" />
+
+                      {/* Club count indicator */}
+                      {league.clubs && league.clubs.length > 0 && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.3 }}
+                          className="flex items-center justify-center gap-1 mt-2"
+                        >
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                          <span className="text-[9px] font-medium text-muted-foreground uppercase tracking-wider">
+                            {league.clubs.length} Clubs
+                          </span>
+                        </motion.div>
+                      )}
+                    </motion.div>
                   </div>
-                  <p className="text-xs font-bold text-center uppercase tracking-wider text-foreground/70 group-hover:text-primary transition-colors">
-                    {league.name.replace(/ /g, '\n')}
-                  </p>
-                </div>
+
+                  {/* Hover spotlight effect */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                </motion.div>
               </Link>
             ))}
           </div>

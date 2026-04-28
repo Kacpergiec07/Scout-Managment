@@ -2,11 +2,10 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Search, List, History, User, LogOut, Settings, LayoutDashboard, ArrowRightLeft, Globe, Bell, Moon, Sun } from 'lucide-react'
+import { Search, List, History, User, LogOut, Settings, LayoutDashboard, ArrowRightLeft, Globe, Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { signOut } from '@/app/auth/actions'
 import { useEffect, useState } from 'react'
-import { NotificationsBell } from './notifications-bell-new'
 
 export function Sidebar() {
   const pathname = usePathname()
@@ -53,7 +52,6 @@ export function Sidebar() {
               )}
             </div>
           )}
-          <NotificationsBell />
         </div>
       </div>
 

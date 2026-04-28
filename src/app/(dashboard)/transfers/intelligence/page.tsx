@@ -628,8 +628,6 @@ export default function TransferIntelligencePage() {
                                  />
                               </div>
                            </div>
-                        </div>
-                      )}
 
                       {/* AI Sentiment */}
                       <div className="bg-primary/20 border border-primary/20 rounded-2xl p-6">

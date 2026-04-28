@@ -834,6 +834,74 @@ export async function getAllTop5ClubsAction() {
   return getTopLeaguesClubsAction();
 }
 
+export async function fetchAllLeaguePlayersAction() {
+  try {
+    const client = getStatoriumClient();
+    const allPlayers: any[] = [];
+    const seenPlayerIds = new Set<string>();
+
+    console.log('[fetchAllLeaguePlayersAction] Starting to fetch all players from top 5 leagues...');
+
+    for (const league of TOP_LEAGUES) {
+      console.log(`[fetchAllLeaguePlayersAction] Processing ${league.name} (ID: ${league.id})...`);
+
+      try {
+        const standings = await client.getStandings(league.id);
+        if (standings && standings.length > 0) {
+          // Get ALL teams from the league (not just top 6)
+          const allTeams = standings;
+          console.log(`[fetchAllLeaguePlayersAction] Found ${allTeams.length} teams in ${league.name}`);
+
+          for (const team of allTeams as any[]) {
+            const tid = team.teamID?.toString();
+            const teamName = team.teamName || team.teamMiddleName || "Unknown Club";
+
+            if (tid) {
+              try {
+                // Get FULL squad/roster (not just top 5 players)
+                const squadPlayers = await client.getPlayersByTeam(tid, league.id);
+
+                if (squadPlayers && squadPlayers.length > 0) {
+                  // Add all players from squad (not enriched with details for performance)
+                  const playersWithTeam = squadPlayers.map((p: any) => ({
+                    ...p,
+                    teamName: teamName,
+                    league: league.name,
+                    leagueId: league.id,
+                    playerPhoto: resolvePlayerPhoto(p)
+                  }));
+
+                  // Add to list (will deduplicate later)
+                  allPlayers.push(...playersWithTeam);
+                  console.log(`[fetchAllLeaguePlayersAction] Added ${playersWithTeam.length} players from ${teamName}`);
+                }
+              } catch (e) {
+                console.warn(`[fetchAllLeaguePlayersAction] Could not fetch squad for team ${teamName} (${tid}):`, e);
+              }
+            }
+          }
+        }
+      } catch (e) {
+        console.warn(`[fetchAllLeaguePlayersAction] Could not fetch standings for ${league.name}:`, e);
+      }
+    }
+
+    console.log(`[fetchAllLeaguePlayersAction] Total players before deduplication: ${allPlayers.length}`);
+
+    // Remove duplicates based on playerID
+    const uniquePlayers = allPlayers.filter((player, index, self) =>
+      index === self.findIndex((p) => p.playerID === player.playerID)
+    );
+
+    console.log(`[fetchAllLeaguePlayersAction] Total unique players after deduplication: ${uniquePlayers.length}`);
+
+    return uniquePlayers;
+  } catch (error) {
+    console.error('[fetchAllLeaguePlayersAction] Error:', error);
+    return [];
+  }
+}
+
 export async function getAllTop5PlayersAction() {
   try {
     const client = getStatoriumClient();

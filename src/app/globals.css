@@ -179,6 +179,77 @@
   }
 }
 
+/* Notification Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes highlightNews {
+  0% {
+    background-color: rgba(0, 255, 136, 0.3);
+  }
+
+  50% {
+    background-color: rgba(0, 255, 136, 0.5);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+/* Notification Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes highlightNews {
+  0% {
+    background-color: rgba(0, 255, 136, 0.3);
+  }
+
+  50% {
+    background-color: rgba(0, 255, 136, 0.5);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+.highlight-news {
+  animation: highlightNews 3s ease-out;
+}
+
+/* Compact Notification Card Styles */
+.notification-card {
+  transition: all 0.2s ease-in-out;
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+}
+
+.highlight-news {
+  animation: highlightNews 3s ease-out;
+}
+
 /* Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;

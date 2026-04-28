@@ -2,10 +2,10 @@
 
 import * as React from "react"
 import { useRouter, useSearchParams } from 'next/navigation'
-import { RefreshCw, Clock, AlertCircle, ExternalLink, ArrowRight, Zap, Globe } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { RefreshCw, Clock, AlertCircle, ExternalLink, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { TrendingNewsItem, getTrendingNews, getSourceConfig, getLeagueConfig, getConfidenceColor, getUnreadCount, getPostUrl } from "@/lib/trending-news"
+import { createPortal } from '@/lib/portal-utils'
 
 interface NotificationsPanelProps {
   isOpen: boolean
@@ -23,9 +23,6 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
   const [refreshTimer, setRefreshTimer] = React.useState<NodeJS.Timeout | null>(null)
   const [mounted, setMounted] = React.useState(false)
   const panelRef = React.useRef<HTMLDivElement>(null)
-
-  // Memoize unread count - must be before useEffect hooks
-  const unreadCount = React.useMemo(() => getUnreadCount(news), [news])
 
   // Initialize news only on client side to avoid hydration error
   React.useEffect(() => {
@@ -55,14 +52,17 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
     }
   }, [news.length, searchParams])
 
-  // Fetch trending news
+  // Fetch trending news with updated data
   const fetchNews = async () => {
     setLoading(true)
     setError(null)
 
     try {
-      // Get trending news from our intelligence system (now async)
-      const trendingNews = await getTrendingNews()
+      // Simulate network delay for realistic feel
+      await new Promise(resolve => setTimeout(resolve, 800))
+
+      // Get trending news from our intelligence system
+      const trendingNews = getTrendingNews()
 
       setNews(trendingNews)
     } catch (err) {
@@ -70,12 +70,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
       setError("Nie udało się pobrać najnowszych informacji")
 
       // Fallback to minimal news
-      try {
-        const fallbackNews = await getTrendingNews()
-        setNews(fallbackNews.slice(0, 3))
-      } catch (fallbackError) {
-        setNews([])
-      }
+      setNews(getTrendingNews().slice(0, 3))
     } finally {
       setLoading(false)
     }
@@ -109,6 +104,20 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
     }
   }, [onClose])
 
+  const handleSourceClick = (e: React.MouseEvent, item: TrendingNewsItem) => {
+    e.stopPropagation()
+
+    // Open REAL post URL
+    const realUrl = getPostUrl(item.source, item.postId)
+
+    if (realUrl) {
+      window.open(realUrl, '_blank', 'noopener,noreferrer')
+    } else {
+      // Fallback to source URL if no post ID
+      window.open(getSourceConfig(item.source)?.url, '_blank', 'noopener,noreferrer')
+    }
+  }
+
   const handleRefresh = () => {
     if (refreshTimer) {
       clearInterval(refreshTimer)
@@ -126,7 +135,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
     setNews(prev => prev.map(n => n.id === item.id ? { ...n, read: true } : n))
     onMarkAsRead?.(item.id)
 
-    // Navigate to your site with annotation ID (CHANGE: twojastrona.pl to YOUR domain)
+    // Navigate to annotation section on your site (CHANGE: use hash without path)
     if (item.annotationId) {
       router.push(`/#${item.annotationId}`)
     } else {
@@ -134,22 +143,21 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
       router.push('/#')
     }
 
+    // Scroll to annotation element after navigation
+    setTimeout(() => {
+      const element = document.getElementById(`annotation-${item.annotationId}`)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        element.classList.add('highlight-news')
+
+        setTimeout(() => {
+          element.classList.remove('highlight-news')
+        }, 3000)
+      }
+    }, 100)
+
     // Close panel
     onClose()
-  }
-
-  const handleSourceClick = (e: React.MouseEvent, item: TrendingNewsItem) => {
-    e.stopPropagation()
-
-    // Open REAL post URL
-    const realUrl = getPostUrl(item.source, item.postId)
-
-    if (realUrl) {
-      window.open(realUrl, '_blank', 'noopener,noreferrer')
-    } else {
-      // Fallback to source URL if no post ID
-      window.open(getSourceConfig(item.source)?.url, '_blank', 'noopener,noreferrer')
-    }
   }
 
   // Don't render until mounted to avoid hydration error
@@ -157,46 +165,43 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
     return null
   }
 
+  const unreadCount = getUnreadCount(news)
+
   return (
-    <div
-      ref={panelRef}
-      className={cn(
-        `fixed top-[72px] w-[420px] max-w-[calc(100vw-32px)] max-h-[600px] overflow-y-auto custom-scrollbar bg-card/95 backdrop-blur-xl border border-border rounded-2xl z-[999999] shadow-2xl transition-all duration-300`,
-        isDashboard ? "left-8" : "right-8",
-        isOpen
-          ? "opacity-100 translate-y-0 scale-100"
-          : "opacity-0 -translate-y-4 scale-95 pointer-events-none"
-      )}
-    >
-      {/* Header with League Tabs */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-        className="sticky top-0 z-10 bg-card/98 backdrop-blur-xl border-b border-border p-4"
+    // Render using createPortal to fix z-index issues
+    createPortal(
+      <div
+        ref={panelRef}
+        className={cn(
+          "fixed top-0 right-0 mt-0 w-[440px] max-w-[calc(100vw-32px)] max-h-[540px] overflow-y-auto custom-scrollbar bg-card border border-border rounded-xl z-[99999] shadow-2xl transition-all duration-300",
+          isOpen
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-2 pointer-events-none"
+        )}
+        style={{
+          backdropFilter: 'blur(12px)',
+          position: 'fixed',
+          top: isDashboard ? '80px' : '24px', // Adjust for header
+          right: '24px',
+        }}
       >
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Zap className="w-5 h-5 text-primary" />
-            </motion.div>
-            <h2 className="text-base font-bold text-foreground uppercase tracking-widest">
-              Trending Intelligence
-            </h2>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-[10px] font-bold text-primary uppercase tracking-widest">
-                LIVE
-              </span>
+        {/* Header with League Tabs */}
+        <div className="sticky top-0 z-10 bg-card/98 backdrop-blur-xl border-b border-border p-4">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <h2 className="text-base font-bold text-foreground uppercase tracking-widest">
+                Trending Intelligence
+              </h2>
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                <span className="text-[10px] font-bold text-primary uppercase tracking-widest">
+                  LIVE
+                </span>
+              </div>
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <motion.button
-              whileHover={{ scale: 1.1, rotate: 180 }}
-              whileTap={{ scale: 0.9 }}
+            <button
               onClick={handleRefresh}
               disabled={loading}
               className={cn(
@@ -210,17 +215,15 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
                 "w-4 h-4 text-primary",
                 loading && "animate-spin"
               )} />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.1, rotate: 90 }}
-              whileTap={{ scale: 0.9 }}
+            </button>
+            <button
               onClick={onClose}
               className="p-1.5 rounded-full hover:bg-accent transition-all duration-200"
             >
               <div className="w-4 h-4 text-muted-foreground font-bold text-lg">
                 ×
               </div>
-            </motion.button>
+            </button>
           </div>
         </div>
 
@@ -238,25 +241,15 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
                 'ekstraklasa': { name: 'Ekstra', icon: '🇵🇱' },
               })
             )
-          }).map(([key, league]: [string, any], index) => (
-            <motion.button
+          }).map(([key, league]: [string, any]) => (
+            <button
               key={key}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
               onClick={() => {/* Add filtering logic here */}}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/20 bg-accent/30 text-[10px] font-bold text-muted-foreground uppercase tracking-wider hover:border-primary/30 hover:bg-primary/10 transition-all duration-200 whitespace-nowrap"
             >
-              <motion.span
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
-              >
-                {league.icon}
-              </motion.span>
+              <span>{league.icon}</span>
               <span>{league.name}</span>
-            </motion.button>
+            </button>
           ))}
         </div>
 
@@ -267,7 +260,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
           <span className="text-border">·</span>
           <span>Polish sources</span>
         </p>
-      </motion.div>
+      </div>
 
       {/* Content */}
       <div className="p-3 space-y-2">
@@ -287,27 +280,19 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
             ))}
           </div>
         ) : (
-          <>
-            <AnimatePresence>
-              {news.map((item, index) => (
-                <motion.div
-                  id={`news-item-${item.annotationId || item.id}`}
-                  key={item.id}
-                  initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{
-                    duration: 0.3,
-                    delay: index * 0.05,
-                    type: "spring",
-                    stiffness: 200
-                  }}
-                  onClick={() => handleNewsClick(item)}
-                  className={cn(
-                  "group relative bg-gradient-to-br from-accent/40 to-accent/20 border border-border rounded-xl p-3 cursor-pointer transition-all duration-300 hover:border-primary/30 hover:bg-accent/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/5",
-                  item.read ? "opacity-60" : ""
-                )}
-              >
+          news.map((item) => (
+            <div
+              id={`news-item-${item.annotationId || item.id}`}
+              key={item.id}
+              onClick={() => handleNewsClick(item)}
+              className={cn(
+                "group relative bg-accent/40 border border-border rounded-xl p-3 cursor-pointer transition-all duration-300 hover:border-primary/30 hover:bg-accent/60 hover:scale-[1.02]",
+                item.read ? "opacity-60" : ""
+              )}
+              style={{
+                animation: isOpen ? "fadeInUp 0.3s ease-out" : "none",
+              }}
+            >
               {/* League Indicator (Left Border) */}
               {item.league && getLeagueConfig(item.league) && (
                 <div
@@ -356,7 +341,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
 
                 {/* Meta Bar */}
                 <div className="flex items-center justify-between gap-3 mt-2 flex-wrap">
-                  {/* Source Button - Opens REAL post URL */}
+                  {/* Source Button - Opens REAL X post */}
                   <button
                     onClick={(e) => handleSourceClick(e, item)}
                     className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors"
@@ -390,10 +375,8 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
                   </div>
                 </div>
               </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-          </>
+            </div>
+          ))
         )}
 
         {news.length === 0 && !loading && !error && (
@@ -405,86 +388,22 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
         )}
       </div>
 
-      {/* Footer with source information */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="sticky bottom-0 z-10 bg-card/98 backdrop-blur-xl border-t border-border p-3"
-      >
-        <div className="flex flex-col gap-2">
-          {/* Source badges */}
-          <div className="flex items-center justify-center gap-2 flex-wrap">
-            <span className="text-[9px] text-muted-foreground font-medium">Live Sources:</span>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20"
-            >
-              <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              <span className="text-[9px] font-bold text-primary">Twitter/X</span>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20"
-            >
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[9px] font-bold text-emerald-500">RSS Feeds</span>
-            </motion.div>
-          </div>
-
-          {/* Specific sources */}
-          <div className="flex items-center justify-center gap-2 text-[9px] text-muted-foreground">
-            <span className="font-medium">Trusted:</span>
-            <motion.span
-              whileHover={{ scale: 1.1 }}
-              className="font-bold text-primary hover:underline cursor-pointer"
-              onClick={() => window.open('https://x.com/Meczykipl', '_blank')}
-            >
-              Meczyki.pl
-            </motion.span>
-            <span className="text-border">·</span>
-            <motion.span
-              whileHover={{ scale: 1.1 }}
-              className="font-bold text-primary hover:underline cursor-pointer"
-              onClick={() => window.open('https://x.com/weszlo', '_blank')}
-            >
-              Weszło
-            </motion.span>
-            <span className="text-border">·</span>
-            <motion.span
-              whileHover={{ scale: 1.1 }}
-              className="font-bold text-primary hover:underline cursor-pointer"
-              onClick={() => window.open('https://x.com/FabrizioRomano', '_blank')}
-            >
-              Romano
-            </motion.span>
-            <span className="text-border">·</span>
-            <motion.span
-              whileHover={{ scale: 1.1 }}
-              className="font-bold text-primary hover:underline cursor-pointer"
-              onClick={() => window.open('https://theathletic.com', '_blank')}
-            >
-              The Athletic
-            </motion.span>
-          </div>
-
-          {/* Data source indicator */}
-          <div className="flex items-center justify-center gap-1 text-[8px] text-muted-foreground">
-            <Globe className="w-3 h-3" />
-            <span className="font-medium">Real-time Data</span>
-            <span className="text-border">·</span>
-            <span className="font-medium">Updated:</span>
-            <motion.span
-              key={Date.now()} // Force re-render to show current time
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="font-bold"
-            >
-              {new Date().toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })}
-            </motion.span>
-          </div>
+      {/* Footer */}
+      <div className="sticky bottom-0 z-10 bg-card/98 backdrop-blur-xl border-t border-border p-3">
+        <div className="flex items-center justify-center gap-2 text-[9px] text-muted-foreground">
+          <span className="font-medium">Sources:</span>
+          <span className="font-bold text-primary">Meczyki.pl</span>
+          <span className="text-border">·</span>
+          <span className="font-bold text-primary">Weszło</span>
+          <span className="text-border">·</span>
+          <span className="font-bold text-primary">Transfery.info</span>
+          <span className="text-border">·</span>
+          <span className="font-bold text-primary">Romano</span>
+          <span className="text-border">·</span>
+          <span className="font-bold text-primary">The Athletic</span>
         </div>
-      </motion.div>
-    </div>
+      </div>,
+      document.body // Render at document.body with createPortal
+    )
   )
 }

@@ -6,6 +6,9 @@ export class StatoriumClient {
   private apiKey: string;
 
   constructor(apiKey: string) {
+    if (!apiKey || apiKey === 'undefined') {
+      throw new Error('STATORIUM_API_KEY is not set or is invalid. Please set it in .env.local');
+    }
     this.apiKey = apiKey;
   }
 

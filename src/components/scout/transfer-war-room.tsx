@@ -30,6 +30,17 @@ export function TransferWarRoom() {
   const [activeTab, setActiveTab] = useState('LIVE')
   const [search, setSearch] = useState('')
 
+  // Deterministic hash for consistent hydration
+  const getSuccessProbability = (id: string): number => {
+    let hash = 0
+    for (let i = 0; i < id.length; i++) {
+      hash = ((hash << 5) - hash) + id.charCodeAt(i)
+      hash = hash & hash // Convert to 32bit integer
+    }
+    const absHash = Math.abs(hash)
+    return 80 + (absHash % 20) // Returns 80-99
+  }
+
   return (
     <div className="min-h-screen bg-background p-8 lg:p-12 space-y-16">
       {/* Header */}
@@ -200,7 +211,7 @@ export function TransferWarRoom() {
                         <td className="px-8 py-6 text-right font-bold text-lg italic tracking-tight">{t.fee}</td>
                         <td className="px-8 py-6 text-center">
                           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 rounded-lg text-primary text-[10px] font-bold border border-primary/20">
-                            {Math.floor(Math.random() * 20) + 80}%
+                            {getSuccessProbability(t.id)}%
                           </div>
                         </td>
                       </tr>

@@ -6,13 +6,13 @@ import { useSearchParams } from "next/navigation"
 import {
   getAllTop5PlayersAction,
   getPlayerDataAction,
+  fetchAllLeaguePlayersAction,
 } from "@/app/actions/statorium"
+import { getWatchlist } from "@/app/actions/watchlist"
 import {
   StatoriumPlayerBasic,
   StatoriumSeasonStats,
 } from "@/lib/statorium/types"
-import { useHomeTeam } from "@/hooks/use-home-team"
-import { getTeamDetailsAction } from "@/app/actions/statorium"
 import { Badge } from "@/components/ui/badge"
 import {
   Users,
@@ -28,6 +28,7 @@ import {
   Hexagon,
   X,
   Search,
+  Star,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { MarketValue } from "@/components/scout/market-value"
@@ -42,37 +43,28 @@ function CompareContent() {
     null
   )
   const [allPlayers, setAllPlayers] = React.useState<StatoriumPlayerBasic[]>([])
-  const [homePlayers, setHomePlayers] = React.useState<any[]>([])
+  const [watchlist, setWatchlist] = React.useState<any[]>([])
   const [loading, setLoading] = React.useState(true)
-  const { homeTeam } = useHomeTeam()
 
   React.useEffect(() => {
-    async function loadHomePlayers() {
-      if (!homeTeam) return
+    async function loadWatchlist() {
       try {
-        const teamDetails = await getTeamDetailsAction(homeTeam.id, homeTeam.seasonId)
-        if (teamDetails?.players) {
-          setHomePlayers(teamDetails.players.map((p: any) => ({
-            ...p,
-            playerID: p.playerID,
-            fullName: p.fullName,
-            teamName: homeTeam.name,
-            teamLogo: homeTeam.logo
-          })))
-        }
+        const watchlistData = await getWatchlist()
+        setWatchlist(watchlistData || [])
       } catch (e) {
-        console.error('Failed to load home players', e)
+        console.error('Failed to load watchlist', e)
+        setWatchlist([])
       }
     }
-    loadHomePlayers()
-  }, [homeTeam])
+    loadWatchlist()
+  }, [])
 
   React.useEffect(() => {
     async function loadPlayers() {
       setLoading(true)
 
       try {
-        const players = await getAllTop5PlayersAction()
+        const players = await fetchAllLeaguePlayersAction()
         setAllPlayers(players)
 
         const p1Id = searchParams.get("p1")
@@ -187,18 +179,6 @@ function CompareContent() {
               </p>
             </div>
           </div>
-          
-          {homeTeam && (
-            <div className="flex items-center gap-4 px-6 py-3 border border-primary/20 bg-primary/5 rounded-2xl">
-              <div className="relative w-10 h-10 shrink-0">
-                <Image src={homeTeam.logo} alt={homeTeam.name} fill className="object-contain" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Home Context</p>
-                <p className="text-sm font-black uppercase truncate text-white">{homeTeam.name}</p>
-              </div>
-            </div>
-          )}
         </div>
       </div>
 
@@ -221,10 +201,10 @@ function CompareContent() {
             {!player1 ? (
               <PlayerSelector
                 players={allPlayers}
+                watchlist={watchlist}
                 selectedPlayer={player2}
                 onSelect={handleSelectPlayer1}
                 placeholder="Select target player..."
-                homePlayers={homePlayers}
               />
             ) : (
               <PlayerCard player={player1} onClear={() => setPlayer1(null)} />
@@ -241,10 +221,10 @@ function CompareContent() {
             {!player2 ? (
               <PlayerSelector
                 players={allPlayers}
+                watchlist={watchlist}
                 selectedPlayer={player1}
                 onSelect={handleSelectPlayer2}
                 placeholder="Select comparison target..."
-                homePlayers={homePlayers}
               />
             ) : (
               <PlayerCard player={player2} onClear={() => setPlayer2(null)} />
@@ -651,40 +631,65 @@ function ComparisonRow({
 
 function PlayerSelector({
   players,
+  watchlist,
   selectedPlayer,
   onSelect,
   placeholder,
-  homePlayers = [],
 }: {
   players: StatoriumPlayerBasic[]
+  watchlist: any[]
   selectedPlayer: StatoriumPlayerBasic | null
   onSelect: (player: StatoriumPlayerBasic) => void
   placeholder: string
-  homePlayers?: any[]
 }) {
   const [search, setSearch] = React.useState("")
   const [open, setOpen] = React.useState(false)
+  const [debouncedSearch, setDebouncedSearch] = React.useState("")
+
+  // Debounce logic (300ms)
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search)
+    }, 300)
+    return () => clearTimeout(timer)
+  }, [search])
 
   const filteredPlayers = React.useMemo(() => {
+    // Normalize function for accents removal
+    const normalizeString = (str: string) => {
+      return str
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+    }
+
+    const normalizedSearch = normalizeString(debouncedSearch)
+
+    const watchlistIds = new Set(watchlist.map(w => w.player_id))
+
     const seenIds = new Set()
     return players
       .filter((p) => {
         if (seenIds.has(p.playerID)) return false
         seenIds.add(p.playerID)
+
+        const normalizedName = normalizeString(p.fullName)
+        const normalizedTeam = p.teamName ? normalizeString(p.teamName) : ''
+
         return (
           selectedPlayer?.playerID !== p.playerID &&
-          (p.fullName.toLowerCase().includes(search.toLowerCase()) ||
-            p.teamName?.toLowerCase().includes(search.toLowerCase()))
+          (normalizedName.includes(normalizedSearch) ||
+            normalizedTeam.includes(normalizedSearch))
         )
       })
       .slice(0, 50)
-  }, [players, search, selectedPlayer])
+  }, [players, debouncedSearch, selectedPlayer, watchlist])
 
   return (
     <div className="relative">
       <input
         type="text"
-        placeholder={placeholder}
+        placeholder="Search players..."
         value={search}
         onChange={(e) => {
           setSearch(e.target.value)
@@ -697,34 +702,114 @@ function PlayerSelector({
 
       {open && (
         <div className="absolute z-50 mt-2 max-h-96 w-full animate-in overflow-y-auto rounded-[2rem] border border-white/10 bg-zinc-900/95 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] backdrop-blur-2xl fade-in slide-in-from-top-2">
-          {homePlayers.length > 0 && !search && (
-            <div className="border-b border-white/5 p-6 bg-primary/5">
-              <h4 className="text-[10px] font-black tracking-[0.2em] text-primary uppercase mb-3">Home Context Roster</h4>
-              <div className="flex flex-wrap gap-2">
-                {homePlayers.slice(0, 5).map(p => (
-                  <Button 
-                    key={p.playerID} 
-                    variant="outline" 
-                    size="sm" 
-                    className="h-8 text-[10px] font-bold border-white/10 bg-zinc-900 hover:bg-primary/10 hover:border-primary/30 text-zinc-300 hover:text-primary rounded-xl"
-                    onClick={() => {
-                      onSelect(p)
-                      setOpen(false)
-                    }}
-                  >
-                    {p.fullName}
-                  </Button>
-                ))}
-              </div>
-            </div>
-          )}
-          {filteredPlayers.length === 0 ? (
-            <div className="p-10 text-center text-[10px] font-black tracking-widest text-muted-foreground uppercase italic">
-              {search.length >= 2
-                ? "No performance data found"
-                : "Type at least 2 chars..."}
-            </div>
+          {/* Show watchlist when no search typed */}
+          {debouncedSearch.length === 0 ? (
+            <>
+              {watchlist.length > 0 ? (
+                <div className="border-b border-white/5 p-4 bg-primary/5">
+                  <h4 className="text-[10px] font-black tracking-[0.2em] text-primary uppercase mb-3">Your Watchlist</h4>
+                  {watchlist.slice(0, 20).map(w => (
+                    <button
+                      key={w.player_id}
+                      onClick={() => {
+                        const player = players.find(p => String(p.playerID) === w.player_id)
+                        if (player) {
+                          onSelect(player)
+                          setOpen(false)
+                          setSearch("")
+                        }
+                      }}
+                      className="group flex w-full items-center gap-4 border-b border-white/5 p-3 text-left transition-all duration-300 last:border-0 hover:bg-white/5"
+                    >
+                      <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-zinc-950 shadow-lg">
+                        {w.player_photo ? (
+                          <Image
+                            src={w.player_photo}
+                            alt={w.player_name}
+                            fill
+                            unoptimized
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className="absolute inset-0 flex h-full w-full items-center justify-center bg-zinc-800">
+                            <UserCircle className="h-6 w-6 text-zinc-500" />
+                          </div>
+                        )}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="truncate text-sm font-black tracking-tighter text-foreground uppercase italic">
+                          {w.player_name}
+                        </div>
+                        {w.club && (
+                          <div className="mt-1 text-xs font-bold tracking-tight text-muted-foreground uppercase truncate">
+                            {w.club}
+                          </div>
+                        )}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <div className="p-10 text-center text-[10px] font-black tracking-widest text-muted-foreground uppercase italic">
+                  Your watchlist is empty. Add players to start scouting!
+                </div>
+              )}
+            </>
+          ) : filteredPlayers.length === 0 ? (
+            /* Fallback to watchlist if no results found */
+            <>
+              {watchlist.length > 0 ? (
+                <div className="border-b border-white/5 p-4 bg-primary/5">
+                  <h4 className="text-[10px] font-black tracking-[0.2em] text-primary uppercase mb-3">Your Watchlist</h4>
+                  {watchlist.map(w => (
+                    <button
+                      key={w.player_id}
+                      onClick={() => {
+                        const player = players.find(p => String(p.playerID) === w.player_id)
+                        if (player) {
+                          onSelect(player)
+                          setOpen(false)
+                          setSearch("")
+                        }
+                      }}
+                      className="group flex w-full items-center gap-4 border-b border-white/5 p-3 text-left transition-all duration-300 last:border-0 hover:bg-white/5"
+                    >
+                      <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-zinc-950 shadow-lg">
+                        {w.player_photo ? (
+                          <Image
+                            src={w.player_photo}
+                            alt={w.player_name}
+                            fill
+                            unoptimized
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className="absolute inset-0 flex h-full w-full items-center justify-center bg-zinc-800">
+                            <UserCircle className="h-6 w-6 text-zinc-500" />
+                          </div>
+                        )}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="truncate text-sm font-black tracking-tighter text-foreground uppercase italic">
+                          {w.player_name}
+                        </div>
+                        {w.club && (
+                          <div className="mt-1 text-xs font-bold tracking-tight text-muted-foreground uppercase truncate">
+                            {w.club}
+                          </div>
+                        )}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <div className="p-10 text-center text-[10px] font-black tracking-widest text-muted-foreground uppercase italic">
+                  No players found
+                </div>
+              )}
+            </>
           ) : (
+            /* Show filtered results (search with 1+ chars) */
             filteredPlayers.map((player) => (
               <button
                 key={player.playerID}
@@ -766,8 +851,15 @@ function PlayerSelector({
                   )}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="truncate text-lg font-black tracking-tighter text-foreground uppercase italic transition-colors group-hover:text-primary">
-                    {player.fullName}
+                  <div className="flex items-center gap-2">
+                    <div className="truncate text-lg font-black tracking-tighter text-foreground uppercase italic transition-colors group-hover:text-primary">
+                      {player.fullName}
+                    </div>
+                    {new Set(watchlist.map(w => w.player_id)).has(String(player.playerID)) && (
+                      <div className="shrink-0 px-2 py-0.5 bg-primary/20 rounded-md">
+                        <Star className="w-3 h-3 text-primary fill-current" />
+                      </div>
+                    )}
                   </div>
                   <div className="mt-1 flex flex-wrap items-center gap-2 text-xs font-bold tracking-tight text-muted-foreground uppercase">
                     {player.position && (
@@ -792,13 +884,6 @@ function PlayerSelector({
             ))
           )}
         </div>
-      )}
-
-      {open && (
-        <div
-          className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm"
-          onClick={() => setOpen(false)}
-        />
       )}
     </div>
   )
