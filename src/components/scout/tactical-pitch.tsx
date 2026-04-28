@@ -198,7 +198,23 @@ function isPos(p: any, short: string, long: string) {
 
 function getStat(player: any, keys: string[]) {
   const stats = Array.isArray(player.stat) ? player.stat : [];
-  return stats.reduce((acc: number, s: any) => {
+  // Filter for current season 25/26
+  const currentSeasonStats = stats.filter((s: any) => 
+    (s.season_name && (
+      s.season_name.includes('2025-26') || 
+      s.season_name.includes('2025/26') ||
+      s.season_name.includes('25-26') || 
+      s.season_name.includes('25/26') ||
+      s.season_name.includes('2025-2026') ||
+      s.season_name.includes('2025/2026')
+    )) ||
+    // Fallback: If no season name matches but it's the only stat
+    (stats.length === 1)
+  );
+  
+  const targetStats = currentSeasonStats.length > 0 ? currentSeasonStats : [];
+
+  return targetStats.reduce((acc: number, s: any) => {
     let val = 0;
     for (const k of keys) {
       const actualKey = Object.keys(s).find(sk => sk.toLowerCase() === k.toLowerCase());
