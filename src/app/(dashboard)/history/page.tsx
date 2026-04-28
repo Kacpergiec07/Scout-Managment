@@ -49,7 +49,8 @@ export default function HistoryPage() {
           }, [])
 
           const transformedData = uniqueData.map((item: any) => ({
-            id: item.id, // Use the database record id as unique key
+            id: item.player_id || item.id, // Use actual player_id for analysis
+            dbId: item.id, // Keep database id for restore operations
             player: item.player_name,
             club: item.club || 'Unknown Club',
             league: item.league || 'Unknown League',
@@ -113,13 +114,13 @@ export default function HistoryPage() {
       })
   }, [searchQuery, sortBy, history])
 
-  const handleRestore = async (recordId: string, playerName: string) => {
-    setRestoringId(recordId)
+  const handleRestore = async (dbId: string, playerName: string) => {
+    setRestoringId(dbId)
     try {
-      const result = await updateWatchlistStatus(recordId, 'following')
+      const result = await updateWatchlistStatus(dbId, 'following')
       if (result.success) {
         // Remove the player from history list
-        setHistory(prev => prev.filter(item => item.id !== recordId))
+        setHistory(prev => prev.filter(item => item.dbId !== dbId))
       } else {
         console.error('Failed to restore player:', result.error)
         alert(`Failed to restore ${playerName}: ${result.error}`)
@@ -348,8 +349,8 @@ export default function HistoryPage() {
 
                     {/* Restore Button */}
                     <button
-                      onClick={() => handleRestore(record.id, record.player)}
-                      disabled={restoringId === record.id}
+                      onClick={() => handleRestore(record.dbId, record.player)}
+                      disabled={restoringId === record.dbId}
                       className="relative group"
                       title="Restore to watchlist"
                     >
@@ -359,10 +360,10 @@ export default function HistoryPage() {
                           relative h-10 w-10 rounded-full bg-[#00ff88] flex items-center justify-center
                           shadow-lg shadow-[#00ff88]/20 hover:shadow-[#00ff88]/40
                           transition-all duration-300
-                          ${restoringId === record.id ? 'opacity-70 cursor-not-allowed' : 'hover:scale-110 active:scale-95'}
+                          ${restoringId === record.dbId ? 'opacity-70 cursor-not-allowed' : 'hover:scale-110 active:scale-95'}
                         `}
                       >
-                        {restoringId === record.id ? (
+                        {restoringId === record.dbId ? (
                           <Loader2 className="h-5 w-5 text-black animate-spin" />
                         ) : (
                           <RefreshCw className="h-5 w-5 text-black" />

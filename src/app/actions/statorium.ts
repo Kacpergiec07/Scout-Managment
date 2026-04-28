@@ -9,6 +9,8 @@ import { PLAYER_PHOTOS, VERIFIED_TRANSFERS } from '@/lib/statorium-data';
 
 import { createClient } from '@/lib/supabase/server';
 import { getCachedPlayersByTeam } from './sync';
+import * as fs from 'fs';
+import * as path from 'path';
 
 let clientInstance: StatoriumClient | null = null;
 
@@ -893,6 +895,27 @@ export async function getAllTop5PlayersAction() {
 export async function getPlayerDetailsAction(playerId: string) {
   if (!playerId) return null;
   try {
+    const localCachePath = path.join(process.cwd(), 'scratch', 'cache', `player_${playerId}.json`);
+    if (fs.existsSync(localCachePath)) {
+      try {
+        console.log(`[getPlayerDetailsAction] 🎯 Using local harvested cache for player ${playerId}`);
+        const cachedData = JSON.parse(fs.readFileSync(localCachePath, 'utf8'));
+        const playerData = cachedData.player || cachedData;
+        if (playerData && playerData.stat) {
+          return {
+            playerID: playerData.playerID || playerId,
+            fullName: playerData.fullName || playerData.shortName,
+            position: resolvePosition(playerData.position || playerData.additionalInfo?.position, playerId),
+            photo: resolvePlayerPhoto(playerData),
+            stat: playerData.stat || [],
+            additionalInfo: playerData.additionalInfo || {}
+          };
+        }
+      } catch (e) {
+        console.warn(`[getPlayerDetailsAction] Failed to read local cache for ${playerId}`);
+      }
+    }
+
     const supabase = await createClient();
     const { data: cachedPlayer } = await supabase
       .from('cached_players')
@@ -1070,6 +1093,22 @@ export async function getPlayerDataAction(playerId: string, timeoutMs: number = 
   const timestamp = Date.now(); // Force cache busting
 
   try {
+    // 0. Check local harvested cache first
+    const localCachePath = path.join(process.cwd(), 'scratch', 'cache', `player_${playerId}.json`);
+    if (fs.existsSync(localCachePath)) {
+      try {
+        console.log(`[getPlayerDataAction] 🎯 Using local harvested cache for player ${playerId}`);
+        const cachedData = JSON.parse(fs.readFileSync(localCachePath, 'utf8'));
+        // Local cache structure might be slightly different, ensure we return the right object
+        const playerData = cachedData.player || cachedData;
+        if (playerData && playerData.stat) {
+          return playerData;
+        }
+      } catch (e) {
+        console.warn(`[getPlayerDataAction] Failed to read local cache for ${playerId}, falling back to API`);
+      }
+    }
+
     const apiKey = process.env.STATORIUM_API_KEY;
     const url = `https://api.statorium.com/api/v1/players/${playerId}/?apikey=${apiKey}&showstat=true&_t=${timestamp}`;
 

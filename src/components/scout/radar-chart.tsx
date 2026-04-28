@@ -10,15 +10,23 @@ import {
 import { ScoutProPlayer } from '@/lib/types/player'
 
 export function PlayerRadarChart({ player }: { player: ScoutProPlayer }) {
+  const stats = (player as any).normalizedStats || {
+    offensive: Math.min(100, (player.stats.offensive.goals * 10) + (player.stats.offensive.assists * 5) + 55),
+    defensive: player.stats.defensive.tackles,
+    tactical: player.stats.tactical.progressivePasses,
+    physical: player.stats.physical.stamina,
+    dribbling: player.stats.tactical.dribbles,
+    passing: player.stats.tactical.passAccuracy
+  };
+
   const chartData = [
-    { category: 'Offensive', value: player.stats.offensive.goals + player.stats.offensive.assists },
-    { category: 'xG/xA', value: player.stats.offensive.xG + player.stats.offensive.xA },
-    { category: 'Tackles', value: player.stats.defensive.tackles },
-    { category: 'Interceptions', value: player.stats.defensive.interceptions },
-    { category: 'Dribbles', value: player.stats.tactical.dribbles },
-    { category: 'Passing', value: player.stats.tactical.passAccuracy },
-    { category: 'Progressive', value: player.stats.tactical.progressivePasses },
-    { category: 'Stamina', value: player.stats.physical.stamina },
+    { category: 'Offensive', value: stats.offensive },
+    { category: 'Defensive', value: stats.defensive },
+    { category: 'Tactical', value: stats.tactical },
+    { category: 'Physical', value: stats.physical },
+    { category: 'Dribbling', value: stats.dribbling },
+    { category: 'Passing', value: stats.passing },
+    { category: 'Rating', value: (player as any).rating || 80 },
   ]
 
   const chartConfig = {

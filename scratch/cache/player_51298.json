@@ -1,0 +1,1842 @@
+{
+  "playerID": 51298,
+  "firstName": "Santiago",
+  "lastName": "Hidalgo Massa",
+  "shortName": "S. Hidalgo",
+  "fullName": "Santiago Hidalgo",
+  "homeName": "Santiago Hidalgo Massa",
+  "country": {
+    "name": "Argentina",
+    "id": 11
+  },
+  "currentTeam": {
+    "name": null,
+    "id": 0
+  },
+  "photo": "",
+  "additionalInfo": {
+    "height": "171 cm",
+    "weight": "71 kg",
+    "position": 4,
+    "Fantasy Value": null,
+    "birthdate": "17-02-2005  (21)"
+  },
+  "teams": [],
+  "stat": [
+    {
+      "season_name": "FRANCE: Coupe de France 2025-26",
+      "season_id": 603,
+      "team_name": "Toulouse FC",
+      "played": 3,
+      "career_lineup": 2,
+      "career_minutes": 195,
+      "career_subsin": 1,
+      "career_subsout": 2,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 2,
+      "Assist": 0,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 2,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "FRANCE: Ligue 1 2025-26",
+      "season_id": 519,
+      "team_name": "Toulouse FC",
+      "played": 26,
+      "career_lineup": 12,
+      "career_minutes": 1143,
+      "career_subsin": 14,
+      "career_subsout": 9,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 4,
+      "Assist": 5,
+      "Yellow card": 4,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 4,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ARGENTINA: Liga Profesional Clausura 2025",
+      "season_id": 508,
+      "team_name": "Club Atlético Independiente",
+      "played": 1,
+      "career_lineup": 0,
+      "career_minutes": 10,
+      "career_subsin": 1,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 0,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ARGENTINA: Liga Profesional Apertura 2025",
+      "season_id": 472,
+      "team_name": "Club Atlético Independiente",
+      "played": 9,
+      "career_lineup": 5,
+      "career_minutes": 509,
+      "career_subsin": 4,
+      "career_subsout": 4,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 2,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 1
+    },
+    {
+      "season_name": "ARGENTINA: Liga Profesional 2024",
+      "season_id": 328,
+      "team_name": "Club Atlético Independiente",
+      "played": 15,
+      "career_lineup": 8,
+      "career_minutes": 728,
+      "career_subsin": 7,
+      "career_subsout": 7,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 1,
+      "Assist": 2,
+      "Yellow card": 3,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 1,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    },
+    {
+      "season_name": "ARGENTINA: Liga Profesional 2023",
+      "season_id": 239,
+      "team_name": "Club Atlético Independiente",
+      "played": 11,
+      "career_lineup": 0,
+      "career_minutes": 159,
+      "career_subsin": 11,
+      "career_subsout": 0,
+      "1 Point (basketball)": 0,
+      "2 Points (basketball)": 0,
+      "3 Points (basketball)": 0,
+      "Points (basketball)": 0,
+      "Goals": 0,
+      "Assist": 0,
+      "Yellow card": 1,
+      "Second yellow": 0,
+      "Red card": 0,
+      "Own goal": 0,
+      "Penalty goal": 0,
+      "Missed penalty": 0,
+      "Goal": 0,
+      "Penalty shootout scored": 0,
+      "Penalty shootout missed": 0
+    }
+  ],
+  "matches": [
+    {
+      "matchID": 124302,
+      "matchDate": "2026-04-25",
+      "matchTime": "19:05",
+      "minutes_played": 79,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 2,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 76,
+        "score": 2,
+        "participantName": "AS Monaco",
+        "teamShortName": "ASM",
+        "teamMiddleName": "Monaco",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163762842259.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 146451,
+      "matchDate": "2026-04-21",
+      "matchTime": "19:10",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 4,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 1,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "21"
+        }
+      ]
+    },
+    {
+      "matchID": 124286,
+      "matchDate": "2026-04-17",
+      "matchTime": "18:45",
+      "minutes_played": 46,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 546,
+        "score": 3,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 2,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "13"
+        }
+      ]
+    },
+    {
+      "matchID": 124284,
+      "matchDate": "2026-04-12",
+      "matchTime": "15:15",
+      "minutes_played": 14,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 0,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 69,
+        "score": 4,
+        "participantName": "LOSC Lille",
+        "teamShortName": "LIL",
+        "teamMiddleName": "Lille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766862077.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124266,
+      "matchDate": "2026-03-21",
+      "matchTime": "16:00",
+      "minutes_played": 65,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 1,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 545,
+        "score": 0,
+        "participantName": "FC Lorient",
+        "teamShortName": "FCL",
+        "teamMiddleName": "Lorient",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376354282.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "5"
+        }
+      ]
+    },
+    {
+      "matchID": 124253,
+      "matchDate": "2026-03-15",
+      "matchTime": "16:15",
+      "minutes_played": 76,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 120,
+        "score": 3,
+        "participantName": "FC Metz",
+        "teamShortName": "FCM",
+        "teamMiddleName": "Metz",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163763902785.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 4,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "14"
+        }
+      ]
+    },
+    {
+      "matchID": 124248,
+      "matchDate": "2026-03-07",
+      "matchTime": "20:05",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 0,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 59,
+        "score": 1,
+        "participantName": "Olympique de Marseille",
+        "teamShortName": "OLM",
+        "teamMiddleName": "Marseille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766362986.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124238,
+      "matchDate": "2026-02-28",
+      "matchTime": "16:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 67,
+        "score": 1,
+        "participantName": "Stade Rennais FC",
+        "teamShortName": "REN",
+        "teamMiddleName": "Rennes",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163764402365.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 0,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124230,
+      "matchDate": "2026-02-21",
+      "matchTime": "18:00",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 1,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 628,
+        "score": 1,
+        "participantName": "Paris FC",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Paris",
+        "logo": "https://api.statorium.com/media/bearleague/bl15979293751734.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "87"
+        }
+      ]
+    },
+    {
+      "matchID": 124213,
+      "matchDate": "2026-02-15",
+      "matchTime": "14:00",
+      "minutes_played": 60,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 625,
+        "score": 2,
+        "participantName": "Le Havre AC",
+        "teamShortName": "HAC",
+        "teamMiddleName": "Le Havre",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376708665.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 1,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "88"
+        }
+      ]
+    },
+    {
+      "matchID": 124204,
+      "matchDate": "2026-02-08",
+      "matchTime": "16:15",
+      "minutes_played": 74,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 70,
+        "score": 1,
+        "participantName": "Angers SCO",
+        "teamShortName": "ANG",
+        "teamMiddleName": "Angers",
+        "logo": "https://api.statorium.com/media/bearleague/bl17193504121110.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 0,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 141707,
+      "matchDate": "2026-02-04",
+      "matchTime": "19:30",
+      "minutes_played": 34,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 1,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 71,
+        "score": 0,
+        "participantName": "Amiens SC",
+        "teamShortName": "AMI",
+        "teamMiddleName": "Amiens",
+        "logo": "https://api.statorium.com/media/bearleague/bl16667444732578.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124203,
+      "matchDate": "2026-02-01",
+      "matchTime": "16:15",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 0,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 619,
+        "score": 0,
+        "participantName": "AJ Auxerre",
+        "teamShortName": "AJA",
+        "teamMiddleName": "Auxerre",
+        "logo": "https://api.statorium.com/media/bearleague/bl15979273992750.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124187,
+      "matchDate": "2026-01-25",
+      "matchTime": "16:15",
+      "minutes_played": 80,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 121,
+        "score": 0,
+        "participantName": "Stade Brestois 29",
+        "teamShortName": "STB",
+        "teamMiddleName": "Brest",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376492975.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 2,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124185,
+      "matchDate": "2026-01-17",
+      "matchTime": "18:00",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 5,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 64,
+        "score": 1,
+        "participantName": "OGC Nice",
+        "teamShortName": "NCE",
+        "teamMiddleName": "Nice",
+        "logo": "https://api.statorium.com/media/bearleague/bl171637666030.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "7"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "55"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "61"
+        }
+      ]
+    },
+    {
+      "matchID": 140151,
+      "matchDate": "2026-01-10",
+      "matchTime": "14:30",
+      "minutes_played": 85,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 70,
+        "score": 1,
+        "participantName": "Angers SCO",
+        "teamShortName": "ANG",
+        "teamMiddleName": "Angers",
+        "logo": "https://api.statorium.com/media/bearleague/bl17193504121110.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 1,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "47"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "68"
+        }
+      ]
+    },
+    {
+      "matchID": 124176,
+      "matchDate": "2026-01-02",
+      "matchTime": "19:45",
+      "minutes_played": 27,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 0,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 546,
+        "score": 3,
+        "participantName": "Racing Club de Lens",
+        "teamShortName": "RCL",
+        "teamMiddleName": "Lens",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765371313.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124165,
+      "matchDate": "2025-12-13",
+      "matchTime": "20:05",
+      "minutes_played": 63,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 628,
+        "score": 0,
+        "participantName": "Paris FC",
+        "teamShortName": "PAR",
+        "teamMiddleName": "Paris",
+        "logo": "https://api.statorium.com/media/bearleague/bl15979293751734.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 3,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "29"
+        }
+      ]
+    },
+    {
+      "matchID": 124158,
+      "matchDate": "2025-12-06",
+      "matchTime": "18:00",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 1,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 68,
+        "score": 0,
+        "participantName": "RC Strasbourg Alsace",
+        "teamShortName": "STR",
+        "teamMiddleName": "Strasbourg",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765141904.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124145,
+      "matchDate": "2025-11-29",
+      "matchTime": "20:05",
+      "minutes_played": 1,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 59,
+        "score": 2,
+        "participantName": "Olympique de Marseille",
+        "teamShortName": "OLM",
+        "teamMiddleName": "Marseille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766362986.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 2,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "90+2"
+        }
+      ]
+    },
+    {
+      "matchID": 124125,
+      "matchDate": "2025-11-09",
+      "matchTime": "14:00",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 545,
+        "score": 1,
+        "participantName": "FC Lorient",
+        "teamShortName": "FCL",
+        "teamMiddleName": "Lorient",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376354282.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 1,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124102,
+      "matchDate": "2025-10-25",
+      "matchTime": "17:00",
+      "minutes_played": 17,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 76,
+        "score": 1,
+        "participantName": "AS Monaco",
+        "teamShortName": "ASM",
+        "teamMiddleName": "Monaco",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163762842259.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 0,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124095,
+      "matchDate": "2025-10-19",
+      "matchTime": "15:15",
+      "minutes_played": 14,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 4,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 120,
+        "score": 0,
+        "participantName": "FC Metz",
+        "teamShortName": "FCM",
+        "teamMiddleName": "Metz",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163763902785.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124082,
+      "matchDate": "2025-10-05",
+      "matchTime": "13:00",
+      "minutes_played": 12,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 61,
+        "score": 1,
+        "participantName": "Olympique Lyonnais",
+        "teamShortName": "LYO",
+        "teamMiddleName": "Lyon",
+        "logo": "https://api.statorium.com/media/bearleague/bl1719350250782.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 2,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124060,
+      "matchDate": "2025-09-21",
+      "matchTime": "15:15",
+      "minutes_played": 8,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 619,
+        "score": 1,
+        "participantName": "AJ Auxerre",
+        "teamShortName": "AJA",
+        "teamMiddleName": "Auxerre",
+        "logo": "https://api.statorium.com/media/bearleague/bl15979273992750.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 0,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "90+4"
+        }
+      ]
+    },
+    {
+      "matchID": 124053,
+      "matchDate": "2025-09-14",
+      "matchTime": "13:00",
+      "minutes_played": 55,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 69,
+        "score": 2,
+        "participantName": "LOSC Lille",
+        "teamShortName": "LIL",
+        "teamMiddleName": "Lille",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163766862077.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 1,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124050,
+      "matchDate": "2025-08-30",
+      "matchTime": "19:05",
+      "minutes_played": 20,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 3,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 66,
+        "score": 6,
+        "participantName": "Paris Saint-Germain",
+        "teamShortName": "PSG",
+        "teamMiddleName": "PSG",
+        "logo": "https://api.statorium.com/media/bearleague/bl17163765602938.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "90+1"
+        }
+      ]
+    },
+    {
+      "matchID": 124041,
+      "matchDate": "2025-08-24",
+      "matchTime": "15:15",
+      "minutes_played": 7,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 63,
+        "score": 2,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "awayParticipant": {
+        "participantID": 121,
+        "score": 0,
+        "participantName": "Stade Brestois 29",
+        "teamShortName": "STB",
+        "teamMiddleName": "Brest",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376492975.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 124031,
+      "matchDate": "2025-08-16",
+      "matchTime": "19:05",
+      "minutes_played": 14,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 64,
+        "score": 0,
+        "participantName": "OGC Nice",
+        "teamShortName": "NCE",
+        "teamMiddleName": "Nice",
+        "logo": "https://api.statorium.com/media/bearleague/bl171637666030.webp"
+      },
+      "awayParticipant": {
+        "participantID": 63,
+        "score": 1,
+        "participantName": "Toulouse FC",
+        "teamShortName": "TOU",
+        "teamMiddleName": "Toulouse",
+        "logo": "https://api.statorium.com/media/bearleague/bl1716376748961.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "89"
+        }
+      ]
+    },
+    {
+      "matchID": 118869,
+      "matchDate": "2025-07-13",
+      "matchTime": "17:15",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1851,
+        "score": 2,
+        "participantName": "Club Atlético Sarmiento",
+        "teamShortName": "CAS",
+        "teamMiddleName": "Sarmiento",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775581551572.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 2,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 118443,
+      "matchDate": "2025-05-24",
+      "matchTime": "21:30",
+      "minutes_played": 27,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1844,
+        "score": 0,
+        "participantName": "Club Atlético Huracán",
+        "teamShortName": "HUR",
+        "teamMiddleName": "Huracán",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775572592945.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 20,
+          "eventName": "Penalty shootout missed",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "matchID": 108576,
+      "matchDate": "2025-05-01",
+      "matchTime": "00:00",
+      "minutes_played": 57,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1858,
+        "score": 2,
+        "participantName": "Club Atlético Tucumán",
+        "teamShortName": "CAT",
+        "teamMiddleName": "Atlético Tucumán",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775589481804.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 108629,
+      "matchDate": "2025-04-13",
+      "matchTime": "21:00",
+      "minutes_played": 30,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 2,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 3375,
+        "score": 0,
+        "participantName": "San Martín de San Juan",
+        "teamShortName": "SMA",
+        "teamMiddleName": "San Martín de San Juan",
+        "logo": "https://api.statorium.com/media/bearleague/bl17364316232423.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 108554,
+      "matchDate": "2025-04-06",
+      "matchTime": "18:30",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1842,
+        "score": 1,
+        "participantName": "Club Atlético Lanús",
+        "teamShortName": "LAN",
+        "teamMiddleName": "Lanús",
+        "logo": "https://api.statorium.com/media/bearleague/bl1677557048270.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 1,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 108541,
+      "matchDate": "2025-03-29",
+      "matchTime": "21:45",
+      "minutes_played": 71,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 4,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1850,
+        "score": 0,
+        "participantName": "Club Deportivo Godoy Cruz Antonio Tomba",
+        "teamShortName": "GOD",
+        "teamMiddleName": "Godoy Cruz",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775579692600.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "26"
+        }
+      ]
+    },
+    {
+      "matchID": 108526,
+      "matchDate": "2025-03-16",
+      "matchTime": "19:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 1,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 407,
+        "score": 1,
+        "participantName": "Racing Club de Avellaneda",
+        "teamShortName": "RAC",
+        "teamMiddleName": "Racing Club",
+        "logo": "https://api.statorium.com/media/bearleague/bl15786509972943.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 108507,
+      "matchDate": "2025-03-08",
+      "matchTime": "20:00",
+      "minutes_played": 89,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1843,
+        "score": 1,
+        "participantName": "Club Atlético San Lorenzo de Almagro",
+        "teamShortName": "SLA",
+        "teamMiddleName": "San Lorenzo",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775571812654.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 2,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 108500,
+      "matchDate": "2025-03-04",
+      "matchTime": "22:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1856,
+        "score": 0,
+        "participantName": "Club Atlético Banfield",
+        "teamShortName": "BAN",
+        "teamMiddleName": "Banfield",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775586272244.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 108481,
+      "matchDate": "2025-02-22",
+      "matchTime": "21:00",
+      "minutes_played": 35,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 2,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1846,
+        "score": 0,
+        "participantName": "Instituto Atlético Central Córdoba",
+        "teamShortName": "IACC",
+        "teamMiddleName": "Instituto ACC",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775575202184.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "85"
+        }
+      ]
+    },
+    {
+      "matchID": 77111,
+      "matchDate": "2024-12-14",
+      "matchTime": "22:15",
+      "minutes_played": 66,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 413,
+        "score": 0,
+        "participantName": "Club Atlético Boca Juniors",
+        "teamShortName": "BOC",
+        "teamMiddleName": "Boca Juniors",
+        "logo": "https://api.statorium.com/media/bearleague/bl15786518502272.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 77101,
+      "matchDate": "2024-12-10",
+      "matchTime": "00:30",
+      "minutes_played": "90",
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 2,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1858,
+        "score": 1,
+        "participantName": "Club Atlético Tucumán",
+        "teamShortName": "CAT",
+        "teamMiddleName": "Atlético Tucumán",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775589481804.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "75"
+        }
+      ]
+    },
+    {
+      "matchID": 77087,
+      "matchDate": "2024-12-01",
+      "matchTime": "20:00",
+      "minutes_played": 64,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 2,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1859,
+        "score": 0,
+        "participantName": "Central Córdoba de Santiago del Estero",
+        "teamShortName": "CC",
+        "teamMiddleName": "Central Córdoba",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775591092090.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 2,
+          "eventName": "Assist",
+          "minutes": "4"
+        },
+        {
+          "eventID": 1,
+          "eventName": "Goal",
+          "minutes": "44"
+        },
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "64"
+        }
+      ]
+    },
+    {
+      "matchID": 77074,
+      "matchDate": "2024-11-26",
+      "matchTime": "22:00",
+      "minutes_played": 82,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1848,
+        "score": 2,
+        "participantName": "Club Atlético Newell's Old Boys",
+        "teamShortName": "NOB",
+        "teamMiddleName": "Newells Old Boys",
+        "logo": "https://api.statorium.com/media/bearleague/bl17053297942426.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 1,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "49"
+        }
+      ]
+    },
+    {
+      "matchID": 77059,
+      "matchDate": "2024-11-21",
+      "matchTime": "22:15",
+      "minutes_played": 75,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 1,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1854,
+        "score": 0,
+        "participantName": "Club de Gimnasia y Esgrima La Plata",
+        "teamShortName": "GLP",
+        "teamMiddleName": "Gimnasia LP",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775584672519.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 77044,
+      "matchDate": "2024-11-10",
+      "matchTime": "00:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1844,
+        "score": 1,
+        "participantName": "Club Atlético Huracán",
+        "teamShortName": "HUR",
+        "teamMiddleName": "Huracán",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775572592945.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 77031,
+      "matchDate": "2024-11-06",
+      "matchTime": "00:00",
+      "minutes_played": 68,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 3,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1857,
+        "score": 0,
+        "participantName": "Unión de Santa Fe",
+        "teamShortName": "UNI",
+        "teamMiddleName": "Unión",
+        "logo": "https://api.statorium.com/media/bearleague/bl17364307791884.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 77021,
+      "matchDate": "2024-10-31",
+      "matchTime": "22:00",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1851,
+        "score": 0,
+        "participantName": "Club Atlético Sarmiento",
+        "teamShortName": "CAS",
+        "teamMiddleName": "Sarmiento",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775581551572.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76946,
+      "matchDate": "2024-09-22",
+      "matchTime": "17:30",
+      "minutes_played": 31,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 945,
+        "score": 0,
+        "participantName": "Asociación Atlética Argentinos Juniors",
+        "teamShortName": "ARG",
+        "teamMiddleName": "Argentinos Juniors",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775568612633.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76890,
+      "matchDate": "2024-08-17",
+      "matchTime": "18:30",
+      "minutes_played": 15,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 1,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1845,
+        "score": 0,
+        "participantName": "Club Atlético Rosario Central",
+        "teamShortName": "ROS",
+        "teamMiddleName": "Rosario Central",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775573272315.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "80"
+        }
+      ]
+    },
+    {
+      "matchID": 76862,
+      "matchDate": "2024-08-03",
+      "matchTime": "22:15",
+      "minutes_played": 26,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1843,
+        "score": 0,
+        "participantName": "Club Atlético San Lorenzo de Almagro",
+        "teamShortName": "SLA",
+        "teamMiddleName": "San Lorenzo",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775571812654.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76849,
+      "matchDate": "2024-07-27",
+      "matchTime": "18:00",
+      "minutes_played": 57,
+      "lineUP": "1",
+      "homeParticipant": {
+        "participantID": 2561,
+        "score": 1,
+        "participantName": "Club Sportivo Independiente Rivadavia",
+        "teamShortName": "IND",
+        "teamMiddleName": "Independiente Rivadavia",
+        "logo": "https://api.statorium.com/media/bearleague/bl17053290791795.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76834,
+      "matchDate": "2024-07-24",
+      "matchTime": "00:00",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1847,
+        "score": 0,
+        "participantName": "Club Atlético Barracas Central",
+        "teamShortName": "BAR",
+        "teamMiddleName": "Barracas Central",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775577571527.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 76822,
+      "matchDate": "2024-07-19",
+      "matchTime": "00:00",
+      "minutes_played": 32,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1846,
+        "score": 3,
+        "participantName": "Instituto Atlético Central Córdoba",
+        "teamShortName": "IACC",
+        "teamMiddleName": "Instituto ACC",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775575202184.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 1,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55202,
+      "matchDate": "2023-07-11",
+      "matchTime": "23:00",
+      "minutes_played": 25,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1848,
+        "score": 2,
+        "participantName": "Club Atlético Newell's Old Boys",
+        "teamShortName": "NOB",
+        "teamMiddleName": "Newells Old Boys",
+        "logo": "https://api.statorium.com/media/bearleague/bl17053297942426.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55130,
+      "matchDate": "2023-06-04",
+      "matchTime": "20:00",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1850,
+        "score": 2,
+        "participantName": "Club Deportivo Godoy Cruz Antonio Tomba",
+        "teamShortName": "GOD",
+        "teamMiddleName": "Godoy Cruz",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775579692600.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 1,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55098,
+      "matchDate": "2023-05-19",
+      "matchTime": "00:00",
+      "minutes_played": 14,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1855,
+        "score": 2,
+        "participantName": "Arsenal de Sarandí",
+        "teamShortName": "ARS",
+        "teamMiddleName": "Arsenal Sarandí",
+        "logo": "https://api.statorium.com/media/bearleague/bl1677558572944.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 1,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55034,
+      "matchDate": "2023-04-16",
+      "matchTime": "19:30",
+      "minutes_played": 11,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 1,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 407,
+        "score": 1,
+        "participantName": "Racing Club de Avellaneda",
+        "teamShortName": "RAC",
+        "teamMiddleName": "Racing Club",
+        "logo": "https://api.statorium.com/media/bearleague/bl15786509972943.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 54973,
+      "matchDate": "2023-03-18",
+      "matchTime": "22:00",
+      "minutes_played": 5,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 2,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1246,
+        "score": 2,
+        "participantName": "Club Atlético Colón de Santa Fe",
+        "teamShortName": "COL",
+        "teamMiddleName": "Colón",
+        "logo": "https://api.statorium.com/media/bearleague/bl16487218632090.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 54957,
+      "matchDate": "2023-03-10",
+      "matchTime": "20:00",
+      "minutes_played": 15,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1847,
+        "score": 1,
+        "participantName": "Club Atlético Barracas Central",
+        "teamShortName": "BAR",
+        "teamMiddleName": "Barracas Central",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775577571527.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 1,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 54950,
+      "matchDate": "2023-03-05",
+      "matchTime": "20:00",
+      "minutes_played": 19,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 2,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1846,
+        "score": 2,
+        "participantName": "Instituto Atlético Central Córdoba",
+        "teamShortName": "IACC",
+        "teamMiddleName": "Instituto ACC",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775575202184.webp"
+      },
+      "playerEvents": [
+        {
+          "eventID": 5,
+          "eventName": "Yellow card",
+          "minutes": "76"
+        }
+      ]
+    },
+    {
+      "matchID": 55255,
+      "matchDate": "2023-02-27",
+      "matchTime": "00:30",
+      "minutes_played": 44,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1856,
+        "score": 0,
+        "participantName": "Club Atlético Banfield",
+        "teamShortName": "BAN",
+        "teamMiddleName": "Banfield",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775586272244.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55268,
+      "matchDate": "2023-02-20",
+      "matchTime": "00:30",
+      "minutes_played": 10,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 0,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 412,
+        "score": 2,
+        "participantName": "Club Social y Deportivo Defensa y Justicia",
+        "teamShortName": "DyJ",
+        "teamMiddleName": "Defensa y Justicia",
+        "logo": "https://api.statorium.com/media/bearleague/bl1677556801863.webp"
+      },
+      "playerEvents": []
+    },
+    {
+      "matchID": 55300,
+      "matchDate": "2023-02-05",
+      "matchTime": "20:00",
+      "minutes_played": 5,
+      "lineUP": "0",
+      "homeParticipant": {
+        "participantID": 1852,
+        "score": 1,
+        "participantName": "Club Atlético Independiente",
+        "teamShortName": "CAI",
+        "teamMiddleName": "Independiente",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775582702357.webp"
+      },
+      "awayParticipant": {
+        "participantID": 1853,
+        "score": 2,
+        "participantName": "Club Atlético Platense",
+        "teamShortName": "PLA",
+        "teamMiddleName": "Platense",
+        "logo": "https://api.statorium.com/media/bearleague/bl16775583221737.webp"
+      },
+      "playerEvents": []
+    }
+  ]
+}
