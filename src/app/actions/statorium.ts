@@ -1322,11 +1322,14 @@ export async function getEnrichedPlayerDataAction(playerId: string, initialData:
       return initialData;
     }
 
-    const client = getStatoriumClient();
-    const realData = await client.getPlayerData(playerId);
+    const realData = await getPlayerDetailsAction(playerId);
 
-    if (!realData || !realData.stat || realData.stat.length === 0) {
-      console.log(`[getEnrichedPlayerDataAction] No real data found for ${playerId}`);
+    if (!realData) {
+      console.log(`[getEnrichedPlayerDataAction] realData is null for ${playerId}`);
+      return initialData;
+    }
+    if (!realData.stat || realData.stat.length === 0) {
+      console.log(`[getEnrichedPlayerDataAction] realData.stat is empty for ${playerId}`);
       return initialData;
     }
 
@@ -1355,18 +1358,42 @@ export async function getEnrichedPlayerDataAction(playerId: string, initialData:
       return 0;
     };
 
-    // Sort seasons to find the most relevant (current/recent)
-    const sortedStats = [...realData.stat].sort((a: any, b: any) => {
-      const yearA = parseInt(a.seasonName?.split('/')[0]) || 0;
-      const yearB = parseInt(b.seasonName?.split('/')[0]) || 0;
-      if (yearA !== yearB) return yearB - yearA;
-      return (b.statID || 0) - (a.statID || 0);
+    const getYears = (s: any) => {
+      const name = s.season_name || s.seasonName || '';
+      const matches = name.match(/20\d{2}/g) || [];
+      const shortMatches = name.match(/-(2\d|3\d|4\d)/g) || []; // e.g. -26
+      let years = matches.map(Number);
+      shortMatches.forEach((m: string) => years.push(2000 + parseInt(m.substring(1))));
+      return years;
+    };
+
+    let allYears: number[] = [];
+    realData.stat.forEach((s: any) => {
+      allYears.push(...getYears(s));
+    });
+    const maxYear = allYears.length > 0 ? Math.max(...allYears) : 0;
+
+    const currentSeasons = realData.stat.filter((s: any) => {
+      const years = getYears(s);
+      return years.includes(maxYear);
     });
 
-    const currentSeason = sortedStats[0];
-    const goals = extractStat(currentSeason, 'goals', ['goalscore', 'goals_total']);
-    const assists = extractStat(currentSeason, 'assists', ['assists_total']);
-    const matches = parseStat(currentSeason.played || currentSeason.appearances || 0);
+    let goals = 0;
+    let assists = 0;
+    let matches = 0;
+
+    for (const season of currentSeasons) {
+      goals += extractStat(season, 'Goals', ['goals', 'goalscore', 'goals_total', 'Goal']);
+      assists += extractStat(season, 'Assist', ['assists', 'assists_total']);
+      matches += parseStat(season.played || season.appearances || 0);
+    }
+
+    if (currentSeasons.length === 0 && realData.stat.length > 0) {
+      const currentSeason = realData.stat[0];
+      goals = extractStat(currentSeason, 'Goals', ['goals', 'goalscore', 'goals_total', 'Goal']);
+      assists = extractStat(currentSeason, 'Assist', ['assists', 'assists_total']);
+      matches = parseStat(currentSeason.played || currentSeason.appearances || 0);
+    }
 
     // Calculate dynamic rating based on goals and position
     let rating = 70; // Base
@@ -1390,8 +1417,8 @@ export async function getEnrichedPlayerDataAction(playerId: string, initialData:
         ...initialData.stats,
         offensive: {
           ...initialData.stats.offensive,
-          goals: goals || initialData.stats.offensive.goals,
-          assists: assists || initialData.stats.offensive.assists,
+          goals: goals,
+          assists: assists,
         }
       },
       rating: rating,

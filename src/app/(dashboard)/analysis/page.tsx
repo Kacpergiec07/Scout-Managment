@@ -305,7 +305,7 @@ function AnalysisContent() {
               </div>
 
               <div className="h-[450px] w-full">
-                <PlayerRadarChart stats={playerData.normalizedStats || playerData.stats} />
+                <PlayerRadarChart player={playerData} />
               </div>
             </div>
           </div>
