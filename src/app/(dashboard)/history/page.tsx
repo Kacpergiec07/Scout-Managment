@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { getWatchHistory, updateWatchlistStatus } from '@/app/actions/watchlist'
+import { getPlayerDetailsAction } from '@/app/actions/statorium'
 
 export default function HistoryPage() {
   const [searchQuery, setSearchQuery] = React.useState('')
@@ -22,6 +23,7 @@ export default function HistoryPage() {
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState<string | null>(null)
   const [restoringId, setRestoringId] = React.useState<string | null>(null)
+  const [playerDetailsMap, setPlayerDetailsMap] = React.useState<Record<string, any>>({})
 
   // Prevent hydration error by only rendering particles after mount
   React.useEffect(() => {
@@ -50,6 +52,7 @@ export default function HistoryPage() {
 
           const transformedData = uniqueData.map((item: any) => ({
             id: item.id, // Use the database record id as unique key
+            playerId: item.player_id,
             player: item.player_name,
             club: item.club || 'Unknown Club',
             league: item.league || 'Unknown League',
@@ -62,6 +65,19 @@ export default function HistoryPage() {
             pos: item.position || 'Unknown Position'
           }))
           setHistory(transformedData)
+
+          // Fetch stats for all players in background
+          const playerIds = Array.from(new Set(transformedData.map((t: any) => t.playerId))).filter(Boolean) as string[]
+          playerIds.forEach(async (pid) => {
+            try {
+              const details = await getPlayerDetailsAction(pid)
+              if (details) {
+                setPlayerDetailsMap(prev => ({ ...prev, [pid]: details }))
+              }
+            } catch (err) {
+              console.warn(`Failed to fetch stats for player ${pid}`, err)
+            }
+          })
         }
       } catch (err) {
         console.error('Failed to load history:', err)
@@ -332,6 +348,70 @@ export default function HistoryPage() {
                         <span className="text-gray-700 mx-1">•</span>
                         <MarketValue playerName={record.player} showIcon={false} className="scale-75 origin-left h-4" />
                       </div>
+
+                      {/* Stats Strip */}
+                      {(() => {
+                        const details = playerDetailsMap[record.playerId];
+                        if (!details) return (
+                          <div className="flex gap-4 mt-2">
+                             <div className="h-4 w-12 bg-white/5 animate-pulse rounded" />
+                             <div className="h-4 w-12 bg-white/5 animate-pulse rounded" />
+                             <div className="h-4 w-12 bg-white/5 animate-pulse rounded" />
+                          </div>
+                        );
+
+                        const stats = Array.isArray(details.stat) ? details.stat : [];
+                        const currentSeasonStats = stats.filter((s: any) => 
+                          (s.season_name && (
+                            s.season_name.includes('2025-26') || 
+                            s.season_name.includes('2025/26') ||
+                            s.season_name.includes('25-26') || 
+                            s.season_name.includes('25/26') ||
+                            s.season_name.includes('2025-2026') ||
+                            s.season_name.includes('2025/2026')
+                          )) || (stats.length === 1)
+                        );
+                        const targetStats = currentSeasonStats.length > 0 ? currentSeasonStats : [];
+
+                        const getSum = (keys: string[]) => {
+                          return targetStats.reduce((acc: number, s: any) => {
+                            let val = 0;
+                            for (const k of keys) {
+                              const actualKey = Object.keys(s).find(sk => sk.toLowerCase() === k.toLowerCase());
+                              if (actualKey) { val = parseInt(s[actualKey]) || 0; break; }
+                            }
+                            return acc + val;
+                          }, 0);
+                        };
+
+                        const goals = getSum(['goals', 'goal']);
+                        const assists = getSum(['assist', 'assists']);
+                        const apps = getSum(['played', 'statPlayed']);
+                        
+                        // Simple Rating Calculation: (Goals * 10 + Assists * 5 + Apps) / 10 + Base
+                        const rating = Math.min(99, Math.round((goals * 10 + assists * 5 + apps) / 2 + 65));
+
+                        return (
+                          <div className="flex items-center gap-4 mt-2">
+                            <div className="flex flex-col">
+                              <span className="text-[9px] font-black text-emerald-600 uppercase tracking-widest">Goals</span>
+                              <span className="text-xs font-bold text-emerald-500">{goals}</span>
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-[9px] font-black text-blue-600 uppercase tracking-widest">Assists</span>
+                              <span className="text-xs font-bold text-blue-500">{assists}</span>
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-[9px] font-black text-gray-600 uppercase tracking-widest">Matches</span>
+                              <span className="text-xs font-bold text-gray-300">{apps}</span>
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-[9px] font-black text-primary uppercase tracking-widest">Rating</span>
+                              <span className="text-xs font-bold text-primary">{rating}</span>
+                            </div>
+                          </div>
+                        );
+                      })()}
                     </div>
                   </Link>
 
