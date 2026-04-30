@@ -29,7 +29,7 @@ const HistoryCard = React.memo(({ record, index, restoringId, onRestore }: any) 
     <div className="relative bg-card/30 backdrop-blur-md border border-border/50 rounded-3xl p-5 hover:border-secondary/50 transition-all duration-300 flex items-center justify-between shadow-xl">
       {/* Left Side - Player Info */}
       <Link
-        href={`/analysis?id=${record.id}&name=${encodeURIComponent(record.player)}&club=${encodeURIComponent(record.club)}&league=${encodeURIComponent(record.league)}&nation=${encodeURIComponent(record.nation || 'Unknown')}&pos=${encodeURIComponent(record.pos)}&photo=${encodeURIComponent(record.photo)}`}
+        href={`/analysis?id=${record.id}&name=${encodeURIComponent(record.player)}&club=${encodeURIComponent(record.club)}&league=${encodeURIComponent(record.league)}&nation=${encodeURIComponent(record.nation || 'Unknown')}&pos=${encodeURIComponent(record.pos)}&photo=${encodeURIComponent(record.photo)}&from=history`}
         className="flex items-center gap-6 flex-1 group/link"
       >
         <div className="relative h-16 w-16 shrink-0">

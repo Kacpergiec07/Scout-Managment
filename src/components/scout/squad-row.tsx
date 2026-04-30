@@ -31,7 +31,7 @@ export function SquadRow({ player, starting }: { player: Player; starting?: bool
   
   return (
     <Link 
-      href={`/analysis?id=${player.playerID}&name=${encodeURIComponent(player.fullName)}`}
+      href={`/analysis?id=${player.playerID}&name=${encodeURIComponent(player.fullName)}&from=hub`}
       className="flex items-center justify-between p-5 hover:bg-white/5 transition-all group relative border-l-2 border-transparent hover:border-primary/50"
     >
       <div className="flex items-center gap-4">

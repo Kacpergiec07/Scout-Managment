@@ -14,128 +14,7 @@ interface NotificationsPanelProps {
   isDashboard?: boolean
 }
 
-<<<<<<< HEAD
-=======
-// Real news sources
-const NEWS_SOURCES = [
-  { name: "BBC Sport", url: "https://www.bbc.com/sport/football" },
-  { name: "Sky Sports", url: "https://www.skysports.com/football" },
-  { name: "The Athletic", url: "https://www.theathletic.com/football" },
-  { name: "Transfermarkt", url: "https://www.transfermarkt.com" },
-  { name: "Football Insider", url: "https://www.footballinsider.com" },
-  { name: "Fabrizio Romano", url: "https://twitter.com/FabrizioRomano" },
-  { name: "David Ornstein", url: "https://twitter.com/David_Ornstein" },
-]
 
-// Realistic news templates based on current transfer market
-const NEWS_TEMPLATES = {
-  transfer: [
-    { title: "Transfer Update", desc: "{player} completes medical at {club} as €{price}M deal nears completion" },
-    { title: "Contract Signed", desc: "{player} signs extension with {club} until 2029, {price}M deal" },
-    { title: "Agreement Reached", desc: "{club} and {player} agree personal terms, €{price}M transfer" },
-    { title: "Official: Transfer", desc: "{player} joins {club} for €{price}M, 5-year contract" },
-  ],
-  injury: [
-    { title: "Injury Update", desc: "{player} ruled out for {weeks} weeks with {injury}" },
-    { title: "Fitness Test", desc: "{player} faces late fitness test before {club} match" },
-    { title: "Setback Report", desc: "{player} suffers minor injury setback in training" },
-    { title: "Return Timeline", desc: "{player} expected back in {weeks} weeks, manager confirms" },
-  ],
-  rumor: [
-    { title: "Transfer Rumor", desc: "{club} submit €{price}M bid for {player}, source says" },
-    { title: "Interest Report", desc: "{club} monitoring {player} situation, €{price}M asking price" },
-    { title: "Market Buzz", desc: "{player} attracting interest from {club}, {confidence}% confident" },
-    { title: "Scout Intelligence", desc: "Scouts from {club} watched {player} in last match, €{price}M valuation" },
-  ],
-  official: [
-    { title: "Official Announcement", desc: "{club} confirm {player} contract extension details" },
-    { title: "Press Conference", desc: "{club} manager to address media about {player} situation" },
-    { title: "Squad Update", desc: "{club} publish updated squad list for upcoming matches" },
-    { title: "Board Statement", desc: "{club} board meeting ends, transfer strategy confirmed" },
-  ]
-}
-
-const INJURY_TYPES = ["hamstring injury", "ankle sprain", "muscle strain", "knee problem", "groin issue"]
-const CONFIDENCE_LEVELS = [95, 85, 75, 60, 45, 30]
-
-const TOP_CLUBS = [
-  "Real Madrid", "Barcelona", "Manchester City", "Liverpool", "Arsenal",
-  "Bayern Munich", "PSG", "Inter Milan", "Chelsea", "Manchester United",
-  "Tottenham", "Juventus", "AC Milan", "Atlético Madrid", "Borussia Dortmund",
-  "Napoli", "West Ham", "Aston Villa", "Newcastle", "Brighton"
-]
-
-function getRandomSource() {
-  return NEWS_SOURCES[Math.floor(Math.random() * NEWS_SOURCES.length)]
-}
-
-function getRandomClub() {
-  return TOP_CLUBS[Math.floor(Math.random() * TOP_CLUBS.length)]
-}
-
-function generateNewsItem(id: string, type: NewsItem["type"], playerName: string, currentClub: string): NewsItem {
-  const template = NEWS_TEMPLATES[type][Math.floor(Math.random() * NEWS_TEMPLATES[type].length)]
-  const club = getRandomClub()
-  const price = Math.floor(Math.random() * 120) + 15
-  const confidence = type === "rumor" ? CONFIDENCE_LEVELS[Math.floor(Math.random() * CONFIDENCE_LEVELS.length)] : undefined
-  const source = getRandomSource()
-
-  let description = template.desc
-    .replace("{player}", playerName)
-    .replace("{club}", club)
-    .replace("{injury}", INJURY_TYPES[Math.floor(Math.random() * INJURY_TYPES.length)])
-    .replace("{weeks}", String(Math.floor(Math.random() * 8) + 1))
-    .replace("{price}", String(price))
-
-  const timestamps = ["5 min", "15 min", "30 min", "1 godz.", "2 godz.", "3 godz.", "5 godz.", "8 godz.", "12 godz.", "1 dzień", "2 dni", "3 dni"]
-  const timestamp = timestamps[Math.floor(Math.random() * timestamps.length)] + " temu"
-
-  return {
-    id,
-    type,
-    title: template.title,
-    description,
-    player: playerName,
-    club: type === "injury" ? currentClub : club,
-    source: source.name,
-    sourceUrl: source.url,
-    timestamp,
-    confidence,
-    read: false
-  }
-}
-
-const getTypeColor = (type: NewsItem["type"]) => {
-  switch (type) {
-    case "transfer":
-      return "var(--secondary)"
-    case "injury":
-      return "var(--destructive)"
-    case "rumor":
-      return "#ffaa00"
-    case "official":
-      return "#00aaff"
-    default:
-      return "var(--secondary)"
-  }
-}
-
-const getTypeBadgeColor = (type: NewsItem["type"]) => {
-  switch (type) {
-    case "transfer":
-      return "bg-secondary text-secondary-foreground"
-    case "injury":
-      return "bg-destructive text-destructive-foreground"
-    case "rumor":
-      return "bg-amber-500 text-black"
-    case "official":
-      return "bg-blue-500 text-white"
-    default:
-      return "bg-secondary text-secondary-foreground"
-  }
-}
-
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
 export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard = false }: NotificationsPanelProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -283,19 +162,11 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
     <div
       ref={panelRef}
       className={cn(
-<<<<<<< HEAD
         `fixed top-[72px] w-[420px] max-w-[calc(100vw-32px)] max-h-[600px] overflow-y-auto custom-scrollbar bg-card/95 backdrop-blur-xl border border-border rounded-2xl z-[999999] shadow-2xl transition-all duration-300`,
         isDashboard ? "left-8" : "right-8",
         isOpen
           ? "opacity-100 translate-y-0 scale-100"
           : "opacity-0 -translate-y-4 scale-95 pointer-events-none"
-=======
-        `absolute top-full mt-3 w-[380px] max-w-[calc(100vw-32px)] max-h-[520px] overflow-y-auto custom-scrollbar bg-card border border-border rounded-2xl z-[9999] shadow-2xl transition-all duration-300`,
-        isDashboard ? "right-0" : "left-auto -right-16 md:right-auto md:left-0",
-        isOpen
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 -translate-y-4 pointer-events-none"
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
       )}
     >
       {/* Header with League Tabs */}
@@ -417,7 +288,6 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
             ))}
           </div>
         ) : (
-<<<<<<< HEAD
           <>
             <AnimatePresence>
               {news.map((item, index) => (
@@ -434,26 +304,6 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
                     stiffness: 200
                   }}
                   onClick={() => handleNewsClick(item)}
-=======
-          news.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => handleNewsClick(item)}
-              className={cn(
-                "group relative bg-accent/40 border border-border rounded-xl p-4 cursor-pointer transition-all duration-200 hover:border-secondary/20",
-                item.read ? "opacity-70" : ""
-              )}
-            >
-              {/* Type Indicator */}
-              <div
-                className="absolute left-0 top-4 bottom-4 w-1 rounded-full"
-                style={{ backgroundColor: getTypeColor(item.type) }}
-              />
-
-              <div className="ml-4">
-                {/* Type Badge */}
-                <span
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
                   className={cn(
                   "group relative bg-gradient-to-br from-accent/40 to-accent/20 border border-border rounded-xl p-3 cursor-pointer transition-all duration-300 hover:border-primary/30 hover:bg-accent/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/5",
                   item.read ? "opacity-60" : ""
@@ -486,7 +336,6 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
                   </h3>
                 </div>
 
-<<<<<<< HEAD
                 {/* Player & Clubs Info */}
                 <div className="flex items-center gap-2 mt-2 mb-2 flex-wrap">
                   <span className="text-[11px] font-semibold text-primary tracking-tight">
@@ -497,29 +346,6 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
                     {item.fromClub}
                   </span>
                   {item.toClub && (
-=======
-                {/* Title */}
-                <h3 className={cn(
-                  "font-semibold text-foreground leading-snug line-clamp-2 max-w-[280px] mt-1",
-                  !item.read && "font-bold"
-                )}>
-                  {item.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
-                  {item.description}
-                </p>
-
-                {/* Meta Info */}
-                <div className="flex items-center gap-2 mt-2 flex-wrap">
-                  {item.player && (
-                    <span className="text-[10px] text-secondary dark:text-secondary font-medium">
-                      {item.player}
-                    </span>
-                  )}
-                  {item.club && (
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
                     <>
                       <ArrowRight className="w-3 h-3 text-border" />
                       <span className="text-[10px] text-muted-foreground font-medium">
@@ -534,12 +360,8 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
                   {/* Source Button - Opens REAL post URL */}
                   <button
                     onClick={(e) => handleSourceClick(e, item)}
-<<<<<<< HEAD
                     className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors"
                     title={`Open post on ${getSourceConfig(item.source)?.name}`}
-=======
-                    className="text-[10px] text-secondary font-medium hover:text-secondary/80 transition-colors underline"
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
                   >
                     <ExternalLink className="w-3 h-3 text-primary" />
                     <span className="text-[10px] font-bold text-primary uppercase tracking-wide">

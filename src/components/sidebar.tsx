@@ -2,16 +2,12 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Search, List, History, User, LogOut, Settings, LayoutDashboard, ArrowRightLeft, Globe, Moon, Sun } from 'lucide-react'
+import { Search, List, History, User, LogOut, Settings, LayoutDashboard, ArrowRightLeft, Globe, Briefcase, Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { signOut } from '@/app/auth/actions'
 import { useEffect, useState } from 'react'
-<<<<<<< HEAD
-=======
-import { NotificationsBell } from './notifications-bell-new'
 import { ThemeToggle } from './theme-toggle'
 import { CustomThemeDialog } from './custom-theme-dialog'
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
 
 export function Sidebar() {
   const pathname = usePathname()
@@ -25,6 +21,7 @@ export function Sidebar() {
 
   const navItems = [
     { href: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+    { href: '/scout-jobs', icon: Briefcase, label: 'Scout Jobs' },
     { href: '/watchlist', icon: List, label: 'Watchlist' },
     { href: '/history', icon: History, label: 'History' },
     { href: '/compare', icon: Search, label: 'Compare Players' },
@@ -45,26 +42,10 @@ export function Sidebar() {
           <div className="h-6 w-1 bg-secondary rounded-sm shadow-[0_0_10px_hsl(var(--secondary)/0.8)]" />
           SCOUT PRO
         </Link>
-<<<<<<< HEAD
-        <div className="flex items-center gap-4 text-muted-foreground mt-2">
-          {mounted && (
-            <div
-              onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-              className="cursor-pointer hover:text-foreground transition-all duration-300 p-2 hover:bg-accent rounded-lg"
-            >
-              {resolvedTheme === 'dark' ? (
-                <Sun className="w-4 h-4" />
-              ) : (
-                <Moon className="w-4 h-4" />
-              )}
-            </div>
-          )}
-=======
         <div className="flex items-center gap-1.5">
           <CustomThemeDialog />
           <ThemeToggle />
-          <NotificationsBell />
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
+
         </div>
       </div>
 

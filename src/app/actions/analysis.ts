@@ -45,7 +45,7 @@ export async function getCompatibilityAnalysis(player: ScoutProPlayer) {
           tempo 
         },
         needs: { 
-          [player.position]: Math.min(100, 40 + (index * 2) + (Math.random() * 20))
+          [player.position]: Math.min(100, 30 + (index * 2) + (player.rating ? (player.rating / 2) : 40))
         },
         form: Math.min(100, (pts / (played * 3)) * 100),
         historyMatch: 70 + (Math.random() * 20),
@@ -79,7 +79,7 @@ export async function getCompatibilityAnalysis(player: ScoutProPlayer) {
       });
     }
 
-    return results.slice(0, 5); // Return top 5 matches
+    return results.slice(0, 3); // Return top 3 matches
   } catch (error) {
     console.error('Analysis Action Error:', error);
     return [];

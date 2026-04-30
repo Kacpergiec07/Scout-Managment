@@ -13,8 +13,86 @@ import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 import { Badge } from '@/components/ui/badge'
 import Image from 'next/image'
-import { Hexagon, ArrowLeft, Download, Share2, TrendingUp, BarChart3, Trophy, Target, Users, Star } from 'lucide-react'
+import { Hexagon, ArrowLeft, Download, Share2, TrendingUp, BarChart3, Trophy, Target, Users, Star, X, Brain, Zap, ShieldCheck } from 'lucide-react'
 import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion'
+
+function TransferAnalysisModal({ isOpen, onClose, player }: any) {
+  if (!isOpen) return null;
+  
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" onClick={onClose} />
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        className="relative w-full max-w-2xl bg-[#0a0f0a] border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl"
+      >
+        <div className="p-8 space-y-8">
+           <div className="flex items-center justify-between">
+             <div className="flex items-center gap-3">
+               <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                 <Brain className="w-6 h-6" />
+               </div>
+               <div>
+                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">Transfer Necessity Report</h2>
+                 <p className="text-white/40 text-xs font-bold tracking-widest uppercase">AI Strategic Analysis • v4.2</p>
+               </div>
+             </div>
+             <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-lg transition-colors">
+               <X className="w-6 h-6 text-white/40" />
+             </button>
+           </div>
+
+           <div className="space-y-6">
+              <div className="p-6 rounded-3xl bg-white/5 border border-white/10 space-y-4">
+                 <div className="flex items-center gap-2 text-emerald-400">
+                    <Zap className="w-4 h-4" />
+                    <span className="text-xs font-black uppercase tracking-widest">Executive Summary</span>
+                 </div>
+                 <p className="text-white/70 text-sm leading-relaxed">
+                   Analysis of {player.club}'s current squad depth and tactical evolution indicates that the acquisition of {player.name} is <span className="text-emerald-400 font-bold italic underline">STRATEGICALLY ESSENTIAL</span> for the upcoming season.
+                 </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                 <div className="p-5 rounded-2xl bg-white/5 border border-white/5 space-y-3">
+                    <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">Why is he needed?</div>
+                    <ul className="space-y-2">
+                       <li className="flex gap-2 text-xs text-white/60">
+                          <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
+                          <span>Provides critical redundancy in the {player.position} role.</span>
+                       </li>
+                       <li className="flex gap-2 text-xs text-white/60">
+                          <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
+                          <span>Direct upgrade over current rotational options.</span>
+                       </li>
+                       <li className="flex gap-2 text-xs text-white/60">
+                          <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
+                          <span>Genetic profile matches {player.club}'s pressing DNA (94%).</span>
+                       </li>
+                    </ul>
+                 </div>
+                 <div className="p-5 rounded-2xl bg-white/5 border border-white/5 space-y-3">
+                    <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">Tactical impact</div>
+                    <p className="text-xs text-white/60 leading-relaxed italic">
+                      Integrating {player.name} allows for a more aggressive high-line transition. His statistical outlier in key passes (DNA:02) provides the "missing link" for offensive fluidity that {player.club} lacked in the final third last season.
+                    </p>
+                 </div>
+              </div>
+           </div>
+
+           <button 
+             onClick={onClose}
+             className="w-full py-4 rounded-2xl bg-emerald-500 text-black text-sm font-black tracking-widest hover:bg-emerald-400 transition-all uppercase italic shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+           >
+             Acknowledge Intelligence
+           </button>
+        </div>
+      </motion.div>
+    </div>
+  )
+}
 
 function AnalysisContent() {
   const searchParams = useSearchParams()
@@ -26,6 +104,7 @@ function AnalysisContent() {
   const position = searchParams.get('pos') || 'ST'
   const nationality = searchParams.get('nation') || 'Norway'
   const league = searchParams.get('league') || 'Premier League'
+  const from = searchParams.get('from') || 'hub'
 
   // Create dynamic mock player
   const mockPlayer: ScoutProPlayer & { description?: string } = {
@@ -50,6 +129,7 @@ function AnalysisContent() {
   const [results, setResults] = React.useState<any[]>([])
   const [loading, setLoading] = React.useState(true)
   const [playerData, setPlayerData] = React.useState<ScoutProPlayer & { description?: string, matches?: number }>(mockPlayer)
+  const [isAnalysisOpen, setIsAnalysisOpen] = React.useState(false)
 
   React.useEffect(() => {
     async function load() {
@@ -116,11 +196,13 @@ function AnalysisContent() {
         {/* Navigation Bar */}
         <div className="flex items-center justify-between">
           <Link 
-            href="/dashboard"
+            href={from === 'history' ? "/history" : "/dashboard"}
             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group"
           >
             <ArrowLeft className="w-4 h-4 text-emerald-500 group-hover:-translate-x-1 transition-transform" />
-            <span className="text-sm font-medium text-white/70">Return to Hub</span>
+            <span className="text-sm font-medium text-white/70">
+              {from === 'history' ? 'Return to History' : 'Return to Hub'}
+            </span>
           </Link>
 
           <div className="flex items-center gap-3">
@@ -275,10 +357,19 @@ function AnalysisContent() {
               </div>
 
               <div className="p-1 rounded-[2rem] bg-gradient-to-r from-emerald-500 to-blue-500">
-                <button className="w-full py-4 rounded-[1.8rem] bg-[#0a0f0a] text-white text-sm font-black tracking-widest hover:bg-transparent transition-all uppercase italic">
+                <button 
+                  onClick={() => setIsAnalysisOpen(true)}
+                  className="w-full py-4 rounded-[1.8rem] bg-[#0a0f0a] text-white text-sm font-black tracking-widest hover:bg-transparent transition-all uppercase italic"
+                >
                   Initiate Transfer Analysis
                 </button>
               </div>
+
+              <TransferAnalysisModal 
+                isOpen={isAnalysisOpen} 
+                onClose={() => setIsAnalysisOpen(false)} 
+                player={playerData} 
+              />
             </div>
           </div>
         </div>

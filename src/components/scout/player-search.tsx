@@ -18,36 +18,60 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { searchPlayersAction } from '@/app/actions/statorium'
+import { getPlayerScoutingHintsAction } from '@/app/actions/scouting-hints'
 import { StatoriumPlayerBasic } from '@/lib/statorium/types'
 import { useDebounce } from 'use-debounce'
 import { useRouter } from 'next/navigation'
 import { MarketValue } from './market-value'
 import Image from 'next/image'
+import { Sparkles, Loader2 } from 'lucide-react'
 
 export interface PlayerSearchProps {
   onSelect?: (player: StatoriumPlayerBasic) => void
   placeholder?: string
+  initialQuery?: string
+  context?: {
+    position: string
+    requirements: string[]
+  }
 }
 
-export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
+export function PlayerSearch({ onSelect, placeholder, initialQuery = '', context }: PlayerSearchProps) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState('')
-  const [query, setQuery] = React.useState('')
+  const [query, setQuery] = React.useState(initialQuery)
   const [debouncedQuery] = useDebounce(query, 500)
   const [results, setResults] = React.useState<StatoriumPlayerBasic[]>([])
   const [loading, setLoading] = React.useState(false)
+  const [hints, setHints] = React.useState<Record<string, string>>({})
+  const [hintsLoading, setHintsLoading] = React.useState(false)
   const router = useRouter()
 
   React.useEffect(() => {
     async function search() {
       if (debouncedQuery.length < 3) {
         setResults([])
+        setHints({})
         return
       }
       setLoading(true)
       try {
         const data = await searchPlayersAction(debouncedQuery)
         setResults(data)
+        
+        // If we have context, fetch AI hints for the results
+        if (context && data.length > 0) {
+          setHintsLoading(true)
+          const playersForHints = data.map(p => ({
+            id: p.playerID,
+            name: p.fullName,
+            team: p.teamName || 'Free Agent',
+            position: p.position || 'N/A'
+          }))
+          const aiHints = await getPlayerScoutingHintsAction(playersForHints, context)
+          setHints(aiHints)
+          setHintsLoading(false)
+        }
       } catch (err) {
         console.error(`Search error:`, err)
       } finally {
@@ -55,7 +79,7 @@ export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
       }
     }
     search()
-  }, [debouncedQuery])
+  }, [debouncedQuery, context])
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -77,11 +101,15 @@ export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
         <Command shouldFilter={false} className="bg-transparent">
           <CommandInput 
             placeholder="Type player name (min 3 chars)..." 
+            value={query}
             onValueChange={setQuery}
             className="text-foreground border-none focus:ring-0"
           />
-          <CommandList className="max-h-[300px] overflow-y-auto">
-            {loading && <div className="p-4 text-sm text-muted-foreground text-center animate-pulse">Searching global database...</div>}
+          <CommandList className="max-h-[400px] overflow-y-auto">
+            {loading && <div className="p-4 text-sm text-muted-foreground text-center animate-pulse flex items-center justify-center gap-2">
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Searching global database...
+            </div>}
             {!loading && debouncedQuery.length >= 3 && results.length === 0 && (
               <CommandEmpty className="p-4 text-sm text-muted-foreground text-center">No players found matching "{debouncedQuery}"</CommandEmpty>
             )}
@@ -99,9 +127,9 @@ export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
                       router.push(`/analysis?id=${player.playerID}&name=${encodeURIComponent(player.fullName)}`)
                     }
                   }}
-                  className="p-2 gap-3 text-foreground aria-selected:bg-secondary/10 aria-selected:text-secondary cursor-pointer"
+                  className="p-3 gap-3 text-foreground aria-selected:bg-secondary/10 aria-selected:text-secondary cursor-pointer border-b border-border/50 last:border-0"
                 >
-                  <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-muted border border-border">
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-muted border border-border">
                     <Image 
                       src={player.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(player.fullName)}&background=047857&color=fff&size=100`} 
                       alt={player.fullName}
@@ -111,15 +139,34 @@ export function PlayerSearch({ onSelect, placeholder }: PlayerSearchProps) {
                     />
                   </div>
                   <div className="flex flex-col flex-1 min-w-0">
-                    <span className="font-semibold text-sm truncate">{player.fullName}</span>
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-sm truncate">{player.fullName}</span>
+                      <MarketValue playerName={player.fullName} showIcon={false} className="scale-90 origin-right" />
+                    </div>
                     <span className="text-[10px] opacity-70 uppercase tracking-widest truncate font-medium">
-                      {typeof player.country === 'object' ? (player.country as any).name : player.country || 'International'} • {player.teamName || 'Free Agent'}
+                      {typeof player.country === 'object' ? (player.country as any).name : player.country || 'International'} • {player.teamName || 'Free Agent'} • {player.position || 'N/A'}
                     </span>
-                    <MarketValue playerName={player.fullName} showIcon={false} className="scale-75 origin-left h-4 mt-0.5" />
+                    
+                    {/* AI Scouting Hint */}
+                    {context && (
+                      <div className="mt-1.5 p-1.5 rounded bg-secondary/5 border border-secondary/10 relative overflow-hidden group/hint">
+                        {hintsLoading && !hints[player.playerID] ? (
+                          <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground animate-pulse">
+                            <Sparkles className="h-3 w-3 text-secondary" />
+                            Analyzing tactical fit...
+                          </div>
+                        ) : hints[player.playerID] ? (
+                          <div className="flex items-start gap-1.5 text-[10px] text-secondary-foreground leading-relaxed italic">
+                            <Sparkles className="h-3 w-3 text-secondary shrink-0 mt-0.5" />
+                            <span>{hints[player.playerID]}</span>
+                          </div>
+                        ) : null}
+                      </div>
+                    )}
                   </div>
                   <Check
                     className={cn(
-                      'h-4 w-4 text-secondary-500 transition-opacity',
+                      'h-4 w-4 text-secondary transition-opacity',
                       value === player.playerID ? 'opacity-100' : 'opacity-0'
                     )}
                   />

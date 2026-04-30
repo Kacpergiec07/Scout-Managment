@@ -684,44 +684,10 @@ export function TransferWarRoom({ transfers: initialTransfers = OFFICIAL_TRANSFE
                           <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center p-2.5 border border-border shadow-inner">
                             <Image src={league.logo} alt={league.name} width={28} height={28} className="object-contain" />
                           </div>
-<<<<<<< HEAD
-                        </td>
-                        <td className="px-8 py-6">
-                          <div className="flex items-center gap-4">
-                            {t.fromTeamLogo ? (
-                              <Image src={t.fromTeamLogo} alt="" width={24} height={24} className="grayscale group-hover:grayscale-0 transition-all opacity-50 group-hover:opacity-100" />
-                            ) : (
-                              <div className="w-6 h-6 rounded-md bg-muted border border-border" />
-                            )}
-                            <span className="text-xs font-bold text-muted-foreground uppercase">{t.fromTeamName}</span>
-                          </div>
-                        </td>
-                        <td className="text-center">
-                          <ArrowRightLeft className="w-4 h-4 mx-auto text-muted-foreground/20" />
-                        </td>
-                        <td className="px-8 py-6">
-                          <div className="flex items-center gap-4">
-                            {t.toTeamLogo ? (
-                              <Image src={t.toTeamLogo} alt="" width={28} height={28} className="group-hover:scale-110 transition-transform" />
-                            ) : (
-                              <div className="w-7 h-7 rounded-md bg-muted border border-border" />
-                            )}
-                            <span className="text-xs font-bold text-primary uppercase">{t.toTeamName}</span>
-                          </div>
-                        </td>
-                        <td className="px-8 py-6 text-right font-bold text-lg italic tracking-tight">{t.fee}</td>
-                        <td className="px-8 py-6 text-center">
-                          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 rounded-lg text-primary text-[10px] font-bold border border-primary/20">
-                            {getSuccessProbability(t.id)}%
-                          </div>
-                        </td>
-                      </tr>
-=======
                           <span className="text-sm font-black uppercase tracking-tight group-hover:text-[hsl(var(--secondary))] transition-colors">{league.name}</span>
                         </div>
                         <Plus className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" />
                       </button>
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
                     ))}
                   </div>
                 </ScrollArea>

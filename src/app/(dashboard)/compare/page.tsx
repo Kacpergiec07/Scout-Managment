@@ -3,18 +3,12 @@
 import * as React from "react"
 import { Suspense } from "react"
 import { useSearchParams } from "next/navigation"
-<<<<<<< HEAD
 import {
   getAllTop5PlayersAction,
   getPlayerDataAction,
-  fetchAllLeaguePlayersAction,
-=======
-import { 
-  getAllTop5PlayersAction, 
-  getPlayerDataAction, 
   getComparisonDataAction,
-  getEnrichedPlayerDataAction
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
+  getEnrichedPlayerDataAction,
+  fetchAllLeaguePlayersAction,
 } from "@/app/actions/statorium"
 import { getWatchlist } from "@/app/actions/watchlist"
 import {

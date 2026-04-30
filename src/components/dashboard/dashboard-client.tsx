@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Bell, Briefcase, Target, Clock, ArrowRight, CheckCircle, Trash2, User, Settings } from 'lucide-react'
+import { Briefcase, Target, Clock, ArrowRight, CheckCircle, Trash2, User, Settings, MessageSquare } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
@@ -10,7 +10,6 @@ import { CardStack, CardStackItem } from '@/components/ui/card-stack'
 import { generateJobOffer, getLatestJob, deleteJob, getRecentJobs } from '@/app/actions/job-generation'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { CustomThemeDialog } from '@/components/custom-theme-dialog'
-import { Palette } from 'lucide-react'
 
 interface JobOffer {
   id: string
@@ -194,15 +193,9 @@ function JobOfferPanel({ job, onClose, onDelete, onCycleJob, currentIndex, total
   totalJobs: number
 }) {
   const priorityColors = {
-<<<<<<< HEAD
     high: 'from-red-500/20 to-red-500/10 border-red-500/30 text-red-400',
     medium: 'from-amber-500/20 to-amber-500/10 border-amber-500/30 text-amber-400',
     low: 'from-emerald-500/20 to-emerald-500/10 border-emerald-500/30 text-emerald-400'
-=======
-    high: 'bg-red-500/20 border-red-500/30 text-red-400',
-    medium: 'bg-amber-500/20 border-amber-500/30 text-amber-400',
-    low: 'bg-secondary/20 border-secondary/30 text-secondary'
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
   }
 
   return (
@@ -316,7 +309,6 @@ function JobOfferPanel({ job, onClose, onDelete, onCycleJob, currentIndex, total
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="flex items-center gap-6 relative z-10">
             {job.club.logo && (
-<<<<<<< HEAD
               <motion.div
                 whileHover={{ scale: 1.05, rotate: 2 }}
                 className="w-20 h-20 relative bg-gradient-to-br from-white to-gray-100 rounded-2xl p-2 shadow-xl border-2 border-border/50 hover:border-primary/30 transition-all overflow-hidden"
@@ -324,11 +316,6 @@ function JobOfferPanel({ job, onClose, onDelete, onCycleJob, currentIndex, total
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity" />
                 <Image src={job.club.logo} alt={job.club.name} fill className="object-contain p-0.5" />
               </motion.div>
-=======
-              <div className="w-20 h-20 relative bg-background rounded-2xl p-2 shadow-lg border border-border">
-                <Image src={job.club.logo} alt={job.club.name} fill className="object-contain" />
-              </div>
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
             )}
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
@@ -457,6 +444,18 @@ function JobOfferPanel({ job, onClose, onDelete, onCycleJob, currentIndex, total
           transition={{ delay: 0.7 }}
           className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative z-10"
         >
+          <Link href="/scout-jobs">
+            <motion.button
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full h-14 bg-gradient-to-br from-primary to-emerald-600 border border-primary/30 rounded-2xl flex items-center justify-center gap-3 transition-all group relative overflow-hidden shadow-lg shadow-primary/20"
+            >
+              <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-white/50 group-hover:w-full transition-all duration-300" />
+              <span className="text-sm font-bold uppercase tracking-wider text-black">Start Conversation</span>
+              <MessageSquare className="w-4 h-4 text-black group-hover:scale-110 transition-all" />
+            </motion.button>
+          </Link>
+
           <Link href="/watchlist">
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
@@ -465,18 +464,6 @@ function JobOfferPanel({ job, onClose, onDelete, onCycleJob, currentIndex, total
             >
               <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-300" />
               <span className="text-sm font-bold uppercase tracking-wider text-foreground/90 group-hover:text-primary transition-colors">Watchlist</span>
-              <ArrowRight className="w-4 h-4 text-foreground/70 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-            </motion.button>
-          </Link>
-
-          <Link href="/leagues">
-            <motion.button
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full h-14 bg-gradient-to-br from-muted/50 to-muted/30 hover:from-muted hover:to-muted/70 border border-border/50 hover:border-primary/30 rounded-2xl flex items-center justify-center gap-3 transition-all group relative overflow-hidden"
-            >
-              <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-300" />
-              <span className="text-sm font-bold uppercase tracking-wider text-foreground/90 group-hover:text-primary transition-colors">Leagues</span>
               <ArrowRight className="w-4 h-4 text-foreground/70 group-hover:text-primary group-hover:translate-x-1 transition-all" />
             </motion.button>
           </Link>
@@ -624,14 +611,9 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
               <Settings className="w-5 h-5" />
             </button>
           </Link>
-<<<<<<< HEAD
-=======
           <div className="h-4 w-px bg-border mx-1" />
           <CustomThemeDialog />
           <ThemeToggle />
-          <div className="h-4 w-px bg-border mx-1" />
-          <NotificationsBell />
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
         </div>
       </nav>
 
@@ -671,7 +653,6 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
             transition={{ duration: 0.6 }}
             className="relative z-10"
           >
-<<<<<<< HEAD
             <div className="mb-8">
               <motion.div
                 initial={{ scale: 0 }}
@@ -688,10 +669,6 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
 
             <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase text-foreground leading-[0.85] mb-6">
               PROFESSIONAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 via-emerald-500 to-emerald-900 animate-gradient bg-[length:200%_auto]">SCOUTING</span>
-=======
-            <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase text-foreground leading-[0.9] mb-6">
-              PROFESSIONAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">SCOUTING</span>
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
             </h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
@@ -844,7 +821,6 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
                 href={`/leagues?sId=${league.id}`}
                 className="group"
               >
-<<<<<<< HEAD
                 <motion.div
                   initial={{ opacity: 0, y: 30, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -938,12 +914,8 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
                         </motion.div>
                       )}
                     </motion.div>
-=======
-                <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/50 transition-all hover:scale-105">
-                  <div className="w-16 h-16 relative bg-background rounded-xl p-2 mx-auto mb-4 shadow-sm border border-border group-hover:shadow-lg transition-shadow">
-                    <Image src={league.logo} alt={league.name} fill className="object-contain" />
->>>>>>> 9990ce01dbdb2bbfead0c565e39f7fa66f06a642
                   </div>
+
 
                   {/* Hover spotlight effect */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
