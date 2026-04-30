@@ -30,13 +30,16 @@ const LEAGUE_CONFIGS = [
 ]
 
 const POSITIONS = [
-  'Goalkeeper', 'Centre-Back', 'Right-Back', 'Left-Back',
-  'Defensive Midfielder', 'Central Midfielder',
-  'Attacking Midfielder', 'Right Winger', 'Left Winger',
-  'Centre-Forward', 'Striker'
+  'Goalkeeper',
+  'Defender',
+  'Defensive Midfielder',
+  'Central Midfielder',
+  'Attacking Midfielder',
+  'Winger',
+  'Striker'
 ]
 
-export async function generateJobOffer(): Promise<JobOffer> {
+export async function generateJobOffer(forcedPosition?: string): Promise<JobOffer> {
   const client = getStatoriumClient()
   const zai = createOpenAI({
     apiKey: process.env.ZAI_API_KEY,
@@ -66,16 +69,17 @@ export async function generateJobOffer(): Promise<JobOffer> {
 
     Selected club: ${selectedClub.teamName} from ${selectedLeague.name}
     Available positions: ${POSITIONS.join(', ')}
+    Target position: ${forcedPosition || 'Any high-demand role (Striker, Winger, Defender, or Midfielder)'}
 
     Generate a job offer with:
-    1. A specific position the club needs to reinforce (choose one from the list)
+    1. A specific position the club needs to reinforce. ${forcedPosition ? `CRITICAL: You MUST use "${forcedPosition}".` : "IMPORTANT: Prioritize 'Striker', 'Winger', 'Defender', or 'Central Midfielder'."}
     2. 3-4 specific requirements (age range, nationality preferences, playing style, etc.)
     3. A brief 2-sentence description of what the club is looking for
     4. Priority level (high/medium/low)
 
     Return ONLY valid JSON in this exact format:
     {
-      "position": "Centre-Forward",
+      "position": "Striker",
       "requirements": ["Age 22-26", "European passport", "High pressing intensity", "Good aerial ability"],
       "description": "Club needs a target man who can hold up play and finish chances in the box. Must excel in aerial duels and link-up play.",
       "priority": "high"
@@ -158,7 +162,7 @@ export async function generateJobOffer(): Promise<JobOffer> {
   return jobData
 }
 
-export async function getRecentJobs(limit: number = 5): Promise<JobOffer[]> {
+export async function getRecentJobs(limit: number = 4): Promise<JobOffer[]> {
   try {
     const supabase = await createClient()
     const { data: { user } } = await supabase.auth.getUser()
@@ -171,6 +175,7 @@ export async function getRecentJobs(limit: number = 5): Promise<JobOffer[]> {
       .from('jobs')
       .select('*')
       .eq('user_id', user.id)
+      .eq('status', 'active')
       .order('created_at', { ascending: false })
       .limit(limit)
 
@@ -243,6 +248,205 @@ export async function getLatestJob(): Promise<JobOffer | null> {
   }
 }
 
+export async function cancelJobAction(jobId: string): Promise<{ success: boolean; error?: string }> {
+  try {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (!user) {
+      return { success: false, error: 'User not authenticated' }
+    }
+
+    const { error } = await supabase
+      .from('jobs')
+      .update({ status: 'cancelled' })
+      .eq('id', jobId)
+      .eq('user_id', user.id)
+
+    if (error) {
+      console.error('Error cancelling job:', error)
+      return { success: false, error: error.message }
+    }
+
+    return { success: true }
+  } catch (error) {
+    console.error('Error in cancelJobAction:', error)
+    return { success: false, error: 'Failed to cancel job' }
+  }
+}
+
+export async function generateDraftJobAction(): Promise<{ success: boolean; job?: JobOffer; error?: string }> {
+  try {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (!user) {
+      return { success: false, error: 'User not authenticated' }
+    }
+
+    const newJob = await generateJobOffer()
+    return { success: true, job: newJob }
+  } catch (error) {
+    console.error('Error in generateDraftJobAction:', error)
+    return { success: false, error: 'Failed to generate draft job' }
+  }
+}
+
+export async function generatePackOfJobsAction(): Promise<{ success: boolean; jobs?: JobOffer[]; error?: string }> {
+  try {
+    const positions = ['Defender', 'Central Midfielder', 'Winger', 'Striker']
+    const jobs: JobOffer[] = []
+
+    for (const pos of positions) {
+      const job = await generateJobOffer(pos)
+      jobs.push(job)
+    }
+
+    return { success: true, jobs }
+  } catch (error) {
+    console.error('Error in generatePackOfJobsAction:', error)
+    return { success: false, error: 'Failed to generate pack of jobs' }
+  }
+}
+
+export async function acceptJobAction(job: JobOffer): Promise<{ success: boolean; error?: string }> {
+  try {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (!user) {
+      return { success: false, error: 'User not authenticated' }
+    }
+
+    const { error } = await supabase
+      .from('jobs')
+      .insert({
+        user_id: user.id,
+        club_id: job.club.id,
+        club_name: job.club.name,
+        club_logo: job.club.logo,
+        league_name: job.club.league,
+        league_id: job.club.leagueId,
+        position: job.position,
+        requirements: job.requirements,
+        priority: job.priority,
+        deadline: job.deadline,
+        description: job.description,
+        status: 'active'
+      })
+
+    if (error) {
+      console.error('Error inserting accepted job:', error)
+      return { success: false, error: error.message }
+    }
+
+    return { success: true }
+  } catch (error) {
+    console.error('Error in acceptJobAction:', error)
+    return { success: false, error: 'Failed to accept job' }
+  }
+}
+
+export async function generateNewJobAction(): Promise<{ success: boolean; job?: JobOffer; error?: string }> {
+  try {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (!user) {
+      return { success: false, error: 'User not authenticated' }
+    }
+
+    const newJob = await generateJobOffer()
+    
+    const { data, error } = await supabase
+      .from('jobs')
+      .insert({
+        user_id: user.id,
+        club_id: newJob.club.id,
+        club_name: newJob.club.name,
+        club_logo: newJob.club.logo,
+        league_name: newJob.club.league,
+        league_id: newJob.club.leagueId,
+        position: newJob.position,
+        requirements: newJob.requirements,
+        priority: newJob.priority,
+        deadline: newJob.deadline,
+        description: newJob.description,
+        status: 'active'
+      })
+      .select()
+      .single()
+
+    if (error) {
+      console.error('Error inserting new job:', error)
+      return { success: false, error: error.message }
+    }
+
+    return { 
+      success: true, 
+      job: {
+        id: data.id,
+        club: {
+          id: data.club_id,
+          name: data.club_name,
+          logo: data.club_logo || '',
+          league: data.league_name,
+          leagueId: data.league_id
+        },
+        position: data.position,
+        requirements: data.requirements,
+        priority: data.priority,
+        deadline: data.deadline,
+        description: data.description
+      }
+    }
+  } catch (error) {
+    console.error('Error in generateNewJobAction:', error)
+    return { success: false, error: 'Failed to generate new job' }
+  }
+}
+
+export async function getJobsByClubAction(clubId: string): Promise<JobOffer[]> {
+  try {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (!user) return []
+
+    const { data: jobs, error } = await supabase
+      .from('jobs')
+      .select('*')
+      .eq('user_id', user.id)
+      .eq('club_id', clubId)
+      .eq('status', 'active')
+      .order('created_at', { ascending: false })
+
+    if (error) {
+      console.error('Error fetching jobs by club:', error)
+      return []
+    }
+
+    return jobs.map((job: any) => ({
+      id: job.id,
+      club: {
+        id: job.club_id,
+        name: job.club_name,
+        logo: job.club_logo || '',
+        league: job.league_name,
+        leagueId: job.league_id
+      },
+      position: job.position,
+      requirements: Array.isArray(job.requirements) ? job.requirements : [],
+      priority: job.priority,
+      deadline: job.deadline,
+      description: job.description
+    }))
+  } catch (error) {
+    console.error('Error fetching jobs by club:', error)
+    return []
+  }
+}
+
 export async function deleteJob(jobId: string): Promise<{ success: boolean; error?: string }> {
   try {
     const supabase = await createClient()
@@ -267,5 +471,32 @@ export async function deleteJob(jobId: string): Promise<{ success: boolean; erro
   } catch (error) {
     console.error('Error deleting job:', error)
     return { success: false, error: 'Failed to delete job' }
+  }
+}
+
+export async function completeJob(jobId: string): Promise<{ success: boolean; error?: string }> {
+  try {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (!user) {
+      return { success: false, error: 'User not authenticated' }
+    }
+
+    const { error } = await supabase
+      .from('jobs')
+      .update({ status: 'completed' })
+      .eq('id', jobId)
+      .eq('user_id', user.id)
+
+    if (error) {
+      console.error('Error completing job:', error)
+      return { success: false, error: error.message }
+    }
+
+    return { success: true }
+  } catch (error) {
+    console.error('Error completing job:', error)
+    return { success: false, error: 'Failed to complete job' }
   }
 }

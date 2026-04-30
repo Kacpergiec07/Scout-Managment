@@ -36,7 +36,7 @@ export class StatoriumClient {
 
   async searchPlayers(query: string): Promise<StatoriumPlayerBasic[]> {
     try {
-      const data = await this.fetch<any>('/players/', { q: query });
+      const data = await this.fetch<any>('/players', { q: query });
       if (data.players && data.players.length > 0) {
         return data.players.map((p: any) => {
           let photo = p.photo || p.image || p.playerPhoto;

@@ -36,8 +36,10 @@ import {
 } from "@/components/ui/dialog"
 import { PlayerSearch } from '@/components/scout/player-search'
 import ReactMarkdown from 'react-markdown'
-import { getRecentJobs } from '@/app/actions/job-generation'
+import { getRecentJobs, completeJob, generateDraftJobAction, acceptJobAction, cancelJobAction, generatePackOfJobsAction } from '@/app/actions/job-generation'
 import { COACH_MAP } from '@/lib/coaches-data'
+import { toast } from 'sonner'
+import { X, Check, ThumbsDown, Info, Trash2, Layers } from 'lucide-react'
 
 interface JobOffer {
   id: string
@@ -69,14 +71,19 @@ export function ScoutJobsClient() {
   const [messages, setMessages] = useState<Record<string, Message[]>>({})
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [isFetching, setIsFetching] = useState(true)
+  const [isFetching, setIsFetching] = useState(false)
+  const [isGenerating, setIsGenerating] = useState(false)
+  const [draftJobs, setDraftJobs] = useState<JobOffer[]>([])
+  const [currentDraftIndex, setCurrentDraftIndex] = useState(0)
+  const [showReview, setShowReview] = useState(false)
+  const [rejectReason, setRejectReason] = useState('')
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const fetchJobs = async () => {
     setIsFetching(true)
     try {
-      const recentJobs = await getRecentJobs(20)
+      const recentJobs = await getRecentJobs(4)
       setJobs(recentJobs)
     } catch (error) {
       console.error('Error fetching jobs:', error)
@@ -213,7 +220,7 @@ export function ScoutJobsClient() {
     }
   }
 
-  const managerName = selectedJob ? getManagerName(selectedJob.club.id, selectedJob.club.name) : ''
+  const managerName = selectedJob ? getManagerName(selectedJob.club.id, selectedJob.club.name) : 'Manager'
 
   return (
     <div className="flex flex-col h-[calc(100vh-100px)] gap-6 p-6">
@@ -224,19 +231,195 @@ export function ScoutJobsClient() {
             <Briefcase className="h-8 w-8 text-secondary" />
             SCOUT JOBS
           </h1>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            onClick={fetchJobs} 
-            disabled={isFetching}
-            className="gap-2 border-secondary/20"
-          >
-            <RefreshCw className={`h-4 w-4 ${isFetching ? 'animate-spin' : ''}`} />
-            Refresh Offers
-          </Button>
         </div>
         <p className="text-muted-foreground">Work with elite clubs and provide the best talent suggestions.</p>
       </div>
+
+      <div className="flex gap-4">
+        <Button 
+          variant="outline" 
+          size="sm" 
+          onClick={fetchJobs} 
+          disabled={isFetching || isGenerating}
+          className="gap-2 border-secondary/20"
+        >
+          <RefreshCw className={`h-4 w-4 ${isFetching ? 'animate-spin' : ''}`} />
+          Refresh List
+        </Button>
+        <Button 
+          size="sm" 
+          onClick={async () => {
+            setIsGenerating(true)
+            const result = await generateDraftJobAction()
+            if (result.success && result.job) {
+              setDraftJobs([result.job])
+              setCurrentDraftIndex(0)
+              setShowReview(true)
+            } else {
+              toast.error('Failed to generate draft: ' + result.error)
+            }
+            setIsGenerating(false)
+          }} 
+          disabled={isGenerating || isFetching}
+          className="gap-2 bg-secondary text-secondary-foreground shadow-lg shadow-secondary/20 hover:scale-105 transition-all"
+        >
+          {isGenerating ? (
+            <RefreshCw className="h-4 w-4 animate-spin" />
+          ) : (
+            <Target className="h-4 w-4" />
+          )}
+          Find New Talent Request
+        </Button>
+        <Button 
+          size="sm" 
+          variant="outline"
+          onClick={async () => {
+            setIsGenerating(true)
+            const result = await generatePackOfJobsAction()
+            if (result.success && result.jobs) {
+              setDraftJobs(result.jobs)
+              setCurrentDraftIndex(0)
+              setShowReview(true)
+            } else {
+              toast.error('Failed to generate pack: ' + result.error)
+            }
+            setIsGenerating(false)
+          }} 
+          disabled={isGenerating || isFetching}
+          className="gap-2 border-secondary/20 hover:bg-secondary/10"
+        >
+          <Layers className="h-4 w-4" />
+          Get 4 Specialized Offers
+        </Button>
+      </div>
+
+      <Dialog open={showReview} onOpenChange={setShowReview}>
+        <DialogContent className="sm:max-w-[500px] bg-card border-border p-0 overflow-hidden rounded-3xl">
+          {draftJobs.length > 0 && draftJobs[currentDraftIndex] && (
+            <div className="flex flex-col h-full">
+              <div className="bg-secondary/10 p-6 border-b border-secondary/20">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-4">
+                    <div className="h-16 w-16 rounded-2xl bg-white p-3 flex items-center justify-center shadow-xl border border-secondary/20">
+                      <img 
+                        src={draftJobs[currentDraftIndex].club.logo} 
+                        alt={draftJobs[currentDraftIndex].club.name} 
+                        className="h-full w-full object-contain"
+                        onError={(e) => {
+                          e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(draftJobs[currentDraftIndex].club.name)}&background=secondary&color=fff`
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-black tracking-tighter text-foreground">{draftJobs[currentDraftIndex].club.name}</h3>
+                      <p className="text-sm font-bold text-secondary flex items-center gap-2">
+                        <Building2 className="h-4 w-4" />
+                        {draftJobs[currentDraftIndex].club.league}
+                      </p>
+                    </div>
+                  </div>
+                  {draftJobs.length > 1 && (
+                    <Badge className="bg-secondary text-secondary-foreground">
+                      {currentDraftIndex + 1} / {draftJobs.length}
+                    </Badge>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Badge className="bg-secondary/20 text-secondary hover:bg-secondary/30 border-secondary/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                    {draftJobs[currentDraftIndex].position}
+                  </Badge>
+                  <Badge variant={draftJobs[currentDraftIndex].priority === 'high' ? 'destructive' : 'secondary'} className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                    {draftJobs[currentDraftIndex].priority.toUpperCase()} PRIORITY
+                  </Badge>
+                </div>
+              </div>
+
+              <div className="p-6 space-y-6">
+                <div>
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-2">
+                    <Info className="h-3 w-3" />
+                    Board Request
+                  </h4>
+                  <p className="text-sm font-medium leading-relaxed italic text-foreground/80">
+                    "{draftJobs[currentDraftIndex].description}"
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-2">
+                    <Target className="h-3 w-3" />
+                    Specific Requirements
+                  </h4>
+                  <div className="grid grid-cols-2 gap-3">
+                    {draftJobs[currentDraftIndex].requirements.map((req, i) => (
+                      <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-muted/30 border border-border/50 text-xs font-semibold">
+                        <Check className="h-3 w-3 text-green-500" />
+                        {req}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 bg-muted/20 border-t border-border space-y-4">
+                <div className="flex gap-3">
+                  <Button 
+                    className="flex-1 gap-2 bg-green-600 hover:bg-green-700 text-white shadow-lg shadow-green-600/20 h-12 rounded-2xl"
+                    onClick={async () => {
+                      const result = await acceptJobAction(draftJobs[currentDraftIndex]);
+                      if (result.success) {
+                        toast.success('Agreement signed!');
+                        if (currentDraftIndex < draftJobs.length - 1) {
+                          setCurrentDraftIndex(prev => prev + 1);
+                        } else {
+                          setShowReview(false);
+                          fetchJobs();
+                        }
+                      } else {
+                        toast.error('Legal error: ' + result.error);
+                      }
+                    }}
+                  >
+                    <Check className="h-4 w-4" />
+                    Accept Mission
+                  </Button>
+                </div>
+                
+                <div className="flex flex-col gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground text-center">Or skip/reject:</span>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { label: 'Low Reputation', icon: <Star className="h-3 w-3" /> },
+                      { label: 'Too Difficult', icon: <AlertCircle className="h-3 w-3" /> },
+                      { label: 'Small Budget', icon: <Trophy className="h-3 w-3" /> },
+                      { label: 'Not Interested', icon: <ThumbsDown className="h-3 w-3" /> }
+                    ].map((reason) => (
+                      <Button
+                        key={reason.label}
+                        variant="outline"
+                        size="sm"
+                        className="h-10 rounded-xl text-[10px] font-bold border-border/50 hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/20 transition-all gap-2"
+                        onClick={() => {
+                          toast.error(`Offer skipped: ${reason.label}`);
+                          if (currentDraftIndex < draftJobs.length - 1) {
+                            setCurrentDraftIndex(prev => prev + 1);
+                          } else {
+                            setShowReview(false);
+                            fetchJobs();
+                          }
+                        }}
+                      >
+                        {reason.icon}
+                        {reason.label}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1 overflow-hidden">
         {/* Left Column: Job List */}
@@ -251,7 +434,7 @@ export function ScoutJobsClient() {
                 />
               </div>
             </CardHeader>
-            <ScrollArea className="flex-1 p-4">
+            <ScrollArea className="h-[calc(100vh-320px)] p-4">
               <div className="space-y-3">
                 {isFetching && jobs.length === 0 ? (
                   <div className="flex flex-col gap-3">
@@ -415,7 +598,41 @@ export function ScoutJobsClient() {
                           Club Info
                         </Button>
                       </Link>
-                      <Button size="sm" className="gap-2 bg-secondary text-secondary-foreground shadow-lg shadow-secondary/20">
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        className="gap-2 border-red-500/20 text-red-500 hover:bg-red-500/10"
+                        onClick={async () => {
+                          if (confirm('Are you sure you want to abandon this mission? Your reputation might be affected.')) {
+                            const result = await cancelJobAction(selectedJob.id)
+                            if (result.success) {
+                              toast.success('Mission abandoned.')
+                              setSelectedJob(null)
+                              fetchJobs()
+                            } else {
+                              toast.error('Failed to cancel mission: ' + result.error)
+                            }
+                          }
+                        }}
+                      >
+                        <Trash2 className="h-4 w-4" />
+                        Abandon
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        className="gap-2 bg-secondary text-secondary-foreground shadow-lg shadow-secondary/20 hover:bg-secondary/80"
+                        onClick={async () => {
+                          const result = await completeJob(selectedJob.id)
+                          if (result.success) {
+                            toast.success('Mission completed! You have earned reputation points.')
+                            // Refresh jobs list
+                            const updatedJobs = await getRecentJobs(10)
+                            setJobs(updatedJobs)
+                          } else {
+                            toast.error('Failed to complete mission: ' + result.error)
+                          }
+                        }}
+                      >
                         <Trophy className="h-4 w-4" />
                         Complete Mission
                       </Button>

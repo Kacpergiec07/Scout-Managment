@@ -22,6 +22,7 @@ import Image from "next/image";
 import { addToWatchlist, getWatchlist } from "@/app/actions/watchlist";
 import { SafeImage } from "@/components/ui/safe-image";
 import { useEffect } from "react";
+import { getJobsByClubAction } from "@/app/actions/job-generation";
 
 interface ClubDetailsClientProps {
   teamDetails: any;
@@ -29,6 +30,13 @@ interface ClubDetailsClientProps {
   standing: any;
   seasonId: string | undefined;
 }
+
+const POSITIONS = [
+  'Goalkeeper', 'Centre-Back', 'Full-Back', 
+  'Defensive Midfielder', 'Central Midfielder',
+  'Attacking Midfielder', 'Winger',
+  'Striker'
+];
 
 export default function ClubDetailsClient({ 
   teamDetails, 
@@ -46,6 +54,7 @@ export default function ClubDetailsClient({
   const [benchPlayers, setBenchPlayers] = useState(allPlayers.slice(11, 20));
   const [selectedPlayer, setSelectedPlayer] = useState<any>(null);
   const [watchlistStatus, setWatchlistStatus] = useState<Record<string, boolean>>({});
+  const [clubJobs, setClubJobs] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchWatchlist = async () => {
@@ -63,7 +72,17 @@ export default function ClubDetailsClient({
       }
     };
     fetchWatchlist();
-  }, []);
+
+    const fetchClubJobs = async () => {
+      try {
+        const jobs = await getJobsByClubAction(teamDetails.teamID);
+        setClubJobs(jobs);
+      } catch (err) {
+        console.error("Failed to fetch club jobs:", err);
+      }
+    };
+    fetchClubJobs();
+  }, [teamDetails.teamID]);
 
   const handleAddToWatchlist = async (player: any) => {
      const pid = String(player.playerID);
@@ -290,6 +309,7 @@ export default function ClubDetailsClient({
                            formation={teamDetails.formation} 
                            onPlayerClick={(p) => handlePlayerClick(p, 'pitch')}
                            selectedId={selectedPlayer?.playerID}
+                           jobs={clubJobs}
                         />
                      </div>
                   </div>
@@ -490,10 +510,10 @@ export default function ClubDetailsClient({
                </h3>
                
                <div className="space-y-4">
-                  <DepthRow label="Goalkeepers" count={gks.length} color="bg-yellow-500" />
-                  <DepthRow label="Defenders" count={dfs.length} color="bg-blue-500" />
-                  <DepthRow label="Midfielders" count={mfs.length} color="bg-emerald-500" />
-                  <DepthRow label="Forwards" count={fws.length} color="bg-red-500" />
+                  <DepthRow label="Goalkeepers" count={gks.length} color="bg-yellow-500" hasGap={clubJobs.some(j => j.position.includes('Goalkeeper') || j.position.includes('GK'))} />
+                  <DepthRow label="Defenders" count={dfs.length} color="bg-blue-500" hasGap={clubJobs.some(j => j.position.includes('Defender') || j.position.includes('DF'))} />
+                  <DepthRow label="Midfielders" count={mfs.length} color="bg-emerald-500" hasGap={clubJobs.some(j => j.position.includes('Midfielder') || j.position.includes('MF'))} />
+                  <DepthRow label="Forwards" count={fws.length} color="bg-red-500" hasGap={clubJobs.some(j => j.position.includes('Forward') || j.position.includes('ST') || j.position.includes('FW'))} />
                </div>
             </div>
 
@@ -515,11 +535,21 @@ function StatCard({ icon, label, value }: { icon: React.ReactNode, label: string
   );
 }
 
-function DepthRow({ label, count, color }: { label: string, count: number, color: string }) {
+function DepthRow({ label, count, color, hasGap }: { label: string, count: number, color: string, hasGap?: boolean }) {
    return (
       <div className="space-y-1">
-         <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest">
-            <span className="text-muted-foreground">{label}</span>
+         <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest items-center">
+            <div className="flex items-center gap-2">
+               <span className="text-muted-foreground">{label}</span>
+               {hasGap && (
+                  <motion.div 
+                     animate={{ opacity: [1, 0.4, 1] }}
+                     transition={{ duration: 1.5, repeat: Infinity }}
+                     className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]" 
+                     title="Recruitment Gap Found"
+                  />
+               )}
+            </div>
             <span className="text-foreground">{count}</span>
          </div>
          <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
@@ -533,11 +563,12 @@ function DepthRow({ label, count, color }: { label: string, count: number, color
    );
 }
 
-function TacticalField({ players, formation, onPlayerClick, selectedId }: { 
+function TacticalField({ players, formation, onPlayerClick, selectedId, jobs }: { 
    players: any[], 
    formation: string, 
    onPlayerClick: (p: any) => void,
-   selectedId?: string 
+   selectedId?: string,
+   jobs?: any[]
 }) {
    const formationParts = (formation || "4-4-2").split('-').map(n => parseInt(n));
    const hasValidFormation = formationParts.length >= 3 && formationParts.reduce((a, b) => a + b, 0) === 10;
@@ -556,10 +587,23 @@ function TacticalField({ players, formation, onPlayerClick, selectedId }: {
    // Sort players so that FWs come first (for slice(0, fwCount)) and GK comes last
    const sortedPlayers = [...players].sort((a, b) => getPosPriority(a.position) - getPosPriority(b.position));
    
+   const hasGap = (posType: string) => {
+      if (!jobs) return false;
+      return jobs.some(j => j.position.includes(posType));
+   }
+
    return (
       <div className="h-full flex flex-col justify-between py-10 px-4 relative z-10">
-         {/* Top Row (Forwards) */}
-         <div className="flex justify-around items-center h-20">
+         {/* Top Row (Forwards / Wingers) */}
+         <div className="relative flex justify-around items-center h-20">
+            {(hasGap('Striker') || hasGap('Winger')) && (
+               <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+                  <span className="text-[8px] font-black text-red-500 uppercase tracking-tighter">
+                     {hasGap('Striker') && hasGap('Winger') ? 'ST & Winger Needed' : hasGap('Striker') ? 'Striker Needed' : 'Winger Needed'}
+                  </span>
+               </div>
+            )}
             {sortedPlayers.slice(0, rows[2] || 2).map((p) => (
                <div key={p.playerID} onClick={() => onPlayerClick(p)}>
                   <PlayerBubble player={p} position="top" isSelected={selectedId === p.playerID} />
@@ -567,8 +611,24 @@ function TacticalField({ players, formation, onPlayerClick, selectedId }: {
             ))}
          </div>
 
+         {/* CAM Gap (Between Mid and Fwd) */}
+         {hasGap('Attacking Midfielder') && (
+            <div className="relative h-4">
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 bg-background/40 backdrop-blur-sm px-3 py-1 rounded-full border border-red-500/30">
+                  <div className="w-2 h-2 rounded-full bg-red-400 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+                  <span className="text-[7px] font-black text-red-400 uppercase tracking-tighter">CAM NEEDED</span>
+               </div>
+            </div>
+         )}
+
          {/* Middle Row (Midfielders) */}
-         <div className="flex justify-around items-center h-20">
+         <div className="relative flex justify-around items-center h-20">
+            {hasGap('Central Midfielder') && (
+               <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+                  <span className="text-[8px] font-black text-red-500 uppercase tracking-tighter">Midfield Gap</span>
+               </div>
+            )}
             {sortedPlayers.slice(rows[2], (rows[2] || 2) + (rows[1] || 4)).map((p) => (
                <div key={p.playerID} onClick={() => onPlayerClick(p)}>
                   <PlayerBubble player={p} isSelected={selectedId === p.playerID} />
@@ -576,8 +636,24 @@ function TacticalField({ players, formation, onPlayerClick, selectedId }: {
             ))}
          </div>
 
+         {/* CDM Gap (Between Def and Mid) */}
+         {hasGap('Defensive Midfielder') && (
+            <div className="relative h-4">
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 bg-background/40 backdrop-blur-sm px-3 py-1 rounded-full border border-red-500/30">
+                  <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+                  <span className="text-[7px] font-black text-red-500 uppercase tracking-tighter">CDM NEEDED</span>
+               </div>
+            </div>
+         )}
+
          {/* Defensive Row (Defenders) */}
-         <div className="flex justify-around items-center h-20">
+         <div className="relative flex justify-around items-center h-20">
+            {hasGap('Defender') && (
+               <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+                  <span className="text-[8px] font-black text-red-500 uppercase tracking-tighter">Defensive Gap</span>
+               </div>
+            )}
             {sortedPlayers.slice((rows[2] || 2) + (rows[1] || 4), 10).map((p) => (
                <div key={p.playerID} onClick={() => onPlayerClick(p)}>
                   <PlayerBubble player={p} isSelected={selectedId === p.playerID} />
@@ -586,7 +662,13 @@ function TacticalField({ players, formation, onPlayerClick, selectedId }: {
          </div>
 
          {/* Goal Row (GK) */}
-         <div className="flex justify-center items-center h-20">
+         <div className="relative flex justify-center items-center h-20">
+            {hasGap('GK') && (
+               <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+                  <span className="text-[8px] font-black text-red-500 uppercase tracking-tighter">GK Needed</span>
+               </div>
+            )}
             {sortedPlayers.slice(10, 11).map((p) => (
                <div key={p.playerID} onClick={() => onPlayerClick(p)}>
                   <PlayerBubble player={p} isSelected={selectedId === p.playerID} />

@@ -21,6 +21,24 @@ const getStatoriumClient = cache(() => {
 const GLOBAL_CACHE = new Map<string, { data: any, timestamp: number }>();
 const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
 
+// Local player database for fallback search
+let LOCAL_PLAYER_DB: any[] | null = null;
+function getLocalPlayerDb() {
+  if (LOCAL_PLAYER_DB) return LOCAL_PLAYER_DB;
+  try {
+    const dbPath = path.join(process.cwd(), 'src', 'lib', 'all-players-db.json');
+    if (fs.existsSync(dbPath)) {
+      const content = fs.readFileSync(dbPath, 'utf-8');
+      LOCAL_PLAYER_DB = JSON.parse(content);
+      console.log(`[Statorium Action] Loaded local player DB with ${LOCAL_PLAYER_DB?.length} players`);
+      return LOCAL_PLAYER_DB;
+    }
+  } catch (err) {
+    console.error('[Statorium Action] Error loading local player DB:', err);
+  }
+  return [];
+}
+
 function getCached<T>(key: string): T | null {
   const cached = GLOBAL_CACHE.get(key);
   if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
@@ -578,16 +596,45 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
 export async function searchPlayersAction(query: string) {
   if (!query || query.length < 2) return [];
 
+  const startTime = Date.now();
+  console.log(`[searchPlayersAction] Searching for: "${query}"`);
+
+  // 1. Try local search first (more reliable than Statorium search API)
+  const db = getLocalPlayerDb();
+  const normalizedQuery = normalizeName(query);
+  
+  let results = db ? db.filter((p: any) => {
+    const fullName = normalizeName(p.fullName || `${p.firstName} ${p.lastName}`);
+    return fullName.includes(normalizedQuery);
+  }).map(p => ({
+    playerID: p.playerID,
+    firstName: p.firstName,
+    lastName: p.lastName,
+    fullName: p.fullName,
+    teamName: p.teamName,
+    position: p.position,
+    playerPhoto: p.photo || resolvePlayerPhoto(p)
+  })).slice(0, 15) : [];
+
+  if (results.length > 0) {
+    console.log(`[searchPlayersAction] Found ${results.length} results in local DB in ${Date.now() - startTime}ms`);
+    return results;
+  }
+
+  // 2. Fallback to API if local search found nothing
   try {
     const client = getStatoriumClient();
     const apiResults = await client.searchPlayers(query);
-    return apiResults.map(p => ({
+    const mappedResults = apiResults.map(p => ({
       ...p,
       playerPhoto: resolvePlayerPhoto(p)
     })).slice(0, 10);
+    
+    console.log(`[searchPlayersAction] Found ${mappedResults.length} results via API in ${Date.now() - startTime}ms`);
+    return mappedResults;
   } catch (error) {
-    console.error('Search Players Action Error:', error);
-    return [];
+    console.error('Search Players Action Error (API):', error);
+    return results; // Return whatever we found locally (which is likely empty if we are here)
   }
 }
 
