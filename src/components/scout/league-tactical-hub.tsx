@@ -225,14 +225,20 @@ export function LeagueTacticalHub() {
                     allPlayers={teamData.players}
                     formationLayout={(() => {
                       const parts = (teamData.formation || "4-4-2").split('-').map(n => parseInt(n) || 0);
-                      if (parts.length === 4) {
-                        return { d: parts[0] || 4, m: (parts[1] + parts[2]) || 5, f: parts[3] || 1 };
+                      
+                      // Handle invalid or incomplete formations
+                      if (parts.length < 2) return { d: 4, m: 4, f: 2 };
+
+                      if (parts.length === 3) {
+                        return { d: parts[0] || 4, m: parts[1] || 4, f: parts[2] || 2 };
                       }
-                      return {
-                        d: parts[0] || 4,
-                        m: parts[1] || 4,
-                        f: parts[2] || 2
-                      };
+                      
+                      // For 4 or more parts, d is first, f is last, everything else is m
+                      const d = parts[0] || 4;
+                      const f = parts[parts.length - 1] || 1;
+                      const m = parts.slice(1, -1).reduce((sum, n) => sum + n, 0) || 5;
+                      
+                      return { d, m, f };
                     })()}
                   />
                    <div className="flex items-center justify-between p-4 bg-card/50 rounded-2xl border border-border/50">

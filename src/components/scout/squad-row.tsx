@@ -1,5 +1,5 @@
 "use client";
-
+import React from "react";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 
@@ -26,7 +26,7 @@ function getShortPos(p: any) {
   return 'N/A';
 }
 
-export function SquadRow({ player, starting }: { player: Player; starting?: boolean }) {
+export const SquadRow = React.memo(function SquadRow({ player, starting }: { player: Player; starting?: boolean }) {
   const photoUrl = player.photo || player.playerPhoto || `https://api.statorium.com/media/bearleague/bl${player.playerID}.webp`;
   
   return (
@@ -41,6 +41,7 @@ export function SquadRow({ player, starting }: { player: Player; starting?: bool
             src={photoUrl} 
             alt={player.fullName}
             className="w-full h-full object-cover object-top"
+            loading="lazy"
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = 'none';
             }}
@@ -70,4 +71,4 @@ export function SquadRow({ player, starting }: { player: Player; starting?: bool
       </Badge>
     </Link>
   );
-}
+})

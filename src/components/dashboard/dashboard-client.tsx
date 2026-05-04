@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
-import { Briefcase, Target, Clock, ArrowRight, CheckCircle, Trash2, User, Settings, MessageSquare } from 'lucide-react'
+import { Briefcase, Target, Clock, ArrowRight, CheckCircle, Trash2, User, Settings, MessageSquare, Crown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
@@ -100,14 +100,16 @@ const DynamicLeagueCard = React.memo(function DynamicLeagueCard({ league, isActi
 
       <div className="absolute inset-0 w-full mb-16 flex flex-col items-center justify-center gap-1 z-20 transition-all duration-300 pointer-events-none">
          <motion.div 
-           animate={{ scale: isActive ? 1.2 : 1.0, y: isActive ? -10 : 0 }}
-           transition={{ duration: 0.4 }}
+           animate={{ scale: isActive ? 1.15 : 1.0, y: isActive ? -8 : 0 }}
+           transition={{ duration: 0.4, ease: "easeOut" }}
            className="w-16 h-16 md:w-22 md:h-22 bg-background/5 backdrop-blur-md rounded-full shadow-[0_0_30px_rgba(0,0,0,0.2)] flex items-center justify-center p-3.5 mt-[35%]"
          >
             <Image 
               src={league.logo} 
               alt="League Logo" 
               fill
+              sizes="80px"
+              loading="lazy"
               className="object-contain filter drop-shadow-xl opacity-90 relative z-30" 
             />
          </motion.div>
@@ -198,6 +200,33 @@ function JobOfferPanel({ job, onClose, onDelete, onCycleJob, currentIndex, total
     low: 'from-emerald-500/20 to-emerald-500/10 border-emerald-500/30 text-emerald-400'
   }
 
+  const getDifficulty = (job: JobOffer) => {
+    let score = 0
+    // Priority (Impact: 1 - 4)
+    if (job.priority === 'high') score = 4
+    else if (job.priority === 'medium') score = 2.5
+    else score = 1
+    
+    // Requirements (Impact: 0.5 per req)
+    score += (job.requirements.length * 0.5)
+    
+    // Club Rank / Prestige (Impact: 0 - 3)
+    const eliteNames = ['Real Madrid', 'PSG', 'Paris Saint-Germain', 'Manchester City', 'Bayern', 'Liverpool', 'Barcelona', 'Inter', 'Arsenal', 'Manchester United', 'Man Utd', 'Chelsea', 'Juventus', 'Milan', 'Dortmund', 'Atletico', 'Tottenham', 'Napoli', 'Ajax', 'Benfica', 'Porto']
+    
+    const isElite = eliteNames.some(name => job.club.name.toLowerCase().includes(name.toLowerCase()))
+    
+    if (isElite) {
+      score += 3
+    } else if (job.requirements.length > 3) {
+      score += 1.5 // Mid-tier bonus
+    }
+    
+    return Math.min(10, score)
+  }
+
+  const difficultyScore = getDifficulty(job)
+  const difficultyLabel = difficultyScore <= 4 ? 'EASY' : difficultyScore <= 7.5 ? 'MEDIUM' : 'HARD'
+
   return (
     <motion.div
       key={job.id}
@@ -211,17 +240,17 @@ function JobOfferPanel({ job, onClose, onDelete, onCycleJob, currentIndex, total
       <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-emerald-500/20 blur-3xl rounded-3xl -z-10" />
 
       <div className="premium-card bg-gradient-to-br from-card/95 via-card/90 to-card/80 backdrop-blur-2xl border border-border/50 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-        {/* Animated shine effect */}
+        {/* Animated shine effect - only on hover or periodically */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none"
           animate={{
             x: ['-100%', '100%']
           }}
           transition={{
-            duration: 2,
+            duration: 2.5,
             repeat: Infinity,
             ease: "linear",
-            repeatDelay: 3
+            repeatDelay: 8
           }}
         />
 
@@ -328,7 +357,7 @@ function JobOfferPanel({ job, onClose, onDelete, onCycleJob, currentIndex, total
                   transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
                   className={`px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider border bg-gradient-to-r ${priorityColors[job.priority]}`}
                 >
-                  {job.priority} Priority
+                  {difficultyLabel} DIFFICULTY
                 </motion.span>
               </div>
               <p className="text-sm text-muted-foreground font-medium flex items-center gap-2">
@@ -491,17 +520,21 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
   const [currentJobIndex, setCurrentJobIndex] = useState(0)
   const [isLoading, setIsLoading] = useState(false)
   const [showJob, setShowJob] = useState(false)
+  const [isEliteMode, setIsEliteMode] = useState(false)
+  const [showOnlyElite, setShowOnlyElite] = useState(true)
+
+  useEffect(() => {
+    const hasElite = allJobs.some(j => j.club.name === 'Real Madrid' || j.club.name === 'PSG')
+    setIsEliteMode(hasElite)
+  }, [allJobs])
 
   // Load all jobs from database on component mount
   useEffect(() => {
     const loadAllJobs = async () => {
       try {
-        const jobs = await getRecentJobs(10) // Load up to 10 recent jobs
+        const jobs = await getRecentJobs(15)
         if (jobs.length > 0) {
           setAllJobs(jobs)
-          setCurrentJob(jobs[0]) // Start with the most recent job
-          setCurrentJobIndex(0)
-          setShowJob(true) // Show the job panel when loading from database
         }
       } catch (error) {
         console.error('Failed to load jobs:', error)
@@ -510,6 +543,33 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
 
     loadAllJobs()
   }, [])
+
+  const displayedJobs = useMemo(() => {
+    // Sort first: Elite first, then by difficulty
+    let sorted = [...allJobs].sort((a, b) => {
+      const getScore = (j: JobOffer) => {
+        let s = j.priority === 'high' ? 7 : j.priority === 'medium' ? 4 : 1
+        if (j.club.name === 'Real Madrid' || j.club.name === 'PSG') s += 10
+        return s
+      }
+      return getScore(b) - getScore(a)
+    })
+
+    // Apply elite filter if present and toggle is on
+    const hasElite = sorted.some(j => j.club.name === 'Real Madrid' || j.club.name === 'PSG')
+    if (hasElite && showOnlyElite) {
+      sorted = sorted.filter(j => j.club.name === 'Real Madrid' || j.club.name === 'PSG')
+    }
+
+    return sorted
+  }, [allJobs, showOnlyElite])
+
+  useEffect(() => {
+    if (displayedJobs.length > 0 && !currentJob) {
+      setCurrentJob(displayedJobs[0])
+      setCurrentJobIndex(0)
+    }
+  }, [displayedJobs])
 
   const handleGenerateJob = async () => {
     setIsLoading(true)
@@ -551,10 +611,10 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
         setAllJobs(updatedJobs)
 
         if (updatedJobs.length > 0) {
-          // Move to the next available job
-          const nextIndex = Math.min(currentJobIndex, updatedJobs.length - 1)
-          setCurrentJobIndex(nextIndex)
-          setCurrentJob(updatedJobs[nextIndex])
+          // Update the list but close the current view as requested
+          setCurrentJobIndex(0)
+          setCurrentJob(null)
+          setShowJob(false)
         } else {
           // No more jobs, close the panel
           setShowJob(false)
@@ -569,7 +629,18 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
   }
 
   return (
-    <div className="relative w-full h-full bg-background font-sans flex flex-col items-center select-none overflow-y-auto overflow-x-hidden min-h-screen pb-20">
+    <div className={`relative w-full h-full font-sans flex flex-col items-center select-none overflow-y-auto overflow-x-hidden min-h-screen pb-20 transition-all duration-1000 ${
+      isEliteMode ? 'bg-[#050505] text-amber-500 selection:bg-amber-500/30' : 'bg-background text-foreground'
+    }`}>
+      {/* Elite Mode Effects */}
+      {isEliteMode && (
+        <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+          <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-amber-500/10 blur-[120px] rounded-full animate-pulse" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-amber-600/5 blur-[120px] rounded-full" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,191,0,0.03),transparent)]" />
+        </div>
+      )}
+
       {/* Refined Background Effect */}
       <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
            style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
@@ -610,11 +681,32 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
               <Settings className="w-5 h-5" />
             </button>
           </Link>
-          <div className="h-4 w-px bg-border mx-1" />
+          <div className="flex items-center gap-4">
+          {isEliteMode && (
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={async () => {
+                const eliteJobs = allJobs.filter(j => j.club.name === 'Real Madrid' || j.club.name === 'PSG');
+                setAllJobs(prev => prev.filter(j => j.club.name !== 'Real Madrid' && j.club.name !== 'PSG'));
+                setCurrentJob(null);
+                setShowJob(false);
+                
+                for (const job of eliteJobs) {
+                  await deleteJob(job.id); // deleteJob is the dashboard's cancel equivalent
+                }
+              }}
+              className="hidden sm:flex items-center gap-2 border-amber-500/30 text-amber-500 hover:bg-amber-500/10 rounded-xl h-9 text-[10px] font-black uppercase tracking-widest"
+            >
+              <Crown className="h-3 w-3" />
+              Return to Normal
+            </Button>
+          )}
           <CustomThemeDialog />
           <ThemeToggle />
         </div>
-      </nav>
+      </div>
+    </nav>
 
       <main className="w-full max-w-[1400px] mt-32 px-6 space-y-16 relative z-10">
         {/* Application Description */}
@@ -846,14 +938,12 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
                   <div className="relative z-10">
                     <motion.div
                       className="w-16 h-16 relative mx-auto mb-4"
-                      animate={{
+                      whileHover={{
                         rotate: [0, 5, -5, 0],
-                        scale: [1, 1.05, 1.05, 1]
+                        scale: 1.1
                       }}
                       transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        repeatType: "loop",
+                        duration: 0.4,
                         ease: "easeInOut"
                       }}
                     >

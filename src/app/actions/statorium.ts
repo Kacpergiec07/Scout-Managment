@@ -23,6 +23,9 @@ const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
 
 // Local player database for fallback search
 let LOCAL_PLAYER_DB: any[] | null = null;
+
+// Cache for team to season mapping to avoid expensive loops
+const TEAM_SEASON_MAP = new Map<string, string>();
 function getLocalPlayerDb() {
   if (LOCAL_PLAYER_DB) return LOCAL_PLAYER_DB;
   try {
@@ -67,14 +70,28 @@ function getPhotoIdx(): Map<string, string> {
   return _photoIdx;
 }
 
-const POSITION_MAP: Record<string, string> = { "1": "GK", "2": "DF", "3": "MF", "4": "FW", "Goalkeeper": "GK", "Defender": "DF", "Midfielder": "MF", "Forward": "FW", "Attacker": "FW", "Atacker": "FW", "Atacante": "FW", "Defensa": "DF", "Centrocampista": "MF" };
+const POSITION_MAP: Record<string, string> = { 
+  "1": "GK", "2": "DF", "3": "MF", "4": "FW", 
+  "Goalkeeper": "GK", "GK": "GK",
+  "Defender": "DF", "DF": "DF", "CB": "DF", "LB": "DF", "RB": "DF", "LWB": "DF", "RWB": "DF", "Defensa": "DF", "Zaguero": "DF",
+  "Midfielder": "MF", "MF": "MF", "CDM": "MF", "CM": "MF", "CAM": "MF", "LM": "MF", "RM": "MF", "Centrocampista": "MF",
+  "Forward": "FW", "FW": "FW", "ST": "FW", "LW": "FW", "RW": "FW", "CF": "FW", "Attacker": "FW", "Atacker": "FW", "Atacante": "FW", "Puntero": "FW", "Extremo": "FW", "Striker": "FW"
+};
 const POSITION_OVERRIDE: Record<string, string> = { "14633": "CAM", "12101": "CAM", "6466": "CM", "93": "CM", "2773": "CDM", "26718": "CDM", "53041": "RW", "5597": "CAM", "1352": "CAM", "1812": "ST", "1994": "FW", "4812": "ST" };
 
 function resolvePosition(raw: any, playerId?: string): string {
   if (playerId && POSITION_OVERRIDE[playerId]) return POSITION_OVERRIDE[playerId];
   if (!raw) return "N/A";
   const str = String(raw).trim();
+  
+  // Try exact match first
   if (POSITION_MAP[str]) return POSITION_MAP[str];
+  
+  // Case-insensitive match
+  const lowerStr = str.toLowerCase();
+  const entry = Object.entries(POSITION_MAP).find(([k]) => k.toLowerCase() === lowerStr);
+  if (entry) return entry[1];
+
   if (str.length <= 3 && /[A-Z]{2,3}/.test(str)) return str;
   return str;
 }
@@ -402,6 +419,7 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
             fullName: p.full_name,
             position: p.position,
             photo: p.photo_url,
+            playerPhoto: p.photo_url,
             additionalInfo: { birthdate: p.birthdate },
             stat: p.stats,
             medicalReport: p.injury_status,
@@ -414,19 +432,25 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
 
     const client = getStatoriumClient();
 
-    // Auto-detect seasonId if not provided by checking top 5 leagues
+    // Auto-detect seasonId if not provided by checking cache or top 5 leagues
     if (!seasonId) {
-      for (const league of TOP_LEAGUES) {
-        try {
-          const standings = await client.getStandings(league.id);
-          const found = standings.find((s: any) => s.teamID?.toString() === teamId);
-          if (found) {
-            seasonId = league.id;
-            break;
-          }
-        } catch (e) {}
+      if (TEAM_SEASON_MAP.has(teamId)) {
+        seasonId = TEAM_SEASON_MAP.get(teamId);
+      } else {
+        for (const league of TOP_LEAGUES) {
+          try {
+            const standings = await getStandingsAction(league.id);
+            const found = standings.find((s: any) => s.teamID?.toString() === teamId);
+            if (found) {
+              seasonId = league.id;
+              TEAM_SEASON_MAP.set(teamId, seasonId!);
+              break;
+            }
+          } catch (e) {}
+        }
       }
     }
+
     let apiTeam: any = null;
     try {
       apiTeam = await client.getTeamDetails(teamId);
@@ -434,7 +458,10 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
 
     let players: StatoriumPlayerBasic[] = [];
     if (seasonId) {
-      try { players = await client.getPlayersByTeam(teamId, seasonId); } catch (e) { }
+      try { 
+        players = await client.getPlayersByTeam(teamId, seasonId); 
+        if (players.length > 0) TEAM_SEASON_MAP.set(teamId, seasonId);
+      } catch (e) { }
     }
     if (!players.length && apiTeam?.players?.length) {
       players = apiTeam.players;
@@ -465,20 +492,20 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
 
     // Categorize first-team players by position
     const gks = firstTeamPlayers.filter((p: any) => {
-      const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
-      return pos === 'goalkeeper' || pos === 'gk' || pos.startsWith('goal');
+      const pos = resolvePosition(p.position || p.additionalInfo?.position, p.playerID).toUpperCase();
+      return pos === 'GK' || pos.startsWith('GOAL');
     });
     const dfs = firstTeamPlayers.filter((p: any) => {
-      const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
-      return pos === 'defender' || pos === 'df' || pos.startsWith('def') && !pos.includes('mid');
+      const pos = resolvePosition(p.position || p.additionalInfo?.position, p.playerID).toUpperCase();
+      return pos === 'DF' || ['CB', 'LB', 'RB', 'LWB', 'RWB'].includes(pos) || (pos.startsWith('DEF') && !pos.includes('MID'));
     });
     const mfs = firstTeamPlayers.filter((p: any) => {
-      const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
-      return pos === 'midfielder' || pos === 'mf' || pos.includes('mid');
+      const pos = resolvePosition(p.position || p.additionalInfo?.position, p.playerID).toUpperCase();
+      return pos === 'MF' || ['CDM', 'CM', 'CAM', 'LM', 'RM'].includes(pos) || pos.includes('MID');
     });
     const fws = firstTeamPlayers.filter((p: any) => {
-      const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
-      return pos === 'atacker' || pos === 'attacker' || pos === 'forward' || pos === 'fw' || pos === 'striker' || pos === 'st' || pos.includes('ata');
+      const pos = resolvePosition(p.position || p.additionalInfo?.position, p.playerID).toUpperCase();
+      return pos === 'FW' || ['ST', 'LW', 'RW', 'CF', 'STRIKER'].includes(pos) || pos.includes('ATA') || pos.includes('FORW');
     });
 
     // Get real formation from most recent match with lineup data
@@ -492,34 +519,36 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
     // If real lineup is missing or incomplete, fallback to heuristic
     if (startingXI.length < 7) {
       const gks = firstTeamPlayers.filter((p: any) => {
-        const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
-        return pos === 'goalkeeper' || pos === 'gk' || pos.startsWith('goal');
+        const pos = resolvePosition(p.position || p.additionalInfo?.position, p.playerID).toUpperCase();
+        return pos === 'GK' || pos.startsWith('GOAL');
       });
       const dfs = firstTeamPlayers.filter((p: any) => {
-        const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
-        return pos === 'defender' || pos === 'df' || pos.startsWith('def') && !pos.includes('mid');
+        const pos = resolvePosition(p.position || p.additionalInfo?.position, p.playerID).toUpperCase();
+        return pos === 'DF' || ['CB', 'LB', 'RB', 'LWB', 'RWB'].includes(pos) || (pos.startsWith('DEF') && !pos.includes('MID'));
       });
       const mfs = firstTeamPlayers.filter((p: any) => {
-        const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
-        return pos === 'midfielder' || pos === 'mf' || pos.includes('mid');
+        const pos = resolvePosition(p.position || p.additionalInfo?.position, p.playerID).toUpperCase();
+        return pos === 'MF' || ['CDM', 'CM', 'CAM', 'LM', 'RM'].includes(pos) || pos.includes('MID');
       });
       const fws = firstTeamPlayers.filter((p: any) => {
-        const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
-        return pos === 'atacker' || pos === 'attacker' || pos === 'forward' || pos === 'fw' || pos === 'striker' || pos === 'st' || pos.includes('ata');
+        const pos = resolvePosition(p.position || p.additionalInfo?.position, p.playerID).toUpperCase();
+        return pos === 'FW' || ['ST', 'LW', 'RW', 'CF', 'STRIKER'].includes(pos) || pos.includes('ATA') || pos.includes('FORW');
       });
 
       let d = 4, m = 4, f = 2;
       if (formation && formation !== 'N/A') {
         const parts = formation.split('-').map(p => parseInt(p) || 0);
-        if (parts.length === 3) {
-          d = parts[0] || 4;
-          m = parts[1] || 4;
-          f = parts[2] || 2;
-        } else if (parts.length === 4) {
-          // Handle 4-row formations like 4-2-3-1
-          d = parts[0] || 4;
-          m = (parts[1] + parts[2]) || 5;
-          f = parts[3] || 1;
+        if (parts.length >= 2) {
+          if (parts.length === 3) {
+            d = parts[0] || 4;
+            m = parts[1] || 4;
+            f = parts[2] || 2;
+          } else {
+            // Handle 4+ row formations like 4-2-3-1 or 4-1-4-1
+            d = parts[0] || 4;
+            f = parts[parts.length - 1] || 1;
+            m = parts.slice(1, -1).reduce((sum, n) => sum + n, 0) || 5;
+          }
         }
       }
 
@@ -528,11 +557,32 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
       startingXI.push(...dfs.slice(0, d));
       startingXI.push(...mfs.slice(0, m));
       startingXI.push(...fws.slice(0, f));
+    }
 
+    // ALWAYS ensure we have exactly 11 players for the tactical pitch
+    if (startingXI.length < 11) {
+      const usedIds = new Set(startingXI.map(p => p.playerID.toString()));
+      const hasGK = startingXI.some(p => {
+        const pos = resolvePosition(p.position || p.additionalInfo?.position, p.playerID).toUpperCase();
+        return pos === 'GK' || pos.startsWith('GOAL');
+      });
+      
+      const remaining = firstTeamPlayers.filter(p => !usedIds.has(p.playerID.toString()));
+      
+      // Filter remaining to avoid extra GKs if we already have one
+      const remainingOutfield = remaining.filter(p => {
+        const pos = resolvePosition(p.position || p.additionalInfo?.position, p.playerID).toUpperCase();
+        return pos !== 'GK' && !pos.startsWith('GOAL');
+      });
+      
+      const toAdd = hasGK ? remainingOutfield : remaining;
+      startingXI.push(...toAdd.slice(0, 11 - startingXI.length));
+      
+      // Final fallback if we still don't have 11 (e.g. only GKs left)
       if (startingXI.length < 11) {
-        const usedIds = new Set(startingXI.map(p => p.playerID.toString()));
-        const remaining = firstTeamPlayers.filter(p => !usedIds.has(p.playerID.toString()));
-        startingXI.push(...remaining.slice(0, 11 - startingXI.length));
+        const stillUsedIds = new Set(startingXI.map(p => p.playerID.toString()));
+        const absolutelyRemaining = firstTeamPlayers.filter(p => !stillUsedIds.has(p.playerID.toString()));
+        startingXI.push(...absolutelyRemaining.slice(0, 11 - startingXI.length));
       }
     }
 
@@ -579,11 +629,15 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
       venueName: apiTeam?.venueName || apiTeam?.homeVenue?.name || "",
       coach: COACH_MAP[teamId] || apiTeam?.additionalInfo?.coach,
       formation: formation,
-      players: enrichedPlayers.map((p: any) => ({
-        ...p,
-        playerPhoto: resolvePlayerPhoto(p),
-        position: resolvePosition(p.position || p.additionalInfo?.position, p.playerID)
-      }))
+      players: enrichedPlayers.map((p: any) => {
+        const photo = resolvePlayerPhoto(p);
+        return {
+          ...p,
+          photo: photo,
+          playerPhoto: photo,
+          position: resolvePosition(p.position || p.additionalInfo?.position, p.playerID)
+        };
+      })
     } as StatoriumTeamDetail;
 
     return result;
@@ -606,15 +660,19 @@ export async function searchPlayersAction(query: string) {
   let results = db ? db.filter((p: any) => {
     const fullName = normalizeName(p.fullName || `${p.firstName} ${p.lastName}`);
     return fullName.includes(normalizedQuery);
-  }).map(p => ({
-    playerID: p.playerID,
-    firstName: p.firstName,
-    lastName: p.lastName,
-    fullName: p.fullName,
-    teamName: p.teamName,
-    position: p.position,
-    playerPhoto: p.photo || resolvePlayerPhoto(p)
-  })).slice(0, 15) : [];
+  }).map(p => {
+    const photo = p.photo || resolvePlayerPhoto(p);
+    return {
+      playerID: p.playerID,
+      firstName: p.firstName,
+      lastName: p.lastName,
+      fullName: p.fullName,
+      teamName: p.teamName,
+      position: p.position,
+      photo: photo,
+      playerPhoto: photo
+    };
+  }).slice(0, 15) : [];
 
   if (results.length > 0) {
     console.log(`[searchPlayersAction] Found ${results.length} results in local DB in ${Date.now() - startTime}ms`);
@@ -625,10 +683,14 @@ export async function searchPlayersAction(query: string) {
   try {
     const client = getStatoriumClient();
     const apiResults = await client.searchPlayers(query);
-    const mappedResults = apiResults.map(p => ({
-      ...p,
-      playerPhoto: resolvePlayerPhoto(p)
-    })).slice(0, 10);
+    const mappedResults = apiResults.map(p => {
+      const photo = resolvePlayerPhoto(p);
+      return {
+        ...p,
+        photo: photo,
+        playerPhoto: photo
+      };
+    }).slice(0, 10);
     
     console.log(`[searchPlayersAction] Found ${mappedResults.length} results via API in ${Date.now() - startTime}ms`);
     return mappedResults;

@@ -20,23 +20,11 @@ export const LEAGUES: LeagueInfo[] = [
 ];
 
 export const POSITION_MAP: Record<string, string> = {
-  "1": "GK",
-  "2": "DF",
-  "3": "MF",
-  "4": "FW",
-  "Goalkeeper": "GK",
-  "Defender": "DF",
-  "Midfielder": "MF",
-  "Forward": "FW",
-  "Attacker": "FW",
-  "Atacker": "FW",
-  "Atacante": "FW",
-  "Defensa": "DF",
-  "Centrocampista": "MF",
-  "Puntero": "FW",
-  "Extremo": "FW",
-  "Zaguero": "DF",
-  "Portero": "GK"
+  "1": "GK", "2": "DF", "3": "MF", "4": "FW",
+  "Goalkeeper": "GK", "GK": "GK",
+  "Defender": "DF", "DF": "DF", "CB": "DF", "LB": "DF", "RB": "DF", "LWB": "DF", "RWB": "DF", "Defensa": "DF", "Zaguero": "DF",
+  "Midfielder": "MF", "MF": "MF", "CDM": "MF", "CM": "MF", "CAM": "MF", "LM": "MF", "RM": "MF", "Centrocampista": "MF",
+  "Forward": "FW", "FW": "FW", "ST": "FW", "LW": "FW", "RW": "FW", "CF": "FW", "Attacker": "FW", "Atacker": "FW", "Atacante": "FW", "Puntero": "FW", "Extremo": "FW", "Striker": "FW", "Portero": "GK"
 };
 
 export const POSITION_OVERRIDE: Record<string, string> = {
@@ -290,7 +278,8 @@ export const PLAYER_PHOTOS: Record<string, string> = {
   "Alexis Mac Allister": "https://api.statorium.com/media/bearleague/bl17313094131876.webp",
   "Curtis Jones": "https://api.statorium.com/media/bearleague/bl17313117461952.webp",
   "Trey Nyoni": "https://api.statorium.com/media/bearleague/bl17343404601462.webp",
-  "Florian Wirtz": "https://api.statorium.com/media/bearleague/bl17158001911496.webp",
+  "Florian Wirtz": "https://api.statorium.com/media/bearleague/bl17770230791180.webp",
+  "Florian Richard Wirtz": "https://api.statorium.com/media/bearleague/bl17770230791180.webp",
   "Dominik Szoboszlai": "https://api.statorium.com/media/bearleague/bl1731313145556.webp",
   "Cody Gakpo": "https://api.statorium.com/media/bearleague/bl17313114281068.webp",
   "Mohamed Salah": "https://api.statorium.com/media/bearleague/bl1695385631451.webp",
