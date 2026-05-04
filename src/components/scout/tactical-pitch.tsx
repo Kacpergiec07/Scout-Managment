@@ -12,12 +12,31 @@ interface TacticalPitchProps {
   allPlayers: any[];
   formationLayout: { d: number, m: number, f: number };
 }
-
 export function TacticalPitch({ startingXI, allPlayers, formationLayout }: TacticalPitchProps) {
-  const gks = startingXI.filter(p => isPos(p, 'GK', 'Goalkeep'));
-  const dfs = startingXI.filter(p => isPos(p, 'DF', 'Def'));
-  const mfs = startingXI.filter(p => isPos(p, 'MF', 'Mid'));
-  const fws = startingXI.filter(p => isPos(p, 'FW', 'Atac'));
+  // Sort starting XI by position priority: GK -> DF -> MF -> FW
+  const sortedStartingXI = [...startingXI].sort((a, b) => {
+    const getPrio = (p: any) => {
+      const pos = (p.position || p.additionalInfo?.position || '').toUpperCase();
+      if (pos === 'GK' || pos.startsWith('GOAL')) return 1;
+      if (pos === 'DF' || ['CB', 'LB', 'RB', 'LWB', 'RWB'].includes(pos) || (pos.startsWith('DEF') && !pos.includes('MID'))) return 2;
+      if (pos === 'MF' || ['CDM', 'CM', 'CAM', 'LM', 'RM'].includes(pos) || pos.includes('MID')) return 3;
+      if (pos === 'FW' || ['ST', 'LW', 'RW', 'CF', 'STRIKER', 'STRIKE'].includes(pos) || pos.includes('ATA') || pos.includes('FORW')) return 4;
+      return 5;
+    };
+    return getPrio(a) - getPrio(b);
+  });
+
+  // Extract GK
+  const gks = sortedStartingXI.filter(p => {
+    const pos = (p.position || p.additionalInfo?.position || '').toUpperCase();
+    return pos === 'GK' || pos.startsWith('GOAL');
+  });
+  const outfielders = sortedStartingXI.filter(p => !gks.includes(p));
+
+  // Sequential assignment to rows based on formationLayout
+  const dfs = outfielders.slice(0, formationLayout.d);
+  const mfs = outfielders.slice(formationLayout.d, formationLayout.d + formationLayout.m);
+  const fws = outfielders.slice(formationLayout.d + formationLayout.m, formationLayout.d + formationLayout.m + formationLayout.f);
 
   const startingIdSet = new Set(startingXI.map(p => p.playerID));
   const subs = allPlayers.filter(p => !startingIdSet.has(p.playerID));
@@ -85,7 +104,7 @@ export function TacticalPitch({ startingXI, allPlayers, formationLayout }: Tacti
         </div>
         {/* Goalkeeper */}
         <div className="flex justify-center items-center h-20">
-          <PlayerDot player={gks[0] || startingXI[0]} pulse pos="GK" subs={subs} />
+          <PlayerDot player={gks[0] || sortedStartingXI[0]} pulse pos="GK" subs={subs} />
         </div>
       </div>
 
@@ -113,11 +132,17 @@ function PlayerDot({ player, pulse, pos, subs }: { player?: any, pulse?: boolean
             {player.fullName}
           </div>
           <div className={`w-6 h-6 md:w-8 md:h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all group-hover/node:scale-110 group-hover/node:border-white group-hover/node:shadow-[0_0_25px_rgba(255,255,255,0.4)] relative z-10 border-2 border-zinc-900 overflow-hidden`}>
-            {player.photo ? (
-              <img src={player.photo} alt={player.fullName} className="w-full h-full object-cover" />
-            ) : (
-              <span className="text-[10px] font-black text-zinc-900">{player.fullName.split(' ').map((n:any)=>n[0]).join('')}</span>
-            )}
+            {(player.playerPhoto || player.photo) ? (
+              <img 
+                src={player.playerPhoto || player.photo} 
+                alt={player.fullName} 
+                className="w-full h-full object-cover" 
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
+            ) : null}
+            <span className="text-[10px] font-black text-zinc-900 absolute inset-0 flex items-center justify-center -z-10 bg-primary">
+              {player.fullName.split(' ').map((n:any)=>n[0]).join('').slice(0, 2)}
+            </span>
             {pulse && <div className="absolute -inset-2 rounded-full border-2 border-primary animate-ping opacity-30" />}
           </div>
           <div className="mt-2 px-2 py-0.5 bg-black/50 backdrop-blur-sm rounded text-[8px] font-black text-zinc-400 border border-white/5 group-hover/node:border-primary/30 group-hover/node:text-white transition-all uppercase">
@@ -128,10 +153,16 @@ function PlayerDot({ player, pulse, pos, subs }: { player?: any, pulse?: boolean
       <PopoverContent className="w-72 bg-zinc-950 border-zinc-800 p-0 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,1)] rounded-2xl">
         <div className="p-5 border-b border-zinc-800/50 bg-gradient-to-br from-zinc-900 to-transparent">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-zinc-800 flex items-center justify-center border border-zinc-700 overflow-hidden shadow-xl">
-              {player.photo ? (
-                 <img src={player.photo} alt={player.fullName} className="w-full h-full object-cover" />
-              ) : <UserCircle className="w-8 h-8 text-zinc-600" />}
+            <div className="w-14 h-14 rounded-2xl bg-zinc-800 flex items-center justify-center border border-zinc-700 overflow-hidden shadow-xl relative">
+              {(player.playerPhoto || player.photo) ? (
+                 <img 
+                  src={player.playerPhoto || player.photo} 
+                  alt={player.fullName} 
+                  className="w-full h-full object-cover" 
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
+              ) : null}
+              <UserCircle className="w-8 h-8 text-zinc-600 absolute inset-0 m-auto -z-10" />
             </div>
             <div className="flex-1">
               <p className="text-sm font-black text-white uppercase tracking-tight italic leading-none mb-1">{player.fullName}</p>
@@ -173,8 +204,16 @@ function PlayerDot({ player, pulse, pos, subs }: { player?: any, pulse?: boolean
                   className="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 group border border-transparent hover:border-white/10 transition-all"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center overflow-hidden">
-                       {sub.photo ? <img src={sub.photo} alt={sub.fullName} className="w-full h-full object-cover" /> : <UserCircle className="w-3 h-3 text-zinc-700" />}
+                    <div className="w-6 h-6 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center overflow-hidden relative">
+                       {(sub.playerPhoto || sub.photo) ? (
+                        <img 
+                          src={sub.playerPhoto || sub.photo} 
+                          alt={sub.fullName} 
+                          className="w-full h-full object-cover" 
+                          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                        />
+                       ) : null}
+                       <UserCircle className="w-3 h-3 text-zinc-700 absolute inset-0 m-auto -z-10" />
                     </div>
                     <span className="text-[11px] text-zinc-400 group-hover:text-white transition-colors font-bold uppercase">{sub.fullName}</span>
                   </div>
@@ -191,9 +230,13 @@ function PlayerDot({ player, pulse, pos, subs }: { player?: any, pulse?: boolean
   );
 }
 
-function isPos(p: any, short: string, long: string) {
-  const pos = (p.position || p.additionalInfo?.position || '').toLowerCase();
-  return pos.startsWith(short.toLowerCase()) || pos.startsWith(long.toLowerCase());
+function isPos(p: any, type: 'GK' | 'DF' | 'MF' | 'FW') {
+  const pos = (p.position || p.additionalInfo?.position || '').toUpperCase();
+  if (type === 'GK') return pos === 'GK' || pos.startsWith('GOAL');
+  if (type === 'DF') return pos === 'DF' || ['CB', 'LB', 'RB', 'LWB', 'RWB'].includes(pos) || (pos.startsWith('DEF') && !pos.includes('MID'));
+  if (type === 'MF') return pos === 'MF' || ['CDM', 'CM', 'CAM', 'LM', 'RM', 'MID'].includes(pos) || pos.includes('MID');
+  if (type === 'FW') return pos === 'FW' || ['ST', 'LW', 'RW', 'CF', 'STRIKER', 'STRIKE'].includes(pos) || pos.includes('ATA') || pos.includes('FORW');
+  return false;
 }
 
 function getStat(player: any, keys: string[]) {
