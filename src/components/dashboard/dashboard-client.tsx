@@ -585,7 +585,6 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
         <div className="hidden lg:flex gap-10 items-center justify-center absolute left-1/2 -translate-x-1/2">
           {[
             { name: 'Watchlist', href: '/watchlist' },
-            { name: 'Compare', href: '/compare' },
             { name: 'Transfers', href: '/transfers' },
             { name: 'Leagues', href: '/leagues' }
           ].map((item) => (
@@ -673,13 +672,12 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
             <div className="max-w-3xl mx-auto">
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
                 Scout Pro is an advanced platform designed for professional football scouts.
-                Search and analyze players from top European leagues, compare performances,
-                track transfers, and receive AI-generated scouting assignments tailored to club needs.
+                Search and analyze players from top European leagues, track transfers,
+                and receive AI-generated scouting assignments tailored to club needs.
               </p>
               <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
                 {[
                   { text: "Player Search & Analysis", icon: "🔍" },
-                  { text: "Performance Comparison", icon: "📊" },
                   { text: "Transfer Intelligence", icon: "💰" },
                   { text: "AI-Powered Insights", icon: "🤖" }
                 ].map((item, idx) => (

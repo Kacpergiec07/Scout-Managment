@@ -375,15 +375,6 @@ export default function ClubDetailsClient({
                                    >
                                       {watchlistStatus[String(p.playerID)] ? <CheckCircle2 className="w-3.5 h-3.5" /> : <Star className="w-3.5 h-3.5" />}
                                    </button>
-                                   <button 
-                                      onClick={(e) => {
-                                         e.stopPropagation();
-                                         router.push(`/compare?p1=${p.playerID}`);
-                                      }}
-                                      className="text-muted-foreground hover:text-blue-500 transition-colors"
-                                   >
-                                      <ArrowRightLeft className="w-3.5 h-3.5" />
-                                   </button>
                                 </div>
                              </div>
                           </div>

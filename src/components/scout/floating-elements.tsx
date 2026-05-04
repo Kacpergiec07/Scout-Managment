@@ -1,8 +1,6 @@
 'use client'
 
-import dynamic from 'next/dynamic'
-
-const ScoutBot = dynamic(() => import('@/components/scout/scout-bot').then(m => m.ScoutBot), { ssr: false })
+import { ScoutBot } from '@/components/scout/scout-bot'
 
 export function FloatingElements() {
   return (

@@ -23,8 +23,8 @@ export function Sidebar() {
     { href: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
     { href: '/scout-jobs', icon: Briefcase, label: 'Scout Jobs' },
     { href: '/watchlist', icon: List, label: 'Watchlist' },
+    { href: '/compare', icon: Search, label: 'Compare' },
     { href: '/history', icon: History, label: 'History' },
-    { href: '/compare', icon: Search, label: 'Compare Players' },
     { href: '/transfers', icon: ArrowRightLeft, label: 'Transfers' },
     { href: '/leagues', icon: Globe, label: 'Leagues' },
   ]

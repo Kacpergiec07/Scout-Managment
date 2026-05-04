@@ -1216,6 +1216,31 @@ export async function getPlayersAction(teamId: string, seasonId: string) {
   }
 }
 
+/**
+ * Verify if a player exists in the Statorium API
+ * Returns true if player data is valid, false otherwise
+ */
+export async function verifyPlayerExistsAction(playerId: string): Promise<boolean> {
+  if (!playerId) return false;
+
+  try {
+    const client = getStatoriumClient();
+    const playerData = await client.getPlayerDetails(playerId);
+
+    // Check if player data is valid
+    if (!playerData) return false;
+
+    // Verify the player has required fields
+    const hasPlayerID = !!playerData.playerID;
+    const hasName = !!(playerData.fullName || playerData.shortName);
+
+    return hasPlayerID && hasName;
+  } catch (error) {
+    console.warn(`[verifyPlayerExistsAction] Player ${playerId} does not exist or API error:`, error);
+    return false;
+  }
+}
+
 export async function getTeamLogoAction(teamName: string, leagueId?: string, teamId?: string) {
   try {
     const client = getStatoriumClient();
@@ -1423,143 +1448,6 @@ export async function getTopScorersAction(seasonId: string) {
   }
 }
 /**
- * HIGH-PERFORMANCE SERVER ACTION
- * Offloads all complex parsing, seasonal prioritization and rating logic to the server.
- * This prevents main-thread blocking on the client and ensures a snappy UI.
- */
-export async function getEnrichedPlayerDataAction(playerId: string, initialData: any) {
-  const startTime = Date.now();
-  console.log(`[getEnrichedPlayerDataAction] Starting for player ${playerId}`);
-
-  try {
-    if (!playerId || playerId === '1') {
-      console.log(`[getEnrichedPlayerDataAction] Invalid ID ${playerId}, returning initial data`);
-      return initialData;
-    }
-
-    const realData = await getPlayerDetailsAction(playerId);
-
-    if (!realData) {
-      console.log(`[getEnrichedPlayerDataAction] realData is null for ${playerId}`);
-      return initialData;
-    }
-    if (!realData.stat || realData.stat.length === 0) {
-      console.log(`[getEnrichedPlayerDataAction] realData.stat is empty for ${playerId}`);
-      return initialData;
-    }
-
-    // Helper to parse stats that might be strings like "7 (0)"
-    const parseStat = (val: any) => {
-      if (typeof val === 'string') {
-        const match = val.match(/\d+/);
-        return match ? parseInt(match[0]) : 0;
-      }
-      return typeof val === 'number' ? val : parseInt(val || '0');
-    };
-
-    // Advanced helper to extract goals/assists from various potential formats
-    const extractStat = (obj: any, primaryKey: string, secondaryKeys: string[] = []) => {
-      if (!obj) return 0;
-      const allKeys = [primaryKey, ...secondaryKeys];
-      for (const key of allKeys) {
-        const val = parseStat(obj[key]);
-        if (val > 0) return val;
-      }
-      if (primaryKey === 'goals' || primaryKey === 'goalscore') {
-        const home = parseStat(obj.goals_home || obj.goalscore_home);
-        const away = parseStat(obj.goals_away || obj.goalscore_away);
-        if (home + away > 0) return home + away;
-      }
-      return 0;
-    };
-
-    const getYears = (s: any) => {
-      const name = s.season_name || s.seasonName || '';
-      const matches = name.match(/20\d{2}/g) || [];
-      const shortMatches = name.match(/-(2\d|3\d|4\d)/g) || []; // e.g. -26
-      let years = matches.map(Number);
-      shortMatches.forEach((m: string) => years.push(2000 + parseInt(m.substring(1))));
-      return years;
-    };
-
-    let allYears: number[] = [];
-    realData.stat.forEach((s: any) => {
-      allYears.push(...getYears(s));
-    });
-    const maxYear = allYears.length > 0 ? Math.max(...allYears) : 0;
-
-    const currentSeasons = realData.stat.filter((s: any) => {
-      const years = getYears(s);
-      return years.includes(maxYear);
-    });
-
-    let goals = 0;
-    let assists = 0;
-    let matches = 0;
-
-    for (const season of currentSeasons) {
-      goals += extractStat(season, 'Goals', ['goals', 'goalscore', 'goals_total', 'Goal']);
-      assists += extractStat(season, 'Assist', ['assists', 'assists_total']);
-      matches += parseStat(season.played || season.appearances || 0);
-    }
-
-    if (currentSeasons.length === 0 && realData.stat.length > 0) {
-      const currentSeason = realData.stat[0];
-      goals = extractStat(currentSeason, 'Goals', ['goals', 'goalscore', 'goals_total', 'Goal']);
-      assists = extractStat(currentSeason, 'Assist', ['assists', 'assists_total']);
-      matches = parseStat(currentSeason.played || currentSeason.appearances || 0);
-    }
-
-    // Calculate dynamic rating based on goals and position
-    let rating = 70; // Base
-    const pos = (initialData.position || '').toUpperCase();
-    
-    if (pos === 'ST' || pos === 'FW') {
-      rating += (goals * 2) + (assists * 1.5);
-    } else if (pos === 'MF' || pos === 'CAM') {
-      rating += (goals * 1.5) + (assists * 2.5);
-    } else {
-      rating += (goals * 3) + (assists * 2);
-    }
-    
-    // Normalize rating to 65-98 range
-    rating = Math.min(98, Math.max(65, Math.round(rating)));
-
-    const enriched = {
-      ...initialData,
-      id: playerId,
-      stats: {
-        ...initialData.stats,
-        offensive: {
-          ...initialData.stats.offensive,
-          goals: goals,
-          assists: assists,
-        }
-      },
-      rating: rating,
-      matches: matches,
-      normalizedStats: {
-        offensive: Math.min(100, (goals * 10) + (assists * 5) + 60),
-        defensive: initialData.stats.defensive.tackles,
-        tactical: initialData.stats.tactical.progressivePasses,
-        physical: initialData.stats.physical.stamina,
-        dribbling: initialData.stats.tactical.dribbles,
-        passing: initialData.stats.tactical.passAccuracy
-      }
-    };
-
-    const elapsed = Date.now() - startTime;
-    console.log(`[getEnrichedPlayerDataAction] Successfully enriched player ${playerId} in ${elapsed}ms`);
-    return enriched;
-
-  } catch (error) {
-    const elapsed = Date.now() - startTime;
-    console.error(`[getEnrichedPlayerDataAction] Error for player ${playerId} after ${elapsed}ms:`, error);
-    return initialData;
-  }
-}
-
-/**
  * Optimized action to fetch both standings and upcoming matches for the League Hub in one request.
  */
 export async function getLeagueHubDataAction(seasonId: string) {
@@ -1579,26 +1467,3 @@ export async function getLeagueHubDataAction(seasonId: string) {
   }
 }
 
-/**
- * Optimized action to fetch enriched data for two players at once for the Comparison module.
- */
-export async function getComparisonDataAction(p1Id: string | null, p2Id: string | null) {
-  try {
-    const promises = [];
-    if (p1Id) promises.push(getEnrichedPlayerDataAction(p1Id));
-    else promises.push(Promise.resolve(null));
-    
-    if (p2Id) promises.push(getEnrichedPlayerDataAction(p2Id));
-    else promises.push(Promise.resolve(null));
-    
-    const [p1Data, p2Data] = await Promise.all(promises);
-    
-    return {
-      player1: p1Data,
-      player2: p2Data
-    };
-  } catch (error) {
-    console.error(`[Action] getComparisonDataAction error:`, error);
-    return { player1: null, player2: null };
-  }
-}

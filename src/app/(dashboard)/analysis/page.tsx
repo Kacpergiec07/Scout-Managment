@@ -7,7 +7,7 @@ import { RankingList } from '@/components/scout/ranking-list'
 import { ReportButton } from '@/components/scout/report-button'
 import { MarketValue } from '@/components/scout/market-value'
 import { ScoutProPlayer, Position } from '@/lib/types/player'
-import { getPlayerDataAction, getEnrichedPlayerDataAction } from '@/app/actions/statorium'
+import { getPlayerDataAction, getPlayerDetailsAction } from '@/app/actions/statorium'
 
 import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
@@ -51,7 +51,7 @@ function TransferAnalysisModal({ isOpen, onClose, player }: any) {
                     <span className="text-xs font-black uppercase tracking-widest">Executive Summary</span>
                  </div>
                  <p className="text-white/70 text-sm leading-relaxed">
-                   Analysis of {player.club}'s current squad depth and tactical evolution indicates that the acquisition of {player.name} is <span className="text-emerald-400 font-bold italic underline">STRATEGICALLY ESSENTIAL</span> for the upcoming season.
+                   Analysis of {player.club || 'team'}'s current squad depth and tactical evolution indicates that the acquisition of {player.name || 'player'} is <span className="text-emerald-400 font-bold italic underline">STRATEGICALLY ESSENTIAL</span> for the upcoming season.
                  </p>
               </div>
 
@@ -76,7 +76,7 @@ function TransferAnalysisModal({ isOpen, onClose, player }: any) {
                  <div className="p-5 rounded-2xl bg-white/5 border border-white/5 space-y-3">
                     <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">Tactical impact</div>
                     <p className="text-xs text-white/60 leading-relaxed italic">
-                      Integrating {player.name} allows for a more aggressive high-line transition. His statistical outlier in key passes (DNA:02) provides the "missing link" for offensive fluidity that {player.club} lacked in the final third last season.
+                      Integrating {player.name || 'player'} allows for a more aggressive high-line transition. His statistical outlier in key passes (DNA:02) provides the "missing link" for offensive fluidity that {player.club || 'team'} lacked in the final third last season.
                     </p>
                  </div>
               </div>
@@ -146,13 +146,42 @@ function AnalysisContent() {
           }
         }
 
-        // Fetch HIGH-PERFORMANCE Enriched Statistics from Server
-        const enrichedData = await getEnrichedPlayerDataAction(activeId, mockPlayer);
-        setPlayerData(enrichedData);
-        
-        // Get compatibility analysis
-        const analysisData = await getCompatibilityAnalysis(enrichedData);
-        setResults(analysisData);
+        // Fetch player details from Server
+        const enrichedData = await getPlayerDetailsAction(activeId);
+
+        // Map Statorium API data to ScoutProPlayer format
+        if (enrichedData) {
+          const data = enrichedData as any;
+          const mappedData: ScoutProPlayer & { description?: string, matches?: number } = {
+            id: data.playerID || activeId,
+            name: data.fullName || playerName,
+            age: parseInt(data.age || '23') || 23,
+            nationality: typeof data.country === 'string' ? data.country : data.country?.name || nationality,
+            position: data.position as Position || position as Position,
+            club: data.teamName || data.team?.fullName || club,
+            league: league,
+            photoUrl: data.playerPhoto || data.photo || photo,
+            description: description,
+            stats: {
+              offensive: { goals: 95, assists: 40, xG: 98, xA: 45, keyPasses: 60 },
+              defensive: { tackles: 20, interceptions: 15, aerialWins: 85, clearances: 30 },
+              physical: { distance: 70, sprints: 95, stamina: 85 },
+              tactical: { dribbles: 65, progressivePasses: 40, passAccuracy: 75, pressing: 80 }
+            },
+            updatedAt: new Date().toISOString()
+          };
+          setPlayerData(mappedData);
+
+          // Get compatibility analysis
+          const analysisData = await getCompatibilityAnalysis(mappedData);
+          setResults(analysisData);
+        } else {
+          setPlayerData(mockPlayer);
+
+          // Get compatibility analysis with mock data
+          const analysisData = await getCompatibilityAnalysis(mockPlayer);
+          setResults(analysisData);
+        }
         
       } catch (err) {
         console.error('Error loading player data:', err)
@@ -209,7 +238,7 @@ function AnalysisContent() {
             <button className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-white/70 hover:bg-white/10 hover:text-emerald-500 transition-all">
               <Share2 className="w-5 h-5" />
             </button>
-            <ReportButton player={playerData} />
+            <ReportButton elementId="analysis-content" playerName={playerData.name || 'Player'} />
           </div>
         </div>
 
@@ -231,8 +260,8 @@ function AnalysisContent() {
                   <div className="absolute inset-0 bg-emerald-500 blur-3xl opacity-20 animate-pulse" />
                   <div className="relative w-48 h-48 rounded-[2rem] overflow-hidden border-2 border-emerald-500/50 shadow-2xl shadow-emerald-500/20">
                     <Image
-                      src={playerData.photoUrl}
-                      alt={playerData.name}
+                      src={playerData.photoUrl || '/placeholder-player.png'}
+                      alt={playerData.name || 'Player'}
                       fill
                       className="object-cover scale-110 group-hover:scale-125 transition-transform duration-700"
                     />
@@ -246,29 +275,29 @@ function AnalysisContent() {
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 justify-center md:justify-start">
                       <Badge variant="outline" className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20 px-3 py-1">
-                        {playerData.league}
+                        {playerData.league || 'N/A'}
                       </Badge>
                       <Badge variant="outline" className="bg-white/5 text-white/50 border-white/10 px-3 py-1">
                         Season 24/25
                       </Badge>
                     </div>
                     <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter">
-                      {playerData.name.toUpperCase()}
+                      {(playerData.name || 'Unknown Player').toUpperCase()}
                     </h1>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-6 justify-center md:justify-start">
                     <div className="flex items-center gap-2 text-white/60">
                       <Trophy className="w-4 h-4 text-emerald-500" />
-                      <span className="text-sm font-semibold tracking-wide">{playerData.club}</span>
+                      <span className="text-sm font-semibold tracking-wide">{playerData.club || 'N/A'}</span>
                     </div>
                     <div className="flex items-center gap-2 text-white/60">
                       <Target className="w-4 h-4 text-emerald-500" />
-                      <span className="text-sm font-semibold tracking-wide">{playerData.position}</span>
+                      <span className="text-sm font-semibold tracking-wide">{playerData.position || 'N/A'}</span>
                     </div>
                     <div className="flex items-center gap-2 text-white/60">
                       <Users className="w-4 h-4 text-emerald-500" />
-                      <span className="text-sm font-semibold tracking-wide">{playerData.nationality} • {playerData.age} yrs</span>
+                      <span className="text-sm font-semibold tracking-wide">{playerData.nationality || 'N/A'} • {playerData.age || 23} yrs</span>
                     </div>
                   </div>
 
@@ -339,7 +368,7 @@ function AnalysisContent() {
                 <h3 className="text-xl font-black text-white italic tracking-tight">MARKET VALUATION</h3>
               </div>
               
-              <MarketValue player={playerData} />
+              <MarketValue playerName={playerData.name || 'Player'} />
 
               <div className="space-y-4">
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-between">
@@ -386,7 +415,7 @@ function AnalysisContent() {
                 <div className="flex items-center gap-2">
                   <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
                     <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span className="text-[10px] font-black text-emerald-400 uppercase tracking-tighter">{playerData.name}</span>
+                    <span className="text-[10px] font-black text-emerald-400 uppercase tracking-tighter">{playerData.name || 'Player'}</span>
                   </div>
                   <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
                     <div className="w-2 h-2 rounded-full bg-white/20" />

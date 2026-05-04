@@ -263,22 +263,10 @@ export function LeagueCenter() {
                           <span className="text-xs font-bold text-foreground truncate group-hover:text-primary transition-colors">{p.fullName}</span>
                           <span className="text-[9px] font-semibold text-muted-foreground uppercase mt-0.5">{p.position}</span>
                         </div>
-                        <Link href={`/compare?p1=${p.playerID}`}>
-                          <Button variant="ghost" size="sm" className="h-7 px-3 text-[10px] font-bold hover:bg-primary/10 hover:text-primary rounded-lg transition-colors">
-                            ANALYZE
-                          </Button>
-                        </Link>
                       </div>
                     ))}
                   </div>
                 </ScrollArea>
-
-                <Button
-                  onClick={() => router.push(`/compare`)}
-                  className="premium-btn w-full h-12 text-xs mt-4"
-                >
-                  Strategic Analysis
-                </Button>
               </div>
             ) : (
               <div className="flex-1 flex flex-col items-center justify-center text-center p-6 rounded-[1.5rem] border-2 border-dashed border-border bg-muted/5">
