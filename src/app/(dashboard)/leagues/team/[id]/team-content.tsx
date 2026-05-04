@@ -30,13 +30,16 @@ export function TeamContent({ team }: TeamContentProps) {
 
   // Determine formation from squad positions
   const squad = team.players || [];
-  const countPosition = (prefix: string) => squad.filter((p: any) => {
-    const pos = p.position || p.additionalInfo?.position || '';
-    return pos.startsWith(prefix);
+  const countPosition = (type: 'DF' | 'MF' | 'FW') => squad.filter((p: any) => {
+    const pos = (p.position || p.additionalInfo?.position || '').toUpperCase();
+    if (type === 'DF') return pos === 'DF' || ['CB', 'LB', 'RB', 'LWB', 'RWB'].includes(pos) || (pos.startsWith('DEF') && !pos.includes('MID'));
+    if (type === 'MF') return pos === 'MF' || ['CDM', 'CM', 'CAM', 'LM', 'RM'].includes(pos) || pos.includes('MID');
+    if (type === 'FW') return pos === 'FW' || ['ST', 'LW', 'RW', 'CF', 'STRIKER'].includes(pos) || pos.includes('ATA') || pos.includes('FORW');
+    return false;
   }).length || 0;
-  const defendersCount = countPosition('DF') || countPosition('Def');
-  const midfieldersCount = countPosition('MF') || countPosition('Mid');
-  const forwardsCount = countPosition('FW') || countPosition('For') || countPosition('Ata');
+  const defendersCount = countPosition('DF');
+  const midfieldersCount = countPosition('MF');
+  const forwardsCount = countPosition('FW');
 
   // Parse formation from API or use fallback
   let formationText = team.formation || "4-3-3 STANDARD";
@@ -44,12 +47,14 @@ export function TeamContent({ team }: TeamContentProps) {
 
   // Parse formation string (e.g., "4-3-3 ATTACKING" -> { d: 4, m: 3, f: 3 })
   if (team.formation) {
-    const parts = team.formation.split('-');
-    if (parts.length >= 3) {
+    const parts = team.formation.split(' ')[0].split('-').map(n => parseInt(n) || 0);
+    if (parts.length === 3) {
+      formationLayout = { d: parts[0] || 4, m: parts[1] || 4, f: parts[2] || 2 };
+    } else if (parts.length >= 4) {
       formationLayout = {
-        d: parseInt(parts[0]) || 4,
-        m: parseInt(parts[1]) || 3,
-        f: parseInt(parts[2]) || 3
+        d: parts[0] || 4,
+        f: parts[parts.length - 1] || 1,
+        m: parts.slice(1, -1).reduce((sum, n) => sum + n, 0) || 5
       };
     }
   } else {
@@ -81,20 +86,20 @@ export function TeamContent({ team }: TeamContentProps) {
   const subs = squad.slice(11);
 
   const pgks = startingXI.filter((p: any) => {
-    const pos = p.position || p.additionalInfo?.position || '';
-    return pos.startsWith('GK') || pos.startsWith('Goal');
+    const pos = (p.position || p.additionalInfo?.position || '').toUpperCase();
+    return pos === 'GK' || pos.startsWith('GOAL');
   });
   const pdfs = startingXI.filter((p: any) => {
-    const pos = p.position || p.additionalInfo?.position || '';
-    return pos.startsWith('DF') || pos.startsWith('Def');
+    const pos = (p.position || p.additionalInfo?.position || '').toUpperCase();
+    return pos === 'DF' || ['CB', 'LB', 'RB', 'LWB', 'RWB'].includes(pos) || (pos.startsWith('DEF') && !pos.includes('MID'));
   });
   const pmfs = startingXI.filter((p: any) => {
-    const pos = p.position || p.additionalInfo?.position || '';
-    return pos.startsWith('MF') || pos.startsWith('Mid');
+    const pos = (p.position || p.additionalInfo?.position || '').toUpperCase();
+    return pos === 'MF' || ['CDM', 'CM', 'CAM', 'LM', 'RM'].includes(pos) || pos.includes('MID');
   });
   const pfws = startingXI.filter((p: any) => {
-    const pos = p.position || p.additionalInfo?.position || '';
-    return pos.startsWith('FW') || pos.startsWith('Ata') || pos.startsWith('For');
+    const pos = (p.position || p.additionalInfo?.position || '').toUpperCase();
+    return pos === 'FW' || ['ST', 'LW', 'RW', 'CF', 'STRIKER'].includes(pos) || pos.includes('ATA') || pos.includes('FORW');
   });
 
   const startingGK = pgks[0] || startingXI[0];

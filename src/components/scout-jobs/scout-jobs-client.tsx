@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
@@ -26,6 +26,7 @@ import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import confetti from 'canvas-confetti'
 import {
   Dialog,
   DialogContent,
@@ -36,10 +37,10 @@ import {
 } from "@/components/ui/dialog"
 import { PlayerSearch } from '@/components/scout/player-search'
 import ReactMarkdown from 'react-markdown'
-import { getRecentJobs, completeJob, generateDraftJobAction, acceptJobAction, cancelJobAction, generatePackOfJobsAction } from '@/app/actions/job-generation'
+import { getRecentJobs, completeJob, generateDraftJobAction, acceptJobAction, cancelJobAction, generatePackOfJobsAction, generateEliteJobsAction } from '@/app/actions/job-generation'
 import { COACH_MAP } from '@/lib/coaches-data'
 import { toast } from 'sonner'
-import { X, Check, ThumbsDown, Info, Trash2, Layers } from 'lucide-react'
+import { X, Check, ThumbsDown, Info, Trash2, Layers, Crown } from 'lucide-react'
 
 interface JobOffer {
   id: string
@@ -78,12 +79,62 @@ export function ScoutJobsClient() {
   const [showReview, setShowReview] = useState(false)
   const [rejectReason, setRejectReason] = useState('')
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [showAppreciation, setShowAppreciation] = useState(false)
+  const [isEliteMode, setIsEliteMode] = useState(false)
+  const [showOnlyElite, setShowOnlyElite] = useState(true)
   const scrollRef = useRef<HTMLDivElement>(null)
+
+  const [reputation, setReputation] = useState<number>(0)
+  
+  // Load reputation from localStorage
+  useEffect(() => {
+    const savedRep = localStorage.getItem('scout_reputation')
+    if (savedRep) {
+      setReputation(parseInt(savedRep))
+    } else {
+      setReputation(50) // Default starting rep
+      localStorage.setItem('scout_reputation', '50')
+    }
+  }, [])
+
+  // Update reputation helper
+  const updateReputation = (amount: number) => {
+    setReputation(prev => {
+      const newRep = Math.max(0, Math.min(100, prev + amount))
+      localStorage.setItem('scout_reputation', newRep.toString())
+      return newRep
+    })
+  }
+
+  // Calculate difficulty for a job (1-10 scale)
+  const getDifficulty = (job: JobOffer) => {
+    let score = 0
+    // Priority (Impact: 1 - 4)
+    if (job.priority === 'high') score = 4
+    else if (job.priority === 'medium') score = 2.5
+    else score = 1
+    
+    // Requirements (Impact: 0.5 per req)
+    score += (job.requirements.length * 0.5)
+    
+    // Club Rank / Prestige (Impact: 0 - 3)
+    const eliteNames = ['Real Madrid', 'PSG', 'Paris Saint-Germain', 'Manchester City', 'Bayern', 'Liverpool', 'Barcelona', 'Inter', 'Arsenal', 'Manchester United', 'Man Utd', 'Chelsea', 'Juventus', 'Milan', 'Dortmund', 'Atletico', 'Tottenham', 'Napoli', 'Ajax', 'Benfica', 'Porto']
+    
+    const isElite = eliteNames.some(name => job.club.name.toLowerCase().includes(name.toLowerCase()))
+    
+    if (isElite) {
+      score += 3
+    } else if (job.requirements.length > 3) {
+      score += 1.5 // Significant mid-tier bonus
+    }
+    
+    return Math.min(10, score)
+  }
 
   const fetchJobs = async () => {
     setIsFetching(true)
     try {
-      const recentJobs = await getRecentJobs(4)
+      const recentJobs = await getRecentJobs(10) // Increased limit to ensure elite ones are always found
       setJobs(recentJobs)
     } catch (error) {
       console.error('Error fetching jobs:', error)
@@ -95,6 +146,11 @@ export function ScoutJobsClient() {
   useEffect(() => {
     fetchJobs()
   }, [])
+
+  useEffect(() => {
+    const hasEliteClubs = jobs.some(j => j.club.name === 'Real Madrid' || j.club.name === 'PSG')
+    setIsEliteMode(hasEliteClubs)
+  }, [jobs])
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -142,6 +198,23 @@ export function ScoutJobsClient() {
     
     const currentInput = input
     setInput('')
+
+    // COMMAND: New Mission Request
+    if (currentInput.toLowerCase().includes('nowe zadanie') || 
+        currentInput.toLowerCase().includes('new mission') || 
+        currentInput.toLowerCase().includes('szukam pracy')) {
+      setIsGenerating(true)
+      const result = await generateDraftJobAction()
+      if (result.success && result.job) {
+        setDraftJobs([result.job])
+        setCurrentDraftIndex(0)
+        setShowReview(true)
+        toast.success("Board has a new request for you!", { icon: '💼' })
+      }
+      setIsGenerating(false)
+      return
+    }
+
     setIsLoading(true)
 
     const managerName = getManagerName(selectedJob.club.id, selectedJob.club.name)
@@ -159,10 +232,15 @@ export function ScoutJobsClient() {
               Job details: ${selectedJob.description}.
               Requirements: ${selectedJob.requirements.join(', ')}.
               
-              Evaluate the scout's proposal. 
-              If the player matches the requirements, be positive and professional.
-              If the player doesn't match, explain why briefly.
-              Always keep the tone professional but demanding, like a top-tier football manager.
+              Evaluate the scout's proposal extremely strictly. 
+              Only if the player is a near-perfect fit (90%+ match) for ALL requirements,
+              start your response with "PERFECT MATCH: [percentage]%".
+              Example: "PERFECT MATCH: 95%. This is exactly what we need!"
+              
+              If they are a good fit (70-89%), use "GOOD FIT: [percentage]%".
+              If they are below 70%, be critical and explain why they don't fit.
+              
+              Tone: Professional, demanding, but appreciative of high quality.
               Respond in the same language as the scout.`
             },
             ...(messages[selectedJob.id] || []).map(m => ({ role: m.role, content: m.content })),
@@ -204,6 +282,32 @@ export function ScoutJobsClient() {
           )
         }))
       }
+
+      // Check for strict success markers (90%+)
+      const upperContent = assistantContent.toUpperCase()
+      if (upperContent.includes('PERFECT MATCH')) {
+        // Trigger confetti
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#00ff00', '#ffffff', '#004400']
+        })
+        
+        setShowAppreciation(true)
+        setTimeout(() => setShowAppreciation(false), 4000)
+
+        toast.success('The manager is impressed! Reputation increased (+10)!', {
+          icon: '🏆',
+          duration: 5000
+        })
+        updateReputation(10)
+      } else if (upperContent.includes('GOOD FIT')) {
+        toast.info('Good suggestion. The manager is interested.', {
+          icon: '📊'
+        })
+        updateReputation(2)
+      }
     } catch (error) {
       console.error('Error:', error)
       setMessages(prev => ({
@@ -222,8 +326,41 @@ export function ScoutJobsClient() {
 
   const managerName = selectedJob ? getManagerName(selectedJob.club.id, selectedJob.club.name) : 'Manager'
 
+  const hasEliteActive = jobs.some(j => j.club.name === 'Real Madrid' || j.club.name === 'PSG')
+
+  const sortedJobs = useMemo(() => {
+    // Filter logic: if elite offers (Real/PSG) are present, show ONLY them to focus the scout
+    let displayJobs = [...jobs]
+    
+    if (hasEliteActive && showOnlyElite) {
+      displayJobs = jobs.filter(j => j.club.name === 'Real Madrid' || j.club.name === 'PSG')
+    }
+
+    return displayJobs.sort((a, b) => {
+      const diffA = getDifficulty(a)
+      const diffB = getDifficulty(b)
+      if (diffA !== diffB) return diffB - diffA // Hardest first
+      
+      return new Date(a.deadline).getTime() - new Date(b.deadline).getTime() // Closest deadline first
+    })
+  }, [jobs, showOnlyElite])
+
   return (
-    <div className="flex flex-col h-[calc(100vh-100px)] gap-6 p-6">
+    <div className={`flex flex-col h-[calc(100vh-100px)] gap-6 p-6 transition-all duration-1000 relative overflow-hidden ${
+      isEliteMode 
+        ? 'bg-[#0a0a0a] text-amber-500' 
+        : 'bg-background'
+    }`}>
+      {/* Premium Elite Background Effects */}
+      {isEliteMode && (
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+          <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-amber-500/10 blur-[150px] rounded-full animate-pulse" />
+          <div className="absolute bottom-[-20%] left-[-10%] w-[60%] h-[60%] bg-amber-600/5 blur-[150px] rounded-full" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,191,0,0.05),transparent)]" />
+          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] mix-blend-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-500/[0.02] to-transparent" />
+        </div>
+      )}
       {/* Header Section */}
       <div className="flex flex-col gap-1">
         <div className="flex items-center justify-between">
@@ -250,15 +387,26 @@ export function ScoutJobsClient() {
           size="sm" 
           onClick={async () => {
             setIsGenerating(true)
-            const result = await generateDraftJobAction()
-            if (result.success && result.job) {
-              setDraftJobs([result.job])
-              setCurrentDraftIndex(0)
-              setShowReview(true)
-            } else {
-              toast.error('Failed to generate draft: ' + result.error)
+            const generatePromise = async () => {
+              try {
+                const result = await generateDraftJobAction()
+                if (!result.success || !result.job) {
+                  throw new Error(result.error || 'Failed to generate')
+                }
+                setDraftJobs([result.job])
+                setCurrentDraftIndex(0)
+                setShowReview(true)
+                return result.job
+              } finally {
+                setIsGenerating(false)
+              }
             }
-            setIsGenerating(false)
+
+            toast.promise(generatePromise(), {
+              loading: 'Scanning market for new opportunities...',
+              success: 'New scouting mission available!',
+              error: (err) => `Error: ${err.message}`
+            })
           }} 
           disabled={isGenerating || isFetching}
           className="gap-2 bg-secondary text-secondary-foreground shadow-lg shadow-secondary/20 hover:scale-105 transition-all"
@@ -275,26 +423,71 @@ export function ScoutJobsClient() {
           variant="outline"
           onClick={async () => {
             setIsGenerating(true)
-            const result = await generatePackOfJobsAction()
-            if (result.success && result.jobs) {
-              setDraftJobs(result.jobs)
-              setCurrentDraftIndex(0)
-              setShowReview(true)
-            } else {
-              toast.error('Failed to generate pack: ' + result.error)
+            const generatePromise = async () => {
+              try {
+                const result = await generateEliteJobsAction()
+                if (!result.success || !result.jobs) {
+                  throw new Error(result.error || 'Failed to generate')
+                }
+                setDraftJobs(result.jobs)
+                setCurrentDraftIndex(0)
+                setShowReview(true)
+                return result.jobs
+              } finally {
+                setIsGenerating(false)
+              }
             }
-            setIsGenerating(false)
+
+            toast.promise(generatePromise(), {
+              loading: 'Contacting world-class representatives...',
+              success: 'Real Madrid and PSG have sent you urgent requests!',
+              error: (err) => `Failed: ${err.message}`
+            })
           }} 
           disabled={isGenerating || isFetching}
-          className="gap-2 border-secondary/20 hover:bg-secondary/10"
+          className="gap-2 border-yellow-500/30 bg-yellow-500/5 hover:bg-yellow-500/10 text-yellow-600 font-bold"
         >
-          <Layers className="h-4 w-4" />
-          Get 4 Specialized Offers
+          <Crown className="h-4 w-4 text-yellow-500" />
+          Get 2 Elite Offers
         </Button>
+        <div className="flex-1" />
+        
+        {/* Trust Bar Section */}
+        <div className="hidden sm:flex items-center gap-4 px-5 py-2.5 bg-card/40 backdrop-blur-xl rounded-2xl border border-border shadow-sm group hover:border-secondary/30 transition-all duration-500">
+          <div className="flex flex-col gap-1.5 min-w-[140px]">
+             <div className="flex items-center justify-between">
+                <div className="flex items-center gap-1.5">
+                  <Star className="h-3 w-3 text-secondary fill-secondary/20" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-foreground/70 group-hover:text-foreground transition-colors">Trust Level</span>
+                </div>
+                <span className="text-[10px] font-black text-secondary tabular-nums">{reputation}%</span>
+             </div>
+             <div className="h-2 w-full bg-secondary/10 rounded-full overflow-hidden p-[1px] border border-secondary/5">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  animate={{ width: `${reputation}%` }}
+                  transition={{ type: "spring", stiffness: 50, damping: 20 }}
+                  className="h-full bg-gradient-to-r from-secondary/40 via-secondary to-emerald-400 rounded-full shadow-[0_0_15px_rgba(var(--secondary-rgb),0.3)] relative"
+                >
+                  <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent)] animate-shimmer" />
+                </motion.div>
+             </div>
+          </div>
+          <div className="w-px h-8 bg-border/50 mx-1" />
+          <div className="flex items-center gap-2.5">
+            <div className="relative">
+              <div className="h-2.5 w-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
+              <div className="absolute inset-0 h-2.5 w-2.5 rounded-full bg-green-500 animate-ping opacity-20" />
+            </div>
+            <span className="text-[10px] font-black tracking-[0.2em] text-foreground/50 uppercase">Live Network</span>
+          </div>
+        </div>
       </div>
 
       <Dialog open={showReview} onOpenChange={setShowReview}>
         <DialogContent className="sm:max-w-[500px] bg-card border-border p-0 overflow-hidden rounded-3xl">
+          <DialogTitle className="sr-only">Scouting Mission Review</DialogTitle>
+          <DialogDescription className="sr-only">Review the details of the scouting mission before accepting.</DialogDescription>
           {draftJobs.length > 0 && draftJobs[currentDraftIndex] && (
             <div className="flex flex-col h-full">
               <div className="bg-secondary/10 p-6 border-b border-secondary/20">
@@ -302,7 +495,7 @@ export function ScoutJobsClient() {
                   <div className="flex items-center gap-4">
                     <div className="h-16 w-16 rounded-2xl bg-white p-3 flex items-center justify-center shadow-xl border border-secondary/20">
                       <img 
-                        src={draftJobs[currentDraftIndex].club.logo} 
+                        src={draftJobs[currentDraftIndex].club.logo || `https://ui-avatars.com/api/?name=${encodeURIComponent(draftJobs[currentDraftIndex].club.name)}&background=secondary&color=fff`} 
                         alt={draftJobs[currentDraftIndex].club.name} 
                         className="h-full w-full object-contain"
                         onError={(e) => {
@@ -328,8 +521,13 @@ export function ScoutJobsClient() {
                   <Badge className="bg-secondary/20 text-secondary hover:bg-secondary/30 border-secondary/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                     {draftJobs[currentDraftIndex].position}
                   </Badge>
-                  <Badge variant={draftJobs[currentDraftIndex].priority === 'high' ? 'destructive' : 'secondary'} className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                    {draftJobs[currentDraftIndex].priority.toUpperCase()} PRIORITY
+                  <Badge 
+                    variant={getDifficulty(draftJobs[currentDraftIndex]) <= 4 ? 'secondary' : getDifficulty(draftJobs[currentDraftIndex]) <= 7.5 ? 'outline' : 'destructive'} 
+                    className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                      getDifficulty(draftJobs[currentDraftIndex]) > 4 && getDifficulty(draftJobs[currentDraftIndex]) <= 7.5 ? 'border-yellow-500/50 text-yellow-500 bg-yellow-500/5' : ''
+                    }`}
+                  >
+                    {getDifficulty(draftJobs[currentDraftIndex]) <= 4 ? 'EASY' : getDifficulty(draftJobs[currentDraftIndex]) <= 7.5 ? 'MEDIUM' : 'HARD'} DIFFICULTY
                   </Badge>
                 </div>
               </div>
@@ -421,20 +619,64 @@ export function ScoutJobsClient() {
         </DialogContent>
       </Dialog>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1 overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1 min-h-0 overflow-hidden">
         {/* Left Column: Job List */}
-        <div className="lg:col-span-4 flex flex-col gap-4 h-full overflow-hidden">
-          <Card className="glass-panel border-border flex flex-col h-full bg-card/50">
-            <CardHeader className="p-4 border-b border-border">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input 
-                  placeholder="Search offers..." 
-                  className="pl-9 bg-background/50 border-border"
-                />
+        <div className="lg:col-span-4 flex flex-col gap-4 min-h-0 h-full overflow-hidden">
+          {hasEliteActive && (
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-gradient-to-r from-amber-500/20 via-amber-400/10 to-transparent border border-amber-500/30 rounded-2xl p-4 flex items-center justify-between shadow-[0_0_20px_rgba(245,158,11,0.1)]"
+            >
+              <div className="flex items-center gap-3">
+                <div className="h-10 w-10 rounded-xl bg-amber-500 flex items-center justify-center shadow-lg shadow-amber-500/20">
+                  <Crown className="h-6 w-6 text-black" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-black italic uppercase tracking-tighter text-amber-500">Priority Missions</h3>
+                  <p className="text-[10px] font-bold text-amber-500/70 uppercase tracking-widest leading-none">
+                    {showOnlyElite ? 'Elite Focus Mode' : 'Showing All Missions'}
+                  </p>
+                </div>
               </div>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={async () => {
+                  const eliteJobs = jobs.filter(j => j.club.name === 'Real Madrid' || j.club.name === 'PSG');
+                  // Remove from state immediately for snappy UI
+                  setJobs(prev => prev.filter(j => j.club.name !== 'Real Madrid' && j.club.name !== 'PSG'));
+                  setSelectedJob(null);
+                  toast.info('Elite missions dismissed. Returning to standard market.');
+                  
+                  // Also cancel them in the background so they don't persist
+                  for (const job of eliteJobs) {
+                    await cancelJobAction(job.id);
+                  }
+                }}
+                className="h-8 rounded-xl border-amber-500/30 text-amber-500 hover:bg-amber-500/10 text-[10px] font-black uppercase tracking-widest"
+              >
+                Return to Normal
+              </Button>
+            </motion.div>
+          )}
+
+          <Card className={`glass-panel border-border flex flex-col h-full min-h-0 ${hasEliteActive ? 'bg-amber-950/5 border-amber-500/20 shadow-[0_0_30px_rgba(245,158,11,0.05)]' : 'bg-card/50'}`}>
+            <CardHeader className="p-4 border-b border-border shrink-0">
+                <div className="flex items-center justify-between px-3 py-1.5 bg-secondary/5 rounded-xl border border-secondary/10">
+                  <div className="flex items-center gap-2">
+                    <Star className="h-3.5 w-3.5 text-secondary" />
+                    <span className="text-[10px] font-black uppercase tracking-widest text-secondary/80">Sort: Priority & Date</span>
+                  </div>
+                  <div className="flex gap-1">
+                    <div className="h-1.5 w-1.5 rounded-full bg-secondary" />
+                    <div className="h-1.5 w-1.5 rounded-full bg-secondary/30" />
+                    <div className="h-1.5 w-1.5 rounded-full bg-secondary/30" />
+                  </div>
+                </div>
             </CardHeader>
-            <ScrollArea className="h-[calc(100vh-320px)] p-4">
+            <div className="flex-1 min-h-0">
+              <ScrollArea className="h-full p-4">
               <div className="space-y-3">
                 {isFetching && jobs.length === 0 ? (
                   <div className="flex flex-col gap-3">
@@ -442,8 +684,8 @@ export function ScoutJobsClient() {
                       <div key={i} className="h-24 w-full bg-muted animate-pulse rounded-xl" />
                     ))}
                   </div>
-                ) : jobs.length > 0 ? (
-                  jobs.map((job) => (
+                ) : sortedJobs.length > 0 ? (
+                  sortedJobs.map((job) => (
                     <motion.div
                       key={job.id}
                       whileHover={{ scale: 1.02 }}
@@ -475,9 +717,14 @@ export function ScoutJobsClient() {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between gap-2 mb-1">
                             <h3 className="font-bold text-sm truncate">{job.club.name}</h3>
-                            <Badge variant={job.priority === 'high' ? 'destructive' : 'secondary'} className="text-[10px] px-1.5 py-0">
-                              {job.priority.toUpperCase()}
-                            </Badge>
+                            <Badge 
+                               variant={getDifficulty(job) <= 4 ? 'secondary' : getDifficulty(job) <= 7.5 ? 'outline' : 'destructive'} 
+                               className={`text-[9px] font-black px-2 py-0 rounded-full ${
+                                 getDifficulty(job) > 4 && getDifficulty(job) <= 7.5 ? 'border-yellow-500/50 text-yellow-500 bg-yellow-500/5' : ''
+                               }`}
+                             >
+                               {getDifficulty(job) <= 4 ? 'EASY' : getDifficulty(job) <= 7.5 ? 'MEDIUM' : 'HARD'}
+                             </Badge>
                           </div>
                           <p className="text-xs font-semibold text-foreground mb-1 truncate">{job.position}</p>
                           <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
@@ -489,27 +736,62 @@ export function ScoutJobsClient() {
                               {job.club.league}
                             </span>
                           </div>
+                          
                         </div>
                         <ChevronRight className={`h-5 w-5 transition-transform ${selectedJob?.id === job.id ? 'translate-x-1 text-secondary' : 'text-muted-foreground'}`} />
                       </div>
                     </motion.div>
                   ))
                 ) : (
-                  <div className="text-center py-12 flex flex-col items-center gap-4">
-                    <AlertCircle className="h-12 w-12 text-muted-foreground opacity-20" />
-                    <p className="text-sm text-muted-foreground">No active jobs found. Head to Dashboard to generate some missions.</p>
-                    <Link href="/dashboard">
-                      <Button size="sm">Go to Dashboard</Button>
-                    </Link>
+                  <div className="flex flex-col items-center justify-center py-20 px-6 text-center animate-in fade-in zoom-in duration-500">
+                    <div className="relative mb-6">
+                      <div className="absolute inset-0 bg-secondary/20 blur-3xl rounded-full" />
+                      <div className="relative h-24 w-24 rounded-3xl bg-secondary/10 border border-secondary/20 flex items-center justify-center shadow-2xl">
+                        <Briefcase className="h-12 w-12 text-secondary animate-pulse" />
+                      </div>
+                      <div className="absolute -bottom-2 -right-2 h-10 w-10 rounded-2xl bg-background border border-border flex items-center justify-center shadow-xl">
+                        <Search className="h-5 w-5 text-muted-foreground" />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-black tracking-tight text-foreground mb-2 italic uppercase">No Missions Active</h3>
+                    <p className="text-sm text-muted-foreground max-w-[240px] leading-relaxed mb-8">
+                      Your scouting dashboard is empty. The world's top clubs are waiting for your elite analysis.
+                    </p>
+                    <div className="flex flex-col w-full gap-3">
+                      <Button 
+                        variant="default"
+                        size="lg"
+                        className="w-full rounded-2xl bg-secondary hover:bg-secondary/90 text-secondary-foreground font-black uppercase tracking-widest shadow-lg shadow-secondary/20 h-14"
+                        onClick={async () => {
+                          setIsGenerating(true)
+                          try {
+                            const result = await generatePackOfJobsAction()
+                            if (result.success && result.jobs) {
+                              setDraftJobs(result.jobs)
+                              setCurrentDraftIndex(0)
+                              setShowReview(true)
+                            }
+                          } finally {
+                            setIsGenerating(false)
+                          }
+                        }}
+                      >
+                        Find New Projects
+                      </Button>
+                      <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest">
+                        Or use the "Elite Offers" button above
+                      </p>
+                    </div>
                   </div>
                 )}
               </div>
             </ScrollArea>
-          </Card>
+          </div>
+        </Card>
         </div>
 
         {/* Right Column: Interaction/Chat */}
-        <div className="lg:col-span-8 flex flex-col gap-4 h-full overflow-hidden">
+        <div className="lg:col-span-8 flex flex-col gap-6 min-h-0 h-full overflow-hidden">
           <AnimatePresence mode="wait">
             {selectedJob ? (
               <motion.div
@@ -517,10 +799,10 @@ export function ScoutJobsClient() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="flex flex-col h-full gap-4"
+                className="flex flex-col h-full gap-4 min-h-0"
               >
                 {/* Manager Info & Header */}
-                <Card className="glass-panel border-border bg-card/30">
+                <Card className="glass-panel border-border bg-card/30 shrink-0">
                   <CardContent className="p-4 flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div className="relative">
@@ -601,14 +883,17 @@ export function ScoutJobsClient() {
                       <Button 
                         size="sm" 
                         variant="outline"
-                        className="gap-2 border-red-500/20 text-red-500 hover:bg-red-500/10"
+                        className="gap-2 border-red-500/20 text-red-500 hover:bg-red-500/10 transition-all active:scale-95"
                         onClick={async () => {
-                          if (confirm('Are you sure you want to abandon this mission? Your reputation might be affected.')) {
+                          if (confirm('Are you sure you want to abandon this mission? Your reputation will decrease by 10 points.')) {
                             const result = await cancelJobAction(selectedJob.id)
                             if (result.success) {
-                              toast.success('Mission abandoned.')
+                              toast.warning('Mission abandoned. Reputation -10', {
+                                icon: <ThumbsDown className="h-4 w-4 text-red-500" />
+                              })
+                              updateReputation(-10)
+                              setJobs(prev => prev.filter(j => j.id !== selectedJob.id))
                               setSelectedJob(null)
-                              fetchJobs()
                             } else {
                               toast.error('Failed to cancel mission: ' + result.error)
                             }
@@ -620,14 +905,16 @@ export function ScoutJobsClient() {
                       </Button>
                       <Button 
                         size="sm" 
-                        className="gap-2 bg-secondary text-secondary-foreground shadow-lg shadow-secondary/20 hover:bg-secondary/80"
+                        className="gap-2 bg-secondary text-secondary-foreground shadow-lg shadow-secondary/20 hover:bg-secondary/80 transition-all active:scale-95"
                         onClick={async () => {
                           const result = await completeJob(selectedJob.id)
                           if (result.success) {
-                            toast.success('Mission completed! You have earned reputation points.')
-                            // Refresh jobs list
-                            const updatedJobs = await getRecentJobs(10)
-                            setJobs(updatedJobs)
+                            toast.success('Mission completed! Reputation +15', {
+                              icon: <Trophy className="h-4 w-4 text-yellow-500" />
+                            })
+                            updateReputation(15)
+                            setJobs(prev => prev.filter(j => j.id !== selectedJob.id))
+                            setSelectedJob(null)
                           } else {
                             toast.error('Failed to complete mission: ' + result.error)
                           }
@@ -641,9 +928,10 @@ export function ScoutJobsClient() {
                 </Card>
 
                 {/* Chat Area */}
-                <Card className="flex-1 glass-panel border-border flex flex-col overflow-hidden bg-card/20 relative">
+                <Card className="flex-1 glass-panel border-border flex flex-col overflow-hidden bg-card/20 relative min-h-0">
                   <div className="absolute inset-0 bg-grid-white/[0.02] -z-10" />
-                  <ScrollArea className="flex-1 p-6">
+                  <div className="flex-1 min-h-0 overflow-y-auto">
+                    <ScrollArea className="h-full p-6">
                     <div className="space-y-6">
                       {messages[selectedJob.id]?.map((m) => (
                         <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -691,9 +979,10 @@ export function ScoutJobsClient() {
                       <div ref={scrollRef} />
                     </div>
                   </ScrollArea>
+                </div>
 
                   {/* Input Area */}
-                  <div className="p-4 bg-muted/30 border-t border-border">
+                  <div className="p-4 bg-muted/30 border-t border-border shrink-0">
                     <form onSubmit={sendMessage} className="flex gap-3">
                       <div className="relative flex-1">
                         <Input 
@@ -724,32 +1013,125 @@ export function ScoutJobsClient() {
               </motion.div>
             ) : (
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="flex flex-col items-center justify-center h-full gap-6 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex flex-col items-center justify-center h-full gap-8 text-center px-6"
               >
-                <div className="h-24 w-24 rounded-full bg-secondary/10 flex items-center justify-center relative">
-                  <Briefcase className="h-10 w-10 text-secondary" />
-                  <motion.div 
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute inset-0 rounded-full border-2 border-secondary/20" 
-                  />
-                </div>
-                <div className="max-w-md">
-                  <h2 className="text-2xl font-bold mb-2">Select a Job Offer</h2>
-                  <p className="text-muted-foreground">
-                    Elite clubs are waiting for your scouting expertise. Select an offer from the list to start a conversation with the club's board.
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
-                  <div className="p-4 rounded-xl border border-border bg-card/30 flex flex-col items-center gap-2">
-                    <Target className="h-5 w-5 text-secondary" />
-                    <span className="text-xs font-bold">Precise Data</span>
+                {jobs.length === 0 ? (
+                  <>
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-secondary/10 blur-[100px] rounded-full animate-pulse" />
+                      <div className="relative h-40 w-40 rounded-[3rem] bg-card/40 border border-border/50 flex items-center justify-center shadow-2xl backdrop-blur-xl group">
+                        <motion.div
+                          animate={{ 
+                            rotate: [0, 5, -5, 0],
+                            scale: [1, 1.05, 1]
+                          }}
+                          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          <Briefcase className="h-20 w-20 text-muted-foreground/30 group-hover:text-secondary/40 transition-colors duration-500" />
+                        </motion.div>
+                        <div className="absolute inset-0 rounded-[3rem] border border-white/5 pointer-events-none" />
+                      </div>
+                    </div>
+                    
+                    <div className="max-w-xl space-y-6">
+                      <div className="space-y-2">
+                        <h2 className="text-5xl font-black italic tracking-tighter uppercase bg-gradient-to-b from-foreground to-foreground/50 bg-clip-text text-transparent">
+                          Market Dormant
+                        </h2>
+                        <div className="h-1 w-20 bg-secondary mx-auto rounded-full" />
+                      </div>
+                      
+                      <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-md mx-auto">
+                        Your scouting network is currently idle. No active recruitment missions or elite offers detected in your dashboard.
+                      </p>
+                      
+                      <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <Button 
+                          size="lg"
+                          className="rounded-2xl h-16 px-10 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-black uppercase tracking-widest text-base shadow-xl shadow-secondary/20 group"
+                          onClick={async () => {
+                            setIsGenerating(true)
+                            try {
+                              const result = await generatePackOfJobsAction()
+                              if (result.success && result.jobs) {
+                                setDraftJobs(result.jobs)
+                                setCurrentDraftIndex(0)
+                                setShowReview(true)
+                              }
+                            } finally {
+                              setIsGenerating(false)
+                            }
+                          }}
+                        >
+                          <RefreshCw className="mr-2 h-5 w-5 group-hover:rotate-180 transition-transform duration-500" />
+                          Initialize Market
+                        </Button>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="h-24 w-24 rounded-full bg-secondary/10 flex items-center justify-center relative">
+                      <Briefcase className="h-10 w-10 text-secondary" />
+                      <motion.div 
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="absolute inset-0 rounded-full border-2 border-secondary/20" 
+                      />
+                    </div>
+                    <div className="max-w-md">
+                      <h2 className="text-3xl font-black italic uppercase tracking-tight mb-2">Selection Required</h2>
+                      <p className="text-muted-foreground font-medium">
+                        You have <span className="text-foreground font-bold">{jobs.length} active missions</span>. Select one from the list to begin your technical analysis and talent identification.
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
+                      <div className="p-4 rounded-2xl border border-border bg-card/30 flex flex-col items-center gap-2 backdrop-blur-sm">
+                        <Target className="h-5 w-5 text-secondary" />
+                        <span className="text-xs font-bold uppercase tracking-wider">Precise Data</span>
+                      </div>
+                      <div className="p-4 rounded-2xl border border-border bg-card/30 flex flex-col items-center gap-2 backdrop-blur-sm">
+                        <MessageSquare className="h-5 w-5 text-secondary" />
+                        <span className="text-xs font-bold uppercase tracking-wider">Direct Contact</span>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Appreciation Overlay */}
+          <AnimatePresence>
+            {showAppreciation && selectedJob && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                className="absolute inset-0 z-50 flex items-center justify-center pointer-events-none"
+              >
+                <div className="bg-background/80 backdrop-blur-xl border-4 border-secondary/50 rounded-[40px] p-12 shadow-[0_0_50px_rgba(var(--secondary-rgb),0.3)] flex flex-col items-center gap-6 max-w-lg text-center">
+                  <motion.div
+                    animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.2, 1] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
+                    className="h-32 w-32 rounded-3xl bg-white p-4 shadow-2xl border border-secondary/20"
+                  >
+                    <img 
+                      src={selectedJob.club.logo || `https://ui-avatars.com/api/?name=${encodeURIComponent(selectedJob.club.name)}&background=secondary&color=fff`} 
+                      alt={selectedJob.club.name} 
+                      className="h-full w-full object-contain"
+                    />
+                  </motion.div>
+                  <div>
+                    <h2 className="text-4xl font-black tracking-tighter text-foreground mb-2">CLUB SAYS THANK YOU!</h2>
+                    <p className="text-xl font-bold text-secondary">"This is exactly what we were looking for. Great job, Scout!"</p>
                   </div>
-                  <div className="p-4 rounded-xl border border-border bg-card/30 flex flex-col items-center gap-2">
-                    <MessageSquare className="h-5 w-5 text-secondary" />
-                    <span className="text-xs font-bold">Direct Contact</span>
+                  <div className="flex gap-2">
+                    {[1, 2, 3, 4, 5].map(i => (
+                      <Star key={i} className="h-8 w-8 text-yellow-500 fill-yellow-500 animate-bounce" style={{ animationDelay: `${i * 100}ms` }} />
+                    ))}
                   </div>
                 </div>
               </motion.div>

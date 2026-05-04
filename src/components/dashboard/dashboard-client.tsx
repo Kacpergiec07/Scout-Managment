@@ -6,7 +6,6 @@ import { User, Settings } from 'lucide-react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { CardStack, CardStackItem } from '@/components/ui/card-stack'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { CustomThemeDialog } from '@/components/custom-theme-dialog'
 
@@ -34,7 +33,7 @@ const DynamicLeagueCard = React.memo(function DynamicLeagueCard({ league, isActi
     if (isActive && league.clubs && league.clubs.length > 0) {
       interval = setInterval(() => {
         setClubIndex((prev) => (prev + 1) % league.clubs.length)
-      }, 5000) // Even slower for better performance
+      }, 5000)
     }
     return () => clearInterval(interval)
   }, [isActive, league.id, league.clubs?.length])
@@ -65,7 +64,7 @@ const DynamicLeagueCard = React.memo(function DynamicLeagueCard({ league, isActi
           transition={{ duration: 0.8 }}
           className="absolute w-full h-full object-contain filter drop-shadow-[0_0_40px_rgba(255,255,255,0.3)] origin-center flex items-center justify-center"
         >
-           <Image
+          <Image
             src={activeClub.teamLogo}
             alt={activeClub.teamName}
             fill
@@ -80,25 +79,25 @@ const DynamicLeagueCard = React.memo(function DynamicLeagueCard({ league, isActi
       <div className="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-background via-background/80 to-transparent z-10 pointer-events-none" />
 
       <div className="absolute inset-0 w-full mb-16 flex flex-col items-center justify-center gap-1 z-20 transition-all duration-300 pointer-events-none">
-         <motion.div
-           animate={{ scale: isActive ? 1.2 : 1.0, y: isActive ? -10 : 0 }}
-           transition={{ duration: 0.4 }}
-           className="w-16 h-16 md:w-22 md:h-22 bg-background/5 backdrop-blur-md rounded-full shadow-[0_0_30px_rgba(0,0,0,0.2)] flex items-center justify-center p-3.5 mt-[35%]"
-         >
-            <Image
-              src={league.logo}
-              alt="League Logo"
-              fill
-              className="object-contain filter drop-shadow-xl opacity-90 relative z-30"
-            />
-         </motion.div>
+        <motion.div
+          animate={{ scale: isActive ? 1.2 : 1.0, y: isActive ? -10 : 0 }}
+          transition={{ duration: 0.4 }}
+          className="w-16 h-16 md:w-22 md:h-22 bg-background/5 backdrop-blur-md rounded-full shadow-[0_0_30px_rgba(0,0,0,0.2)] flex items-center justify-center p-3.5 mt-[35%]"
+        >
+          <Image
+            src={league.logo}
+            alt="League Logo"
+            fill
+            className="object-contain filter drop-shadow-xl opacity-90 relative z-30"
+          />
+        </motion.div>
       </div>
 
       <div className="flex-1" />
       <div className="relative z-30 w-full py-8 text-center flex items-center justify-center">
-          <h2 className="text-sm md:text-base lg:text-lg font-bold tracking-[0.3em] uppercase text-foreground/70 whitespace-nowrap px-4 drop-shadow-lg">
-            {league.name}
-          </h2>
+        <h2 className="text-sm md:text-base lg:text-lg font-bold tracking-[0.3em] uppercase text-foreground/70 whitespace-nowrap px-4 drop-shadow-lg">
+          {league.name}
+        </h2>
       </div>
     </div>
   )
@@ -167,10 +166,12 @@ function DynamicLeagueTable({ leagues, activeIndex, onSelect }: { leagues: Leagu
 
 export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConfig[] }) {
   return (
-    <div className="relative w-full h-full bg-background font-sans flex flex-col items-center select-none overflow-y-auto overflow-x-hidden min-h-screen pb-20">
+    <div className="relative w-full h-full font-sans flex flex-col items-center select-none overflow-y-auto overflow-x-hidden min-h-screen pb-20 bg-background text-foreground">
       {/* Refined Background Effect */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
-           style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+      <div
+        className="fixed inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
+        style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '24px 24px' }}
+      />
 
       <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3 cursor-pointer group">
@@ -208,7 +209,6 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
               <Settings className="w-5 h-5" />
             </button>
           </Link>
-          <div className="h-4 w-px bg-border mx-1" />
           <CustomThemeDialog />
           <ThemeToggle />
         </div>
@@ -250,7 +250,6 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
             transition={{ duration: 0.6 }}
             className="relative z-10"
           >
-
             <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase text-foreground leading-[0.85] mb-6">
               PROFESSIONAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 via-emerald-500 to-emerald-900 animate-gradient bg-[length:200%_auto]">SCOUTING</span>
             </h1>
@@ -363,14 +362,12 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
                   <div className="relative z-10">
                     <motion.div
                       className="w-16 h-16 relative mx-auto mb-4"
-                      animate={{
+                      whileHover={{
                         rotate: [0, 5, -5, 0],
-                        scale: [1, 1.05, 1.05, 1]
+                        scale: 1.1
                       }}
                       transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        repeatType: "loop",
+                        duration: 0.4,
                         ease: "easeInOut"
                       }}
                     >
@@ -396,10 +393,10 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
                       </div>
 
                       {/* Corner accents */}
-                      <div className={`absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300`} />
-                      <div className={`absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300`} />
-                      <div className={`absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300`} />
-                      <div className={`absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300`} />
+                      <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300" />
+                      <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300" />
+                      <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300" />
+                      <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300" />
                     </motion.div>
 
                     {/* League name with enhanced typography */}
@@ -408,7 +405,7 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
                       whileHover={{ y: -2 }}
                     >
                       <p className="text-[10px] font-black text-center uppercase tracking-[0.15em] text-foreground/60 group-hover:text-primary transition-colors duration-300 leading-tight">
-                        {league.name.replace(/ /g, ' ')}
+                        {league.name}
                       </p>
 
                       {/* Animated underline */}
@@ -430,7 +427,6 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
                       )}
                     </motion.div>
                   </div>
-
 
                   {/* Hover spotlight effect */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />

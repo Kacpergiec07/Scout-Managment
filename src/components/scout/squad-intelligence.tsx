@@ -237,7 +237,7 @@ export function SquadIntelligence() {
               {injuries.map((p, i) => (
                 <div key={i} className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 p-4 flex items-center gap-5 group hover:border-amber-500/30 transition-all">
                   <div className="w-12 h-12 bg-muted rounded-xl overflow-hidden shrink-0 border border-border group-hover:scale-105 transition-transform">
-                    <Image src={p.playerPhoto || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`} alt={p.fullName} width={48} height={48} className="object-cover" />
+                            <Image src={p.playerPhoto || p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`} alt={p.fullName} width={48} height={48} className="object-cover" />
                   </div>
                   <div className="min-w-0 space-y-1">
                     <p className="text-xs font-bold text-foreground uppercase truncate tracking-tight">{p.fullName}</p>
@@ -354,7 +354,7 @@ export function SquadIntelligence() {
                       <td className="py-6">
                         <div className="flex items-center gap-4">
                           <div className="w-10 h-10 bg-muted rounded-xl border border-border overflow-hidden group-hover:scale-110 transition-transform">
-                            <Image src={p.playerPhoto || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`} alt={p.fullName} width={40} height={40} className="object-cover" />
+                            <Image src={p.playerPhoto || p.photo || `https://api.statorium.com/media/bearleague/bl${p.playerID}.webp`} alt={p.fullName} width={40} height={40} className="object-cover" />
                           </div>
                           <span className="text-xs font-bold uppercase text-foreground group-hover:text-secondary transition-colors">{p.fullName}</span>
                         </div>
