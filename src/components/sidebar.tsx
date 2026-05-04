@@ -37,15 +37,14 @@ export function Sidebar() {
   return (
     <aside className="hidden w-64 flex-col border-r border-border md:flex bg-sidebar transition-colors duration-300">
       {/* Top Header Logo */}
-      <div className="flex h-[88px] items-center justify-between px-6">
-        <Link href="/dashboard" className="flex items-center gap-3 font-black text-foreground text-lg tracking-widest mt-2">
-          <div className="h-6 w-1 bg-secondary rounded-sm shadow-[0_0_10px_hsl(var(--secondary)/0.8)]" />
-          SCOUT PRO
+      <div className="flex h-[88px] items-center justify-between px-4">
+        <Link href="/dashboard" className="flex items-center gap-2 font-black text-foreground text-base tracking-wider mt-2">
+          <div className="h-5 w-0.5 bg-secondary rounded-sm shadow-[0_0_10px_hsl(var(--secondary)/0.8)]" />
+          SCOUT MANAGEMENT
         </Link>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1 shrink-0">
           <CustomThemeDialog />
           <ThemeToggle />
-
         </div>
       </div>
 

@@ -178,7 +178,7 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
           <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-xl border border-primary/30 group-hover:scale-110 transition-transform">
             <span className="filter drop-shadow-[0_0_8px_hsl(var(--secondary)/0.5)]">⚽</span>
           </div>
-          <span className="text-2xl font-black tracking-tighter text-foreground uppercase italic">SCOUT <span className="text-primary font-light">PRO</span></span>
+          <span className="text-2xl font-black tracking-tighter text-foreground uppercase italic">SCOUT <span className="text-primary font-light">MANAGEMENT</span></span>
         </div>
 
         <div className="hidden lg:flex gap-10 items-center justify-center absolute left-1/2 -translate-x-1/2">
