@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { User, Settings } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/theme-toggle'
@@ -43,7 +43,7 @@ const DynamicLeagueCard = React.memo(function DynamicLeagueCard({ league, isActi
   const activeClub = league.clubs[clubIndex]
 
   return (
-    <div className={`relative w-full h-full flex flex-col justify-end overflow-hidden bg-background border border-border rounded-2xl ${isActive ? 'filter-none' : 'brightness-75'}`}>
+    <div className={`relative w-full h-full flex flex-col justify-end overflow-hidden bg-background border-none rounded-[2rem] shadow-xl ${isActive ? 'filter-none' : 'brightness-75'}`}>
 
       <div
         className="absolute inset-0 opacity-40 mix-blend-color-dodge transition-opacity duration-500 z-0 pointer-events-none"
@@ -105,18 +105,18 @@ const DynamicLeagueCard = React.memo(function DynamicLeagueCard({ league, isActi
 
 function DynamicLeagueTable({ leagues, activeIndex, onSelect }: { leagues: LeagueConfig[], activeIndex: number, onSelect: (idx: number) => void }) {
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-border bg-card/30 backdrop-blur-md">
+    <div className="w-full overflow-hidden rounded-[2rem] border-none bg-card/20 backdrop-blur-3xl shadow-2xl">
       <div className="overflow-x-auto">
         <table className="w-full text-left">
           <thead>
-            <tr className="bg-muted/50 border-b border-border">
+            <tr className="bg-secondary/5 border-none">
               <th className="px-6 py-4 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">League</th>
               <th className="px-6 py-4 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Identifier</th>
               <th className="px-6 py-4 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Elite Clubs</th>
               <th className="px-6 py-4 text-right text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Intelligence</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-border/50">
+          <tbody className="divide-none">
             {leagues.map((league, idx) => (
               <tr
                 key={league.id}
@@ -125,7 +125,7 @@ function DynamicLeagueTable({ leagues, activeIndex, onSelect }: { leagues: Leagu
               >
                 <td className="px-6 py-5">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 relative bg-background rounded-xl p-1.5 shadow-sm border border-border group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 relative bg-background rounded-xl p-1.5 shadow-inner border-none group-hover:scale-110 transition-transform">
                       <Image src={league.logo} alt={league.name} fill className="object-contain" />
                     </div>
                     <span className="font-bold text-sm text-foreground">{league.name}</span>
@@ -137,12 +137,12 @@ function DynamicLeagueTable({ leagues, activeIndex, onSelect }: { leagues: Leagu
                 <td className="px-6 py-5">
                   <div className="flex -space-x-2">
                     {league.clubs.slice(0, 3).map((club) => (
-                      <div key={club.teamID} className="w-8 h-8 rounded-full border-2 border-background bg-background p-1 relative overflow-hidden shadow-sm" title={club.teamName}>
+                      <div key={club.teamID} className="w-8 h-8 rounded-full border-none bg-background p-1 relative overflow-hidden shadow-sm" title={club.teamName}>
                         <Image src={club.teamLogo} alt={club.teamName} fill className="object-contain p-0.5" />
                       </div>
                     ))}
                     {league.clubs.length > 3 && (
-                      <div className="w-8 h-8 rounded-full border-2 border-background bg-muted text-foreground flex items-center justify-center text-[8px] font-bold">
+                      <div className="w-8 h-8 rounded-full border-none bg-muted text-foreground flex items-center justify-center text-[8px] font-bold">
                         +{league.clubs.length - 3}
                       </div>
                     )}
@@ -173,9 +173,9 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
         style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '24px 24px' }}
       />
 
-      <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border px-8 py-4 flex items-center justify-between">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-background/60 backdrop-blur-3xl border-none px-8 py-6 flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-3 cursor-pointer group">
-          <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-xl border border-primary/30 group-hover:scale-110 transition-transform">
+          <div className="w-11 h-11 bg-primary/10 rounded-2xl flex items-center justify-center text-xl border-none group-hover:scale-110 transition-transform shadow-lg">
             <span className="filter drop-shadow-[0_0_8px_hsl(var(--secondary)/0.5)]">⚽</span>
           </div>
           <span className="text-2xl font-black tracking-tighter text-foreground uppercase italic">SCOUT <span className="text-primary font-light">MANAGEMENT</span></span>
@@ -271,7 +271,7 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 + idx * 0.08 }}
-                    className="px-3 py-1.5 bg-primary/10 rounded-full border border-primary/20 text-primary hover:bg-primary/20 hover:scale-105 transition-all cursor-default"
+                    className="px-3 py-1.5 bg-primary/10 rounded-full border-none text-primary hover:bg-primary/20 hover:scale-105 transition-all cursor-default shadow-sm"
                   >
                     {item.icon} {item.text}
                   </motion.span>

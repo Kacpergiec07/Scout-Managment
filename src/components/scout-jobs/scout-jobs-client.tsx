@@ -378,7 +378,7 @@ export function ScoutJobsClient() {
           size="sm" 
           onClick={fetchJobs} 
           disabled={isFetching || isGenerating}
-          className="gap-2 border-secondary/20"
+          className="gap-2 bg-secondary/5 border-none hover:bg-secondary/10"
         >
           <RefreshCw className={`h-4 w-4 ${isFetching ? 'animate-spin' : ''}`} />
           Refresh List
@@ -445,7 +445,7 @@ export function ScoutJobsClient() {
             })
           }} 
           disabled={isGenerating || isFetching}
-          className="gap-2 border-yellow-500/30 bg-yellow-500/5 hover:bg-yellow-500/10 text-yellow-600 font-bold"
+          className="gap-2 border-none bg-yellow-500/10 hover:bg-yellow-500/20 text-yellow-600 font-bold"
         >
           <Crown className="h-4 w-4 text-yellow-500" />
           Get 2 Elite Offers
@@ -453,16 +453,16 @@ export function ScoutJobsClient() {
         <div className="flex-1" />
         
         {/* Trust Bar Section */}
-        <div className="hidden sm:flex items-center gap-4 px-5 py-2.5 bg-card/40 backdrop-blur-xl rounded-2xl border border-border shadow-sm group hover:border-secondary/30 transition-all duration-500">
+        <div className="hidden sm:flex items-center gap-4 px-5 py-2.5 bg-card/20 backdrop-blur-3xl rounded-[1.2rem] shadow-xl group transition-all duration-500">
           <div className="flex flex-col gap-1.5 min-w-[140px]">
              <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
-                  <Star className="h-3 w-3 text-secondary fill-secondary/20" />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-foreground/70 group-hover:text-foreground transition-colors">Trust Level</span>
+                   <Star className="h-3 w-3 text-secondary fill-secondary/20" />
+                   <span className="text-[10px] font-black uppercase tracking-widest text-foreground/70 group-hover:text-foreground transition-colors">Trust Level</span>
                 </div>
                 <span className="text-[10px] font-black text-secondary tabular-nums">{reputation}%</span>
              </div>
-             <div className="h-2 w-full bg-secondary/10 rounded-full overflow-hidden p-[1px] border border-secondary/5">
+             <div className="h-2 w-full bg-secondary/5 rounded-full overflow-hidden p-[1px] shadow-inner">
                 <motion.div 
                   initial={{ width: 0 }}
                   animate={{ width: `${reputation}%` }}
@@ -473,27 +473,27 @@ export function ScoutJobsClient() {
                 </motion.div>
              </div>
           </div>
-          <div className="w-px h-8 bg-border/50 mx-1" />
+          <div className="w-px h-8 bg-foreground/5 mx-1" />
           <div className="flex items-center gap-2.5">
             <div className="relative">
               <div className="h-2.5 w-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
               <div className="absolute inset-0 h-2.5 w-2.5 rounded-full bg-green-500 animate-ping opacity-20" />
             </div>
-            <span className="text-[10px] font-black tracking-[0.2em] text-foreground/50 uppercase">Live Network</span>
+            <span className="text-[10px] font-black tracking-[0.2em] text-foreground/40 uppercase">Live Network</span>
           </div>
         </div>
       </div>
 
       <Dialog open={showReview} onOpenChange={setShowReview}>
-        <DialogContent className="sm:max-w-[500px] bg-card border-border p-0 overflow-hidden rounded-3xl">
+        <DialogContent className="sm:max-w-[500px] bg-card border-none p-0 overflow-hidden rounded-3xl shadow-2xl">
           <DialogTitle className="sr-only">Scouting Mission Review</DialogTitle>
           <DialogDescription className="sr-only">Review the details of the scouting mission before accepting.</DialogDescription>
           {draftJobs.length > 0 && draftJobs[currentDraftIndex] && (
             <div className="flex flex-col h-full">
-              <div className="bg-secondary/10 p-6 border-b border-secondary/20">
+              <div className="bg-secondary/5 p-6 border-none">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-4">
-                    <div className="h-16 w-16 rounded-2xl bg-white p-3 flex items-center justify-center shadow-xl border border-secondary/20">
+                    <div className="h-16 w-16 rounded-2xl bg-white p-3 flex items-center justify-center shadow-xl">
                       <img 
                         src={draftJobs[currentDraftIndex].club.logo || `https://ui-avatars.com/api/?name=${encodeURIComponent(draftJobs[currentDraftIndex].club.name)}&background=secondary&color=fff`} 
                         alt={draftJobs[currentDraftIndex].club.name} 
@@ -518,13 +518,12 @@ export function ScoutJobsClient() {
                   )}
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  <Badge className="bg-secondary/20 text-secondary hover:bg-secondary/30 border-secondary/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                  <Badge className="bg-secondary/10 text-secondary hover:bg-secondary/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border-none">
                     {draftJobs[currentDraftIndex].position}
                   </Badge>
                   <Badge 
-                    variant={getDifficulty(draftJobs[currentDraftIndex]) <= 4 ? 'secondary' : getDifficulty(draftJobs[currentDraftIndex]) <= 7.5 ? 'outline' : 'destructive'} 
-                    className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                      getDifficulty(draftJobs[currentDraftIndex]) > 4 && getDifficulty(draftJobs[currentDraftIndex]) <= 7.5 ? 'border-yellow-500/50 text-yellow-500 bg-yellow-500/5' : ''
+                    className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border-none ${
+                      getDifficulty(draftJobs[currentDraftIndex]) > 4 && getDifficulty(draftJobs[currentDraftIndex]) <= 7.5 ? 'text-yellow-500 bg-yellow-500/10' : ''
                     }`}
                   >
                     {getDifficulty(draftJobs[currentDraftIndex]) <= 4 ? 'EASY' : getDifficulty(draftJobs[currentDraftIndex]) <= 7.5 ? 'MEDIUM' : 'HARD'} DIFFICULTY
@@ -550,7 +549,7 @@ export function ScoutJobsClient() {
                   </h4>
                   <div className="grid grid-cols-2 gap-3">
                     {draftJobs[currentDraftIndex].requirements.map((req, i) => (
-                      <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-muted/30 border border-border/50 text-xs font-semibold">
+                      <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-muted/20 text-xs font-semibold">
                         <Check className="h-3 w-3 text-green-500" />
                         {req}
                       </div>
@@ -559,7 +558,7 @@ export function ScoutJobsClient() {
                 </div>
               </div>
 
-              <div className="p-6 bg-muted/20 border-t border-border space-y-4">
+              <div className="p-6 bg-muted/10 space-y-4">
                 <div className="flex gap-3">
                   <Button 
                     className="flex-1 gap-2 bg-green-600 hover:bg-green-700 text-white shadow-lg shadow-green-600/20 h-12 rounded-2xl"
@@ -596,7 +595,7 @@ export function ScoutJobsClient() {
                         key={reason.label}
                         variant="outline"
                         size="sm"
-                        className="h-10 rounded-xl text-[10px] font-bold border-border/50 hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/20 transition-all gap-2"
+                        className="h-10 rounded-xl text-[10px] font-bold border-none hover:bg-red-500/20 hover:text-red-500 transition-all gap-2"
                         onClick={() => {
                           toast.error(`Offer skipped: ${reason.label}`);
                           if (currentDraftIndex < draftJobs.length - 1) {
@@ -626,7 +625,7 @@ export function ScoutJobsClient() {
             <motion.div 
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-gradient-to-r from-amber-500/20 via-amber-400/10 to-transparent border border-amber-500/30 rounded-2xl p-4 flex items-center justify-between shadow-[0_0_20px_rgba(245,158,11,0.1)]"
+              className="bg-gradient-to-r from-amber-500/20 via-amber-400/5 to-transparent rounded-3xl p-4 flex items-center justify-between shadow-[0_8px_32px_rgba(245,158,11,0.05)] backdrop-blur-md"
             >
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-xl bg-amber-500 flex items-center justify-center shadow-lg shadow-amber-500/20">
@@ -654,16 +653,16 @@ export function ScoutJobsClient() {
                     await cancelJobAction(job.id);
                   }
                 }}
-                className="h-8 rounded-xl border-amber-500/30 text-amber-500 hover:bg-amber-500/10 text-[10px] font-black uppercase tracking-widest"
+                className="h-8 rounded-xl border-none bg-amber-500/10 text-amber-500 hover:bg-amber-500/20 text-[10px] font-black uppercase tracking-widest"
               >
                 Return to Normal
               </Button>
             </motion.div>
           )}
 
-          <Card className={`glass-panel border-border flex flex-col h-full min-h-0 ${hasEliteActive ? 'bg-amber-950/5 border-amber-500/20 shadow-[0_0_30px_rgba(245,158,11,0.05)]' : 'bg-card/50'}`}>
-            <CardHeader className="p-4 border-b border-border shrink-0">
-                <div className="flex items-center justify-between px-3 py-1.5 bg-secondary/5 rounded-xl border border-secondary/10">
+          <Card className={`border-none ring-0 shadow-none flex flex-col h-full min-h-0 ${hasEliteActive ? 'bg-amber-950/5 shadow-[0_20px_80px_rgba(0,0,0,0.2)]' : 'bg-card/20'}`}>
+            <CardHeader className="p-4 shrink-0">
+                <div className="flex items-center justify-between px-3 py-2 bg-secondary/5 rounded-2xl backdrop-blur-sm">
                   <div className="flex items-center gap-2">
                     <Star className="h-3.5 w-3.5 text-secondary" />
                     <span className="text-[10px] font-black uppercase tracking-widest text-secondary/80">Sort: Priority & Date</span>
@@ -691,14 +690,14 @@ export function ScoutJobsClient() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale:0.98 }}
                       onClick={() => handleSelectJob(job)}
-                      className={`group cursor-pointer p-4 rounded-xl border transition-all duration-300 ${
+                      className={`group cursor-pointer p-4 rounded-2xl transition-all duration-500 ${
                         selectedJob?.id === job.id 
-                          ? 'bg-secondary/10 border-secondary shadow-[0_0_15px_rgba(var(--secondary-rgb),0.1)]' 
-                          : 'bg-background/40 border-border hover:border-secondary/50 hover:bg-secondary/5'
+                          ? 'bg-secondary/20 shadow-[0_10px_30px_rgba(var(--secondary-rgb),0.15)]' 
+                          : 'bg-background/20 hover:bg-secondary/10'
                       }`}
                     >
                       <div className="flex items-start gap-4">
-                        <div className="h-12 w-12 rounded-lg bg-white p-2 flex items-center justify-center shadow-sm border border-border/50 group-hover:border-secondary/50 transition-colors">
+                        <div className="h-12 w-12 rounded-xl bg-white p-2 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
                           {job.club.logo && job.club.logo !== "" ? (
                             <img 
                               src={job.club.logo} 
@@ -718,9 +717,8 @@ export function ScoutJobsClient() {
                           <div className="flex items-center justify-between gap-2 mb-1">
                             <h3 className="font-bold text-sm truncate">{job.club.name}</h3>
                             <Badge 
-                               variant={getDifficulty(job) <= 4 ? 'secondary' : getDifficulty(job) <= 7.5 ? 'outline' : 'destructive'} 
-                               className={`text-[9px] font-black px-2 py-0 rounded-full ${
-                                 getDifficulty(job) > 4 && getDifficulty(job) <= 7.5 ? 'border-yellow-500/50 text-yellow-500 bg-yellow-500/5' : ''
+                               className={`text-[9px] font-black px-2 py-0 rounded-full border-none ${
+                                 getDifficulty(job) > 4 && getDifficulty(job) <= 7.5 ? 'text-yellow-500 bg-yellow-500/10' : ''
                                }`}
                              >
                                {getDifficulty(job) <= 4 ? 'EASY' : getDifficulty(job) <= 7.5 ? 'MEDIUM' : 'HARD'}
@@ -746,10 +744,10 @@ export function ScoutJobsClient() {
                   <div className="flex flex-col items-center justify-center py-20 px-6 text-center animate-in fade-in zoom-in duration-500">
                     <div className="relative mb-6">
                       <div className="absolute inset-0 bg-secondary/20 blur-3xl rounded-full" />
-                      <div className="relative h-24 w-24 rounded-3xl bg-secondary/10 border border-secondary/20 flex items-center justify-center shadow-2xl">
+                      <div className="relative h-24 w-24 rounded-3xl bg-secondary/5 flex items-center justify-center shadow-2xl">
                         <Briefcase className="h-12 w-12 text-secondary animate-pulse" />
                       </div>
-                      <div className="absolute -bottom-2 -right-2 h-10 w-10 rounded-2xl bg-background border border-border flex items-center justify-center shadow-xl">
+                      <div className="absolute -bottom-2 -right-2 h-10 w-10 rounded-2xl bg-background flex items-center justify-center shadow-xl">
                         <Search className="h-5 w-5 text-muted-foreground" />
                       </div>
                     </div>
@@ -802,16 +800,16 @@ export function ScoutJobsClient() {
                 className="flex flex-col h-full gap-4 min-h-0"
               >
                 {/* Manager Info & Header */}
-                <Card className="glass-panel border-border bg-card/30 shrink-0">
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <div className="flex items-center gap-4">
+                <Card className="border-none ring-0 shadow-xl bg-card/20 backdrop-blur-3xl shrink-0 rounded-[2rem]">
+                  <CardContent className="p-6 flex items-center justify-between">
+                    <div className="flex items-center gap-5">
                       <div className="relative">
-                        <Avatar className="h-12 w-12 border-2 border-secondary shadow-lg">
-                          <AvatarFallback className="bg-secondary text-secondary-foreground font-black">
+                        <Avatar className="h-14 w-14 shadow-2xl">
+                          <AvatarFallback className="bg-secondary text-secondary-foreground font-black text-lg">
                             {managerName.split(' ').map(n => n[0]).join('')}
                           </AvatarFallback>
                         </Avatar>
-                        <div className="absolute -bottom-1 -right-1 h-4 w-4 rounded-full bg-green-500 border-2 border-background" />
+                        <div className="absolute -bottom-1 -right-1 h-4 w-4 rounded-full bg-green-500 shadow-lg" />
                       </div>
                       <div>
                         <h2 className="font-bold text-lg leading-tight">{managerName}</h2>
@@ -831,12 +829,12 @@ export function ScoutJobsClient() {
                     <div className="hidden sm:flex items-center gap-3">
                       <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
                         <DialogTrigger asChild>
-                          <Button variant="outline" size="sm" className="gap-2 border-secondary/20 hover:bg-secondary/10">
+                          <Button variant="outline" size="sm" className="gap-2 border-none bg-secondary/10 hover:bg-secondary/20">
                             <SearchCode className="h-4 w-4" />
                             Scout Talent
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="sm:max-w-[500px] bg-card border-border p-6 rounded-3xl">
+                        <DialogContent className="sm:max-w-[500px] bg-card border-none p-6 rounded-3xl shadow-2xl">
                           <DialogHeader className="mb-4">
                             <DialogTitle className="text-2xl font-black tracking-tighter flex items-center gap-2">
                               <Target className="h-6 w-6 text-secondary" />
@@ -861,7 +859,7 @@ export function ScoutJobsClient() {
                               }}
                             />
                           </div>
-                          <div className="bg-muted/30 p-4 rounded-2xl border border-border/50">
+                          <div className="bg-muted/20 p-4 rounded-2xl">
                             <h4 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-2">Job Requirements:</h4>
                             <ul className="text-xs space-y-1">
                               {selectedJob.requirements.map((req, i) => (
@@ -875,7 +873,7 @@ export function ScoutJobsClient() {
                         </DialogContent>
                       </Dialog>
                       <Link href={`/teams/${selectedJob.club.id}`}>
-                        <Button variant="outline" size="sm" className="gap-2 border-secondary/20 hover:bg-secondary/10">
+                        <Button variant="outline" size="sm" className="gap-2 border-none bg-secondary/10 hover:bg-secondary/20">
                           <Building2 className="h-4 w-4" />
                           Club Info
                         </Button>
@@ -883,7 +881,7 @@ export function ScoutJobsClient() {
                       <Button 
                         size="sm" 
                         variant="outline"
-                        className="gap-2 border-red-500/20 text-red-500 hover:bg-red-500/10 transition-all active:scale-95"
+                        className="gap-2 border-none bg-red-500/10 text-red-500 hover:bg-red-500/20 transition-all active:scale-95"
                         onClick={async () => {
                           if (confirm('Are you sure you want to abandon this mission? Your reputation will decrease by 10 points.')) {
                             const result = await cancelJobAction(selectedJob.id)
@@ -928,7 +926,7 @@ export function ScoutJobsClient() {
                 </Card>
 
                 {/* Chat Area */}
-                <Card className="flex-1 glass-panel border-border flex flex-col overflow-hidden bg-card/20 relative min-h-0">
+                <Card className="flex-1 border-none ring-0 flex flex-col overflow-hidden bg-card/10 relative min-h-0 rounded-[2.5rem] shadow-2xl">
                   <div className="absolute inset-0 bg-grid-white/[0.02] -z-10" />
                   <div className="flex-1 min-h-0 overflow-y-auto">
                     <ScrollArea className="h-full p-6">
@@ -936,18 +934,18 @@ export function ScoutJobsClient() {
                       {messages[selectedJob.id]?.map((m) => (
                         <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                           <div className={`flex gap-3 max-w-[80%] ${m.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-                            <Avatar className="h-8 w-8 shrink-0 mt-1 border border-border">
+                            <Avatar className="h-9 w-9 shrink-0 mt-1 shadow-md">
                               {m.role === 'user' ? (
-                                <AvatarFallback className="bg-primary text-primary-foreground text-[10px]">YOU</AvatarFallback>
+                                <AvatarFallback className="bg-primary text-primary-foreground text-[10px] font-bold">YOU</AvatarFallback>
                               ) : (
-                                <AvatarFallback className="bg-secondary text-secondary-foreground text-[10px]">{managerName[0]}</AvatarFallback>
+                                <AvatarFallback className="bg-secondary text-secondary-foreground text-[10px] font-bold">{managerName[0]}</AvatarFallback>
                               )}
                             </Avatar>
-                            <div className={`flex flex-col gap-1 ${m.role === 'user' ? 'items-end' : 'items-start'}`}>
-                              <div className={`rounded-2xl px-4 py-3 text-sm shadow-sm transition-all ${
+                            <div className={`flex flex-col gap-2 ${m.role === 'user' ? 'items-end' : 'items-start'}`}>
+                              <div className={`rounded-[1.5rem] px-5 py-4 text-sm shadow-xl transition-all backdrop-blur-xl ${
                                 m.role === 'user'
                                   ? 'bg-primary text-primary-foreground rounded-tr-none'
-                                  : 'bg-muted/80 backdrop-blur-md text-foreground rounded-tl-none border border-border/50'
+                                  : 'bg-muted/40 text-foreground rounded-tl-none'
                               }`}>
                                 <div className="prose dark:prose-invert prose-sm max-w-none">
                                   <ReactMarkdown>{m.content}</ReactMarkdown>
@@ -963,14 +961,14 @@ export function ScoutJobsClient() {
                       {isLoading && !messages[selectedJob.id]?.[messages[selectedJob.id].length-1]?.content && (
                         <div className="flex justify-start">
                           <div className="flex gap-3 max-w-[80%]">
-                            <Avatar className="h-8 w-8 shrink-0 border border-border">
-                              <AvatarFallback className="bg-secondary text-secondary-foreground text-[10px]">{managerName[0]}</AvatarFallback>
+                            <Avatar className="h-9 w-9 shrink-0 shadow-md">
+                              <AvatarFallback className="bg-secondary text-secondary-foreground text-[10px] font-bold">{managerName[0]}</AvatarFallback>
                             </Avatar>
-                            <div className="bg-muted/80 backdrop-blur-md rounded-2xl rounded-tl-none px-4 py-3 border border-border/50 animate-pulse">
-                              <div className="flex gap-1">
-                                <div className="h-1.5 w-1.5 bg-secondary rounded-full animate-bounce" />
-                                <div className="h-1.5 w-1.5 bg-secondary rounded-full animate-bounce delay-100" />
-                                <div className="h-1.5 w-1.5 bg-secondary rounded-full animate-bounce delay-200" />
+                            <div className="bg-muted/30 backdrop-blur-xl rounded-[1.5rem] rounded-tl-none px-5 py-4 animate-pulse">
+                              <div className="flex gap-1.5">
+                                <div className="h-2 w-2 bg-secondary rounded-full animate-bounce" />
+                                <div className="h-2 w-2 bg-secondary rounded-full animate-bounce delay-100" />
+                                <div className="h-2 w-2 bg-secondary rounded-full animate-bounce delay-200" />
                               </div>
                             </div>
                           </div>
@@ -982,26 +980,26 @@ export function ScoutJobsClient() {
                 </div>
 
                   {/* Input Area */}
-                  <div className="p-4 bg-muted/30 border-t border-border shrink-0">
-                    <form onSubmit={sendMessage} className="flex gap-3">
+                  <div className="p-6 shrink-0">
+                    <form onSubmit={sendMessage} className="flex gap-4">
                       <div className="relative flex-1">
                         <Input 
                           placeholder="Type player name or scouting report..." 
                           value={input}
                           onChange={(e) => setInput(e.target.value)}
                           disabled={isLoading}
-                          className="pr-12 py-6 bg-background/50 border-border rounded-2xl focus-visible:ring-secondary transition-all"
+                          className="pr-12 py-7 bg-background/20 border-none rounded-[1.5rem] focus-visible:ring-0 focus-visible:ring-offset-0 transition-all shadow-inner backdrop-blur-xl text-base"
                         />
-                        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
-                          <div className={`h-2 w-2 rounded-full ${isLoading ? 'bg-secondary animate-pulse' : 'bg-green-500'}`} />
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                          <div className={`h-2.5 w-2.5 rounded-full ${isLoading ? 'bg-secondary animate-pulse' : 'bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]'}`} />
                         </div>
                       </div>
                       <Button 
                         type="submit" 
                         disabled={isLoading || !input.trim()}
-                        className="h-12 w-12 rounded-2xl bg-secondary text-secondary-foreground shadow-lg shadow-secondary/20 hover:scale-105 transition-all shrink-0"
+                        className="h-14 w-14 rounded-[1.2rem] bg-secondary text-secondary-foreground shadow-2xl shadow-secondary/30 hover:scale-110 transition-all shrink-0 active:scale-95"
                       >
-                        <Send className="h-5 w-5" />
+                        <Send className="h-6 w-6" />
                       </Button>
                     </form>
                     <p className="text-[10px] text-muted-foreground mt-2 text-center flex items-center justify-center gap-1">
@@ -1021,7 +1019,7 @@ export function ScoutJobsClient() {
                   <>
                     <div className="relative">
                       <div className="absolute inset-0 bg-secondary/10 blur-[100px] rounded-full animate-pulse" />
-                      <div className="relative h-40 w-40 rounded-[3rem] bg-card/40 border border-border/50 flex items-center justify-center shadow-2xl backdrop-blur-xl group">
+                      <div className="relative h-40 w-40 rounded-[3rem] bg-card/20 flex items-center justify-center shadow-2xl backdrop-blur-xl group">
                         <motion.div
                           animate={{ 
                             rotate: [0, 5, -5, 0],
@@ -1031,7 +1029,7 @@ export function ScoutJobsClient() {
                         >
                           <Briefcase className="h-20 w-20 text-muted-foreground/30 group-hover:text-secondary/40 transition-colors duration-500" />
                         </motion.div>
-                        <div className="absolute inset-0 rounded-[3rem] border border-white/5 pointer-events-none" />
+                        <div className="absolute inset-0 rounded-[3rem] pointer-events-none" />
                       </div>
                     </div>
                     
@@ -1078,7 +1076,7 @@ export function ScoutJobsClient() {
                       <motion.div 
                         animate={{ scale: [1, 1.2, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
-                        className="absolute inset-0 rounded-full border-2 border-secondary/20" 
+                        className="absolute inset-0 rounded-full shadow-[0_0_20px_rgba(var(--secondary-rgb),0.1)]" 
                       />
                     </div>
                     <div className="max-w-md">
@@ -1088,11 +1086,11 @@ export function ScoutJobsClient() {
                       </p>
                     </div>
                     <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
-                      <div className="p-4 rounded-2xl border border-border bg-card/30 flex flex-col items-center gap-2 backdrop-blur-sm">
+                      <div className="p-4 rounded-2xl bg-card/20 flex flex-col items-center gap-2 backdrop-blur-sm">
                         <Target className="h-5 w-5 text-secondary" />
                         <span className="text-xs font-bold uppercase tracking-wider">Precise Data</span>
                       </div>
-                      <div className="p-4 rounded-2xl border border-border bg-card/30 flex flex-col items-center gap-2 backdrop-blur-sm">
+                      <div className="p-4 rounded-2xl bg-card/20 flex flex-col items-center gap-2 backdrop-blur-sm">
                         <MessageSquare className="h-5 w-5 text-secondary" />
                         <span className="text-xs font-bold uppercase tracking-wider">Direct Contact</span>
                       </div>
@@ -1112,11 +1110,11 @@ export function ScoutJobsClient() {
                 exit={{ opacity: 0, scale: 0.5 }}
                 className="absolute inset-0 z-50 flex items-center justify-center pointer-events-none"
               >
-                <div className="bg-background/80 backdrop-blur-xl border-4 border-secondary/50 rounded-[40px] p-12 shadow-[0_0_50px_rgba(var(--secondary-rgb),0.3)] flex flex-col items-center gap-6 max-w-lg text-center">
+                <div className="bg-background/80 backdrop-blur-xl rounded-[40px] p-12 shadow-[0_0_50px_rgba(var(--secondary-rgb),0.3)] flex flex-col items-center gap-6 max-w-lg text-center">
                   <motion.div
                     animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.2, 1] }}
                     transition={{ repeat: Infinity, duration: 2 }}
-                    className="h-32 w-32 rounded-3xl bg-white p-4 shadow-2xl border border-secondary/20"
+                    className="h-32 w-32 rounded-3xl bg-white p-4 shadow-2xl"
                   >
                     <img 
                       src={selectedJob.club.logo || `https://ui-avatars.com/api/?name=${encodeURIComponent(selectedJob.club.name)}&background=secondary&color=fff`} 
