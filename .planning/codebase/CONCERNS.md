@@ -1,298 +1,248 @@
 # Codebase Concerns
 
-**Analysis Date:** 2026-04-27
+**Analysis Date:** 2026-05-04
 
 ## Tech Debt
 
 **Hardcoded Coach Data:**
-- Issue: Coach information is manually maintained in hardcoded maps
-- Files: `src/lib/coaches-data.ts`, `src/lib/statorium-data.ts`
-- Impact: Data becomes stale quickly, requires manual updates when managers change
-- Fix approach: Implement automated coach data fetching from Statorium API once available, or create a scheduled sync job
+- Issue: Coach information is manually maintained in `src/lib/coaches-data.ts` with 111 hardcoded entries
+- Files: `src/lib/coaches-data.ts`
+- Impact: Data becomes outdated quickly, requires manual updates when coaches change teams
+- Fix approach: Implement automated coach data fetching from Statorium API once endpoint becomes available, or set up scheduled data refresh jobs
 
-**Large Monolithic Data File:**
-- Issue: 1754-line file containing hardcoded player photos and league data
-- Files: `src/lib/statorium-data.ts`
-- Impact: Difficult to maintain, version control issues, memory bloat
-- Fix approach: Move to database storage or split into smaller, manageable modules
+**Large Monolithic Action File:**
+- Issue: `statorium.ts` contains 1,604 lines with 27+ server actions handling multiple concerns
+- Files: `src/app/actions/statorium.ts`
+- Impact: Difficult to maintain, test, and understand; violates single responsibility principle
+- Fix approach: Split into domain-specific modules (players, teams, matches, leagues) with clear separation of concerns
 
-**Mock Data Fallback in Production:**
-- Issue: Statorium API client falls back to hardcoded mock data on failures
-- Files: `src/lib/statorium/client.ts` (lines 55-100)
-- Impact: Inconsistent user experience, stale data presented as current
-- Fix approach: Implement proper error handling with user-facing notifications and data staleness indicators
+**Massive Map Data File:**
+- Issue: `europe-map-data.ts` contains 8,785 lines of hardcoded coordinate data
+- Files: `src/lib/europe-map-data.ts`
+- Impact: Large bundle size, unnecessary loading for pages that don't need map data
+- Fix approach: Move to separate chunk with dynamic import, consider external API for map data
 
-**Duplicate Data Structures:**
-- Issue: Position maps and coach maps duplicated across multiple files
-- Files: `src/lib/statorium-data.ts`, `src/app/actions/statorium.ts`
-- Impact: Maintenance overhead, potential for inconsistencies
-- Fix approach: Create single source of truth, export from one location
+**Duplicate Notification Components:**
+- Issue: Three versions of notification components exist: `notifications-bell.tsx`, `notifications-bell-new.tsx`, `notifications-bell-optimized.tsx` and corresponding panels
+- Files: `src/components/notifications-bell*.tsx`, `src/components/notifications-panel*.tsx`
+- Impact: Code duplication, maintenance burden, unclear which version is active
+- Fix approach: Consolidate to single implementation, remove unused versions
 
 ## Known Bugs
 
-**Profile Schema Mismatches:**
-- Symptoms: Profile loading failures requiring multiple auto-fix pages
-- Files: `src/app/(dashboard)/profile/page.tsx`, `src/app/(dashboard)/settings/page.tsx`
-- Trigger: Database schema changes not synced with application code
-- Workaround: Multiple fix pages created (`fix-profile-schema`, `fix-my-profile`, `diagnose-profile-issue`)
-- Fix approach: Implement database migrations and proper schema versioning
+**RSS Feed Parsing Reliability:**
+- Symptoms: Polish football RSS feeds marked as unreliable, may fail to fetch or parse
+- Files: `src/lib/rss-feeds.ts`
+- Trigger: Attempting to fetch news from Polish sources (Meczyki.pl, Weszło, Transfery.info)
+- Workaround: System falls back to international sources (Sky Sports, BBC, ESPN)
+- Impact: Limited news coverage for Polish football market
 
-**League Galaxy Placement Fallback:**
-- Symptoms: Club placement algorithm may place clubs in suboptimal positions after 500 attempts
-- Files: `src/components/scout/league-galaxy.tsx` (lines 148-153)
-- Trigger: When collision detection can't find perfect placement
-- Workaround: Random placement as fallback
-- Fix approach: Improve placement algorithm or implement spiral pattern fallback
+**Stadium API Inconsistencies:**
+- Symptoms: API responses have nested structures in unpredictable locations (e.g., standings in `data.standings`, `data.season.standings`, or `data.league.standings`)
+- Files: `src/lib/statorium/client.ts:74-98`
+- Trigger: Fetching standings or match data
+- Workaround: Multiple fallback paths to extract data
+- Impact: Fragile data extraction, may break with API changes
+
+**Transfermarkt Scraping Fragility:**
+- Symptoms: Web scraping depends on HTML structure that may change
+- Files: `src/lib/transfermarkt.ts`
+- Trigger: Any UI changes to transfermarkt.com
+- Workaround: None currently, returns "N/A" on failure
+- Impact: Market value data becomes unavailable
 
 ## Security Considerations
 
-**Hardcoded API Key Fallback:**
-- Risk: Statorium API key has hardcoded fallback value
-- Files: `src/app/actions/statorium.ts` (lines 907, 949)
-- Current mitigation: Environment variable checked first, but fallback exists
-- Recommendations: Remove hardcoded fallback, fail securely, implement proper API key rotation
+**API Keys in URL Parameters:**
+- Risk: Statorium API key exposed in URL query parameters visible in logs and potentially cached
+- Files: `src/app/actions/statorium.ts:1303`, `src/lib/statorium/client.ts:17`
+- Current mitigation: None
+- Recommendations: Move API key to Authorization header, ensure logs don't contain full URLs with keys
 
-**Environment Variable Access Pattern:**
-- Risk: Direct process.env access without validation or type safety
-- Files: Multiple files using `process.env.NEXT_PUBLIC_*` with non-null assertions
-- Current mitigation: TypeScript non-null assertions (!)
-- Recommendations: Create typed environment configuration with validation at startup
+**Client-Side localStorage Without Validation:**
+- Risk: User preferences stored in localStorage without schema validation could cause runtime errors if corrupted
+- Files: `src/hooks/use-home-team.ts`, `src/lib/custom-theme.ts`
+- Current mitigation: Try-catch blocks around JSON.parse
+- Recommendations: Implement schema validation (Zod) before using localStorage data
 
-**Client-Side Storage of Sensitive Data:**
-- Risk: User preferences and team selection stored in localStorage
-- Files: `src/hooks/use-home-team.ts`
-- Current mitigation: No encryption or validation
-- Recommendations: Move to server-side storage or implement encryption for sensitive preferences
+**RSS Feed XSS Risk:**
+- Risk: RSS feed content may contain malicious HTML/JavaScript
+- Files: `src/lib/rss-feeds.ts:145-150` (regex-based XML parsing)
+- Current mitigation: None explicit, regex parsing is fragile
+- Recommendations: Use proper XML parser (e.g., fast-xml-parser) with HTML sanitization
 
-**API Key Exposure in Client Code:**
-- Risk: Some API keys use NEXT_PUBLIC_ prefix, exposed to client
-- Files: `src/lib/supabase/client.ts`, `src/lib/supabase/server.ts`
-- Current mitigation: Supabase anon key design, but still exposed
-- Recommendations: Review which keys truly need client access, use server-side proxy for sensitive operations
+**Twitter API Bearer Token Exposure:**
+- Risk: NEXT_PUBLIC_TWITTER_BEARER_TOKEN exposed to client if set
+- Files: `src/lib/twitter-integration.ts:44`
+- Current mitigation: None
+- Recommendations: Move Twitter calls to server-side API routes, never use NEXT_PUBLIC_ prefix
 
-**AI API Key Management:**
-- Risk: Anthropic API key accessed directly in API routes without rate limiting
-- Files: `src/app/api/valuation/route.ts`, `src/app/api/chat/route.ts`
-- Current mitigation: Basic error handling
-- Recommendations: Implement rate limiting, request quotas, and cost monitoring
+**Missing Input Validation:**
+- Risk: User inputs from search forms not validated before API calls
+- Files: Multiple action files accepting player/league IDs
+- Current mitigation: Basic TypeScript typing
+- Recommendations: Add Zod validation schemas for all user inputs
 
 ## Performance Bottlenecks
 
-**Excessive Console Logging:**
-- Problem: Extensive console.log statements in production code
-- Files: Throughout codebase (30+ instances in actions/components)
-- Cause: Debug logging left in production
-- Improvement path: Implement proper logging framework with environment-based log levels
+**Serial API Requests in Player Fetching:**
+- Problem: Fetching all league players makes sequential API calls for each team
+- Files: `src/app/actions/statorium.ts:910-949` (fetchAllLeaguePlayersAction)
+- Cause: Loop through teams, await each squad fetch
+- Improvement path: Use Promise.all() with batching, implement parallel fetching with rate limiting
 
-**Inefficient Data Fetching:**
-- Problem: Multiple sequential API calls without caching strategy
-- Files: `src/app/actions/statorium.ts` (1046 lines), `src/app/(dashboard)/leagues/[id]/league-details-client.tsx` (1025 lines)
-- Cause: No centralized caching, data fetched on every request
-- Improvement path: Implement React Query or SWR for client-side caching, leverage Next.js revalidate for server-side
+**Inefficient Client-Side Re-renders:**
+- Problem: Large client components (1,177 line watchlist page) cause unnecessary re-renders
+- Files: `src/app/(dashboard)/watchlist/page.tsx`, `src/app/(dashboard)/compare/page.tsx`
+- Cause: Missing React.memo, improper state management
+- Improvement path: Component splitting, memoization, useReducer for complex state
 
-**Large Component Files:**
-- Problem: Several components exceed 400 lines, causing maintenance issues
-- Files: `src/app/(dashboard)/watchlist/page.tsx` (1067 lines), `src/app/(dashboard)/compare/page.tsx` (949 lines)
-- Cause: Multiple responsibilities in single components
-- Improvement path: Break down into smaller, focused components with proper separation of concerns
+**No Data Pagination:**
+- Problem: Fetching entire datasets (all players, all matches) without pagination
+- Files: `src/app/actions/statorium.ts:910` (fetchAllLeaguePlayersAction)
+- Cause: APIs support but don't enforce pagination
+- Improvement path: Implement infinite scroll or virtualized lists, load data on demand
 
-**Unoptimized Re-renders:**
-- Problem: Complex components without proper memoization
-- Files: `src/components/scout/league-galaxy.tsx`, `src/components/scout/transfer-flow.tsx`
-- Cause: Heavy computations in render cycles
-- Improvement path: Implement React.memo, useMemo, useCallback strategically
+**Large Bundle Size:**
+- Problem: 38,317 lines of TypeScript in src/ directory, many client components
+- Cause: Too many "use client" directives (80+ files), large static data files
+- Improvement path: Code splitting, lazy loading, move static data to API endpoints
 
-**N+1 Query Problem:**
-- Problem: Loop-based API calls for individual player/team data
-- Files: `src/app/actions/statorium.ts`, `src/app/actions/sync.ts`
-- Cause: No batch fetching capabilities
-- Improvement path: Implement batch API calls or data prefetching strategies
+**Missing Caching Strategy:**
+- Problem: In-memory GLOBAL_CACHE only lasts 10 minutes, no persistent cache
+- Files: `src/app/actions/statorium.ts:21-22`
+- Cause: Simple Map-based cache without persistence
+- Improvement path: Implement Redis or database-backed cache with proper TTL
 
 ## Fragile Areas
 
-**Profile Management System:**
-- Files: `src/app/actions/profile.ts`, `src/app/(dashboard)/profile/page.tsx`, `src/app/(dashboard)/settings/page.tsx`
-- Why fragile: Multiple auto-fix pages suggest unstable schema, extensive error handling
-- Safe modification: Implement proper database migrations, add schema validation middleware
-- Test coverage: Gaps - no tests for profile update flows, error handling untested
+**External API Dependencies:**
+- Files: `src/lib/statorium/client.ts`, `src/lib/transfermarkt.ts`, `src/lib/rss-feeds.ts`, `src/lib/twitter-integration.ts`
+- Why fragile: All functionality depends on third-party services with no SLA guarantees
+- Safe modification: Add circuit breakers, fallback data, graceful degradation
+- Test coverage: Minimal, mostly integration tests missing
 
-**Statorium API Integration:**
-- Files: `src/lib/statorium/client.ts`, `src/app/actions/statorium.ts`
-- Why fragile: Single point of failure for all data, extensive null returns, fallback to mock data
-- Safe modification: Implement circuit breaker pattern, add comprehensive error handling, create data layer abstraction
-- Test coverage: Minimal - API integration not mocked, failure scenarios untested
+**Type Inference with `any` Types:**
+- Files: `src/lib/statorium/client.ts:74-98`, `src/app/actions/statorium.ts:873`, `src/app/actions/statorium.ts:913`
+- Why fragile: Heavy use of `any` type loses TypeScript benefits, prone to runtime errors
+- Safe modification: Define proper interfaces for API responses, remove `as any` casts
+- Test coverage: Type checking catches some issues, but runtime validation missing
 
-**State Management Across Components:**
-- Files: Multiple large page components with local state
-- Why fragile: No global state management, prop drilling, inconsistent data flow
-- Safe modification: Implement Zustand or Context API for shared state, create custom hooks for complex logic
-- Test coverage: Untested - component interactions and state transitions not covered
+**console.log in Production:**
+- Files: 351 occurrences across 52 files
+- Why fragile: Debug logging clutters production, may expose sensitive data, impacts performance
+- Safe modification: Replace with proper logging library (winston/pino) with environment-based levels
+- Test coverage: None
 
-**3D Visualization Components:**
-- Files: `src/components/ui/3d-globe.tsx`, `src/components/ui/football-globe.tsx`
-- Why fragile: Complex WebGL logic, memory management issues, browser compatibility
-- Safe modification: Implement proper cleanup, add loading states, handle webgl context loss
-- Test coverage: None - visual components not tested
+**Regex-based XML Parsing:**
+- Files: `src/lib/rss-feeds.ts:146-150` (itemRegex pattern matching)
+- Why fragile: Cannot handle malformed XML, attribute variations, nested structures
+- Safe modification: Replace with fast-xml-parser or similar proper XML parser
+- Test coverage: Basic tests may pass, but edge cases unhandled
 
 ## Scaling Limits
 
-**Client-Side Data Processing:**
-- Current capacity: Processing ~100 clubs in League Galaxy with collision detection (500 attempts per club)
-- Limit: Performance degrades with >200 clubs, mobile devices struggle
-- Scaling path: Move collision detection to Web Worker, implement server-side positioning, use spatial indexing
+**Stadium API Rate Limiting:**
+- Current capacity: Unknown rate limits, appears to be making many sequential calls
+- Limit: Likely to hit rate limits with concurrent users
+- Scaling path: Implement request queuing, caching, and batch operations
 
-**Supabase RLS Performance:**
-- Current capacity: Small user base, simple queries
-- Limit: Row-level security may slow down with complex multi-tenant queries
-- Scaling path: Implement query optimization, consider read replicas, add database indexes
+**Client-Side State Management:**
+- Current capacity: All state in individual components, no global state management
+- Limit: Will cause performance issues with large datasets
+- Scaling path: Implement Zustand or Redux for global state, server components for data fetching
 
-**API Rate Limits:**
-- Current capacity: Statorium API usage within free tier limits
-- Limit: No rate limiting implementation, could hit API limits with increased traffic
-- Scaling path: Implement request queuing, caching layer, upgrade to paid tier or alternative data sources
+**File System Caching:**
+- Current capacity: Uses scratch/ directory for file-based caching
+- Limit: Doesn't work in serverless environments (Vercel, AWS Lambda)
+- Scaling path: Move to database-backed caching or Redis
 
-**Image Optimization:**
-- Current capacity: Loading player photos from external URLs
-- Limit: No image optimization, slow loading on poor connections
-- Scaling path: Implement Next.js Image optimization, set up CDN, consider local image caching
-
-**Real-time Features:**
-- Current capacity: No real-time features implemented
-- Limit: Notification system is mock-based, no live updates
-- Scaling path: Implement Supabase Realtime or WebSocket connections for live data
+**Supabase Query Optimization:**
+- Current capacity: No visible query optimization or indexing strategy
+- Limit: Will degrade with large user bases
+- Scaling path: Implement query optimization, database indexes, connection pooling
 
 ## Dependencies at Risk
 
-**Outdated Dependencies:**
-- Risk: Multiple packages have newer versions available (19 outdated packages)
-- Impact: Potential security vulnerabilities, missing features, compatibility issues
-- Migration plan: Run `npm update`, test thoroughly, incrementally upgrade major versions
+**Cheerio Web Scraping:**
+- Risk: Web scraping is brittle, violates terms of service, may be blocked
+- Impact: Transfermarkt market values will stop working
+- Migration plan: Negotiate API access with Transfermarkt or find alternative data provider
 
-**Next.js Version Mismatch:**
-- Risk: Using Next.js 15.5.15 but latest is 16.2.4
-- Impact: Missing performance improvements, potential breaking changes in future
-- Migration plan: Review Next.js 16 changelog, test in development environment, upgrade incrementally
+**Three.js and React Three Fiber:**
+- Risk: Heavy bundle size (500KB+), complex 3D rendering may cause performance issues
+- Impact: Slow load times, poor performance on mobile devices
+- Migration plan: Consider lighter alternatives or lazy load only when needed
 
-**AI SDK Dependencies:**
-- Risk: Multiple AI SDK packages with version inconsistencies
-- Files: `@ai-sdk/anthropic`, `@ai-sdk/openai`, `@ai-sdk/react`, `@ai-sdk/rsc`
-- Impact: Potential API incompatibilities, increased bundle size
-- Migration plan: Consolidate to single AI provider, remove unused SDKs
+**Multiple AI SDKs:**
+- Risk: Using both @anthropic-ai/sdk and @ai-sdk/openai increases complexity
+- Impact: Higher bundle size, potential version conflicts
+- Migration plan: Standardize on single AI SDK provider
 
-**React 19 Adoption:**
-- Risk: Early adoption of React 19 with ecosystem not fully updated
-- Impact: Compatibility issues with third-party libraries
-- Migration plan: Monitor library updates, provide fallbacks for incompatible features
-
-**Tailwind CSS 4 Beta:**
-- Risk: Using Tailwind CSS 4 (beta version)
-- Impact: Potential breaking changes, limited ecosystem support
-- Migration plan: Track Tailwind 4 release notes, have migration plan to stable version
+**Axios with Cheerio:**
+- Risk: Combined for scraping, but Axios adds unnecessary weight for simple fetch operations
+- Impact: Larger bundle size for functionality that could use native fetch
+- Migration plan: Replace Axios with native fetch API where possible
 
 ## Missing Critical Features
 
 **Error Boundary Implementation:**
 - Problem: No React Error Boundaries to catch component errors
-- Blocks: Graceful error handling, user experience during failures
-- Impact: Application crashes show blank screens instead of error UI
+- Blocks: Graceful error handling, user experience when components fail
+- Files: Throughout src/components/
 
-**Comprehensive Testing:**
-- Problem: No test files found in src/ directory (only in node_modules)
+**Loading States for Data Fetching:**
+- Problem: Inconsistent loading states across components, some missing entirely
+- Blocks: Good UX during data loading
+- Files: Multiple client components
+
+**Form Validation:**
+- Problem: Client-side forms lack comprehensive validation
+- Blocks: Data integrity, user feedback on invalid inputs
+- Files: `src/components/scout/player-form.tsx`, `src/app/(dashboard)/settings/page.tsx`
+
+**Accessibility Features:**
+- Problem: Missing ARIA labels, keyboard navigation support, screen reader optimization
+- Blocks: Accessibility compliance, inclusive design
+- Files: Throughout UI components
+
+**Test Coverage:**
+- Problem: No test files found in src/ directory
 - Blocks: Confidence in refactoring, catching regressions
-- Impact: High risk of introducing bugs during development
-
-**Database Migrations:**
-- Problem: No migration system for schema changes
-- Blocks: Safe database updates, team development
-- Impact: Manual schema changes, potential data loss
-
-**Monitoring and Analytics:**
-- Problem: No error tracking, performance monitoring, or user analytics
-- Blocks: Understanding production issues, user behavior insights
-- Impact: Reactive debugging instead of proactive monitoring
-
-**API Rate Limiting:**
-- Problem: No rate limiting on API routes
-- Blocks: Protection against abuse, cost control
-- Impact: Potential API bill spikes, service degradation
-
-**Data Validation Layer:**
-- Problem: Inconsistent validation across the application
-- Blocks: Data integrity, security
-- Impact: Invalid data in database, potential security vulnerabilities
+- Files: Entire codebase
 
 ## Test Coverage Gaps
 
-**Untested Areas:**
+**No Unit Tests:**
+- What's not tested: Business logic, utility functions, data transformations
+- Files: All TypeScript/TSX files
+- Risk: Refactoring will break functionality, bugs go undetected
+- Priority: High - start with utility functions and action files
 
-**Authentication Flows:**
-- What's not tested: Login, logout, session management, profile creation
-- Files: `src/app/auth/actions.ts`, `src/app/auth/callback/route.ts`
-- Risk: Authentication failures could lock users out
-- Priority: High
+**No Integration Tests:**
+- What's not tested: API integrations, database operations, data flow
+- Files: `src/app/actions/*`, `src/lib/*`
+- Risk: API changes break application, data corruption possible
+- Priority: High - critical for external API dependencies
 
-**Data Synchronization:**
-- What's not tested: Statorium API integration, data caching, error recovery
-- Files: `src/app/actions/sync.ts`, `src/app/actions/statorium.ts`
-- Risk: Data inconsistencies, stale information
-- Priority: High
+**No E2E Tests:**
+- What's not tested: User workflows, page navigation, form submissions
+- Files: All page components
+- Risk: Broken user experiences, critical paths failing
+- Priority: Medium - start with key user journeys
 
-**AI Integration:**
-- What's not tested: AI valuation, chat responses, prompt handling
-- Files: `src/app/api/valuation/route.ts`, `src/app/api/chat/route.ts`
-- Risk: AI failures causing poor user experience
-- Priority: Medium
+**No Component Tests:**
+- What's not tested: UI rendering, user interactions, component behavior
+- Files: All React components
+- Risk: UI bugs, broken layouts, accessibility issues
+- Priority: Medium - focus on complex components
 
-**Watchlist Management:**
-- What's not tested: Add/remove players, status updates, history tracking
-- Files: `src/app/actions/watchlist.ts`
-- Risk: Data loss, incorrect watchlist state
-- Priority: Medium
-
-**Complex UI Components:**
-- What's not tested: League Galaxy, Transfer Flow, Comparison engine
-- Files: `src/components/scout/league-galaxy.tsx`, `src/components/scout/transfer-flow.tsx`
-- Risk: Visual regressions, interaction failures
-- Priority: Low
-
-**Profile Operations:**
-- What's not tested: Profile updates, notification preferences, schema migrations
-- Files: `src/app/actions/profile.ts`
-- Risk: Profile corruption, user data loss
-- Priority: High
-
-## Code Quality Issues
-
-**Excessive Use of `any` Type:**
-- Problem: Widespread use of `any` type defeats TypeScript's purpose
-- Files: Throughout codebase, especially in data handling
-- Impact: Loss of type safety, increased runtime errors
-- Fix approach: Define proper interfaces, use `unknown` with type guards
-
-**Inconsistent Error Handling:**
-- Problem: Mix of throwing errors, returning null/empty arrays, console.logging
-- Files: Multiple action files and components
-- Impact: Unpredictable error behavior, poor user experience
-- Fix approach: Implement standardized error handling pattern with proper error types
-
-**Magic Numbers and Strings:**
-- Problem: Hardcoded values without named constants
-- Files: `src/components/scout/league-galaxy.tsx` (collision distances, attempts), `src/app/actions/analysis.ts` (DNA values)
-- Impact: Difficult to tune, unclear intent
-- Fix approach: Extract to named constants with documentation
-
-**Missing Type Definitions:**
-- Problem: External API responses not fully typed
-- Files: `src/lib/statorium/types.ts`, `src/lib/types/player.ts`
-- Impact: Runtime type errors, poor IDE support
-- Fix approach: Create comprehensive type definitions based on API documentation
-
-**Unused Code:**
-- Problem: Dead code, commented-out sections, unused imports
-- Files: Multiple files throughout codebase
-- Impact: Code bloat, confusion for developers
-- Fix approach: Run linting tools, remove unused code, clean up imports
+**No Performance Tests:**
+- What's not tested: Load times, rendering performance, bundle size
+- Files: Entire application
+- Risk: Performance degradation goes unnoticed
+- Priority: Low - establish baseline after basic test coverage
 
 ---
 
-*Concerns audit: 2026-04-27*
+*Concerns audit: 2026-05-04*

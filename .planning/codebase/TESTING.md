@@ -1,580 +1,332 @@
 # Testing Patterns
 
-**Analysis Date:** 2026-04-27
+**Analysis Date:** 2026-05-04
 
 ## Test Framework
 
-**Runner:**
-- Framework: **None configured** (no Jest, Vitest, or other test runners detected)
-- Config files: Not present (`jest.config.*`, `vitest.config.*` not found)
-- Test command: Not available (no test script in package.json)
-- Available scripts: `dev`, `dev:turbo`, `build`, `start`, `lint`, `format`, `typecheck`
+**Runner:** Not configured
 
-**Assertion Library:**
-- Not applicable (no test framework in use)
+**Assertion Library:** Not configured
+
+**Config:** None detected
+
+**Status:** The codebase currently has **NO testing infrastructure** configured.
 
 **Run Commands:**
 ```bash
-# No test commands available
-# package.json scripts include:
-npm run dev          # Start development server
-npm run dev:turbo    # Start development server with Turbopack
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
-npm run format       # Run Prettier
-npm run typecheck    # TypeScript type checking
+# No test commands available in package.json
+# Available scripts:
+npm run dev              # Start development server
+npm run dev:turbo        # Start with turbopack
+npm run build            # Build for production
+npm run start            # Start production server
+npm run lint             # Run ESLint
+npm run format           # Run Prettier
+npm run typecheck        # Run TypeScript type checking
 ```
 
 ## Test File Organization
 
-**Location:**
-- **Not detected** - No test files found in codebase
-- No `__tests__` directories in any part of the codebase
-- No `*.test.ts` or `*.spec.ts` files (only found in node_modules dependencies)
-- No separate test directories
-- Test search found 0 test files in the main codebase
-- **Total TypeScript files**: 117 files in src directory
-- **Total lines of code**: 21,832 lines
+**Location:** Not applicable - no test files exist
 
-**Naming:**
-- No test naming conventions established
-- No consistent test file patterns observed
+**Naming:** Not applicable
 
 **Structure:**
-- No test directory structure present
-- Components and actions have no associated test files
-- Business logic files have no test coverage
+```
+# Current structure (no test directories)
+src/
+├── app/
+├── components/
+├── hooks/
+├── lib/
+└── middleware.ts
+
+# Recommended structure for future testing
+src/
+├── app/
+│   ├── __tests__/           # App route tests
+│   └── actions/
+│       └── __tests__/       # Server action tests
+├── components/
+│   └── __tests__/           # Component tests
+├── hooks/
+│   └── __tests__/           # Hook tests
+├── lib/
+│   └── __tests__/           # Utility tests
+└── __tests__/               # Root-level tests
+```
 
 ## Test Structure
 
-**Suite Organization:**
-- Not applicable - no test suites exist
+**Suite Organization:** Not applicable
 
-**Patterns:**
-- No setup/teardown patterns in use
-- No assertion patterns established
-- No test utilities or helpers
-- No test fixtures or factories
+**Patterns:** Not applicable
 
-**Current status:**
-- All codebase testing is manual through development server
-- No automated test infrastructure exists
-- No test-driven development practices observed
+**Setup pattern:** Not applicable
+
+**Teardown pattern:** Not applicable
+
+**Assertion pattern:** Not applicable
 
 ## Mocking
 
-**Framework:** None (no test framework configured)
+**Framework:** Not configured
 
-**Patterns:**
-- Mock data used in production code for development: `mockPool` in `lib/statorium/client.ts`
-- API fallbacks: When API fails, falls back to mock player data
-- Hardcoded test data: Mock clubs, players, and standings in action files
-- Mock data embedded directly in production code
+**Patterns:** Not applicable
 
-**What is Mocked:**
-- API responses during development: Statorium API calls fall back to mock data
-- External service dependencies: When `STATORIUM_API_KEY` is missing or API fails
-- Player data: 30+ mock players with verified IDs and photos
-- Club data: Mock club contexts for analysis functionality
+**What to Mock:** Not applicable
 
-**Mock Data Pattern (Production Code):**
-```typescript
-// Mock Pool with verified IDs and photos from Statorium API
-const mockPool: (StatoriumPlayerBasic & { teamID?: string, league?: string, photo?: string })[] = [
-  { playerID: '14633', firstName: 'Florian', lastName: 'Wirtz', fullName: 'Florian Wirtz', position: 'CAM', country: 'Germany', teamName: 'Bayer 04 Leverkusen', photo: 'https://api.statorium.com/media/bearleague/bl17158001911496.webp', teamID: '163', league: 'Bundesliga' },
-  { playerID: '6466', firstName: 'Jude', lastName: 'Bellingham', fullName: 'Jude Bellingham', position: 'CM', country: 'England', teamName: 'Real Madrid', photo: 'https://api.statorium.com/media/bearleague/bl1695891720352.webp', teamID: '37', league: 'La Liga' },
-  { playerID: '53041', firstName: 'Lamine', lastName: 'Yamal', fullName: 'Lamine Yamal', position: 'RW', country: 'Spain', teamName: 'FC Barcelona', photo: 'https://api.statorium.com/media/bearleague/bl17322791692175.webp', teamID: '23', league: 'La Liga' },
-  // ... 27 more mock players
-]
-
-try {
-  const data = await this.fetch<any>('/players/', { q: query })
-  if (data.players && data.players.length > 0) {
-    return data.players.map((p: any) => { ... })
-  }
-} catch (error) {
-  console.warn('[StatoriumClient] Search API failed, using mock fallback:', error)
-}
-
-// Falls back to mockPool.filter(p => ...)
-```
-
-**Mock Clubs in Analysis:**
-```typescript
-// This would be loop-based in production, but for MVP we mock some clubs
-// to verify the engine without hitting API limits during dev
-const mockClubs: ClubContext[] = [
-  {
-    id: '1',
-    name: 'Arsenal',
-    dna: { possession: 80, pressing: 85, tempo: 75 },
-    needs: { ST: 90, RW: 40 },
-    form: 85,
-    historyMatch: 70,
-  },
-  {
-    id: '2',
-    name: 'Dortmund',
-    dna: { possession: 60, pressing: 90, tempo: 95 },
-    needs: { ST: 70, CB: 80 },
-    form: 65,
-    historyMatch: 85,
-  }
-]
-```
+**What NOT to Mock:** Not applicable
 
 ## Fixtures and Factories
 
-**Test Data:**
-- No test fixtures or factories
-- Hardcoded mock data embedded in production code
-- Mock player pool: 30+ players in `lib/statorium/client.ts`
-- Mock club data in `app/actions/analysis.ts`
-- Coach mapping data in `lib/coaches-data.ts`
+**Test Data:** Not applicable
 
-**Location:**
-- Inline in source files (not separate fixtures)
-- `lib/statorium/client.ts`: Mock player pool with 30 players
-- `app/actions/analysis.ts`: Mock club context data (2 clubs)
-- `lib/coaches-data.ts`: Coach mapping constants
-- No dedicated test fixtures directory
-
-**Data Types:**
-- Player fixtures: Complete StatoriumPlayerBasic objects
-- Club fixtures: ClubContext interfaces with DNA and needs
-- Coach data: COACH_MAP constant for coach name mapping
+**Location:** Not applicable
 
 ## Coverage
 
 **Requirements:** None enforced
-- No coverage thresholds configured
-- No coverage reporting tool integrated
-- No coverage measurement in place
 
-**View Coverage:**
-- Not available (no test runner configured)
-- Commands: `npm run test` does not exist
-- Coverage report: Not generated
-- Coverage tracking: Not implemented
+**View Coverage:** Not available
+
+**Current Coverage:** 0% (no tests exist)
 
 ## Test Types
 
-**Unit Tests:**
-- Status: **Not implemented**
-- Scope: None
-- Approach: N/A
-- Would cover: Individual functions, utility functions, business logic
+**Unit Tests:** Not implemented
 
-**Integration Tests:**
-- Status: **Not implemented**
-- Scope: None
-- Approach: N/A
-- Would cover: Database operations, API integrations, multi-component flows
+**Integration Tests:** Not implemented
 
-**E2E Tests:**
-- Framework: **Not used**
-- Scope: None
-- Approach: N/A
-- Would cover: Complete user flows, critical paths
+**E2E Tests:** Not implemented
 
-## Current Testing Approach
+## Current Testing State
 
-**Manual Testing:**
-- Development mode: `npm run dev` or `npm run dev:turbo`
-- Next.js hot reload for quick feedback
-- Browser-based manual testing
-- Console logging for debugging
-- Manual verification of functionality
-- Recent commits show manual testing and bug fixes (watchlist, history, login, registration)
+**Test Files Found:** 0 in `src/` directory
 
-**Type Checking:**
-- TypeScript strict mode enabled
-- Type checking command: `npm run typecheck`
-- Catches type errors at compile time
-- Provides some quality assurance
-- Strict mode enforces type safety
+**Test Configuration Files:** 0
+- No `jest.config.js` or `jest.config.ts`
+- No `vitest.config.ts`
+- No `cypress.config.ts` or `playwright.config.ts`
+- No `.spec.ts` or `.test.ts` files in source code
 
-**Linting:**
-- ESLint configured for Next.js
-- Lint command: `npm run lint`
-- Catches code style and potential errors
-- TypeScript ESLint rules enabled
-- Next.js-specific rules included
+**Dependencies:**
+- No testing frameworks in `package.json`
+- No assertion libraries (jest, vitest, @testing-library/react, etc.)
+- No mocking libraries (msw, nock, etc.)
 
-**Formatting:**
-- Prettier configured for consistent code style
-- Format command: `npm run format`
-- Ensures consistent formatting across codebase
-- Tailwind CSS plugin for class sorting
-- Automatic code formatting
-
-**Debugging Practices:**
-- Extensive console logging (37 files with console statements)
-- Prefix-based logging: `FunctionName: Context message`
-- Browser DevTools for debugging
-- React DevTools for component inspection
-- Network tab for API debugging
-- Recent development focused on UI fixes and feature improvements
+**CI/CD:**
+- No GitHub Actions workflows detected
+- No automated test execution pipeline
 
 ## Testing Gaps
 
-**Critical Areas Without Tests:**
+**Untested Areas:**
 
-**Business Logic:**
-- `lib/engine/scoring.ts`: Compatibility calculation algorithm (calculateCompatibility function)
-- `app/actions/analysis.ts`: Player analysis logic
-- `lib/engine/benchmark.ts`: Percentile calculation and benchmarking
-- Weighted scoring algorithms: 5-category scoring system
+**Server Actions (`src/app/actions/`):**
+- `statorium.ts` - 1,604 lines, critical data fetching logic
+- `job-generation.ts` - AI job offer generation
+- `watchlist.ts` - User watchlist management
+- `profile.ts` - User profile operations
+- `analysis.ts` - Player analysis logic
+- `ai.ts` - AI integration
+- `sync.ts` - Data synchronization
 
-**Data Transformations:**
-- `app/actions/statorium.ts`: Complex API integration and normalization (781 lines)
-- Player data normalization functions (normalizeName, resolvePosition)
-- Photo URL resolution (resolvePlayerPhoto)
-- Team data aggregation and transformation
-- Standing data parsing and mapping
+**API Routes (`src/app/api/`):**
+- `market-value/[playerName]/route.ts` - Transfermarkt scraping
+- `valuation/route.ts` - Player valuation
+- `chat/route.ts` - AI chat endpoint
+- No API route tests
 
-**Database Operations:**
-- `app/actions/profile.ts`: Profile CRUD operations (225 lines)
-- `app/actions/watchlist.ts`: Watchlist management (262 lines)
-- `app/actions/refresh-stats.ts`: Statistics refresh logic
-- `app/actions/sync.ts`: Player data synchronization (128 lines)
-- Supabase query building and error handling
-- Data validation and sanitization
+**Components (137 total files):**
+- 28 UI components in `src/components/ui/`
+- 25 scout components in `src/components/scout/`
+- No component tests
 
-**Authentication:**
-- `app/auth/actions.ts`: Login/signup/logout flows (49 lines)
-- Supabase authentication integration
-- Session management
-- Protected route handling
+**Hooks (`src/hooks/`):**
+- `use-home-team.ts` - Home team state management
+- `use-market-value.ts` - Market value fetching
+- No hook tests
 
-**API Clients:**
-- `lib/statorium/client.ts`: External API integration (180 lines)
-- Error handling and fallback logic
-- Response parsing and validation
-- API rate limiting and caching
+**Libraries (`src/lib/`):**
+- `statorium/client.ts` - External API client
+- `transfermarkt.ts` - Web scraping logic
+- `engine/scoring.ts` - Scoring algorithms
+- `engine/benchmark.ts` - Benchmarking logic
+- No unit tests
 
-**Components:**
-- All React components in `components/` (25+ components)
-- Interactive components (drag-and-drop, forms)
-- Dashboard and league pages
-- UI components (Card, Button, Input, etc.)
-- Complex components like KanbanBoard, PlayerSearch, AiNarrative
-- New components: HomeTeamSelector, SquadIntelligence
+## Recommended Testing Setup
 
-**State Management:**
-- React hooks usage (useState, useEffect)
-- State transitions and updates
-- Form handling and validation
-- Loading states and error handling
-- Custom hooks (useHomeTeam, useMarketValue)
+**For Next.js 15 with TypeScript, recommended stack:**
 
-**New Features (Recent Development):**
-- Home team selection functionality
-- League details and club management
-- Tactical analysis features
-- Watchlist and history management
-- Profile and settings improvements
-- Notification system
+```bash
+# Install testing dependencies
+npm install -D vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom @vitejs/plugin-react
 
-## Common Patterns (Missing)
+# Install mocking libraries
+npm install -D msw
+
+# Install coverage tools
+npm install -D @vitest/coverage-v8
+```
+
+**Configuration Files Needed:**
+
+1. **`vitest.config.ts`** - Vitest configuration
+2. **`src/test/setup.ts`** - Test setup with @testing-library
+3. **`src/test/mocks/handlers.ts`** - MSW handlers for API mocking
+
+**Recommended Test Structure:**
+
+```typescript
+// Example: src/app/actions/__tests__/statorium.test.ts
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { searchPlayersAction } from '../statorium'
+import { StatoriumClient } from '@/lib/statorium/client'
+
+describe('searchPlayersAction', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
+  it('should return empty array for empty query', async () => {
+    const result = await searchPlayersAction('')
+    expect(result).toEqual([])
+  })
+
+  it('should fetch and return players', async () => {
+    // Mock implementation
+    const mockPlayers = [
+      { playerID: '1', fullName: 'Test Player' }
+    ]
+    
+    vi.spyOn(StatoriumClient.prototype, 'searchPlayers')
+      .mockResolvedValue(mockPlayers)
+    
+    const result = await searchPlayersAction('test')
+    expect(result).toEqual(mockPlayers)
+  })
+
+  it('should handle API errors gracefully', async () => {
+    vi.spyOn(StatoriumClient.prototype, 'searchPlayers')
+      .mockRejectedValue(new Error('API Error'))
+    
+    const result = await searchPlayersAction('test')
+    expect(result).toEqual([])
+  })
+})
+```
+
+## Common Patterns (To Be Implemented)
 
 **Async Testing:**
-- Not applicable (no tests exist)
-- Would need: Test async/await patterns, API calls, server actions
-- Async component mounting and data fetching
-- Race condition handling
-- Timeout and retry logic
+```typescript
+it('should fetch data asynchronously', async () => {
+  const result = await fetchData()
+  expect(result).toBeDefined()
+})
+```
 
 **Error Testing:**
-- Not applicable (no tests exist)
-- Would need: Test error handling, fallback logic, edge cases
-- Network failure scenarios
-- API error responses
-- Invalid input handling
-- Database constraint violations
+```typescript
+it('should handle errors', async () => {
+  vi.spyOn(api, 'get').mockRejectedValue(new Error('Failed'))
+  await expect(fetchData()).rejects.toThrow('Failed')
+})
+```
 
-**State Testing:**
-- Not applicable (no tests exist)
-- Would need: Component state updates, form submissions
-- React hooks testing
-- State synchronization
-- Side effect handling
+**Component Testing:**
+```typescript
+import { render, screen } from '@testing-library/react'
+import { Button } from '@/components/ui/button'
 
-**Performance Testing:**
-- Not applicable (no tests exist)
-- Would need: Component rendering performance
-- Large data set handling
-- Memory leak detection
-- Animation performance testing
+describe('Button', () => {
+  it('should render with correct text', () => {
+    render(<Button>Click me</Button>)
+    expect(screen.getByText('Click me')).toBeInTheDocument()
+  })
+})
+```
 
-## Quality Assurance Methods
+## Testing Priorities
 
-**Manual QA Practices:**
-- Manual testing in development environment
-- Console logging for debugging
-- Browser dev tools for inspection
-- User flow testing by developers
-- Manual regression testing
-- Recent bug fixes indicate active manual testing
-
-**Code Review:**
-- Git version control for change tracking
-- Commit history shows manual testing verification
-- No automated CI/CD testing pipeline detected
-- Manual code review process
-- Recent commits show collaborative development
-
-**Type Safety:**
-- TypeScript strict mode provides compile-time checking
-- Type annotations on all functions and components
-- Zod schema validation in forms
-- Interface definitions for complex data structures
-- Total of 117 TypeScript files with strict typing
-
-**Code Quality Tools:**
-- ESLint for linting and code quality
-- Prettier for code formatting
-- TypeScript for type safety
-- No pre-commit hooks detected
-- No automated quality gates
-- Code formatting enforced via `npm run format`
-
-**Development Practices:**
-- Feature development with manual testing
-- Bug fixes and UI improvements
-- Performance optimizations (React.memo, caching)
-- Code refactoring and cleanup
-- Regular commits with descriptive messages
-
-## Recommendations
-
-**Immediate Needs:**
-1. Set up test framework (Jest or Vitest for this codebase)
-2. Write unit tests for business logic (scoring, analysis)
-3. Write tests for data transformation functions
-4. Add tests for API client error handling
-5. Create test utilities and helpers
-6. Test critical user flows (login, watchlist, analysis)
+**High Priority:**
+1. Server actions (critical business logic)
+2. API routes (external integrations)
+3. Utility functions (pure functions, easy to test)
 
 **Medium Priority:**
-1. Component testing for UI components
-2. Integration tests for server actions
-3. E2E tests for critical user flows (login, analysis, watchlist)
-4. Set up test coverage reporting
-5. Separate mock data from production code
-6. Test new features (home team selection, league details)
+1. Hooks (state management)
+2. Complex components (user interactions)
+3. Scoring/engine logic (`src/lib/engine/`)
 
-**Long-term:**
-1. Code coverage reporting with thresholds
-2. CI/CD integration for automated testing
-3. Mock data fixtures separation from production code
-4. Test utilities and helpers
-5. Performance testing
-6. Accessibility testing
-7. Visual regression testing
-8. Load testing for API endpoints
+**Low Priority:**
+1. Simple UI components (visual components)
+2. Static components (display-only)
 
-## Testing Infrastructure Requirements
+## Mocking Strategy (Recommended)
 
-**To Add Testing:**
-1. Install test framework: `npm install -D vitest @testing-library/react @testing-library/jest-dom @vitejs/plugin-react`
-2. Create `vitest.config.ts` configuration for Next.js App Router
-3. Add test scripts to `package.json`:
-   ```json
-   "test": "vitest",
-   "test:ui": "vitest --ui",
-   "test:coverage": "vitest --coverage",
-   "test:watch": "vitest --watch"
-   ```
-4. Create `__tests__` directories alongside source files
-5. Separate mock data from production code into fixtures
-6. Set up test environment for Next.js App Router
-7. Configure test database for integration tests
-8. Set up API mocking for external services
+**External APIs:**
+- Mock `StatoriumClient` in tests
+- Use MSW for HTTP requests to external services
+- Mock Supabase client for database operations
 
-**Example Test Structure (Not Currently Present):**
-```
-lib/
-  __tests__/
-    engine/
-      scoring.test.ts        # Compatibility calculation tests
-      benchmark.test.ts       # Percentile calculation tests
-    statorium/
-      client.test.ts         # API client tests
-      formation-service.test.ts
-    utils/
-      geocoding.test.ts
-app/
-  __tests__/
-    actions/
-      analysis.test.ts       # Analysis action tests
-      watchlist.test.ts      # Watchlist CRUD tests
-      profile.test.ts        # Profile management tests
-      sync.test.ts           # Data synchronization tests
-    auth/
-      actions.test.ts        # Auth flow tests
-components/
-  __tests__/
-    scout/
-      player-form.test.ts    # Form component tests
-      player-search.test.ts  # Search component tests
-      kanban-board.test.ts   # Drag-and-drop tests
-      ai-narrative.test.ts   # AI streaming component tests
-      home-team-selector.test.ts  # Home team selection tests
-    ui/
-      button.test.ts         # UI component tests
-      card.test.ts
-hooks/
-  __tests__/
-    use-home-team.test.ts   # Custom hook tests
-    use-market-value.test.ts
+**Environment Variables:**
+- Use `vi.stubEnv()` or `.env.test` file
+- Mock `process.env.STATORIUM_API_KEY`
+
+**Browser APIs:**
+- Use `jsdom` environment
+- Mock localStorage, fetch, etc.
+
+## CI/CD Integration (Recommended)
+
+**GitHub Actions Workflow:**
+
+```yaml
+# .github/workflows/test.yml
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm run test
+      - run: npm run test:coverage
 ```
 
-**Example Test Cases (Not Currently Present):**
-```typescript
-// lib/engine/scoring.test.ts
-import { describe, it, expect } from 'vitest'
-import { calculateCompatibility } from '../scoring'
-import { ScoutProPlayer } from '../../types/player'
+## Current Validation
 
-describe('calculateCompatibility', () => {
-  it('calculates total score correctly', () => {
-    const player: ScoutProPlayer = {
-      // ... player data
-    }
-    const club = {
-      id: '1',
-      name: 'Arsenal',
-      dna: { possession: 80, pressing: 85, tempo: 75 },
-      needs: { ST: 90, RW: 40 },
-      form: 85,
-      historyMatch: 70,
-    }
-    const result = calculateCompatibility(player, club)
-    expect(result.totalScore).toBeGreaterThan(0)
-    expect(result.totalScore).toBeLessThanOrEqual(100)
-  })
-
-  it('calculates breakdown scores correctly', () => {
-    const player: ScoutProPlayer = { /* ... */ }
-    const club = { /* ... */ }
-    const result = calculateCompatibility(player, club)
-    expect(result.breakdown.tactical).toBeGreaterThan(0)
-    expect(result.breakdown.positional).toBeGreaterThan(0)
-    expect(result.breakdown.stats).toBeGreaterThan(0)
-  })
-})
-
-// app/actions/watchlist.test.ts
-import { describe, it, expect } from 'vitest'
-import { addToWatchlist, removeFromWatchlist } from '../watchlist'
-
-describe('watchlist actions', () => {
-  it('adds player to watchlist', async () => {
-    const playerData = {
-      player_id: '123',
-      player_name: 'Test Player',
-      // ... other fields
-    }
-    const result = await addToWatchlist(playerData)
-    expect(result.success).toBe(true)
-    expect(result.data).toBeDefined()
-  })
-
-  it('removes player from watchlist', async () => {
-    const result = await removeFromWatchlist('123')
-    expect(result.success).toBe(true)
-  })
-
-  it('prevents duplicate player addition', async () => {
-    const playerData = {
-      player_id: '123',
-      player_name: 'Test Player',
-      // ... other fields
-    }
-    await addToWatchlist(playerData)
-    const result = await addToWatchlist(playerData)
-    expect(result.error).toContain('already in your watchlist')
-  })
-})
-
-// hooks/use-home-team.test.ts
-import { renderHook, act } from '@testing-library/react'
-import { useHomeTeam } from '../use-home-team'
-
-describe('useHomeTeam', () => {
-  it('loads home team from localStorage', () => {
-    const { result } = renderHook(() => useHomeTeam())
-    expect(result.current.isLoaded).toBe(true)
-  })
-
-  it('selects and persists home team', () => {
-    const { result } = renderHook(() => useHomeTeam())
-    const team = {
-      id: '1',
-      name: 'Arsenal',
-      logo: 'https://example.com/logo.png',
-      seasonId: '2024'
-    }
-
-    act(() => {
-      result.current.selectHomeTeam(team)
-    })
-
-    expect(result.current.homeTeam).toEqual(team)
-    expect(localStorage.getItem('scoutpro_home_team')).toBe(JSON.stringify(team))
-  })
-})
+**Type Checking:**
+```bash
+npm run typecheck
+# Runs: tsc --noEmit
+# Provides compile-time type safety
 ```
 
-## Risk Assessment
+**Linting:**
+```bash
+npm run lint
+# Runs: eslint
+# Catches code quality issues
+```
 
-**High Risk Areas (No Tests):**
-1. Business logic algorithms (scoring, compatibility)
-2. Database operations (CRUD, migrations, data sync)
-3. Authentication flows and session management
-4. API integrations with external services (Statorium)
-5. Data transformation and normalization (781-line action file)
-6. New features without tests (home team, league details)
+**Formatting:**
+```bash
+npm run format
+# Runs: prettier --write "**/*.{ts,tsx}"
+# Ensures consistent code style
+```
 
-**Medium Risk Areas:**
-1. UI components and user interactions
-2. Form handling and validation
-3. State management and custom hooks
-4. Error handling and edge cases
-5. Performance-critical components (dashboard, animations)
-
-**Low Risk Areas:**
-1. Static UI components
-2. Utility functions (simple transformations)
-3. Type definitions
-4. Configuration files
-
-## Development Status
-
-**Current Testing Maturity:**
-- **Test Coverage**: 0% (no automated tests)
-- **Test Infrastructure**: Not implemented
-- **Test Automation**: None
-- **Manual Testing**: Primary method
-- **Quality Assurance**: Type checking, linting, manual testing
-
-**Recent Development Focus:**
-- Feature development and UI improvements
-- Bug fixes and performance optimizations
-- New component development (home team selector, squad intelligence)
-- League and club management features
-- Profile and watchlist functionality
-
-**Testing Readiness:**
-- Codebase is well-structured for testing
-- TypeScript provides type safety
-- Component architecture supports testing
-- Server actions are testable
-- Custom hooks follow React testing patterns
-- Mock data infrastructure exists (in production code)
+These tools provide some quality assurance but do not replace actual tests.
 
 ---
 
-*Testing analysis: 2026-04-27*
+*Testing analysis: 2026-05-04*

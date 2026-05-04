@@ -1,164 +1,176 @@
 # Architecture
 
-**Analysis Date:** 2026-04-27
+**Analysis Date:** 2026-05-04
 
 ## Pattern Overview
 
-**Overall:** Next.js 15 App Router with Server-First Architecture
+**Overall:** Next.js 15 Full-Stack Monolith with App Router
 
 **Key Characteristics:**
-- Server-Side Rendering (SSR) for data-heavy pages
-- Client Components for interactive UI elements
-- Server Actions for mutations and API calls
-- Row-Level Security (RLS) for data isolation
-- Clean separation between presentation and business logic
+- Server Components for data fetching and initial rendering
+- Client Components for interactivity and state management
+- Server Actions for mutations and business logic
+- API Routes for external integrations and streaming responses
+- Supabase for authentication, database, and real-time features
 
 ## Layers
 
-**Presentation Layer (Client Components):**
-- Purpose: Interactive UI, user interactions, real-time updates
+**Presentation Layer (App Router):**
+- Purpose: UI rendering and user interaction
+- Location: `src/app/`
+- Contains: Page components, layouts, API routes, and server actions
+- Depends on: Components layer, Services layer (via imports)
+- Used by: End users through browser
+
+**Components Layer:**
+- Purpose: Reusable UI components and domain-specific modules
 - Location: `src/components/`
-- Contains: React components, hooks, stateful UI logic
-- Depends on: Server Actions, API routes, lib utilities
-- Used by: App Router pages
-
-**Server Layer (Server Components & Actions):**
-- Purpose: Data fetching, business logic, mutations
-- Location: `src/app/` (pages, actions, API routes)
-- Contains: Server Actions, API routes, page components
-- Depends on: Database clients, external APIs, business engines
-- Used by: Client components, middleware
-
-**Data Layer (Supabase):**
-- Purpose: Persistent storage, authentication, real-time subscriptions
-- Location: Supabase cloud (configured via `src/lib/supabase/`)
-- Contains: PostgreSQL database, auth, storage, realtime
-- Depends on: Supabase infrastructure
-- Used by: Server Actions, API routes, middleware
+- Contains: UI primitives (`ui/`), dashboard components, scout components, scout-jobs components
+- Depends on: Lib layer (utilities, types, services)
+- Used by: Presentation layer pages
 
 **Business Logic Layer:**
-- Purpose: Domain-specific calculations, algorithms, data transformation
-- Location: `src/lib/engine/`, `src/lib/statorium/`, `src/lib/utils/`
-- Contains: Scoring engines, API clients, utilities
-- Depends on: External APIs, type definitions
-- Used by: Server Actions, API routes
+- Purpose: Core algorithms, data processing, and external API integration
+- Location: `src/lib/`
+- Contains: Engine (scoring, benchmarking), Statorium client, Supabase client, utilities, type definitions
+- Depends on: External APIs (Statorium, AI SDKs), Supabase database
+- Used by: Server actions, API routes, and components
 
-**External Integration Layer:**
-- Purpose: Third-party data sources and AI services
-- Location: `src/lib/statorium/`, AI SDK integration
-- Contains: API clients, data transformers, caching logic
-- Depends on: External APIs (Statorium, AI providers)
-- Used by: Server Actions, business logic layer
+**Data Layer:**
+- Purpose: Persistent storage and authentication
+- Location: Supabase (PostgreSQL)
+- Contains: User profiles, watchlist, analysis history, job offers
+- Depends on: External service (Supabase)
+- Used by: Business logic layer via client instances
 
 ## Data Flow
 
-**Authentication Flow:**
+**User Authentication Flow:**
 
-1. User navigates to `/login` → Server Component renders login page
-2. User submits credentials → Server Action (`auth/actions.ts`) handles auth
-3. Supabase Auth validates → Creates session
-4. Middleware (`src/middleware.ts`) intercepts requests
-5. `updateSession()` refreshes session cookies
-6. Protected routes check user presence → Redirect to `/dashboard` or `/login`
+1. User visits `/login` or any protected route
+2. Middleware (`src/middleware.ts`) intercepts request
+3. `updateSession()` from `src/lib/supabase/middleware.ts` checks auth state
+4. If unauthenticated and accessing protected route, redirect to `/login`
+5. User authenticates via Supabase Auth
+6. Callback handler (`src/app/auth/callback/route.ts`) exchanges code for session
+7. Redirect to dashboard with authenticated session
 
-**Player Data Flow:**
+**Player Analysis Flow:**
 
-1. User searches for player → Client component calls `searchPlayersAction()`
-2. Server Action queries Statorium API via `StatoriumClient`
-3. Client processes and normalizes data → Returns to UI
-4. User adds to watchlist → Server Action `addToWatchlist()`
-5. Supabase upserts to `watchlist` table with RLS
-6. Page revalidation updates UI
+1. User searches for player via `PlayerSearch` component (`src/components/scout/player-search.tsx`)
+2. Search calls `searchPlayers()` from `src/lib/statorium/client.ts`
+3. User selects player and requests compatibility analysis
+4. `getCompatibilityAnalysis()` server action (`src/app/actions/analysis.ts`) executes:
+   - Fetches league standings via Statorium client
+   - Transforms standings to `ClubContext` objects
+   - Calculates compatibility via `calculateCompatibility()` from `src/lib/engine/scoring.ts`
+   - Persists results to Supabase `analysis_history` table
+5. Results displayed in UI with radar charts and fit scores
 
-**Compatibility Analysis Flow:**
+**Scout Jobs Flow:**
 
-1. User selects player and target club → Client initiates analysis
-2. Server Action `getCompatibilityAnalysis()` fetches player data
-3. Scoring engine (`lib/engine/scoring.ts`) calculates compatibility
-4. AI integration (`lib/ai.ts`) generates narrative
-5. Results persisted to `analysis_history` table
-6. Streaming response updates UI in real-time
-
-**League Standings Flow:**
-
-1. Dashboard page loads → Server Component `DashboardPage` fetches data
-2. Parallel `getStandingsAction()` calls for each league (5 leagues)
-3. Statorium API returns raw standings
-4. Server Action processes: calculates form, resolves logos, filters
-5. Client component `DashboardClient` receives and displays
-6. Client-side interactions (sorting, filtering) without server round-trip
+1. Dashboard page (`src/app/(dashboard)/dashboard/page.tsx`) loads
+2. `DashboardClient` component requests latest job
+3. `getLatestJob()` server action (`src/app/actions/job-generation.ts`) executes:
+   - Fetches club data from Statorium API
+   - Generates job description via AI (Zhipu AI via OpenAI SDK)
+   - Persists job to Supabase `scout_jobs` table
+4. Job displayed as card with accept/decline actions
+5. User actions update job status and generate new assignments
 
 **State Management:**
-- Server State: Managed via Server Actions and Next.js caching
-- Client State: React state for UI interactions
-- Session State: Supabase Auth with HTTP-only cookies
-- Database State: Supabase PostgreSQL with RLS policies
+
+- **Server State:** Supabase database tables (watchlist, analysis_history, scout_jobs)
+- **Client State:** React state for UI interactions (forms, modals, filters)
+- **Cache State:** React cache for Statorium client, in-memory GLOBAL_CACHE for frequent requests
+- **Real-time Updates:** Supabase subscriptions (if implemented)
 
 ## Key Abstractions
 
 **StatoriumClient:**
-- Purpose: Encapsulate Statorium API interactions
-- Examples: `src/lib/statorium/client.ts`
-- Pattern: Singleton with caching and fallback mock data
+- Purpose: Encapsulate all external API calls to Statorium football data provider
+- Examples: `src/lib/stadiumium/client.ts`
+- Pattern: Singleton client class with typed methods for each endpoint
 
 **Compatibility Engine:**
-- Purpose: Calculate player-club fit scores
+- Purpose: Calculate player-club fit scores based on multiple weighted factors
+- Examples: `src/lib/engine/scoring.ts` (calculateCompatibility), `src/lib/engine/benchmark.ts` (percentiles)
+- Pattern: Pure functions with domain-specific scoring algorithms
+
+**ScoutProPlayer:**
+- Purpose: Unified player data model across the application
+- Examples: `src/lib/types/player.ts`
+- Pattern: TypeScript interface with normalized stats structure
+
+**ClubContext:**
+- Purpose: Represent a club's tactical DNA and needs for compatibility calculations
 - Examples: `src/lib/engine/scoring.ts`
-- Pattern: Pure function with weighted scoring algorithm
-
-**Server Actions:**
-- Purpose: Type-safe mutations and data fetching
-- Examples: `src/app/actions/analysis.ts`, `src/app/actions/watchlist.ts`
-- Pattern: `'use server'` directive with error handling and revalidation
-
-**Supabase Client Factory:**
-- Purpose: Create appropriately configured Supabase clients
-- Examples: `src/lib/supabase/client.ts`, `src/lib/supabase/server.ts`
-- Pattern: Separate implementations for browser/server with cookie handling
+- Pattern: Interface derived from real standings data with synthetic DNA attributes
 
 ## Entry Points
 
 **Root Layout:**
 - Location: `src/app/layout.tsx`
-- Triggers: All routes
-- Responsibilities: Global providers (ThemeProvider), fonts, metadata
+- Triggers: All page requests
+- Responsibilities: Font configuration, theme provider, toast notifications, HTML structure
 
 **Dashboard Layout:**
 - Location: `src/app/(dashboard)/layout.tsx`
-- Triggers: All dashboard routes
-- Responsibilities: Sidebar, main content area, floating elements
+- Triggers: All dashboard routes (protected)
+- Responsibilities: Sidebar navigation, main content area wrapper, floating elements
 
 **Middleware:**
 - Location: `src/middleware.ts`
-- Triggers: All HTTP requests
-- Responsibilities: Session refresh, route protection, redirects
+- Triggers: All HTTP requests (except static assets)
+- Responsibilities: Authentication check, session refresh, route protection
 
 **API Routes:**
-- Location: `src/app/api/`
-- Triggers: External HTTP requests
-- Responsibilities: Public endpoints, webhooks, external integrations
+- Location: `src/app/api/*/route.ts`
+- Triggers: External client requests or streaming responses
+- Responsibilities: Chat streaming (`/api/chat`), market value fetching (`/api/market-value`), valuation (`/api/valuation`)
+
+**Server Actions:**
+- Location: `src/app/actions/*.ts`
+- Triggers: Form submissions, button clicks from client components
+- Responsibilities: Database mutations, API calls, business logic execution
 
 ## Error Handling
 
-**Strategy:** Try-catch with graceful degradation and user feedback
+**Strategy:** Try-catch in all async functions with logging and user-friendly error messages
 
 **Patterns:**
-- Server Actions: Return `{ error: string }` objects, log errors
-- API Routes: Return appropriate HTTP status codes with error messages
-- Client Components: Display error toasts, show fallback UI
-- External APIs: Fallback to cached data or mock data on failure
+- **Server Actions:** Return `{ error: string }` object on failure, log to console
+- **API Routes:** Return JSON with status code 500 and error message
+- **Client Components:** Display error toasts via Sonner (`<Toaster>` in root layout)
+- **API Client:** `StadiumClient` throws errors with descriptive messages including endpoint
 
-**Cross-Cutting Concerns**
+**Example from `src/lib/stadiumium/client.ts`:**
+```typescript
+if (!response.ok) {
+  const errorText = await response.text();
+  console.error(`[StadiumClient] API Error ${response.status}:`, errorText);
+  throw new Error(`Stadium API error: ${response.status} ${response.statusText} at ${endpoint}`);
+}
+```
 
-**Logging:** Console.log statements throughout, structured error logging
-**Validation:** Zod schemas for form validation, type checking throughout
-**Authentication:** Supabase Auth with RLS policies, middleware protection
-**Authorization:** RLS policies on all user-specific tables
-**Caching:** Next.js `unstable_cache`, Supabase query caching, API response caching
-**Internationalization:** Not currently implemented (single language: English/Polish)
-**Theming:** next-themes for dark/light mode toggle
-**Performance:** Server-side data fetching, parallel API calls, image optimization
+## Cross-Cutting Concerns
+
+**Authentication:** Supabase Auth with server-side session management via middleware, user context in server actions
+
+**Validation:** Zod schemas for form validation (react-hook-form with @hookform/resolvers)
+
+**Logging:** Console.log statements throughout for debugging, especially in server actions
+
+**Theming:** next-themes with custom theme support (light/dark/custom), defined in `src/components/theme-provider.tsx`
+
+**Type Safety:** Strict TypeScript mode, comprehensive type definitions in `src/lib/types/`
+
+**Performance:** React.cache for expensive operations, in-memory caching with TTL (GLOBAL_CACHE), Next.js image optimization
+
+**Internationalization:** Not implemented (Polish/English support mentioned in chat API but not system-wide)
+
+**Error Notifications:** Sonner toast library for consistent error/success messaging across the application
 
 ---
 
-*Architecture analysis: 2026-04-27*
+*Architecture analysis: 2026-05-04*
