@@ -1,0 +1,3 @@
+Zajmowałem się zakładką "Compare Players". Moim głównym zadaniem było takie ustawienie integracji z API, 
+żeby dane zawodników odświeżały się bez problemów i były zawsze aktualne. 
+Sprawdzałem też, czy porównywarka działa stabilnie i nie zawiesza się przy większej ilości danych.
