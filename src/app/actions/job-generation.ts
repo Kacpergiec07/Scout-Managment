@@ -5,6 +5,7 @@ import { createOpenAI } from '@ai-sdk/openai'
 import { generateText } from 'ai'
 import { createClient } from '@/lib/supabase/server'
 import { revalidatePath } from 'next/cache'
+import { logUserActivity } from '@/app/actions/user-activities'
 
 interface JobOffer {
   id: string
@@ -223,9 +224,22 @@ async function saveJobToDb(jobData: JobOffer): Promise<{ success: boolean; id?: 
       return { success: false, error: error.message }
     }
 
+    // Log activity for receiving scout job assignment
+    await logUserActivity({
+      activity_type: 'scout_job_received',
+      activity_data: {
+        job_id: data.id,
+        club_name: jobData.club.name,
+        position: jobData.position,
+        priority: jobData.priority,
+        deadline: jobData.deadline
+      }
+    })
+
     // Revalidate paths to refresh cache
     revalidatePath('/dashboard')
     revalidatePath('/scout-jobs')
+    revalidatePath('/profile')
 
     return { success: true, id: data.id }
   } catch (error: any) {

@@ -166,7 +166,7 @@ function DynamicLeagueTable({ leagues, activeIndex, onSelect }: { leagues: Leagu
 
 export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConfig[] }) {
   return (
-    <div className="relative w-full h-full font-sans flex flex-col items-center select-none overflow-y-auto overflow-x-hidden min-h-screen pb-20 bg-background text-foreground">
+    <div className="relative w-full h-screen font-sans flex flex-col items-center select-none overflow-hidden bg-background text-foreground">
       {/* Refined Background Effect */}
       <div
         className="fixed inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
@@ -214,7 +214,7 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
         </div>
       </nav>
 
-      <main className="w-full max-w-[1400px] mt-32 px-6 space-y-16 relative z-10">
+      <main className="w-full max-w-[1400px] mt-32 px-6 space-y-16 relative z-10 flex-1">
         {/* Application Description */}
         <div className="text-center space-y-6 py-12 relative">
           {/* Animated background elements */}
@@ -251,26 +251,27 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
             className="relative z-10"
           >
             <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase text-foreground leading-[0.85] mb-6">
-              PROFESSIONAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 via-emerald-500 to-emerald-900 animate-gradient bg-[length:200%_auto]">SCOUTING</span>
+              SCOUT <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 via-emerald-500 to-emerald-900 animate-gradient bg-[length:200%_auto]">MANAGEMENT</span>
             </h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-                Scout Pro is an advanced platform designed for professional football scouts.
-                Search and analyze players from top European leagues, compare performances,
-                track transfers, and explore comprehensive team intelligence.
+                Streamline your scouting workflow. Receive scout job assignments, track and compare players, analyze predispositions for club compatibility, monitor transfers, and get AI-powered recommendations to find the perfect talent.
               </p>
-              <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
+              <div className="flex flex-wrap justify-center gap-3 text-xs font-bold uppercase tracking-wider">
                 {[
-                  { text: "Player Search & Analysis", icon: "🔍" },
-                  { text: "Transfer Intelligence", icon: "💰" },
-                  { text: "AI-Powered Insights", icon: "🤖" }
+                  { text: "Assignments", icon: "📋" },
+                  { text: "Player Tracking", icon: "👤" },
+                  { text: "Comparisons", icon: "⚖️" },
+                  { text: "Transfer Monitor", icon: "🔄" },
+                  { text: "AI Assistant", icon: "🤖" },
+                  { text: "Club Intelligence", icon: "🏟️" }
                 ].map((item, idx) => (
                   <motion.span
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 + idx * 0.1 }}
-                    className="px-4 py-2 bg-primary/10 rounded-full border border-primary/20 text-primary hover:bg-primary/20 hover:scale-105 transition-all cursor-default"
+                    transition={{ delay: 0.4 + idx * 0.08 }}
+                    className="px-3 py-1.5 bg-primary/10 rounded-full border border-primary/20 text-primary hover:bg-primary/20 hover:scale-105 transition-all cursor-default"
                   >
                     {item.icon} {item.text}
                   </motion.span>
@@ -281,7 +282,7 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
         </div>
 
         {/* CTA Button for Scout Jobs */}
-        <div className="w-full flex justify-center py-4">
+        <div className="w-full flex justify-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -297,143 +298,6 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
           </motion.div>
         </div>
 
-        {/* Available Leagues Quick Access */}
-        <div className="w-full space-y-6 pt-8 border-t border-border relative">
-          {/* Section decoration */}
-          <div className="absolute left-1/2 -translate-x-1/2 -top-3 w-16 h-1 bg-gradient-to-r from-primary to-emerald-500 rounded-full" />
-
-          <div className="text-center space-y-2">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="inline-flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                <div className="w-2 h-2 rounded-full bg-blue-500" />
-              </div>
-              <h2 className="text-2xl font-bold tracking-tight text-foreground uppercase">
-                Available Leagues
-              </h2>
-            </motion.div>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-xs text-muted-foreground uppercase tracking-wider"
-            >
-              Top 5 European Football Leagues
-            </motion.p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {initialLeagues.map((league, idx) => (
-              <Link
-                key={league.id}
-                href={`/leagues?sId=${league.id}`}
-                className="group"
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: idx * 0.1,
-                    type: "spring",
-                    stiffness: 200,
-                    damping: 15
-                  }}
-                  className="relative bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border border-border/50 rounded-3xl p-6 overflow-hidden hover:border-primary/50 transition-all duration-300"
-                  whileHover={{ y: -8, scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  {/* Background gradient overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${league.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-
-                  {/* Glow effect on hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${league.color} opacity-0 blur-2xl group-hover:opacity-20 transition-opacity duration-500`} />
-
-                  {/* Animated shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-
-                  {/* Logo container with enhanced effects */}
-                  <div className="relative z-10">
-                    <motion.div
-                      className="w-16 h-16 relative mx-auto mb-4"
-                      whileHover={{
-                        rotate: [0, 5, -5, 0],
-                        scale: 1.1
-                      }}
-                      transition={{
-                        duration: 0.4,
-                        ease: "easeInOut"
-                      }}
-                    >
-                      {/* Glow ring */}
-                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${league.color} blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300`} />
-
-                      {/* Logo background */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border-2 border-border/50 group-hover:shadow-2xl group-hover:shadow-primary/20 transition-all duration-300 overflow-hidden">
-                        {/* Subtle pattern */}
-                        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '8px 8px' }} />
-
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/80 to-transparent" />
-
-                        {/* Logo image */}
-                        <div className="absolute inset-2 rounded-xl overflow-hidden">
-                          <Image
-                            src={league.logo}
-                            alt={league.name}
-                            fill
-                            className="object-contain p-1 drop-shadow-md"
-                          />
-                        </div>
-                      </div>
-
-                      {/* Corner accents */}
-                      <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300" />
-                      <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300" />
-                      <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300" />
-                      <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-primary/0 group-hover:border-primary/60 transition-colors duration-300" />
-                    </motion.div>
-
-                    {/* League name with enhanced typography */}
-                    <motion.div
-                      className="text-center space-y-2"
-                      whileHover={{ y: -2 }}
-                    >
-                      <p className="text-[10px] font-black text-center uppercase tracking-[0.15em] text-foreground/60 group-hover:text-primary transition-colors duration-300 leading-tight">
-                        {league.name}
-                      </p>
-
-                      {/* Animated underline */}
-                      <div className="h-0.5 w-0 mx-auto bg-gradient-to-r from-primary to-emerald-400 group-hover:w-full transition-all duration-300" />
-
-                      {/* Club count indicator */}
-                      {league.clubs && league.clubs.length > 0 && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.3 }}
-                          className="flex items-center justify-center gap-1 mt-2"
-                        >
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                          <span className="text-[9px] font-medium text-muted-foreground uppercase tracking-wider">
-                            {league.clubs.length} Clubs
-                          </span>
-                        </motion.div>
-                      )}
-                    </motion.div>
-                  </div>
-
-                  {/* Hover spotlight effect */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                </motion.div>
-              </Link>
-            ))}
-          </div>
-        </div>
       </main>
     </div>
   )

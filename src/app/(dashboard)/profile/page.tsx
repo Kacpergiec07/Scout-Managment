@@ -6,12 +6,14 @@ import React, { useEffect, useState } from 'react'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { User, MapPin, Mail, Shield, Trophy, Target, Award, TrendingUp, Edit, Calendar, Loader2, RefreshCw, Briefcase, ArrowRight } from 'lucide-react'
+import { User, MapPin, Mail, Shield, Trophy, Target, Award, TrendingUp, Edit, Calendar, Loader2, RefreshCw, Briefcase, ArrowRight, Plus, Minus, FileText } from 'lucide-react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { getProfileData } from '@/app/actions/profile'
 import { fixUserProfile } from '@/app/actions/fix-profile'
 import { getRecentJobs } from '@/app/actions/job-generation'
+import { getFollowingPlayersCount } from '@/app/actions/watchlist'
+import { getCombinedRecentActivities } from '@/app/actions/user-activities'
 
 interface UserProfile {
   id: string
@@ -41,13 +43,22 @@ interface JobActivity {
   status: string
 }
 
+interface CombinedActivity {
+  id: string
+  type: string
+  action: string
+  player: string
+  date: string
+  details?: string
+}
+
 export default function ProfilePage() {
   const [user, setUser] = useState<UserProfile | null>(null)
   const [loading, setLoading] = useState(true)
   const [stats, setStats] = useState<WatchlistStats>({
     players_watched_count: 0
   })
-  const [recentJobs, setRecentJobs] = useState<JobActivity[]>([])
+  const [recentActivities, setRecentActivities] = useState<CombinedActivity[]>([])
 
   const loadProfileData = async (autoFix = true) => {
     setLoading(true)
@@ -55,10 +66,6 @@ export default function ProfilePage() {
       const profileData = await getProfileData()
       if (profileData) {
         setUser(profileData as UserProfile)
-        // Set real statistics from database
-        setStats({
-          players_watched_count: profileData.players_watched_count || 0
-        })
       } else if (autoFix) {
         // If profile data is null and auto-fix is enabled, try to fix it
         console.log('Profile data is null, attempting auto-fix...')
@@ -72,18 +79,24 @@ export default function ProfilePage() {
         }
       }
 
-      // Load recent jobs
+      // Load watchlist statistics - only count players with 'following' status
       try {
-        const jobs = await getRecentJobs(5)
-        setRecentJobs(jobs.map((job: any) => ({
-          id: job.id,
-          club_name: job.club.name,
-          position: job.position,
-          created_at: new Date().toISOString(), // In real app, use actual created_at
-          status: 'Active'
-        })))
+        const followingCount = await getFollowingPlayersCount()
+        setStats({
+          players_watched_count: followingCount
+        })
       } catch (error) {
-        console.error('Failed to load recent jobs:', error)
+        console.error('Failed to load watchlist statistics:', error)
+      }
+
+      // Load recent activities (watchlist changes, scout jobs, etc.)
+      try {
+        console.log('ProfilePage: Loading recent activities...')
+        const activities = await getCombinedRecentActivities(10)
+        console.log('ProfilePage: Recent activities loaded:', activities.length, 'activities')
+        setRecentActivities(activities)
+      } catch (error) {
+        console.error('ProfilePage: Failed to load recent activities:', error)
       }
     } catch (error) {
       console.error('Failed to load profile:', error)
@@ -122,22 +135,28 @@ export default function ProfilePage() {
   const userAvatar = user?.avatar_url || `https://ui-avatars.com/api/?name=${userName.replace(/\s+/g, '+')}&background=00ff88&color=fff`
   const joinDate = user?.join_date || new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' })
 
+  // Helper function to get icon and color for activity type
+  const getActivityIconAndColor = (type: string) => {
+    switch (type) {
+      case 'watchlist':
+        return { icon: Plus, color: 'text-green-500', bgColor: 'bg-green-500/10' }
+      case 'watchlist_remove':
+        return { icon: Minus, color: 'text-red-500', bgColor: 'bg-red-500/10' }
+      case 'scout_job':
+        return { icon: Briefcase, color: 'text-orange-500', bgColor: 'bg-orange-500/10' }
+      case 'report':
+        return { icon: FileText, color: 'text-blue-500', bgColor: 'bg-blue-500/10' }
+      default:
+        return { icon: TrendingUp, color: 'text-gray-500', bgColor: 'bg-gray-500/10' }
+    }
+  }
+
   const dynamicStats = [
-    { label: 'Players Watched', value: String(user?.players_watched_count || 0), icon: Target, color: 'text-secondary' },
+    { label: 'Active Scouting', value: String(stats?.players_watched_count || 0), icon: Target, color: 'text-secondary' },
     { label: 'Years Experience', value: String(user?.years_experience || 0), icon: Award, color: 'text-purple-500' },
     { label: 'Reports Created', value: String(user?.reports_created_count || 0), icon: Trophy, color: 'text-blue-500' },
-    { label: 'Active Jobs', value: String(recentJobs.filter(j => j.status === 'Active').length), icon: Briefcase, color: 'text-orange-500' },
+    { label: 'Active Jobs', value: String(recentActivities.filter(a => a.type === 'scout_job').length), icon: Briefcase, color: 'text-orange-500' },
   ]
-
-  // Use real jobs if available, otherwise empty array
-  const recentActivity = recentJobs.length > 0
-    ? recentJobs.map((job, index) => ({
-        id: job.id,
-        player: `${job.club_name} - ${job.position}`,
-        action: 'Scouting Assignment',
-        date: 'Recently received'
-      }))
-    : []
 
   if (loading) {
     return (
@@ -310,40 +329,47 @@ export default function ProfilePage() {
             </div>
             <Card>
               <CardContent className="p-6">
-                {recentActivity.length > 0 ? (
+                {recentActivities.length > 0 ? (
                   <div className="space-y-4">
-                    {recentActivity.map((activity, index) => (
-                      <Link key={activity.id} href="/dashboard">
-                        <motion.div
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.1 }}
-                          className="flex items-center justify-between p-4 rounded-xl bg-accent/10 border border-border hover:border-secondary/30 transition-all cursor-pointer group"
-                        >
-                          <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 rounded-full bg-orange-500/10 flex items-center justify-center">
-                              <Briefcase className="w-5 h-5 text-orange-500" />
+                    {recentActivities.map((activity, index) => {
+                      const activityStyle = getActivityIconAndColor(activity.type)
+                      const IconComponent = activityStyle.icon
+                      return (
+                        <Link key={activity.id} href={activity.type === 'scout_job' ? '/scout-jobs' : activity.type === 'watchlist_remove' ? '/history' : '/watchlist'}>
+                          <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            className="flex items-center justify-between p-4 rounded-xl bg-accent/10 border border-border hover:border-secondary/30 transition-all cursor-pointer group"
+                          >
+                            <div className="flex items-center gap-4">
+                              <div className={`w-10 h-10 rounded-full ${activityStyle.bgColor} flex items-center justify-center`}>
+                                <IconComponent className={`w-5 h-5 ${activityStyle.color}`} />
+                              </div>
+                              <div>
+                                <p className="font-semibold text-foreground text-sm group-hover:text-primary transition-colors">{activity.player}</p>
+                                <p className="text-muted-foreground text-xs">{activity.action}</p>
+                                {activity.details && (
+                                  <p className="text-xs text-muted-foreground mt-1">{activity.details}</p>
+                                )}
+                              </div>
                             </div>
-                            <div>
-                              <p className="font-semibold text-foreground text-sm group-hover:text-primary transition-colors">{activity.player}</p>
-                              <p className="text-muted-foreground text-xs">{activity.action}</p>
+                            <div className="flex items-center gap-2">
+                              <p className="text-xs text-muted-foreground font-medium">{activity.date}</p>
+                              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                             </div>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <p className="text-xs text-muted-foreground font-medium">{activity.date}</p>
-                            <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                          </div>
-                        </motion.div>
-                      </Link>
-                    ))}
+                          </motion.div>
+                        </Link>
+                      )
+                    })}
                   </div>
                 ) : (
                   <div className="text-center py-8">
-                    <Briefcase className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
-                    <p className="text-muted-foreground text-sm">No recent scouting assignments</p>
-                    <Link href="/dashboard" className="text-primary text-sm font-medium hover:underline mt-2 inline-block">
-                      Go to Dashboard to receive a job
-                    </Link>
+                    <TrendingUp className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
+                    <p className="text-muted-foreground text-sm">No recent activity</p>
+                    <p className="text-muted-foreground text-xs mt-2">
+                      Add players to watchlist or receive scout assignments to see activity here
+                    </p>
                   </div>
                 )}
               </CardContent>

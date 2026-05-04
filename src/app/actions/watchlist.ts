@@ -2,6 +2,7 @@
 
 import { createClient } from '@/lib/supabase/server'
 import { revalidatePath } from 'next/cache'
+import { logUserActivity } from '@/app/actions/user-activities'
 
 export async function getWatchlist() {
   console.log('getWatchlist: Starting watchlist fetch...')
@@ -131,6 +132,19 @@ export async function addToWatchlist(playerData: {
     }
 
     console.log('addToWatchlist: Player added successfully:', data)
+
+    // Log activity for adding player to watchlist
+    await logUserActivity({
+      activity_type: 'watchlist_add',
+      activity_data: {
+        player_name: playerData.player_name,
+        player_id: playerData.player_id,
+        club: playerData.club,
+        position: playerData.position,
+        league: playerData.league
+      }
+    })
+
     revalidatePath('/watchlist')
     revalidatePath('/history')
     revalidatePath('/profile')
@@ -157,6 +171,14 @@ export async function removeFromWatchlist(playerId: string) {
       return { error: 'User not authenticated' }
     }
 
+    // Get player details before removing for activity logging
+    const { data: playerDetails } = await supabase
+      .from('watchlist')
+      .select('*')
+      .eq('user_id', user.id)
+      .eq('player_id', playerId)
+      .maybeSingle()
+
     // Simply UPDATE the existing player's status to 'removed'
     // Instead of deleting and recreating the entry
     const { error } = await supabase
@@ -175,6 +197,21 @@ export async function removeFromWatchlist(playerId: string) {
     }
 
     console.log('removeFromWatchlist: Player marked as removed successfully:', playerId)
+
+    // Log activity for removing player from watchlist
+    if (playerDetails) {
+      await logUserActivity({
+        activity_type: 'watchlist_remove',
+        activity_data: {
+          player_name: playerDetails.player_name,
+          player_id: playerDetails.player_id,
+          club: playerDetails.club,
+          position: playerDetails.position,
+          league: playerDetails.league
+        }
+      })
+    }
+
     revalidatePath('/watchlist')
     revalidatePath('/history')
     revalidatePath('/profile')
@@ -257,5 +294,41 @@ export async function updateWatchlistStatus(id: string, status: string) {
   } catch (error) {
     console.error('updateWatchlistStatus: Unexpected error:', error)
     return { error: 'An unexpected error occurred' }
+  }
+}
+
+export async function getFollowingPlayersCount() {
+  console.log('getFollowingPlayersCount: Counting players with following status...')
+
+  try {
+    const supabase = await createClient()
+    const {
+      data: { user },
+      error: userError
+    } = await supabase.auth.getUser()
+
+    if (userError || !user) {
+      console.error('getFollowingPlayersCount: User not authenticated')
+      return 0
+    }
+
+    console.log('getFollowingPlayersCount: User authenticated, counting following players...', user.id)
+
+    const { count, error } = await supabase
+      .from('watchlist')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', user.id)
+      .eq('status', 'following')
+
+    if (error) {
+      console.error('getFollowingPlayersCount: Database error:', error)
+      return 0
+    }
+
+    console.log('getFollowingPlayersCount: Following players count:', count || 0)
+    return count || 0
+  } catch (error) {
+    console.error('getFollowingPlayersCount: Unexpected error:', error)
+    return 0
   }
 }
