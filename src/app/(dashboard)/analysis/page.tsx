@@ -5,7 +5,6 @@ import { getCompatibilityAnalysis } from '@/app/actions/analysis'
 import { PlayerRadarChart } from '@/components/scout/radar-chart'
 import { RankingList } from '@/components/scout/ranking-list'
 import { ReportButton } from '@/components/scout/report-button'
-import { MarketValue } from '@/components/scout/market-value'
 import { ScoutProPlayer, Position } from '@/lib/types/player'
 import { getPlayerDataAction, getPlayerDetailsAction } from '@/app/actions/statorium'
 
@@ -13,83 +12,95 @@ import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 import { Badge } from '@/components/ui/badge'
 import Image from 'next/image'
-import { Hexagon, ArrowLeft, Download, Share2, TrendingUp, BarChart3, Trophy, Target, Users, Star, X, Brain, Zap, ShieldCheck } from 'lucide-react'
+import { Hexagon, ArrowLeft, Share2, TrendingUp, BarChart3, Trophy, Target, Users, Star, Zap, ShieldCheck, Brain, X } from 'lucide-react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 
 function TransferAnalysisModal({ isOpen, onClose, player }: any) {
   if (!isOpen) return null;
-  
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" onClick={onClose} />
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        className="relative w-full max-w-2xl bg-[#0a0f0a] border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl"
+        className="relative w-full max-w-2xl bg-[#0a0f0a] border-none rounded-[2.5rem] overflow-hidden shadow-2xl"
       >
         <div className="p-8 space-y-8">
-           <div className="flex items-center justify-between">
-             <div className="flex items-center gap-3">
-               <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
-                 <Brain className="w-6 h-6" />
-               </div>
-               <div>
-                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">Transfer Necessity Report</h2>
-                 <p className="text-white/40 text-xs font-bold tracking-widest uppercase">AI Strategic Analysis • v4.2</p>
-               </div>
-             </div>
-             <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-lg transition-colors">
-               <X className="w-6 h-6 text-white/40" />
-             </button>
-           </div>
-
-           <div className="space-y-6">
-              <div className="p-6 rounded-3xl bg-white/5 border border-white/10 space-y-4">
-                 <div className="flex items-center gap-2 text-emerald-400">
-                    <Zap className="w-4 h-4" />
-                    <span className="text-xs font-black uppercase tracking-widest">Executive Summary</span>
-                 </div>
-                 <p className="text-white/70 text-sm leading-relaxed">
-                   Analysis of {player.club || 'team'}'s current squad depth and tactical evolution indicates that the acquisition of {player.name || 'player'} is <span className="text-emerald-400 font-bold italic underline">STRATEGICALLY ESSENTIAL</span> for the upcoming season.
-                 </p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                <Brain className="w-6 h-6" />
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                 <div className="p-5 rounded-2xl bg-white/5 border border-white/5 space-y-3">
-                    <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">Why is he needed?</div>
-                    <ul className="space-y-2">
-                       <li className="flex gap-2 text-xs text-white/60">
-                          <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
-                          <span>Provides critical redundancy in the {player.position} role.</span>
-                       </li>
-                       <li className="flex gap-2 text-xs text-white/60">
-                          <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
-                          <span>Direct upgrade over current rotational options.</span>
-                       </li>
-                       <li className="flex gap-2 text-xs text-white/60">
-                          <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
-                          <span>Genetic profile matches {player.club}'s pressing DNA (94%).</span>
-                       </li>
-                    </ul>
-                 </div>
-                 <div className="p-5 rounded-2xl bg-white/5 border border-white/5 space-y-3">
-                    <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">Tactical impact</div>
-                    <p className="text-xs text-white/60 leading-relaxed italic">
-                      Integrating {player.name || 'player'} allows for a more aggressive high-line transition. His statistical outlier in key passes (DNA:02) provides the "missing link" for offensive fluidity that {player.club || 'team'} lacked in the final third last season.
-                    </p>
-                 </div>
+              <div>
+                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">Transfer Necessity Report</h2>
+                <p className="text-white/40 text-xs font-bold tracking-widest uppercase">AI Strategic Analysis • v4.2</p>
               </div>
-           </div>
+            </div>
+            <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-lg transition-colors">
+              <X className="w-6 h-6 text-white/40" />
+            </button>
+          </div>
 
-           <button 
-             onClick={onClose}
-             className="w-full py-4 rounded-2xl bg-emerald-500 text-black text-sm font-black tracking-widest hover:bg-emerald-400 transition-all uppercase italic shadow-[0_0_20px_rgba(16,185,129,0.3)]"
-           >
-             Acknowledge Intelligence
-           </button>
+          <div className="space-y-6">
+            <div className="p-6 rounded-3xl bg-white/5 border-none space-y-4">
+              <div className="flex items-center gap-2 text-emerald-400">
+                <Zap className="w-4 h-4" />
+                <span className="text-xs font-black uppercase tracking-widest">Executive Summary</span>
+              </div>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Analysis of {player.club}'s current squad depth and tactical evolution indicates that the acquisition of {player.name} is <span className="text-emerald-400 font-bold italic underline">STRATEGICALLY ESSENTIAL</span> for the upcoming season.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-5 rounded-2xl bg-white/5 border-none space-y-3">
+                <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">Why is he needed?</div>
+                <ul className="space-y-2">
+                  <li className="flex gap-2 text-xs text-white/60">
+                    <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
+                    <span>Provides critical redundancy in the {player.position} role.</span>
+                  </li>
+                  <li className="flex gap-2 text-xs text-white/60">
+                    <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
+                    <span>Direct upgrade over current rotational options.</span>
+                  </li>
+                  <li className="flex gap-2 text-xs text-white/60">
+                    <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
+                    <span>Genetic profile matches {player.club}'s pressing DNA (94%).</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="p-5 rounded-2xl bg-white/5 border-none space-y-3">
+                <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">Tactical impact</div>
+                <p className="text-xs text-white/60 leading-relaxed italic">
+                  Integrating {player.name} allows for a more aggressive high-line transition. His statistical outlier in key passes (DNA:02) provides the "missing link" for offensive fluidity that {player.club} lacked in the final third last season.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <button
+            onClick={onClose}
+            className="w-full py-4 rounded-2xl bg-emerald-500 text-black text-sm font-black tracking-widest hover:bg-emerald-400 transition-all uppercase italic shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+          >
+            Acknowledge Intelligence
+          </button>
         </div>
       </motion.div>
+    </div>
+  )
+}
+
+function MarketValue({ player }: { player: any }) {
+  return (
+    <div className="space-y-1">
+      <div className="text-6xl font-black text-white tracking-tighter">€{(player.value || 145.5).toFixed(1)}M</div>
+      <div className="flex items-center gap-2">
+        <TrendingUp className="w-4 h-4 text-emerald-500" />
+        <span className="text-xs font-bold text-emerald-500 uppercase tracking-widest">+12.4% vs Last Quarter</span>
+      </div>
     </div>
   )
 }
@@ -105,6 +116,8 @@ function AnalysisContent() {
   const nationality = searchParams.get('nation') || 'Norway'
   const league = searchParams.get('league') || 'Premier League'
   const from = searchParams.get('from') || 'hub'
+
+  const [isAnalysisOpen, setIsAnalysisOpen] = React.useState(false)
 
   // Create dynamic mock player
   const mockPlayer: ScoutProPlayer & { description?: string } = {
@@ -128,15 +141,15 @@ function AnalysisContent() {
 
   const [results, setResults] = React.useState<any[]>([])
   const [loading, setLoading] = React.useState(true)
-  const [playerData, setPlayerData] = React.useState<ScoutProPlayer & { description?: string, matches?: number }>(mockPlayer)
-  const [isAnalysisOpen, setIsAnalysisOpen] = React.useState(false)
+  const [playerData, setPlayerData] = React.useState<ScoutProPlayer & { description?: string, matches?: number, rating?: number, value?: number }>(mockPlayer)
+
 
   React.useEffect(() => {
     async function load() {
       setLoading(true)
       try {
         let activeId = playerId
-        
+
         // If we don't have a real ID but have a name, try to resolve it
         if ((!activeId || activeId === '1') && playerName && playerName !== 'Erling Haaland') {
           const { searchPlayersAction } = await import('@/app/actions/statorium')
@@ -152,7 +165,7 @@ function AnalysisContent() {
         // Map Statorium API data to ScoutProPlayer format
         if (enrichedData) {
           const data = enrichedData as any;
-          const mappedData: ScoutProPlayer & { description?: string, matches?: number } = {
+          const mappedData: ScoutProPlayer & { description?: string, matches?: number, rating?: number, value?: number } = {
             id: data.playerID || activeId,
             name: data.fullName || playerName,
             age: parseInt(data.age || '23') || 23,
@@ -182,7 +195,7 @@ function AnalysisContent() {
           const analysisData = await getCompatibilityAnalysis(mockPlayer);
           setResults(analysisData);
         }
-        
+
       } catch (err) {
         console.error('Error loading player data:', err)
         const data = await getCompatibilityAnalysis(mockPlayer)
@@ -224,9 +237,9 @@ function AnalysisContent() {
       <div className="relative z-10 p-6 space-y-8 max-w-[1600px] mx-auto">
         {/* Navigation Bar */}
         <div className="flex items-center justify-between">
-          <Link 
+          <Link
             href={from === 'history' ? "/history" : "/dashboard"}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border-none hover:bg-white/10 transition-all group"
           >
             <ArrowLeft className="w-4 h-4 text-emerald-500 group-hover:-translate-x-1 transition-transform" />
             <span className="text-sm font-medium text-white/70">
@@ -235,7 +248,7 @@ function AnalysisContent() {
           </Link>
 
           <div className="flex items-center gap-3">
-            <button className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-white/70 hover:bg-white/10 hover:text-emerald-500 transition-all">
+            <button className="p-2.5 rounded-xl bg-white/5 border-none text-white/70 hover:bg-white/10 hover:text-emerald-500 transition-all">
               <Share2 className="w-5 h-5" />
             </button>
             <ReportButton elementId="analysis-content" playerName={playerData.name || 'Player'} />
@@ -243,9 +256,9 @@ function AnalysisContent() {
         </div>
 
         {/* Hero Section - Elite Player Profile */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-8 space-y-6">
-            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-emerald-500/10 via-emerald-950/20 to-black p-8 md:p-12 group">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 items-start">
+          <div className="lg:col-span-1 space-y-6">
+            <div className="relative overflow-hidden rounded-[2.5rem] border-none bg-gradient-to-br from-emerald-500/10 via-emerald-950/20 to-black p-8 md:p-12 group">
               <div className="absolute top-0 right-0 p-8">
                 <div className="relative">
                   <Hexagon className="w-24 h-24 text-emerald-500/20 fill-emerald-500/5 rotate-90" />
@@ -258,7 +271,7 @@ function AnalysisContent() {
               <div className="flex flex-col md:flex-row items-center gap-10">
                 <div className="relative shrink-0">
                   <div className="absolute inset-0 bg-emerald-500 blur-3xl opacity-20 animate-pulse" />
-                  <div className="relative w-48 h-48 rounded-[2rem] overflow-hidden border-2 border-emerald-500/50 shadow-2xl shadow-emerald-500/20">
+                  <div className="relative w-48 h-48 rounded-[2rem] overflow-hidden border-none shadow-2xl shadow-emerald-500/20">
                     <Image
                       src={playerData.photoUrl || '/placeholder-player.png'}
                       alt={playerData.name || 'Player'}
@@ -274,10 +287,10 @@ function AnalysisContent() {
                 <div className="text-center md:text-left space-y-4">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 justify-center md:justify-start">
-                      <Badge variant="outline" className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20 px-3 py-1">
+                      <Badge variant="outline" className="bg-emerald-500/10 text-emerald-400 border-none px-3 py-1">
                         {playerData.league || 'N/A'}
                       </Badge>
-                      <Badge variant="outline" className="bg-white/5 text-white/50 border-white/10 px-3 py-1">
+                      <Badge variant="outline" className="bg-white/5 text-white/50 border-none px-3 py-1">
                         Season 24/25
                       </Badge>
                     </div>
@@ -310,7 +323,7 @@ function AnalysisContent() {
 
             {/* Performance DNA Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 space-y-4 hover:border-emerald-500/30 transition-all group">
+              <div className="rounded-3xl border-none bg-white/5 p-6 space-y-4 hover:bg-white/10 transition-all group shadow-sm">
                 <div className="flex items-center justify-between">
                   <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-500">
                     <TrendingUp className="w-5 h-5" />
@@ -326,7 +339,7 @@ function AnalysisContent() {
                 </div>
               </div>
 
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 space-y-4 hover:border-emerald-500/30 transition-all group">
+              <div className="rounded-3xl border-none bg-white/5 p-6 space-y-4 hover:bg-white/10 transition-all group shadow-sm">
                 <div className="flex items-center justify-between">
                   <div className="p-2 rounded-xl bg-blue-500/10 text-blue-500">
                     <BarChart3 className="w-5 h-5" />
@@ -342,7 +355,7 @@ function AnalysisContent() {
                 </div>
               </div>
 
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 space-y-4 hover:border-emerald-500/30 transition-all group">
+              <div className="rounded-3xl border-none bg-white/5 p-6 space-y-4 hover:bg-white/10 transition-all group shadow-sm">
                 <div className="flex items-center justify-between">
                   <div className="p-2 rounded-xl bg-amber-500/10 text-amber-500">
                     <Star className="w-5 h-5" />
@@ -362,31 +375,31 @@ function AnalysisContent() {
 
           {/* Value Projection Sidebar */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="rounded-[2.5rem] border border-white/10 bg-white/5 p-8 space-y-8">
+            <div className="rounded-[2.5rem] border-none bg-white/5 p-8 space-y-8">
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-6 bg-emerald-500 rounded-full" />
                 <h3 className="text-xl font-black text-white italic tracking-tight">MARKET VALUATION</h3>
               </div>
-              
-              <MarketValue playerName={playerData.name || 'Player'} />
+
+              <MarketValue player={playerData} />
 
               <div className="space-y-4">
-                <div className="p-4 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-between">
+                <div className="p-4 rounded-2xl bg-white/5 border-none flex items-center justify-between">
                   <span className="text-sm font-medium text-white/40">Release Clause</span>
                   <span className="text-sm font-black text-white">€180.0M</span>
                 </div>
-                <div className="p-4 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-between">
+                <div className="p-4 rounded-2xl bg-white/5 border-none flex items-center justify-between">
                   <span className="text-sm font-medium text-white/40">Contract Exp.</span>
                   <span className="text-sm font-black text-white tracking-widest">2027</span>
                 </div>
-                <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-between">
+                <div className="p-4 rounded-2xl bg-emerald-500/10 border-none flex items-center justify-between">
                   <span className="text-sm font-medium text-emerald-400">Agent Priority</span>
                   <Badge className="bg-emerald-500 text-black hover:bg-emerald-400">VERY HIGH</Badge>
                 </div>
               </div>
 
               <div className="p-1 rounded-[2rem] bg-gradient-to-r from-emerald-500 to-blue-500">
-                <button 
+                <button
                   onClick={() => setIsAnalysisOpen(true)}
                   className="w-full py-4 rounded-[1.8rem] bg-[#0a0f0a] text-white text-sm font-black tracking-widest hover:bg-transparent transition-all uppercase italic"
                 >
@@ -394,10 +407,10 @@ function AnalysisContent() {
                 </button>
               </div>
 
-              <TransferAnalysisModal 
-                isOpen={isAnalysisOpen} 
-                onClose={() => setIsAnalysisOpen(false)} 
-                player={playerData} 
+              <TransferAnalysisModal
+                isOpen={isAnalysisOpen}
+                onClose={() => setIsAnalysisOpen(false)}
+                player={playerData}
               />
             </div>
           </div>
@@ -406,18 +419,18 @@ function AnalysisContent() {
         {/* Detailed Analytics Section */}
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
           <div className="xl:col-span-2 space-y-8">
-            <div className="rounded-[2.5rem] border border-white/10 bg-white/5 p-8">
+            <div className="rounded-[2.5rem] border-none bg-white/5 p-8">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
                 <div className="space-y-1">
                   <h2 className="text-3xl font-black text-white tracking-tighter italic uppercase">Statistical Radar</h2>
                   <p className="text-white/40 text-sm font-medium">Comparative analysis against position average (Global Database)</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border-none shadow-sm">
                     <div className="w-2 h-2 rounded-full bg-emerald-500" />
                     <span className="text-[10px] font-black text-emerald-400 uppercase tracking-tighter">{playerData.name || 'Player'}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border-none shadow-sm">
                     <div className="w-2 h-2 rounded-full bg-white/20" />
                     <span className="text-[10px] font-black text-white/40 uppercase tracking-tighter">Pos. Average</span>
                   </div>
@@ -431,7 +444,7 @@ function AnalysisContent() {
           </div>
 
           <div className="space-y-8">
-            <div className="rounded-[2.5rem] border border-white/10 bg-white/5 p-8 h-full">
+            <div className="rounded-[2.5rem] border-none bg-white/5 p-8 h-full shadow-inner">
               <div className="space-y-1 mb-8">
                 <h2 className="text-3xl font-black text-white tracking-tighter italic uppercase">Club Compatibility</h2>
                 <p className="text-white/40 text-sm font-medium">AI-predicted performance variance across potential clubs</p>

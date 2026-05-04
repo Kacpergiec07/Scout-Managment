@@ -162,7 +162,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
     <div
       ref={panelRef}
       className={cn(
-        `fixed top-[72px] w-[420px] max-w-[calc(100vw-32px)] max-h-[600px] overflow-y-auto custom-scrollbar bg-card/95 backdrop-blur-xl border border-border rounded-2xl z-[999999] shadow-2xl transition-all duration-300`,
+        `fixed top-[72px] w-[420px] max-w-[calc(100vw-32px)] max-h-[600px] overflow-y-auto custom-scrollbar bg-card/90 backdrop-blur-3xl border-none rounded-[2rem] z-[999999] shadow-[0_32px_128px_rgba(0,0,0,0.4)] transition-all duration-300`,
         isDashboard ? "left-8" : "right-8",
         isOpen
           ? "opacity-100 translate-y-0 scale-100"
@@ -174,7 +174,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="sticky top-0 z-10 bg-card/98 backdrop-blur-xl border-b border-border p-4"
+        className="sticky top-0 z-10 bg-card/80 backdrop-blur-xl border-none p-4 shadow-sm"
       >
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
@@ -248,7 +248,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {/* Add filtering logic here */}}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/20 bg-accent/30 text-[10px] font-bold text-muted-foreground uppercase tracking-wider hover:border-primary/30 hover:bg-primary/10 transition-all duration-200 whitespace-nowrap"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-none bg-accent/40 text-[10px] font-bold text-muted-foreground uppercase tracking-wider hover:bg-primary/20 transition-all duration-200 whitespace-nowrap shadow-sm"
             >
               <motion.span
                 animate={{ rotate: [0, 10, -10, 0] }}
@@ -284,7 +284,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
         {loading && news.length === 0 ? (
           <div className="space-y-2 py-4">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="h-20 bg-muted/30 border border-border/50 rounded-xl animate-pulse" />
+              <div key={i} className="h-20 bg-muted/20 rounded-xl animate-pulse" />
             ))}
           </div>
         ) : (
@@ -305,7 +305,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
                   }}
                   onClick={() => handleNewsClick(item)}
                   className={cn(
-                  "group relative bg-gradient-to-br from-accent/40 to-accent/20 border border-border rounded-xl p-3 cursor-pointer transition-all duration-300 hover:border-primary/30 hover:bg-accent/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/5",
+                  "group relative bg-gradient-to-br from-accent/30 to-accent/10 border-none rounded-xl p-3 cursor-pointer transition-all duration-300 hover:bg-accent/50 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/5",
                   item.read ? "opacity-60" : ""
                 )}
               >
@@ -411,7 +411,7 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="sticky bottom-0 z-10 bg-card/98 backdrop-blur-xl border-t border-border p-3"
+        className="sticky bottom-0 z-10 bg-card/80 backdrop-blur-xl border-none p-3 shadow-inner"
       >
         <div className="flex flex-col gap-2">
           {/* Source badges */}
@@ -419,14 +419,14 @@ export function NotificationsPanel({ isOpen, onClose, onMarkAsRead, isDashboard 
             <span className="text-[9px] text-muted-foreground font-medium">Live Sources:</span>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20"
+              className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10"
             >
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               <span className="text-[9px] font-bold text-primary">Twitter/X</span>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20"
+              className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10"
             >
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-[9px] font-bold text-emerald-500">RSS Feeds</span>

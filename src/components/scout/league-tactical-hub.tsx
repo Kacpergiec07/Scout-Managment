@@ -61,7 +61,7 @@ export function LeagueTacticalHub() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div className="flex items-center gap-4">
-          <div className="w-14 h-14 bg-card rounded-2xl flex items-center justify-center border border-border shadow-2xl">
+          <div className="w-14 h-14 bg-card rounded-2xl flex items-center justify-center shadow-2xl">
             <Trophy className="w-7 h-7 text-secondary" />
           </div>
           <div>
@@ -70,7 +70,7 @@ export function LeagueTacticalHub() {
           </div>
         </div>
 
-        <div className="flex bg-card/50 p-1 rounded-xl border border-border/50 backdrop-blur-sm overflow-x-auto max-w-full">
+        <div className="flex bg-card/40 p-1.5 rounded-xl backdrop-blur-sm overflow-x-auto max-w-full shadow-inner">
           {LEAGUES.map((league) => (
             <button
               key={league.id}
@@ -93,19 +93,19 @@ export function LeagueTacticalHub() {
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
         {/* Standings Table */}
         <div className="xl:col-span-7 space-y-6">
-          <div className="bg-card/30 border border-border/50 rounded-3xl overflow-hidden backdrop-blur-md shadow-2xl">
-            <div className="p-6 border-b border-border/50 flex items-center justify-between">
+          <div className="bg-card/20 border-none rounded-[2rem] overflow-hidden backdrop-blur-3xl shadow-2xl">
+            <div className="p-6 border-none flex items-center justify-between bg-secondary/5">
               <h2 className="text-lg font-black uppercase tracking-tighter flex items-center gap-2">
                 <Trophy className="w-5 h-5 text-secondary" />
                 {selectedLeague.name} Standings
               </h2>
-              <Badge variant="outline" className="text-[10px] uppercase font-bold border-border text-muted-foreground">Season 2024/25</Badge>
+              <Badge variant="outline" className="text-[10px] uppercase font-bold border-none bg-muted/40 text-muted-foreground">Season 2024/25</Badge>
             </div>
             
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.2em] border-b border-border/30">
+                  <tr className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.2em] bg-muted/20">
                     <th className="px-6 py-4 w-12">#</th>
                     <th className="px-4 py-4">Team</th>
                     <th className="px-4 py-4 text-center">P</th>
@@ -116,7 +116,7 @@ export function LeagueTacticalHub() {
                     <th className="px-6 py-4 text-right">PTS</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-border/20">
+                <tbody className="bg-transparent">
                   {loading ? (
                     Array.from({ length: 10 }).map((_, i) => (
                       <tr key={i} className="animate-pulse">
@@ -141,8 +141,8 @@ export function LeagueTacticalHub() {
         {/* Right Sidebar */}
         <div className="xl:col-span-5 space-y-8">
           {/* Next Fixtures */}
-          <div className="bg-card/30 border border-border/50 rounded-3xl overflow-hidden backdrop-blur-md">
-            <div className="p-6 border-b border-border/50 flex items-center justify-between">
+          <div className="bg-card/20 border-none rounded-[2rem] overflow-hidden backdrop-blur-3xl shadow-xl">
+            <div className="p-6 border-none flex items-center justify-between bg-secondary/5">
               <h2 className="text-sm font-black uppercase tracking-widest flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-secondary" />
                 Next Fixtures
@@ -154,7 +154,7 @@ export function LeagueTacticalHub() {
                   <div key={i} className="h-20 bg-zinc-800/20 rounded-2xl animate-pulse" />
                 ))
               ) : fixtures.length > 0 ? fixtures.map((match) => (
-                <div key={match.matchID} className="p-4 rounded-2xl bg-accent/20 border border-border/30 flex items-center justify-between hover:border-accent transition-colors">
+                <div key={match.matchID} className="p-4 rounded-2xl bg-muted/20 border-none flex items-center justify-between hover:bg-muted/30 transition-colors shadow-sm">
                   <div className="flex flex-col items-center gap-1 w-20">
                     <div className="w-10 h-10 relative">
                       <Image 
@@ -200,8 +200,8 @@ export function LeagueTacticalHub() {
           </div>
 
           {/* Squad Intelligence */}
-          <div className="bg-card/30 border border-border/50 rounded-3xl overflow-hidden backdrop-blur-md h-fit">
-            <div className="p-6 border-b border-border/50">
+          <div className="bg-card/20 border-none rounded-[2rem] overflow-hidden backdrop-blur-3xl h-fit shadow-xl">
+            <div className="p-6 border-none bg-secondary/5">
               <h2 className="text-sm font-black uppercase tracking-widest flex items-center gap-2">
                 <Users className="w-4 h-4 text-secondary" />
                 Squad Intelligence
@@ -241,9 +241,9 @@ export function LeagueTacticalHub() {
                       return { d, m, f };
                     })()}
                   />
-                   <div className="flex items-center justify-between p-4 bg-card/50 rounded-2xl border border-border/50">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/20">
+                   <div className="flex items-center justify-between p-4 bg-muted/20 rounded-2xl border-none">
+                      <div className="flex items-center gap-4">
+                         <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center border-none shadow-sm">
                         <Shield className="w-4 h-4 text-secondary" />
                       </div>
                       <div>
@@ -263,7 +263,7 @@ export function LeagueTacticalHub() {
                 </div>
               ) : (
                 <div className="flex flex-col items-center justify-center py-20 text-center space-y-4">
-                   <div className="w-16 h-16 rounded-3xl bg-card flex items-center justify-center border border-border shadow-inner">
+                   <div className="w-16 h-16 rounded-3xl bg-card flex items-center justify-center shadow-inner">
                     <Search className="w-8 h-8 text-muted-foreground/30" />
                   </div>
                   <div>

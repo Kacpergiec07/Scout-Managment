@@ -112,8 +112,8 @@ export function ScoutBot() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             className="mb-4"
           >
-            <Card className="w-80 sm:w-96 h-[550px] flex flex-col glass-panel border-border shadow-2xl overflow-hidden rounded-2xl bg-card">
-              <CardHeader className="p-4 border-b border-border flex flex-row items-center justify-between bg-muted/50">
+            <Card className="w-80 sm:w-96 h-[550px] flex flex-col ring-0 border-none shadow-2xl overflow-hidden rounded-[2rem] bg-card/40 backdrop-blur-3xl">
+              <CardHeader className="p-4 border-none flex flex-row items-center justify-between bg-secondary/5">
                 <CardTitle className="text-sm font-bold flex items-center gap-2 text-secondary">
                   <div className="h-2 w-2 rounded-full bg-secondary animate-pulse" />
                   SCOUTPRO AI INTEL
@@ -131,7 +131,7 @@ export function ScoutBot() {
                         <div className={`rounded-2xl shadow-sm ${
                           m.role === 'user' 
                             ? 'bg-secondary text-secondary-foreground ml-12 rounded-tr-none px-3 py-2 text-xs max-w-[75%]' 
-                            : 'bg-muted text-foreground mr-4 rounded-tl-none p-4 text-sm max-w-[85%] border border-border'
+                            : 'bg-muted/40 text-foreground mr-4 rounded-tl-none p-4 text-sm max-w-[85%] shadow-sm'
                         }`}>
                           <div className="prose dark:prose-invert prose-xs max-w-none">
                             <ReactMarkdown>{m.content}</ReactMarkdown>
@@ -141,7 +141,7 @@ export function ScoutBot() {
                     ))}
                     {isLoading && !messages[messages.length-1].content && (
                       <div className="flex justify-start">
-                        <div className="bg-muted rounded-2xl p-4 mr-4 animate-pulse border border-border">
+                        <div className="bg-muted/40 rounded-2xl p-4 mr-4 animate-pulse">
                           <div className="flex gap-1">
                             <div className="h-1.5 w-1.5 bg-secondary rounded-full animate-bounce" />
                             <div className="h-1.5 w-1.5 bg-secondary rounded-full animate-bounce delay-100" />
@@ -155,7 +155,7 @@ export function ScoutBot() {
                 </ScrollArea>
               </CardContent>
 
-              <CardFooter className="flex-col p-4 border-t border-border bg-muted/50 gap-3">
+              <CardFooter className="flex-col p-4 border-none bg-secondary/5 gap-3">
                 <div className="flex flex-wrap gap-2 w-full">
                   {[
                     'Kto jest GOATem?',
@@ -166,7 +166,7 @@ export function ScoutBot() {
                       key={text}
                       type="button"
                       onClick={() => handleSuggestion(text)}
-                      className="text-[10px] uppercase tracking-wider font-bold px-2 py-1 rounded-md bg-card border border-border text-muted-foreground hover:text-secondary hover:border-secondary transition-all cursor-pointer z-10"
+                      className="text-[10px] uppercase tracking-wider font-bold px-2 py-1 rounded-md bg-card/40 border-none text-muted-foreground hover:text-secondary transition-all cursor-pointer z-10 shadow-sm"
                     >
                       {text}
                     </button>
@@ -181,7 +181,7 @@ export function ScoutBot() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     disabled={isLoading}
-                    className="bg-background border-border text-foreground h-10 rounded-xl focus-visible:ring-secondary disabled:opacity-50"
+                    className="bg-background/40 border-none text-foreground h-10 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50 shadow-inner"
                   />
                   <Button 
                     type="submit" 
@@ -198,23 +198,25 @@ export function ScoutBot() {
         )}
       </AnimatePresence>
 
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={() => setIsOpen(!isOpen)}
-        className={`relative h-16 w-16 rounded-full shadow-2xl transition-all duration-500 flex items-center justify-center group z-50 ${
-          isOpen ? 'bg-foreground rotate-90' : 'bg-secondary hover:bg-secondary/90'
-        }`}
-      >
-        {!isOpen && (
-          <span className="absolute inset-0 rounded-full bg-secondary animate-ping opacity-20 group-hover:hidden" />
-        )}
-        {isOpen ? (
-          <X className="h-7 w-7 text-background" />
-        ) : (
-          <Bot className="h-8 w-8 text-secondary-foreground group-hover:scale-110 transition-transform" />
-        )}
-      </motion.button>
+      {!isOpen && (
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setIsOpen(!isOpen)}
+          className={`relative h-16 w-16 rounded-full shadow-2xl transition-all duration-500 flex items-center justify-center group z-50 ${
+            isOpen ? 'bg-foreground rotate-90' : 'bg-secondary hover:bg-secondary/90'
+          }`}
+        >
+          {!isOpen && (
+            <span className="absolute inset-0 rounded-full bg-secondary animate-ping opacity-20 group-hover:hidden" />
+          )}
+          {isOpen ? (
+            <X className="h-7 w-7 text-background" />
+          ) : (
+            <Bot className="h-8 w-8 text-secondary-foreground group-hover:scale-110 transition-transform" />
+          )}
+        </motion.button>
+      )}
     </div>
   )
 }
