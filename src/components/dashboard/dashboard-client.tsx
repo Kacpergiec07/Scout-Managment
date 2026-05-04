@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
-import { Briefcase, Target, Clock, ArrowRight, CheckCircle, Trash2, User, Settings, MessageSquare } from 'lucide-react'
+import { Briefcase, Target, Clock, ArrowRight, CheckCircle, Trash2, User, Settings, MessageSquare, Crown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
