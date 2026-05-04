@@ -198,10 +198,9 @@ function PlayerDot({ player, pulse, pos, subs }: { player?: any, pulse?: boolean
           <ScrollArea className="h-40">
             <div className="space-y-1 p-1">
               {depth.length > 0 ? depth.map((sub) => (
-                <Link
-                  href={`/compare?p1=${player.playerID}&p2=${sub.playerID}`}
+                <div
                   key={sub.playerID}
-                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 group border border-transparent hover:border-white/10 transition-all"
+                  className="flex items-center justify-between p-2.5 rounded-xl border border-transparent hover:border-white/10 transition-all"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center overflow-hidden relative">
@@ -218,7 +217,7 @@ function PlayerDot({ player, pulse, pos, subs }: { player?: any, pulse?: boolean
                     <span className="text-[11px] text-zinc-400 group-hover:text-white transition-colors font-bold uppercase">{sub.fullName}</span>
                   </div>
                   <ChevronRight className="w-3 h-3 text-zinc-700 group-hover:text-primary transition-all opacity-0 group-hover:opacity-100" />
-                </Link>
+                </div>
               )) : (
                 <div className="p-4 text-center text-[10px] text-zinc-700 italic font-bold uppercase tracking-widest">No depth analysis available.</div>
               )}

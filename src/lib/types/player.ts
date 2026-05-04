@@ -10,7 +10,8 @@ export interface ScoutProPlayer {
   club: string;
   league: string;
   photoUrl?: string;
-  
+  rating?: number; // Overall player rating
+
   // Normalized Stats (0-100 or raw values)
   stats: {
     offensive: {
@@ -38,6 +39,6 @@ export interface ScoutProPlayer {
       pressing: number;
     };
   };
-  
+
   updatedAt: string;
 }

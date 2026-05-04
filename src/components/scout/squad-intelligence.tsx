@@ -192,11 +192,6 @@ export function SquadIntelligence() {
           >
             {isSyncing ? 'Synchronizing...' : 'Refresh Intelligence'}
           </Button>
-          <Link href="/compare">
-            <Button className="rounded-2xl bg-secondary text-black hover:bg-secondary/90 transition-all uppercase font-bold text-[10px] tracking-widest h-14 px-8 shadow-[0_8px_20px_rgba(0,255,136,0.2)]">
-              Tactical Comparison
-            </Button>
-          </Link>
         </div>
       </div>
 
@@ -289,16 +284,9 @@ export function SquadIntelligence() {
                     </div>
                   </div>
 
-                  <div className="mt-8 pt-8 border-t border-border/50 flex items-center justify-between">
-                    <div>
-                      <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1.5 opacity-50">Market Valuation</p>
-                      <p className="text-xl font-bold text-foreground tracking-tight italic">{player.market_value}</p>
-                    </div>
-                    <Link href={`/compare?p1=${player.player_id}&p2=${squad.find(p => p.position === player.position || p.position?.includes(player.position))?.playerID || ''}`}>
-                      <Button className="rounded-2xl bg-foreground text-background font-bold uppercase text-[10px] h-12 px-6 hover:bg-secondary hover:text-black transition-all tracking-widest">
-                        Deep Analysis
-                      </Button>
-                    </Link>
+                  <div className="mt-8 pt-8 border-t border-border/50">
+                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1.5 opacity-50">Market Valuation</p>
+                    <p className="text-xl font-bold text-foreground tracking-tight italic">{player.market_value}</p>
                   </div>
                 </div>
               ))
@@ -466,10 +454,7 @@ export function SquadIntelligence() {
                         <div className="text-2xl font-bold text-secondary tabular-nums">{rec.rating}</div>
                       </div>
                       <p className="text-[11px] font-medium opacity-60 uppercase italic leading-relaxed mb-6">"Technical Assessment: {rec.note}"</p>
-                      <div className="flex gap-3">
-                        <Button variant="outline" className="flex-1 border-primary/30 text-secondary text-[9px] font-bold uppercase h-10 px-0 hover:bg-secondary hover:text-black rounded-xl transition-all">Watchlist</Button>
-                        <Button className="flex-1 bg-secondary text-black text-[9px] font-bold uppercase h-10 px-0 border-none rounded-xl hover:scale-105 transition-transform">Compare Fit</Button>
-                      </div>
+                      <Button variant="outline" className="w-full border-primary/30 text-secondary text-[9px] font-bold uppercase h-10 hover:bg-secondary hover:text-black rounded-xl transition-all">Watchlist</Button>
                     </div>
                   ))}
                 </div>

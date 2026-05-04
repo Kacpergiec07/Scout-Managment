@@ -262,7 +262,6 @@ export function DashboardClient({ initialLeagues }: { initialLeagues: LeagueConf
               <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
                 {[
                   { text: "Player Search & Analysis", icon: "🔍" },
-                  { text: "Performance Comparison", icon: "📊" },
                   { text: "Transfer Intelligence", icon: "💰" },
                   { text: "AI-Powered Insights", icon: "🤖" }
                 ].map((item, idx) => (
