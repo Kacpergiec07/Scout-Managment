@@ -936,7 +936,10 @@ export default function WatchlistPage() {
                           </div>
                         </div>
                         <button
-                          onClick={() => addPlayerFromSearch(player)}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            addPlayerFromSearch(player)
+                          }}
                           className="flex h-10 w-10 items-center justify-center rounded-full border border-green-500/20 bg-green-500/0 text-green-500 transition-all hover:bg-green-500 hover:text-black"
                         >
                           <Plus className="h-5 w-5" />
