@@ -21,6 +21,7 @@ interface JobOffer {
   priority: 'high' | 'medium' | 'low'
   deadline: string
   description: string
+  isElite?: boolean
 }
 
 const LEAGUE_CONFIGS = [
@@ -204,6 +205,8 @@ async function saveJobToDb(jobData: JobOffer): Promise<{ success: boolean; id?: 
       return { success: false, error: 'User not authenticated' }
     }
 
+    const description = jobData.isElite ? `[ELITE_MISSION] ${jobData.description}` : jobData.description
+
     const { data, error } = await supabase.from('jobs').insert({
       user_id: user.id,
       club_id: jobData.club.id,
@@ -215,7 +218,7 @@ async function saveJobToDb(jobData: JobOffer): Promise<{ success: boolean; id?: 
       requirements: jobData.requirements,
       priority: jobData.priority,
       deadline: jobData.deadline,
-      description: jobData.description,
+      description: description,
       status: 'active'
     }).select().single()
 
@@ -281,21 +284,29 @@ export async function getRecentJobs(limit: number = 4): Promise<JobOffer[]> {
       return []
     }
 
-    return jobs.map((job: any) => ({
-      id: job.id,
-      club: {
-        id: job.club_id,
-        name: job.club_name,
-        logo: job.club_logo || '',
-        league: job.league_name,
-        leagueId: job.league_id
-      },
-      position: job.position,
-      requirements: Array.isArray(job.requirements) ? job.requirements : [],
-      priority: job.priority,
-      deadline: job.deadline,
-      description: job.description
-    }))
+    return jobs.map((job: any) => {
+      const isElite = job.description?.startsWith('[ELITE_MISSION]')
+      const description = isElite 
+        ? job.description.replace('[ELITE_MISSION] ', '') 
+        : job.description
+
+      return {
+        id: job.id,
+        club: {
+          id: job.club_id,
+          name: job.club_name,
+          logo: job.club_logo || '',
+          league: job.league_name,
+          leagueId: job.league_id
+        },
+        position: job.position,
+        requirements: Array.isArray(job.requirements) ? job.requirements : [],
+        priority: job.priority,
+        deadline: job.deadline,
+        description: description,
+        isElite: isElite
+      }
+    })
   } catch (error) {
     console.error('Error fetching recent jobs:', error)
     return []
@@ -324,6 +335,11 @@ export async function getLatestJob(): Promise<JobOffer | null> {
     }
 
     const job = jobs[0]
+    const isElite = job.description?.startsWith('[ELITE_MISSION]')
+    const description = isElite 
+      ? job.description.replace('[ELITE_MISSION] ', '') 
+      : job.description
+
     return {
       id: job.id,
       club: {
@@ -337,7 +353,8 @@ export async function getLatestJob(): Promise<JobOffer | null> {
       requirements: Array.isArray(job.requirements) ? job.requirements : [],
       priority: job.priority,
       deadline: job.deadline,
-      description: job.description
+      description: description,
+      isElite: isElite
     }
   } catch (error) {
     console.error('Error fetching latest job:', error)
@@ -653,6 +670,7 @@ export async function generateEliteJobsAction(): Promise<{ success: boolean; job
       
       return {
         ...jobData,
+        isElite: true,
         priority: 'high' as const,
         description: club.name === 'Real Madrid' 
           ? 'The most successful club in European history is looking for the next Galactico. Only elite profiles will be considered.'

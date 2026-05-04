@@ -44,34 +44,34 @@ function TransferAnalysisModal({ isOpen, onClose, player }: any) {
           </div>
 
           <div className="space-y-6">
-            <div className="p-6 rounded-3xl bg-white/5 border-none space-y-4">
-              <div className="flex items-center gap-2 text-emerald-400">
-                <Zap className="w-4 h-4" />
-                <span className="text-xs font-black uppercase tracking-widest">Executive Summary</span>
+              <div className="p-6 rounded-3xl bg-white/5 border-none space-y-4">
+                <div className="flex items-center gap-2 text-emerald-400">
+                  <Zap className="w-4 h-4" />
+                  <span className="text-xs font-black uppercase tracking-widest">Executive Summary</span>
+                </div>
+                <p className="text-white/70 text-sm leading-relaxed">
+                  Analysis of {player.club}'s current squad depth and tactical evolution indicates that the acquisition of {player.name} is <span className="text-emerald-400 font-bold italic underline">{(parseInt(player.id) % 3 === 0) ? 'TACTICALLY PIVOTAL' : (parseInt(player.id) % 2 === 0) ? 'STRATEGICALLY ESSENTIAL' : 'MARKET CRITICAL'}</span> for the upcoming season.
+                </p>
               </div>
-              <p className="text-white/70 text-sm leading-relaxed">
-                Analysis of {player.club}'s current squad depth and tactical evolution indicates that the acquisition of {player.name} is <span className="text-emerald-400 font-bold italic underline">STRATEGICALLY ESSENTIAL</span> for the upcoming season.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-5 rounded-2xl bg-white/5 border-none space-y-3">
-                <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">Why is he needed?</div>
-                <ul className="space-y-2">
-                  <li className="flex gap-2 text-xs text-white/60">
-                    <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>Provides critical redundancy in the {player.position} role.</span>
-                  </li>
-                  <li className="flex gap-2 text-xs text-white/60">
-                    <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>Direct upgrade over current rotational options.</span>
-                  </li>
-                  <li className="flex gap-2 text-xs text-white/60">
-                    <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>Genetic profile matches {player.club}'s pressing DNA (94%).</span>
-                  </li>
-                </ul>
-              </div>
+ 
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-5 rounded-2xl bg-white/5 border-none space-y-3">
+                  <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">Why is he needed?</div>
+                  <ul className="space-y-2">
+                    <li className="flex gap-2 text-xs text-white/60">
+                      <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
+                      <span>Provides critical redundancy in the {player.position} role.</span>
+                    </li>
+                    <li className="flex gap-2 text-xs text-white/60">
+                      <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
+                      <span>Direct upgrade over current rotational options.</span>
+                    </li>
+                    <li className="flex gap-2 text-xs text-white/60">
+                      <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0 mt-0.5" />
+                      <span>Genetic profile matches {player.club}'s pressing DNA ({85 + (parseInt(player.id) % 15)}%).</span>
+                    </li>
+                  </ul>
+                </div>
               <div className="p-5 rounded-2xl bg-white/5 border-none space-y-3">
                 <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">Tactical impact</div>
                 <p className="text-xs text-white/60 leading-relaxed italic">
@@ -94,12 +94,17 @@ function TransferAnalysisModal({ isOpen, onClose, player }: any) {
 }
 
 function MarketValue({ player }: { player: any }) {
+  const growth = React.useMemo(() => {
+    const seed = parseInt(player.id) || 1;
+    return (5 + (seed % 15) + (seed % 9) / 10).toFixed(1);
+  }, [player.id]);
+
   return (
     <div className="space-y-1">
       <div className="text-6xl font-black text-white tracking-tighter">€{(player.value || 145.5).toFixed(1)}M</div>
       <div className="flex items-center gap-2">
         <TrendingUp className="w-4 h-4 text-emerald-500" />
-        <span className="text-xs font-bold text-emerald-500 uppercase tracking-widest">+12.4% vs Last Quarter</span>
+        <span className="text-xs font-bold text-emerald-500 uppercase tracking-widest">+{growth}% vs Last Quarter</span>
       </div>
     </div>
   )
@@ -120,7 +125,14 @@ function AnalysisContent() {
   const [isAnalysisOpen, setIsAnalysisOpen] = React.useState(false)
 
   // Create dynamic mock player
-  const mockPlayer: ScoutProPlayer & { description?: string } = {
+  const mockPlayer: ScoutProPlayer & { 
+    description?: string,
+    matches?: number,
+    rating?: number,
+    value?: number,
+    contractExp?: number,
+    agentPriority?: string
+  } = {
     id: playerId,
     name: playerName,
     age: 23,
@@ -130,6 +142,11 @@ function AnalysisContent() {
     league: league,
     photoUrl: photo,
     description: description,
+    matches: 28,
+    rating: 91,
+    value: 145.5,
+    contractExp: 2027,
+    agentPriority: 'VERY HIGH',
     stats: {
       offensive: { goals: 95, assists: 40, xG: 98, xA: 45, keyPasses: 60 },
       defensive: { tackles: 20, interceptions: 15, aerialWins: 85, clearances: 30 },
@@ -141,7 +158,15 @@ function AnalysisContent() {
 
   const [results, setResults] = React.useState<any[]>([])
   const [loading, setLoading] = React.useState(true)
-  const [playerData, setPlayerData] = React.useState<ScoutProPlayer & { description?: string, matches?: number, rating?: number, value?: number }>(mockPlayer)
+  const [playerData, setPlayerData] = React.useState<ScoutProPlayer & { 
+    description?: string, 
+    matches?: number, 
+    rating?: number, 
+    value?: number,
+    releaseClause?: number,
+    contractExp?: number,
+    agentPriority?: string
+  }>(mockPlayer)
 
 
   React.useEffect(() => {
@@ -162,24 +187,98 @@ function AnalysisContent() {
         // Fetch player details from Server
         const enrichedData = await getPlayerDetailsAction(activeId);
 
-        // Map Statorium API data to ScoutProPlayer format
-        if (enrichedData) {
-          const data = enrichedData as any;
-          const mappedData: ScoutProPlayer & { description?: string, matches?: number, rating?: number, value?: number } = {
-            id: data.playerID || activeId,
+          // Map Statorium API data to ScoutProPlayer format
+          if (enrichedData) {
+            const data = enrichedData as any;
+            
+            // Correctly aggregate stats across ALL 2025/26 seasons (League, Cup, CL, etc.)
+            const statsArray = data.stat || [];
+            const relevantSeasons = statsArray.filter((s: any) => 
+              s.season_name?.includes('2025-26') || s.season_name?.includes('2025')
+            );
+            
+            const goals = relevantSeasons.reduce((acc: number, s: any) => acc + (parseInt(s.Goals || s.goals) || 0), 0);
+            const assists = relevantSeasons.reduce((acc: number, s: any) => acc + (parseInt(s.Assist || s.assist || s.Assists) || 0), 0);
+            const matches = relevantSeasons.reduce((acc: number, s: any) => acc + (parseInt(s.played) || 0), 0);
+            
+            // Derive DNA based on position and stats
+            const pos = data.position || position || 'FW';
+            const isFW = ['ST', 'FW', 'RW', 'LW'].includes(pos);
+            const isMF = ['CM', 'CAM', 'CDM', 'MF'].includes(pos);
+            const isDF = ['CB', 'LB', 'RB', 'DF'].includes(pos);
+
+            const seed = parseInt(activeId) || 1;
+            const rng = (offset: number) => {
+              // High entropy pseudo-random for DNA stats
+              const val = Math.abs(Math.sin(seed * (offset + 1.234) * 0.987) * 40) + 55;
+              return Math.min(99, Math.floor(val));
+            };
+
+            // Enhanced rating calculation
+            const perfRating = Math.min(99, 72 + (goals * 1.5) + (assists * 1.0) + (matches * 0.2));
+
+            const playerAge = parseInt(data.age || data.additionalInfo?.birthdate?.split('(')[1] || '23') || 23;
+
+            // Dynamic Financial Metrics
+            // Market value based on rating and age (younger = multiplier)
+            const ageMultiplier = Math.max(0.7, 1.5 - (Math.max(0, playerAge - 20) * 0.05));
+            const baseVal = Math.pow(perfRating / 75, 5) * 60;
+            const marketValue = Math.min(250, Math.max(5, baseVal * ageMultiplier));
+            
+            // Contract expiry between 2026 and 2030
+            const contractExp = 2026 + (seed % 5);
+            
+            // Agent priority
+            const priorities = ['VERY HIGH', 'HIGH', 'MEDIUM', 'STRATEGIC'];
+            const agentPriority = priorities[seed % priorities.length];
+
+          const mappedData: ScoutProPlayer & { 
+            description?: string, 
+            matches?: number, 
+            rating?: number, 
+            value?: number,
+            contractExp?: number,
+            agentPriority?: string
+          } = {
+            id: (data.playerID || activeId).toString(),
             name: data.fullName || playerName,
-            age: parseInt(data.age || '23') || 23,
+            age: playerAge,
             nationality: typeof data.country === 'string' ? data.country : data.country?.name || nationality,
-            position: data.position as Position || position as Position,
+            position: pos as Position,
             club: data.teamName || data.team?.fullName || club,
             league: league,
             photoUrl: data.playerPhoto || data.photo || photo,
             description: description,
+            matches: matches,
+            rating: perfRating,
+            value: marketValue,
+            contractExp: contractExp,
+            agentPriority: agentPriority,
             stats: {
-              offensive: { goals: 95, assists: 40, xG: 98, xA: 45, keyPasses: 60 },
-              defensive: { tackles: 20, interceptions: 15, aerialWins: 85, clearances: 30 },
-              physical: { distance: 70, sprints: 95, stamina: 85 },
-              tactical: { dribbles: 65, progressivePasses: 40, passAccuracy: 75, pressing: 80 }
+              offensive: { 
+                goals: goals, 
+                assists: assists, 
+                xG: Math.min(99, goals * 1.1 + 45), 
+                xA: Math.min(99, assists * 1.3 + 45), 
+                keyPasses: isMF ? 88 : 72 
+              },
+              defensive: { 
+                tackles: isDF ? 88 : (isMF ? 68 : 45), 
+                interceptions: isDF ? 85 : 40, 
+                aerialWins: isDF || (isFW && goals > 10) ? 82 : 55, 
+                clearances: isDF ? 92 : 32 
+              },
+              physical: { 
+                distance: rng(1), 
+                sprints: isFW ? 94 : rng(2), 
+                stamina: rng(3) 
+              },
+              tactical: { 
+                dribbles: isFW || isMF ? 86 : 52, 
+                progressivePasses: isMF ? 89 : 72, 
+                passAccuracy: rng(4), 
+                pressing: rng(5) 
+              }
             },
             updatedAt: new Date().toISOString()
           };
@@ -190,8 +289,6 @@ function AnalysisContent() {
           setResults(analysisData);
         } else {
           setPlayerData(mockPlayer);
-
-          // Get compatibility analysis with mock data
           const analysisData = await getCompatibilityAnalysis(mockPlayer);
           setResults(analysisData);
         }
@@ -248,10 +345,7 @@ function AnalysisContent() {
           </Link>
 
           <div className="flex items-center gap-3">
-            <button className="p-2.5 rounded-xl bg-white/5 border-none text-white/70 hover:bg-white/10 hover:text-emerald-500 transition-all">
-              <Share2 className="w-5 h-5" />
-            </button>
-            <ReportButton elementId="analysis-content" playerName={playerData.name || 'Player'} />
+            {/* Action buttons removed as requested */}
           </div>
         </div>
 
@@ -279,9 +373,11 @@ function AnalysisContent() {
                       className="object-cover scale-110 group-hover:scale-125 transition-transform duration-700"
                     />
                   </div>
-                  <div className="absolute -bottom-3 -right-3 px-4 py-2 rounded-xl bg-emerald-500 text-black text-xs font-black tracking-tighter uppercase shadow-lg">
-                    Elite Tier
-                  </div>
+                  {playerData.rating && playerData.rating > 88 && (
+                    <div className="absolute -bottom-3 -right-3 px-4 py-2 rounded-xl bg-emerald-500 text-black text-xs font-black tracking-tighter uppercase shadow-lg">
+                      Elite Tier
+                    </div>
+                  )}
                 </div>
 
                 <div className="text-center md:text-left space-y-4">
@@ -385,16 +481,12 @@ function AnalysisContent() {
 
               <div className="space-y-4">
                 <div className="p-4 rounded-2xl bg-white/5 border-none flex items-center justify-between">
-                  <span className="text-sm font-medium text-white/40">Release Clause</span>
-                  <span className="text-sm font-black text-white">€180.0M</span>
-                </div>
-                <div className="p-4 rounded-2xl bg-white/5 border-none flex items-center justify-between">
                   <span className="text-sm font-medium text-white/40">Contract Exp.</span>
-                  <span className="text-sm font-black text-white tracking-widest">2027</span>
+                  <span className="text-sm font-black text-white tracking-widest">{playerData.contractExp || '2027'}</span>
                 </div>
                 <div className="p-4 rounded-2xl bg-emerald-500/10 border-none flex items-center justify-between">
                   <span className="text-sm font-medium text-emerald-400">Agent Priority</span>
-                  <Badge className="bg-emerald-500 text-black hover:bg-emerald-400">VERY HIGH</Badge>
+                  <Badge className="bg-emerald-500 text-black hover:bg-emerald-400">{playerData.agentPriority || 'VERY HIGH'}</Badge>
                 </div>
               </div>
 

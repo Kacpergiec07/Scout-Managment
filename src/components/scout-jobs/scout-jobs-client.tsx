@@ -57,6 +57,7 @@ interface JobOffer {
   deadline: string
   description: string
   status?: string
+  isElite?: boolean
 }
 
 interface Message {
@@ -122,13 +123,13 @@ export function ScoutJobsClient() {
     
     const isElite = eliteNames.some(name => job.club.name.toLowerCase().includes(name.toLowerCase()))
     
-    if (isElite) {
-      score += 3
+    if (isElite || job.isElite) {
+      score += 6 // MASSIVE boost for elite clubs/missions
     } else if (job.requirements.length > 3) {
       score += 1.5 // Significant mid-tier bonus
     }
     
-    return Math.min(10, score)
+    return Math.min(15, score) // Increased max score to allow elite to be clearly top
   }
 
   const fetchJobs = async () => {
@@ -148,7 +149,7 @@ export function ScoutJobsClient() {
   }, [])
 
   useEffect(() => {
-    const hasEliteClubs = jobs.some(j => j.club.name === 'Real Madrid' || j.club.name === 'PSG')
+    const hasEliteClubs = jobs.some(j => j.isElite || j.club.name === 'Real Madrid' || j.club.name === 'PSG')
     setIsEliteMode(hasEliteClubs)
   }, [jobs])
 
@@ -326,14 +327,14 @@ export function ScoutJobsClient() {
 
   const managerName = selectedJob ? getManagerName(selectedJob.club.id, selectedJob.club.name) : 'Manager'
 
-  const hasEliteActive = jobs.some(j => j.club.name === 'Real Madrid' || j.club.name === 'PSG')
+  const hasEliteActive = jobs.some(j => j.isElite || j.club.name === 'Real Madrid' || j.club.name === 'PSG')
 
   const sortedJobs = useMemo(() => {
     // Filter logic: if elite offers (Real/PSG) are present, show ONLY them to focus the scout
     let displayJobs = [...jobs]
     
     if (hasEliteActive && showOnlyElite) {
-      displayJobs = jobs.filter(j => j.club.name === 'Real Madrid' || j.club.name === 'PSG')
+      displayJobs = jobs.filter(j => j.isElite || j.club.name === 'Real Madrid' || j.club.name === 'PSG')
     }
 
     return displayJobs.sort((a, b) => {
@@ -347,12 +348,12 @@ export function ScoutJobsClient() {
 
   return (
     <div className={`flex flex-col h-[calc(100vh-100px)] gap-6 p-6 transition-all duration-1000 relative overflow-hidden ${
-      isEliteMode 
-        ? 'bg-[#0a0a0a] text-amber-500' 
-        : 'bg-background'
+      (isEliteMode && showOnlyElite)
+        ? 'bg-[#0a0a0a] text-amber-500/90' 
+        : 'bg-background text-foreground'
     }`}>
       {/* Premium Elite Background Effects */}
-      {isEliteMode && (
+      {isEliteMode && showOnlyElite && (
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
           <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-amber-500/10 blur-[150px] rounded-full animate-pulse" />
           <div className="absolute bottom-[-20%] left-[-10%] w-[60%] h-[60%] bg-amber-600/5 blur-[150px] rounded-full" />
@@ -625,37 +626,43 @@ export function ScoutJobsClient() {
             <motion.div 
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-gradient-to-r from-amber-500/20 via-amber-400/5 to-transparent rounded-3xl p-4 flex items-center justify-between shadow-[0_8px_32px_rgba(245,158,11,0.05)] backdrop-blur-md"
+              className={`rounded-3xl p-4 flex items-center justify-between shadow-xl backdrop-blur-md border-none transition-all duration-500 ${
+                showOnlyElite 
+                  ? 'bg-gradient-to-r from-amber-500/20 via-amber-400/5 to-transparent shadow-[0_8px_32px_rgba(245,158,11,0.05)]' 
+                  : 'bg-secondary/5 shadow-none'
+              }`}
             >
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-amber-500 flex items-center justify-center shadow-lg shadow-amber-500/20">
-                  <Crown className="h-6 w-6 text-black" />
+                <div className={`h-10 w-10 rounded-xl flex items-center justify-center shadow-lg transition-all ${
+                  showOnlyElite ? 'bg-amber-500 shadow-amber-500/20' : 'bg-secondary/20'
+                }`}>
+                  <Crown className={`h-6 w-6 ${showOnlyElite ? 'text-black' : 'text-secondary'}`} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-black italic uppercase tracking-tighter text-amber-500">Priority Missions</h3>
-                  <p className="text-[10px] font-bold text-amber-500/70 uppercase tracking-widest leading-none">
-                    {showOnlyElite ? 'Elite Focus Mode' : 'Showing All Missions'}
+                  <h3 className={`text-sm font-black italic uppercase tracking-tighter ${showOnlyElite ? 'text-amber-500' : 'text-foreground/70'}`}>
+                    {showOnlyElite ? 'ELITE RECRUITMENT ACTIVE' : 'ALL RECRUITMENT OFFERS'}
+                  </h3>
+                  <p className={`text-[10px] font-bold uppercase tracking-widest leading-none ${showOnlyElite ? 'text-amber-500/70' : 'text-muted-foreground'}`}>
+                    {showOnlyElite ? 'Focusing on Priority Clubs' : 'Browsing Global Market'}
                   </p>
                 </div>
               </div>
               <Button 
                 variant="outline" 
                 size="sm" 
-                onClick={async () => {
-                  const eliteJobs = jobs.filter(j => j.club.name === 'Real Madrid' || j.club.name === 'PSG');
-                  // Remove from state immediately for snappy UI
-                  setJobs(prev => prev.filter(j => j.club.name !== 'Real Madrid' && j.club.name !== 'PSG'));
-                  setSelectedJob(null);
-                  toast.info('Elite missions dismissed. Returning to standard market.');
-                  
-                  // Also cancel them in the background so they don't persist
-                  for (const job of eliteJobs) {
-                    await cancelJobAction(job.id);
-                  }
+                onClick={() => {
+                  setShowOnlyElite(!showOnlyElite)
+                  toast.info(showOnlyElite ? 'Showing all available missions.' : 'Focusing on elite opportunities.', {
+                    icon: showOnlyElite ? '🌐' : '🏆'
+                  })
                 }}
-                className="h-8 rounded-xl border-none bg-amber-500/10 text-amber-500 hover:bg-amber-500/20 text-[10px] font-black uppercase tracking-widest"
+                className={`h-8 rounded-xl border-none transition-all duration-300 text-[10px] font-black uppercase tracking-widest ${
+                  showOnlyElite 
+                    ? 'bg-amber-500/10 text-amber-500 hover:bg-amber-500/20' 
+                    : 'bg-primary text-black hover:bg-primary/90 shadow-lg shadow-primary/20'
+                }`}
               >
-                Return to Normal
+                {showOnlyElite ? 'Show All' : 'Focus Elite'}
               </Button>
             </motion.div>
           )}
@@ -716,13 +723,21 @@ export function ScoutJobsClient() {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between gap-2 mb-1">
                             <h3 className="font-bold text-sm truncate">{job.club.name}</h3>
-                            <Badge 
-                               className={`text-[9px] font-black px-2 py-0 rounded-full border-none ${
-                                 getDifficulty(job) > 4 && getDifficulty(job) <= 7.5 ? 'text-yellow-500 bg-yellow-500/10' : ''
-                               }`}
-                             >
-                               {getDifficulty(job) <= 4 ? 'EASY' : getDifficulty(job) <= 7.5 ? 'MEDIUM' : 'HARD'}
-                             </Badge>
+                             <div className="flex flex-col items-end gap-1">
+                               {job.isElite && (
+                                 <Badge className="text-[8px] font-black px-1.5 py-0 bg-amber-500 text-black border-none animate-pulse shadow-[0_0_10px_rgba(245,158,11,0.5)]">
+                                   ELITE OFFER
+                                 </Badge>
+                               )}
+                               <Badge 
+                                  className={`text-[9px] font-black px-2 py-0 rounded-full border-none ${
+                                    job.isElite ? 'text-amber-500 bg-amber-500/20' :
+                                    getDifficulty(job) > 4 && getDifficulty(job) <= 7.5 ? 'text-yellow-500 bg-yellow-500/10' : ''
+                                  }`}
+                                >
+                                  {job.isElite ? 'HIGHEST' : getDifficulty(job) <= 4 ? 'EASY' : getDifficulty(job) <= 7.5 ? 'MEDIUM' : 'HARD'} {job.isElite ? 'PRIORITY' : 'DIFFICULTY'}
+                                </Badge>
+                             </div>
                           </div>
                           <p className="text-xs font-semibold text-foreground mb-1 truncate">{job.position}</p>
                           <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
