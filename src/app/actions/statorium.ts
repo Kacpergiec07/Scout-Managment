@@ -23,6 +23,9 @@ const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
 
 // Local player database for fallback search
 let LOCAL_PLAYER_DB: any[] | null = null;
+
+// Cache for team to season mapping to avoid expensive loops
+const TEAM_SEASON_MAP = new Map<string, string>();
 function getLocalPlayerDb() {
   if (LOCAL_PLAYER_DB) return LOCAL_PLAYER_DB;
   try {
@@ -414,19 +417,25 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
 
     const client = getStatoriumClient();
 
-    // Auto-detect seasonId if not provided by checking top 5 leagues
+    // Auto-detect seasonId if not provided by checking cache or top 5 leagues
     if (!seasonId) {
-      for (const league of TOP_LEAGUES) {
-        try {
-          const standings = await client.getStandings(league.id);
-          const found = standings.find((s: any) => s.teamID?.toString() === teamId);
-          if (found) {
-            seasonId = league.id;
-            break;
-          }
-        } catch (e) {}
+      if (TEAM_SEASON_MAP.has(teamId)) {
+        seasonId = TEAM_SEASON_MAP.get(teamId);
+      } else {
+        for (const league of TOP_LEAGUES) {
+          try {
+            const standings = await getStandingsAction(league.id);
+            const found = standings.find((s: any) => s.teamID?.toString() === teamId);
+            if (found) {
+              seasonId = league.id;
+              TEAM_SEASON_MAP.set(teamId, seasonId!);
+              break;
+            }
+          } catch (e) {}
+        }
       }
     }
+
     let apiTeam: any = null;
     try {
       apiTeam = await client.getTeamDetails(teamId);
@@ -434,7 +443,10 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
 
     let players: StatoriumPlayerBasic[] = [];
     if (seasonId) {
-      try { players = await client.getPlayersByTeam(teamId, seasonId); } catch (e) { }
+      try { 
+        players = await client.getPlayersByTeam(teamId, seasonId); 
+        if (players.length > 0) TEAM_SEASON_MAP.set(teamId, seasonId);
+      } catch (e) { }
     }
     if (!players.length && apiTeam?.players?.length) {
       players = apiTeam.players;

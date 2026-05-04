@@ -4,6 +4,7 @@ import { getStatoriumClient } from '@/lib/statorium/client'
 import { createOpenAI } from '@ai-sdk/openai'
 import { generateText } from 'ai'
 import { createClient } from '@/lib/supabase/server'
+import { revalidatePath } from 'next/cache'
 
 interface JobOffer {
   id: string
@@ -39,43 +40,108 @@ const POSITIONS = [
   'Striker'
 ]
 
-export async function generateJobOffer(forcedPosition?: string): Promise<JobOffer> {
+export async function generateJobOfferData(
+  forcedPosition?: string, 
+  excludedClubIds: string[] = [],
+  preselectedClub?: { id: string, name: string, logo: string, league: string, leagueId: string }
+): Promise<JobOffer> {
   const client = getStatoriumClient()
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  
   const zai = createOpenAI({
     apiKey: process.env.ZAI_API_KEY,
     baseURL: process.env.ZAI_BASE_URL,
   })
 
-  // Select random league
-  const selectedLeague = LEAGUE_CONFIGS[Math.floor(Math.random() * LEAGUE_CONFIGS.length)]
+  let selectedClub: any
+  let selectedLeagueName: string
+  let selectedLeagueId: string
 
-  // Fetch standings to get clubs
-  let clubs: any[] = []
-  try {
-    clubs = await client.getStandings(selectedLeague.id)
-  } catch (error) {
-    console.error('Error fetching standings:', error)
-    // Fallback to empty array if API fails
+  if (preselectedClub) {
+    selectedClub = {
+      teamID: preselectedClub.id,
+      teamName: preselectedClub.name,
+      teamLogo: preselectedClub.logo
+    }
+    selectedLeagueName = preselectedClub.league
+    selectedLeagueId = preselectedClub.leagueId
+  } else {
+    // Always fetch current user's active jobs to prevent duplicates
+    let finalExcludedIds = [...excludedClubIds]
+    if (user) {
+      const { data: existingJobs } = await supabase
+        .from('jobs')
+        .select('club_id')
+        .eq('user_id', user.id)
+        .eq('status', 'active')
+      
+      if (existingJobs) {
+        const existingIds = existingJobs.map(j => j.club_id.toString())
+        finalExcludedIds = Array.from(new Set([...finalExcludedIds, ...existingIds]))
+      }
+    }
+
+    // Select random league
+    const selectedLeague = LEAGUE_CONFIGS[Math.floor(Math.random() * LEAGUE_CONFIGS.length)]
+    selectedLeagueName = selectedLeague.name
+    selectedLeagueId = selectedLeague.id
+
+    // Fetch standings to get clubs
+    let clubs: any[] = []
+    try {
+      const allClubs = await client.getStandings(selectedLeague.id)
+      // Filter out excluded clubs
+      clubs = allClubs.filter(c => !finalExcludedIds.includes(c.teamID.toString()))
+      
+      // If all clubs in this league are excluded, fallback to all clubs
+      if (clubs.length === 0) {
+        clubs = allClubs
+      }
+    } catch (error) {
+      console.error('Error fetching standings:', error)
+    }
+
+    // Select random club from standings
+    selectedClub = clubs.length > 0
+      ? clubs[Math.floor(Math.random() * clubs.length)]
+      : { teamID: '1', teamName: 'FC Unknown', teamLogo: '' }
   }
 
-  // Select random club from standings
-  const selectedClub = clubs.length > 0
-    ? clubs[Math.floor(Math.random() * clubs.length)]
-    : { teamID: '1', teamName: 'FC Unknown', teamLogo: '' }
+  // Determine suggested priority based on club prestige
+  let suggestedPriority = 'medium'
+  const eliteClubs = [
+    'Real Madrid', 'PSG', 'Paris Saint-Germain', 'Manchester City', 'Bayern', 'Liverpool', 
+    'Barcelona', 'Inter', 'Arsenal', 'Manchester United', 'Chelsea', 'Juventus', 'Milan'
+  ]
+  const midTierClubs = [
+    'Monaco', 'Leverkusen', 'Lazio', 'Roma', 'Aston Villa', 'Newcastle', 'Dortmund', 
+    'Atletico', 'Napoli', 'Tottenham', 'Benfica', 'Porto', 'Ajax', 'Leipzig', 'Sporting',
+    'Feyenoord', 'PSV', 'West Ham', 'Brighton', 'Sevilla', 'Real Sociedad', 'Atalanta', 'Fiorentina'
+  ]
+  
+  const clubName = selectedClub.teamName.toLowerCase()
+  if (eliteClubs.some(ec => clubName.toLowerCase().includes(ec.toLowerCase()))) {
+    suggestedPriority = 'high'
+  } else if (midTierClubs.some(mc => clubName.toLowerCase().includes(mc.toLowerCase()))) {
+    suggestedPriority = 'medium'
+  } else {
+    suggestedPriority = 'low'
+  }
 
   // Generate job details using AI
   const prompt = `
     You are a professional football scout manager. Generate a realistic job offer for a scout.
 
-    Selected club: ${selectedClub.teamName} from ${selectedLeague.name}
+    Selected club: ${selectedClub.teamName} from ${selectedLeagueName}
     Available positions: ${POSITIONS.join(', ')}
     Target position: ${forcedPosition || 'Any high-demand role (Striker, Winger, Defender, or Midfielder)'}
 
     Generate a job offer with:
     1. A specific position the club needs to reinforce. ${forcedPosition ? `CRITICAL: You MUST use "${forcedPosition}".` : "IMPORTANT: Prioritize 'Striker', 'Winger', 'Defender', or 'Central Midfielder'."}
-    2. 3-4 specific requirements (age range, nationality preferences, playing style, etc.)
+    2. 2-5 specific requirements (age range, nationality preferences, playing style, etc.)
     3. A brief 2-sentence description of what the club is looking for
-    4. Priority level (high/medium/low)
+    4. Priority level: You MUST use "${suggestedPriority}".
 
     Return ONLY valid JSON in this exact format:
     {
@@ -94,14 +160,12 @@ export async function generateJobOffer(forcedPosition?: string): Promise<JobOffe
       temperature: 0.8,
     })
 
-    // Parse AI response
     const jsonMatch = result.text.match(/\{[\s\S]*\}/)
     if (jsonMatch) {
       aiResponse = JSON.parse(jsonMatch[0])
     }
   } catch (error) {
     console.error('AI generation error:', error)
-    // Fallback to default values
     aiResponse = {
       position: POSITIONS[Math.floor(Math.random() * POSITIONS.length)],
       requirements: ['Age 20-25', 'Good technical ability', 'Team player'],
@@ -110,18 +174,17 @@ export async function generateJobOffer(forcedPosition?: string): Promise<JobOffe
     }
   }
 
-  // Calculate deadline (2-4 weeks from now)
   const deadline = new Date()
   deadline.setDate(deadline.getDate() + Math.floor(Math.random() * 14) + 14)
 
-  const jobData = {
+  return {
     id: `job-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
     club: {
       id: selectedClub.teamID,
       name: selectedClub.teamName,
       logo: selectedClub.teamLogo || '',
-      league: selectedLeague.name,
-      leagueId: selectedLeague.id
+      league: selectedLeagueName,
+      leagueId: selectedLeagueId
     },
     position: aiResponse.position || POSITIONS[Math.floor(Math.random() * POSITIONS.length)],
     requirements: aiResponse.requirements || ['Good technical skills', 'Team player', 'Professional attitude'],
@@ -129,36 +192,56 @@ export async function generateJobOffer(forcedPosition?: string): Promise<JobOffe
     deadline: deadline.toISOString().split('T')[0],
     description: aiResponse.description || 'Scout needed to identify talented players for this position.'
   }
+}
 
-  // Save job to database
+async function saveJobToDb(jobData: JobOffer): Promise<{ success: boolean; id?: string; error?: string }> {
   try {
     const supabase = await createClient()
     const { data: { user } } = await supabase.auth.getUser()
 
-    if (user) {
-      const { error } = await supabase.from('jobs').insert({
-        user_id: user.id,
-        club_id: jobData.club.id,
-        club_name: jobData.club.name,
-        club_logo: jobData.club.logo,
-        league_id: jobData.club.leagueId,
-        league_name: jobData.club.league,
-        position: jobData.position,
-        requirements: jobData.requirements,
-        priority: jobData.priority,
-        deadline: jobData.deadline,
-        description: jobData.description,
-        status: 'active'
-      })
-
-      if (error) {
-        console.error('Error saving job to database:', error)
-      }
+    if (!user) {
+      return { success: false, error: 'User not authenticated' }
     }
-  } catch (error) {
-    console.error('Error saving job:', error)
-  }
 
+    const { data, error } = await supabase.from('jobs').insert({
+      user_id: user.id,
+      club_id: jobData.club.id,
+      club_name: jobData.club.name,
+      club_logo: jobData.club.logo,
+      league_id: jobData.club.leagueId,
+      league_name: jobData.club.league,
+      position: jobData.position,
+      requirements: jobData.requirements,
+      priority: jobData.priority,
+      deadline: jobData.deadline,
+      description: jobData.description,
+      status: 'active'
+    }).select().single()
+
+    if (error) {
+      console.error('Error saving job to database:', error)
+      return { success: false, error: error.message }
+    }
+
+    // Revalidate paths to refresh cache
+    revalidatePath('/dashboard')
+    revalidatePath('/scout-jobs')
+
+    return { success: true, id: data.id }
+  } catch (error: any) {
+    console.error('Error saving job:', error)
+    return { success: false, error: error.message }
+  }
+}
+
+export async function generateJobOffer(forcedPosition?: string): Promise<JobOffer> {
+  const jobData = await generateJobOfferData(forcedPosition)
+  const result = await saveJobToDb(jobData)
+  
+  if (result.success && result.id) {
+    return { ...jobData, id: result.id }
+  }
+  
   return jobData
 }
 
@@ -284,7 +367,7 @@ export async function generateDraftJobAction(): Promise<{ success: boolean; job?
       return { success: false, error: 'User not authenticated' }
     }
 
-    const newJob = await generateJobOffer()
+    const newJob = await generateJobOfferData()
     return { success: true, job: newJob }
   } catch (error) {
     console.error('Error in generateDraftJobAction:', error)
@@ -294,13 +377,95 @@ export async function generateDraftJobAction(): Promise<{ success: boolean; job?
 
 export async function generatePackOfJobsAction(): Promise<{ success: boolean; jobs?: JobOffer[]; error?: string }> {
   try {
-    const positions = ['Defender', 'Central Midfielder', 'Winger', 'Striker']
-    const jobs: JobOffer[] = []
+    const client = getStatoriumClient()
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+    
+    const pickedClubIds: string[] = []
 
-    for (const pos of positions) {
-      const job = await generateJobOffer(pos)
-      jobs.push(job)
+    // 1. Fetch existing active jobs to avoid duplicates
+    if (user) {
+      const { data: existingJobs } = await supabase
+        .from('jobs')
+        .select('club_id')
+        .eq('user_id', user.id)
+        .eq('status', 'active')
+      if (existingJobs) {
+        pickedClubIds.push(...existingJobs.map(j => j.club_id.toString()))
+      }
     }
+
+    // 2. Pre-select 4 unique clubs with specific ratio: 1 Elite, 1 Mid, 2 Standard
+    const targetClubs: any[] = []
+    const positions = ['Defender', 'Central Midfielder', 'Winger', 'Striker']
+    
+    const ELITE_LIST = ['Real Madrid', 'PSG', 'Paris Saint-Germain', 'Manchester City', 'Bayern', 'Liverpool', 'Barcelona', 'Inter', 'Arsenal']
+    const MID_LIST = ['Monaco', 'Leverkusen', 'Lazio', 'Roma', 'Aston Villa', 'Newcastle', 'Dortmund', 'Atletico', 'Napoli', 'Milan', 'Tottenham', 'Benfica', 'Porto', 'Ajax']
+
+    const findClubInTier = async (tier: 'elite' | 'mid' | 'standard', count: number) => {
+      let found = 0
+      let attempts = 0
+      while (found < count && attempts < 15) {
+        attempts++
+        const randomLeague = LEAGUE_CONFIGS[Math.floor(Math.random() * LEAGUE_CONFIGS.length)]
+        try {
+          const standings = await client.getStandings(randomLeague.id)
+          const available = standings.filter(c => 
+            !pickedClubIds.includes(c.teamID.toString()) && 
+            !targetClubs.some(tc => tc.id === c.teamID.toString())
+          )
+
+          let candidates = []
+          if (tier === 'elite') {
+            candidates = available.filter(c => ELITE_LIST.some(e => c.teamName.toLowerCase().includes(e.toLowerCase())))
+          } else if (tier === 'mid') {
+            candidates = available.filter(c => MID_LIST.some(m => c.teamName.toLowerCase().includes(m.toLowerCase())))
+          } else {
+            candidates = available.filter(c => 
+              !ELITE_LIST.some(e => c.teamName.toLowerCase().includes(e.toLowerCase())) &&
+              !MID_LIST.some(m => c.teamName.toLowerCase().includes(m.toLowerCase()))
+            )
+          }
+
+          if (candidates.length > 0) {
+            const club = candidates[Math.floor(Math.random() * candidates.length)]
+            targetClubs.push({
+              id: club.teamID.toString(),
+              name: club.teamName,
+              logo: club.teamLogo,
+              league: randomLeague.name,
+              leagueId: randomLeague.id
+            })
+            found++
+          }
+        } catch (e) { console.error(e) }
+      }
+    }
+
+    // Pick 1 Elite
+    await findClubInTier('elite', 1)
+    // Pick 1 Mid
+    await findClubInTier('mid', 1)
+    // Pick 2 Standard
+    await findClubInTier('standard', 2)
+
+    // Fallback if we couldn't find specific tiers (fill to 4)
+    if (targetClubs.length < 4) {
+      let attempts = 0
+      while (targetClubs.length < 4 && attempts < 5) {
+        attempts++
+        const randomLeague = LEAGUE_CONFIGS[Math.floor(Math.random() * LEAGUE_CONFIGS.length)]
+        const standings = await client.getStandings(randomLeague.id)
+        const club = standings.find(c => !targetClubs.some(tc => tc.id === c.teamID.toString()))
+        if (club) targetClubs.push({ id: club.teamID.toString(), name: club.teamName, logo: club.teamLogo, league: randomLeague.name, leagueId: randomLeague.id })
+      }
+    }
+
+    // 3. Generate jobs in PARALLEL using pre-selected unique clubs
+    const jobPromises = targetClubs.map((club, index) => 
+      generateJobOfferData(positions[index], [], club)
+    )
+    const jobs = await Promise.all(jobPromises)
 
     return { success: true, jobs }
   } catch (error) {
@@ -311,35 +476,13 @@ export async function generatePackOfJobsAction(): Promise<{ success: boolean; jo
 
 export async function acceptJobAction(job: JobOffer): Promise<{ success: boolean; error?: string }> {
   try {
-    const supabase = await createClient()
-    const { data: { user } } = await supabase.auth.getUser()
-
-    if (!user) {
-      return { success: false, error: 'User not authenticated' }
+    const result = await saveJobToDb(job)
+    
+    if (!result.success) {
+      return { success: false, error: result.error }
     }
 
-    const { error } = await supabase
-      .from('jobs')
-      .insert({
-        user_id: user.id,
-        club_id: job.club.id,
-        club_name: job.club.name,
-        club_logo: job.club.logo,
-        league_name: job.club.league,
-        league_id: job.club.leagueId,
-        position: job.position,
-        requirements: job.requirements,
-        priority: job.priority,
-        deadline: job.deadline,
-        description: job.description,
-        status: 'active'
-      })
-
-    if (error) {
-      console.error('Error inserting accepted job:', error)
-      return { success: false, error: error.message }
-    }
-
+    revalidatePath('/scout-jobs')
     return { success: true }
   } catch (error) {
     console.error('Error in acceptJobAction:', error)
@@ -349,57 +492,8 @@ export async function acceptJobAction(job: JobOffer): Promise<{ success: boolean
 
 export async function generateNewJobAction(): Promise<{ success: boolean; job?: JobOffer; error?: string }> {
   try {
-    const supabase = await createClient()
-    const { data: { user } } = await supabase.auth.getUser()
-
-    if (!user) {
-      return { success: false, error: 'User not authenticated' }
-    }
-
     const newJob = await generateJobOffer()
-    
-    const { data, error } = await supabase
-      .from('jobs')
-      .insert({
-        user_id: user.id,
-        club_id: newJob.club.id,
-        club_name: newJob.club.name,
-        club_logo: newJob.club.logo,
-        league_name: newJob.club.league,
-        league_id: newJob.club.leagueId,
-        position: newJob.position,
-        requirements: newJob.requirements,
-        priority: newJob.priority,
-        deadline: newJob.deadline,
-        description: newJob.description,
-        status: 'active'
-      })
-      .select()
-      .single()
-
-    if (error) {
-      console.error('Error inserting new job:', error)
-      return { success: false, error: error.message }
-    }
-
-    return { 
-      success: true, 
-      job: {
-        id: data.id,
-        club: {
-          id: data.club_id,
-          name: data.club_name,
-          logo: data.club_logo || '',
-          league: data.league_name,
-          leagueId: data.league_id
-        },
-        position: data.position,
-        requirements: data.requirements,
-        priority: data.priority,
-        deadline: data.deadline,
-        description: data.description
-      }
-    }
+    return { success: true, job: newJob }
   } catch (error) {
     console.error('Error in generateNewJobAction:', error)
     return { success: false, error: 'Failed to generate new job' }
@@ -498,5 +592,64 @@ export async function completeJob(jobId: string): Promise<{ success: boolean; er
   } catch (error) {
     console.error('Error completing job:', error)
     return { success: false, error: 'Failed to complete job' }
+  }
+}
+export async function generateEliteJobsAction(): Promise<{ success: boolean; jobs?: JobOffer[]; error?: string }> {
+  try {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+    let existingClubIds: string[] = []
+
+    if (user) {
+      const { data: existingJobs } = await supabase
+        .from('jobs')
+        .select('club_id')
+        .eq('user_id', user.id)
+        .eq('status', 'active')
+      if (existingJobs) {
+        existingClubIds = existingJobs.map(j => j.club_id.toString())
+      }
+    }
+
+    const eliteClubs = [
+      { 
+        id: '37', 
+        name: 'Real Madrid', 
+        logo: 'https://api.statorium.com/media/bearleague/bl155800057030.png',
+        leagueId: '558',
+        league: 'La Liga'
+      },
+      { 
+        id: '66', 
+        name: 'PSG', 
+        logo: 'https://api.statorium.com/media/bearleague/ct66.png',
+        leagueId: '519',
+        league: 'Ligue 1'
+      }
+    ].filter(club => !existingClubIds.includes(club.id))
+
+    if (eliteClubs.length === 0) {
+      return { success: false, error: 'You already have active missions for all elite clubs!' }
+    }
+
+    const jobPromises = eliteClubs.map(async (club) => {
+      const pos = POSITIONS[Math.floor(Math.random() * POSITIONS.length)]
+      // Pass the club as preselectedClub to avoid fetching standings (MASSIVE SPEEDUP)
+      const jobData = await generateJobOfferData(pos, [], club)
+      
+      return {
+        ...jobData,
+        priority: 'high' as const,
+        description: club.name === 'Real Madrid' 
+          ? 'The most successful club in European history is looking for the next Galactico. Only elite profiles will be considered.'
+          : 'Paris Saint-Germain is building a new era of dominance. We require world-class talent to conquer the Champions League.'
+      }
+    })
+
+    const jobs = await Promise.all(jobPromises)
+    return { success: true, jobs }
+  } catch (error) {
+    console.error('Error in generateEliteJobsAction:', error)
+    return { success: false, error: 'Failed to generate elite jobs' }
   }
 }
