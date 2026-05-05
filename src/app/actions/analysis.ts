@@ -1,14 +1,12 @@
 'use server'
 
-import { getStatoriumClient } from '@/lib/statorium/client';
+import { getStandingsAction } from '@/app/actions/statorium';
 import { calculateCompatibility, ClubContext } from '@/lib/engine/scoring';
 import { ScoutProPlayer } from '@/lib/types/player';
 import { createClient } from '@/lib/supabase/server';
 
 export async function getCompatibilityAnalysis(player: ScoutProPlayer) {
   try {
-    const client = getStatoriumClient();
-    
     // 1. Map league names to Statorium Season IDs (2024/25)
     const LEAGUE_TO_SEASON: Record<string, string> = {
       'Premier League': '515',
@@ -20,8 +18,8 @@ export async function getCompatibilityAnalysis(player: ScoutProPlayer) {
 
     const targetSeasonId = LEAGUE_TO_SEASON[player.league || ''] || '515';
     
-    // 2. Fetch real standings for the league
-    const standings = await client.getStandings(targetSeasonId);
+    // 2. Fetch real standings for the league (using cached action)
+    const standings = await getStandingsAction(targetSeasonId);
     
     // 3. Convert standings to ClubContext
     const realClubs: ClubContext[] = standings.map((s: any, index: number) => {

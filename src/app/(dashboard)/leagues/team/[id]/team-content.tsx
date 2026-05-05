@@ -7,7 +7,9 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MapPin, Users, Trophy, Shield, ArrowLeft, UserCircle } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { TacticalPitch } from "@/components/scout/tactical-pitch";
+import { memo } from "react";
 
 interface TeamContentProps {
   team: any;
@@ -123,9 +125,14 @@ export function TeamContent({ team }: TeamContentProps) {
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 blur-[100px] -ml-32 -mb-32" />
 
         <div className="relative flex flex-col md:flex-row items-center gap-8">
-          <div className="w-32 h-32 md:w-48 md:h-48 bg-white/5 rounded-3xl flex items-center justify-center p-6 border border-white/10 shadow-2xl">
+          <div className="w-32 h-32 md:w-48 md:h-48 bg-white/5 rounded-3xl flex items-center justify-center p-6 border border-white/10 shadow-2xl relative">
             {team.teamLogo ? (
-              <img src={team.teamLogo} alt={team.teamName} className="object-contain w-full h-full drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]" />
+              <Image 
+                src={team.teamLogo} 
+                alt={team.teamName} 
+                fill
+                className="object-contain p-6 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]" 
+              />
             ) : (
               <Shield className="w-20 h-20 text-white/10" />
             )}
@@ -248,24 +255,23 @@ function getShortPos(p: any) {
   return 'N/A';
 }
 
-function SquadRow({ player, starting }: { player: any, starting?: boolean }) {
+const SquadRow = memo(({ player, starting }: { player: any, starting?: boolean }) => {
   const photoUrl = player.photo || player.playerPhoto || `https://api.statorium.com/media/bearleague/bl${player.playerID}.webp`;
 
   return (
     <Link
-      href={`/analysis?id=${player.playerID}&name=${encodeURIComponent(player.fullName)}`}
+      href={`/analysis?id=${player.playerID}&name=${encodeURIComponent(player.fullName)}&club=${encodeURIComponent(team.teamName)}&from=team&teamId=${team.id}`}
       className="flex items-center justify-between p-5 hover:bg-white/5 transition-all group relative border-l-2 border-transparent hover:border-primary/50"
     >
       <div className="flex items-center gap-4">
         {/* Photo Avatar */}
         <div className="relative w-10 h-10 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center overflow-hidden flex-shrink-0">
-          <img
+          <Image
             src={photoUrl}
             alt={player.fullName}
-            className="w-full h-full object-cover object-top"
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = 'none';
-            }}
+            fill
+            sizes="40px"
+            className="object-cover object-top"
           />
           <span className="text-[10px] font-black text-white/20 uppercase tracking-tighter absolute inset-0 flex items-center justify-center -z-10 bg-zinc-900">
             {player.fullName.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
@@ -290,7 +296,9 @@ function SquadRow({ player, starting }: { player: any, starting?: boolean }) {
       </Badge>
     </Link>
   )
-}
+});
+
+SquadRow.displayName = "SquadRow";
 
 function EmptySquad() {
   return (

@@ -45,7 +45,6 @@ interface UserProfile {
   years_experience: number
   players_watched_count: number
   active_scouting_count: number
-  reports_created_count: number
 }
 
 export default function SettingsPage() {
@@ -64,7 +63,6 @@ export default function SettingsPage() {
   const [yearsExperience, setYearsExperience] = useState(0)
   const [playersWatchedCount, setPlayersWatchedCount] = useState(0)
   const [activeScoutingCount, setActiveScoutingCount] = useState(0)
-  const [reportsCreatedCount, setReportsCreatedCount] = useState(0)
 
   // Custom theme state
   const [isCustomThemeOpen, setIsCustomThemeOpen] = useState(false)
@@ -120,7 +118,6 @@ export default function SettingsPage() {
           setYearsExperience(profileData.years_experience || 0)
           setPlayersWatchedCount(profileData.players_watched_count || 0)
           setActiveScoutingCount(profileData.active_scouting_count || 0)
-          setReportsCreatedCount(profileData.reports_created_count || 0)
         } else if (autoFix) {
           // Auto-fix profile if data is missing
           console.log('Settings: No profile data, attempting auto-fix...')
@@ -186,7 +183,6 @@ export default function SettingsPage() {
         setYearsExperience(profileData.years_experience || 0)
         setPlayersWatchedCount(profileData.players_watched_count || 0)
         setActiveScoutingCount(profileData.active_scouting_count || 0)
-        setReportsCreatedCount(profileData.reports_created_count || 0)
       }
     }
   }
@@ -458,7 +454,7 @@ export default function SettingsPage() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="playersWatched" className="text-foreground">Players Watched</Label>
                     <Input
@@ -490,22 +486,6 @@ export default function SettingsPage() {
                       Auto-calculated from watchlist
                     </p>
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="reportsCreated" className="text-foreground">Reports Created</Label>
-                    <Input
-                      id="reportsCreated"
-                      name="reportsCreated"
-                      type="number"
-                      value={reportsCreatedCount}
-                      disabled
-                      placeholder="Auto-calculated"
-                      className="bg-muted/30 border-border text-muted-foreground placeholder:text-muted-foreground cursor-not-allowed"
-                    />
-                    <p className="text-xs text-muted-foreground italic">
-                      Auto-calculated from analysis history
-                    </p>
-                  </div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-blue-500/10 border-blue-500/30">
@@ -513,7 +493,7 @@ export default function SettingsPage() {
                     ℹ️ Statistics Information
                   </p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Statistics are automatically calculated from your database activity. "Players Watched" and "Active Scouting" reflect real counts from your watchlist. "Reports Created" shows your analysis history. "Years of Experience" is the only manual field that must be set by you.
+                    Statistics are automatically calculated from your database activity. "Players Watched" and "Active Scouting" reflect real counts from your watchlist. "Years of Experience" is the only manual field that must be set by you.
                   </p>
                 </div>
 

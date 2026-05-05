@@ -15,6 +15,38 @@ import Image from 'next/image'
 import { Hexagon, ArrowLeft, Share2, TrendingUp, BarChart3, Trophy, Target, Users, Star, Zap, ShieldCheck, Brain, X } from 'lucide-react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
+import { memo, useMemo } from 'react'
+
+const ParticlesBackground = memo(() => {
+  const particles = useMemo(() => [...Array(50)].map((_, i) => ({
+    id: i,
+    size: Math.random() * 4 + 1,
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    duration: Math.random() * 3 + 2,
+    delay: Math.random() * 2
+  })), []);
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particles.map((p) => (
+        <div
+          key={p.id}
+          className="absolute rounded-full bg-emerald-500/10"
+          style={{
+            width: p.size,
+            height: p.size,
+            left: p.left,
+            top: p.top,
+            animation: `pulse ${p.duration}s infinite ${p.delay}s`
+          }}
+        />
+      ))}
+    </div>
+  );
+});
+
+ParticlesBackground.displayName = 'ParticlesBackground';
 
 function TransferAnalysisModal({ isOpen, onClose, player }: any) {
   if (!isOpen) return null;
@@ -121,6 +153,7 @@ function AnalysisContent() {
   const nationality = searchParams.get('nation') || 'Norway'
   const league = searchParams.get('league') || 'Premier League'
   const from = searchParams.get('from') || 'hub'
+  const teamId = searchParams.get('teamId')
 
   const [isAnalysisOpen, setIsAnalysisOpen] = React.useState(false)
 
@@ -314,33 +347,27 @@ function AnalysisContent() {
   return (
     <div className="min-h-screen relative overflow-hidden" style={{ backgroundColor: '#0a0f0a' }}>
       {/* Particle background effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-emerald-500/10"
-            style={{
-              width: Math.random() * 4 + 1,
-              height: Math.random() * 4 + 1,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `pulse ${Math.random() * 3 + 2}s infinite ${Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
+      <ParticlesBackground />
 
       {/* Main Content */}
       <div className="relative z-10 p-6 space-y-8 max-w-[1600px] mx-auto">
         {/* Navigation Bar */}
         <div className="flex items-center justify-between">
           <Link
-            href={from === 'history' ? "/history" : "/dashboard"}
+            href={
+              from === 'history' ? "/history" : 
+              from === 'watchlist' ? "/watchlist" : 
+              from === 'team' && teamId ? `/leagues/team/${teamId}` : 
+              "/dashboard"
+            }
             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border-none hover:bg-white/10 transition-all group"
           >
             <ArrowLeft className="w-4 h-4 text-emerald-500 group-hover:-translate-x-1 transition-transform" />
             <span className="text-sm font-medium text-white/70">
-              {from === 'history' ? 'Return to History' : 'Return to Hub'}
+              {from === 'history' ? 'Return to History' : 
+               from === 'watchlist' ? 'Return to Watchlist' : 
+               from === 'team' ? 'Return to Team' : 
+               'Return to Hub'}
             </span>
           </Link>
 

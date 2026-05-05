@@ -61,7 +61,8 @@
       "Bash(xargs -I {} echo \"Opening tags: {}\")",
       "Bash(sed -n '142,835p' src/app/\\\\\\(dashboard\\\\\\)/compare/page.tsx)",
       "Bash(awk '{for\\(i=1;i<=length\\($0\\);i++\\){c=substr\\($0,i,1\\);if\\(c==\"\\(\"\\)op++;if\\(c==\"\\)\"\\)cl++;if\\(op!=cl\\)print NR\":\"i\" open=\"op\" close=\"cl}}' /tmp/compare_main.txt)",
-      "Bash(awk 'BEGIN{op=0;cl=0}{for\\(i=1;i<=length\\($0\\);i++\\){c=substr\\($0,i,1\\);if\\(c==\"\\(\"\\)op++;if\\(c==\"\\)\"\\)cl++}}END{print \"Opening:\",op,\"Closing:\",cl,\"Diff:\",op-cl}' /tmp/compare.txt)"
+      "Bash(awk 'BEGIN{op=0;cl=0}{for\\(i=1;i<=length\\($0\\);i++\\){c=substr\\($0,i,1\\);if\\(c==\"\\(\"\\)op++;if\\(c==\"\\)\"\\)cl++}}END{print \"Opening:\",op,\"Closing:\",cl,\"Diff:\",op-cl}' /tmp/compare.txt)",
+      "Bash(grep -h \"Analysis Date:\" .planning/codebase/*.md)"
     ]
   }
 }
