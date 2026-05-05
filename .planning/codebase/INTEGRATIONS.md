@@ -4,105 +4,115 @@
 
 ## APIs & External Services
 
-**Football Data APIs:**
-- Statorium API - Professional football data provider
-  - SDK/Client: Custom client at `src/lib/statorium/client.ts`
-  - Auth: `STATORIUM_API_KEY` environment variable
-  - Endpoints used: Players, teams, matches, standings, transfers, statistics
-  - Cache: 3600 second revalidation via Next.js fetch
-  - Actions: `src/app/actions/statorium.ts`
+**Football Data API:**
+- Statorium API - Primary data source for football statistics
+  - SDK/Client: Custom client (`src/lib/statorium/client.ts`)
+  - Auth: STATORIUM_API_KEY (env var)
+  - Endpoints used: players, teams_stats, standings, matches, transfers, scorers
+  - Base URL: https://api.statorium.com/api/v1
+  - Features: Player search, team statistics, league standings, match data, transfer history
+  - Caching: 3600s revalidation (`next: { revalidate: 3600 }`)
+  - Implementation files: `src/lib/statorium/client.ts`, `src/app/actions/statorium.ts`
 
-**AI Services:**
-- Zhipu AI (GLM models) - Primary AI for chat and job generation
-  - SDK/Client: `@ai-sdk/openai` with custom base URL
-  - Auth: `ZAI_API_KEY`, `ZAI_BASE_URL` environment variables
-  - Models: `glm-4-plus`, `glm-4.7`
-  - Usage: Chatbot in `src/app/api/chat/route.ts`, scout narratives in `src/app/actions/ai.ts`, job generation in `src/app/actions/job-generation.ts`, scouting hints in `src/app/actions/scouting-hints.ts`
+**AI/ML Services:**
+- Zhipu AI (GLM models) - Primary AI provider for chat and analysis
+  - SDK/Client: Vercel AI SDK with OpenAI-compatible adapter
+  - Auth: ZAI_API_KEY (env var)
+  - Base URL: ZAI_BASE_URL (env var)
+  - Model: ZAI_MODEL (env var, default: glm-4.7)
+  - Implementation: `src/app/actions/ai.ts`, `src/app/api/chat/route.ts`
+  - Use cases: Chat assistant, scout narrative generation, scouting hints, job generation
 
-- Anthropic Claude 3.5 Sonnet - Secondary AI for valuation
-  - SDK/Client: `@ai-sdk/anthropic`
-  - Auth: `ANTHROPIC_API_KEY` environment variable (assumed available)
-  - Model: `claude-3-5-sonnet-20241022`
-  - Usage: Transfer valuation in `src/app/api/valuation/route.ts`
+- Anthropic Claude (Claude 3.5 Sonnet) - Secondary AI provider
+  - SDK/Client: @ai-sdk/anthropic, @anthropic-ai/sdk
+  - Auth: ANTHROPIC_API_KEY (env var, if configured)
+  - Model: claude-3-5-sonnet-20241022
+  - Implementation: `src/app/api/valuation/route.ts`
+  - Use cases: Transfer valuation analysis
+
+**Social Media & News:**
+- Twitter/X API (Optional) - Real-time transfer rumors
+  - SDK/Client: Custom fetch-based client
+  - Auth: NEXT_PUBLIC_TWITTER_BEARER_TOKEN (env var, optional)
+  - Base URL: https://api.twitter.com/2
+  - Implementation: `src/lib/twitter-integration.ts`
+  - Features: Fetch tweets from transfer reporters, timeline posts
+  - Accounts tracked: FabrizioRomano, David_Ornstein, TheAthleticFC, SkySportsNews, DiMarzio, and Polish reporters
+
+- RSS Feeds - News aggregation (fallback)
+  - Implementation: `src/lib/rss-feeds.ts`
+  - Reliable sources: Sky Sports, BBC Sport, Goal.com, ESPN FC, Guardian Football
+  - Polish sources: Meczyki.pl, Weszło, Transfery.info, Piłka Nożna (may be blocked)
+  - CORS proxy: NEXT_PUBLIC_CORS_PROXY_URL (optional, defaults to cors-anywhere.herokuapp.com)
 
 **Web Scraping:**
-- Transfermarkt.com - Football market value data
-  - SDK/Client: `axios` with `cheerio` for HTML parsing
-  - Auth: None (public scraping with rate limiting)
-  - Implementation: `src/lib/transfermarkt.ts`
-  - Rate limit: 1 second delay between requests
-
-**Social Media:**
-- Twitter/X API v2 - Transfer news and rumors
-  - SDK/Client: Custom fetch-based client in `src/lib/twitter-integration.ts`
-  - Auth: `NEXT_PUBLIC_TWITTER_BEARER_TOKEN` (optional)
-  - Fallback: RSS feeds if not configured
-  - Usage: Transfer intelligence gathering
-
-**RSS Feeds:**
-- Multiple football portal RSS feeds
-  - Sources: Sky Sports, BBC Sport, Goal.com, ESPN FC, Guardian Football
-  - SDK/Client: Custom XML parser in `src/lib/rss-feeds.ts`
-  - Auth: None (public feeds)
-  - CORS proxy: `NEXT_PUBLIC_CORS_PROXY_URL` (optional, defaults to allorigins.win)
-  - Fallback sources: Meczyki.pl, Weszło, Transfery.info, Piłka Nożna
+- Transfermarkt.com - Market value data
+  - SDK/Client: Custom scraper with axios + cheerio
+  - Implementation: `src/lib/transfermarkt.ts`, `src/app/actions/transfermarkt.ts`
+  - Auth: None (public scraping with User-Agent header)
+  - Rate limiting: 1 second delay between requests
+  - Features: Search players, parse market values (€M/€K formats)
+  - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0
 
 ## Data Storage
 
 **Databases:**
-- Supabase (PostgreSQL) - Primary database and backend
-  - Connection: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-  - Client: `@supabase/supabase-js`, `@supabase/ssr`
+- Supabase (PostgreSQL)
+  - Connection: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY (env vars)
+  - Client: @supabase/supabase-js, @supabase/ssr
   - Implementation: `src/lib/supabase/client.ts` (browser), `src/lib/supabase/server.ts` (server), `src/lib/supabase/middleware.ts`
-  - Features: Real-time updates, Row Level Security (RLS), Authentication
-  - Tables: `profiles`, `watchlist`, `analysis_history`, `jobs`, `cached_players`, `cached_teams`, `user_activities`
-  - Schemas: `src/lib/supabase/schema.sql`, `src/lib/supabase/profiles-schema.sql`, `src/lib/supabase/jobs-schema.sql`, `src/lib/supabase/user-activities-schema.sql`
+  - Tables: watchlist, analysis_history, profiles, transfers, user_activities, jobs, cached_players, cached_teams
+  - Features: Row Level Security (RLS), real-time subscriptions, auth integration
+  - Schema files: `src/lib/supabase/schema.sql`, `src/lib/supabase/profiles-schema.sql`, `src/lib/supabase/jobs-schema.sql`, `src/lib/supabase/user-activities-schema.sql`, `src/lib/supabase/transfers-schema.sql`
+  - Optimization: Indexes on watchlist (user_id, status, created_at), BRIN indexes available
 
 **File Storage:**
-- Supabase Storage - Likely used for avatars and user uploads
-  - Implementation: Through Supabase client
-  - Auth: Same as database connection
+- Supabase Storage - Used for player photos and avatars
+  - Images stored in Supabase buckets
+  - Fallback to external URLs (Statorium API, ui-avatars.com, CDN sources)
 
 **Caching:**
-- Next.js built-in cache - API response caching
-  - Configuration: `next: { revalidate: 3600 }` in fetch calls
-  - Used in: Statorium API client for player/team data
-- Supabase database caching - Cached player and team data
-  - Tables: `cached_players`, `cached_teams`
-  - Implementation: `src/app/actions/statorium.ts` (cache checking logic)
-- Local file system cache - Player data caching
-  - Location: `scratch/cache/player_{id}.json`
-  - Usage: Fallback cache for player details
+- Next.js Data Cache - Built-in fetch caching (3600s for Statorium API)
+- Client-side: React state, Server Actions
+- Database caching: cached_players, cached_teams tables
+- Local file cache: scratch/cache/player_{id}.json (fallback)
+- No external caching layer (Redis, etc.) detected
 
 ## Authentication & Identity
 
 **Auth Provider:**
-- Supabase Auth - User authentication and management
-  - Implementation: Email/password authentication
-  - Files: `src/app/auth/actions.ts`, `src/app/auth/callback/route.ts`
-  - Flow: Login/signup in `src/app/auth/actions.ts`, callback handling in `src/app/auth/callback/`
-  - Features: Email confirmation, session management, profile auto-creation
-  - Row Level Security: Enabled on all user tables
-  - Middleware: `src/middleware.ts` with `src/lib/supabase/middleware.ts` for session persistence
+- Supabase Auth - Custom authentication system
+  - Implementation: Supabase Auth with email/password
+  - Client: @supabase/ssr for server-side auth
+  - Middleware: `src/middleware.ts` with session refresh
+  - Features: Email/password signup/signin, automatic profile creation, session management
+  - Protected routes: All routes under `src/app/(dashboard)/`
+  - RLS policies: Users can only access their own data
+  - Implementation files: `src/app/auth/actions.ts`, `src/app/auth/callback/route.ts`
 
 ## Monitoring & Observability
 
 **Error Tracking:**
-- None detected - No dedicated error tracking service configured
+- None detected (no Sentry, LogRocket, etc.)
 
 **Logs:**
-- Console logging - Standard console.log/error/warn throughout codebase
-  - Pattern: `[StatoriumClient]` prefix for API logs, `[Action]` prefix for actions
-  - Location: API clients, AI actions, data fetching functions
+- Console logging throughout codebase
+- Error handling in API routes with console.error
+- Pattern: [StatoriumClient], [Action] prefixes
+- No centralized logging service detected
 
 ## CI/CD & Deployment
 
 **Hosting:**
-- Vercel (implied) - Next.js default hosting platform
-  - Configuration: No vercel.json detected, using Vercel defaults
+- Vercel (likely, based on Next.js + no Dockerfile)
+- Next.js 15 compatible hosting platform
 
 **CI Pipeline:**
-- None detected - No GitHub Actions or CI configuration found
+- None detected (no GitHub Actions, GitLab CI, etc.)
+
+**Build & Deployment:**
+- npm scripts: dev, dev:turbo, build, start, lint, format, typecheck
+- No automated deployment configuration detected
 
 ## Environment Configuration
 
@@ -112,47 +122,62 @@
 - `STATORIUM_API_KEY` - Statorium API key for football data
 - `ZAI_API_KEY` - Zhipu AI API key
 - `ZAI_BASE_URL` - Zhipu AI base URL
-- `ANTHROPIC_API_KEY` - Anthropic API key (for valuation)
+- `ZAI_MODEL` - Zhipu AI model (default: glm-4.7)
+- `NEXT_PUBLIC_APP_URL` - Application URL for auth callbacks
+- `ANTHROPIC_API_KEY` - Anthropic API key (for valuation endpoint)
 
 **Optional env vars:**
 - `NEXT_PUBLIC_TWITTER_BEARER_TOKEN` - Twitter API bearer token
-- `NEXT_PUBLIC_CORS_PROXY_URL` - CORS proxy URL for RSS feeds
-- `NEXT_PUBLIC_ENABLE_MOCK_DATA` - Enable mock data for development
-- `NEXT_PUBLIC_NEWS_REFRESH_INTERVAL` - News refresh interval in milliseconds
-- `NEXT_PUBLIC_APP_URL` - Application URL for auth callbacks
+- `NEXT_PUBLIC_CORS_PROXY_URL` - CORS proxy for RSS feeds (default: https://cors-anywhere.herokuapp.com/)
+- `NEXT_PUBLIC_ENABLE_MOCK_DATA` - Enable mock data fallback (default: true)
+- `NEXT_PUBLIC_NEWS_REFRESH_INTERVAL` - News refresh interval in ms (default: 600000)
 
 **Secrets location:**
-- `.env.local` - Local development (git-ignored)
-- `.env.example` - Template with documentation
+- Environment variables in .env.local (not committed to git)
+- Example configuration in `.env.example`
+- No secrets in codebase (follows best practices)
 
 ## Webhooks & Callbacks
 
 **Incoming:**
-- Supabase Auth callback - `/auth/callback` endpoint
-  - Purpose: Handle email confirmation redirects
-  - Implementation: `src/app/auth/callback/route.ts`
+- Supabase Auth callback: `/auth/callback/route.ts`
+  - Handles email confirmation redirects
+  - Implements: `src/app/auth/callback/route.ts`
 
 **Outgoing:**
-- None detected - No outgoing webhook configurations found
+- No outgoing webhooks detected
 
-## Third-Party Services
+## Image Domains
 
-**Image Sources:**
-- Statorium API - Player and team photos
-  - Base URL: `https://api.statorium.com/media/bearleague/`
-  - Configuration: Remote patterns in `next.config.mjs`
+**Allowed remote image sources (next.config.mjs):**
+- api.statorium.com - Player and team photos
+- ui-avatars.com - User avatars
+- b.fssta.com - Sports images
+- upload.wikimedia.org - Wikipedia images
+- images.unsplash.com - Stock photos
+- assets.aceternity.com - UI assets
+- cdn.futwiz.com - Football game assets
+- flagcdn.com - Country flags
+- unpkg.com - Package assets
+- tmssl.akamaized.net - Transfermarkt images
 
-- External image domains (configured in Next.js):
-  - `api.statorium.com` - Statorium API images
-  - `ui-avatars.com` - User avatar fallbacks
-  - `b.fssta.com` - Sports images
-  - `upload.wikimedia.org` - Wikipedia images
-  - `images.unsplash.com` - Stock photos
-  - `assets.aceternity.com` - UI assets
-  - `cdn.futwiz.com` - Football game assets (league logos)
-  - `flagcdn.com` - Country flag images
-  - `unpkg.com` - NPM package assets
-  - `tmssl.akamaized.net` - Transfermarkt images
+## Third-Party JavaScript
+
+**CDN Dependencies:**
+- None detected (all dependencies via npm)
+
+## Analytics & Tracking
+
+- None detected (no Google Analytics, Mixpanel, etc.)
+
+## Email Services
+
+- Supabase Auth handles email verification (built-in)
+- No custom email service integration detected
+
+## Payment Processing
+
+- None detected (no Stripe, PayPal, etc.)
 
 ---
 
