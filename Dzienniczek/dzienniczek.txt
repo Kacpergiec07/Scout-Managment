@@ -1,0 +1,14 @@
+Dziennik Roboczy Scout-Managment
+14.04 (Wtorek): Postawiłem fundamenty projektu i wdrożyłem nowoczesny styl glassmorphism. Przygotowałem bazę danych pod system powiadomień oraz asystenta AI.
+16.04 (Czwartek): Skupiłem się na module porównywania zawodników i dodałem pierwsze zdjęcia piłkarzy. Uruchomiłem też zakładkę transferową do śledzenia ruchów na rynku.
+17.04 (Piątek): Zintegrowałem dane ze Statorium API, dając dostęp do realnych statystyk ligowych. Dashboard zaczął w końcu pokazywać konkretne informacje o składach i formacjach.
+20.04 (Poniedziałek): Wprowadziłem jasny motyw aplikacji i dopracowałem system logowania przez Supabase. Dodałem stronę ustawień, gdzie każdy skaut może spersonalizować swój profil.
+21.04 (Wtorek): Poprawiłem wydajność aplikacji, dzięki czemu statystyki i dane o zawodnikach ładują się błyskawicznie. Zrobiłem też generalne porządki w kodzie i dokumentacji.
+23.04 (Czwartek): Naprawiłem błędy przy rejestracji i logowaniu nowych użytkowników. System autoryzacji jest teraz w pełni stabilny i gotowy na większą liczbę skautów.
+24.04 (Piątek): Odświeżyłem strukturę plików projektu, aby ułatwić dodawanie nowych funkcji w przyszłości. Przygotowałem szkielet pod zaawansowane analizy meczowe.
+27.04 (Poniedziałek): Uruchomiłem czatbota AI i poprawiłem wyświetlanie godzin meczów na dashboardzie. Wszystkie terminy spotkań pasują teraz idealnie do naszej strefy czasowej.
+28.04 (Wtorek): To był bardzo pracowity dzień – dodałem statystyki dla ponad 3600 piłkarzy i nową stronę historii. Zoptymalizowałem też moduł transferów i porównywarkę.
+30.04 (Czwartek): Wdrożyłem portal z ofertami pracy dla skautów i system negocjacji z AI. Aplikacja pozwala teraz poczuć się jak profesjonalista na kontrakcie w dużym klubie.
+01.05 (Piątek): Skupiłem się na stabilności serwera i sprawdzaniu, czy nowe oferty pracy generują się poprawnie. Mimo święta, pilnowałem, aby system działał bez zarzutu.
+04.05 (Poniedziałek): Dokończyłem zaawansowane porównywanie graczy i system elitarnych zleceń. Dashboard jest już w pełni funkcjonalny i prezentuje się wyjątkowo elegancko.
+05.05 (Wtorek): Dzisiaj robię ostatnie szlify i weryfikuję, czy wszystkie moduły współpracują ze sobą zgodnie z planem. Projekt jest już na bardzo zaawansowanym etapie!
