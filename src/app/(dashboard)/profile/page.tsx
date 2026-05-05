@@ -12,7 +12,7 @@ import Link from 'next/link'
 import { getProfileData } from '@/app/actions/profile'
 import { fixUserProfile } from '@/app/actions/fix-profile'
 import { getRecentJobs } from '@/app/actions/job-generation'
-import { getFollowingPlayersCount } from '@/app/actions/watchlist'
+import { getFollowingPlayersCount, getAllPlayersCount } from '@/app/actions/watchlist'
 import { getCombinedRecentActivities } from '@/app/actions/user-activities'
 
 interface UserProfile {
@@ -27,7 +27,6 @@ interface UserProfile {
   // Dynamic statistics from database
   players_watched_count: number
   active_scouting_count: number
-  reports_created_count: number
   years_experience: number
 }
 
@@ -58,6 +57,7 @@ export default function ProfilePage() {
   const [stats, setStats] = useState<WatchlistStats>({
     players_watched_count: 0
   })
+  const [totalPlayersWatched, setTotalPlayersWatched] = useState(0)
   const [recentActivities, setRecentActivities] = useState<CombinedActivity[]>([])
 
   const loadProfileData = async (autoFix = true) => {
@@ -87,6 +87,14 @@ export default function ProfilePage() {
         })
       } catch (error) {
         console.error('Failed to load watchlist statistics:', error)
+      }
+
+      // Load total players watched (watchlist + history)
+      try {
+        const totalPlayers = await getAllPlayersCount()
+        setTotalPlayersWatched(totalPlayers)
+      } catch (error) {
+        console.error('Failed to load total players watched:', error)
       }
 
       // Load recent activities (watchlist changes, scout jobs, etc.)
@@ -152,9 +160,9 @@ export default function ProfilePage() {
   }
 
   const dynamicStats = [
-    { label: 'Active Scouting', value: String(stats?.players_watched_count || 0), icon: Target, color: 'text-secondary' },
-    { label: 'Years Experience', value: String(user?.years_experience || 0), icon: Award, color: 'text-purple-500' },
-    { label: 'Reports Created', value: String(user?.reports_created_count || 0), icon: Trophy, color: 'text-blue-500' },
+    { label: 'Players Watched', value: String(totalPlayersWatched), icon: Target, color: 'text-secondary' },
+    { label: 'Active Scouting', value: String(stats?.players_watched_count || 0), icon: Award, color: 'text-purple-500' },
+    { label: 'Years Experience', value: String(user?.years_experience || 0), icon: Trophy, color: 'text-blue-500' },
     { label: 'Active Jobs', value: String(recentActivities.filter(a => a.type === 'scout_job').length), icon: Briefcase, color: 'text-orange-500' },
   ]
 

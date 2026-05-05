@@ -332,3 +332,39 @@ export async function getFollowingPlayersCount() {
     return 0
   }
 }
+
+export async function getAllPlayersCount() {
+  console.log('getAllPlayersCount: Counting all players in watchlist for user...')
+
+  try {
+    const supabase = await createClient()
+    const {
+      data: { user },
+      error: userError
+    } = await supabase.auth.getUser()
+
+    if (userError || !user) {
+      console.error('getAllPlayersCount: User not authenticated')
+      return 0
+    }
+
+    console.log('getAllPlayersCount: User authenticated, counting all players in watchlist...', user.id)
+
+    // Count all players in watchlist for this user
+    const { count, error } = await supabase
+      .from('watchlist')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', user.id)
+
+    if (error) {
+      console.error('getAllPlayersCount: Database error:', error)
+      return 0
+    }
+
+    console.log('getAllPlayersCount: Total players in watchlist:', count || 0)
+    return count || 0
+  } catch (error) {
+    console.error('getAllPlayersCount: Unexpected error:', error)
+    return 0
+  }
+}

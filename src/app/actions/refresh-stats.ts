@@ -47,21 +47,9 @@ export async function refreshUserStats() {
       return { error: 'Failed to count active scouting' }
     }
 
-    // Count analysis history
-    const { count: reportsCreated, error: reportsError } = await supabase
-      .from('analysis_history')
-      .select('*', { count: 'exact', head: true })
-      .eq('user_id', user.id)
-
-    if (reportsError) {
-      console.error('refreshUserStats: Reports count error:', reportsError)
-      return { error: 'Failed to count analysis history' }
-    }
-
     console.log('refreshUserStats: Counts fetched:', {
       playersWatched,
-      activeScouting,
-      reportsCreated
+      activeScouting
     })
 
     // Update profile with new counts
@@ -69,8 +57,7 @@ export async function refreshUserStats() {
       .from('profiles')
       .update({
         players_watched_count: playersWatched || 0,
-        active_scouting_count: activeScouting || 0,
-        reports_created_count: reportsCreated || 0
+        active_scouting_count: activeScouting || 0
       })
       .eq('id', user.id)
 
@@ -89,8 +76,7 @@ export async function refreshUserStats() {
       success: true,
       data: {
         players_watched_count: playersWatched || 0,
-        active_scouting_count: activeScouting || 0,
-        reports_created_count: reportsCreated || 0
+        active_scouting_count: activeScouting || 0
       }
     }
   } catch (error) {

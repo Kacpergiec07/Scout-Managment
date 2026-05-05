@@ -110,7 +110,6 @@ export async function fixUserProfile() {
         years_experience: 0,
         players_watched_count: 0,
         active_scouting_count: 0,
-        reports_created_count: 0,
 
         // Preferences
         notification_preferences: {
@@ -193,9 +192,6 @@ export async function fixUserProfile() {
       if (profile.active_scouting_count === undefined) {
         updates.active_scouting_count = 0
       }
-      if (profile.reports_created_count === undefined) {
-        updates.reports_created_count = 0
-      }
 
       // Apply updates if needed
       if (Object.keys(updates).length > 0) {
@@ -227,15 +223,9 @@ export async function fixUserProfile() {
         .eq('user_id', user.id)
         .in('status', ['following', 'priority', 'analyzing'])
 
-      const { count: totalReports } = await supabase
-        .from('analysis_history')
-        .select('*', { count: 'exact', head: true })
-        .eq('user_id', user.id)
-
       const statsUpdate = {
         players_watched_count: totalWatched || 0,
-        active_scouting_count: activeScouting || 0,
-        reports_created_count: totalReports || 0
+        active_scouting_count: activeScouting || 0
       }
 
       console.log('fixUserProfile: Updating statistics:', statsUpdate)

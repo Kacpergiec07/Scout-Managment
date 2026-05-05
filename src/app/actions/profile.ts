@@ -161,7 +161,6 @@ export async function getProfileData() {
             years_experience: 0,
             players_watched_count: 0,
             active_scouting_count: 0,
-            reports_created_count: 0,
             assigned_region: 'Global',
             role: 'Scout',
             bio: null,
@@ -210,21 +209,12 @@ export async function getProfileData() {
 
     console.log('getProfileData: Active scouting count:', activeScouting)
 
-    // Count analysis history (reports)
-    const { count: totalReports } = await supabase
-      .from('analysis_history')
-      .select('*', { count: 'exact', head: true })
-      .eq('user_id', user.id)
-
-    console.log('getProfileData: Total reports created:', totalReports)
-
     console.log('getProfileData: Profile data fetched successfully:', profile)
     return {
       ...profile,
       email: user.email,
       players_watched_count: totalWatched || 0,
-      active_scouting_count: activeScouting || 0,
-      reports_created_count: totalReports || 0
+      active_scouting_count: activeScouting || 0
     }
   } catch (error) {
     console.error('getProfileData: Unexpected error:', error)

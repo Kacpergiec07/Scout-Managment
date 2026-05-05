@@ -25,7 +25,6 @@ async function createProfile(userId: string, email: string) {
         years_experience: 0,
         players_watched_count: 0,
         active_scouting_count: 0,
-        reports_created_count: 0,
         assigned_region: 'Global',
         role: 'Scout',
         bio: null,
