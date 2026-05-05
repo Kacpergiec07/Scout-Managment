@@ -166,13 +166,8 @@ export async function getStandingsAction(seasonId: string) {
     console.log(`[Action] getStandingsAction for ${seasonId}: found ${standings?.length || 0} teams`);
 
     if (standings && standings.length > 0) {
-      // Fetch all matches for this season to calculate real-time form
-      let allMatches: any[] = [];
-      try {
-        allMatches = await client.getMatches(seasonId);
-      } catch (e) {
-        console.warn('Could not fetch matches for form calculation');
-      }
+      // Fetch all matches for this season to calculate real-time form (reusing cached action)
+      const allMatches = await getMatchesAction(seasonId);
 
       const processedStandings = standings.map((s: any) => {
         let stats: any = {};
@@ -368,9 +363,8 @@ export async function getClubProfileDataAction(teamId: string, seasonId?: string
     let finalSeasonId = seasonId;
     if (!finalSeasonId) {
        for (const league of TOP_LEAGUES) {
-          const client = getStatoriumClient();
           try {
-             const standings = await client.getStandings(league.id);
+             const standings = await getStandingsAction(league.id);
              if (standings.find((s: any) => s.teamID?.toString() === teamId)) {
                 finalSeasonId = league.id;
                 break;
@@ -595,16 +589,37 @@ export async function getTeamDetailsAction(teamId: string, seasonId?: string) {
 
     players = sortedPlayers;
 
-    // Fetch full player data including stats for all players in parallel
-    // We do this to ensure "correct statistics" as requested, since squad API often lacks them
+    // Fetch full player data including stats for all players in batch from Supabase first
+    // This is much faster than individual calls
+    const playerIds = players.map(p => p.playerID.toString());
+    const { data: cachedPlayersStats } = await supabase
+      .from('cached_players')
+      .select('id, stats, photo_url, position, birthdate')
+      .in('id', playerIds);
+
+    const statsMap = new Map(cachedPlayersStats?.map(p => [p.id, p]) || []);
+
+    // Enrich players using batch data or fallback to individual API calls only if missing
     const enrichedPlayers = await Promise.all(
       players.map(async (p: any) => {
         try {
-          // If player already has stats, skip fetching
-          if (p.stat && p.stat.length > 0) return p;
+          const pid = p.playerID.toString();
           
-          // Fetch detailed data which includes stats
-          const details = await getPlayerDetailsAction(p.playerID.toString());
+          // 1. Check if we already have it in the batch from Supabase
+          const cached = statsMap.get(pid);
+          if (cached && cached.stats && Object.keys(cached.stats).length > 0) {
+            return {
+              ...p,
+              stat: cached.stats,
+              playerPhoto: cached.photo_url || p.playerPhoto,
+              position: cached.position || p.position,
+              additionalInfo: { ...p.additionalInfo, birthdate: cached.birthdate }
+            };
+          }
+
+          // 2. If not in Supabase, then and ONLY then check API (getPlayerDetailsAction handles this + individual caching)
+          // To prevent overwhelming the API, we could limit this, but let's trust the internal cache for now
+          const details = await getPlayerDetailsAction(pid);
           if (details) {
             return {
               ...p,
@@ -767,15 +782,21 @@ export async function getPlayerPhotosAction(
 }
 
 export async function getMatchesAction(seasonId: string) {
+  const cacheKey = `matches_${seasonId}`;
+  const cached = getCached<any[]>(cacheKey);
+  if (cached) return cached;
+
   try {
     const client = getStatoriumClient();
     const matches = await client.getMatches(seasonId);
 
     if (matches && matches.length > 0) {
-      return matches.map((m: any) => {
+      const processed = matches.map((m: any) => {
         const { date, time } = formatToWarsaw(m.matchDate || m.match_date, m.matchTime || m.match_time);
         return { ...m, matchDate: date, matchTime: time };
       });
+      setCache(cacheKey, processed);
+      return processed;
     }
     return [];
   } catch (error) {
@@ -790,8 +811,7 @@ export async function getUpcomingMatchesAction(seasonId: string, limit: number =
   if (cached) return cached;
 
   try {
-    const client = getStatoriumClient();
-    const allMatches = await client.getMatches(seasonId);
+    const allMatches = await getMatchesAction(seasonId);
 
     if (!allMatches || allMatches.length === 0) return [];
 

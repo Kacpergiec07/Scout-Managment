@@ -46,27 +46,5 @@ const LEAGUE_CONFIGS = [
 ]
 
 export default async function DashboardPage() {
-  // Fetch standings for all leagues on the server in parallel
-  // Server-side fetching is generally faster and eliminates client-side hydration "flashes"
-  const leaguesData = await Promise.all(
-    LEAGUE_CONFIGS.map(async (config) => {
-      const standings = await getStandingsAction(config.id)
-      let topClubs = standings || []
-
-      // Custom sorting for Real Madrid in La Liga
-      if (config.name === 'LA LIGA') {
-        topClubs = [...topClubs].sort((a: any, b: any) => {
-          const aIsRealContext = a.teamName?.toLowerCase().includes('real madrid');
-          const bIsRealContext = b.teamName?.toLowerCase().includes('real madrid');
-          if (aIsRealContext) return -1;
-          if (bIsRealContext) return 1;
-          return 0;
-        });
-      }
-
-      return { ...config, clubs: topClubs }
-    })
-  )
-
-  return <DashboardClient initialLeagues={leaguesData} />
+  return <DashboardClient />
 }

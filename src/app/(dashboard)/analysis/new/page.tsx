@@ -116,7 +116,8 @@ export default function NewAnalysisPage() {
       club: formData.club,
       photo: formData.photoUrl,
       nation: formData.nationality,
-      league: formData.league
+      league: formData.league,
+      from: 'dashboard'
     })
     router.push(`/analysis?${params.toString()}`)
   }

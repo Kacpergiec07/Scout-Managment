@@ -626,6 +626,7 @@ export default function WatchlistPage() {
     params.set('nation', player.nation || 'Unknown')
     params.set('pos', player.position || 'Unknown Position')
     params.set('photo', player.playerPhoto || '')
+    params.set('from', 'watchlist')
 
     router.push(`/analysis?${params.toString()}`)
   }
@@ -704,11 +705,12 @@ export default function WatchlistPage() {
                           : "border-border bg-accent/20 hover:border-foreground/20"
                       }`}
                     >
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-zinc-950/80 p-1">
-                        <img
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-zinc-950/80 p-1 relative overflow-hidden">
+                        <Image
                           src={LEAGUE_LOGOS[name]}
                           alt={name}
-                          className="h-full w-full object-contain"
+                          fill
+                          className="object-contain p-1"
                         />
                       </div>
                       <span className="text-xs font-black tracking-wider text-foreground uppercase transition-colors">
@@ -755,11 +757,12 @@ export default function WatchlistPage() {
                             }}
                             className="flex w-full items-center gap-3 px-4 py-3 transition-colors hover:bg-accent/40 first:rounded-t-2xl last:rounded-b-2xl"
                           >
-                            <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-zinc-950/80 p-1">
-                              <img
+                            <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-zinc-950/80 p-1 relative overflow-hidden">
+                              <Image
                                 src={club.logo}
                                 alt={club.name}
-                                className="h-full w-full object-contain"
+                                fill
+                                className="object-contain p-1"
                               />
                             </div>
                             <span className="text-xs font-black tracking-wider text-foreground uppercase">
@@ -906,10 +909,11 @@ export default function WatchlistPage() {
                     >
                       <div className="flex items-center gap-4">
                         <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-zinc-950/20">
-                          <img
+                          <Image
                             src={player.playerPhoto}
                             alt={player.fullName}
-                            className="h-full w-full object-cover"
+                            fill
+                            className="object-cover"
                           />
                         </div>
                         <div className="min-w-0 flex-1">
@@ -1057,11 +1061,12 @@ export default function WatchlistPage() {
                               className="group flex items-center justify-between rounded-2xl border border-border bg-card p-5 transition-all"
                             >
                               <div className="flex items-center gap-5">
-                                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-zinc-950 p-2">
-                                  <img
+                                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-zinc-950 p-2 relative overflow-hidden">
+                                  <Image
                                     src={LEAGUE_LOGOS[name]}
                                     alt={name}
-                                    className="h-full w-full object-contain"
+                                    fill
+                                    className="object-contain p-2"
                                   />
                                 </div>
                                 <span className="text-lg font-black tracking-wider text-foreground uppercase transition-colors group-hover:text-primary">
@@ -1083,11 +1088,12 @@ export default function WatchlistPage() {
                             className="group flex items-center justify-between rounded-2xl border border-l-2 border-border border-l-transparent bg-card p-4 transition-all"
                           >
                             <div className="flex items-center gap-5">
-                              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-zinc-950/80 p-2 dark:bg-black/40">
-                                <img
+                              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-zinc-950/80 p-2 dark:bg-black/40 relative overflow-hidden">
+                                <Image
                                   src={club.logo}
                                   alt={club.name}
-                                  className="h-full w-full object-contain"
+                                  fill
+                                  className="object-contain p-2"
                                 />
                               </div>
                               <div className="text-left">
@@ -1117,10 +1123,11 @@ export default function WatchlistPage() {
                           >
                             <div className="flex items-center gap-5">
                               <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/20 p-2 dark:bg-black/60">
-                                <img
+                                <Image
                                   src={player.photoUrl}
                                   alt={player.name}
-                                  className="relative z-10 h-full w-full object-cover"
+                                  fill
+                                  className="relative z-10 object-cover"
                                 />
                                 <div className="absolute inset-0 -z-0 flex items-center justify-center text-center text-[10px] leading-none font-black whitespace-pre-wrap text-foreground/20 uppercase">
                                   {player.name
