@@ -226,6 +226,46 @@ export default function TransferIntelligencePage() {
     }
   };
 
+  const getClubLogo = (teamName: string, teamId: string, providedLogo?: string) => {
+    if (providedLogo && providedLogo !== "" && !providedLogo.includes('undefined')) return providedLogo;
+    if (teamId && teamId !== "undefined") {
+      return `https://api.statorium.com/media/bearleague/ct${teamId}.png`;
+    }
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(teamName)}&background=004170&color=fff`;
+  };
+
+  const getFlag = (teamName: string) => {
+    if (!teamName) return "un";
+    const name = teamName.toLowerCase();
+    
+    if (name.includes('chelsea') || name.includes('arsenal') || name.includes('manchester') || 
+        name.includes('tottenham') || name.includes('liverpool') || name.includes('villa') || 
+        name.includes('everton') || name.includes('palace') || name.includes('bournemouth') ||
+        name.includes('forest') || name.includes('wolves') || name.includes('leeds') ||
+        name.includes('brighton') || name.includes('newcastle') || name.includes('west ham')) return "gb-eng";
+        
+    if (name.includes('madrid') || name.includes('barcelona') || name.includes('girona') || 
+        name.includes('sevilla') || name.includes('sociedad') || name.includes('villareal') ||
+        name.includes('valencia') || name.includes('bilbao') || name.includes('betis') ||
+        name.includes('celta')) return "es";
+        
+    if (name.includes('juventus') || name.includes('milan') || name.includes('inter') || 
+        name.includes('roma') || name.includes('lazio') || name.includes('napoli') ||
+        name.includes('atalanta') || name.includes('bologna') || name.includes('fiorentina')) return "it";
+        
+    if (name.includes('bayern') || name.includes('dortmund') || name.includes('leipzig') || 
+        name.includes('leverkusen') || name.includes('stuttgart') || name.includes('frankfurt') ||
+        name.includes('gladbach')) return "de";
+        
+    if (name.includes('psg') || name.includes('lille') || name.includes('monaco') || 
+        name.includes('marseille') || name.includes('lyon') || name.includes('lens') ||
+        name.includes('nice') || name.includes('rennes')) return "fr";
+
+    if (name.includes('benfica') || name.includes('porto') || name.includes('sporting')) return "pt";
+
+    return "un";
+  };
+
   const handleAddRealTransfer = async () => {
     // This is now handled automatically by handlePlayerChange but kept as fallback/trigger
   };
@@ -446,8 +486,11 @@ export default function TransferIntelligencePage() {
                  <div className="relative z-10 flex items-center gap-6 p-4 bg-accent border border-border rounded-full backdrop-blur-md">
                     <div className="w-14 h-14 rounded-full bg-background border border-border p-2 shadow-2xl group overflow-hidden">
                        <img 
-                         src={focusedTransfer.fromTeamLogo || "/globe.svg"} 
+                         src={getClubLogo(focusedTransfer.fromTeamName, focusedTransfer.fromTeamID, focusedTransfer.fromTeamLogo)} 
                          className="w-full h-full object-contain group-hover:scale-110 transition-transform" 
+                         onError={(e) => {
+                           (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(focusedTransfer.fromTeamName)}&background=random&color=fff`;
+                         }}
                        />
                     </div>
                     <div className="flex flex-col items-center gap-1">
@@ -456,8 +499,11 @@ export default function TransferIntelligencePage() {
                     </div>
                     <div className="w-14 h-14 rounded-full bg-background border border-border p-2 shadow-2xl group overflow-hidden border-primary/30">
                        <img 
-                         src={focusedTransfer.toTeamLogo || "/globe.svg"} 
+                         src={getClubLogo(focusedTransfer.toTeamName, focusedTransfer.toTeamID, focusedTransfer.toTeamLogo)} 
                          className="w-full h-full object-contain group-hover:scale-110 transition-transform" 
+                         onError={(e) => {
+                           (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(focusedTransfer.toTeamName)}&background=random&color=fff`;
+                         }}
                        />
                     </div>
                  </div>
@@ -764,7 +810,13 @@ export default function TransferIntelligencePage() {
                   {leagueTeams.map(team => (
                     <SelectItem key={team.teamID} value={team.teamID} className="focus:bg-[#00ff88]/20 focus:text-[#00ff88] font-bold">
                       <div className="flex items-center gap-2">
-                        {team.teamLogo && <img src={team.teamLogo} className="w-5 h-5 object-contain" />}
+                        <img 
+                          src={getClubLogo(team.teamName, team.teamID, team.teamLogo)} 
+                          className="w-5 h-5 object-contain" 
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(team.teamName)}&background=random&color=fff`;
+                          }}
+                        />
                         <span className="font-bold">{team.teamName}</span>
                       </div>
                     </SelectItem>

@@ -1109,7 +1109,10 @@ export async function getPlayerDetailsAction(playerId: string) {
             position: resolvePosition(playerData.position || playerData.additionalInfo?.position, playerId),
             photo: resolvePlayerPhoto(playerData),
             stat: playerData.stat || [],
-            additionalInfo: playerData.additionalInfo || {}
+            additionalInfo: playerData.additionalInfo || {},
+            matches: playerData.matches || [],
+            currentTeam: playerData.currentTeam || null,
+            teamName: playerData.teamName
           };
         }
       } catch (e) {
@@ -1526,6 +1529,128 @@ export async function getLeagueHubDataAction(seasonId: string) {
   } catch (error) {
     console.error(`[Action] getLeagueHubDataAction error for ${seasonId}:`, error);
     return { standings: [], fixtures: [] };
+  }
+}
+
+export async function getPlayerLatestTransferAction(playerId: string, toTeamId?: string, toTeamName?: string, toTeamLogo?: string) {
+  if (!playerId) return null;
+  try {
+    const details = await getPlayerDetailsAction(playerId);
+    if (!details) return null;
+
+    // Hardcoded known origin transfers for specific high-profile players
+    const KNOWN_ORIGINS: Record<string, {name: string, id: string, logo?: string}> = {
+      "6466": { name: "Borussia Dortmund", id: "42", logo: "https://api.statorium.com/media/bearleague/bl17567958801272.png" }, // Jude Bellingham
+      "31452": { name: "Bologna", id: "110", logo: "https://api.statorium.com/media/bearleague/bl15615609651639.webp" }, // Riccardo Calafiori
+      "3333": { name: "SSC Napoli", id: "103", logo: "https://api.statorium.com/media/bearleague/bl17567960472242.png" }, // Piotr Zielinski
+      "12649": { name: "Manchester City", id: "4", logo: "https://api.statorium.com/media/bearleague/bl17163013892015.webp" }, // Julian Alvarez
+      "443": { name: "Bournemouth", id: "16", logo: "https://api.statorium.com/media/bearleague/bl17163014161741.webp" }, // Dominic Solanke
+      "40248": { name: "Lille OSC", id: "67", logo: "https://api.statorium.com/media/bearleague/bl15633045231782.webp" }, // Leny Yoro
+      "3023": { name: "Wolverhampton", id: "14", logo: "https://api.statorium.com/media/bearleague/bl17163013622417.webp" }, // Pedro Neto
+      "4725": { name: "RB Leipzig", id: "44", logo: "https://api.statorium.com/media/bearleague/bl1558967918349.webp" }, // Dani Olmo
+      "6123": { name: "Crystal Palace", id: "15", logo: "https://api.statorium.com/media/bearleague/bl17163013441991.webp" }, // Michael Olise
+      "45141": { name: "Palmeiras", id: "0", logo: "" }, // Endrick
+      "5249": { name: "Sporting CP", id: "0", logo: "https://api.statorium.com/media/bearleague/bl1565267104271.webp" }, // Bruno Fernandes
+      "329": { name: "FC Bayern München", id: "42", logo: "https://api.statorium.com/media/bearleague/bl15615602791426.webp" }, // Robert Lewandowski
+      "176": { name: "Tottenham Hotspur", id: "2", logo: "https://api.statorium.com/media/bearleague/bl17163014022204.webp" }, // Harry Kane
+      "131": { name: "Benfica", id: "131", logo: "https://api.statorium.com/media/bearleague/bl15652672322695.webp" }, // Joao Neves origin
+      "66": { name: "Paris Saint-Germain", id: "66", logo: "https://api.statorium.com/media/bearleague/bl17023015741660.webp" }, // Mbappe origin
+      "40": { name: "RB Leipzig", id: "40", logo: "https://api.statorium.com/media/bearleague/bl1558967918349.webp" }, // Olmo origin
+      "16498": { name: "Girona FC", id: "130", logo: "https://api.statorium.com/media/bearleague/bl15659800772714.webp" }, // Savinho
+      "762": { name: "Aston Villa", id: "112", logo: "https://api.statorium.com/media/bearleague/bl17163013281261.webp" }, // Douglas Luiz
+      "2303": { name: "OGC Nice", id: "69", logo: "https://api.statorium.com/media/bearleague/bl15633038622728.webp" }, // Khephren Thuram
+      "569": { name: "Atlético Madrid", id: "38", logo: "https://api.statorium.com/media/bearleague/bl17567959511054.webp" }, // Morata
+      "5815": { name: "RB Salzburg", id: "0", logo: "https://api.statorium.com/media/bearleague/bl15673298371414.webp" }, // Pavlovic
+      "17357": { name: "Girona FC", id: "130", logo: "https://api.statorium.com/media/bearleague/bl15659800772714.webp" }, // Dovbyk
+    };
+
+    let fromTeamName = "Unknown Club";
+    let fromTeamId = "0";
+    let fromTeamLogo = "";
+
+    if (KNOWN_ORIGINS[playerId]) {
+      fromTeamName = KNOWN_ORIGINS[playerId].name;
+      fromTeamId = KNOWN_ORIGINS[playerId].id;
+      fromTeamLogo = KNOWN_ORIGINS[playerId].logo || "";
+    } else if (details.currentTeam?.name && details.currentTeam?.id !== 0) {
+      fromTeamName = details.currentTeam.name;
+      fromTeamId = details.currentTeam.id?.toString() || "0";
+    } else if (details.matches && details.matches.length > 0) {
+      // Automatic Discovery: Scan match history to find the most recent club 
+      // that is NOT the destination club (toTeamId)
+      for (const match of details.matches) {
+        const homeId = match.homeParticipant?.participantID?.toString();
+        const awayId = match.awayParticipant?.participantID?.toString();
+        
+        // We assume the player played for one of these teams
+        // Usually, the API returns match data where the player participated
+        let foundId = "";
+        let foundName = "";
+        let foundLogo = "";
+
+        // Check if player was in home or away team based on match data
+        // Heuristic: If they have minutes_played, they definitely played for one.
+        // We look for a team that is NOT the toTeamId
+        if (homeId && homeId !== toTeamId) {
+          foundId = homeId;
+          foundName = match.homeParticipant.participantName;
+          foundLogo = match.homeParticipant.logo;
+        } else if (awayId && awayId !== toTeamId) {
+          foundId = awayId;
+          foundName = match.awayParticipant.participantName;
+          foundLogo = match.awayParticipant.logo;
+        }
+
+        if (foundId) {
+          fromTeamId = foundId;
+          fromTeamName = foundName;
+          fromTeamLogo = foundLogo;
+          break; // Found the most recent different club
+        }
+      }
+    }
+
+    // If still not found, fallback to age-based heuristic
+    if (fromTeamName === "Unknown Club" || fromTeamName === "Unknown") {
+      const birthdateStr = details.additionalInfo?.birthdate || "";
+      const ageMatch = birthdateStr.match(/\((\d+)\)/);
+      const age = ageMatch ? parseInt(ageMatch[1]) : 25;
+      
+      if (age <= 21) {
+         fromTeamName = "Unknown Origin"; 
+      }
+    }
+
+    // Ensure we have a logo for fromTeam if we found an ID but no logo
+    if (fromTeamId && fromTeamId !== "0" && !fromTeamLogo) {
+      try {
+        const fromTeamDetails = await getTeamDetailsAction(fromTeamId);
+        if (fromTeamDetails) {
+          fromTeamLogo = fromTeamDetails.teamLogo || fromTeamDetails.logo || "";
+        }
+      } catch(e) {}
+    }
+
+    return {
+      id: `new_${Date.now()}_${playerId}`,
+      playerName: details.fullName || details.playerName || `${details.firstName} ${details.lastName}`,
+      playerID: playerId,
+      fromTeamID: fromTeamId,
+      fromTeamName: fromTeamName,
+      fromTeamLogo: fromTeamLogo,
+      toTeamID: toTeamId || "0",
+      toTeamName: toTeamName || "Unknown Destination",
+      toTeamLogo: toTeamLogo || "",
+      fee: "€" + (Math.floor(Math.random() * 50) + 10) + "M",
+      color: "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0'),
+      marketValue: "€" + (Math.floor(Math.random() * 80) + 5) + "M",
+      photoUrl: resolvePlayerPhoto(details) || `https://ui-avatars.com/api/?name=${encodeURIComponent(details.fullName || details.playerName || "UN")}&background=111&color=fff`,
+      position: resolvePosition(details.position || details.additionalInfo?.position, playerId),
+      nationality: details.country?.name || "Unknown"
+    };
+  } catch (e) {
+    console.error("Error creating new transfer:", e);
+    return null;
   }
 }
 

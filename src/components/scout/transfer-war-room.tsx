@@ -26,7 +26,8 @@ import {
   ChevronLeft,
   X,
   Eye,
-  Trash2
+  Trash2,
+  Flag
 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -38,6 +39,8 @@ import { VERIFIED_TRANSFERS as OFFICIAL_TRANSFERS, LEAGUES } from '@/lib/statori
 import { Dialog, DialogContent, DialogTitle, DialogHeader } from "@/components/ui/dialog"
 import { TransferDetailsModal } from "./transfer-details-modal"
 import { searchPlayersAction, getPlayerLatestTransferAction, getStandingsAction, getPlayersByClubAction } from '@/app/actions/statorium'
+import { addToWatchlist, getWatchlist } from '@/app/actions/watchlist'
+import { addTransferAction, getTransfersAction, deleteTransferAction } from '@/app/actions/transfers'
 
 const TEAM_TO_LEAGUE: Record<string, string> = {
   // Premier League
@@ -60,13 +63,13 @@ const TEAM_TO_LEAGUE: Record<string, string> = {
 
   // Serie A
   "105": "Serie A", // Juventus
-  "41": "Serie A", // Atalanta
+  "106": "Serie A", // Atalanta
   "96": "Serie A", // AC Milan
-  "93": "Serie A", // Bologna
+  "110": "Serie A", // Bologna
 
   // Bundesliga
   "47": "Bundesliga", // Bayern Munich
-  "166": "Bundesliga", // RB Leipzig
+  "45": "Bundesliga", // RB Leipzig
 
   // Ligue 1
   "66": "Ligue 1", // PSG
@@ -96,6 +99,7 @@ export function TransferWarRoom({ transfers: initialTransfers = OFFICIAL_TRANSFE
   const [modalClubs, setModalClubs] = useState<any[]>([])
   const [modalPlayers, setModalPlayers] = useState<any[]>([])
   const [modalLoading, setModalLoading] = useState(false)
+  const [watchlistStatus, setWatchlistStatus] = useState<Record<string, boolean>>({})
 
   // Fetch clubs when league is selected
   useEffect(() => {
@@ -121,7 +125,7 @@ export function TransferWarRoom({ transfers: initialTransfers = OFFICIAL_TRANSFE
       async function loadPlayers() {
         setModalLoading(true)
         try {
-          const data = await getPlayersByClubAction(selectedClub.teamID)
+          const data = await getPlayersByClubAction(selectedClub.teamID, undefined, true)
           setModalPlayers(data || [])
         } catch (e) {
           console.error(e)
@@ -132,6 +136,51 @@ export function TransferWarRoom({ transfers: initialTransfers = OFFICIAL_TRANSFE
       loadPlayers()
     }
   }, [addStep, selectedClub])
+
+  // Fetch transfers and watchlist status
+  useEffect(() => {
+    async function loadData() {
+      try {
+        // Load Watchlist
+        const watchlist = await getWatchlist()
+        const statusMap: Record<string, boolean> = {}
+        watchlist.forEach((p: any) => {
+          if (p.player_id) {
+            statusMap[String(p.player_id)] = true
+          }
+        })
+        setWatchlistStatus(statusMap)
+
+        // Load User Transfers from DB
+        const userTransfers = await getTransfersAction()
+        if (userTransfers && userTransfers.length > 0) {
+          // Format DB records to match UI expectation
+          const formatted = userTransfers.map((t: any) => ({
+            id: t.id,
+            playerID: t.player_id,
+            playerName: t.player_name,
+            fromTeamName: t.from_team_name,
+            fromTeamID: t.from_team_id,
+            fromTeamLogo: t.from_team_logo,
+            toTeamName: t.to_team_name,
+            toTeamID: t.to_team_id,
+            toTeamLogo: t.to_team_logo,
+            fee: t.fee,
+            marketValue: t.market_value,
+            photoUrl: t.photo_url,
+            position: t.position,
+            nationality: t.nationality,
+            isUserAdded: true
+          }))
+          
+          setTransfers([...initialTransfers, ...formatted])
+        }
+      } catch (e) {
+        console.error('Failed to load data:', e)
+      }
+    }
+    loadData()
+  }, [])
 
   // Filter States (UI)
   const [selectedLeagues, setSelectedLeagues] = useState<string[]>([])
@@ -197,7 +246,7 @@ export function TransferWarRoom({ transfers: initialTransfers = OFFICIAL_TRANSFE
   }, [transfers, appliedFilters, search])
 
   const getFlag = (teamName: string) => {
-    if (!teamName) return "🏳️";
+    if (!teamName) return "un";
     const name = teamName.toLowerCase();
     
     // Country mappings for clubs
@@ -205,36 +254,63 @@ export function TransferWarRoom({ transfers: initialTransfers = OFFICIAL_TRANSFE
         name.includes('tottenham') || name.includes('liverpool') || name.includes('villa') || 
         name.includes('everton') || name.includes('palace') || name.includes('bournemouth') ||
         name.includes('forest') || name.includes('wolves') || name.includes('leeds') ||
-        name.includes('brighton') || name.includes('newcastle') || name.includes('west ham')) return "🏴󠁧󠁢󠁥󠁮󠁧󠁿";
+        name.includes('brighton') || name.includes('newcastle') || name.includes('west ham')) return "gb-eng";
         
     if (name.includes('madrid') || name.includes('barcelona') || name.includes('girona') || 
         name.includes('sevilla') || name.includes('sociedad') || name.includes('villareal') ||
         name.includes('valencia') || name.includes('bilbao') || name.includes('betis') ||
-        name.includes('celta')) return "🇪🇸";
+        name.includes('celta')) return "es";
         
     if (name.includes('juventus') || name.includes('milan') || name.includes('inter') || 
         name.includes('roma') || name.includes('lazio') || name.includes('napoli') ||
-        name.includes('atalanta') || name.includes('bologna') || name.includes('fiorentina')) return "🇮🇹";
+        name.includes('atalanta') || name.includes('bologna') || name.includes('fiorentina')) return "it";
         
     if (name.includes('bayern') || name.includes('dortmund') || name.includes('leipzig') || 
         name.includes('leverkusen') || name.includes('stuttgart') || name.includes('frankfurt') ||
-        name.includes('gladbach')) return "🇩🇪";
+        name.includes('gladbach')) return "de";
         
     if (name.includes('psg') || name.includes('lille') || name.includes('monaco') || 
         name.includes('marseille') || name.includes('lyon') || name.includes('lens') ||
-        name.includes('nice') || name.includes('rennes')) return "🇫🇷";
+        name.includes('nice') || name.includes('rennes')) return "fr";
 
-    if (name.includes('benfica') || name.includes('porto') || name.includes('sporting')) return "🇵🇹";
+    if (name.includes('benfica') || name.includes('porto') || name.includes('sporting')) return "pt";
 
     const flags: Record<string, string> = {
-      "PSG": "🇫🇷", "Real Madrid": "🇪🇸", "Manchester City": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Atlético Madrid": "🇪🇸",
-      "Atletico Madrid": "🇪🇸", "Bournemouth": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Tottenham": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Crystal Palace": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "Bayern Munich": "🇩🇪", "Aston Villa": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Juventus": "🇮🇹", "Lille": "🇫🇷",
-      "Manchester United": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "RB Leipzig": "🇩🇪", "Barcelona": "🇪🇸", "Benfica": "🇵🇹",
-      "Atalanta": "🇮🇹", "Everton": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "AC Milan": "🇮🇹", "Chelsea": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "Girona": "🇪🇸", "Bologna": "🇮🇹", "Arsenal": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Liverpool": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Chelsea FC": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+      "PSG": "fr", "Real Madrid": "es", "Manchester City": "gb-eng", "Atlético Madrid": "es",
+      "Atletico Madrid": "es", "Bournemouth": "gb-eng", "Tottenham": "gb-eng", "Crystal Palace": "gb-eng",
+      "Bayern Munich": "de", "Aston Villa": "gb-eng", "Juventus": "it", "Lille": "fr",
+      "Manchester United": "gb-eng", "RB Leipzig": "de", "Barcelona": "es", "Benfica": "pt",
+      "Atalanta": "it", "Everton": "gb-eng", "AC Milan": "it", "Chelsea": "gb-eng",
+      "Girona": "es", "Bologna": "it", "Arsenal": "gb-eng", "Liverpool": "gb-eng", "Chelsea FC": "gb-eng"
     };
-    return flags[teamName] || "🏳️";
+    return flags[teamName] || "un";
+  };
+
+  const FlagImage = ({ countryCode, className = "w-4 h-3" }: { countryCode: string, className?: string }) => {
+    if (countryCode === "un") return <span className={className}>🏳️</span>;
+    return (
+      <img 
+        src={`https://flagcdn.com/w40/${countryCode.toLowerCase()}.png`}
+        alt=""
+        className={`${className} object-cover rounded-sm`}
+        onError={(e) => {
+          (e.target as HTMLImageElement).style.display = 'none';
+        }}
+      />
+    );
+  };
+
+  const getClubLogo = (teamName: string, teamId: string, providedLogo?: string) => {
+    // 1. Primary: Provided logo from the transfer object / API
+    if (providedLogo && providedLogo !== "" && !providedLogo.includes('undefined')) return providedLogo;
+    
+    // 2. Fallback: Statorium standard naming convention
+    if (teamId && teamId !== "undefined") {
+      return `https://api.statorium.com/media/bearleague/ct${teamId}.png`;
+    }
+    
+    // 3. Final Fallback: Flag icon indicator for missing logo
+    return 'flag-fallback';
   };
 
   // Deterministic hash for consistent hydration
@@ -490,21 +566,64 @@ export function TransferWarRoom({ transfers: initialTransfers = OFFICIAL_TRANSFE
                       <div className="flex gap-2 z-20">
                         {/* Watchlist Eye */}
                         <button 
-                          className="p-2.5 rounded-full bg-muted/30 border border-border/50 text-muted-foreground hover:text-secondary hover:border-secondary/50 hover:bg-secondary/10 transition-all backdrop-blur-sm group/btn"
-                          onClick={(e) => {
+                          className={`p-2.5 rounded-full border transition-all backdrop-blur-sm group/btn ${
+                            watchlistStatus[String(t.playerID)] 
+                              ? 'bg-secondary/20 border-secondary text-secondary shadow-[0_0_15px_hsl(var(--secondary) / 0.3)]' 
+                              : 'bg-muted/30 border-border/50 text-muted-foreground hover:text-secondary hover:border-secondary/50 hover:bg-secondary/10'
+                          }`}
+                          onClick={async (e) => {
                             e.stopPropagation();
-                            setNotification(`SUCCESS: ${t.playerName.toUpperCase()} ADDED TO WATCHLIST SECTOR`);
+                            
+                            if (watchlistStatus[String(t.playerID)]) {
+                              setNotification(`${t.playerName.toUpperCase()} IS ALREADY IN YOUR WATCHLIST`);
+                              setTimeout(() => setNotification(null), 3000);
+                              return;
+                            }
+
+                            const leagueName = TEAM_TO_LEAGUE[t.toTeamID] || 'Unknown League';
+                            
+                            const result = await addToWatchlist({
+                              player_id: String(t.playerID),
+                              player_name: t.playerName,
+                              club: t.toTeamName,
+                              club_logo: t.toTeamLogo || null,
+                              position: t.position || 'FW',
+                              league: leagueName,
+                              player_photo: t.photoUrl,
+                              market_value: t.marketValue || 'N/A',
+                              weight: 'N/A',
+                              height: 'N/A',
+                              age: 'N/A'
+                            });
+
+                            if (result.success) {
+                              setNotification(`SUCCESS: ${t.playerName.toUpperCase()} ADDED TO WATCHLIST SECTOR`);
+                              setWatchlistStatus(prev => ({ ...prev, [String(t.playerID)]: true }));
+                            } else {
+                              setNotification(`ERROR: ${result.error?.toUpperCase()}`);
+                            }
                             setTimeout(() => setNotification(null), 3000);
                           }}
                         >
-                          <Eye className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+                          {watchlistStatus[String(t.playerID)] ? (
+                            <Check className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+                          ) : (
+                            <Eye className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+                          )}
                         </button>
 
                         {/* Delete Trash */}
                         <button 
                           className="p-2.5 rounded-full bg-muted/30 border border-border/50 text-muted-foreground hover:text-red-500 hover:border-red-500/50 hover:bg-red-500/10 transition-all backdrop-blur-sm group/btn"
-                          onClick={(e) => {
+                          onClick={async (e) => {
                             e.stopPropagation();
+                            if (t.isUserAdded && t.id) {
+                              try {
+                                await deleteTransferAction(t.id);
+                              } catch (err) {
+                                console.error('Failed to delete transfer from DB:', err);
+                              }
+                            }
                             setTransfers(prev => prev.filter(item => item.id !== t.id));
                           }}
                         >
@@ -542,56 +661,65 @@ export function TransferWarRoom({ transfers: initialTransfers = OFFICIAL_TRANSFE
 
                     {/* Below Center: From Club -> To Club */}
                     <div className="flex items-start justify-center gap-5 mb-6 w-full mt-2">
-                      {/* From Club Container */}
-                      <div className="flex flex-col items-center gap-2">
-                        <div className="bg-muted/20 rounded-full p-3 border border-border/50 shadow-md flex items-center justify-center relative w-16 h-16 group-hover:-translate-y-1 transition-transform duration-300">
-                          {t.fromTeamLogo ? (
-                            <img 
-                              src={t.fromTeamLogo} 
-                              alt="" 
-                              className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-500" 
-                              onError={(e) => {
-                                (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(t.fromTeamName)}&background=random&color=fff`;
-                              }}
-                            />
-                          ) : (
-                            <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center text-[10px] font-bold text-muted-foreground">{t.fromTeamName.substring(0, 2)}</div>
-                          )}
-                        </div>
-                        <div className="flex flex-col items-center gap-1.5 mt-1">
-                          <div className="flex items-center gap-1 px-2 py-0.5 bg-muted/30 rounded-md border border-border/50">
-                            <span className="text-[10px] transition-all">{getFlag(t.fromTeamName)}</span>
-                            <span className="text-[8px] font-black text-muted-foreground uppercase tracking-widest truncate max-w-[60px]">{t.fromTeamName}</span>
+                      {t.fromTeamName !== 'Unknown Origin' && (
+                        <>
+                          {/* From Club Container */}
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="bg-muted/20 rounded-full p-3 border border-border/50 shadow-md flex items-center justify-center relative w-16 h-16 group-hover:-translate-y-1 transition-transform duration-300">
+                              {getClubLogo(t.fromTeamName, t.fromTeamID, t.fromTeamLogo) === 'flag-fallback' ? (
+                                <Flag className="w-8 h-8 text-white/30" />
+                              ) : (
+                                <img 
+                                  src={getClubLogo(t.fromTeamName, t.fromTeamID, t.fromTeamLogo)} 
+                                  alt="" 
+                                  className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-500" 
+                                  onError={(e) => {
+                                    (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(t.fromTeamName)}&background=random&color=fff`;
+                                  }}
+                                />
+                              )}
+                            </div>
+                            <div className="flex flex-col items-center gap-1.5 mt-1">
+                              <div className="flex items-center gap-1.5 px-2 py-1 bg-muted/30 rounded-md border border-border/50">
+                                <FlagImage countryCode={getFlag(t.fromTeamName)} className="w-4 h-3" />
+                                <span className="text-[8px] font-black text-muted-foreground uppercase tracking-widest truncate max-w-[60px]">{t.fromTeamName}</span>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      
-                      {/* White Arrow */}
-                      <div className="h-16 flex items-center">
-                        <ArrowRight className="w-5 h-5 text-muted-foreground/30 group-hover:text-secondary transition-colors stroke-[3px]" />
-                      </div>
+                          
+                          {/* White Arrow */}
+                          <div className="h-16 flex items-center">
+                            <ArrowRight className="w-5 h-5 text-muted-foreground/30 group-hover:text-secondary transition-colors stroke-[3px]" />
+                          </div>
+                        </>
+                      )}
                       
                       {/* To Club Container */}
                       <div className="flex flex-col items-center gap-2">
                         <div className="bg-secondary/5 rounded-full p-3 border border-secondary/30 shadow-[0_0_15px_hsl(var(--secondary) / 0.1)] flex items-center justify-center relative w-16 h-16 group-hover:-translate-y-1 transition-transform duration-300 delay-75">
-                          {t.toTeamLogo ? (
+                          {getClubLogo(t.toTeamName, t.toTeamID, t.toTeamLogo) === 'flag-fallback' ? (
+                            <Flag className="w-8 h-8 text-secondary/40" />
+                          ) : (
                             <img 
-                              src={t.toTeamLogo} 
+                              src={getClubLogo(t.toTeamName, t.toTeamID, t.toTeamLogo)} 
                               alt="" 
                               className="w-10 h-10 object-contain group-hover:scale-110 transition-transform" 
                               onError={(e) => {
                                 (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(t.toTeamName)}&background=random&color=fff`;
                               }}
                             />
-                          ) : (
-                            <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center text-[10px] font-bold text-muted-foreground">{t.toTeamName.substring(0, 2)}</div>
                           )}
                         </div>
                         <div className="flex flex-col items-center gap-1.5 mt-1">
-                          <div className="flex items-center gap-1 px-2 py-0.5 bg-secondary/10 rounded-md border border-secondary/30">
-                            <span className="text-[10px]">{getFlag(t.toTeamName)}</span>
+                          <div className="flex items-center gap-1.5 px-2 py-1 bg-secondary/10 rounded-md border border-secondary/30">
+                            <FlagImage countryCode={getFlag(t.toTeamName)} className="w-4 h-3" />
                             <span className="text-[8px] font-black text-secondary uppercase tracking-widest truncate max-w-[60px]">{t.toTeamName}</span>
                           </div>
+                          {t.fromTeamName === 'Unknown Origin' && (
+                            <div className="flex items-center gap-1.5 px-2 py-0.5 bg-secondary/20 rounded-md border border-secondary/40 mt-0.5">
+                              <span className="text-[7px] font-black text-secondary uppercase tracking-widest">Wychowanek</span>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -794,10 +922,40 @@ export function TransferWarRoom({ transfers: initialTransfers = OFFICIAL_TRANSFE
                               const newTransfer = await getPlayerLatestTransferAction(
                                 player.playerID.toString(),
                                 selectedClub?.teamID?.toString(),
-                                selectedClub?.teamName
+                                selectedClub?.teamName,
+                                selectedClub?.teamLogo
                               )
                               if (newTransfer) {
-                                setTransfers(prev => [newTransfer, ...prev])
+                                // Save to DB
+                                const dbTransfer = {
+                                  player_id: String(newTransfer.playerID),
+                                  player_name: newTransfer.playerName,
+                                  from_team_id: String(newTransfer.fromTeamID),
+                                  from_team_name: newTransfer.fromTeamName,
+                                  from_team_logo: newTransfer.fromTeamLogo,
+                                  to_team_id: String(newTransfer.toTeamID),
+                                  to_team_name: newTransfer.toTeamName,
+                                  to_team_logo: newTransfer.toTeamLogo,
+                                  fee: newTransfer.fee,
+                                  market_value: newTransfer.marketValue,
+                                  photo_url: newTransfer.photoUrl,
+                                  position: newTransfer.position,
+                                  nationality: newTransfer.nationality
+                                };
+                                
+                                const result = await addTransferAction(dbTransfer);
+                                if (result.success && result.data && result.data[0]) {
+                                  const savedTransfer = {
+                                    ...newTransfer,
+                                    id: result.data[0].id,
+                                    isUserAdded: true
+                                  };
+                                  setTransfers(prev => [savedTransfer, ...prev]);
+                                } else {
+                                  // Fallback to local only if DB fails
+                                  setTransfers(prev => [{...newTransfer, isUserAdded: true}, ...prev]);
+                                }
+                                
                                 setIsAddModalOpen(false)
                                 setAddStep('league')
                                 setSelectedLeagueId(null)

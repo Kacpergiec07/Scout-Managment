@@ -4,13 +4,14 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, ArrowRightLeft, FileSearch, HelpCircle, Loader2, Zap, ArrowRight } from "lucide-react";
+import { TrendingUp, ArrowRightLeft, FileSearch, HelpCircle, Loader2, Zap, ArrowRight, ShieldCheck, Calendar, DollarSign, Activity, Trophy, X, Cpu, HeartPulse } from "lucide-react";
 import { getBezierPoints } from "@/components/scout/transfer-flow";
 import { getCachedGeocode } from "@/lib/utils/geocoding";
 
 import { TacticalSchematicMap } from "@/components/scout/tactical-schematic-map";
 import { FitRadarChart } from "@/components/scout/fit-radar-chart";
 import { BrainCircuit } from "lucide-react";
+import { POSITION_MAP, LEAGUES } from "@/lib/statorium-data";
 
 interface TransferDetailsProps {
   transfer: any | null;
@@ -147,16 +148,66 @@ export function TransferDetailsModal({ transfer, allClubs, onEvaluate, evaluatin
   }, [transfer]);
 
   const getFlag = (teamName: string) => {
-    if (!teamName) return "🏳️";
+    if (!teamName) return "un";
     const name = teamName.toLowerCase();
+    
+    // Country mappings for clubs
     if (name.includes('chelsea') || name.includes('arsenal') || name.includes('manchester') || 
         name.includes('tottenham') || name.includes('liverpool') || name.includes('villa') || 
-        name.includes('everton')) return "🏴󠁧󠁢󠁥󠁮󠁧󠁿";
-    if (name.includes('madrid') || name.includes('barcelona') || name.includes('girona')) return "🇪🇸";
-    if (name.includes('juventus') || name.includes('milan') || name.includes('inter')) return "🇮🇹";
-    if (name.includes('bayern') || name.includes('dortmund') || name.includes('leipzig')) return "🇩🇪";
-    if (name.includes('psg') || name.includes('lille') || name.includes('monaco')) return "🇫🇷";
-    return "🏳️";
+        name.includes('everton') || name.includes('palace') || name.includes('bournemouth') ||
+        name.includes('forest') || name.includes('wolves') || name.includes('leeds') ||
+        name.includes('brighton') || name.includes('newcastle') || name.includes('west ham')) return "gb-eng";
+        
+    if (name.includes('madrid') || name.includes('barcelona') || name.includes('girona') || 
+        name.includes('sevilla') || name.includes('sociedad') || name.includes('villareal') ||
+        name.includes('valencia') || name.includes('bilbao') || name.includes('betis') ||
+        name.includes('celta')) return "es";
+        
+    if (name.includes('juventus') || name.includes('milan') || name.includes('inter') || 
+        name.includes('roma') || name.includes('lazio') || name.includes('napoli') ||
+        name.includes('atalanta') || name.includes('bologna') || name.includes('fiorentina')) return "it";
+        
+    if (name.includes('bayern') || name.includes('dortmund') || name.includes('leipzig') || 
+        name.includes('leverkusen') || name.includes('stuttgart') || name.includes('frankfurt') ||
+        name.includes('gladbach')) return "de";
+        
+    if (name.includes('psg') || name.includes('lille') || name.includes('monaco') || 
+        name.includes('marseille') || name.includes('lyon') || name.includes('lens') ||
+        name.includes('nice') || name.includes('rennes')) return "fr";
+
+    if (name.includes('benfica') || name.includes('porto') || name.includes('sporting')) return "pt";
+
+    const flags: Record<string, string> = {
+      "PSG": "fr", "Real Madrid": "es", "Manchester City": "gb-eng", "Atlético Madrid": "es",
+      "Atletico Madrid": "es", "Bournemouth": "gb-eng", "Tottenham": "gb-eng", "Crystal Palace": "gb-eng",
+      "Bayern Munich": "de", "Aston Villa": "gb-eng", "Juventus": "it", "Lille": "fr",
+      "Manchester United": "gb-eng", "RB Leipzig": "de", "Barcelona": "es", "Benfica": "pt",
+      "Atalanta": "it", "Everton": "gb-eng", "AC Milan": "it", "Chelsea": "gb-eng",
+      "Girona": "es", "Bologna": "it", "Arsenal": "gb-eng", "Liverpool": "gb-eng", "Chelsea FC": "gb-eng"
+    };
+    return flags[teamName] || "un";
+  };
+
+  const getClubLogo = (teamName: string, teamId: string, providedLogo?: string) => {
+    if (providedLogo && providedLogo !== "" && !providedLogo.includes('undefined')) return providedLogo;
+    if (teamId && teamId !== "undefined") {
+      return `https://api.statorium.com/media/bearleague/ct${teamId}.png`;
+    }
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(teamName)}&background=004170&color=fff`;
+  };
+
+  const FlagImage = ({ countryCode, className = "w-4 h-3" }: { countryCode: string, className?: string }) => {
+    if (countryCode === "un") return <span className={className}>🏳️</span>;
+    return (
+      <img 
+        src={`https://flagcdn.com/w40/${countryCode.toLowerCase()}.png`}
+        alt=""
+        className={`${className} object-cover rounded-sm inline-block mr-1`}
+        onError={(e) => {
+          (e.target as HTMLImageElement).style.display = 'none';
+        }}
+      />
+    );
   };
 
   return (
@@ -184,14 +235,20 @@ export function TransferDetailsModal({ transfer, allClubs, onEvaluate, evaluatin
               {/* From Club Logo Badge */}
               <div className="flex items-center gap-2 bg-card/50 border border-border pl-2 pr-4 py-1.5 rounded-full backdrop-blur-md">
                 <div className="w-6 h-6 flex items-center justify-center bg-background rounded-full p-1">
-                  {transfer.fromTeamLogo ? (
-                    <img src={transfer.fromTeamLogo} alt="" className="w-full h-full object-contain" />
-                  ) : (
-                    <div className="w-full h-full bg-zinc-800 rounded-full" />
-                  )}
+                  <img 
+                    src={getClubLogo(transfer.fromTeamName, transfer.fromTeamID, transfer.fromTeamLogo)} 
+                    alt="" 
+                    className="w-full h-full object-contain" 
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(transfer.fromTeamName)}&background=random&color=fff`;
+                    }}
+                  />
                 </div>
                 <div className="flex flex-col items-start leading-none">
-                  <span className="text-[8px] font-bold text-muted-foreground uppercase tracking-tighter mb-0.5">{getFlag(transfer.fromTeamName)} ORIGIN</span>
+                  <span className="text-[8px] font-bold text-muted-foreground uppercase tracking-tighter mb-0.5 flex items-center gap-1">
+                    <FlagImage countryCode={getFlag(transfer.fromTeamName)} className="w-3 h-2" />
+                    ORIGIN
+                  </span>
                   <span className="text-[10px] font-black uppercase tracking-widest text-foreground/70">{transfer.fromTeamName}</span>
                 </div>
               </div>
@@ -201,14 +258,20 @@ export function TransferDetailsModal({ transfer, allClubs, onEvaluate, evaluatin
               {/* To Club Logo Badge */}
               <div className="flex items-center gap-2 bg-secondary/10 border border-secondary/30 pl-2 pr-4 py-1.5 rounded-full backdrop-blur-md shadow-[0_0_15px_rgba(0,255,136,0.1)]">
                 <div className="w-6 h-6 flex items-center justify-center bg-background rounded-full p-1 border border-secondary/20">
-                  {transfer.toTeamLogo ? (
-                    <img src={transfer.toTeamLogo} alt="" className="w-full h-full object-contain" />
-                  ) : (
-                    <div className="w-full h-full bg-accent rounded-full" />
-                  )}
+                  <img 
+                    src={getClubLogo(transfer.toTeamName, transfer.toTeamID, transfer.toTeamLogo)} 
+                    alt="" 
+                    className="w-full h-full object-contain" 
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(transfer.toTeamName)}&background=random&color=fff`;
+                    }}
+                  />
                 </div>
                 <div className="flex flex-col items-start leading-none">
-                  <span className="text-[8px] font-bold text-secondary/40 uppercase tracking-tighter mb-0.5">{getFlag(transfer.toTeamName)} DESTINATION</span>
+                  <span className="text-[8px] font-bold text-secondary/40 uppercase tracking-tighter mb-0.5 flex items-center gap-1">
+                    <FlagImage countryCode={getFlag(transfer.toTeamName)} className="w-3 h-2" />
+                    DESTINATION
+                  </span>
                   <span className="text-[10px] font-black uppercase tracking-widest text-secondary">{transfer.toTeamName}</span>
                 </div>
               </div>
@@ -218,7 +281,7 @@ export function TransferDetailsModal({ transfer, allClubs, onEvaluate, evaluatin
       </div>
 
       {/* Stats Body */}
-      <div className="p-8 pt-0 bg-background flex-1 flex flex-col relative min-h-[500px]">
+      <div className="p-8 pt-0 bg-background flex-1 flex flex-col relative min-h-0 overflow-y-auto">
         {evaluating && (
           <div className="absolute inset-0 z-50 bg-background/90 backdrop-blur-sm flex flex-col items-center justify-center animate-in fade-in duration-300">
             <div className="relative">
