@@ -1,6 +1,6 @@
 # External Integrations
 
-**Analysis Date:** 2026-05-04
+**Analysis Date:** 2026-05-05
 
 ## APIs & External Services
 
@@ -10,13 +10,14 @@
   - Auth: `STATORIUM_API_KEY` environment variable
   - Endpoints used: Players, teams, matches, standings, transfers, statistics
   - Cache: 3600 second revalidation via Next.js fetch
+  - Actions: `src/app/actions/statorium.ts`
 
 **AI Services:**
 - Zhipu AI (GLM models) - Primary AI for chat and job generation
   - SDK/Client: `@ai-sdk/openai` with custom base URL
   - Auth: `ZAI_API_KEY`, `ZAI_BASE_URL` environment variables
   - Models: `glm-4-plus`, `glm-4.7`
-  - Usage: Chatbot in `src/app/api/chat/route.ts`, scout narratives in `src/app/actions/ai.ts`, job generation in `src/app/actions/job-generation.ts`
+  - Usage: Chatbot in `src/app/api/chat/route.ts`, scout narratives in `src/app/actions/ai.ts`, job generation in `src/app/actions/job-generation.ts`, scouting hints in `src/app/actions/scouting-hints.ts`
 
 - Anthropic Claude 3.5 Sonnet - Secondary AI for valuation
   - SDK/Client: `@ai-sdk/anthropic`
@@ -54,8 +55,8 @@
   - Client: `@supabase/supabase-js`, `@supabase/ssr`
   - Implementation: `src/lib/supabase/client.ts` (browser), `src/lib/supabase/server.ts` (server), `src/lib/supabase/middleware.ts`
   - Features: Real-time updates, Row Level Security (RLS), Authentication
-  - Tables: `profiles`, `watchlist`, `analysis_history`, `jobs`
-  - Schemas: `src/lib/supabase/schema.sql`, `src/lib/supabase/profiles-schema.sql`, `src/lib/supabase/jobs-schema.sql`
+  - Tables: `profiles`, `watchlist`, `analysis_history`, `jobs`, `cached_players`, `cached_teams`, `user_activities`
+  - Schemas: `src/lib/supabase/schema.sql`, `src/lib/supabase/profiles-schema.sql`, `src/lib/supabase/jobs-schema.sql`, `src/lib/supabase/user-activities-schema.sql`
 
 **File Storage:**
 - Supabase Storage - Likely used for avatars and user uploads
@@ -66,13 +67,19 @@
 - Next.js built-in cache - API response caching
   - Configuration: `next: { revalidate: 3600 }` in fetch calls
   - Used in: Statorium API client for player/team data
+- Supabase database caching - Cached player and team data
+  - Tables: `cached_players`, `cached_teams`
+  - Implementation: `src/app/actions/statorium.ts` (cache checking logic)
+- Local file system cache - Player data caching
+  - Location: `scratch/cache/player_{id}.json`
+  - Usage: Fallback cache for player details
 
 ## Authentication & Identity
 
 **Auth Provider:**
 - Supabase Auth - User authentication and management
   - Implementation: Email/password authentication
-  - Files: `src/app/auth/actions.ts`, `src/app/auth/callback/`
+  - Files: `src/app/auth/actions.ts`, `src/app/auth/callback/route.ts`
   - Flow: Login/signup in `src/app/auth/actions.ts`, callback handling in `src/app/auth/callback/`
   - Features: Email confirmation, session management, profile auto-creation
   - Row Level Security: Enabled on all user tables
@@ -85,7 +92,7 @@
 
 **Logs:**
 - Console logging - Standard console.log/error/warn throughout codebase
-  - Pattern: `[StadiumClient]` prefix for API logs, emoji prefixes for RSS feed logs
+  - Pattern: `[StatoriumClient]` prefix for API logs, `[Action]` prefix for actions
   - Location: API clients, AI actions, data fetching functions
 
 ## CI/CD & Deployment
@@ -123,7 +130,7 @@
 **Incoming:**
 - Supabase Auth callback - `/auth/callback` endpoint
   - Purpose: Handle email confirmation redirects
-  - Implementation: `src/app/auth/callback/`
+  - Implementation: `src/app/auth/callback/route.ts`
 
 **Outgoing:**
 - None detected - No outgoing webhook configurations found
@@ -149,4 +156,4 @@
 
 ---
 
-*Integration audit: 2026-05-04*
+*Integration audit: 2026-05-05*
