@@ -36,4 +36,9 @@ pnpm-debug.log*
 next-env.d.ts
 
 # agents
+/.agent/
+/.agents/
+/.claude/
 /.gemini/
+/.gsd/
+/.planning/
