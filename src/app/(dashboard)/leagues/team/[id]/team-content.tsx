@@ -50,11 +50,12 @@ export function TeamContent({ team }: TeamContentProps) {
   // Parse formation string (e.g., "4-3-3 ATTACKING" -> { d: 4, m: 3, f: 3 })
   if (team.formation) {
     const splitResult = team.formation.split(' ')[0];
+    let parts: number[] = [];
 
     if (Array.isArray(splitResult)) {
-      const parts = splitResult[0].split('-').map(n => parseInt(n) || 0);
+      parts = splitResult[0].split('-').map((n: string) => parseInt(n) || 0);
     } else {
-      const parts = splitResult.split('-').map(n => parseInt(n) || 0);
+      parts = splitResult.split('-').map((n: string) => parseInt(n) || 0);
     }
 
     if (parts.length === 3) {
@@ -200,14 +201,14 @@ export function TeamContent({ team }: TeamContentProps) {
                 <TabsContent value="starting" className="m-0">
                   <div className="divide-y divide-white/5">
                     {startingXI.length > 0 ? startingXI.map((player: any) => (
-                      <SquadRow key={player.playerID} player={player} starting />
+                      <SquadRow key={player.playerID} player={player} starting team={team} />
                     )) : <EmptySquad />}
                   </div>
                 </TabsContent>
                 <TabsContent value="subs" className="m-0">
                   <div className="divide-y divide-white/5">
                     {subs.length > 0 ? subs.map((player: any) => (
-                      <SquadRow key={player.playerID} player={player} />
+                      <SquadRow key={player.playerID} player={player} team={team} />
                     )) : <EmptySquad />}
                   </div>
                 </TabsContent>
@@ -262,7 +263,7 @@ function getShortPos(p: any) {
   return 'N/A';
 }
 
-const SquadRow = memo(({ player, starting }: { player: any, starting?: boolean }) => {
+const SquadRow = memo(({ player, starting, team }: { player: any, starting?: boolean, team: any }) => {
   const photoUrl = player.photo || player.playerPhoto || `https://api.statorium.com/media/bearleague/bl${player.playerID}.webp`;
 
   return (

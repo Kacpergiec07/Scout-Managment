@@ -65,7 +65,11 @@
       "Bash(grep -h \"Analysis Date:\" .planning/codebase/*.md)",
       "Bash(npm outdated:*)",
       "Bash(awk '{print $9, \"-\", $5, \"bytes\"}')",
-      "Bash(grep -E \"scratch|temp|details|matches|teams|\\\\.txt$|\\\\.json$\")"
+      "Bash(grep -E \"scratch|temp|details|matches|teams|\\\\.txt$|\\\\.json$\")",
+      "Bash(grep -h \"^import.*from.*components\" /c/Users/Mati/Dropbox/Komputer/Desktop/scout-managment/src/app/**/page.tsx /c/Users/Mati/Dropbox/Komputer/Desktop/scout-managment/src/components/**/*.tsx)",
+      "Bash(git checkout:*)",
+      "Bash(pkill:*)",
+      "Bash(grep -v \".ts$\")"
     ]
   }
 }
