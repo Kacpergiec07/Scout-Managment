@@ -50,6 +50,7 @@ interface PlayerDetails extends Player {
     position?: string
   }
   country?: string | { name: string; id?: string }
+  marketValue?: string
 }
 
 interface StatsComparison {
@@ -1279,10 +1280,9 @@ function PlayerCard({ player, color, onClear, loading, isWinner }: { player: Pla
 
   if (player.stat && player.stat.length > 0) {
     // Step 2: Determine current team name
-    const currentTeamName = player.teams?.[0]?.teamName ||
-                           player.currentTeam?.name ||
-                           player.team?.fullName ||
+    const currentTeamName = player.team?.fullName ||
                            player.teamName ||
+                           player.currentTeam?.name ||
                            ''
 
     // Step 3: Filter stats by current team name
@@ -1340,7 +1340,7 @@ function PlayerCard({ player, color, onClear, loading, isWinner }: { player: Pla
   const height = player.additionalInfo?.height || (player as any).height
   const weight = player.additionalInfo?.weight || (player as any).weight
   const age = player.age || '25' // Default age if not calculated
-  const marketValue = player.marketValue || 'N/A' // Show market value even if it's from fallback
+  const marketValue = (player as any).marketValue || 'N/A' // Show market value even if it's from fallback
 
   return (
     <Card className={`${c.bg} ${c.border} ${c.winnerBorder} ${c.glow} relative overflow-hidden transition-all duration-300 hover:scale-[1.02] group`}>

@@ -124,7 +124,7 @@ export async function addToWatchlist(playerData: {
       // Check for specific schema errors
       if (error.message.includes('column') || error.code === '42703') {
         return {
-          error: 'Database schema needs update. Please visit /migrate-watchlist to fix the database schema.'
+          error: 'Database schema needs update. Please contact administrator or check database schema.'
         }
       }
 

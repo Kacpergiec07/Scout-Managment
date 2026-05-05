@@ -9,9 +9,29 @@ import { getRealFormation } from '@/lib/statorium/formation-service';
 import { PLAYER_PHOTOS, VERIFIED_TRANSFERS } from '@/lib/statorium-data';
 
 import { createClient } from '@/lib/supabase/server';
-import { getCachedPlayersByTeam } from './sync';
 import * as fs from 'fs';
 import * as path from 'path';
+
+// Function to get cached players by team (replacing removed sync.ts functionality)
+async function getCachedPlayersByTeam(teamId: string) {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from('cached_players')
+      .select('*')
+      .eq('team_id', teamId);
+
+    if (error) {
+      console.error('[getCachedPlayersByTeam] Error:', error);
+      return [];
+    }
+
+    return data || [];
+  } catch (error) {
+    console.error('[getCachedPlayersByTeam] Unexpected error:', error);
+    return [];
+  }
+}
 
 const getStatoriumClient = cache(() => {
   return new StatoriumClient(process.env.STATORIUM_API_KEY as string);

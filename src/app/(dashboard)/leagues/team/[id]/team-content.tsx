@@ -49,7 +49,14 @@ export function TeamContent({ team }: TeamContentProps) {
 
   // Parse formation string (e.g., "4-3-3 ATTACKING" -> { d: 4, m: 3, f: 3 })
   if (team.formation) {
-    const parts = team.formation.split(' ')[0].split('-').map(n => parseInt(n) || 0);
+    const splitResult = team.formation.split(' ')[0];
+
+    if (Array.isArray(splitResult)) {
+      const parts = splitResult[0].split('-').map(n => parseInt(n) || 0);
+    } else {
+      const parts = splitResult.split('-').map(n => parseInt(n) || 0);
+    }
+
     if (parts.length === 3) {
       formationLayout = { d: parts[0] || 4, m: parts[1] || 4, f: parts[2] || 2 };
     } else if (parts.length >= 4) {
