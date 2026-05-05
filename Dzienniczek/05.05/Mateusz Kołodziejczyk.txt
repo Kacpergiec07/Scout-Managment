@@ -1,0 +1,1 @@
+optymalizacja aplikacji, usuwanie zbędnych plików, ostatnie slzify na naszej aplikacji, próba psotawienia serwera na vercel,

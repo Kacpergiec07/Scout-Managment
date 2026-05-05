@@ -1,0 +1,1 @@
+naprawiłem działąnie watchlisty, tak naprawdę zrobiłęm je od nowa, i historii tak samo, połączenie działania tych dwóch komponentów z bazą danych

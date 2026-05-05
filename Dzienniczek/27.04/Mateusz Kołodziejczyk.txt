@@ -1,0 +1,1 @@
+dodanie nowej fukcjonalności do naszej aplikacji, generowanie zadań dla skauta przy pomocy ai, cała logika związana z tym, zmiana dashboardu któy wcześniej nie wiadomo skąd był

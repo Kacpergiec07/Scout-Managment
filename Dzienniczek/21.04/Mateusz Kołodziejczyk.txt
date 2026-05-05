@@ -1,0 +1,1 @@
+poprawiałem aplikacje, w której połowa rzeczy nie działała a drugiej połowy nie było, stworzyłem sekcje użytkownika tj. profil, ustawienia, baze danych użytkownika,

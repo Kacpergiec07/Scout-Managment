@@ -1,0 +1,3 @@
+nauczyłem się jak łączyć całą aplikacje w jedną całość, tzn.
+połączenie bazy danych z backendem z frontendem
+poznałem lepiej czym jest supabase i jak wielofunkcyjna jest

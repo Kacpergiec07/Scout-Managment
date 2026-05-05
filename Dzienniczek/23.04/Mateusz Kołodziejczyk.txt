@@ -1,0 +1,1 @@
+zapoznanie ze strukturą autoryzacji użytkownika w supabase i musiałem ją ograniczyć w naszej aplikacji ze względu na błędy przy kompilacji, naprawa w ogóle całego logowania

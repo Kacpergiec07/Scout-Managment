@@ -1,0 +1,1 @@
+dowiedziałem się że wcale tak łątwo nie stawia się serwera na aplikacje i że czasem jak wrzuci błędy to nie wiadomo w czym jest problem, uśwaidomiłęm sobie jak daleko od skończenia jest nasza aplikacja

@@ -1,0 +1,1 @@
+całkowita zmiana dashboardu, który staracił swoje znaczenie po dodaniu nowego komponentu, ujednolicenie go i uproszczenie, scalenie całej aplikacji w jedną całość, żeby była spojna, poprawa jakich niedociągnięć i niektórych niepowdzeń, ostateczne rozdysponowanie zadań
