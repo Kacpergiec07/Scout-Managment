@@ -1,0 +1,1 @@
+Duży dzień — zrobiłem sporo przy statystykach zawodników. Przeniosłem je na oddzielną stronę analityczną i dodałem filtrowanie po sezonie 25/26. Dodałem też gole, asysty, mecze i oceny do strony z historią zawodnika. Przy okazji poprawiłem jak aplikacja rozpoznaje nazwy sezonu bo API używa różnych formatów z myślnikami i ukośnikami.
