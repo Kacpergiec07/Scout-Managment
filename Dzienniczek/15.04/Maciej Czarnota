@@ -1,0 +1,1 @@
+Poprawiałem zapytania do bazy — były za wolne i zwracały za dużo niepotrzebnych danych. Doczytałem jak robić lepsze filtry i trochę to zoptymalizowałem. Przy okazji dodałem obsługę błędów żeby aplikacja nie wysypywała się gdy API nie odpowiada.
