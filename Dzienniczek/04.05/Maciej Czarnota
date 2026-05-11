@@ -1,1 +1,2 @@
 
+Zacząłem dzień od naprawy błędów w dashboardzie — brakowało kilku importów przez co strona się wysypywała przy ładowaniu. Potem zająłem się zdjęciami zawodników które w niektórych miejscach się nie ładowały. Poprawiłem też parsowanie formacji taktycznych żeby działało bardziej stabilnie.
